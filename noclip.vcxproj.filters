@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source\Menu">
+      <UniqueIdentifier>{4b1ec9e3-81b9-405a-a9a0-720e9f9773f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Menu">
+      <UniqueIdentifier>{f69307c3-ed26-453e-9cff-c029a28bd367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Actions">
+      <UniqueIdentifier>{d161b7d9-f8a4-47d9-bda1-83a53fbfaec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Actions">
+      <UniqueIdentifier>{870576bc-9871-4a9d-80ba-fdd58a5aa89f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -33,14 +45,26 @@
     <ClInclude Include="core\NativeNames.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="FlyingHorse.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="natives.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="types.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Submenu.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="ToggleManager.h">
+      <Filter>Headers\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionManager.h">
+      <Filter>Headers\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,8 +77,20 @@
     <ClCompile Include="core\NativeEngine.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="FlyingHorse.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Submenu.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionManager.cpp">
+      <Filter>Source\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleManager.cpp">
+      <Filter>Source\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

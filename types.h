@@ -28,10 +28,34 @@ typedef int TaskSequence;
 typedef int ColourIndex;
 typedef int Sphere;
 typedef int INT, ScrHandle;
+typedef std::string string;
 
 struct Vector3
 {
 	float x;
 	float y;
 	float z;
+};
+
+struct Vector2
+{
+	float x;
+	float y;
+};
+
+
+// MARK: Custom
+
+// MARK: Enums
+enum class MenuOptionType {
+	Action,
+	Toggle,
+	Sub
+};
+
+struct MenuOption
+{
+	MenuOptionType type;
+	std::string text;
+	std::string key;
 };

@@ -2,43 +2,43 @@
 
 #include "pch.h"
 
-// Generated 08/11/2019 
+// Generated 10/11/2019 
 
 namespace BUILTIN
 {
-	static void WAIT(int ms) { return Native::Invoke<void, int>(N::WAIT, ms); }
-	static int START_NEW_SCRIPT(char* scriptName, int stackSize) { return Native::Invoke<int, char*, int>(N::START_NEW_SCRIPT, scriptName, stackSize); }
-	static int START_NEW_SCRIPT_WITH_ARGS(char* scriptName, Any* args, int argCount, int stackSize) { return Native::Invoke<int, char*, Any*, int, int>(N::START_NEW_SCRIPT_WITH_ARGS, scriptName, args, argCount, stackSize); }
-	static int START_NEW_SCRIPT_WITH_NAME_HASH(Hash scriptHash, int stackSize) { return Native::Invoke<int, Hash, int>(N::START_NEW_SCRIPT_WITH_NAME_HASH, scriptHash, stackSize); }
-	static int START_NEW_SCRIPT_WITH_NAME_HASH_AND_ARGS(Hash scriptHash, Any* args, int argCount, int stackSize) { return Native::Invoke<int, Hash, Any*, int, int>(N::START_NEW_SCRIPT_WITH_NAME_HASH_AND_ARGS, scriptHash, args, argCount, stackSize); }
-	static int TIMERA() { return Native::Invoke<int>(N::TIMERA); }
-	static int TIMERB() { return Native::Invoke<int>(N::TIMERB); }
-	static void SETTIMERA(int value) { return Native::Invoke<void, int>(N::SETTIMERA, value); }
-	static void SETTIMERB(int value) { return Native::Invoke<void, int>(N::SETTIMERB, value); }
-	static float TIMESTEP() { return Native::Invoke<float>(N::TIMESTEP); }
-	static float SIN(float value) { return Native::Invoke<float, float>(N::SIN, value); }
-	static float COS(float value) { return Native::Invoke<float, float>(N::COS, value); }
-	static float SQRT(float value) { return Native::Invoke<float, float>(N::SQRT, value); }
-	static float POW(float base, float exponent) { return Native::Invoke<float, float, float>(N::POW, base, exponent); }
-	static float VMAG(float x, float y, float z) { return Native::Invoke<float, float, float, float>(N::VMAG, x, y, z); }
-	static float VMAG2(float x, float y, float z) { return Native::Invoke<float, float, float, float>(N::VMAG2, x, y, z); }
-	static float VDIST(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<float, float, float, float, float, float, float>(N::VDIST, x1, y1, z1, x2, y2, z2); }
-	static float VDIST2(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<float, float, float, float, float, float, float>(N::VDIST2, x1, y1, z1, x2, y2, z2); }
-	static int SHIFT_LEFT(int value, int bitShift) { return Native::Invoke<int, int, int>(N::SHIFT_LEFT, value, bitShift); }
-	static int SHIFT_RIGHT(int value, int bitShift) { return Native::Invoke<int, int, int>(N::SHIFT_RIGHT, value, bitShift); }
-	static int FLOOR(float value) { return Native::Invoke<int, float>(N::FLOOR, value); }
-	static int CEIL(float value) { return Native::Invoke<int, float>(N::CEIL, value); }
-	static int ROUND(float value) { return Native::Invoke<int, float>(N::ROUND, value); }
-	static float TO_FLOAT(int value) { return Native::Invoke<float, int>(N::TO_FLOAT, value); }
-	static void _SET_THREAD_PRIORITY(Any p0) { return Native::Invoke<void, Any>(N::_SET_THREAD_PRIORITY, p0); }
+	static void WAIT(int ms) { return Native::Invoke<void, int>(0x4EDE34FBADD967A6, ms); }
+	static int START_NEW_SCRIPT(const char* scriptName, int stackSize) { return Native::Invoke<int, const char*, int>(0xE81651AD79516E48, scriptName, stackSize); }
+	static int START_NEW_SCRIPT_WITH_ARGS(const char* scriptName, Any* args, int argCount, int stackSize) { return Native::Invoke<int, const char*, Any*, int, int>(0xB8BA7F44DF1575E1, scriptName, args, argCount, stackSize); }
+	static int START_NEW_SCRIPT_WITH_NAME_HASH(Hash scriptHash, int stackSize) { return Native::Invoke<int, Hash, int>(0xEB1C67C3A5333A92, scriptHash, stackSize); }
+	static int START_NEW_SCRIPT_WITH_NAME_HASH_AND_ARGS(Hash scriptHash, Any* args, int argCount, int stackSize) { return Native::Invoke<int, Hash, Any*, int, int>(0xC4BB298BD441BE78, scriptHash, args, argCount, stackSize); }
+	static int TIMERA() { return Native::Invoke<int>(0x83666F9FB8FEBD4B); }
+	static int TIMERB() { return Native::Invoke<int>(0xC9D9444186B5A374); }
+	static void SETTIMERA(int value) { return Native::Invoke<void, int>(0xC1B1E9A034A63A62, value); }
+	static void SETTIMERB(int value) { return Native::Invoke<void, int>(0x5AE11BC36633DE4E, value); }
+	static float TIMESTEP() { return Native::Invoke<float>(0x0000000050597EE2); }
+	static float SIN(float value) { return Native::Invoke<float, float>(0x0BADBFA3B172435F, value); }
+	static float COS(float value) { return Native::Invoke<float, float>(0xD0FFB162F40A139C, value); }
+	static float SQRT(float value) { return Native::Invoke<float, float>(0x71D93B57D07F9804, value); }
+	static float POW(float base, float exponent) { return Native::Invoke<float, float, float>(0xE3621CC40F31FE2E, base, exponent); }
+	static float VMAG(float x, float y, float z) { return Native::Invoke<float, float, float, float>(0x652D2EEEF1D3E62C, x, y, z); }
+	static float VMAG2(float x, float y, float z) { return Native::Invoke<float, float, float, float>(0xA8CEACB4F35AE058, x, y, z); }
+	static float VDIST(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<float, float, float, float, float, float, float>(0x2A488C176D52CCA5, x1, y1, z1, x2, y2, z2); }
+	static float VDIST2(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<float, float, float, float, float, float, float>(0xB7A628320EFF8E47, x1, y1, z1, x2, y2, z2); }
+	static int SHIFT_LEFT(int value, int bitShift) { return Native::Invoke<int, int, int>(0xEDD95A39E5544DE8, value, bitShift); }
+	static int SHIFT_RIGHT(int value, int bitShift) { return Native::Invoke<int, int, int>(0x97EF1E5BCE9DC075, value, bitShift); }
+	static int FLOOR(float value) { return Native::Invoke<int, float>(0xF34EE736CF047844, value); }
+	static int CEIL(float value) { return Native::Invoke<int, float>(0x11E019C8F43ACC8A, value); }
+	static int ROUND(float value) { return Native::Invoke<int, float>(0xF2DB717A73826179, value); }
+	static float TO_FLOAT(int value) { return Native::Invoke<float, int>(0xBBDA792448DB5A89, value); }
+	static void _SET_THREAD_PRIORITY(int priority) { return Native::Invoke<void, int>(0x42B65DEEF2EDF2A1, priority); }
 }
 namespace _NAMESPACE1
 {
 	static Any _0x53E4D0C079CA6855(Any p0) { return Native::Invoke<Any, Any>(0x53E4D0C079CA6855, p0); }
 	static Any _0xC276FE69DDA22BAD(Any p0) { return Native::Invoke<Any, Any>(0xC276FE69DDA22BAD, p0); }
 	static Any _0x5F5B1B7E8E8F94C6(Any p0) { return Native::Invoke<Any, Any>(0x5F5B1B7E8E8F94C6, p0); }
-	static void _0x4972A022AE6DAFA1(Any p0) { return Native::Invoke<void, Any>(0x4972A022AE6DAFA1, p0); }
-	static void _0x2BC4A6D92D140112(Any p0) { return Native::Invoke<void, Any>(0x2BC4A6D92D140112, p0); }
+	static void TASK_ENTER_COVER(Any p0) { return Native::Invoke<void, Any>(0x4972A022AE6DAFA1, p0); }
+	static void TASK_EXIT_COVER(Any p0) { return Native::Invoke<void, Any>(0x2BC4A6D92D140112, p0); }
 	static Any _0x957D7E750216D74B(Any p0) { return Native::Invoke<Any, Any>(0x957D7E750216D74B, p0); }
 	static void _0x89783FDDF079C88D(Any p0) { return Native::Invoke<void, Any>(0x89783FDDF079C88D, p0); }
 	static void _0x64340DC208D671D5(Any p0) { return Native::Invoke<void, Any>(0x64340DC208D671D5, p0); }
@@ -54,7 +54,7 @@ namespace _NAMESPACE1
 }
 namespace _NAMESPACE2
 {
-	static void _0xAEE3ADD08829CB6F(Any p0) { return Native::Invoke<void, Any>(0xAEE3ADD08829CB6F, p0); }
+	static void TASK_ENTER_TRANSPORT(Any p0) { return Native::Invoke<void, Any>(0xAEE3ADD08829CB6F, p0); }
 	static void _0xC273A5B8488F7838(Any p0) { return Native::Invoke<void, Any>(0xC273A5B8488F7838, p0); }
 	static void _0xE588B5A8A005CB5E(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xE588B5A8A005CB5E, p0, p1, p2, p3); }
 	static void _0x8886D83A430537FD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8886D83A430537FD, p0, p1); }
@@ -79,7 +79,7 @@ namespace _NAMESPACE2
 	static void _0xF8C20282B237E3F7(Any p0) { return Native::Invoke<void, Any>(0xF8C20282B237E3F7, p0); }
 	static Any _0x13F138225C202F66() { return Native::Invoke<Any>(0x13F138225C202F66); }
 }
-namespace _NAMESPACE3
+namespace ANIMSCENE
 {
 	static Any _0x1FCA98E33C1437B3(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x1FCA98E33C1437B3, p0, p1, p2, p3, p4); }
 	static void _0x84EEDB2C6E650000(Any p0) { return Native::Invoke<void, Any>(0x84EEDB2C6E650000, p0); }
@@ -113,17 +113,17 @@ namespace _NAMESPACE3
 	static void _0xA41351EA2A18A0AD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA41351EA2A18A0AD, p0, p1); }
 	static void _0x323E3AD772BA5D57(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x323E3AD772BA5D57, p0, p1); }
 	static void _0x1B70811D3BF75DB9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1B70811D3BF75DB9, p0, p1); }
-	static void _0x020894BF17A02EF2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x020894BF17A02EF2, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void SET_ANIM_SCENE_ORIGIN(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x020894BF17A02EF2, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0xADF1D53F3B1FE0A7(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xADF1D53F3B1FE0A7, p0, p1, p2, p3); }
-	static void _0xD6824B7D24DC0CE0(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD6824B7D24DC0CE0, p0, p1); }
+	static void SET_ANIM_SCENE_PAUSED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD6824B7D24DC0CE0, p0, p1); }
 	static Any _0x4B4038796F0D6566(Any p0) { return Native::Invoke<Any, Any>(0x4B4038796F0D6566, p0); }
-	static void _0x75820B801CFF262A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x75820B801CFF262A, p0, p1); }
+	static void SET_ANIM_SCENE_RATE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x75820B801CFF262A, p0, p1); }
 	static Any _0x43C21623E42B821B(Any p0) { return Native::Invoke<Any, Any>(0x43C21623E42B821B, p0); }
 	static Any _0x3FBC3F51BF12DFBF(Any p0) { return Native::Invoke<Any, Any>(0x3FBC3F51BF12DFBF, p0); }
 	static Any _0x61BE7D6186260002(Any p0) { return Native::Invoke<Any, Any>(0x61BE7D6186260002, p0); }
 	static Any _0x49F1D143ADE32656(Any p0) { return Native::Invoke<Any, Any>(0x49F1D143ADE32656, p0); }
-	static void _0x8B720AD451CA2AB3(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x8B720AD451CA2AB3, p0, p1, p2, p3); }
-	static void _0x2BF96692C67F3E53(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x2BF96692C67F3E53, p0, p1, p2); }
+	static void SET_ANIM_SCENE_ENTITY(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x8B720AD451CA2AB3, p0, p1, p2, p3); }
+	static void REMOVE_ANIM_SCENE_ENTITY(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x2BF96692C67F3E53, p0, p1, p2); }
 	static Any _0x005E6F28DD7ED58D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x005E6F28DD7ED58D, p0, p1); }
 	static Any _0x73616E64696C616E(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x73616E64696C616E, p0, p1, p2); }
 	static Any _0xB89FCFF19DAFFF28(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB89FCFF19DAFFF28, p0, p1); }
@@ -131,11 +131,11 @@ namespace _NAMESPACE3
 	static Any _0xE5822422197BBBA3(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xE5822422197BBBA3, p0, p1, p2); }
 	static Any _0xFB5674687A1B2814(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xFB5674687A1B2814, p0, p1, p2); }
 	static Any _0x430EE0A19BC5A287(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x430EE0A19BC5A287, p0, p1, p2); }
-	static void _0x519E96C2C68B404B(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x519E96C2C68B404B, p0, p1, p2); }
+	static void SET_ANIM_SCENE_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x519E96C2C68B404B, p0, p1, p2); }
 	static Any _0x07A6F6447ECA9B64(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x07A6F6447ECA9B64, p0, p1); }
-	static void _0x6BC5104E68CBEFE8(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6BC5104E68CBEFE8, p0, p1, p2, p3); }
+	static void SET_ANIM_SCENE_FLOAT(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6BC5104E68CBEFE8, p0, p1, p2, p3); }
 	static Any _0xCC24CB07F60B496E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCC24CB07F60B496E, p0, p1); }
-	static void _0x3A379D2166CF5B92(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3A379D2166CF5B92, p0, p1, p2); }
+	static void SET_ANIM_SCENE_INT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3A379D2166CF5B92, p0, p1, p2); }
 	static Any _0x2B7277484CC095FD(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x2B7277484CC095FD, p0, p1); }
 	static Any _0x8398438D8F14F56D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x8398438D8F14F56D, p0, p1, p2, p3, p4, p5); }
 	static Any _0x3AB6C7B0BB0DF4B1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3AB6C7B0BB0DF4B1, p0, p1); }
@@ -145,7 +145,7 @@ namespace _NAMESPACE3
 	static void _0xA2507C4948C83D2E(Any p0) { return Native::Invoke<void, Any>(0xA2507C4948C83D2E, p0); }
 	static void _0xF7A4C571E572D237(Any p0) { return Native::Invoke<void, Any>(0xF7A4C571E572D237, p0); }
 	static Any _0x661B8683611B9B97(Any p0) { return Native::Invoke<Any, Any>(0x661B8683611B9B97, p0); }
-	static void _0xAB5E7CAB074D6B84(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAB5E7CAB074D6B84, p0, p1); }
+	static void SET_ANIM_SCENE_PLAYBACK_LIST(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAB5E7CAB074D6B84, p0, p1); }
 	static Any _0x1C5D33A4293E6DDE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x1C5D33A4293E6DDE, p0, p1); }
 	static Any _0xA9016536015DE29D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA9016536015DE29D, p0, p1); }
 	static void _0x15598CFB25F3DC7E(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x15598CFB25F3DC7E, p0, p1, p2); }
@@ -185,26 +185,26 @@ namespace _NAMESPACE4
 {
 	static Any _0xC31C44C43B48FDE3() { return Native::Invoke<Any>(0xC31C44C43B48FDE3); }
 }
-namespace _NAMESPACE5
+namespace ATTRIBUTE
 {
-	static void _0x5DA12E025D47D4E5(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5DA12E025D47D4E5, p0, p1, p2); }
-	static Any _0xA4C8E23E29040DE0(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA4C8E23E29040DE0, p0, p1); }
-	static Any _0x147149F2E909323C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x147149F2E909323C, p0, p1); }
-	static Any _0x0EFA71F4B4330E04(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0EFA71F4B4330E04, p0, p1); }
-	static Any _0x704674A0535A471D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x704674A0535A471D, p0, p1); }
-	static void _0x920F9488BD115EFB(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x920F9488BD115EFB, p0, p1, p2); }
-	static Any _0x958DD43D41F89A47(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x958DD43D41F89A47, p0, p1); }
-	static Any _0x7C059C55AD940CB4(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7C059C55AD940CB4, p0, p1); }
-	static void _0x75415EE0CB583760(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x75415EE0CB583760, p0, p1, p2); }
-	static void _0x09A59688C26D88DF(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x09A59688C26D88DF, p0, p1, p2); }
-	static Any _0x219DA04BAA9CB065(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x219DA04BAA9CB065, p0, p1); }
-	static Any _0x223BF310F854871C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x223BF310F854871C, p0, p1); }
+	static void SET_ATTRIBUTE_BASE_RANK(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5DA12E025D47D4E5, p0, p1, p2); }
+	static Any GET_ATTRIBUTE_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA4C8E23E29040DE0, p0, p1); }
+	static Any GET_ATTRIBUTE_BASE_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x147149F2E909323C, p0, p1); }
+	static Any GET_ATTRIBUTE_BONUS_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0EFA71F4B4330E04, p0, p1); }
+	static Any GET_MAX_ATTRIBUTE_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x704674A0535A471D, p0, p1); }
+	static void SET_ATTRIBUTE_BONUS_RANK(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x920F9488BD115EFB, p0, p1, p2); }
+	static Any GET_DEFAULT_ATTRIBUTE_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x958DD43D41F89A47, p0, p1); }
+	static Any GET_DEFAULT_MAX_ATTRIBUTE_RANK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7C059C55AD940CB4, p0, p1); }
+	static void ADD_ATTRIBUTE_POINTS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x75415EE0CB583760, p0, p1, p2); }
+	static void SET_ATTRIBUTE_POINTS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x09A59688C26D88DF, p0, p1, p2); }
+	static Any GET_ATTRIBUTE_POINTS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x219DA04BAA9CB065, p0, p1); }
+	static Any GET_MAX_ATTRIBUTE_POINTS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x223BF310F854871C, p0, p1); }
 	static void _0xC6258F41D86676E0(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xC6258F41D86676E0, p0, p1, p2); }
 	static Any _0x36731AC041289BB1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x36731AC041289BB1, p0, p1); }
-	static Any _0x94A7F191DB49A44D(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x94A7F191DB49A44D, p0, p1, p2); }
+	static Any GET_DEFAULT_ATTRIBUTE_POINTS_NEEDED_FOR_RANK(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x94A7F191DB49A44D, p0, p1, p2); }
 	static void _0xF6A7C08DF2E28B28(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xF6A7C08DF2E28B28, p0, p1, p2, p3); }
-	static void _0x4AF5A4C7B9157D14(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4AF5A4C7B9157D14, p0, p1, p2, p3); }
-	static void _0xF8DAC3D85636C241(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF8DAC3D85636C241, p0, p1); }
+	static void ENABLE_ATTRIBUTE_OVERPOWER(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4AF5A4C7B9157D14, p0, p1, p2, p3); }
+	static void DISABLE_ATTRIBUTE_OVERPOWER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF8DAC3D85636C241, p0, p1); }
 	static Any _0x103C2F885ABEB00B(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x103C2F885ABEB00B, p0, p1); }
 	static Any _0x200373A8DF081F22(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x200373A8DF081F22, p0, p1); }
 	static Any _0x4C9F782180712742(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4C9F782180712742, p0, p1); }
@@ -220,30 +220,30 @@ namespace AUDIO
 	static void _0x7455CD705F7E933E() { return Native::Invoke<void>(0x7455CD705F7E933E); }
 	static void _0x33D51F801CB16E4F() { return Native::Invoke<void>(0x33D51F801CB16E4F); }
 	static void _0xEF51242E35242B47(Any p0) { return Native::Invoke<void, Any>(0xEF51242E35242B47, p0); }
-	static void CREATE_NEW_SCRIPTED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(N::CREATE_NEW_SCRIPTED_CONVERSATION, p0); }
+	static void CREATE_NEW_SCRIPTED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(0xD2C91A0B572AAE56, p0); }
 	static Any _0xDF947FE0D551684E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDF947FE0D551684E, p0, p1); }
-	static void ADD_PED_TO_CONVERSATION(int pedIndex, Ped ped, char* name) { return Native::Invoke<void, int, Ped, char*>(N::ADD_PED_TO_CONVERSATION, pedIndex, ped, name); }
+	static void ADD_PED_TO_CONVERSATION(int pedIndex, Ped ped, const char* name) { return Native::Invoke<void, int, Ped, const char*>(0x95D9F4BC443956E7, pedIndex, ped, name); }
 	static void _0xA2323A2EAE32A290(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA2323A2EAE32A290, p0, p1, p2); }
 	static Any _0x79F9C57B8D0DFE90(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x79F9C57B8D0DFE90, p0, p1); }
-	static void START_SCRIPT_CONVERSATION(BOOL p0, BOOL p1, BOOL p2, BOOL p3) { return Native::Invoke<void, BOOL, BOOL, BOOL, BOOL>(N::START_SCRIPT_CONVERSATION, p0, p1, p2, p3); }
-	static void PRELOAD_SCRIPT_CONVERSATION(BOOL p0, BOOL p1, BOOL p2, BOOL p3) { return Native::Invoke<void, BOOL, BOOL, BOOL, BOOL>(N::PRELOAD_SCRIPT_CONVERSATION, p0, p1, p2, p3); }
-	static void START_PRELOADED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(N::START_PRELOADED_CONVERSATION, p0); }
+	static void START_SCRIPT_CONVERSATION(BOOL p0, BOOL p1, BOOL p2, BOOL p3) { return Native::Invoke<void, BOOL, BOOL, BOOL, BOOL>(0x6B17C62C9635D2DC, p0, p1, p2, p3); }
+	static void PRELOAD_SCRIPT_CONVERSATION(BOOL p0, BOOL p1, BOOL p2, BOOL p3) { return Native::Invoke<void, BOOL, BOOL, BOOL, BOOL>(0x3B3CAD6166916D87, p0, p1, p2, p3); }
+	static void START_PRELOADED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(0x23641AFE870AF385, p0); }
 	static Any _0x0CB3D1919E8D7CBA(Any p0) { return Native::Invoke<Any, Any>(0x0CB3D1919E8D7CBA, p0); }
 	static Any _0xFE5C6177064BD390(Any p0) { return Native::Invoke<Any, Any>(0xFE5C6177064BD390, p0); }
 	static Any _0xD89504D9D7D5057D(Any p0) { return Native::Invoke<Any, Any>(0xD89504D9D7D5057D, p0); }
 	static Any _0x5A13586A9447931F(Any p0) { return Native::Invoke<Any, Any>(0x5A13586A9447931F, p0); }
-	static BOOL IS_SCRIPTED_CONVERSATION_LOADED(Any p0) { return Native::Invoke<BOOL, Any>(N::IS_SCRIPTED_CONVERSATION_LOADED, p0); }
+	static BOOL IS_SCRIPTED_CONVERSATION_LOADED(Any p0) { return Native::Invoke<BOOL, Any>(0xDF0D54BE7A776737, p0); }
 	static Any _0xA2CAC9DEF0195E6F(Any p0) { return Native::Invoke<Any, Any>(0xA2CAC9DEF0195E6F, p0); }
 	static Any _0x1ECC76792F661CF5(Any p0) { return Native::Invoke<Any, Any>(0x1ECC76792F661CF5, p0); }
 	static Any _0xF01C570E0A0A1E67(Any p0) { return Native::Invoke<Any, Any>(0xF01C570E0A0A1E67, p0); }
 	static Any _0x847748AE5D7B1071(Any p0) { return Native::Invoke<Any, Any>(0x847748AE5D7B1071, p0); }
 	static Any _0xD0730C1FA40348D9(Any p0) { return Native::Invoke<Any, Any>(0xD0730C1FA40348D9, p0); }
-	static Any GET_CURRENT_SCRIPTED_CONVERSATION_LINE(Any p0) { return Native::Invoke<Any, Any>(N::GET_CURRENT_SCRIPTED_CONVERSATION_LINE, p0); }
-	static void PAUSE_SCRIPTED_CONVERSATION(BOOL p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, BOOL, Any, Any, Any, Any>(N::PAUSE_SCRIPTED_CONVERSATION, p0, p1, p2, p3, p4); }
-	static void RESTART_SCRIPTED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(N::RESTART_SCRIPTED_CONVERSATION, p0); }
+	static Any GET_CURRENT_SCRIPTED_CONVERSATION_LINE(Any p0) { return Native::Invoke<Any, Any>(0x480357EE890C295A, p0); }
+	static void PAUSE_SCRIPTED_CONVERSATION(BOOL p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, BOOL, Any, Any, Any, Any>(0x8530AD776CD72B12, p0, p1, p2, p3, p4); }
+	static void RESTART_SCRIPTED_CONVERSATION(Any p0) { return Native::Invoke<void, Any>(0x9AEB285D1818C9AC, p0); }
 	static void _0x36559148B78853B3(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x36559148B78853B3, p0, p1, p2); }
-	static Any STOP_SCRIPTED_CONVERSATION(BOOL p0, Any p1, Any p2) { return Native::Invoke<Any, BOOL, Any, Any>(N::STOP_SCRIPTED_CONVERSATION, p0, p1, p2); }
-	static void SKIP_TO_NEXT_SCRIPTED_CONVERSATION_LINE(Any p0) { return Native::Invoke<void, Any>(N::SKIP_TO_NEXT_SCRIPTED_CONVERSATION_LINE, p0); }
+	static Any STOP_SCRIPTED_CONVERSATION(BOOL p0, Any p1, Any p2) { return Native::Invoke<Any, BOOL, Any, Any>(0xD79DEEFB53455EBA, p0, p1, p2); }
+	static void SKIP_TO_NEXT_SCRIPTED_CONVERSATION_LINE(Any p0) { return Native::Invoke<void, Any>(0x9663FE6B7A61EB00, p0); }
 	static Any _0xF336E9F989B3518F(Any p0) { return Native::Invoke<Any, Any>(0xF336E9F989B3518F, p0); }
 	static Any _0x254B0241E964B450(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x254B0241E964B450, p0, p1); }
 	static Any _0x152ED1B56E8F1F50(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x152ED1B56E8F1F50, p0, p1); }
@@ -252,15 +252,15 @@ namespace AUDIO
 	static void _0x40CA665AB9D8D505(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x40CA665AB9D8D505, p0, p1); }
 	static void _0xF232C2C546AC16D0(Any p0) { return Native::Invoke<void, Any>(0xF232C2C546AC16D0, p0); }
 	static void _0x1E6F9A9FE1A99F36(Any p0) { return Native::Invoke<void, Any>(0x1E6F9A9FE1A99F36, p0); }
-	static void REGISTER_SCRIPT_WITH_AUDIO(int p0) { return Native::Invoke<void, int>(N::REGISTER_SCRIPT_WITH_AUDIO, p0); }
-	static void UNREGISTER_SCRIPT_WITH_AUDIO() { return Native::Invoke<void>(N::UNREGISTER_SCRIPT_WITH_AUDIO); }
-	static Any REQUEST_SCRIPT_AUDIO_BANK(Any p0) { return Native::Invoke<Any, Any>(N::REQUEST_SCRIPT_AUDIO_BANK, p0); }
-	static void RELEASE_NAMED_SCRIPT_AUDIO_BANK(char* audioBank) { return Native::Invoke<void, char*>(N::RELEASE_NAMED_SCRIPT_AUDIO_BANK, audioBank); }
-	static void RELEASE_SCRIPT_AUDIO_BANK() { return Native::Invoke<void>(N::RELEASE_SCRIPT_AUDIO_BANK); }
-	static int GET_SOUND_ID() { return Native::Invoke<int>(N::GET_SOUND_ID); }
-	static void RELEASE_SOUND_ID(int soundId) { return Native::Invoke<void, int>(N::RELEASE_SOUND_ID, soundId); }
-	static void PLAY_SOUND(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::PLAY_SOUND, p0, p1, p2, p3, p4); }
-	static void PLAY_SOUND_FRONTEND(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::PLAY_SOUND_FRONTEND, p0, p1, p2); }
+	static void REGISTER_SCRIPT_WITH_AUDIO(int p0) { return Native::Invoke<void, int>(0xC6ED9D5092438D91, p0); }
+	static void UNREGISTER_SCRIPT_WITH_AUDIO() { return Native::Invoke<void>(0xA8638BE228D4751A); }
+	static BOOL REQUEST_SCRIPT_AUDIO_BANK(Any p0) { return Native::Invoke<BOOL, Any>(0x2F844A8B08D76685, p0); }
+	static void RELEASE_NAMED_SCRIPT_AUDIO_BANK(const char* audioBank) { return Native::Invoke<void, const char*>(0x77ED170667F50170, audioBank); }
+	static void RELEASE_SCRIPT_AUDIO_BANK() { return Native::Invoke<void>(0x7A2D8AD0A9EB9C3F); }
+	static int GET_SOUND_ID() { return Native::Invoke<int>(0x430386FE9BF80B45); }
+	static void RELEASE_SOUND_ID(int soundId) { return Native::Invoke<void, int>(0x353FC880830B88FA, soundId); }
+	static void PLAY_SOUND(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x7FF4944CC209192D, p0, p1, p2, p3, p4); }
+	static void PLAY_SOUND_FRONTEND(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x67C540AA08E4A6F5, p0, p1, p2); }
 	static void _0xE8EAFF7B41EDD291(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE8EAFF7B41EDD291, p0, p1); }
 	static void _0x6FB1DA3CA9DA7D90(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x6FB1DA3CA9DA7D90, p0, p1, p2, p3, p4); }
 	static void _0xCCE219C922737BFA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xCCE219C922737BFA, p0, p1, p2, p3, p4, p5, p6, p7); }
@@ -284,8 +284,8 @@ namespace AUDIO
 	static void _0x3E93DDDCBB6111E4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3E93DDDCBB6111E4, p0, p1); }
 	static Any _0x714A0EA7DE1167BE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x714A0EA7DE1167BE, p0, p1); }
 	static Any _0x84848E1C0FC67DBB(Any p0) { return Native::Invoke<Any, Any>(0x84848E1C0FC67DBB, p0); }
-	static Any _PLAY_AMBIENT_SPEECH1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_PLAY_AMBIENT_SPEECH1, p0, p1); }
-	static Any _PLAY_AMBIENT_SPEECH_AT_COORDS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_PLAY_AMBIENT_SPEECH_AT_COORDS, p0, p1, p2, p3); }
+	static void _PLAY_AMBIENT_SPEECH1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8E04FEDD28D42462, p0, p1); }
+	static void _PLAY_AMBIENT_SPEECH_AT_COORDS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xED640017ED337E45, p0, p1, p2, p3); }
 	static Any _0x72E4D1C4639BC465(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x72E4D1C4639BC465, p0, p1); }
 	static Any _0xB18FEC133C7C6C69(Any p0) { return Native::Invoke<Any, Any>(0xB18FEC133C7C6C69, p0); }
 	static void _0xDC93F0948F2C28F4(Any p0) { return Native::Invoke<void, Any>(0xDC93F0948F2C28F4, p0); }
@@ -293,84 +293,84 @@ namespace AUDIO
 	static void _0x660A8F876DF1D4F8(Any p0) { return Native::Invoke<void, Any>(0x660A8F876DF1D4F8, p0); }
 	static void _0x380A2E353AD30917(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x380A2E353AD30917, p0, p1, p2); }
 	static void _0x0FAF7171BF613B80(Any p0) { return Native::Invoke<void, Any>(0x0FAF7171BF613B80, p0); }
-	static void PLAY_PAIN(Ped ped, int painID, float p1, Any p3, Any p4) { return Native::Invoke<void, Ped, int, float, Any, Any>(N::PLAY_PAIN, ped, painID, p1, p3, p4); }
+	static void PLAY_PAIN(Ped ped, int painID, float p1, Any p3, Any p4) { return Native::Invoke<void, Ped, int, float, Any, Any>(0xBC9AE166038A5CEC, ped, painID, p1, p3, p4); }
 	static void _0x6652B0C8F3D414D0(Any p0) { return Native::Invoke<void, Any>(0x6652B0C8F3D414D0, p0); }
 	static void _0xF092B6030D6FD49C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF092B6030D6FD49C, p0, p1); }
 	static void _0x2651DDC0EA269073(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2651DDC0EA269073, p0, p1); }
-	static void SET_AMBIENT_VOICE_NAME(Ped ped, char* name) { return Native::Invoke<void, Ped, char*>(N::SET_AMBIENT_VOICE_NAME, ped, name); }
+	static void SET_AMBIENT_VOICE_NAME(Ped ped, const char* name) { return Native::Invoke<void, Ped, const char*>(0x6C8065A3B780185B, ped, name); }
 	static Any _0x2703EFB583F0949A() { return Native::Invoke<Any>(0x2703EFB583F0949A); }
-	static void STOP_CURRENT_PLAYING_SPEECH(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::STOP_CURRENT_PLAYING_SPEECH, p0, p1); }
-	static void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Ped ped, Any p1) { return Native::Invoke<void, Ped, Any>(N::STOP_CURRENT_PLAYING_AMBIENT_SPEECH, ped, p1); }
-	static BOOL IS_AMBIENT_SPEECH_PLAYING(Ped p0) { return Native::Invoke<BOOL, Ped>(N::IS_AMBIENT_SPEECH_PLAYING, p0); }
-	static BOOL IS_SCRIPTED_SPEECH_PLAYING(Any p0) { return Native::Invoke<BOOL, Any>(N::IS_SCRIPTED_SPEECH_PLAYING, p0); }
-	static BOOL IS_ANY_SPEECH_PLAYING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_ANY_SPEECH_PLAYING, ped); }
+	static void STOP_CURRENT_PLAYING_SPEECH(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x79D2F0E66F81D90D, p0, p1); }
+	static void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Ped ped, Any p1) { return Native::Invoke<void, Ped, Any>(0xB8BEC0CA6F0EDB0F, ped, p1); }
+	static BOOL IS_AMBIENT_SPEECH_PLAYING(Ped p0) { return Native::Invoke<BOOL, Ped>(0x9072C8B49907BFAD, p0); }
+	static BOOL IS_SCRIPTED_SPEECH_PLAYING(Any p0) { return Native::Invoke<BOOL, Any>(0xCC9AA18DCC7084F4, p0); }
+	static BOOL IS_ANY_SPEECH_PLAYING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x729072355FA39EC9, ped); }
 	static Any _0x2B101AD9F651243A() { return Native::Invoke<Any>(0x2B101AD9F651243A); }
 	static Any _0x4A98E228A936DBCC(Any p0) { return Native::Invoke<Any, Any>(0x4A98E228A936DBCC, p0); }
 	static Any _0x6BFFB7C276866996(Any p0) { return Native::Invoke<Any, Any>(0x6BFFB7C276866996, p0); }
-	static BOOL _CAN_PED_SPEAK(Ped ped, char* speechName, BOOL unk) { return Native::Invoke<BOOL, Ped, char*, BOOL>(N::_CAN_PED_SPEAK, ped, speechName, unk); }
+	static BOOL _CAN_PED_SPEAK(Ped ped, const char* speechName, BOOL unk) { return Native::Invoke<BOOL, Ped, const char*, BOOL>(0x49B99BF3FDA89A7A, ped, speechName, unk); }
 	static Any _0xF0EE69F500952FA5(Any p0) { return Native::Invoke<Any, Any>(0xF0EE69F500952FA5, p0); }
 	static Any _0x9D6DEC9791A4E501(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x9D6DEC9791A4E501, p0, p1, p2, p3); }
 	static Any _0x864A842B86993851() { return Native::Invoke<Any>(0x864A842B86993851); }
-	static BOOL IS_PED_IN_CURRENT_CONVERSATION(Ped ped, Any p1, Any p2) { return Native::Invoke<BOOL, Ped, Any, Any>(N::IS_PED_IN_CURRENT_CONVERSATION, ped, p1, p2); }
+	static BOOL IS_PED_IN_CURRENT_CONVERSATION(Ped ped, Any p1, Any p2) { return Native::Invoke<BOOL, Ped, Any, Any>(0x049E937F18F4020C, ped, p1, p2); }
 	static Any _0x54B187F111D9C6F8(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x54B187F111D9C6F8, p0, p1); }
-	static void SET_PED_IS_DRUNK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_IS_DRUNK, ped, toggle); }
+	static void SET_PED_IS_DRUNK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x95D2D383D5396B8A, ped, toggle); }
 	static void _0x3A00D87B20A2A5E4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3A00D87B20A2A5E4, p0, p1); }
 	static void _0xD47D47EFBF103FB8(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD47D47EFBF103FB8, p0, p1); }
-	static void PLAY_ANIMAL_VOCALIZATION(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::PLAY_ANIMAL_VOCALIZATION, p0, p1, p2); }
-	static Any IS_ANIMAL_VOCALIZATION_PLAYING(Any p0) { return Native::Invoke<Any, Any>(N::IS_ANIMAL_VOCALIZATION_PLAYING, p0); }
-	static void SET_ANIMAL_MOOD(Ped animal, int mood) { return Native::Invoke<void, Ped, int>(N::SET_ANIMAL_MOOD, animal, mood); }
+	static void PLAY_ANIMAL_VOCALIZATION(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xEE066C7006C49C0A, p0, p1, p2); }
+	static Any IS_ANIMAL_VOCALIZATION_PLAYING(Any p0) { return Native::Invoke<Any, Any>(0xC265DF9FB44A9FBD, p0); }
+	static void SET_ANIMAL_MOOD(Ped animal, int mood) { return Native::Invoke<void, Ped, int>(0xCC97B29285B1DC3B, animal, mood); }
 	static void _0xFCDEC42B1C78B7F8(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFCDEC42B1C78B7F8, p0, p1); }
 	static void _0xEB4D592620B8C209(Any p0) { return Native::Invoke<void, Any>(0xEB4D592620B8C209, p0); }
 	static void _0xA6847BBA4FCDD13F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA6847BBA4FCDD13F, p0, p1); }
-	static void SET_STATIC_EMITTER_ENABLED(char* emitterName, BOOL toggle) { return Native::Invoke<void, char*, BOOL>(N::SET_STATIC_EMITTER_ENABLED, emitterName, toggle); }
-	static void PLAY_END_CREDITS_MUSIC(BOOL play) { return Native::Invoke<void, BOOL>(N::PLAY_END_CREDITS_MUSIC, play); }
+	static void SET_STATIC_EMITTER_ENABLED(const char* emitterName, BOOL toggle) { return Native::Invoke<void, const char*, BOOL>(0x399D2D3B33F1B8EB, emitterName, toggle); }
+	static void PLAY_END_CREDITS_MUSIC(BOOL play) { return Native::Invoke<void, BOOL>(0xCD536C4D33DCC900, play); }
 	static Any _0x7678FE0455ED1145(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7678FE0455ED1145, p0, p1, p2); }
 	static Any _0xFFE9C53DEEA3DB0B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xFFE9C53DEEA3DB0B, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x5E3CCF03995388B5(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x5E3CCF03995388B5, p0, p1, p2, p3); }
 	static void _0x43037ABFE214A851() { return Native::Invoke<void>(0x43037ABFE214A851); }
-	static void SET_AMBIENT_ZONE_STATE(Any* p0, BOOL p1, BOOL p2) { return Native::Invoke<void, Any*, BOOL, BOOL>(N::SET_AMBIENT_ZONE_STATE, p0, p1, p2); }
-	static void CLEAR_AMBIENT_ZONE_STATE(char* zoneName, BOOL p1) { return Native::Invoke<void, char*, BOOL>(N::CLEAR_AMBIENT_ZONE_STATE, zoneName, p1); }
-	static void SET_AMBIENT_ZONE_LIST_STATE(char* p0, BOOL p1, BOOL p2) { return Native::Invoke<void, char*, BOOL, BOOL>(N::SET_AMBIENT_ZONE_LIST_STATE, p0, p1, p2); }
-	static void CLEAR_AMBIENT_ZONE_LIST_STATE(Any* p0, BOOL p1) { return Native::Invoke<void, Any*, BOOL>(N::CLEAR_AMBIENT_ZONE_LIST_STATE, p0, p1); }
-	static void SET_AMBIENT_ZONE_STATE_PERSISTENT(char* ambientZone, BOOL p1, BOOL p2) { return Native::Invoke<void, char*, BOOL, BOOL>(N::SET_AMBIENT_ZONE_STATE_PERSISTENT, ambientZone, p1, p2); }
-	static void SET_AMBIENT_ZONE_LIST_STATE_PERSISTENT(char* ambientZone, BOOL p1, BOOL p2) { return Native::Invoke<void, char*, BOOL, BOOL>(N::SET_AMBIENT_ZONE_LIST_STATE_PERSISTENT, ambientZone, p1, p2); }
+	static void SET_AMBIENT_ZONE_STATE(Any* p0, BOOL p1, BOOL p2) { return Native::Invoke<void, Any*, BOOL, BOOL>(0xBDA07E5950085E46, p0, p1, p2); }
+	static void CLEAR_AMBIENT_ZONE_STATE(const char* zoneName, BOOL p1) { return Native::Invoke<void, const char*, BOOL>(0x218DD44AAAC964FF, zoneName, p1); }
+	static void SET_AMBIENT_ZONE_LIST_STATE(const char* p0, BOOL p1, BOOL p2) { return Native::Invoke<void, const char*, BOOL, BOOL>(0x9748FA4DE50CCE3E, p0, p1, p2); }
+	static void CLEAR_AMBIENT_ZONE_LIST_STATE(Any* p0, BOOL p1) { return Native::Invoke<void, Any*, BOOL>(0x120C48C614909FA4, p0, p1); }
+	static void SET_AMBIENT_ZONE_STATE_PERSISTENT(const char* ambientZone, BOOL p1, BOOL p2) { return Native::Invoke<void, const char*, BOOL, BOOL>(0x1D6650420CEC9D3B, ambientZone, p1, p2); }
+	static void SET_AMBIENT_ZONE_LIST_STATE_PERSISTENT(const char* ambientZone, BOOL p1, BOOL p2) { return Native::Invoke<void, const char*, BOOL, BOOL>(0xF3638DAE8C4045E1, ambientZone, p1, p2); }
 	static void _0x3743CE6948194349(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3743CE6948194349, p0, p1, p2, p3, p4); }
-	static BOOL IS_HORN_ACTIVE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_HORN_ACTIVE, vehicle); }
+	static BOOL IS_HORN_ACTIVE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x9D6BFC12B05C6121, vehicle); }
 	static void _0xFD461D0ABA5559B1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFD461D0ABA5559B1, p0, p1); }
-	static BOOL IS_STREAM_PLAYING(Any p0) { return Native::Invoke<BOOL, Any>(N::IS_STREAM_PLAYING, p0); }
-	static BOOL LOAD_STREAM(char* streamName, char* soundSet) { return Native::Invoke<BOOL, char*, char*>(N::LOAD_STREAM, streamName, soundSet); }
-	static void PLAY_STREAM_FROM_PED(Ped ped, Any p1) { return Native::Invoke<void, Ped, Any>(N::PLAY_STREAM_FROM_PED, ped, p1); }
-	static void PLAY_STREAM_FRONTEND(Any p0) { return Native::Invoke<void, Any>(N::PLAY_STREAM_FRONTEND, p0); }
-	static void PLAY_STREAM_FROM_POSITION(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::PLAY_STREAM_FROM_POSITION, p0, p1, p2, p3); }
+	static BOOL IS_STREAM_PLAYING(Any p0) { return Native::Invoke<BOOL, Any>(0xD11FA52EB849D978, p0); }
+	static BOOL LOAD_STREAM(const char* streamName, const char* soundSet) { return Native::Invoke<BOOL, const char*, const char*>(0x1F1F957154EC51DF, streamName, soundSet); }
+	static void PLAY_STREAM_FROM_PED(Ped ped, Any p1) { return Native::Invoke<void, Ped, Any>(0x89049DD63C08B5D1, ped, p1); }
+	static void PLAY_STREAM_FRONTEND(Any p0) { return Native::Invoke<void, Any>(0x58FCE43488F9F5F4, p0); }
+	static void PLAY_STREAM_FROM_POSITION(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x21442F412E8DE56B, p0, p1, p2, p3); }
 	static void _0x3A3BE6B920525237(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3A3BE6B920525237, p0, p1); }
-	static void STOP_STREAM(Any p0) { return Native::Invoke<void, Any>(N::STOP_STREAM, p0); }
-	static void STOP_PED_SPEAKING(Ped ped, BOOL speaking) { return Native::Invoke<void, Ped, BOOL>(N::STOP_PED_SPEAKING, ped, speaking); }
-	static void DISABLE_PED_PAIN_AUDIO(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::DISABLE_PED_PAIN_AUDIO, ped, toggle); }
-	static BOOL IS_AMBIENT_SPEECH_DISABLED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_AMBIENT_SPEECH_DISABLED, ped); }
+	static void STOP_STREAM(Any p0) { return Native::Invoke<void, Any>(0xA4718A1419D18151, p0); }
+	static void STOP_PED_SPEAKING(Ped ped, BOOL speaking) { return Native::Invoke<void, Ped, BOOL>(0x9D64D7405520E3D3, ped, speaking); }
+	static void DISABLE_PED_PAIN_AUDIO(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xA9A41C1E940FB0E8, ped, toggle); }
+	static BOOL IS_AMBIENT_SPEECH_DISABLED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x932C2D096A2C3FFF, ped); }
 	static Any _0xB2DE3AEBE31150E2(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB2DE3AEBE31150E2, p0, p1); }
 	static void _0x6378A235374B852F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6378A235374B852F, p0, p1); }
 	static void _0x87E6302FC61208CC(Any p0) { return Native::Invoke<void, Any>(0x87E6302FC61208CC, p0); }
-	static void SET_HORN_ENABLED(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_HORN_ENABLED, vehicle, toggle); }
-	static void SET_AUDIO_VEHICLE_PRIORITY(Vehicle vehicle, Any p1) { return Native::Invoke<void, Vehicle, Any>(N::SET_AUDIO_VEHICLE_PRIORITY, vehicle, p1); }
+	static void SET_HORN_ENABLED(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x76D683C108594D0E, vehicle, toggle); }
+	static void SET_AUDIO_VEHICLE_PRIORITY(Vehicle vehicle, Any p1) { return Native::Invoke<void, Vehicle, Any>(0xE5564483E407F914, vehicle, p1); }
 	static void _0x259ACC5B52A2B2D9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x259ACC5B52A2B2D9, p0, p1); }
-	static void _FORCE_VEHICLE_ENGINE_AUDIO(Vehicle vehicle, char* audioName) { return Native::Invoke<void, Vehicle, char*>(N::_FORCE_VEHICLE_ENGINE_AUDIO, vehicle, audioName); }
-	static void SET_GPS_ACTIVE(BOOL active) { return Native::Invoke<void, BOOL>(N::SET_GPS_ACTIVE, active); }
+	static void _FORCE_VEHICLE_ENGINE_AUDIO(Vehicle vehicle, const char* audioName) { return Native::Invoke<void, Vehicle, const char*>(0x4F0C413926060B38, vehicle, audioName); }
+	static void SET_GPS_ACTIVE(BOOL active) { return Native::Invoke<void, BOOL>(0x3BD3F52BA9B1E4E8, active); }
 	static Any _0x6339C1EA3979B5F7(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6339C1EA3979B5F7, p0, p1); }
 	static void _0x9428447DED71FC7E(Any p0) { return Native::Invoke<void, Any>(0x9428447DED71FC7E, p0); }
 	static Any _0xAC84686C06184B0D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xAC84686C06184B0D, p0, p1); }
-	static BOOL START_AUDIO_SCENE(char* scene) { return Native::Invoke<BOOL, char*>(N::START_AUDIO_SCENE, scene); }
+	static BOOL START_AUDIO_SCENE(const char* scene) { return Native::Invoke<BOOL, const char*>(0x013A80FC08F6E4F2, scene); }
 	static Any _0xDC2F83A0612CA34D(Any p0) { return Native::Invoke<Any, Any>(0xDC2F83A0612CA34D, p0); }
-	static void STOP_AUDIO_SCENE(char* scene) { return Native::Invoke<void, char*>(N::STOP_AUDIO_SCENE, scene); }
+	static void STOP_AUDIO_SCENE(const char* scene) { return Native::Invoke<void, const char*>(0xDFE8422B3B94E688, scene); }
 	static void _0x6AB944DF68B512D3(Any p0) { return Native::Invoke<void, Any>(0x6AB944DF68B512D3, p0); }
-	static void STOP_AUDIO_SCENES() { return Native::Invoke<void>(N::STOP_AUDIO_SCENES); }
-	static BOOL IS_AUDIO_SCENE_ACTIVE(char* scene) { return Native::Invoke<BOOL, char*>(N::IS_AUDIO_SCENE_ACTIVE, scene); }
-	static void SET_AUDIO_SCENE_VARIABLE(char* scene, char* variable, float value) { return Native::Invoke<void, char*, char*, float>(N::SET_AUDIO_SCENE_VARIABLE, scene, variable, value); }
+	static void STOP_AUDIO_SCENES() { return Native::Invoke<void>(0xBAC7FC81A75EC1A1); }
+	static BOOL IS_AUDIO_SCENE_ACTIVE(const char* scene) { return Native::Invoke<BOOL, const char*>(0xB65B60556E2A9225, scene); }
+	static void SET_AUDIO_SCENE_VARIABLE(const char* scene, const char* variable, float value) { return Native::Invoke<void, const char*, const char*, float>(0xEF21A9EF089A2668, scene, variable, value); }
 	static Any _0x8B25A18E390F75BF(Any p0) { return Native::Invoke<Any, Any>(0x8B25A18E390F75BF, p0); }
-	static void ADD_ENTITY_TO_AUDIO_MIX_GROUP(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::ADD_ENTITY_TO_AUDIO_MIX_GROUP, p0, p1, p2); }
+	static void ADD_ENTITY_TO_AUDIO_MIX_GROUP(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x153973AB99FE8980, p0, p1, p2); }
 	static Any _0x131EC9247E7A2903(Any p0) { return Native::Invoke<Any, Any>(0x131EC9247E7A2903, p0); }
-	static void REMOVE_ENTITY_FROM_AUDIO_MIX_GROUP(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::REMOVE_ENTITY_FROM_AUDIO_MIX_GROUP, p0, p1); }
+	static void REMOVE_ENTITY_FROM_AUDIO_MIX_GROUP(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x18EB48CFC41F2EA0, p0, p1); }
 	static Any _0xE600F61F54A444A6() { return Native::Invoke<Any>(0xE600F61F54A444A6); }
-	static BOOL AUDIO_IS_SCRIPTED_MUSIC_PLAYING() { return Native::Invoke<BOOL>(N::AUDIO_IS_SCRIPTED_MUSIC_PLAYING); }
+	static BOOL AUDIO_IS_SCRIPTED_MUSIC_PLAYING() { return Native::Invoke<BOOL>(0x845FFC3A4FEEFA3E); }
 	static Any _0xBE28DB99556FF8D9(Any p0) { return Native::Invoke<Any, Any>(0xBE28DB99556FF8D9, p0); }
 	static void _0x8E901B65206C2D3E(Any p0) { return Native::Invoke<void, Any>(0x8E901B65206C2D3E, p0); }
 	static void _0xC4CFCE4C656EF480(Any p0) { return Native::Invoke<void, Any>(0xC4CFCE4C656EF480, p0); }
@@ -378,11 +378,11 @@ namespace AUDIO
 	static void _0xB93A769B8B726950(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB93A769B8B726950, p0, p1); }
 	static void _0xE891504B2F0E2DBA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE891504B2F0E2DBA, p0, p1); }
 	static void _0x9EB779765E68C52E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9EB779765E68C52E, p0, p1); }
-	static BOOL PREPARE_MUSIC_EVENT(char* eventName) { return Native::Invoke<BOOL, char*>(N::PREPARE_MUSIC_EVENT, eventName); }
-	static BOOL CANCEL_MUSIC_EVENT(char* eventName) { return Native::Invoke<BOOL, char*>(N::CANCEL_MUSIC_EVENT, eventName); }
-	static BOOL TRIGGER_MUSIC_EVENT(char* eventName) { return Native::Invoke<BOOL, char*>(N::TRIGGER_MUSIC_EVENT, eventName); }
+	static BOOL PREPARE_MUSIC_EVENT(const char* eventName) { return Native::Invoke<BOOL, const char*>(0x1E5185B72EF5158A, eventName); }
+	static BOOL CANCEL_MUSIC_EVENT(const char* eventName) { return Native::Invoke<BOOL, const char*>(0x5B17A90291133DA5, eventName); }
+	static BOOL TRIGGER_MUSIC_EVENT(const char* eventName) { return Native::Invoke<BOOL, const char*>(0x706D57B0F50DA710, eventName); }
 	static Any _0x05D6195FB4D428F4(Any p0) { return Native::Invoke<Any, Any>(0x05D6195FB4D428F4, p0); }
-	static Any GET_MUSIC_PLAYTIME() { return Native::Invoke<Any>(N::GET_MUSIC_PLAYTIME); }
+	static Any GET_MUSIC_PLAYTIME() { return Native::Invoke<Any>(0xE7A0D23DC414507B); }
 	static void _0xF64034D533CE8AAC(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF64034D533CE8AAC, p0, p1, p2); }
 	static void _0x149AEE66F0CB3A99(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x149AEE66F0CB3A99, p0, p1); }
 	static void _0xDAD6CD07CAA4F382() { return Native::Invoke<void>(0xDAD6CD07CAA4F382); }
@@ -390,12 +390,12 @@ namespace AUDIO
 	static void _0x062D5EAD4DA2FA6A() { return Native::Invoke<void>(0x062D5EAD4DA2FA6A); }
 	static void _0x138ADB94F8B90616() { return Native::Invoke<void>(0x138ADB94F8B90616); }
 	static void _0xBF4DC1784BE94DFA(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBF4DC1784BE94DFA, p0, p1, p2); }
-	static void SET_AUDIO_FLAG(char* flagName, BOOL toggle) { return Native::Invoke<void, char*, BOOL>(N::SET_AUDIO_FLAG, flagName, toggle); }
+	static void SET_AUDIO_FLAG(const char* flagName, BOOL toggle) { return Native::Invoke<void, const char*, BOOL>(0xB9EFD5C25018725A, flagName, toggle); }
 	static void _0x6DA15746D5CC1A92(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x6DA15746D5CC1A92, p0, p1, p2, p3, p4, p5); }
 	static void _0x078F77FD1A43EAB3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x078F77FD1A43EAB3, p0, p1); }
 	static void _0x3D0BBCCF401B5FDB() { return Native::Invoke<void>(0x3D0BBCCF401B5FDB); }
-	static void SET_PORTAL_SETTINGS_OVERRIDE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_PORTAL_SETTINGS_OVERRIDE, p0, p1); }
-	static void REMOVE_PORTAL_SETTINGS_OVERRIDE(Any p0) { return Native::Invoke<void, Any>(N::REMOVE_PORTAL_SETTINGS_OVERRIDE, p0); }
+	static void SET_PORTAL_SETTINGS_OVERRIDE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x044DBAD7A7FA2BE5, p0, p1); }
+	static void REMOVE_PORTAL_SETTINGS_OVERRIDE(Any p0) { return Native::Invoke<void, Any>(0xB4BBFD9CD8B3922B, p0); }
 	static void _0xEA546C31FD45F8CD(Any p0) { return Native::Invoke<void, Any>(0xEA546C31FD45F8CD, p0); }
 	static Any _0x44A5EEF54F62E823(Any p0) { return Native::Invoke<Any, Any>(0x44A5EEF54F62E823, p0); }
 	static void _0x017492B2201E3428(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x017492B2201E3428, p0, p1, p2, p3); }
@@ -461,75 +461,75 @@ namespace _NAMESPACE7
 }
 namespace BRAIN
 {
-	static Any REGISTER_OBJECT_SCRIPT_BRAIN() { return Native::Invoke<Any>(N::REGISTER_OBJECT_SCRIPT_BRAIN); }
+	static void REGISTER_OBJECT_SCRIPT_BRAIN() { return Native::Invoke<void>(0x16AF9B4EEAC3B305); }
 	static Any _0x4E4507CC5E4DB869() { return Native::Invoke<Any>(0x4E4507CC5E4DB869); }
 	static Any _0x6F62FAE266DCFC81() { return Native::Invoke<Any>(0x6F62FAE266DCFC81); }
 	static Any _0x6818D1A194E29983() { return Native::Invoke<Any>(0x6818D1A194E29983); }
 	static Any _0xA6AC35DB4A7957A8() { return Native::Invoke<Any>(0xA6AC35DB4A7957A8); }
 	static Any _0x4AA5EA1EDFB25786() { return Native::Invoke<Any>(0x4AA5EA1EDFB25786); }
-	static void ENABLE_SCRIPT_BRAIN_SET(int brainSet) { return Native::Invoke<void, int>(N::ENABLE_SCRIPT_BRAIN_SET, brainSet); }
-	static void DISABLE_SCRIPT_BRAIN_SET(int brainSet) { return Native::Invoke<void, int>(N::DISABLE_SCRIPT_BRAIN_SET, brainSet); }
+	static void ENABLE_SCRIPT_BRAIN_SET(int brainSet) { return Native::Invoke<void, int>(0x1CF6E5C6750EADBD, brainSet); }
+	static void DISABLE_SCRIPT_BRAIN_SET(int brainSet) { return Native::Invoke<void, int>(0x3F44EA613A5B2676, brainSet); }
 	static void _0xA32B0B05EFF75730() { return Native::Invoke<void>(0xA32B0B05EFF75730); }
 	static Any _0x74C333E34DF74E8A() { return Native::Invoke<Any>(0x74C333E34DF74E8A); }
 }
 namespace CAM
 {
-	static void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4, Any p5) { return Native::Invoke<void, BOOL, BOOL, int, BOOL, BOOL, Any>(N::RENDER_SCRIPT_CAMS, render, ease, easeTime, p3, p4, p5); }
-	static void _RENDER_FIRST_PERSON_CAM(BOOL render, float p1, int p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, BOOL, float, int, Any, Any, Any>(N::_RENDER_FIRST_PERSON_CAM, render, p1, p2, p3, p4, p5); }
-	static Cam CREATE_CAM(char* camName, BOOL unk) { return Native::Invoke<Cam, char*, BOOL>(N::CREATE_CAM, camName, unk); }
-	static Cam CREATE_CAM_WITH_PARAMS(char* camName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, int p9) { return Native::Invoke<Cam, char*, float, float, float, float, float, float, float, BOOL, int>(N::CREATE_CAM_WITH_PARAMS, camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); }
-	static Cam CREATE_CAMERA(Hash camHash, BOOL p1) { return Native::Invoke<Cam, Hash, BOOL>(N::CREATE_CAMERA, camHash, p1); }
-	static Cam CREATE_CAMERA_WITH_PARAMS(Hash camHash, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, Any p9) { return Native::Invoke<Cam, Hash, float, float, float, float, float, float, float, BOOL, Any>(N::CREATE_CAMERA_WITH_PARAMS, camHash, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); }
-	static void DESTROY_CAM(Cam cam, BOOL thisScriptCheck) { return Native::Invoke<void, Cam, BOOL>(N::DESTROY_CAM, cam, thisScriptCheck); }
-	static void DESTROY_ALL_CAMS(BOOL thisScriptCheck) { return Native::Invoke<void, BOOL>(N::DESTROY_ALL_CAMS, thisScriptCheck); }
-	static BOOL DOES_CAM_EXIST(Cam cam) { return Native::Invoke<BOOL, Cam>(N::DOES_CAM_EXIST, cam); }
-	static void SET_CAM_ACTIVE(Cam cam, BOOL active) { return Native::Invoke<void, Cam, BOOL>(N::SET_CAM_ACTIVE, cam, active); }
-	static BOOL IS_CAM_ACTIVE(Cam cam) { return Native::Invoke<BOOL, Cam>(N::IS_CAM_ACTIVE, cam); }
-	static BOOL IS_CAM_RENDERING(Cam cam) { return Native::Invoke<BOOL, Cam>(N::IS_CAM_RENDERING, cam); }
-	static Cam GET_RENDERING_CAM() { return Native::Invoke<Cam>(N::GET_RENDERING_CAM); }
-	static Vector3 GET_CAM_COORD(Cam cam) { return Native::Invoke<Vector3, Cam>(N::GET_CAM_COORD, cam); }
-	static Vector3 GET_CAM_ROT(Cam cam, int rotationOrder) { return Native::Invoke<Vector3, Cam, int>(N::GET_CAM_ROT, cam, rotationOrder); }
-	static float GET_CAM_FOV(Cam cam) { return Native::Invoke<float, Cam>(N::GET_CAM_FOV, cam); }
-	static void SET_CAM_PARAMS(Cam cam, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fieldOfView, Any p8, int p9, int p10, int p11, Any p12) { return Native::Invoke<void, Cam, float, float, float, float, float, float, float, Any, int, int, int, Any>(N::SET_CAM_PARAMS, cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, p9, p10, p11, p12); }
-	static void SET_CAM_COORD(Cam cam, float posX, float posY, float posZ) { return Native::Invoke<void, Cam, float, float, float>(N::SET_CAM_COORD, cam, posX, posY, posZ); }
-	static void SET_CAM_ROT(Cam cam, float pitch, float roll, float yaw, int rotationOrder) { return Native::Invoke<void, Cam, float, float, float, int>(N::SET_CAM_ROT, cam, pitch, roll, yaw, rotationOrder); }
-	static void SET_CAM_FOV(Cam cam, float fieldOfView) { return Native::Invoke<void, Cam, float>(N::SET_CAM_FOV, cam, fieldOfView); }
-	static void SET_CAM_NEAR_CLIP(Cam cam, float nearClip) { return Native::Invoke<void, Cam, float>(N::SET_CAM_NEAR_CLIP, cam, nearClip); }
-	static void SET_CAM_FAR_CLIP(Cam cam, float farClip) { return Native::Invoke<void, Cam, float>(N::SET_CAM_FAR_CLIP, cam, farClip); }
-	static void SET_CAM_MOTION_BLUR_STRENGTH(Cam cam, float strength) { return Native::Invoke<void, Cam, float>(N::SET_CAM_MOTION_BLUR_STRENGTH, cam, strength); }
+	static void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4, Any p5) { return Native::Invoke<void, BOOL, BOOL, int, BOOL, BOOL, Any>(0x33281167E4942E4F, render, ease, easeTime, p3, p4, p5); }
+	static void _RENDER_FIRST_PERSON_CAM(BOOL render, float p1, int p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, BOOL, float, int, Any, Any, Any>(0x8C7C7FF7CF0E5153, render, p1, p2, p3, p4, p5); }
+	static Cam CREATE_CAM(const char* camName, BOOL unk) { return Native::Invoke<Cam, const char*, BOOL>(0xE72CDBA7F0A02DD6, camName, unk); }
+	static Cam CREATE_CAM_WITH_PARAMS(const char* camName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, int p9) { return Native::Invoke<Cam, const char*, float, float, float, float, float, float, float, BOOL, int>(0x40C23491CE83708E, camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); }
+	static Cam CREATE_CAMERA(Hash camHash, BOOL p1) { return Native::Invoke<Cam, Hash, BOOL>(0x57CDF879EA466C46, camHash, p1); }
+	static Cam CREATE_CAMERA_WITH_PARAMS(Hash camHash, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, Any p9) { return Native::Invoke<Cam, Hash, float, float, float, float, float, float, float, BOOL, Any>(0x98B99B9F27E2D60B, camHash, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); }
+	static void DESTROY_CAM(Cam cam, BOOL thisScriptCheck) { return Native::Invoke<void, Cam, BOOL>(0x4E67E0B6D7FD5145, cam, thisScriptCheck); }
+	static void DESTROY_ALL_CAMS(BOOL thisScriptCheck) { return Native::Invoke<void, BOOL>(0x163600D6E136C9F8, thisScriptCheck); }
+	static BOOL DOES_CAM_EXIST(Cam cam) { return Native::Invoke<BOOL, Cam>(0x153AD457764FD704, cam); }
+	static void SET_CAM_ACTIVE(Cam cam, BOOL active) { return Native::Invoke<void, Cam, BOOL>(0x87295BCA613800C8, cam, active); }
+	static BOOL IS_CAM_ACTIVE(Cam cam) { return Native::Invoke<BOOL, Cam>(0x63EFCC7E1810B8E6, cam); }
+	static BOOL IS_CAM_RENDERING(Cam cam) { return Native::Invoke<BOOL, Cam>(0x4415F8A6C536D39F, cam); }
+	static Cam GET_RENDERING_CAM() { return Native::Invoke<Cam>(0x03A8931ECC8015D6); }
+	static Vector3 GET_CAM_COORD(Cam cam) { return Native::Invoke<Vector3, Cam>(0x6B12F11C2A9F0344, cam); }
+	static Vector3 GET_CAM_ROT(Cam cam, int rotationOrder) { return Native::Invoke<Vector3, Cam, int>(0x9BF96B57254E7889, cam, rotationOrder); }
+	static float GET_CAM_FOV(Cam cam) { return Native::Invoke<float, Cam>(0x8101D32A0A6B0F60, cam); }
+	static void SET_CAM_PARAMS(Cam cam, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fieldOfView, Any p8, int p9, int p10, int p11, Any p12) { return Native::Invoke<void, Cam, float, float, float, float, float, float, float, Any, int, int, int, Any>(0xA47BBFFFB83D4D0A, cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, p9, p10, p11, p12); }
+	static void SET_CAM_COORD(Cam cam, float posX, float posY, float posZ) { return Native::Invoke<void, Cam, float, float, float>(0xF9EE7D419EE49DE6, cam, posX, posY, posZ); }
+	static void SET_CAM_ROT(Cam cam, float pitch, float roll, float yaw, int rotationOrder) { return Native::Invoke<void, Cam, float, float, float, int>(0x63DFA6810AD78719, cam, pitch, roll, yaw, rotationOrder); }
+	static void SET_CAM_FOV(Cam cam, float fieldOfView) { return Native::Invoke<void, Cam, float>(0x27666E5988D9D429, cam, fieldOfView); }
+	static void SET_CAM_NEAR_CLIP(Cam cam, float nearClip) { return Native::Invoke<void, Cam, float>(0xA924028272A61364, cam, nearClip); }
+	static void SET_CAM_FAR_CLIP(Cam cam, float farClip) { return Native::Invoke<void, Cam, float>(0x5E32817BF6302111, cam, farClip); }
+	static void SET_CAM_MOTION_BLUR_STRENGTH(Cam cam, float strength) { return Native::Invoke<void, Cam, float>(0x45FD891364181F9E, cam, strength); }
 	static void _0xFC3F638BE2B6BB02() { return Native::Invoke<void>(0xFC3F638BE2B6BB02); }
 	static void _0xE4B7945EF4F1BFB2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE4B7945EF4F1BFB2, p0, p1); }
 	static void _0x1FC6C727D30FFDDE(Any p0) { return Native::Invoke<void, Any>(0x1FC6C727D30FFDDE, p0); }
-	static void ATTACH_CAM_TO_ENTITY(Cam cam, Entity entity, float xOffset, float yOffset, float zOffset, BOOL isRelative) { return Native::Invoke<void, Cam, Entity, float, float, float, BOOL>(N::ATTACH_CAM_TO_ENTITY, cam, entity, xOffset, yOffset, zOffset, isRelative); }
-	static void ATTACH_CAM_TO_PED_BONE(Cam cam, Ped ped, int boneIndex, float x, float y, float z, BOOL heading) { return Native::Invoke<void, Cam, Ped, int, float, float, float, BOOL>(N::ATTACH_CAM_TO_PED_BONE, cam, ped, boneIndex, x, y, z, heading); }
-	static void DETACH_CAM(Cam cam) { return Native::Invoke<void, Cam>(N::DETACH_CAM, cam); }
-	static void POINT_CAM_AT_COORD(Cam cam, float x, float y, float z) { return Native::Invoke<void, Cam, float, float, float>(N::POINT_CAM_AT_COORD, cam, x, y, z); }
-	static void POINT_CAM_AT_ENTITY(Cam cam, Entity entity, float p2, float p3, float p4, BOOL p5) { return Native::Invoke<void, Cam, Entity, float, float, float, BOOL>(N::POINT_CAM_AT_ENTITY, cam, entity, p2, p3, p4, p5); }
-	static void STOP_CAM_POINTING(Cam cam) { return Native::Invoke<void, Cam>(N::STOP_CAM_POINTING, cam); }
+	static void ATTACH_CAM_TO_ENTITY(Cam cam, Entity entity, float xOffset, float yOffset, float zOffset, BOOL isRelative) { return Native::Invoke<void, Cam, Entity, float, float, float, BOOL>(0xFDC0DF7F6FB0A592, cam, entity, xOffset, yOffset, zOffset, isRelative); }
+	static void ATTACH_CAM_TO_PED_BONE(Cam cam, Ped ped, int boneIndex, float x, float y, float z, BOOL heading) { return Native::Invoke<void, Cam, Ped, int, float, float, float, BOOL>(0xDFC1E4A44C0324CA, cam, ped, boneIndex, x, y, z, heading); }
+	static void DETACH_CAM(Cam cam) { return Native::Invoke<void, Cam>(0x05B41DDBEB559556, cam); }
+	static void POINT_CAM_AT_COORD(Cam cam, float x, float y, float z) { return Native::Invoke<void, Cam, float, float, float>(0x948B39341C3A40C2, cam, x, y, z); }
+	static void POINT_CAM_AT_ENTITY(Cam cam, Entity entity, float p2, float p3, float p4, BOOL p5) { return Native::Invoke<void, Cam, Entity, float, float, float, BOOL>(0xFC2867E6074D3A61, cam, entity, p2, p3, p4, p5); }
+	static void STOP_CAM_POINTING(Cam cam) { return Native::Invoke<void, Cam>(0xCA1B30A3357C71F1, cam); }
 	static void _0x11F32BB61B756732(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x11F32BB61B756732, p0, p1); }
 	static void _0x9F97E85EC142255E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9F97E85EC142255E, p0, p1); }
-	static void SET_CAM_AFFECTS_AIMING(Cam cam, BOOL toggle) { return Native::Invoke<void, Cam, BOOL>(N::SET_CAM_AFFECTS_AIMING, cam, toggle); }
+	static void SET_CAM_AFFECTS_AIMING(Cam cam, BOOL toggle) { return Native::Invoke<void, Cam, BOOL>(0x3CB9E8BDE5E76F33, cam, toggle); }
 	static void _0x1B8F3CE5A6001298(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1B8F3CE5A6001298, p0, p1); }
 	static void _0x42ED56B02E05D109(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x42ED56B02E05D109, p0, p1); }
-	static void ADD_CAM_SPLINE_NODE(Cam camera, float x, float y, float z, float xRot, float yRot, float zRot, int length, int p8, int transitionType) { return Native::Invoke<void, Cam, float, float, float, float, float, float, int, int, int>(N::ADD_CAM_SPLINE_NODE, camera, x, y, z, xRot, yRot, zRot, length, p8, transitionType); }
-	static Any SET_CAM_SPLINE_PHASE() { return Native::Invoke<Any>(N::SET_CAM_SPLINE_PHASE); }
-	static float GET_CAM_SPLINE_PHASE(Cam cam) { return Native::Invoke<float, Cam>(N::GET_CAM_SPLINE_PHASE, cam); }
-	static void SET_CAM_SPLINE_DURATION(int cam, int timeDuration) { return Native::Invoke<void, int, int>(N::SET_CAM_SPLINE_DURATION, cam, timeDuration); }
-	static Any SET_CAM_SPLINE_SMOOTHING_STYLE() { return Native::Invoke<Any>(N::SET_CAM_SPLINE_SMOOTHING_STYLE); }
-	static void SET_CAM_ACTIVE_WITH_INTERP(Cam camTo, Cam camFrom, int duration, int easeLocation, int easeRotation) { return Native::Invoke<void, Cam, Cam, int, int, int>(N::SET_CAM_ACTIVE_WITH_INTERP, camTo, camFrom, duration, easeLocation, easeRotation); }
-	static BOOL IS_CAM_INTERPOLATING(Cam cam) { return Native::Invoke<BOOL, Cam>(N::IS_CAM_INTERPOLATING, cam); }
-	static void SHAKE_CAM(Cam cam, char* type, float amplitude) { return Native::Invoke<void, Cam, char*, float>(N::SHAKE_CAM, cam, type, amplitude); }
-	static BOOL IS_CAM_SHAKING(Cam cam) { return Native::Invoke<BOOL, Cam>(N::IS_CAM_SHAKING, cam); }
-	static void STOP_CAM_SHAKING(Cam cam, BOOL p1) { return Native::Invoke<void, Cam, BOOL>(N::STOP_CAM_SHAKING, cam, p1); }
-	static BOOL PLAY_CAM_ANIM(Cam cam, char* animName, char* animDictionary, float x, float y, float z, float xRot, float yRot, float zRot, BOOL p9, int p10) { return Native::Invoke<BOOL, Cam, char*, char*, float, float, float, float, float, float, BOOL, int>(N::PLAY_CAM_ANIM, cam, animName, animDictionary, x, y, z, xRot, yRot, zRot, p9, p10); }
+	static void ADD_CAM_SPLINE_NODE(Cam camera, float x, float y, float z, float xRot, float yRot, float zRot, int length, int p8, int transitionType) { return Native::Invoke<void, Cam, float, float, float, float, float, float, int, int, int>(0xF1F57F9D230F9CD1, camera, x, y, z, xRot, yRot, zRot, length, p8, transitionType); }
+	static void SET_CAM_SPLINE_PHASE() { return Native::Invoke<void>(0xF1898A68E7C15636); }
+	static float GET_CAM_SPLINE_PHASE(Cam cam) { return Native::Invoke<float, Cam>(0x095EDCD24D90033A, cam); }
+	static void SET_CAM_SPLINE_DURATION(int cam, int timeDuration) { return Native::Invoke<void, int, int>(0xFF6311652CA91015, cam, timeDuration); }
+	static Any SET_CAM_SPLINE_SMOOTHING_STYLE() { return Native::Invoke<Any>(0x84B3645618E726B0); }
+	static void SET_CAM_ACTIVE_WITH_INTERP(Cam camTo, Cam camFrom, int duration, int easeLocation, int easeRotation) { return Native::Invoke<void, Cam, Cam, int, int, int>(0x8B15AE2987C1AC8F, camTo, camFrom, duration, easeLocation, easeRotation); }
+	static BOOL IS_CAM_INTERPOLATING(Cam cam) { return Native::Invoke<BOOL, Cam>(0x578F8F1CAA17BD2B, cam); }
+	static void SHAKE_CAM(Cam cam, const char* type, float amplitude) { return Native::Invoke<void, Cam, const char*, float>(0xF9A7BCF5D050D4E7, cam, type, amplitude); }
+	static BOOL IS_CAM_SHAKING(Cam cam) { return Native::Invoke<BOOL, Cam>(0x2EEB402BD7320159, cam); }
+	static void STOP_CAM_SHAKING(Cam cam, BOOL p1) { return Native::Invoke<void, Cam, BOOL>(0xB78CC4B4706614B0, cam, p1); }
+	static BOOL PLAY_CAM_ANIM(Cam cam, const char* animName, const char* animDictionary, float x, float y, float z, float xRot, float yRot, float zRot, BOOL p9, int p10) { return Native::Invoke<BOOL, Cam, const char*, const char*, float, float, float, float, float, float, BOOL, int>(0xA263DDF694D563F6, cam, animName, animDictionary, x, y, z, xRot, yRot, zRot, p9, p10); }
 	static void _0xCF69EA05CD9C33C9() { return Native::Invoke<void>(0xCF69EA05CD9C33C9); }
 	static Any _0x20389408F0E93B9A() { return Native::Invoke<Any>(0x20389408F0E93B9A); }
-	static BOOL IS_SCREEN_FADED_OUT() { return Native::Invoke<BOOL>(N::IS_SCREEN_FADED_OUT); }
-	static BOOL IS_SCREEN_FADED_IN() { return Native::Invoke<BOOL>(N::IS_SCREEN_FADED_IN); }
-	static BOOL IS_SCREEN_FADING_OUT() { return Native::Invoke<BOOL>(N::IS_SCREEN_FADING_OUT); }
-	static BOOL IS_SCREEN_FADING_IN() { return Native::Invoke<BOOL>(N::IS_SCREEN_FADING_IN); }
-	static void DO_SCREEN_FADE_IN(int duration) { return Native::Invoke<void, int>(N::DO_SCREEN_FADE_IN, duration); }
-	static void DO_SCREEN_FADE_OUT(int duration) { return Native::Invoke<void, int>(N::DO_SCREEN_FADE_OUT, duration); }
+	static BOOL IS_SCREEN_FADED_OUT() { return Native::Invoke<BOOL>(0xF5472C80DF2FF847); }
+	static BOOL IS_SCREEN_FADED_IN() { return Native::Invoke<BOOL>(0x37F9A426FBCF4AF2); }
+	static BOOL IS_SCREEN_FADING_OUT() { return Native::Invoke<BOOL>(0x02F39BEFE7B88D00); }
+	static BOOL IS_SCREEN_FADING_IN() { return Native::Invoke<BOOL>(0x0CECCC63FFA2EF24); }
+	static void DO_SCREEN_FADE_IN(int duration) { return Native::Invoke<void, int>(0x6A053CF596F67DF7, duration); }
+	static void DO_SCREEN_FADE_OUT(int duration) { return Native::Invoke<void, int>(0x40C719A5E410B9E4, duration); }
 	static Any _0x81DCFD13CF39920E() { return Native::Invoke<Any>(0x81DCFD13CF39920E); }
 	static Any _0x69D65E89FFD72313() { return Native::Invoke<Any>(0x69D65E89FFD72313); }
 	static void _0xE296208C273BD7F0(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xE296208C273BD7F0, p0, p1, p2, p3); }
@@ -537,32 +537,32 @@ namespace CAM
 	static Any _0xA2B1C7EF759A63CE() { return Native::Invoke<Any>(0xA2B1C7EF759A63CE); }
 	static Any _0x73FF6BE63DC18819() { return Native::Invoke<Any>(0x73FF6BE63DC18819); }
 	static Any _0x450769C833D58844() { return Native::Invoke<Any>(0x450769C833D58844); }
-	static Any SET_WIDESCREEN_BORDERS() { return Native::Invoke<Any>(N::SET_WIDESCREEN_BORDERS); }
-	static Vector3 GET_GAMEPLAY_CAM_COORD() { return Native::Invoke<Vector3>(N::GET_GAMEPLAY_CAM_COORD); }
-	static Vector3 GET_GAMEPLAY_CAM_ROT(int rotationOrder) { return Native::Invoke<Vector3, int>(N::GET_GAMEPLAY_CAM_ROT, rotationOrder); }
-	static float GET_GAMEPLAY_CAM_FOV() { return Native::Invoke<float>(N::GET_GAMEPLAY_CAM_FOV); }
+	static void SET_WIDESCREEN_BORDERS() { return Native::Invoke<void>(0xD7F4D54CF80AFA34); }
+	static Vector3 GET_GAMEPLAY_CAM_COORD() { return Native::Invoke<Vector3>(0x595320200B98596E); }
+	static Vector3 GET_GAMEPLAY_CAM_ROT(int rotationOrder) { return Native::Invoke<Vector3, int>(0x0252D2B5582957A6, rotationOrder); }
+	static float GET_GAMEPLAY_CAM_FOV() { return Native::Invoke<float>(0xF6A96E5ACEEC6E50); }
 	static void _0x8459B3E64257B21D(Any p0) { return Native::Invoke<void, Any>(0x8459B3E64257B21D, p0); }
-	static float GET_GAMEPLAY_CAM_RELATIVE_HEADING() { return Native::Invoke<float>(N::GET_GAMEPLAY_CAM_RELATIVE_HEADING); }
-	static void SET_GAMEPLAY_CAM_RELATIVE_HEADING(float heading, Any p1) { return Native::Invoke<void, float, Any>(N::SET_GAMEPLAY_CAM_RELATIVE_HEADING, heading, p1); }
-	static float GET_GAMEPLAY_CAM_RELATIVE_PITCH() { return Native::Invoke<float>(N::GET_GAMEPLAY_CAM_RELATIVE_PITCH); }
-	static void SET_GAMEPLAY_CAM_RELATIVE_PITCH(float x, float Value2) { return Native::Invoke<void, float, float>(N::SET_GAMEPLAY_CAM_RELATIVE_PITCH, x, Value2); }
+	static float GET_GAMEPLAY_CAM_RELATIVE_HEADING() { return Native::Invoke<float>(0xC4ABF536048998AA); }
+	static void SET_GAMEPLAY_CAM_RELATIVE_HEADING(float heading, Any p1) { return Native::Invoke<void, float, Any>(0x5D1EB123EAC5D071, heading, p1); }
+	static float GET_GAMEPLAY_CAM_RELATIVE_PITCH() { return Native::Invoke<float>(0x99AADEBBA803F827); }
+	static void SET_GAMEPLAY_CAM_RELATIVE_PITCH(float x, float Value2) { return Native::Invoke<void, float, float>(0xFB760AF4F537B8BF, x, Value2); }
 	static void _0x0961B089947BA6D0(Any p0) { return Native::Invoke<void, Any>(0x0961B089947BA6D0, p0); }
 	static void _0x04084490CC302CFB() { return Native::Invoke<void>(0x04084490CC302CFB); }
 	static Any _0x1DD95A8D6B24A0C9() { return Native::Invoke<Any>(0x1DD95A8D6B24A0C9); }
 	static Any _0xD1BA66940E94C547() { return Native::Invoke<Any>(0xD1BA66940E94C547); }
-	static void SHAKE_GAMEPLAY_CAM(char* shakeName, float intensity) { return Native::Invoke<void, char*, float>(N::SHAKE_GAMEPLAY_CAM, shakeName, intensity); }
+	static void SHAKE_GAMEPLAY_CAM(const char* shakeName, float intensity) { return Native::Invoke<void, const char*, float>(0xD9B31B4650520529, shakeName, intensity); }
 	static Any _0xC3E9E5D4F413B773() { return Native::Invoke<Any>(0xC3E9E5D4F413B773); }
-	static BOOL IS_GAMEPLAY_CAM_SHAKING() { return Native::Invoke<BOOL>(N::IS_GAMEPLAY_CAM_SHAKING); }
+	static BOOL IS_GAMEPLAY_CAM_SHAKING() { return Native::Invoke<BOOL>(0xEA4C5F4AA0A4DBEF); }
 	static Any _0x0060B31968E60E41(Any p0) { return Native::Invoke<Any, Any>(0x0060B31968E60E41, p0); }
-	static void SET_GAMEPLAY_CAM_SHAKE_AMPLITUDE(float amplitude) { return Native::Invoke<void, float>(N::SET_GAMEPLAY_CAM_SHAKE_AMPLITUDE, amplitude); }
+	static void SET_GAMEPLAY_CAM_SHAKE_AMPLITUDE(float amplitude) { return Native::Invoke<void, float>(0x570E35F5C4A44838, amplitude); }
 	static void _0xFEFDDC6E8FDF8A75(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFEFDDC6E8FDF8A75, p0, p1); }
-	static void STOP_GAMEPLAY_CAM_SHAKING(BOOL p0) { return Native::Invoke<void, BOOL>(N::STOP_GAMEPLAY_CAM_SHAKING, p0); }
+	static void STOP_GAMEPLAY_CAM_SHAKING(BOOL p0) { return Native::Invoke<void, BOOL>(0xE0DE43D290FB65F9, p0); }
 	static void _0x4285804FD65D8066(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4285804FD65D8066, p0, p1); }
 	static void _0x82E41D6ADE924FCA(Any p0) { return Native::Invoke<void, Any>(0x82E41D6ADE924FCA, p0); }
-	static BOOL IS_GAMEPLAY_CAM_RENDERING() { return Native::Invoke<BOOL>(N::IS_GAMEPLAY_CAM_RENDERING); }
+	static BOOL IS_GAMEPLAY_CAM_RENDERING() { return Native::Invoke<BOOL>(0x8660EA714834E412); }
 	static Any _0x251241CAEC707106() { return Native::Invoke<Any>(0x251241CAEC707106); }
 	static Any _0x43AB9D5A7D415478() { return Native::Invoke<Any>(0x43AB9D5A7D415478); }
-	static BOOL IS_GAMEPLAY_CAM_LOOKING_BEHIND() { return Native::Invoke<BOOL>(N::IS_GAMEPLAY_CAM_LOOKING_BEHIND); }
+	static BOOL IS_GAMEPLAY_CAM_LOOKING_BEHIND() { return Native::Invoke<BOOL>(0x8FE0D24FFD04D5A2); }
 	static void _0xD904F75DBD7AB865(Any p0) { return Native::Invoke<void, Any>(0xD904F75DBD7AB865, p0); }
 	static void _0x7E3F546ACFE6C8D9(Any p0) { return Native::Invoke<void, Any>(0x7E3F546ACFE6C8D9, p0); }
 	static void _0x39073DA4EDDBC91D(Any p0) { return Native::Invoke<void, Any>(0x39073DA4EDDBC91D, p0); }
@@ -573,16 +573,16 @@ namespace CAM
 	static void _0x0F1FFEF5D54AE832() { return Native::Invoke<void>(0x0F1FFEF5D54AE832); }
 	static void _0x3C8F74E8FE751614() { return Native::Invoke<void>(0x3C8F74E8FE751614); }
 	static void _0x06557F6D96C86881() { return Native::Invoke<void>(0x06557F6D96C86881); }
-	static BOOL IS_SPHERE_VISIBLE(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(N::IS_SPHERE_VISIBLE, x, y, z, radius); }
+	static BOOL IS_SPHERE_VISIBLE(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(0x2E941B5FFA2989C6, x, y, z, radius); }
 	static Any _0x190F7DA1AC09A8EF() { return Native::Invoke<Any>(0x190F7DA1AC09A8EF); }
 	static void _0xBCDA0BA8762FACB9(Any p0) { return Native::Invoke<void, Any>(0xBCDA0BA8762FACB9, p0); }
 	static void _0x6C1053C433A573CF(Any p0) { return Native::Invoke<void, Any>(0x6C1053C433A573CF, p0); }
 	static void _0x449995EA846D3FC2(Any p0) { return Native::Invoke<void, Any>(0x449995EA846D3FC2, p0); }
-	static Any _CLAMP_GAMEPLAY_CAM_YAW(float minimum, float maximum) { return Native::Invoke<Any, float, float>(N::_CLAMP_GAMEPLAY_CAM_YAW, minimum, maximum); }
-	static Any _CLAMP_GAMEPLAY_CAM_PITCH(float minimum, float maximum) { return Native::Invoke<Any, float, float>(N::_CLAMP_GAMEPLAY_CAM_PITCH, minimum, maximum); }
-	static void _ANIMATE_GAMEPLAY_CAM_ZOOM(float p0, float distance) { return Native::Invoke<void, float, float>(N::_ANIMATE_GAMEPLAY_CAM_ZOOM, p0, distance); }
+	static Any _CLAMP_GAMEPLAY_CAM_YAW(float minimum, float maximum) { return Native::Invoke<Any, float, float>(0x14F3947318CA8AD2, minimum, maximum); }
+	static Any _CLAMP_GAMEPLAY_CAM_PITCH(float minimum, float maximum) { return Native::Invoke<Any, float, float>(0x326C7AA308F3DF6A, minimum, maximum); }
+	static void _ANIMATE_GAMEPLAY_CAM_ZOOM(float p0, float distance) { return Native::Invoke<void, float, float>(0x2126C740A4AC370B, p0, distance); }
 	static void _0xFA1D5E8D1C3CCD67(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFA1D5E8D1C3CCD67, p0, p1); }
-	static void _DISABLE_FIRST_PERSON_CAM_THIS_FRAME() { return Native::Invoke<void>(N::_DISABLE_FIRST_PERSON_CAM_THIS_FRAME); }
+	static void _DISABLE_FIRST_PERSON_CAM_THIS_FRAME() { return Native::Invoke<void>(0x9C473089A934C930); }
 	static Any _0x77D65669A05D1A1A() { return Native::Invoke<Any>(0x77D65669A05D1A1A); }
 	static void _0x8910C24B7E0046EC() { return Native::Invoke<void>(0x8910C24B7E0046EC); }
 	static Any _0x74F1D22EFA71FAB8() { return Native::Invoke<Any>(0x74F1D22EFA71FAB8); }
@@ -593,29 +593,29 @@ namespace CAM
 	static void _0x05AB44D906738426() { return Native::Invoke<void>(0x05AB44D906738426); }
 	static void _0x632BE8D84846FA56() { return Native::Invoke<void>(0x632BE8D84846FA56); }
 	static void _0x71D71E08A7ED5BD7(Any p0) { return Native::Invoke<void, Any>(0x71D71E08A7ED5BD7, p0); }
-	static BOOL IS_FOLLOW_VEHICLE_CAM_ACTIVE() { return Native::Invoke<BOOL>(N::IS_FOLLOW_VEHICLE_CAM_ACTIVE); }
+	static BOOL IS_FOLLOW_VEHICLE_CAM_ACTIVE() { return Native::Invoke<BOOL>(0xA40C2F51FB589E9A); }
 	static void _0x7E40A01B11398FCB() { return Native::Invoke<void>(0x7E40A01B11398FCB); }
-	static BOOL IS_FIRST_PERSON_AIM_CAM_ACTIVE() { return Native::Invoke<BOOL>(N::IS_FIRST_PERSON_AIM_CAM_ACTIVE); }
+	static BOOL IS_FIRST_PERSON_AIM_CAM_ACTIVE() { return Native::Invoke<BOOL>(0xF63134C54B6EC212); }
 	static Any _0xA24C1D341C6E0D53(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xA24C1D341C6E0D53, p0, p1, p2); }
 	static Any _0xDC62CD70658E7A02() { return Native::Invoke<Any>(0xDC62CD70658E7A02); }
 	static Any _0x796085220ADCC847() { return Native::Invoke<Any>(0x796085220ADCC847); }
-	static float _GET_GAMEPLAY_CAM_ZOOM() { return Native::Invoke<float>(N::_GET_GAMEPLAY_CAM_ZOOM); }
+	static float _GET_GAMEPLAY_CAM_ZOOM() { return Native::Invoke<float>(0xB4132CA1B0EE1365); }
 	static void _0x05BD5E4088B30A66(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x05BD5E4088B30A66, p0, p1); }
-	static void _SET_FIRST_PERSON_CAM_PITCH_RANGE(float minAngle, float maxAngle) { return Native::Invoke<void, float, float>(N::_SET_FIRST_PERSON_CAM_PITCH_RANGE, minAngle, maxAngle); }
+	static void _SET_FIRST_PERSON_CAM_PITCH_RANGE(float minAngle, float maxAngle) { return Native::Invoke<void, float, float>(0x715B7F5E8BED32A2, minAngle, maxAngle); }
 	static void _0xC205B3C54C6A4E37(Any p0) { return Native::Invoke<void, Any>(0xC205B3C54C6A4E37, p0); }
-	static Vector3 _GET_GAMEPLAY_CAM_COORDS() { return Native::Invoke<Vector3>(N::_GET_GAMEPLAY_CAM_COORDS); }
-	static Vector3 _GET_GAMEPLAY_CAM_ROT(int rotationOrder) { return Native::Invoke<Vector3, int>(N::_GET_GAMEPLAY_CAM_ROT, rotationOrder); }
+	static Vector3 _GET_GAMEPLAY_CAM_COORDS() { return Native::Invoke<Vector3>(0x5352E025EC2B416F); }
+	static Vector3 _GET_GAMEPLAY_CAM_ROT(int rotationOrder) { return Native::Invoke<Vector3, int>(0x602685BD85DD26CA, rotationOrder); }
 	static Any _0x04AF77971E508F6A() { return Native::Invoke<Any>(0x04AF77971E508F6A); }
-	static void SET_GAMEPLAY_COORD_HINT(float x, float y, float z, int duration, int blendOutDuration, int blendInDuration, int unk) { return Native::Invoke<void, float, float, float, int, int, int, int>(N::SET_GAMEPLAY_COORD_HINT, x, y, z, duration, blendOutDuration, blendInDuration, unk); }
-	static void SET_GAMEPLAY_PED_HINT(Ped p0, float x1, float y1, float z1, BOOL p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Ped, float, float, float, BOOL, Any, Any, Any>(N::SET_GAMEPLAY_PED_HINT, p0, x1, y1, z1, p4, p5, p6, p7); }
-	static Any SET_GAMEPLAY_VEHICLE_HINT() { return Native::Invoke<Any>(N::SET_GAMEPLAY_VEHICLE_HINT); }
-	static Any SET_GAMEPLAY_OBJECT_HINT() { return Native::Invoke<Any>(N::SET_GAMEPLAY_OBJECT_HINT); }
-	static void SET_GAMEPLAY_ENTITY_HINT(Entity entity, float xOffset, float yOffset, float zOffset, BOOL p4, int duration, int fadeInTime, int fadeOutTime, int flags) { return Native::Invoke<void, Entity, float, float, float, BOOL, int, int, int, int>(N::SET_GAMEPLAY_ENTITY_HINT, entity, xOffset, yOffset, zOffset, p4, duration, fadeInTime, fadeOutTime, flags); }
-	static BOOL IS_GAMEPLAY_HINT_ACTIVE() { return Native::Invoke<BOOL>(N::IS_GAMEPLAY_HINT_ACTIVE); }
-	static void STOP_GAMEPLAY_HINT(BOOL p0) { return Native::Invoke<void, BOOL>(N::STOP_GAMEPLAY_HINT, p0); }
+	static void SET_GAMEPLAY_COORD_HINT(float x, float y, float z, int duration, int blendOutDuration, int blendInDuration, int unk) { return Native::Invoke<void, float, float, float, int, int, int, int>(0xFA33B8C69A4A6A0F, x, y, z, duration, blendOutDuration, blendInDuration, unk); }
+	static void SET_GAMEPLAY_PED_HINT(Ped p0, float x1, float y1, float z1, BOOL p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Ped, float, float, float, BOOL, Any, Any, Any>(0x90FB951648851733, p0, x1, y1, z1, p4, p5, p6, p7); }
+	static void SET_GAMEPLAY_VEHICLE_HINT() { return Native::Invoke<void>(0xE2B2BB7DAC280515); }
+	static void SET_GAMEPLAY_OBJECT_HINT() { return Native::Invoke<void>(0xC40551D65F2BF297); }
+	static void SET_GAMEPLAY_ENTITY_HINT(Entity entity, float xOffset, float yOffset, float zOffset, BOOL p4, int duration, int fadeInTime, int fadeOutTime, int flags) { return Native::Invoke<void, Entity, float, float, float, BOOL, int, int, int, int>(0xD1F7F32640ADFD12, entity, xOffset, yOffset, zOffset, p4, duration, fadeInTime, fadeOutTime, flags); }
+	static BOOL IS_GAMEPLAY_HINT_ACTIVE() { return Native::Invoke<BOOL>(0x2E04AB5FEE042D4A); }
+	static void STOP_GAMEPLAY_HINT(BOOL p0) { return Native::Invoke<void, BOOL>(0x1BCEC33D54CFCA8A, p0); }
 	static void _0x93759A83D0D844E7(Any p0) { return Native::Invoke<void, Any>(0x93759A83D0D844E7, p0); }
 	static void _0x88544C0E3291DCAE(Any p0) { return Native::Invoke<void, Any>(0x88544C0E3291DCAE, p0); }
-	static void SET_GAMEPLAY_HINT_FOV(float FOV) { return Native::Invoke<void, float>(N::SET_GAMEPLAY_HINT_FOV, FOV); }
+	static void SET_GAMEPLAY_HINT_FOV(float FOV) { return Native::Invoke<void, float>(0x661E58BC6F00A49A, FOV); }
 	static void _0xDDDC54181868F81F(Any p0) { return Native::Invoke<void, Any>(0xDDDC54181868F81F, p0); }
 	static Any _0x421192A2DA48FD01() { return Native::Invoke<Any>(0x421192A2DA48FD01); }
 	static Any _0xF86B6F93727C59C9() { return Native::Invoke<Any>(0xF86B6F93727C59C9); }
@@ -631,14 +631,14 @@ namespace CAM
 	static void _0x027CAB2C3AF27010() { return Native::Invoke<void>(0x027CAB2C3AF27010); }
 	static void _0x3C486E334520579D() { return Native::Invoke<void>(0x3C486E334520579D); }
 	static Any _0x41E452A3C580D1A7() { return Native::Invoke<Any>(0x41E452A3C580D1A7); }
-	static void SET_CINEMATIC_BUTTON_ACTIVE(BOOL p0) { return Native::Invoke<void, BOOL>(N::SET_CINEMATIC_BUTTON_ACTIVE, p0); }
-	static BOOL IS_CINEMATIC_CAM_RENDERING() { return Native::Invoke<BOOL>(N::IS_CINEMATIC_CAM_RENDERING); }
-	static void _DISABLE_VEHICLE_FIRST_PERSON_CAM_THIS_FRAME() { return Native::Invoke<void>(N::_DISABLE_VEHICLE_FIRST_PERSON_CAM_THIS_FRAME); }
+	static void SET_CINEMATIC_BUTTON_ACTIVE(BOOL p0) { return Native::Invoke<void, BOOL>(0xB90411F480457A6C, p0); }
+	static BOOL IS_CINEMATIC_CAM_RENDERING() { return Native::Invoke<BOOL>(0xBF7C780731AADBF8); }
+	static void _DISABLE_VEHICLE_FIRST_PERSON_CAM_THIS_FRAME() { return Native::Invoke<void>(0xA5929C2E57AC90D1); }
 	static Any _0x634F4A0562CF19B8() { return Native::Invoke<Any>(0x634F4A0562CF19B8); }
 	static void _0x702B75DC9D3EDE56(Any p0) { return Native::Invoke<void, Any>(0x702B75DC9D3EDE56, p0); }
 	static void _0x9AC65A36D3C0C189(Any p0) { return Native::Invoke<void, Any>(0x9AC65A36D3C0C189, p0); }
 	static Any _0x975F6EBB62632FE3() { return Native::Invoke<Any>(0x975F6EBB62632FE3); }
-	static void SET_CINEMATIC_MODE_ACTIVE(BOOL p0) { return Native::Invoke<void, BOOL>(N::SET_CINEMATIC_MODE_ACTIVE, p0); }
+	static void SET_CINEMATIC_MODE_ACTIVE(BOOL p0) { return Native::Invoke<void, BOOL>(0xCE7A90B160F75046, p0); }
 	static Any _0x1811A02277A9E49D() { return Native::Invoke<Any>(0x1811A02277A9E49D); }
 	static void _0xE3639DB78B3B5400(Any p0) { return Native::Invoke<void, Any>(0xE3639DB78B3B5400, p0); }
 	static void _0x986F7A51EE3E1F92(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x986F7A51EE3E1F92, p0, p1); }
@@ -702,25 +702,25 @@ namespace CAM
 }
 namespace CLOCK
 {
-	static void SET_CLOCK_TIME(int hour, int minute, int second) { return Native::Invoke<void, int, int, int>(N::SET_CLOCK_TIME, hour, minute, second); }
-	static void PAUSE_CLOCK(BOOL toggle) { return Native::Invoke<void, BOOL>(N::PAUSE_CLOCK, toggle); }
+	static void SET_CLOCK_TIME(int hour, int minute, int second) { return Native::Invoke<void, int, int, int>(0x3A52C59FFB2DEED8, hour, minute, second); }
+	static void PAUSE_CLOCK(BOOL toggle) { return Native::Invoke<void, BOOL>(0x4D1A590C92BF377E, toggle); }
 	static void _0x568D998A9FF96774(Any p0) { return Native::Invoke<void, Any>(0x568D998A9FF96774, p0); }
-	static void ADVANCE_CLOCK_TIME_TO(int hour, int minute, int second) { return Native::Invoke<void, int, int, int>(N::ADVANCE_CLOCK_TIME_TO, hour, minute, second); }
-	static void ADD_TO_CLOCK_TIME(int hours, int minutes, int seconds) { return Native::Invoke<void, int, int, int>(N::ADD_TO_CLOCK_TIME, hours, minutes, seconds); }
-	static int GET_CLOCK_HOURS() { return Native::Invoke<int>(N::GET_CLOCK_HOURS); }
-	static int GET_CLOCK_MINUTES() { return Native::Invoke<int>(N::GET_CLOCK_MINUTES); }
-	static int GET_CLOCK_SECONDS() { return Native::Invoke<int>(N::GET_CLOCK_SECONDS); }
-	static void _0x04EEDB3848DACF68(Any p0) { return Native::Invoke<void, Any>(0x04EEDB3848DACF68, p0); }
-	static Any _0x78FD8BE812E436B2() { return Native::Invoke<Any>(0x78FD8BE812E436B2); }
-	static void SET_CLOCK_DATE(int day, int month, int year) { return Native::Invoke<void, int, int, int>(N::SET_CLOCK_DATE, day, month, year); }
-	static int GET_CLOCK_DAY_OF_WEEK() { return Native::Invoke<int>(N::GET_CLOCK_DAY_OF_WEEK); }
-	static int GET_CLOCK_DAY_OF_MONTH() { return Native::Invoke<int>(N::GET_CLOCK_DAY_OF_MONTH); }
-	static int GET_CLOCK_MONTH() { return Native::Invoke<int>(N::GET_CLOCK_MONTH); }
-	static int GET_CLOCK_YEAR() { return Native::Invoke<int>(N::GET_CLOCK_YEAR); }
-	static int GET_MILLISECONDS_PER_GAME_MINUTE() { return Native::Invoke<int>(N::GET_MILLISECONDS_PER_GAME_MINUTE); }
-	static Any GET_POSIX_TIME() { return Native::Invoke<Any>(N::GET_POSIX_TIME); }
-	static Any _0x86A68E84E5884951() { return Native::Invoke<Any>(0x86A68E84E5884951); }
-	static Any _0x28EEACE9B43D9597() { return Native::Invoke<Any>(0x28EEACE9B43D9597); }
+	static void ADVANCE_CLOCK_TIME_TO(int hour, int minute, int second) { return Native::Invoke<void, int, int, int>(0x0184750AE88D0B1D, hour, minute, second); }
+	static void ADD_TO_CLOCK_TIME(int hours, int minutes, int seconds) { return Native::Invoke<void, int, int, int>(0xAB7C251C7701D336, hours, minutes, seconds); }
+	static int GET_CLOCK_HOURS() { return Native::Invoke<int>(0xC82CF208C2B19199); }
+	static int GET_CLOCK_MINUTES() { return Native::Invoke<int>(0x4E162231B823DBBF); }
+	static int GET_CLOCK_SECONDS() { return Native::Invoke<int>(0xB6101ABE62B5F080); }
+	static void _SET_MILLISECONDS_PER_GAME_MINUTE(int ms) { return Native::Invoke<void, int>(0x04EEDB3848DACF68, ms); }
+	static int _0x78FD8BE812E436B2() { return Native::Invoke<int>(0x78FD8BE812E436B2); }
+	static void SET_CLOCK_DATE(int day, int month, int year) { return Native::Invoke<void, int, int, int>(0x02AD3092562941E2, day, month, year); }
+	static int GET_CLOCK_DAY_OF_WEEK() { return Native::Invoke<int>(0x4DD02D4C7FB30076); }
+	static int GET_CLOCK_DAY_OF_MONTH() { return Native::Invoke<int>(0xDF2FD796C54480A5); }
+	static int GET_CLOCK_MONTH() { return Native::Invoke<int>(0x2D44E8FC79EAB1AC); }
+	static int GET_CLOCK_YEAR() { return Native::Invoke<int>(0xE136DCA28C4A48BA); }
+	static int GET_MILLISECONDS_PER_GAME_MINUTE() { return Native::Invoke<int>(0xE4CB8D126501EC52); }
+	static void GET_POSIX_TIME(int* year, int* month, int* day, int* hour, int* minute, int* second) { return Native::Invoke<void, int*, int*, int*, int*, int*, int*>(0x90338AD4A784E455, year, month, day, hour, minute, second); }
+	static void _0x86A68E84E5884951(int* year, int* month, int* day, int* hour, int* minute, int* second) { return Native::Invoke<void, int*, int*, int*, int*, int*, int*>(0x86A68E84E5884951, year, month, day, hour, minute, second); }
+	static void _0x28EEACE9B43D9597(Any* p0, Any* p1, Any* p2) { return Native::Invoke<void, Any*, Any*, Any*>(0x28EEACE9B43D9597, p0, p1, p2); }
 }
 namespace _NAMESPACE11
 {
@@ -777,26 +777,26 @@ namespace _NAMESPACE12
 	static void _0xCBD9EC60495C728C(Any p0) { return Native::Invoke<void, Any>(0xCBD9EC60495C728C, p0); }
 	static void _0x72B7F65F11FC8896(Any p0) { return Native::Invoke<void, Any>(0x72B7F65F11FC8896, p0); }
 }
-namespace _NAMESPACE13
+namespace COMPENDIUM
 {
 	static Any _0x725D52F21A5E9E22(Any p0) { return Native::Invoke<Any, Any>(0x725D52F21A5E9E22, p0); }
 	static Any _0x729D52F61A5A9E22(Any p0) { return Native::Invoke<Any, Any>(0x729D52F61A5A9E22, p0); }
 	static Any _0x729D52461AEA9E22(Any p0) { return Native::Invoke<Any, Any>(0x729D52461AEA9E22, p0); }
-	static Any _0x6C5E5D48E48B4C65(Any p0) { return Native::Invoke<Any, Any>(0x6C5E5D48E48B4C65, p0); }
-	static Any _0x729D54121A5E9E20(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x729D54121A5E9E20, p0, p1, p2, p3); }
-	static void _0x725D52F26A5E9E10(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F26A5E9E10, p0, p1); }
-	static void _0x725D52F21A5E9E00(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E00, p0, p1); }
-	static Any _0x725D52F21A5E9E81(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x725D52F21A5E9E81, p0, p1); }
-	static void _0x725D52F21A5E9E03(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E03, p0, p1); }
-	static void _0x725D52F21A5E9E04(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E04, p0); }
-	static void _0x725D52F21A5E9E05(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E05, p0); }
-	static void _0x725D52F21A5E9E06(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E06, p0); }
-	static void _0x725D52F21A5E9E07(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E07, p0); }
-	static void _0x725D52F21A5E9E08(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E08, p0, p1); }
-	static void _0x725D52F21A5E9E09(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x725D52F21A5E9E09, p0, p1, p2, p3); }
-	static void _0x725D52F21A5E9E50(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E50, p0, p1); }
-	static void _0x725852D21A2E9E50(Any p0) { return Native::Invoke<void, Any>(0x725852D21A2E9E50, p0); }
-	static void _0x725D58F2125E5E50(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D58F2125E5E50, p0, p1); }
+	static Any COMPENDIUM_GET_SHORT_DESCRIPTION_FROM_PED(Any p0) { return Native::Invoke<Any, Any>(0x6C5E5D48E48B4C65, p0); }
+	static Any COMPENDIUM_GET_MAP_DISCOVERABLE_FROM_STAT_ITEM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x729D54121A5E9E20, p0, p1, p2, p3); }
+	static void COMPENDIUM_ANIMAL_OBSERVED_BY_STAT_NAME(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F26A5E9E10, p0, p1); }
+	static void COMPENDIUM_FISH_CAUGHT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E00, p0, p1); }
+	static Any COMPENDIUM_FISH_GET_LURE_SUITABILITY_BY_STAT_ITEM(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x725D52F21A5E9E81, p0, p1); }
+	static void COMPENDIUM_GANG_CAMP_FOUND(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E03, p0, p1); }
+	static void COMPENDIUM_GANG_AMBUSH_SURVIVED(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E04, p0); }
+	static void COMPENDIUM_GANG_ENCOUNTERED(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E05, p0); }
+	static void COMPENDIUM_GANG_BOUNTY_CAPTURED(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E06, p0); }
+	static void COMPENDIUM_GANG_MEMBER_KILLED(Any p0) { return Native::Invoke<void, Any>(0x725D52F21A5E9E07, p0); }
+	static void COMPENDIUM_GANG_HIDEOUT_FOUND(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E08, p0, p1); }
+	static void COMPENDIUM_HERB_PICKED(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x725D52F21A5E9E09, p0, p1, p2, p3); }
+	static void COMPENDIUM_HORSE_BONDING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D52F21A5E9E50, p0, p1); }
+	static void COMPENDIUM_HORSE_WILD_BROKEN(Any p0) { return Native::Invoke<void, Any>(0x725852D21A2E9E50, p0); }
+	static void COMPENDIUM_HORSE_OBSERVED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x725D58F2125E5E50, p0, p1); }
 }
 namespace _NAMESPACE14
 {
@@ -816,164 +816,164 @@ namespace _NAMESPACE14
 namespace _NAMESPACE15
 {
 	static Any _0xE532D6811B3A4D2A() { return Native::Invoke<Any>(0xE532D6811B3A4D2A); }
-	static Any NETWORK_CLAN_SERVICE_IS_VALID() { return Native::Invoke<Any>(N::NETWORK_CLAN_SERVICE_IS_VALID); }
-	static Any NETWORK_CLAN_PLAYER_IS_ACTIVE() { return Native::Invoke<Any>(N::NETWORK_CLAN_PLAYER_IS_ACTIVE); }
-	static Any NETWORK_CLAN_PLAYER_GET_DESC() { return Native::Invoke<Any>(N::NETWORK_CLAN_PLAYER_GET_DESC); }
-	static Any _NETWORK_CLAN_GET_NUM_MEMBERSHIP_DESC() { return Native::Invoke<Any>(N::_NETWORK_CLAN_GET_NUM_MEMBERSHIP_DESC); }
-	static Any NETWORK_CLAN_GET_MEMBERSHIP_DESC() { return Native::Invoke<Any>(N::NETWORK_CLAN_GET_MEMBERSHIP_DESC); }
+	static Any NETWORK_CLAN_SERVICE_IS_VALID() { return Native::Invoke<Any>(0x579CCED0265D4896); }
+	static BOOL NETWORK_CLAN_PLAYER_IS_ACTIVE() { return Native::Invoke<BOOL>(0xB124B57F571D8F18); }
+	static BOOL NETWORK_CLAN_PLAYER_GET_DESC() { return Native::Invoke<BOOL>(0xEEE6EACBE8874FBA); }
+	static Any _NETWORK_CLAN_GET_NUM_MEMBERSHIP_DESC() { return Native::Invoke<Any>(0x1F471B79ACC90BEF); }
+	static BOOL NETWORK_CLAN_GET_MEMBERSHIP_DESC() { return Native::Invoke<BOOL>(0x48DE78AF2C8885B8); }
 	static Any _0x58D378AF2C8765B7() { return Native::Invoke<Any>(0x58D378AF2C8765B7); }
 	static Any _0xC685B014CE3D988B() { return Native::Invoke<Any>(0xC685B014CE3D988B); }
 	static Any _0x8E2143144B8E188D() { return Native::Invoke<Any>(0x8E2143144B8E188D); }
 	static Any _0x13518FF1C6B28938() { return Native::Invoke<Any>(0x13518FF1C6B28938); }
 	static Any _0xA134777FF7F33331() { return Native::Invoke<Any>(0xA134777FF7F33331); }
 	static Any _0x113E6E3E50E286B0() { return Native::Invoke<Any>(0x113E6E3E50E286B0); }
-	static Any NETWORK_GET_PRIMARY_CLAN_DATA_CLEAR() { return Native::Invoke<Any>(N::NETWORK_GET_PRIMARY_CLAN_DATA_CLEAR); }
-	static Any NETWORK_GET_PRIMARY_CLAN_DATA_START() { return Native::Invoke<Any>(N::NETWORK_GET_PRIMARY_CLAN_DATA_START); }
-	static Any NETWORK_GET_PRIMARY_CLAN_DATA_PENDING() { return Native::Invoke<Any>(N::NETWORK_GET_PRIMARY_CLAN_DATA_PENDING); }
-	static Any NETWORK_GET_PRIMARY_CLAN_DATA_SUCCESS() { return Native::Invoke<Any>(N::NETWORK_GET_PRIMARY_CLAN_DATA_SUCCESS); }
-	static Any NETWORK_GET_PRIMARY_CLAN_DATA_NEW() { return Native::Invoke<Any>(N::NETWORK_GET_PRIMARY_CLAN_DATA_NEW); }
+	static Any NETWORK_GET_PRIMARY_CLAN_DATA_CLEAR() { return Native::Invoke<Any>(0x9AA46BADAD0E27ED); }
+	static BOOL NETWORK_GET_PRIMARY_CLAN_DATA_START() { return Native::Invoke<BOOL>(0xCE86D8191B762107); }
+	static Any NETWORK_GET_PRIMARY_CLAN_DATA_PENDING() { return Native::Invoke<Any>(0xB5074DB804E28CE7); }
+	static Any NETWORK_GET_PRIMARY_CLAN_DATA_SUCCESS() { return Native::Invoke<Any>(0x5B4F04F19376A0BA); }
+	static BOOL NETWORK_GET_PRIMARY_CLAN_DATA_NEW() { return Native::Invoke<BOOL>(0xC080FF658B2E41DA); }
 	static Any _0xC080FF658B2E51DA() { return Native::Invoke<Any>(0xC080FF658B2E51DA); }
 }
 namespace DATABINDING
 {
-	static Any _GET_DATA_CONTAINER_FROM_PATH(Any p0) { return Native::Invoke<Any, Any>(N::_GET_DATA_CONTAINER_FROM_PATH, p0); }
-	static Any _GET_DATA_CONTAINER_FROM_CHILD_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_GET_DATA_CONTAINER_FROM_CHILD_INDEX, p0, p1); }
+	static Any _GET_DATA_CONTAINER_FROM_PATH(Any p0) { return Native::Invoke<Any, Any>(0x0C827D175F1292F2, p0); }
+	static Any _GET_DATA_CONTAINER_FROM_CHILD_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0C827D175F1292F3, p0, p1); }
 	static Any _0xD7DB94AB78E8EBE4() { return Native::Invoke<Any>(0xD7DB94AB78E8EBE4); }
-	static Any _ADD_DATA_CONTAINER_FROM_PATH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_DATA_CONTAINER_FROM_PATH, p0, p1); }
-	static Any _ADD_DATA_CONTAINER_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_DATA_CONTAINER_BY_HASH, p0, p1); }
-	static Any _ADD_DATA_CONTAINER(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_DATA_CONTAINER, p0, p1); }
-	static Any _ADD_DATA_BOOL_FROM_PATH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_BOOL_FROM_PATH, p0, p1, p2); }
-	static Any _ADD_DATA_BOOL_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_BOOL_BY_HASH, p0, p1, p2); }
-	static Any _ADD_DATA_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_BOOL, p0, p1, p2); }
-	static Any _ADD_DATA_INT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_INT_BY_HASH, p0, p1, p2); }
-	static Any _ADD_DATA_INT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_INT, p0, p1, p2); }
-	static Any _ADD_DATA_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_FLOAT, p0, p1, p2); }
-	static Any _ADD_DATA_HASH_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_HASH_BY_HASH, p0, p1, p2); }
-	static Any _ADD_DATA_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_HASH, p0, p1, p2); }
+	static Any _ADD_DATA_CONTAINER_FROM_PATH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0C827D175F1292F4, p0, p1); }
+	static Any _ADD_DATA_CONTAINER_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x98BB14345BB68257, p0, p1); }
+	static Any _ADD_DATA_CONTAINER(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xEB4F9A3537EEABCD, p0, p1); }
+	static Any _ADD_DATA_BOOL_FROM_PATH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x37BB86A751148A6A, p0, p1, p2); }
+	static Any _ADD_DATA_BOOL_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xBC95D3AE2ECA70D6, p0, p1, p2); }
+	static Any _ADD_DATA_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x58BAA5F635DA2FF4, p0, p1, p2); }
+	static Any _ADD_DATA_INT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x267F9527F4350ADE, p0, p1, p2); }
+	static Any _ADD_DATA_INT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x307A3247C5457BDE, p0, p1, p2); }
+	static Any _ADD_DATA_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x5154228273ADB9A6, p0, p1, p2); }
+	static Any _ADD_DATA_HASH_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x8E173DFB041993C6, p0, p1, p2); }
+	static Any _ADD_DATA_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x8538F1205D60ECA6, p0, p1, p2); }
 	static Any _0xA381DE86EE170C4A() { return Native::Invoke<Any>(0xA381DE86EE170C4A); }
-	static Any _ADD_DATA_STRING_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_STRING_BY_HASH, p0, p1, p2); }
-	static Any _ADD_DATA_STRING(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_STRING, p0, p1, p2); }
-	static Any _ADD_DATA_GANG_ID(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ADD_DATA_GANG_ID, p0, p1, p2); }
+	static Any _ADD_DATA_STRING_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xEAD09E76E22630C3, p0, p1, p2); }
+	static Any _ADD_DATA_STRING(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x617FCA1C5652BBAD, p0, p1, p2); }
+	static Any _ADD_DATA_GANG_ID(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7D0F2014DB28DD00, p0, p1, p2); }
 	static Any _0x7D0F2014DB28DD01() { return Native::Invoke<Any>(0x7D0F2014DB28DD01); }
 	static Any _0x294AF5323F44B053() { return Native::Invoke<Any>(0x294AF5323F44B053); }
-	static Any _ADD_UI_ITEM_LIST_FROM_PATH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_UI_ITEM_LIST_FROM_PATH, p0, p1); }
-	static Any _ADD_UI_ITEM_LIST_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_UI_ITEM_LIST_BY_HASH, p0, p1); }
-	static Any _ADD_UI_ITEM_LIST(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_UI_ITEM_LIST, p0, p1); }
-	static void _INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_STRING_ALIAS, p0, p1, p2, p3); }
-	static void _INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_HASH_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_HASH_ALIAS, p0, p1, p2, p3); }
-	static void _INSERT_UI_ITEM_TO_LIST_FROM_PATH_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_INSERT_UI_ITEM_TO_LIST_FROM_PATH_STRING_ALIAS, p0, p1, p2, p3); }
+	static Any _ADD_UI_ITEM_LIST_FROM_PATH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDB5B9A474148F699, p0, p1); }
+	static Any _ADD_UI_ITEM_LIST_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3C7799283325181B, p0, p1); }
+	static Any _ADD_UI_ITEM_LIST(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xFE74FA57E0CE6824, p0, p1); }
+	static void _INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x5859E970794D92F3, p0, p1, p2, p3); }
+	static void _INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_HASH_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xEE97A05C05F16E41, p0, p1, p2, p3); }
+	static void _INSERT_UI_ITEM_TO_LIST_FROM_PATH_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x5740774F608E4FC8, p0, p1, p2, p3); }
 	static void _0x6318FB3BE37E11B3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6318FB3BE37E11B3, p0, p1); }
-	static void _REMOVE_BINDING_ARRAY_ITEM_BY_DATA_CONTEXT_ID(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_REMOVE_BINDING_ARRAY_ITEM_BY_DATA_CONTEXT_ID, p0, p1); }
-	static void _CLEAR_BINDING_ARRAY(Any p0) { return Native::Invoke<void, Any>(N::_CLEAR_BINDING_ARRAY, p0); }
-	static Any _GET_ITEM_CONTEXT_BY_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_GET_ITEM_CONTEXT_BY_INDEX, p0, p1); }
-	static void _SET_TEMPLATED_UI_ITEM_LIST_SIZE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_TEMPLATED_UI_ITEM_LIST_SIZE, p0, p1); }
-	static void _SET_TEMPLATED_UI_ITEM_HASH_ALIAS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_SET_TEMPLATED_UI_ITEM_HASH_ALIAS, p0, p1, p2); }
+	static void _REMOVE_BINDING_ARRAY_ITEM_BY_DATA_CONTEXT_ID(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF68B1726EAF7B285, p0, p1); }
+	static void _CLEAR_BINDING_ARRAY(Any p0) { return Native::Invoke<void, Any>(0xA1F15C1D03DF802D, p0); }
+	static Any _GET_ITEM_CONTEXT_BY_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE96D7F9FEFCC105F, p0, p1); }
+	static void _SET_TEMPLATED_UI_ITEM_LIST_SIZE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFE74FA57E0CE6825, p0, p1); }
+	static void _SET_TEMPLATED_UI_ITEM_HASH_ALIAS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x0AE7138D0541F2DE, p0, p1, p2); }
 	static Any _0xD48993A61938C64D() { return Native::Invoke<Any>(0xD48993A61938C64D); }
-	static Any _ADD_HASH_ARRAY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_HASH_ARRAY, p0, p1); }
-	static Any _ADD_STRING_ARRAY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ADD_STRING_ARRAY, p0, p1); }
+	static Any _ADD_HASH_ARRAY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x52F5F08278EA5D75, p0, p1); }
+	static Any _ADD_STRING_ARRAY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x1B23E0627BDBFE85, p0, p1); }
 	static Any _0x1919D59E60FD516E() { return Native::Invoke<Any>(0x1919D59E60FD516E); }
 	static Any _0x7FC60C94C83C5CD7() { return Native::Invoke<Any>(0x7FC60C94C83C5CD7); }
 	static Any _0xC900CEC8A172375B() { return Native::Invoke<Any>(0xC900CEC8A172375B); }
 	static Any _0x02B21B6BEEDD83CC() { return Native::Invoke<Any>(0x02B21B6BEEDD83CC); }
 	static Any _0xF47E33F8D2523825() { return Native::Invoke<Any>(0xF47E33F8D2523825); }
 	static Any _0x3BF0767CF33FCC88() { return Native::Invoke<Any>(0x3BF0767CF33FCC88); }
-	static Any _GET_ARRAY_COUNT(Any p0) { return Native::Invoke<Any, Any>(N::_GET_ARRAY_COUNT, p0); }
-	static void _WRITE_DATA_SCRIPT_VARIABLES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::_WRITE_DATA_SCRIPT_VARIABLES, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void _WRITE_DATA_BOOL(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_WRITE_DATA_BOOL, p0, p1); }
-	static void _WRITE_DATA_BOOL_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_BOOL_FROM_PARENT, p0, p1, p2); }
+	static Any _GET_ARRAY_COUNT(Any p0) { return Native::Invoke<Any, Any>(0xD23F5DE04FE717E2, p0); }
+	static void _WRITE_DATA_SCRIPT_VARIABLES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAB888B4B91046771, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void _WRITE_DATA_BOOL(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAB888B4B91046770, p0, p1); }
+	static void _WRITE_DATA_BOOL_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBDFE546E4C2D0E21, p0, p1, p2); }
 	static Any _0xBFC83DA249BEFCC9() { return Native::Invoke<Any>(0xBFC83DA249BEFCC9); }
-	static void _WRITE_DATA_INT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_WRITE_DATA_INT, p0, p1); }
-	static void _WRITE_DATA_INT_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_INT_FROM_PARENT, p0, p1, p2); }
-	static void _WRITE_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_INT_FROM_PARENT_BY_HASH, p0, p1, p2); }
-	static void _WRITE_DATA_FLOAT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_WRITE_DATA_FLOAT, p0, p1); }
+	static void _WRITE_DATA_INT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x335C3F6B3766B8D9, p0, p1); }
+	static void _WRITE_DATA_INT_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9EFA98238BA08FC4, p0, p1, p2); }
+	static void _WRITE_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9D6E10A41D6ED6EC, p0, p1, p2); }
+	static void _WRITE_DATA_FLOAT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDF504BECEB15DA93, p0, p1); }
 	static Any _0x05AC9E1E02975AFB() { return Native::Invoke<Any>(0x05AC9E1E02975AFB); }
-	static void _WRITE_DATA_HASH_STRING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_WRITE_DATA_HASH_STRING, p0, p1); }
-	static void _WRITE_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_HASH_STRING_FROM_PARENT, p0, p1, p2); }
-	static void _WRITE_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_HASH_STRING_FROM_PARENT_BY_HASH, p0, p1, p2); }
-	static void _WRITE_DATA_STRING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_WRITE_DATA_STRING, p0, p1); }
-	static void _WRITE_DATA_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_WRITE_DATA_STRING_FROM_PARENT, p0, p1, p2); }
+	static void _WRITE_DATA_HASH_STRING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xACDEF586BD71B1FD, p0, p1); }
+	static void _WRITE_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x0971F04E1EAA7AE8, p0, p1, p2); }
+	static void _WRITE_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x20209529689E0953, p0, p1, p2); }
+	static void _WRITE_DATA_STRING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE1BD342F2872AEE9, p0, p1); }
+	static void _WRITE_DATA_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4FF713B2F17A391E, p0, p1, p2); }
 	static Any _0xA3BD6FF95E713EE5() { return Native::Invoke<Any>(0xA3BD6FF95E713EE5); }
 	static Any _0xC70041408E16BE2D() { return Native::Invoke<Any>(0xC70041408E16BE2D); }
 	static Any _0xC70041408E16BE2E() { return Native::Invoke<Any>(0xC70041408E16BE2E); }
 	static Any _0x422179C7F6AD9304() { return Native::Invoke<Any>(0x422179C7F6AD9304); }
-	static Any _READ_DATA_BOOL(Any p0) { return Native::Invoke<Any, Any>(N::_READ_DATA_BOOL, p0); }
-	static Any _READ_DATA_BOOL_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_BOOL_FROM_PARENT, p0, p1); }
-	static Any _READ_DATA_BOOL_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_BOOL_FROM_PARENT_BY_HASH, p0, p1); }
-	static Any _READ_DATA_INT(Any p0) { return Native::Invoke<Any, Any>(N::_READ_DATA_INT, p0); }
-	static Any _READ_DATA_INT_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_INT_FROM_PARENT, p0, p1); }
-	static Any _READ_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_INT_FROM_PARENT_BY_HASH, p0, p1); }
+	static Any _READ_DATA_BOOL(Any p0) { return Native::Invoke<Any, Any>(0x5EEFBD4B6D7CD6EB, p0); }
+	static Any _READ_DATA_BOOL_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA8EDE09FE07BD77F, p0, p1); }
+	static Any _READ_DATA_BOOL_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4CDC3FDDFAE07EB3, p0, p1); }
+	static Any _READ_DATA_INT(Any p0) { return Native::Invoke<Any, Any>(0x570784D782597512, p0); }
+	static Any _READ_DATA_INT_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xFFC566A4801F6B40, p0, p1); }
+	static Any _READ_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB5F668B648EC0970, p0, p1); }
 	static Any _0x5FE444EB67C70AD4() { return Native::Invoke<Any>(0x5FE444EB67C70AD4); }
 	static Any _0x81D7183E7A8ECA72() { return Native::Invoke<Any>(0x81D7183E7A8ECA72); }
-	static Any _READ_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_HASH_STRING_FROM_PARENT, p0, p1); }
-	static Any _READ_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_HASH_STRING_FROM_PARENT_BY_HASH, p0, p1); }
-	static Any _READ_DATA_STRING(Any p0) { return Native::Invoke<Any, Any>(N::_READ_DATA_STRING, p0); }
-	static Any _READ_DATA_STRING_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_READ_DATA_STRING_FROM_PARENT, p0, p1); }
+	static Any _READ_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9B535990B01B62DE, p0, p1); }
+	static Any _READ_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x1F43BC25A119B252, p0, p1); }
+	static Any _READ_DATA_STRING(Any p0) { return Native::Invoke<Any, Any>(0x3D290B5FFA7C5151, p0); }
+	static Any _READ_DATA_STRING_FROM_PARENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6323AD277C4A2AFB, p0, p1); }
 	static Any _0x6329C34BEE5BFF4B() { return Native::Invoke<Any>(0x6329C34BEE5BFF4B); }
 	static Any _0xE6AAB897120492D6() { return Native::Invoke<Any>(0xE6AAB897120492D6); }
 	static Any _0xE6AAB897120492D7() { return Native::Invoke<Any>(0xE6AAB897120492D7); }
 	static Any _0xB138CA787F3DD858() { return Native::Invoke<Any>(0xB138CA787F3DD858); }
-	static Any _IS_DATA_ID_VALID(Any p0) { return Native::Invoke<Any, Any>(N::_IS_DATA_ID_VALID, p0); }
-	static void _REMOVE_DATA_ENTRY(Any p0) { return Native::Invoke<void, Any>(N::_REMOVE_DATA_ENTRY, p0); }
-	static void _VIRTUAL_COLLECTION_SET_SIZE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_VIRTUAL_COLLECTION_SET_SIZE, p0, p1); }
-	static void _VIRTUAL_COLLECTION_SET_INTEREST_INDEX(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_VIRTUAL_COLLECTION_SET_INTEREST_INDEX, p0, p1); }
-	static void _VIRTUAL_COLLECTION_ADD_ITEM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_VIRTUAL_COLLECTION_ADD_ITEM, p0, p1, p2, p3); }
-	static void _VIRTUAL_COLLECTION_RESET(Any p0) { return Native::Invoke<void, Any>(N::_VIRTUAL_COLLECTION_RESET, p0); }
-	static Any _DOES_VIRTUAL_COLLECTION_EXIST(Any p0) { return Native::Invoke<Any, Any>(N::_DOES_VIRTUAL_COLLECTION_EXIST, p0); }
+	static Any _IS_DATA_ID_VALID(Any p0) { return Native::Invoke<Any, Any>(0x1E7130793AAAAB8D, p0); }
+	static void _REMOVE_DATA_ENTRY(Any p0) { return Native::Invoke<void, Any>(0x0AE9938D0541F2DA, p0); }
+	static void _VIRTUAL_COLLECTION_SET_SIZE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9DCE9B01A93B58BC, p0, p1); }
+	static void _VIRTUAL_COLLECTION_SET_INTEREST_INDEX(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x49A8447533308BCF, p0, p1); }
+	static void _VIRTUAL_COLLECTION_ADD_ITEM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6DCBF187221CF73D, p0, p1, p2, p3); }
+	static void _VIRTUAL_COLLECTION_RESET(Any p0) { return Native::Invoke<void, Any>(0x09D95666ED2B5F60, p0); }
+	static Any _DOES_VIRTUAL_COLLECTION_EXIST(Any p0) { return Native::Invoke<Any, Any>(0x37963B56755BFB35, p0); }
 }
 namespace DATAFILE
 {
-	static Any DATAFILE_WATCH_REQUEST_ID() { return Native::Invoke<Any>(N::DATAFILE_WATCH_REQUEST_ID); }
+	static Any DATAFILE_WATCH_REQUEST_ID() { return Native::Invoke<Any>(0xA5834834CA8FD7FC); }
 	static Any _0x17279C820464CEE0() { return Native::Invoke<Any>(0x17279C820464CEE0); }
 	static Any _0xE60100389E50EADE() { return Native::Invoke<Any>(0xE60100389E50EADE); }
 	static Any _0x46102A0989AD80B5() { return Native::Invoke<Any>(0x46102A0989AD80B5); }
 	static Any _0x604B8ED1A482F9DF() { return Native::Invoke<Any>(0x604B8ED1A482F9DF); }
 	static Any _0xE79C70E77E0973C7() { return Native::Invoke<Any>(0xE79C70E77E0973C7); }
 	static Any _0x790EC421078F5C4E() { return Native::Invoke<Any>(0x790EC421078F5C4E); }
-	static void DATAFILE_CREATE() { return Native::Invoke<void>(N::DATAFILE_CREATE); }
-	static void DATAFILE_DELETE() { return Native::Invoke<void>(N::DATAFILE_DELETE); }
-	static char* DATAFILE_GET_FILE_DICT() { return Native::Invoke<char*>(N::DATAFILE_GET_FILE_DICT); }
+	static void DATAFILE_CREATE() { return Native::Invoke<void>(0x56B7291FB953DD51); }
+	static void DATAFILE_DELETE() { return Native::Invoke<void>(0x9FB90EEDEA9F2D5C); }
+	static const char* DATAFILE_GET_FILE_DICT() { return Native::Invoke<const char*>(0xBBD8CF823CAE557C); }
 	static Any _0x4607D57C5F7D332A() { return Native::Invoke<Any>(0x4607D57C5F7D332A); }
 	static Any _0xB04B69CF277D15C0() { return Native::Invoke<Any>(0xB04B69CF277D15C0); }
-	static Any _OBJECT_VALUE_ADD_INTEGER() { return Native::Invoke<Any>(N::_OBJECT_VALUE_ADD_INTEGER); }
-	static Any _OBJECT_VALUE_GET_BOOLEAN() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_BOOLEAN); }
-	static Any _OBJECT_VALUE_GET_INTEGER() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_INTEGER); }
-	static Any _OBJECT_VALUE_GET_FLOAT() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_FLOAT); }
-	static Any _OBJECT_VALUE_GET_STRING() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_STRING); }
-	static Any _OBJECT_VALUE_GET_VECTOR3() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_VECTOR3); }
-	static Any _OBJECT_VALUE_GET_OBJECT() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_OBJECT); }
-	static Any _OBJECT_VALUE_GET_ARRAY() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_ARRAY); }
-	static Any _OBJECT_VALUE_GET_TYPE() { return Native::Invoke<Any>(N::_OBJECT_VALUE_GET_TYPE); }
+	static void _OBJECT_VALUE_ADD_INTEGER() { return Native::Invoke<void>(0x26FDF5E99AA2F3E9); }
+	static BOOL _OBJECT_VALUE_GET_BOOLEAN() { return Native::Invoke<BOOL>(0x175E915A486EE548); }
+	static int _OBJECT_VALUE_GET_INTEGER() { return Native::Invoke<int>(0x9D896A3B87D96E2B); }
+	static float _OBJECT_VALUE_GET_FLOAT() { return Native::Invoke<float>(0x814643ECA258ADF5); }
+	static const char* _OBJECT_VALUE_GET_STRING() { return Native::Invoke<const char*>(0xE37B38C0B4E95DFA); }
+	static Vector3 _OBJECT_VALUE_GET_VECTOR3() { return Native::Invoke<Vector3>(0xE459C941431E0FFA); }
+	static Any* _OBJECT_VALUE_GET_OBJECT() { return Native::Invoke<Any*>(0x4D7A30130F46AC9C); }
+	static Any* _OBJECT_VALUE_GET_ARRAY() { return Native::Invoke<Any*>(0x1B5447CF18544B18); }
+	static int _OBJECT_VALUE_GET_TYPE() { return Native::Invoke<int>(0x92E11E3CA4C7CDF0); }
 	static Any _0xBC0DF006A4952C68() { return Native::Invoke<Any>(0xBC0DF006A4952C68); }
 	static Any _0x9F130129EBC31B34() { return Native::Invoke<Any>(0x9F130129EBC31B34); }
 	static Any _0x277251C161B4C3F4() { return Native::Invoke<Any>(0x277251C161B4C3F4); }
 	static Any _0x1C65CC931C0F946F() { return Native::Invoke<Any>(0x1C65CC931C0F946F); }
 	static Any _0x7681B677400C7071() { return Native::Invoke<Any>(0x7681B677400C7071); }
-	static Any _ARRAY_VALUE_GET_BOOLEAN() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_BOOLEAN); }
-	static Any _ARRAY_VALUE_GET_INTEGER() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_INTEGER); }
-	static Any _ARRAY_VALUE_GET_FLOAT() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_FLOAT); }
-	static Any _ARRAY_VALUE_GET_STRING() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_STRING); }
-	static Any _ARRAY_VALUE_GET_VECTOR3() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_VECTOR3); }
-	static Any _ARRAY_VALUE_GET_OBJECT() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_OBJECT); }
-	static Any _ARRAY_VALUE_GET_SIZE() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_SIZE); }
-	static Any _ARRAY_VALUE_GET_TYPE() { return Native::Invoke<Any>(N::_ARRAY_VALUE_GET_TYPE); }
+	static BOOL _ARRAY_VALUE_GET_BOOLEAN() { return Native::Invoke<BOOL>(0xAB1231D2DE52F2D3); }
+	static int _ARRAY_VALUE_GET_INTEGER() { return Native::Invoke<int>(0x96DEA500B6EBBE53); }
+	static float _ARRAY_VALUE_GET_FLOAT() { return Native::Invoke<float>(0xA9D003CF419CB81E); }
+	static const char* _ARRAY_VALUE_GET_STRING() { return Native::Invoke<const char*>(0xB6790A8FF80F889F); }
+	static Vector3 _ARRAY_VALUE_GET_VECTOR3() { return Native::Invoke<Vector3>(0x850DA2750DA14E9A); }
+	static Any* _ARRAY_VALUE_GET_OBJECT() { return Native::Invoke<Any*>(0xA010655985853485); }
+	static int _ARRAY_VALUE_GET_SIZE() { return Native::Invoke<int>(0x6A885BF69239E539); }
+	static int _ARRAY_VALUE_GET_TYPE() { return Native::Invoke<int>(0x151DAFE6B3B9888F); }
 	static Any _0x4F9E3ED7617123AC(Any p0) { return Native::Invoke<Any, Any>(0x4F9E3ED7617123AC, p0); }
 	static Any _0xCA56DD6AB7A39F64(Any p0) { return Native::Invoke<Any, Any>(0xCA56DD6AB7A39F64, p0); }
 	static Any _0xD97D8D905F1562F2(Any p0) { return Native::Invoke<Any, Any>(0xD97D8D905F1562F2, p0); }
-	static void _DATAFILE_UNLOAD(Any p0) { return Native::Invoke<void, Any>(N::_DATAFILE_UNLOAD, p0); }
+	static void _DATAFILE_UNLOAD(Any p0) { return Native::Invoke<void, Any>(0x129567F0C05F81B9, p0); }
 	static Any _0x7907969497EA92F5(Any p0) { return Native::Invoke<Any, Any>(0x7907969497EA92F5, p0); }
 	static Any _0x603AC35FD4602C76(Any p0) { return Native::Invoke<Any, Any>(0x603AC35FD4602C76, p0); }
 	static void _0x3168BA5D6DECE323() { return Native::Invoke<void>(0x3168BA5D6DECE323); }
-	static Any _DATAFILE_REGISTER_QUERY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_DATAFILE_REGISTER_QUERY, p0, p1, p2); }
-	static Any _DATAFILE_GET_DATA_NODE_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_DATA_NODE_INDEX, p0, p1); }
-	static Any _DATAFILE_GET_NUM_NODES(Any p0) { return Native::Invoke<Any, Any>(N::_DATAFILE_GET_NUM_NODES, p0); }
+	static Any _DATAFILE_REGISTER_QUERY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xAE156A747C39A741, p0, p1, p2); }
+	static Any _DATAFILE_GET_DATA_NODE_INDEX(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x83C3ED532B6E5D07, p0, p1); }
+	static Any _DATAFILE_GET_NUM_NODES(Any p0) { return Native::Invoke<Any, Any>(0xDF01B1F7A886B42D, p0); }
 	static Any _0xE13634BB6BAF0734() { return Native::Invoke<Any>(0xE13634BB6BAF0734); }
-	static Any _DATAFILE_GET_NUM_CHILDREN(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_NUM_CHILDREN, p0, p1); }
-	static Any _DATAFILE_GET_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_HASH, p0, p1); }
-	static Any _DATAFILE_GET_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_STRING, p0, p1); }
-	static Any _DATAFILE_GET_VECTOR(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_VECTOR, p0, p1); }
-	static Any _DATAFILE_GET_FLOAT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_FLOAT, p0, p1); }
-	static Any _DATAFILE_GET_INT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_INT, p0, p1); }
-	static Any _DATAFILE_GET_BOOL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DATAFILE_GET_BOOL, p0, p1); }
+	static Any _DATAFILE_GET_NUM_CHILDREN(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6BEB168D5195E7AB, p0, p1); }
+	static Any _DATAFILE_GET_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xFBFF3FF2F5E80C0B, p0, p1); }
+	static Any _DATAFILE_GET_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x08EAF8E9F2EB7B2E, p0, p1); }
+	static Any _DATAFILE_GET_VECTOR(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x06FBF89B12DA279C, p0, p1); }
+	static Any _DATAFILE_GET_FLOAT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7F034FC3E891B57A, p0, p1); }
+	static Any _DATAFILE_GET_INT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xEF44ACC657352A35, p0, p1); }
+	static Any _DATAFILE_GET_BOOL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0D9138F3F8261DF7, p0, p1); }
 	static void _0x91DED5DD64BB2691(Any p0) { return Native::Invoke<void, Any>(0x91DED5DD64BB2691, p0); }
 	static Any _0xED4413CEE1BF142C(Any p0) { return Native::Invoke<Any, Any>(0xED4413CEE1BF142C, p0); }
 	static Any _0xB2B42607F7867576() { return Native::Invoke<Any>(0xB2B42607F7867576); }
@@ -989,133 +989,133 @@ namespace _NAMESPACE18
 }
 namespace DECORATOR
 {
-	static BOOL DECOR_SET_BOOL(Entity entity, char* propertyName, BOOL value) { return Native::Invoke<BOOL, Entity, char*, BOOL>(N::DECOR_SET_BOOL, entity, propertyName, value); }
-	static Any DECOR_SET_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::DECOR_SET_FLOAT, p0, p1, p2); }
-	static BOOL DECOR_SET_INT(Entity entity, char* propertyName, int value) { return Native::Invoke<BOOL, Entity, char*, int>(N::DECOR_SET_INT, entity, propertyName, value); }
+	static BOOL DECOR_SET_BOOL(Entity entity, const char* propertyName, BOOL value) { return Native::Invoke<BOOL, Entity, const char*, BOOL>(0xFE26E4609B1C3772, entity, propertyName, value); }
+	static Any DECOR_SET_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x238F8B0C1C7FE834, p0, p1, p2); }
+	static BOOL DECOR_SET_INT(Entity entity, const char* propertyName, int value) { return Native::Invoke<BOOL, Entity, const char*, int>(0xE88F4D7F52A6090F, entity, propertyName, value); }
 	static Any _0x4BDC83150D43772D() { return Native::Invoke<Any>(0x4BDC83150D43772D); }
 	static Any _0x0671C1A3FF7AFDFC(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x0671C1A3FF7AFDFC, p0, p1, p2); }
-	static BOOL DECOR_GET_BOOL(Entity entity, char* propertyName) { return Native::Invoke<BOOL, Entity, char*>(N::DECOR_GET_BOOL, entity, propertyName); }
-	static Any DECOR_GET_FLOAT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::DECOR_GET_FLOAT, p0, p1); }
-	static int DECOR_GET_INT(Entity entity, char* propertyName) { return Native::Invoke<int, Entity, char*>(N::DECOR_GET_INT, entity, propertyName); }
+	static BOOL DECOR_GET_BOOL(Entity entity, const char* propertyName) { return Native::Invoke<BOOL, Entity, const char*>(0xDEF3F1B071ABB197, entity, propertyName); }
+	static Any DECOR_GET_FLOAT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE5FF70CD842CA9D4, p0, p1); }
+	static int DECOR_GET_INT(Entity entity, const char* propertyName) { return Native::Invoke<int, Entity, const char*>(0x44DB62727762FD9B, entity, propertyName); }
 	static Any _0xB1682B2443F0540B() { return Native::Invoke<Any>(0xB1682B2443F0540B); }
-	static BOOL DECOR_EXIST_ON(Entity entity, char* propertyName) { return Native::Invoke<BOOL, Entity, char*>(N::DECOR_EXIST_ON, entity, propertyName); }
-	static BOOL DECOR_REMOVE(Entity entity, char* propertyName) { return Native::Invoke<BOOL, Entity, char*>(N::DECOR_REMOVE, entity, propertyName); }
+	static BOOL DECOR_EXIST_ON(Entity entity, const char* propertyName) { return Native::Invoke<BOOL, Entity, const char*>(0xD9D1CDBF3464DCDF, entity, propertyName); }
+	static BOOL DECOR_REMOVE(Entity entity, const char* propertyName) { return Native::Invoke<BOOL, Entity, const char*>(0x2BA7F5877A088A1D, entity, propertyName); }
 	static Any _0x88942780E0ADEA42(Any p0) { return Native::Invoke<Any, Any>(0x88942780E0ADEA42, p0); }
-	static void DECOR_REGISTER(char* propertyName, int type) { return Native::Invoke<void, char*, int>(N::DECOR_REGISTER, propertyName, type); }
+	static void DECOR_REGISTER(const char* propertyName, int type) { return Native::Invoke<void, const char*, int>(0x0B253D644E3C36B3, propertyName, type); }
 	static void _0x4587374F88B7F6C2(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4587374F88B7F6C2, p0, p1, p2); }
-	static Any DECOR_IS_REGISTERED_AS_TYPE() { return Native::Invoke<Any>(N::DECOR_IS_REGISTERED_AS_TYPE); }
+	static BOOL DECOR_IS_REGISTERED_AS_TYPE() { return Native::Invoke<BOOL>(0x72355278C069F272); }
 }
 namespace DLC
 {
-	static BOOL IS_DLC_PRESENT(Hash dlcHash) { return Native::Invoke<BOOL, Hash>(N::IS_DLC_PRESENT, dlcHash); }
-	static BOOL GET_IS_LOADING_SCREEN_ACTIVE() { return Native::Invoke<BOOL>(N::GET_IS_LOADING_SCREEN_ACTIVE); }
+	static BOOL IS_DLC_PRESENT(Hash dlcHash) { return Native::Invoke<BOOL, Hash>(0x2763DC12BBE2BB6F, dlcHash); }
+	static BOOL GET_IS_LOADING_SCREEN_ACTIVE() { return Native::Invoke<BOOL>(0x71D4BF5890659B0C); }
 	static Any _0xA16B4FBA7887D7BA() { return Native::Invoke<Any>(0xA16B4FBA7887D7BA); }
 	static Any _0x1DB9D61E505AE3FC() { return Native::Invoke<Any>(0x1DB9D61E505AE3FC); }
 }
 namespace ENTITY
 {
-	static BOOL DOES_ENTITY_EXIST(Entity entity) { return Native::Invoke<BOOL, Entity>(N::DOES_ENTITY_EXIST, entity); }
-	static BOOL DOES_ENTITY_BELONG_TO_THIS_SCRIPT(Entity entity, BOOL p2) { return Native::Invoke<BOOL, Entity, BOOL>(N::DOES_ENTITY_BELONG_TO_THIS_SCRIPT, entity, p2); }
-	static BOOL DOES_ENTITY_HAVE_DRAWABLE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::DOES_ENTITY_HAVE_DRAWABLE, entity); }
-	static BOOL DOES_ENTITY_HAVE_PHYSICS(Entity entity) { return Native::Invoke<BOOL, Entity>(N::DOES_ENTITY_HAVE_PHYSICS, entity); }
-	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_OBJECT(Entity entity) { return Native::Invoke<BOOL, Entity>(N::HAS_ENTITY_BEEN_DAMAGED_BY_ANY_OBJECT, entity); }
-	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::HAS_ENTITY_BEEN_DAMAGED_BY_ANY_PED, entity); }
-	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::HAS_ENTITY_BEEN_DAMAGED_BY_ANY_VEHICLE, entity); }
-	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ENTITY(Entity entity1, Entity entity2, BOOL p2, Any p3) { return Native::Invoke<BOOL, Entity, Entity, BOOL, Any>(N::HAS_ENTITY_BEEN_DAMAGED_BY_ENTITY, entity1, entity2, p2, p3); }
+	static BOOL DOES_ENTITY_EXIST(Entity entity) { return Native::Invoke<BOOL, Entity>(0xD42BD6EB2E0F1677, entity); }
+	static BOOL DOES_ENTITY_BELONG_TO_THIS_SCRIPT(Entity entity, BOOL p2) { return Native::Invoke<BOOL, Entity, BOOL>(0x622B1980CBE13332, entity, p2); }
+	static BOOL DOES_ENTITY_HAVE_DRAWABLE(Entity entity) { return Native::Invoke<BOOL, Entity>(0x20487F0DA9AF164A, entity); }
+	static BOOL DOES_ENTITY_HAVE_PHYSICS(Entity entity) { return Native::Invoke<BOOL, Entity>(0xA512B3F1B2A0B51C, entity); }
+	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_OBJECT(Entity entity) { return Native::Invoke<BOOL, Entity>(0x73BB763880CD23A6, entity); }
+	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(0x9934E9C42D52D87E, entity); }
+	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(0x695D7C26DE65C423, entity); }
+	static BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ENTITY(Entity entity1, Entity entity2, BOOL p2, Any p3) { return Native::Invoke<BOOL, Entity, Entity, BOOL, Any>(0x7B6E7BEC1143AC86, entity1, entity2, p2, p3); }
 	static Any _0x3EC28DA1FFAC9DDD(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x3EC28DA1FFAC9DDD, p0, p1, p2, p3); }
-	static BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY(Entity entity1, Entity entity2, int traceType) { return Native::Invoke<BOOL, Entity, Entity, int>(N::HAS_ENTITY_CLEAR_LOS_TO_ENTITY, entity1, entity2, traceType); }
+	static BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY(Entity entity1, Entity entity2, int traceType) { return Native::Invoke<BOOL, Entity, Entity, int>(0xFCDFF7B72D23A1AC, entity1, entity2, traceType); }
 	static Any _0x0C9DBF48C6BA6E4C(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x0C9DBF48C6BA6E4C, p0, p1, p2, p3, p4); }
-	static BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY_IN_FRONT(Entity entity1, Entity entity2, Any p2) { return Native::Invoke<BOOL, Entity, Entity, Any>(N::HAS_ENTITY_CLEAR_LOS_TO_ENTITY_IN_FRONT, entity1, entity2, p2); }
-	static BOOL HAS_ENTITY_COLLIDED_WITH_ANYTHING(Entity entity) { return Native::Invoke<BOOL, Entity>(N::HAS_ENTITY_COLLIDED_WITH_ANYTHING, entity); }
+	static BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY_IN_FRONT(Entity entity1, Entity entity2, Any p2) { return Native::Invoke<BOOL, Entity, Entity, Any>(0xE88F19660651D566, entity1, entity2, p2); }
+	static BOOL HAS_ENTITY_COLLIDED_WITH_ANYTHING(Entity entity) { return Native::Invoke<BOOL, Entity>(0xDF18751EC74F90FF, entity); }
 	static Any _0x6D58167F62238284(Any p0) { return Native::Invoke<Any, Any>(0x6D58167F62238284, p0); }
 	static Any _0xDFC2B226D56D85F6(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDFC2B226D56D85F6, p0, p1); }
-	static Any GET_ANIM_DURATION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::GET_ANIM_DURATION, p0, p1); }
-	static Entity GET_ENTITY_ATTACHED_TO(Entity entity) { return Native::Invoke<Entity, Entity>(N::GET_ENTITY_ATTACHED_TO, entity); }
-	static Vector3 GET_ENTITY_COORDS(Entity entity, BOOL alive, Any p2) { return Native::Invoke<Vector3, Entity, BOOL, Any>(N::GET_ENTITY_COORDS, entity, alive, p2); }
-	static Vector3 GET_ENTITY_FORWARD_VECTOR(Entity entity) { return Native::Invoke<Vector3, Entity>(N::GET_ENTITY_FORWARD_VECTOR, entity); }
-	static float GET_ENTITY_FORWARD_X(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_FORWARD_X, entity); }
-	static float GET_ENTITY_FORWARD_Y(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_FORWARD_Y, entity); }
+	static Any GET_ANIM_DURATION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9FFAF4940A54CC09, p0, p1); }
+	static Entity GET_ENTITY_ATTACHED_TO(Entity entity) { return Native::Invoke<Entity, Entity>(0x56D713888A566481, entity); }
+	static Vector3 GET_ENTITY_COORDS(Entity entity, BOOL alive, Any p2) { return Native::Invoke<Vector3, Entity, BOOL, Any>(0xA86D5F069399F44D, entity, alive, p2); }
+	static Vector3 GET_ENTITY_FORWARD_VECTOR(Entity entity) { return Native::Invoke<Vector3, Entity>(0x2412D9C05BB09B97, entity); }
+	static float GET_ENTITY_FORWARD_X(Entity entity) { return Native::Invoke<float, Entity>(0xDB0954E9960F6457, entity); }
+	static float GET_ENTITY_FORWARD_Y(Entity entity) { return Native::Invoke<float, Entity>(0x9A5C073ECBDA7EE7, entity); }
 	static Any _0x935A30AA88FB1014(Any p0) { return Native::Invoke<Any, Any>(0x935A30AA88FB1014, p0); }
-	static float GET_ENTITY_HEADING(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_HEADING, entity); }
-	static int GET_ENTITY_HEALTH(Entity entity) { return Native::Invoke<int, Entity>(N::GET_ENTITY_HEALTH, entity); }
+	static float GET_ENTITY_HEADING(Entity entity) { return Native::Invoke<float, Entity>(0xC230DD956E2F5507, entity); }
+	static int GET_ENTITY_HEALTH(Entity entity) { return Native::Invoke<int, Entity>(0x82368787EA73C0F7, entity); }
 	static Any _0x96C638784DB4C815(Any p0) { return Native::Invoke<Any, Any>(0x96C638784DB4C815, p0); }
 	static Any _0x835F131E7DC8F97A(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x835F131E7DC8F97A, p0, p1, p2); }
-	static int GET_ENTITY_MAX_HEALTH(Entity entity, Any p1) { return Native::Invoke<int, Entity, Any>(N::GET_ENTITY_MAX_HEALTH, entity, p1); }
-	static void SET_ENTITY_MAX_HEALTH(Entity entity, int value) { return Native::Invoke<void, Entity, int>(N::SET_ENTITY_MAX_HEALTH, entity, value); }
-	static float GET_ENTITY_HEIGHT(Entity entity, float X, float Y, float Z, BOOL atTop, BOOL inWorldCoords) { return Native::Invoke<float, Entity, float, float, float, BOOL, BOOL>(N::GET_ENTITY_HEIGHT, entity, X, Y, Z, atTop, inWorldCoords); }
-	static float GET_ENTITY_HEIGHT_ABOVE_GROUND(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_HEIGHT_ABOVE_GROUND, entity); }
+	static int GET_ENTITY_MAX_HEALTH(Entity entity, Any p1) { return Native::Invoke<int, Entity, Any>(0x15D757606D170C3C, entity, p1); }
+	static void SET_ENTITY_MAX_HEALTH(Entity entity, int value) { return Native::Invoke<void, Entity, int>(0x166E7CF68597D8B5, entity, value); }
+	static float GET_ENTITY_HEIGHT(Entity entity, float X, float Y, float Z, BOOL atTop, BOOL inWorldCoords) { return Native::Invoke<float, Entity, float, float, float, BOOL, BOOL>(0x296DEBC84474B375, entity, X, Y, Z, atTop, inWorldCoords); }
+	static float GET_ENTITY_HEIGHT_ABOVE_GROUND(Entity entity) { return Native::Invoke<float, Entity>(0x0D3B5BAEA08F63E9, entity); }
 	static Any _0xF3FDA9A617A15145() { return Native::Invoke<Any>(0xF3FDA9A617A15145); }
-	static void GET_ENTITY_MATRIX(Entity entity, Vector3* rightVector, Vector3* forwardVector, Vector3* upVector, Vector3* position) { return Native::Invoke<void, Entity, Vector3*, Vector3*, Vector3*, Vector3*>(N::GET_ENTITY_MATRIX, entity, rightVector, forwardVector, upVector, position); }
-	static Hash GET_ENTITY_MODEL(Entity entity) { return Native::Invoke<Hash, Entity>(N::GET_ENTITY_MODEL, entity); }
+	static void GET_ENTITY_MATRIX(Entity entity, Vector3* rightVector, Vector3* forwardVector, Vector3* upVector, Vector3* position) { return Native::Invoke<void, Entity, Vector3*, Vector3*, Vector3*, Vector3*>(0x3A9B1120AF13FBF2, entity, rightVector, forwardVector, upVector, position); }
+	static Hash GET_ENTITY_MODEL(Entity entity) { return Native::Invoke<Hash, Entity>(0xDA76A9F39210D365, entity); }
 	static Any _0x964000D355219FC0(Any p0) { return Native::Invoke<Any, Any>(0x964000D355219FC0, p0); }
 	static Any _0x9A100F1CF4546629(Any p0) { return Native::Invoke<Any, Any>(0x9A100F1CF4546629, p0); }
 	static Any _0xC346A546612C49A9(Any p0) { return Native::Invoke<Any, Any>(0xC346A546612C49A9, p0); }
 	static Any _0x5594AFE9DE0C01B7(Any p0) { return Native::Invoke<Any, Any>(0x5594AFE9DE0C01B7, p0); }
-	static Vector3 GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS(Entity entity, float posX, float posY, float posZ) { return Native::Invoke<Vector3, Entity, float, float, float>(N::GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS, entity, posX, posY, posZ); }
-	static Vector3 GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Entity entity, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Vector3, Entity, float, float, float>(N::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS, entity, offsetX, offsetY, offsetZ); }
-	static Any GET_ENTITY_PITCH() { return Native::Invoke<Any>(N::GET_ENTITY_PITCH); }
-	static float GET_ENTITY_ROLL(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_ROLL, entity); }
-	static Vector3 GET_ENTITY_ROTATION(Entity entity, int rotationOrder) { return Native::Invoke<Vector3, Entity, int>(N::GET_ENTITY_ROTATION, entity, rotationOrder); }
+	static Vector3 GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS(Entity entity, float posX, float posY, float posZ) { return Native::Invoke<Vector3, Entity, float, float, float>(0x497C6B1A2C9AE69C, entity, posX, posY, posZ); }
+	static Vector3 GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Entity entity, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Vector3, Entity, float, float, float>(0x1899F328B0E12848, entity, offsetX, offsetY, offsetZ); }
+	static float GET_ENTITY_PITCH() { return Native::Invoke<float>(0xEF355ABEFF7F5005); }
+	static float GET_ENTITY_ROLL(Entity entity) { return Native::Invoke<float, Entity>(0xBF966536FA8B6879, entity); }
+	static Vector3 GET_ENTITY_ROTATION(Entity entity, int rotationOrder) { return Native::Invoke<Vector3, Entity, int>(0xE09CAF86C32CB48F, entity, rotationOrder); }
 	static Any _0x2A08A32B6D49906F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x2A08A32B6D49906F, p0, p1); }
-	static float GET_ENTITY_SPEED(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_SPEED, entity); }
-	static Any GET_ENTITY_SPEED_VECTOR() { return Native::Invoke<Any>(N::GET_ENTITY_SPEED_VECTOR); }
-	static float GET_ENTITY_UPRIGHT_VALUE(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_UPRIGHT_VALUE, entity); }
-	static Vector3 GET_ENTITY_VELOCITY(Entity entity, Any p1) { return Native::Invoke<Vector3, Entity, Any>(N::GET_ENTITY_VELOCITY, entity, p1); }
-	static Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Object, Entity>(N::GET_OBJECT_INDEX_FROM_ENTITY_INDEX, entity); }
-	static Ped GET_PED_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Ped, Entity>(N::GET_PED_INDEX_FROM_ENTITY_INDEX, entity); }
-	static Vehicle GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Vehicle, Entity>(N::GET_VEHICLE_INDEX_FROM_ENTITY_INDEX, entity); }
-	static Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE(Entity entity, int boneIndex) { return Native::Invoke<Vector3, Entity, int>(N::GET_WORLD_POSITION_OF_ENTITY_BONE, entity, boneIndex); }
+	static float GET_ENTITY_SPEED(Entity entity) { return Native::Invoke<float, Entity>(0xFB6BA510A533DF81, entity); }
+	static Vector3 GET_ENTITY_SPEED_VECTOR() { return Native::Invoke<Vector3>(0xF2DB09816A419DC5); }
+	static float GET_ENTITY_UPRIGHT_VALUE(Entity entity) { return Native::Invoke<float, Entity>(0x56398BE65160C3BE, entity); }
+	static Vector3 GET_ENTITY_VELOCITY(Entity entity, Any p1) { return Native::Invoke<Vector3, Entity, Any>(0x4805D2B1D8CF94A9, entity, p1); }
+	static Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Object, Entity>(0x280BBE5601EAA983, entity); }
+	static Ped GET_PED_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Ped, Entity>(0x0F16D042BD640EA3, entity); }
+	static Vehicle GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(Entity entity) { return Native::Invoke<Vehicle, Entity>(0xDF1E5AAC561AFC59, entity); }
+	static Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE(Entity entity, int boneIndex) { return Native::Invoke<Vector3, Entity, int>(0x82CFA50E34681CA5, entity, boneIndex); }
 	static Any _0x5E214112806591EA() { return Native::Invoke<Any>(0x5E214112806591EA); }
 	static Any _0x3AB3A77672F6473F() { return Native::Invoke<Any>(0x3AB3A77672F6473F); }
-	static Any GET_NEAREST_PLAYER_TO_ENTITY() { return Native::Invoke<Any>(N::GET_NEAREST_PLAYER_TO_ENTITY); }
-	static Any GET_NEAREST_PLAYER_TO_ENTITY_ON_TEAM() { return Native::Invoke<Any>(N::GET_NEAREST_PLAYER_TO_ENTITY_ON_TEAM); }
+	static Player GET_NEAREST_PLAYER_TO_ENTITY() { return Native::Invoke<Player>(0x990E294FC387FB88); }
+	static Player GET_NEAREST_PLAYER_TO_ENTITY_ON_TEAM() { return Native::Invoke<Player>(0xB2C30C3B4AFF718C); }
 	static Any _0x6888A43C35A5F630() { return Native::Invoke<Any>(0x6888A43C35A5F630); }
 	static Any _0x9587913B9E772D29(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9587913B9E772D29, p0, p1); }
-	static int GET_ENTITY_TYPE(Entity entity) { return Native::Invoke<int, Entity>(N::GET_ENTITY_TYPE, entity); }
-	static Any GET_ENTITY_POPULATION_TYPE(Any p0) { return Native::Invoke<Any, Any>(N::GET_ENTITY_POPULATION_TYPE, p0); }
-	static BOOL IS_AN_ENTITY(int handle) { return Native::Invoke<BOOL, int>(N::IS_AN_ENTITY, handle); }
-	static BOOL IS_ENTITY_A_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_A_PED, entity); }
-	static BOOL IS_ENTITY_A_MISSION_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_A_MISSION_ENTITY, entity); }
-	static BOOL IS_ENTITY_A_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_A_VEHICLE, entity); }
-	static BOOL IS_ENTITY_AN_OBJECT(Player* entity) { return Native::Invoke<BOOL, Player*>(N::IS_ENTITY_AN_OBJECT, entity); }
-	static BOOL IS_ENTITY_AT_COORD(Entity entity, float xPos, float yPos, float zPos, float xSize, float ySize, float zSize, BOOL p7, BOOL p8, int p9) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, BOOL, BOOL, int>(N::IS_ENTITY_AT_COORD, entity, xPos, yPos, zPos, xSize, ySize, zSize, p7, p8, p9); }
-	static BOOL IS_ENTITY_AT_ENTITY(Entity entity1, Entity entity2, float xSize, float ySize, float zSize, BOOL p5, BOOL p6, int p7) { return Native::Invoke<BOOL, Entity, Entity, float, float, float, BOOL, BOOL, int>(N::IS_ENTITY_AT_ENTITY, entity1, entity2, xSize, ySize, zSize, p5, p6, p7); }
-	static BOOL IS_ENTITY_ATTACHED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ATTACHED, entity); }
-	static BOOL IS_ENTITY_ATTACHED_TO_ANY_OBJECT(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ATTACHED_TO_ANY_OBJECT, entity); }
-	static BOOL IS_ENTITY_ATTACHED_TO_ANY_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ATTACHED_TO_ANY_PED, entity); }
-	static BOOL IS_ENTITY_ATTACHED_TO_ANY_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ATTACHED_TO_ANY_VEHICLE, entity); }
-	static BOOL IS_ENTITY_ATTACHED_TO_ENTITY(Entity from, Entity to) { return Native::Invoke<BOOL, Entity, Entity>(N::IS_ENTITY_ATTACHED_TO_ENTITY, from, to); }
+	static int GET_ENTITY_TYPE(Entity entity) { return Native::Invoke<int, Entity>(0x97F696ACA466B4E0, entity); }
+	static Any GET_ENTITY_POPULATION_TYPE(Any p0) { return Native::Invoke<Any, Any>(0xADE28862B6D7B85B, p0); }
+	static BOOL IS_AN_ENTITY(int handle) { return Native::Invoke<BOOL, int>(0x27CFF3E5A286D3DF, handle); }
+	static BOOL IS_ENTITY_A_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(0xCF8176912DDA4EA5, entity); }
+	static BOOL IS_ENTITY_A_MISSION_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(0x138190F64DB4BBD1, entity); }
+	static BOOL IS_ENTITY_A_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(0xC3D96AF45FCCEC4C, entity); }
+	static BOOL IS_ENTITY_AN_OBJECT(Player* entity) { return Native::Invoke<BOOL, Player*>(0x0A27A546A375FDEF, entity); }
+	static BOOL IS_ENTITY_AT_COORD(Entity entity, float xPos, float yPos, float zPos, float xSize, float ySize, float zSize, BOOL p7, BOOL p8, int p9) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, BOOL, BOOL, int>(0x5E58342602E94718, entity, xPos, yPos, zPos, xSize, ySize, zSize, p7, p8, p9); }
+	static BOOL IS_ENTITY_AT_ENTITY(Entity entity1, Entity entity2, float xSize, float ySize, float zSize, BOOL p5, BOOL p6, int p7) { return Native::Invoke<BOOL, Entity, Entity, float, float, float, BOOL, BOOL, int>(0xC057F02B837A27F6, entity1, entity2, xSize, ySize, zSize, p5, p6, p7); }
+	static BOOL IS_ENTITY_ATTACHED(Entity entity) { return Native::Invoke<BOOL, Entity>(0xEE6AD63ABF59C0B7, entity); }
+	static BOOL IS_ENTITY_ATTACHED_TO_ANY_OBJECT(Entity entity) { return Native::Invoke<BOOL, Entity>(0x306C1F6178F01AB3, entity); }
+	static BOOL IS_ENTITY_ATTACHED_TO_ANY_PED(Entity entity) { return Native::Invoke<BOOL, Entity>(0xC841153DED2CA89A, entity); }
+	static BOOL IS_ENTITY_ATTACHED_TO_ANY_VEHICLE(Entity entity) { return Native::Invoke<BOOL, Entity>(0x12DF6E0D2E736749, entity); }
+	static BOOL IS_ENTITY_ATTACHED_TO_ENTITY(Entity from, Entity to) { return Native::Invoke<BOOL, Entity, Entity>(0x154A3C529497053E, from, to); }
 	static Any _0xA7E51B53309EAC97(Any p0) { return Native::Invoke<Any, Any>(0xA7E51B53309EAC97, p0); }
-	static BOOL IS_ENTITY_DEAD(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_DEAD, entity); }
-	static BOOL IS_ENTITY_IN_AIR(Entity entity, Any p1) { return Native::Invoke<BOOL, Entity, Any>(N::IS_ENTITY_IN_AIR, entity, p1); }
-	static BOOL IS_ENTITY_IN_ANGLED_AREA(Entity entity, float originX, float originY, float originZ, float edgeX, float edgeY, float edgeZ, float angle, BOOL p8, BOOL p9, Any p10) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, float, BOOL, BOOL, Any>(N::IS_ENTITY_IN_ANGLED_AREA, entity, originX, originY, originZ, edgeX, edgeY, edgeZ, angle, p8, p9, p10); }
-	static BOOL IS_ENTITY_IN_AREA(Entity entity, float x1, float y1, float z1, float x2, float y2, float z2, BOOL p7, BOOL p8, Any p9) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, BOOL, BOOL, Any>(N::IS_ENTITY_IN_AREA, entity, x1, y1, z1, x2, y2, z2, p7, p8, p9); }
-	static Any _0x5A5526BC09C06623(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x5A5526BC09C06623, p0, p1, p2, p3); }
-	static BOOL IS_ENTITY_IN_WATER(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_IN_WATER, entity); }
+	static BOOL IS_ENTITY_DEAD(Entity entity) { return Native::Invoke<BOOL, Entity>(0x7D5B1F88E7504BBA, entity); }
+	static BOOL IS_ENTITY_IN_AIR(Entity entity, Any p1) { return Native::Invoke<BOOL, Entity, Any>(0x886E37EC497200B6, entity, p1); }
+	static BOOL IS_ENTITY_IN_ANGLED_AREA(Entity entity, float originX, float originY, float originZ, float edgeX, float edgeY, float edgeZ, float angle, BOOL p8, BOOL p9, Any p10) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, float, BOOL, BOOL, Any>(0xD3151E53134595E5, entity, originX, originY, originZ, edgeX, edgeY, edgeZ, angle, p8, p9, p10); }
+	static BOOL IS_ENTITY_IN_AREA(Entity entity, float x1, float y1, float z1, float x2, float y2, float z2, BOOL p7, BOOL p8, Any p9) { return Native::Invoke<BOOL, Entity, float, float, float, float, float, float, BOOL, BOOL, Any>(0x0C2634C40A16193E, entity, x1, y1, z1, x2, y2, z2, p7, p8, p9); }
+	static Any IS_ENTITY_IN_VOLUME(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x5A5526BC09C06623, p0, p1, p2, p3); }
+	static BOOL IS_ENTITY_IN_WATER(Entity entity) { return Native::Invoke<BOOL, Entity>(0xDDE5C125AC446723, entity); }
 	static Any _0xD4E5C1E93C466127(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD4E5C1E93C466127, p0, p1); }
-	static float GET_ENTITY_SUBMERGED_LEVEL(Entity entity) { return Native::Invoke<float, Entity>(N::GET_ENTITY_SUBMERGED_LEVEL, entity); }
+	static float GET_ENTITY_SUBMERGED_LEVEL(Entity entity) { return Native::Invoke<float, Entity>(0x4A77C3F73FD9E831, entity); }
 	static void _0x850C940EE3E7B8B5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x850C940EE3E7B8B5, p0, p1); }
 	static void _0x7A49D40DE437BC8D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7A49D40DE437BC8D, p0, p1); }
 	static void _0x978AA2323ED32209(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x978AA2323ED32209, p0, p1); }
 	static void _0x002AAC783ED323ED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x002AAC783ED323ED, p0, p1); }
 	static void _0x007AAC783ED323ED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x007AAC783ED323ED, p0, p1, p2); }
-	static BOOL IS_ENTITY_ON_SCREEN(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ON_SCREEN, entity); }
-	static BOOL IS_ENTITY_PLAYING_ANIM(Entity entity, char* animDict, char* animName, int taskFlag) { return Native::Invoke<BOOL, Entity, char*, char*, int>(N::IS_ENTITY_PLAYING_ANIM, entity, animDict, animName, taskFlag); }
+	static BOOL IS_ENTITY_ON_SCREEN(Entity entity) { return Native::Invoke<BOOL, Entity>(0x613C15D5D8DB781F, entity); }
+	static BOOL IS_ENTITY_PLAYING_ANIM(Entity entity, const char* animDict, const char* animName, int taskFlag) { return Native::Invoke<BOOL, Entity, const char*, const char*, int>(0xDEE49D5CA6C49148, entity, animDict, animName, taskFlag); }
 	static Any _0x0B7CB1300CBFE19C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0B7CB1300CBFE19C, p0, p1); }
-	static BOOL IS_ENTITY_STATIC(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_STATIC, entity); }
-	static BOOL IS_ENTITY_TOUCHING_ENTITY(Entity entity, Entity targetEntity) { return Native::Invoke<BOOL, Entity, Entity>(N::IS_ENTITY_TOUCHING_ENTITY, entity, targetEntity); }
-	static BOOL IS_ENTITY_TOUCHING_MODEL(Entity entity, Hash modelHash) { return Native::Invoke<BOOL, Entity, Hash>(N::IS_ENTITY_TOUCHING_MODEL, entity, modelHash); }
-	static BOOL IS_ENTITY_UPRIGHT(Entity entity, float angle) { return Native::Invoke<BOOL, Entity, float>(N::IS_ENTITY_UPRIGHT, entity, angle); }
-	static BOOL IS_ENTITY_UPSIDEDOWN(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_UPSIDEDOWN, entity); }
-	static BOOL IS_ENTITY_VISIBLE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_VISIBLE, entity); }
+	static BOOL IS_ENTITY_STATIC(Entity entity) { return Native::Invoke<BOOL, Entity>(0x86468ADFA0F6B861, entity); }
+	static BOOL IS_ENTITY_TOUCHING_ENTITY(Entity entity, Entity targetEntity) { return Native::Invoke<BOOL, Entity, Entity>(0x9A2304A64C3C8423, entity, targetEntity); }
+	static BOOL IS_ENTITY_TOUCHING_MODEL(Entity entity, Hash modelHash) { return Native::Invoke<BOOL, Entity, Hash>(0x2AE3EBC8DEB9768B, entity, modelHash); }
+	static BOOL IS_ENTITY_UPRIGHT(Entity entity, float angle) { return Native::Invoke<BOOL, Entity, float>(0xF6F6AFD8D4FB2658, entity, angle); }
+	static BOOL IS_ENTITY_UPSIDEDOWN(Entity entity) { return Native::Invoke<BOOL, Entity>(0x109DE3DA41AAD94A, entity); }
+	static BOOL IS_ENTITY_VISIBLE(Entity entity) { return Native::Invoke<BOOL, Entity>(0xFFC96ECB7FA404CA, entity); }
 	static Any _0xFF9965C47FA404DA() { return Native::Invoke<Any>(0xFF9965C47FA404DA); }
-	static BOOL IS_ENTITY_VISIBLE_TO_SCRIPT(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_VISIBLE_TO_SCRIPT, entity); }
+	static BOOL IS_ENTITY_VISIBLE_TO_SCRIPT(Entity entity) { return Native::Invoke<BOOL, Entity>(0xF213C724E77F321A, entity); }
 	static void _0x3F08C6163A4AB1D6(Any p0) { return Native::Invoke<void, Any>(0x3F08C6163A4AB1D6, p0); }
 	static void _0x0DB41D59E0F1502B(Any p0) { return Native::Invoke<void, Any>(0x0DB41D59E0F1502B, p0); }
 	static Any _0xC8CCDB712FBCBA92(Any p0) { return Native::Invoke<Any, Any>(0xC8CCDB712FBCBA92, p0); }
-	static BOOL IS_ENTITY_OCCLUDED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_OCCLUDED, entity); }
-	static BOOL WOULD_ENTITY_BE_OCCLUDED(Hash entityModelHash, float x, float y, float z, BOOL p4) { return Native::Invoke<BOOL, Hash, float, float, float, BOOL>(N::WOULD_ENTITY_BE_OCCLUDED, entityModelHash, x, y, z, p4); }
-	static BOOL IS_ENTITY_WAITING_FOR_WORLD_COLLISION(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_WAITING_FOR_WORLD_COLLISION, entity); }
+	static BOOL IS_ENTITY_OCCLUDED(Entity entity) { return Native::Invoke<BOOL, Entity>(0x140188E884645624, entity); }
+	static BOOL WOULD_ENTITY_BE_OCCLUDED(Hash entityModelHash, float x, float y, float z, BOOL p4) { return Native::Invoke<BOOL, Hash, float, float, float, BOOL>(0x3546FAB293FF2981, entityModelHash, x, y, z, p4); }
+	static BOOL IS_ENTITY_WAITING_FOR_WORLD_COLLISION(Entity entity) { return Native::Invoke<BOOL, Entity>(0x5E1CC2E8DC3111DD, entity); }
 	static Any _0x857ACB0AB4BD0D55(Any p0) { return Native::Invoke<Any, Any>(0x857ACB0AB4BD0D55, p0); }
 	static void _0xCDB682BB47C02F0A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCDB682BB47C02F0A, p0, p1); }
 	static void _0xE19035EB65AB2932(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE19035EB65AB2932, p0, p1); }
@@ -1156,88 +1156,88 @@ namespace ENTITY
 	static Any _0x482D17E45665DA44() { return Native::Invoke<Any>(0x482D17E45665DA44); }
 	static Any _0xE75EEA8DB59A9F39() { return Native::Invoke<Any>(0xE75EEA8DB59A9F39); }
 	static Any _0x188736456D1DEDE6() { return Native::Invoke<Any>(0x188736456D1DEDE6); }
-	static void APPLY_FORCE_TO_ENTITY_CENTER_OF_MASS(Entity entity, int forceType, float x, float y, float z, BOOL p5, BOOL isDirectionRel, BOOL isForceRel, BOOL p8) { return Native::Invoke<void, Entity, int, float, float, float, BOOL, BOOL, BOOL, BOOL>(N::APPLY_FORCE_TO_ENTITY_CENTER_OF_MASS, entity, forceType, x, y, z, p5, isDirectionRel, isForceRel, p8); }
-	static void APPLY_FORCE_TO_ENTITY(Entity entity, int forceFlags, float x, float y, float z, float offX, float offY, float offZ, int boneIndex, BOOL isDirectionRel, BOOL ignoreUpVec, BOOL isForceRel, BOOL p12, BOOL p13) { return Native::Invoke<void, Entity, int, float, float, float, float, float, float, int, BOOL, BOOL, BOOL, BOOL, BOOL>(N::APPLY_FORCE_TO_ENTITY, entity, forceFlags, x, y, z, offX, offY, offZ, boneIndex, isDirectionRel, ignoreUpVec, isForceRel, p12, p13); }
-	static void ATTACH_ENTITY_TO_ENTITY(Entity entity1, Entity entity2, int boneIndex, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, BOOL p9, BOOL useSoftPinning, BOOL collision, BOOL isPed, int vertexIndex, BOOL fixedRot, Any p15, Any p16) { return Native::Invoke<void, Entity, Entity, int, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL, int, BOOL, Any, Any>(N::ATTACH_ENTITY_TO_ENTITY, entity1, entity2, boneIndex, xPos, yPos, zPos, xRot, yRot, zRot, p9, useSoftPinning, collision, isPed, vertexIndex, fixedRot, p15, p16); }
-	static void ATTACH_ENTITY_TO_ENTITY_PHYSICALLY(Entity entity1, Entity entity2, int boneIndex1, int boneIndex2, float xPos1, float yPos1, float zPos1, float xPos2, float yPos2, float zPos2, float xRot, float yRot, float zRot, float breakForce, BOOL fixedRot, BOOL p15, BOOL collision, BOOL teleport, int p18, Any p19, Any p20, Any p21) { return Native::Invoke<void, Entity, Entity, int, int, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL, int, Any, Any, Any>(N::ATTACH_ENTITY_TO_ENTITY_PHYSICALLY, entity1, entity2, boneIndex1, boneIndex2, xPos1, yPos1, zPos1, xPos2, yPos2, zPos2, xRot, yRot, zRot, breakForce, fixedRot, p15, collision, teleport, p18, p19, p20, p21); }
+	static void APPLY_FORCE_TO_ENTITY_CENTER_OF_MASS(Entity entity, int forceType, float x, float y, float z, BOOL p5, BOOL isDirectionRel, BOOL isForceRel, BOOL p8) { return Native::Invoke<void, Entity, int, float, float, float, BOOL, BOOL, BOOL, BOOL>(0x31DA7CEC5334DB37, entity, forceType, x, y, z, p5, isDirectionRel, isForceRel, p8); }
+	static void APPLY_FORCE_TO_ENTITY(Entity entity, int forceFlags, float x, float y, float z, float offX, float offY, float offZ, int boneIndex, BOOL isDirectionRel, BOOL ignoreUpVec, BOOL isForceRel, BOOL p12, BOOL p13) { return Native::Invoke<void, Entity, int, float, float, float, float, float, float, int, BOOL, BOOL, BOOL, BOOL, BOOL>(0xF15E8F5D333F09C4, entity, forceFlags, x, y, z, offX, offY, offZ, boneIndex, isDirectionRel, ignoreUpVec, isForceRel, p12, p13); }
+	static void ATTACH_ENTITY_TO_ENTITY(Entity entity1, Entity entity2, int boneIndex, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, BOOL p9, BOOL useSoftPinning, BOOL collision, BOOL isPed, int vertexIndex, BOOL fixedRot, Any p15, Any p16) { return Native::Invoke<void, Entity, Entity, int, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL, int, BOOL, Any, Any>(0x6B9BBD38AB0796DF, entity1, entity2, boneIndex, xPos, yPos, zPos, xRot, yRot, zRot, p9, useSoftPinning, collision, isPed, vertexIndex, fixedRot, p15, p16); }
+	static void ATTACH_ENTITY_TO_ENTITY_PHYSICALLY(Entity entity1, Entity entity2, int boneIndex1, int boneIndex2, float xPos1, float yPos1, float zPos1, float xPos2, float yPos2, float zPos2, float xRot, float yRot, float zRot, float breakForce, BOOL fixedRot, BOOL p15, BOOL collision, BOOL teleport, int p18, Any p19, Any p20, Any p21) { return Native::Invoke<void, Entity, Entity, int, int, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL, int, Any, Any, Any>(0xB629A43CA1643481, entity1, entity2, boneIndex1, boneIndex2, xPos1, yPos1, zPos1, xPos2, yPos2, zPos2, xRot, yRot, zRot, breakForce, fixedRot, p15, collision, teleport, p18, p19, p20, p21); }
 	static void _0x445D7D8EA66E373E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x445D7D8EA66E373E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15); }
 	static void _0x16908E859C3AB698(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x16908E859C3AB698, p0, p1, p2, p3, p4); }
-	static int GET_ENTITY_BONE_INDEX_BY_NAME(Entity entity, char* boneName) { return Native::Invoke<int, Entity, char*>(N::GET_ENTITY_BONE_INDEX_BY_NAME, entity, boneName); }
-	static Any CLEAR_ENTITY_LAST_DAMAGE_ENTITY(Entity entity) { return Native::Invoke<Any, Entity>(N::CLEAR_ENTITY_LAST_DAMAGE_ENTITY, entity); }
-	static void DELETE_ENTITY(Entity* entity) { return Native::Invoke<void, Entity*>(N::DELETE_ENTITY, entity); }
+	static int GET_ENTITY_BONE_INDEX_BY_NAME(Entity entity, const char* boneName) { return Native::Invoke<int, Entity, const char*>(0xBACA8FE9C76C124E, entity, boneName); }
+	static Any CLEAR_ENTITY_LAST_DAMAGE_ENTITY(Entity entity) { return Native::Invoke<Any, Entity>(0xBB19AC7D4DCEFD0F, entity); }
+	static void DELETE_ENTITY(Entity* entity) { return Native::Invoke<void, Entity*>(0x4CD38C78BD19A497, entity); }
 	static Any _0x5E94EA09E7207C16() { return Native::Invoke<Any>(0x5E94EA09E7207C16); }
-	static void DETACH_ENTITY(Entity entity, BOOL p1, BOOL collision) { return Native::Invoke<void, Entity, BOOL, BOOL>(N::DETACH_ENTITY, entity, p1, collision); }
+	static void DETACH_ENTITY(Entity entity, BOOL p1, BOOL collision) { return Native::Invoke<void, Entity, BOOL, BOOL>(0x64CDE9D6BF8ECAD3, entity, p1, collision); }
 	static Any _0x083D497D57B7400F(Any p0) { return Native::Invoke<Any, Any>(0x083D497D57B7400F, p0); }
-	static void FREEZE_ENTITY_POSITION(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::FREEZE_ENTITY_POSITION, entity, toggle); }
-	static void _SET_ENTITY_SOMETHING(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::_SET_ENTITY_SOMETHING, entity, toggle); }
-	static void SET_ENTITY_AS_MISSION_ENTITY(Entity entity, BOOL p1, BOOL p2) { return Native::Invoke<void, Entity, BOOL, BOOL>(N::SET_ENTITY_AS_MISSION_ENTITY, entity, p1, p2); }
-	static void SET_ENTITY_AS_NO_LONGER_NEEDED(Entity* entity) { return Native::Invoke<void, Entity*>(N::SET_ENTITY_AS_NO_LONGER_NEEDED, entity); }
-	static void SET_PED_AS_NO_LONGER_NEEDED(Ped* ped) { return Native::Invoke<void, Ped*>(N::SET_PED_AS_NO_LONGER_NEEDED, ped); }
-	static void SET_VEHICLE_AS_NO_LONGER_NEEDED(Vehicle* vehicle) { return Native::Invoke<void, Vehicle*>(N::SET_VEHICLE_AS_NO_LONGER_NEEDED, vehicle); }
-	static void SET_OBJECT_AS_NO_LONGER_NEEDED(Object* object) { return Native::Invoke<void, Object*>(N::SET_OBJECT_AS_NO_LONGER_NEEDED, object); }
+	static void FREEZE_ENTITY_POSITION(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x7D9EFB7AD6B19754, entity, toggle); }
+	static void _SET_ENTITY_SOMETHING(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x740CB4F3F602C9F4, entity, toggle); }
+	static void SET_ENTITY_AS_MISSION_ENTITY(Entity entity, BOOL p1, BOOL p2) { return Native::Invoke<void, Entity, BOOL, BOOL>(0xDC19C288082E586E, entity, p1, p2); }
+	static void SET_ENTITY_AS_NO_LONGER_NEEDED(Entity* entity) { return Native::Invoke<void, Entity*>(0x4971D2F8162B9674, entity); }
+	static void SET_PED_AS_NO_LONGER_NEEDED(Ped* ped) { return Native::Invoke<void, Ped*>(0x2595DD4236549CE3, ped); }
+	static void SET_VEHICLE_AS_NO_LONGER_NEEDED(Vehicle* vehicle) { return Native::Invoke<void, Vehicle*>(0x629BFA74418D6239, vehicle); }
+	static void SET_OBJECT_AS_NO_LONGER_NEEDED(Object* object) { return Native::Invoke<void, Object*>(0x3AE22DEB5BA5A3E6, object); }
 	static void _0x20FAEE47427A4497() { return Native::Invoke<void>(0x20FAEE47427A4497); }
 	static Any _0x88AD6CC10D8D35B2(Any p0) { return Native::Invoke<Any, Any>(0x88AD6CC10D8D35B2, p0); }
 	static void _0x56E0735D6273B227(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x56E0735D6273B227, p0, p1); }
 	static Any _0xC0EDEF16D90661EE() { return Native::Invoke<Any>(0xC0EDEF16D90661EE); }
 	static Any _0x0FD7D7C232876E72() { return Native::Invoke<Any>(0x0FD7D7C232876E72); }
 	static Any _0x0939E773925C4719() { return Native::Invoke<Any>(0x0939E773925C4719); }
-	static void SET_ENTITY_CAN_BE_DAMAGED(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_CAN_BE_DAMAGED, entity, toggle); }
+	static void SET_ENTITY_CAN_BE_DAMAGED(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x0D06D522B90E861F, entity, toggle); }
 	static Any _0x75DF9E73F2F005FD(Any p0) { return Native::Invoke<Any, Any>(0x75DF9E73F2F005FD, p0); }
-	static void SET_ENTITY_CAN_BE_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL bCanBeDamaged, int relGroup) { return Native::Invoke<void, Entity, BOOL, int>(N::SET_ENTITY_CAN_BE_DAMAGED_BY_RELATIONSHIP_GROUP, entity, bCanBeDamaged, relGroup); }
+	static void SET_ENTITY_CAN_BE_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL bCanBeDamaged, int relGroup) { return Native::Invoke<void, Entity, BOOL, int>(0x0EF1AFB18649E015, entity, bCanBeDamaged, relGroup); }
 	static Any _0xFF83AF534156B399() { return Native::Invoke<Any>(0xFF83AF534156B399); }
-	static void SET_ENTITY_CAN_BE_TARGETED_WITHOUT_LOS(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_CAN_BE_TARGETED_WITHOUT_LOS, entity, toggle); }
-	static Any GET_ENTITY_COLLISION_DISABLED(Any p0) { return Native::Invoke<Any, Any>(N::GET_ENTITY_COLLISION_DISABLED, p0); }
-	static void SET_ENTITY_COLLISION(Entity entity, BOOL toggle, BOOL keepPhysics) { return Native::Invoke<void, Entity, BOOL, BOOL>(N::SET_ENTITY_COLLISION, entity, toggle, keepPhysics); }
-	static void SET_ENTITY_COMPLETELY_DISABLE_COLLISION(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_ENTITY_COMPLETELY_DISABLE_COLLISION, p0, p1, p2); }
-	static void SET_ENTITY_COORDS(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL clearArea) { return Native::Invoke<void, Entity, float, float, float, BOOL, BOOL, BOOL, BOOL>(N::SET_ENTITY_COORDS, entity, xPos, yPos, zPos, xAxis, yAxis, zAxis, clearArea); }
-	static void SET_ENTITY_COORDS_NO_OFFSET(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<void, Entity, float, float, float, BOOL, BOOL, BOOL>(N::SET_ENTITY_COORDS_NO_OFFSET, entity, xPos, yPos, zPos, xAxis, yAxis, zAxis); }
-	static void SET_ENTITY_DYNAMIC(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_DYNAMIC, entity, toggle); }
-	static void SET_ENTITY_HEADING(Entity entity, float heading) { return Native::Invoke<void, Entity, float>(N::SET_ENTITY_HEADING, entity, heading); }
+	static void SET_ENTITY_CAN_BE_TARGETED_WITHOUT_LOS(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x6D09F32E284D0FB7, entity, toggle); }
+	static Any GET_ENTITY_COLLISION_DISABLED(Any p0) { return Native::Invoke<Any, Any>(0xAA2FADD30F45A9DA, p0); }
+	static void SET_ENTITY_COLLISION(Entity entity, BOOL toggle, BOOL keepPhysics) { return Native::Invoke<void, Entity, BOOL, BOOL>(0xF66F820909453B8C, entity, toggle, keepPhysics); }
+	static void SET_ENTITY_COMPLETELY_DISABLE_COLLISION(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xE0580EC84813875A, p0, p1, p2); }
+	static void SET_ENTITY_COORDS(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL clearArea) { return Native::Invoke<void, Entity, float, float, float, BOOL, BOOL, BOOL, BOOL>(0x06843DA7060A026B, entity, xPos, yPos, zPos, xAxis, yAxis, zAxis, clearArea); }
+	static void SET_ENTITY_COORDS_NO_OFFSET(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<void, Entity, float, float, float, BOOL, BOOL, BOOL>(0x239A3351AC1DA385, entity, xPos, yPos, zPos, xAxis, yAxis, zAxis); }
+	static void SET_ENTITY_DYNAMIC(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0xFBFC4473F66CE344, entity, toggle); }
+	static void SET_ENTITY_HEADING(Entity entity, float heading) { return Native::Invoke<void, Entity, float>(0xCF2B9C0645C4651B, entity, heading); }
 	static void _0x203BEFFDBE12E96A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x203BEFFDBE12E96A, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0x0918E3565C20F03C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x0918E3565C20F03C, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xAC2767ED8BDFAB15(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xAC2767ED8BDFAB15, p0, p1, p2); }
-	static void SET_ENTITY_INVINCIBLE(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_INVINCIBLE, entity, toggle); }
+	static void SET_ENTITY_INVINCIBLE(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0xA5C38736C426FCB8, entity, toggle); }
 	static void _0xAF7F3099B9FEB535(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xAF7F3099B9FEB535, p0, p1, p2, p3); }
-	static void SET_ENTITY_IS_TARGET_PRIORITY(Entity entity, BOOL p1, float p2) { return Native::Invoke<void, Entity, BOOL, float>(N::SET_ENTITY_IS_TARGET_PRIORITY, entity, p1, p2); }
+	static void SET_ENTITY_IS_TARGET_PRIORITY(Entity entity, BOOL p1, float p2) { return Native::Invoke<void, Entity, BOOL, float>(0x0A5D170C44CB2189, entity, p1, p2); }
 	static Any _0xB38A29CCD5447783() { return Native::Invoke<Any>(0xB38A29CCD5447783); }
 	static void _0x4B436BAC8CBE9B07(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4B436BAC8CBE9B07, p0, p1, p2); }
 	static Any _0xE12F56CB25D9CE23() { return Native::Invoke<Any>(0xE12F56CB25D9CE23); }
 	static void _0x2D40BCBFE9305DEA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2D40BCBFE9305DEA, p0, p1); }
 	static void _0xEBDC12861D079ABA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xEBDC12861D079ABA, p0, p1); }
-	static void SET_ENTITY_LOAD_COLLISION_FLAG(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_LOAD_COLLISION_FLAG, entity, toggle); }
-	static BOOL HAS_COLLISION_LOADED_AROUND_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(N::HAS_COLLISION_LOADED_AROUND_ENTITY, entity); }
+	static void SET_ENTITY_LOAD_COLLISION_FLAG(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x9B9EE31AED48072E, entity, toggle); }
+	static BOOL HAS_COLLISION_LOADED_AROUND_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(0xBEB1600952B9CF5C, entity); }
 	static Any _0x6BFBDC46139C45AB(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6BFBDC46139C45AB, p0, p1, p2); }
-	static void SET_ENTITY_ONLY_DAMAGED_BY_PLAYER(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_ONLY_DAMAGED_BY_PLAYER, entity, toggle); }
-	static void SET_ENTITY_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL p1, Hash relationshipHash) { return Native::Invoke<void, Entity, BOOL, Hash>(N::SET_ENTITY_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP, entity, p1, relationshipHash); }
-	static void SET_ENTITY_PROOFS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_ENTITY_PROOFS, p0, p1, p2); }
+	static void SET_ENTITY_ONLY_DAMAGED_BY_PLAYER(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x473598683095D430, entity, toggle); }
+	static void SET_ENTITY_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL p1, Hash relationshipHash) { return Native::Invoke<void, Entity, BOOL, Hash>(0x6C1F6AA2F0ADD104, entity, p1, relationshipHash); }
+	static void SET_ENTITY_PROOFS(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xFAEE099C6F890BB8, p0, p1, p2); }
 	static Any _0x6CF0DAD7FA1088EA() { return Native::Invoke<Any>(0x6CF0DAD7FA1088EA); }
-	static void SET_ENTITY_QUATERNION(Entity entity, float x, float y, float z, float w) { return Native::Invoke<void, Entity, float, float, float, float>(N::SET_ENTITY_QUATERNION, entity, x, y, z, w); }
-	static void SET_ENTITY_ROTATION(Entity entity, float pitch, float roll, float yaw, int rotationOrder, BOOL p5) { return Native::Invoke<void, Entity, float, float, float, int, BOOL>(N::SET_ENTITY_ROTATION, entity, pitch, roll, yaw, rotationOrder, p5); }
+	static void SET_ENTITY_QUATERNION(Entity entity, float x, float y, float z, float w) { return Native::Invoke<void, Entity, float, float, float, float>(0x100E7007D13E3687, entity, x, y, z, w); }
+	static void SET_ENTITY_ROTATION(Entity entity, float pitch, float roll, float yaw, int rotationOrder, BOOL p5) { return Native::Invoke<void, Entity, float, float, float, int, BOOL>(0x9CC8314DFEDE441E, entity, pitch, roll, yaw, rotationOrder, p5); }
 	static void _0xD45BB89B53FC0CFD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xD45BB89B53FC0CFD, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void SET_ENTITY_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_ENTITY_VISIBLE, p0, p1); }
+	static void SET_ENTITY_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1794B4FCC84D812F, p0, p1); }
 	static void _0x80FDEB3A9E9AA578(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x80FDEB3A9E9AA578, p0, p1); }
-	static void SET_ENTITY_VELOCITY(Entity entity, float x, float y, float z) { return Native::Invoke<void, Entity, float, float, float>(N::SET_ENTITY_VELOCITY, entity, x, y, z); }
-	static void SET_ENTITY_HAS_GRAVITY(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_HAS_GRAVITY, entity, toggle); }
-	static void SET_ENTITY_LOD_DIST(Entity entity, int value) { return Native::Invoke<void, Entity, int>(N::SET_ENTITY_LOD_DIST, entity, value); }
-	static int GET_ENTITY_LOD_DIST(Entity entity) { return Native::Invoke<int, Entity>(N::GET_ENTITY_LOD_DIST, entity); }
-	static void SET_ENTITY_ALPHA(Entity entity, int alphaLevel, BOOL unk) { return Native::Invoke<void, Entity, int, BOOL>(N::SET_ENTITY_ALPHA, entity, alphaLevel, unk); }
-	static int GET_ENTITY_ALPHA(Entity entity) { return Native::Invoke<int, Entity>(N::GET_ENTITY_ALPHA, entity); }
-	static Any RESET_ENTITY_ALPHA(Entity entity) { return Native::Invoke<Any, Entity>(N::RESET_ENTITY_ALPHA, entity); }
+	static void SET_ENTITY_VELOCITY(Entity entity, float x, float y, float z) { return Native::Invoke<void, Entity, float, float, float>(0x1C99BB7B6E96D16F, entity, x, y, z); }
+	static void SET_ENTITY_HAS_GRAVITY(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x0CEDB728A1083FA7, entity, toggle); }
+	static void SET_ENTITY_LOD_DIST(Entity entity, int value) { return Native::Invoke<void, Entity, int>(0x5FB407F0A7C877BF, entity, value); }
+	static int GET_ENTITY_LOD_DIST(Entity entity) { return Native::Invoke<int, Entity>(0xDF240D0C2A948683, entity); }
+	static void SET_ENTITY_ALPHA(Entity entity, int alphaLevel, BOOL unk) { return Native::Invoke<void, Entity, int, BOOL>(0x0DF7692B1D9E7BA7, entity, alphaLevel, unk); }
+	static int GET_ENTITY_ALPHA(Entity entity) { return Native::Invoke<int, Entity>(0x1BB501624FAF2BEA, entity); }
+	static Any RESET_ENTITY_ALPHA(Entity entity) { return Native::Invoke<Any, Entity>(0x744B9EF44779D9AB, entity); }
 	static void _0xA91E6CF94404E8C9(Any p0) { return Native::Invoke<void, Any>(0xA91E6CF94404E8C9, p0); }
-	static void SET_ENTITY_ALWAYS_PRERENDER(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_ALWAYS_PRERENDER, entity, toggle); }
-	static Any SET_ENTITY_RENDER_SCORCHED() { return Native::Invoke<Any>(N::SET_ENTITY_RENDER_SCORCHED); }
+	static void SET_ENTITY_ALWAYS_PRERENDER(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0xACAD101E1FB66689, entity, toggle); }
+	static void SET_ENTITY_RENDER_SCORCHED() { return Native::Invoke<void>(0x85B8A7534E44BC23); }
 	static Any _0x37B01666BAE8F7EF() { return Native::Invoke<Any>(0x37B01666BAE8F7EF); }
 	static void _0xA9E6D8F2DDFC4DB9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA9E6D8F2DDFC4DB9, p0, p1); }
-	static void CREATE_MODEL_SWAP(float x, float y, float z, float radius, Hash originalModel, Hash newModel, BOOL p6) { return Native::Invoke<void, float, float, float, float, Hash, Hash, BOOL>(N::CREATE_MODEL_SWAP, x, y, z, radius, originalModel, newModel, p6); }
-	static void REMOVE_MODEL_SWAP(float x, float y, float z, float radius, Hash originalModel, Hash newModel, BOOL p6) { return Native::Invoke<void, float, float, float, float, Hash, Hash, BOOL>(N::REMOVE_MODEL_SWAP, x, y, z, radius, originalModel, newModel, p6); }
-	static void CREATE_MODEL_HIDE(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(N::CREATE_MODEL_HIDE, x, y, z, radius, model, p5); }
-	static void CREATE_MODEL_HIDE_EXCLUDING_SCRIPT_OBJECTS(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(N::CREATE_MODEL_HIDE_EXCLUDING_SCRIPT_OBJECTS, x, y, z, radius, model, p5); }
-	static void REMOVE_MODEL_HIDE(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(N::REMOVE_MODEL_HIDE, x, y, z, radius, model, p5); }
+	static void CREATE_MODEL_SWAP(float x, float y, float z, float radius, Hash originalModel, Hash newModel, BOOL p6) { return Native::Invoke<void, float, float, float, float, Hash, Hash, BOOL>(0x10B2218320B6F5AC, x, y, z, radius, originalModel, newModel, p6); }
+	static void REMOVE_MODEL_SWAP(float x, float y, float z, float radius, Hash originalModel, Hash newModel, BOOL p6) { return Native::Invoke<void, float, float, float, float, Hash, Hash, BOOL>(0x824E1C26A14CB817, x, y, z, radius, originalModel, newModel, p6); }
+	static void CREATE_MODEL_HIDE(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(0x069848B3FB3C4426, x, y, z, radius, model, p5); }
+	static void CREATE_MODEL_HIDE_EXCLUDING_SCRIPT_OBJECTS(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(0xD136090A9AAAB17D, x, y, z, radius, model, p5); }
+	static void REMOVE_MODEL_HIDE(float x, float y, float z, float radius, Hash model, BOOL p5) { return Native::Invoke<void, float, float, float, float, Hash, BOOL>(0x3F38A98576F6213A, x, y, z, radius, model, p5); }
 	static Any _0xD4636C2EDB0DEA8A() { return Native::Invoke<Any>(0xD4636C2EDB0DEA8A); }
-	static void CREATE_FORCED_OBJECT(float x, float y, float z, Any p3, Hash modelHash, BOOL p5) { return Native::Invoke<void, float, float, float, Any, Hash, BOOL>(N::CREATE_FORCED_OBJECT, x, y, z, p3, modelHash, p5); }
-	static void REMOVE_FORCED_OBJECT(float posX, float posY, float posZ, float unk, Hash modelHash) { return Native::Invoke<void, float, float, float, float, Hash>(N::REMOVE_FORCED_OBJECT, posX, posY, posZ, unk, modelHash); }
-	static void SET_ENTITY_NO_COLLISION_ENTITY(Entity entity1, Entity entity2, BOOL unknown) { return Native::Invoke<void, Entity, Entity, BOOL>(N::SET_ENTITY_NO_COLLISION_ENTITY, entity1, entity2, unknown); }
-	static void SET_ENTITY_MOTION_BLUR(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(N::SET_ENTITY_MOTION_BLUR, entity, toggle); }
+	static void CREATE_FORCED_OBJECT(float x, float y, float z, Any p3, Hash modelHash, BOOL p5) { return Native::Invoke<void, float, float, float, Any, Hash, BOOL>(0x0961A905AFBC34C7, x, y, z, p3, modelHash, p5); }
+	static void REMOVE_FORCED_OBJECT(float posX, float posY, float posZ, float unk, Hash modelHash) { return Native::Invoke<void, float, float, float, float, Hash>(0x553FA683F2BCD814, posX, posY, posZ, unk, modelHash); }
+	static void SET_ENTITY_NO_COLLISION_ENTITY(Entity entity1, Entity entity2, BOOL unknown) { return Native::Invoke<void, Entity, Entity, BOOL>(0xE037BF068223C38D, entity1, entity2, unknown); }
+	static void SET_ENTITY_MOTION_BLUR(Entity entity, BOOL toggle) { return Native::Invoke<void, Entity, BOOL>(0x516C6ABD18322B63, entity, toggle); }
 	static void _0x80646744FA88F9D7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x80646744FA88F9D7, p0, p1); }
 	static void _0x24AED2A608F93C4C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x24AED2A608F93C4C, p0, p1); }
 	static void _0xC64E597783BE9A1D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC64E597783BE9A1D, p0, p1); }
@@ -1249,17 +1249,17 @@ namespace ENTITY
 	static void _0x6C31B06E91518269(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6C31B06E91518269, p0, p1); }
 	static void _0x119A5714578F4E05(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x119A5714578F4E05, p0, p1); }
 	static Any _0xF7424890E4A094C0(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xF7424890E4A094C0, p0, p1); }
-	static BOOL FIND_ANIM_EVENT_PHASE(char* animDictionary, char* animName, char* p2, Any* p3, Any* p4) { return Native::Invoke<BOOL, char*, char*, char*, Any*, Any*>(N::FIND_ANIM_EVENT_PHASE, animDictionary, animName, p2, p3, p4); }
-	static void FORCE_ENTITY_AI_AND_ANIMATION_UPDATE(Entity entity, Any p1) { return Native::Invoke<void, Entity, Any>(N::FORCE_ENTITY_AI_AND_ANIMATION_UPDATE, entity, p1); }
+	static BOOL FIND_ANIM_EVENT_PHASE(const char* animDictionary, const char* animName, const char* p2, Any* p3, Any* p4) { return Native::Invoke<BOOL, const char*, const char*, const char*, Any*, Any*>(0x42718CC559BD7776, animDictionary, animName, p2, p3, p4); }
+	static void FORCE_ENTITY_AI_AND_ANIMATION_UPDATE(Entity entity, Any p1) { return Native::Invoke<void, Entity, Any>(0x4C9E96473D4F1A88, entity, p1); }
 	static Any _0x627520389E288A73(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x627520389E288A73, p0, p1, p2); }
 	static Any _0x8E46E18AA828334F(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x8E46E18AA828334F, p0, p1, p2); }
 	static Any _0xDF8E49EA89A01DB1(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xDF8E49EA89A01DB1, p0, p1, p2); }
-	static BOOL HAS_ANIM_EVENT_FIRED(Entity entity, Hash actionHash) { return Native::Invoke<BOOL, Entity, Hash>(N::HAS_ANIM_EVENT_FIRED, entity, actionHash); }
-	static BOOL HAS_ENTITY_ANIM_FINISHED(Entity entity, char* animDict, char* animName, int p3) { return Native::Invoke<BOOL, Entity, char*, char*, int>(N::HAS_ENTITY_ANIM_FINISHED, entity, animDict, animName, p3); }
-	static BOOL PLAY_ENTITY_ANIM(Entity entity, char* animName, char* animDict, float p3, BOOL loop, BOOL stayInAnim, BOOL p6, float delta, Any bitset) { return Native::Invoke<BOOL, Entity, char*, char*, float, BOOL, BOOL, BOOL, float, Any>(N::PLAY_ENTITY_ANIM, entity, animName, animDict, p3, loop, stayInAnim, p6, delta, bitset); }
+	static BOOL HAS_ANIM_EVENT_FIRED(Entity entity, Hash actionHash) { return Native::Invoke<BOOL, Entity, Hash>(0x5851CC48405F4A07, entity, actionHash); }
+	static BOOL HAS_ENTITY_ANIM_FINISHED(Entity entity, const char* animDict, const char* animName, int p3) { return Native::Invoke<BOOL, Entity, const char*, const char*, int>(0xAEB40615337EF1E3, entity, animDict, animName, p3); }
+	static BOOL PLAY_ENTITY_ANIM(Entity entity, const char* animName, const char* animDict, float p3, BOOL loop, BOOL stayInAnim, BOOL p6, float delta, Any bitset) { return Native::Invoke<BOOL, Entity, const char*, const char*, float, BOOL, BOOL, BOOL, float, Any>(0xDC6D22FAB76D4874, entity, animName, animDict, p3, loop, stayInAnim, p6, delta, bitset); }
 	static void _0x11CDABDC7783B2BC(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x11CDABDC7783B2BC, p0, p1, p2, p3); }
 	static void _0xEAA885BA3CEA4E4A(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xEAA885BA3CEA4E4A, p0, p1, p2, p3); }
-	static Any STOP_ENTITY_ANIM(Entity entity, char* animation, char* animGroup, float p3) { return Native::Invoke<Any, Entity, char*, char*, float>(N::STOP_ENTITY_ANIM, entity, animation, animGroup, p3); }
+	static Any STOP_ENTITY_ANIM(Entity entity, const char* animation, const char* animGroup, float p3) { return Native::Invoke<Any, Entity, const char*, const char*, float>(0x786591D986DE9159, entity, animation, animGroup, p3); }
 	static void _0x669655FFB29EF1A9(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x669655FFB29EF1A9, p0, p1, p2, p3); }
 	static void _0x1AD922AB5038DEF3(Any p0) { return Native::Invoke<void, Any>(0x1AD922AB5038DEF3, p0); }
 	static void _0x5826EFD6D73C4DE5(Any p0) { return Native::Invoke<void, Any>(0x5826EFD6D73C4DE5, p0); }
@@ -1281,21 +1281,21 @@ namespace ENTITY
 }
 namespace EVENT
 {
-	static void SET_DECISION_MAKER(Ped ped, Hash name) { return Native::Invoke<void, Ped, Hash>(N::SET_DECISION_MAKER, ped, name); }
+	static void SET_DECISION_MAKER(Ped ped, Hash name) { return Native::Invoke<void, Ped, Hash>(0x8AE2F981CDDB8FA4, ped, name); }
 	static void _0x6B9C5C38838FB6E6(Any p0) { return Native::Invoke<void, Any>(0x6B9C5C38838FB6E6, p0); }
 	static Any _0xCA1315C33B9A2847(Any p0) { return Native::Invoke<Any, Any>(0xCA1315C33B9A2847, p0); }
-	static ScrHandle ADD_SHOCKING_EVENT_AT_POSITION(int type, float x, float y, float z, float duration, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<ScrHandle, int, float, float, float, float, Any, Any, Any, Any, Any, Any>(N::ADD_SHOCKING_EVENT_AT_POSITION, type, x, y, z, duration, p5, p6, p7, p8, p9, p10); }
-	static ScrHandle ADD_SHOCKING_EVENT_FOR_ENTITY(int type, Entity entity, float duration, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { return Native::Invoke<ScrHandle, int, Entity, float, Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::ADD_SHOCKING_EVENT_FOR_ENTITY, type, entity, duration, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
-	static BOOL IS_SHOCKING_EVENT_IN_SPHERE(int type, float x, float y, float z, float radius) { return Native::Invoke<BOOL, int, float, float, float, float>(N::IS_SHOCKING_EVENT_IN_SPHERE, type, x, y, z, radius); }
-	static BOOL REMOVE_SHOCKING_EVENT(ScrHandle event) { return Native::Invoke<BOOL, ScrHandle>(N::REMOVE_SHOCKING_EVENT, event); }
-	static void REMOVE_ALL_SHOCKING_EVENTS(BOOL p0) { return Native::Invoke<void, BOOL>(N::REMOVE_ALL_SHOCKING_EVENTS, p0); }
+	static ScrHandle ADD_SHOCKING_EVENT_AT_POSITION(int type, float x, float y, float z, float duration, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<ScrHandle, int, float, float, float, float, Any, Any, Any, Any, Any, Any>(0xD9F8455409B525E9, type, x, y, z, duration, p5, p6, p7, p8, p9, p10); }
+	static ScrHandle ADD_SHOCKING_EVENT_FOR_ENTITY(int type, Entity entity, float duration, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { return Native::Invoke<ScrHandle, int, Entity, float, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7FD8F3BE76F89422, type, entity, duration, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
+	static BOOL IS_SHOCKING_EVENT_IN_SPHERE(int type, float x, float y, float z, float radius) { return Native::Invoke<BOOL, int, float, float, float, float>(0x9DB47E16060D6354, type, x, y, z, radius); }
+	static BOOL REMOVE_SHOCKING_EVENT(ScrHandle event) { return Native::Invoke<BOOL, ScrHandle>(0xE8BB3CC253A34559, event); }
+	static void REMOVE_ALL_SHOCKING_EVENTS(BOOL p0) { return Native::Invoke<void, BOOL>(0xD47A168C2AB90DC4, p0); }
 	static void _0xB4C71BA9CAB097BD(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xB4C71BA9CAB097BD, p0, p1, p2, p3, p4); }
 	static void _0x6A648D42BF271DC7(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x6A648D42BF271DC7, p0, p1, p2, p3, p4, p5); }
 	static void _0x118873DD538490B4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x118873DD538490B4, p0, p1); }
-	static void REMOVE_SHOCKING_EVENT_SPAWN_BLOCKING_AREAS() { return Native::Invoke<void>(N::REMOVE_SHOCKING_EVENT_SPAWN_BLOCKING_AREAS); }
+	static void REMOVE_SHOCKING_EVENT_SPAWN_BLOCKING_AREAS() { return Native::Invoke<void>(0xDB249021652420C5); }
 	static Any _0x36D0F2BA2C0D9BDE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x36D0F2BA2C0D9BDE, p0, p1); }
 	static void _0x7C511E91738A0828(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x7C511E91738A0828, p0, p1, p2, p3); }
-	static void SUPPRESS_SHOCKING_EVENTS_NEXT_FRAME() { return Native::Invoke<void>(N::SUPPRESS_SHOCKING_EVENTS_NEXT_FRAME); }
+	static void SUPPRESS_SHOCKING_EVENTS_NEXT_FRAME() { return Native::Invoke<void>(0x84994FAD4E4E4E69); }
 	static void _0xB6F4825153920582() { return Native::Invoke<void>(0xB6F4825153920582); }
 	static void _0x4B2B1A891D437CA7(Any p0) { return Native::Invoke<void, Any>(0x4B2B1A891D437CA7, p0); }
 	static void _0x9520175B35E2268D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9520175B35E2268D, p0, p1); }
@@ -1321,41 +1321,41 @@ namespace EVENT
 }
 namespace FIRE
 {
-	static Hash START_SCRIPT_FIRE(float X, float Y, float Z, int maxChildren, BOOL isGasFire, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<Hash, float, float, float, int, BOOL, Any, Any, Any, Any>(N::START_SCRIPT_FIRE, X, Y, Z, maxChildren, isGasFire, p5, p6, p7, p8); }
-	static void REMOVE_SCRIPT_FIRE(int fireHandle) { return Native::Invoke<void, int>(N::REMOVE_SCRIPT_FIRE, fireHandle); }
-	static Ped START_ENTITY_FIRE(Ped entity, Any p1, Any p2, Any p3) { return Native::Invoke<Ped, Ped, Any, Any, Any>(N::START_ENTITY_FIRE, entity, p1, p2, p3); }
-	static void STOP_ENTITY_FIRE(Entity entity, Any p1) { return Native::Invoke<void, Entity, Any>(N::STOP_ENTITY_FIRE, entity, p1); }
-	static BOOL IS_ENTITY_ON_FIRE(Entity entity) { return Native::Invoke<BOOL, Entity>(N::IS_ENTITY_ON_FIRE, entity); }
+	static Hash START_SCRIPT_FIRE(float X, float Y, float Z, int maxChildren, BOOL isGasFire, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<Hash, float, float, float, int, BOOL, Any, Any, Any, Any>(0x6B83617E04503888, X, Y, Z, maxChildren, isGasFire, p5, p6, p7, p8); }
+	static void REMOVE_SCRIPT_FIRE(int fireHandle) { return Native::Invoke<void, int>(0x790125C36E194069, fireHandle); }
+	static Ped START_ENTITY_FIRE(Ped entity, Any p1, Any p2, Any p3) { return Native::Invoke<Ped, Ped, Any, Any, Any>(0xC4DC7418A44D6822, entity, p1, p2, p3); }
+	static void STOP_ENTITY_FIRE(Entity entity, Any p1) { return Native::Invoke<void, Entity, Any>(0x8390751DC40C1E98, entity, p1); }
+	static BOOL IS_ENTITY_ON_FIRE(Entity entity) { return Native::Invoke<BOOL, Entity>(0x1BD7C371CE257C3E, entity); }
 	static Any _0x754937C28271BC65() { return Native::Invoke<Any>(0x754937C28271BC65); }
-	static int GET_NUMBER_OF_FIRES_IN_RANGE(float x, float y, float z, float radius) { return Native::Invoke<int, float, float, float, float>(N::GET_NUMBER_OF_FIRES_IN_RANGE, x, y, z, radius); }
-	static void STOP_FIRE_IN_RANGE(float x, float y, float z, float radius) { return Native::Invoke<void, float, float, float, float>(N::STOP_FIRE_IN_RANGE, x, y, z, radius); }
+	static int GET_NUMBER_OF_FIRES_IN_RANGE(float x, float y, float z, float radius) { return Native::Invoke<int, float, float, float, float>(0xF9617BC6FAE61E08, x, y, z, radius); }
+	static void STOP_FIRE_IN_RANGE(float x, float y, float z, float radius) { return Native::Invoke<void, float, float, float, float>(0xDB38F247BD421708, x, y, z, radius); }
 	static Any _0xB7C7BDC375AEA9A4() { return Native::Invoke<Any>(0xB7C7BDC375AEA9A4); }
-	static BOOL GET_CLOSEST_FIRE_POS(Vector3* outPosition, float x, float y, float z) { return Native::Invoke<BOOL, Vector3*, float, float, float>(N::GET_CLOSEST_FIRE_POS, outPosition, x, y, z); }
+	static BOOL GET_CLOSEST_FIRE_POS(Vector3* outPosition, float x, float y, float z) { return Native::Invoke<BOOL, Vector3*, float, float, float>(0xB646FB657F448261, outPosition, x, y, z); }
 	static Any _0xA4454592DCF7C992(Any p0) { return Native::Invoke<Any, Any>(0xA4454592DCF7C992, p0); }
 	static Any _0xCDC25355C0D65963(Any p0) { return Native::Invoke<Any, Any>(0xCDC25355C0D65963, p0); }
-	static void ADD_EXPLOSION(float x, float y, float z, int explosionType, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, float, float, float, int, float, BOOL, BOOL, float>(N::ADD_EXPLOSION, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake); }
-	static void ADD_OWNED_EXPLOSION(Ped ped, float x, float y, float z, int explosionType, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, Ped, float, float, float, int, float, BOOL, BOOL, float>(N::ADD_OWNED_EXPLOSION, ped, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake); }
+	static void ADD_EXPLOSION(float x, float y, float z, int explosionType, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, float, float, float, int, float, BOOL, BOOL, float>(0x7D6F58F69DA92530, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake); }
+	static void ADD_OWNED_EXPLOSION(Ped ped, float x, float y, float z, int explosionType, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, Ped, float, float, float, int, float, BOOL, BOOL, float>(0xD84A917A64D4D016, ped, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake); }
 	static void _0xB7DF150605EEDC9B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xB7DF150605EEDC9B, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void ADD_EXPLOSION_WITH_USER_VFX(Entity x, Entity y, Entity z, int explosionType, Hash explosionFx, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, Entity, Entity, Entity, int, Hash, float, BOOL, BOOL, float>(N::ADD_EXPLOSION_WITH_USER_VFX, x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake); }
+	static void ADD_EXPLOSION_WITH_USER_VFX(Entity x, Entity y, Entity z, int explosionType, Hash explosionFx, float damageScale, BOOL isAudible, BOOL isInvisible, float cameraShake) { return Native::Invoke<void, Entity, Entity, Entity, int, Hash, float, BOOL, BOOL, float>(0x53BA259F3A67A99E, x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake); }
 	static void _0x34AE85C7CA4857AA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x34AE85C7CA4857AA, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static BOOL IS_EXPLOSION_IN_AREA(int explosionType, float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<BOOL, int, float, float, float, float, float, float>(N::IS_EXPLOSION_IN_AREA, explosionType, x1, y1, z1, x2, y2, z2); }
-	static Any IS_EXPLOSION_ACTIVE_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(N::IS_EXPLOSION_ACTIVE_IN_AREA, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL IS_EXPLOSION_IN_SPHERE(int explosionType, float x, float y, float z, float radius) { return Native::Invoke<BOOL, int, float, float, float, float>(N::IS_EXPLOSION_IN_SPHERE, explosionType, x, y, z, radius); }
-	static Any IS_EXPLOSION_IN_ANGLED_AREA() { return Native::Invoke<Any>(N::IS_EXPLOSION_IN_ANGLED_AREA); }
+	static BOOL IS_EXPLOSION_IN_AREA(int explosionType, float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<BOOL, int, float, float, float, float, float, float>(0x8391BA4313A25AD3, explosionType, x1, y1, z1, x2, y2, z2); }
+	static Any IS_EXPLOSION_ACTIVE_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xD96E82AEBFFAAFF0, p0, p1, p2, p3, p4, p5, p6); }
+	static BOOL IS_EXPLOSION_IN_SPHERE(int explosionType, float x, float y, float z, float radius) { return Native::Invoke<BOOL, int, float, float, float, float>(0xD62DD846D82CBB90, explosionType, x, y, z, radius); }
+	static BOOL IS_EXPLOSION_IN_ANGLED_AREA() { return Native::Invoke<BOOL>(0x5AE661ECD18524C9); }
 	static Any _0xE24822A4CFC9107A(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE24822A4CFC9107A, p0, p1); }
-	static Any _GET_ENTITY_INSIDE_EXPLOSION_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::_GET_ENTITY_INSIDE_EXPLOSION_AREA, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static Any _GET_ENTITY_INSIDE_EXPLOSION_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x8002DDAB58594D78, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0x68F6A75FDF5A70D6(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x68F6A75FDF5A70D6, p0, p1, p2, p3); }
 	static void _0x24DB6B9F2B719043(Any p0) { return Native::Invoke<void, Any>(0x24DB6B9F2B719043, p0); }
 }
 namespace _NAMESPACE24
 {
-	static Any _0xE108489621422F91(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xE108489621422F91, p0, p1, p2); }
-	static void _0x963240B6C252BA49(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x963240B6C252BA49, p0, p1, p2, p3); }
-	static void _0x6D1D94C2459B42EE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6D1D94C2459B42EE, p0, p1, p2, p3); }
+	static Any GET_SPECIES_TUNING_FLOAT_PARAM(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xE108489621422F91, p0, p1, p2); }
+	static void SET_SPECIES_TUNING_FLOAT_PARAM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x963240B6C252BA49, p0, p1, p2, p3); }
+	static void SET_SPECIES_TUNING_BOOL_PARAM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6D1D94C2459B42EE, p0, p1, p2, p3); }
 	static Any _0x4BC3ECFDA0297E27(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4BC3ECFDA0297E27, p0, p1); }
-	static void _0xCBDA22C87977244F(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCBDA22C87977244F, p0, p1, p2); }
+	static void SET_ANIMAL_TUNING_FLOAT_PARAM(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCBDA22C87977244F, p0, p1, p2); }
 	static Any _0x1C1993824A396603(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x1C1993824A396603, p0, p1); }
-	static void _0x9FF1E042FA597187(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9FF1E042FA597187, p0, p1, p2); }
+	static void SET_ANIMAL_TUNING_BOOL_PARAM(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9FF1E042FA597187, p0, p1, p2); }
 	static Any _0x8049B17BEC937662(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0x8049B17BEC937662, p0, p1, p2, p3, p4, p5, p6); }
 	static Any _0xE93415B3307208E5(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xE93415B3307208E5, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static Any _0x19870C40C7EE15BE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x19870C40C7EE15BE, p0, p1); }
@@ -1370,7 +1370,7 @@ namespace _NAMESPACE24
 	static void _0xFF1E339CE40EAAAF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFF1E339CE40EAAAF, p0, p1); }
 	static Any _0x8D913E493BAFE0A3(Any p0) { return Native::Invoke<Any, Any>(0x8D913E493BAFE0A3, p0); }
 	static Any _0xCB4EF7EDAE2E16F1() { return Native::Invoke<Any>(0xCB4EF7EDAE2E16F1); }
-	static void _0xE0961AED72642B80(Any p0) { return Native::Invoke<void, Any>(0xE0961AED72642B80, p0); }
+	static void TASK_FLOCK(Any p0) { return Native::Invoke<void, Any>(0xE0961AED72642B80, p0); }
 	static void _0x933E5D31A7D13069(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x933E5D31A7D13069, p0, p1); }
 	static void _0x408D1149C5E39C1E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x408D1149C5E39C1E, p0, p1); }
 	static Any _0x9E13ACC38BA8F9C3(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9E13ACC38BA8F9C3, p0, p1); }
@@ -1420,40 +1420,40 @@ namespace GRAPHICS
 	static Any _0x78C56B8A7B1D000C() { return Native::Invoke<Any>(0x78C56B8A7B1D000C); }
 	static Any _0xA42EDF1E88734A7E() { return Native::Invoke<Any>(0xA42EDF1E88734A7E); }
 	static Any _0xB28894CD7408BD0C() { return Native::Invoke<Any>(0xB28894CD7408BD0C); }
-	static void DRAW_LIGHT_WITH_RANGE(float posX, float posY, float posZ, int colorR, int colorG, int colorB, float range, float intensity) { return Native::Invoke<void, float, float, float, int, int, int, float, float>(N::DRAW_LIGHT_WITH_RANGE, posX, posY, posZ, colorR, colorG, colorB, range, intensity); }
-	static void _UPDATE_ENTITY_SHIT_OR_SOMETHING(Any p0) { return Native::Invoke<void, Any>(N::_UPDATE_ENTITY_SHIT_OR_SOMETHING, p0); }
+	static void DRAW_LIGHT_WITH_RANGE(float posX, float posY, float posZ, int colorR, int colorG, int colorB, float range, float intensity) { return Native::Invoke<void, float, float, float, int, int, int, float, float>(0xD2D9E04C0DF927F4, posX, posY, posZ, colorR, colorG, colorB, range, intensity); }
+	static void _UPDATE_ENTITY_SHIT_OR_SOMETHING(Any p0) { return Native::Invoke<void, Any>(0xBDBACB52A03CC760, p0); }
 	static void _0x6EC2A67962296F49(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6EC2A67962296F49, p0, p1, p2, p3); }
 	static void _0x07C0F87AAC57F2E4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x07C0F87AAC57F2E4, p0, p1); }
 	static void _0xAB72C67163DC4DB4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAB72C67163DC4DB4, p0, p1); }
 	static Any _0x2A32FAA57B937173() { return Native::Invoke<Any>(0x2A32FAA57B937173); }
 	static Any _0x175668836B44CBB0() { return Native::Invoke<Any>(0x175668836B44CBB0); }
 	static Any _0x4C11CCACB7C02B6E() { return Native::Invoke<Any>(0x4C11CCACB7C02B6E); }
-	static Any SET_CHECKPOINT_RGBA() { return Native::Invoke<Any>(N::SET_CHECKPOINT_RGBA); }
-	static Any _SET_CHECKPOINT_ICON_RGBA() { return Native::Invoke<Any>(N::_SET_CHECKPOINT_ICON_RGBA); }
+	static void SET_CHECKPOINT_RGBA() { return Native::Invoke<void>(0xCAAFC225E33B1D15); }
+	static void _SET_CHECKPOINT_ICON_RGBA() { return Native::Invoke<void>(0x99AFF17222D4DEB4); }
 	static Any _0xCC3B787E73E64160() { return Native::Invoke<Any>(0xCC3B787E73E64160); }
 	static Any _0x171C18E994C1A395() { return Native::Invoke<Any>(0x171C18E994C1A395); }
-	static Any DELETE_CHECKPOINT() { return Native::Invoke<Any>(N::DELETE_CHECKPOINT); }
-	static void DRAW_RECT(float x, float y, float width, float height, int r, int g, int b, int a, Any p8) { return Native::Invoke<void, float, float, float, float, int, int, int, int, Any>(N::DRAW_RECT, x, y, width, height, r, g, b, a, p8); }
-	static Any SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU() { return Native::Invoke<Any>(N::SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU); }
-	static void SET_SCRIPT_GFX_DRAW_ORDER(Any p0) { return Native::Invoke<void, Any>(N::SET_SCRIPT_GFX_DRAW_ORDER, p0); }
-	static void DRAW_SPRITE(char* textureDict, char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, Any p11) { return Native::Invoke<void, char*, char*, float, float, float, float, float, int, int, int, int, Any>(N::DRAW_SPRITE, textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11); }
-	static void ATTACH_TV_AUDIO_TO_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(N::ATTACH_TV_AUDIO_TO_ENTITY, entity); }
-	static void SET_TV_AUDIO_FRONTEND(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_TV_AUDIO_FRONTEND, toggle); }
-	static void GET_SCREEN_RESOLUTION(int* x, int* y) { return Native::Invoke<void, int*, int*>(N::GET_SCREEN_RESOLUTION, x, y); }
+	static void DELETE_CHECKPOINT() { return Native::Invoke<void>(0x0DED5B0C8EBAAE12); }
+	static void DRAW_RECT(float x, float y, float width, float height, int r, int g, int b, int a, Any p8) { return Native::Invoke<void, float, float, float, float, int, int, int, int, Any>(0x405224591DF02025, x, y, width, height, r, g, b, a, p8); }
+	static void SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU() { return Native::Invoke<void>(0x906B86E6D7896B9E); }
+	static void SET_SCRIPT_GFX_DRAW_ORDER(Any p0) { return Native::Invoke<void, Any>(0xCFCC78391C8B3814, p0); }
+	static void DRAW_SPRITE(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, Any p11) { return Native::Invoke<void, const char*, const char*, float, float, float, float, float, int, int, int, int, Any>(0xC9884ECADE94CB34, textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11); }
+	static void ATTACH_TV_AUDIO_TO_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(0x40866A418EB8EFDE, entity); }
+	static void SET_TV_AUDIO_FRONTEND(BOOL toggle) { return Native::Invoke<void, BOOL>(0x64437C98FCC5F291, toggle); }
+	static void GET_SCREEN_RESOLUTION(int* x, int* y) { return Native::Invoke<void, int*, int*>(0x66773C92835D0909, x, y); }
 	static void _0xA04EF43030593ABC(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA04EF43030593ABC, p0, p1); }
 	static void _0xA21AF60C9F99CCC5() { return Native::Invoke<void>(0xA21AF60C9F99CCC5); }
 	static Any _0xC28F62AC9774FC1B() { return Native::Invoke<Any>(0xC28F62AC9774FC1B); }
 	static void _0xEB48CE48EEC41FD4(Any p0) { return Native::Invoke<void, Any>(0xEB48CE48EEC41FD4, p0); }
-	static BOOL GET_SCREEN_COORD_FROM_WORLD_COORD(float worldX, float worldY, float worldZ, float* screenX, float* screenY) { return Native::Invoke<BOOL, float, float, float, float*, float*>(N::GET_SCREEN_COORD_FROM_WORLD_COORD, worldX, worldY, worldZ, screenX, screenY); }
+	static BOOL GET_SCREEN_COORD_FROM_WORLD_COORD(float worldX, float worldY, float worldZ, float* screenX, float* screenY) { return Native::Invoke<BOOL, float, float, float, float*, float*>(0xCB50D7AFCC8B0EC6, worldX, worldY, worldZ, screenX, screenY); }
 	static Any _0xA2A51869BDED733B() { return Native::Invoke<Any>(0xA2A51869BDED733B); }
-	static Any SET_ARTIFICIAL_LIGHTS_STATE() { return Native::Invoke<Any>(N::SET_ARTIFICIAL_LIGHTS_STATE); }
+	static void SET_ARTIFICIAL_LIGHTS_STATE() { return Native::Invoke<void>(0xB2797619A7C7747B); }
 	static void _0x98A7CD5EA379A854() { return Native::Invoke<void>(0x98A7CD5EA379A854); }
 	static Any _0x1A9F09AB458D49C6() { return Native::Invoke<Any>(0x1A9F09AB458D49C6); }
-	static int CREATE_TRACKED_POINT() { return Native::Invoke<int>(N::CREATE_TRACKED_POINT); }
-	static void SET_TRACKED_POINT_INFO(int point, float x, float y, float z, float radius) { return Native::Invoke<void, int, float, float, float, float>(N::SET_TRACKED_POINT_INFO, point, x, y, z, radius); }
-	static BOOL IS_TRACKED_POINT_VISIBLE(int point) { return Native::Invoke<BOOL, int>(N::IS_TRACKED_POINT_VISIBLE, point); }
+	static int CREATE_TRACKED_POINT() { return Native::Invoke<int>(0xFB405CB357C69CB9); }
+	static void SET_TRACKED_POINT_INFO(int point, float x, float y, float z, float radius) { return Native::Invoke<void, int, float, float, float, float>(0xF6FDA3D4404D4F2C, point, x, y, z, radius); }
+	static BOOL IS_TRACKED_POINT_VISIBLE(int point) { return Native::Invoke<BOOL, int>(0xCBB056BA159FB48D, point); }
 	static Any _0xDFE332A5DA6FE7C9(Any p0) { return Native::Invoke<Any, Any>(0xDFE332A5DA6FE7C9, p0); }
-	static void DESTROY_TRACKED_POINT(int point) { return Native::Invoke<void, int>(N::DESTROY_TRACKED_POINT, point); }
+	static void DESTROY_TRACKED_POINT(int point) { return Native::Invoke<void, int>(0x37A59922109F8F1C, point); }
 	static Any _0xF2FDDCC8C6BAE1B3(Any p0) { return Native::Invoke<Any, Any>(0xF2FDDCC8C6BAE1B3, p0); }
 	static Any _0x27219300C36A8D40(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x27219300C36A8D40, p0, p1, p2, p3, p4); }
 	static void _0xAE7BF7CA9E4BA48D(Any p0) { return Native::Invoke<void, Any>(0xAE7BF7CA9E4BA48D, p0); }
@@ -1471,15 +1471,15 @@ namespace GRAPHICS
 	static Any _0x646ED1A1D28487DF() { return Native::Invoke<Any>(0x646ED1A1D28487DF); }
 	static void _0x160921255327C591(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x160921255327C591, p0, p1, p2, p3); }
 	static void _0xD9EDB2E4512D563E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xD9EDB2E4512D563E, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _SET_FAR_SHADOWS_SUPPRESSED(BOOL toggle) { return Native::Invoke<void, BOOL>(N::_SET_FAR_SHADOWS_SUPPRESSED, toggle); }
-	static Any _CASCADESHADOWS_SET_TYPE() { return Native::Invoke<Any>(N::_CASCADESHADOWS_SET_TYPE); }
-	static Any _CASCADESHADOWS_RESET_TYPE() { return Native::Invoke<Any>(N::_CASCADESHADOWS_RESET_TYPE); }
+	static void _SET_FAR_SHADOWS_SUPPRESSED(BOOL toggle) { return Native::Invoke<void, BOOL>(0x8FBFD2AEB196B369, toggle); }
+	static Any _CASCADESHADOWS_SET_TYPE() { return Native::Invoke<Any>(0xCE4774E0F9AD48D1); }
+	static Any _CASCADESHADOWS_RESET_TYPE() { return Native::Invoke<Any>(0xF7C29D7C12C36F03); }
 	static void _0x503941F65DBA24EC(Any p0) { return Native::Invoke<void, Any>(0x503941F65DBA24EC, p0); }
 	static Any _0x815653A42C5ABE76() { return Native::Invoke<Any>(0x815653A42C5ABE76); }
 	static Any _0xFF8018C778349234() { return Native::Invoke<Any>(0xFF8018C778349234); }
 	static void _0x297B72E2AF094742(Any p0) { return Native::Invoke<void, Any>(0x297B72E2AF094742, p0); }
-	static void TOGGLE_PAUSED_RENDERPHASES(Any p0) { return Native::Invoke<void, Any>(N::TOGGLE_PAUSED_RENDERPHASES, p0); }
-	static Any GET_TOGGLE_PAUSED_RENDERPHASES_STATUS() { return Native::Invoke<Any>(N::GET_TOGGLE_PAUSED_RENDERPHASES_STATUS); }
+	static void TOGGLE_PAUSED_RENDERPHASES(Any p0) { return Native::Invoke<void, Any>(0xEF9E1C45732F55FA, p0); }
+	static Any GET_TOGGLE_PAUSED_RENDERPHASES_STATUS() { return Native::Invoke<Any>(0x86ED21BDB2791CE8); }
 	static Any _0xCCD9AAD85E1B559E() { return Native::Invoke<Any>(0xCCD9AAD85E1B559E); }
 	static Any _0xCC23AA1A7CBFE840() { return Native::Invoke<Any>(0xCC23AA1A7CBFE840); }
 	static void _0x21F00E08CBB5F37B(Any p0) { return Native::Invoke<void, Any>(0x21F00E08CBB5F37B, p0); }
@@ -1490,34 +1490,34 @@ namespace GRAPHICS
 	static Any _0x06C0D8BB6B04A709() { return Native::Invoke<Any>(0x06C0D8BB6B04A709); }
 	static Any _0x62B9F9A1272AED80() { return Native::Invoke<Any>(0x62B9F9A1272AED80); }
 	static Any _0x98F4154989B81EC6() { return Native::Invoke<Any>(0x98F4154989B81EC6); }
-	static int START_PARTICLE_FX_NON_LOOPED_AT_COORD(char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_NON_LOOPED_AT_COORD, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
-	static BOOL START_NETWORKED_PARTICLE_FX_NON_LOOPED_AT_COORD(char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<BOOL, char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(N::START_NETWORKED_PARTICLE_FX_NON_LOOPED_AT_COORD, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
-	static BOOL START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(char* effectName, Ped ped, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, int boneIndex, float scale, BOOL axisX, BOOL axisY, BOOL axisZ) { return Native::Invoke<BOOL, char*, Ped, float, float, float, float, float, float, int, float, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE, effectName, ped, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ); }
-	static BOOL START_PARTICLE_FX_NON_LOOPED_ON_ENTITY(char* effectName, Entity entity, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, float scale, BOOL axisX, BOOL axisY, BOOL axisZ) { return Native::Invoke<BOOL, char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_NON_LOOPED_ON_ENTITY, effectName, entity, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, scale, axisX, axisY, axisZ); }
-	static Any START_NETWORKED_PARTICLE_FX_NON_LOOPED_ON_ENTITY() { return Native::Invoke<Any>(N::START_NETWORKED_PARTICLE_FX_NON_LOOPED_ON_ENTITY); }
+	static int START_PARTICLE_FX_NON_LOOPED_AT_COORD(const char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, const char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(0x2E80BF72EF7C87AC, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
+	static BOOL START_NETWORKED_PARTICLE_FX_NON_LOOPED_AT_COORD(const char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<BOOL, const char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(0xFB97618457994A62, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
+	static BOOL START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(const char* effectName, Ped ped, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, int boneIndex, float scale, BOOL axisX, BOOL axisY, BOOL axisZ) { return Native::Invoke<BOOL, const char*, Ped, float, float, float, float, float, float, int, float, BOOL, BOOL, BOOL>(0x3FAA72BD940C3AC0, effectName, ped, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ); }
+	static BOOL START_PARTICLE_FX_NON_LOOPED_ON_ENTITY(const char* effectName, Entity entity, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, float scale, BOOL axisX, BOOL axisY, BOOL axisZ) { return Native::Invoke<BOOL, const char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(0xFF4C64C513388C12, effectName, entity, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, scale, axisX, axisY, axisZ); }
+	static Any START_NETWORKED_PARTICLE_FX_NON_LOOPED_ON_ENTITY() { return Native::Invoke<Any>(0xE6CFE43937061143); }
 	static Any _0xC695870B8A149B96(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xC695870B8A149B96, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
-	static void SET_PARTICLE_FX_NON_LOOPED_COLOUR(float r, float g, float b) { return Native::Invoke<void, float, float, float>(N::SET_PARTICLE_FX_NON_LOOPED_COLOUR, r, g, b); }
-	static int START_PARTICLE_FX_LOOPED_AT_COORD(char* effectName, float x, float y, float z, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL p11) { return Native::Invoke<int, char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_LOOPED_AT_COORD, effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11); }
-	static int START_PARTICLE_FX_LOOPED_ON_PED_BONE(char* effectName, Ped ped, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, int boneIndex, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, char*, Ped, float, float, float, float, float, float, int, float, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_LOOPED_ON_PED_BONE, effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis); }
-	static int START_PARTICLE_FX_LOOPED_ON_ENTITY(char* effectName, Entity entity, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(N::START_PARTICLE_FX_LOOPED_ON_ENTITY, effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
-	static Any START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
-	static int START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY(char* effectName, Entity entity, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(N::START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY, effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
-	static Any START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY_BONE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
-	static void STOP_PARTICLE_FX_LOOPED(int ptfxHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(N::STOP_PARTICLE_FX_LOOPED, ptfxHandle, p1); }
-	static BOOL DOES_PARTICLE_FX_LOOPED_EXIST(int ptfxHandle) { return Native::Invoke<BOOL, int>(N::DOES_PARTICLE_FX_LOOPED_EXIST, ptfxHandle); }
-	static void SET_PARTICLE_FX_LOOPED_OFFSETS(int ptfxHandle, float x, float y, float z, float rotX, float rotY, float rotZ) { return Native::Invoke<void, int, float, float, float, float, float, float>(N::SET_PARTICLE_FX_LOOPED_OFFSETS, ptfxHandle, x, y, z, rotX, rotY, rotZ); }
-	static void SET_PARTICLE_FX_LOOPED_EVOLUTION(int ptfxHandle, char* propertyName, float amount, BOOL Id) { return Native::Invoke<void, int, char*, float, BOOL>(N::SET_PARTICLE_FX_LOOPED_EVOLUTION, ptfxHandle, propertyName, amount, Id); }
-	static void SET_PARTICLE_FX_LOOPED_COLOUR(int ptfxHandle, float r, float g, float b, BOOL p4) { return Native::Invoke<void, int, float, float, float, BOOL>(N::SET_PARTICLE_FX_LOOPED_COLOUR, ptfxHandle, r, g, b, p4); }
-	static void SET_PARTICLE_FX_LOOPED_ALPHA(int ptfxHandle, float alpha) { return Native::Invoke<void, int, float>(N::SET_PARTICLE_FX_LOOPED_ALPHA, ptfxHandle, alpha); }
-	static void SET_PARTICLE_FX_LOOPED_SCALE(int ptfxHandle, float scale) { return Native::Invoke<void, int, float>(N::SET_PARTICLE_FX_LOOPED_SCALE, ptfxHandle, scale); }
-	static void SET_PARTICLE_FX_LOOPED_FAR_CLIP_DIST(int ptfxHandle, float dist) { return Native::Invoke<void, int, float>(N::SET_PARTICLE_FX_LOOPED_FAR_CLIP_DIST, ptfxHandle, dist); }
+	static void SET_PARTICLE_FX_NON_LOOPED_COLOUR(float r, float g, float b) { return Native::Invoke<void, float, float, float>(0x60B85BED6577A35B, r, g, b); }
+	static int START_PARTICLE_FX_LOOPED_AT_COORD(const char* effectName, float x, float y, float z, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL p11) { return Native::Invoke<int, const char*, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL>(0xBA32867E86125D3A, effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11); }
+	static int START_PARTICLE_FX_LOOPED_ON_PED_BONE(const char* effectName, Ped ped, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, int boneIndex, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, const char*, Ped, float, float, float, float, float, float, int, float, BOOL, BOOL, BOOL>(0xE689C1B1432BB8AF, effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis); }
+	static int START_PARTICLE_FX_LOOPED_ON_ENTITY(const char* effectName, Entity entity, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, const char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(0xBD41E1440CE39800, effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
+	static Any START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xD3BA6EC7F2FBD5E9, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
+	static int START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY(const char* effectName, Entity entity, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return Native::Invoke<int, const char*, Entity, float, float, float, float, float, float, float, BOOL, BOOL, BOOL>(0x8F90AB32E1944BDE, effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); }
+	static Any START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x9C56621462FFE7A6, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
+	static void STOP_PARTICLE_FX_LOOPED(int ptfxHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(0x22970F3A088B133B, ptfxHandle, p1); }
+	static BOOL DOES_PARTICLE_FX_LOOPED_EXIST(int ptfxHandle) { return Native::Invoke<BOOL, int>(0x9DD5AFF561E88F2A, ptfxHandle); }
+	static void SET_PARTICLE_FX_LOOPED_OFFSETS(int ptfxHandle, float x, float y, float z, float rotX, float rotY, float rotZ) { return Native::Invoke<void, int, float, float, float, float, float, float>(0xD3A4A95FC94FE83B, ptfxHandle, x, y, z, rotX, rotY, rotZ); }
+	static void SET_PARTICLE_FX_LOOPED_EVOLUTION(int ptfxHandle, const char* propertyName, float amount, BOOL Id) { return Native::Invoke<void, int, const char*, float, BOOL>(0x3674F389B0FACD80, ptfxHandle, propertyName, amount, Id); }
+	static void SET_PARTICLE_FX_LOOPED_COLOUR(int ptfxHandle, float r, float g, float b, BOOL p4) { return Native::Invoke<void, int, float, float, float, BOOL>(0x239879FC61C610CC, ptfxHandle, r, g, b, p4); }
+	static void SET_PARTICLE_FX_LOOPED_ALPHA(int ptfxHandle, float alpha) { return Native::Invoke<void, int, float>(0x88786E76234F7054, ptfxHandle, alpha); }
+	static void SET_PARTICLE_FX_LOOPED_SCALE(int ptfxHandle, float scale) { return Native::Invoke<void, int, float>(0x1A9E1C0D98D093B7, ptfxHandle, scale); }
+	static void SET_PARTICLE_FX_LOOPED_FAR_CLIP_DIST(int ptfxHandle, float dist) { return Native::Invoke<void, int, float>(0x9B04D471DA0AD7AA, ptfxHandle, dist); }
 	static void _0x9DDC222D85D5AF2A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9DDC222D85D5AF2A, p0, p1); }
-	static void REMOVE_PARTICLE_FX(int ptfxHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(N::REMOVE_PARTICLE_FX, ptfxHandle, p1); }
-	static void REMOVE_PARTICLE_FX_FROM_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(N::REMOVE_PARTICLE_FX_FROM_ENTITY, entity); }
-	static void REMOVE_PARTICLE_FX_IN_RANGE(float X, float Y, float Z, float radius) { return Native::Invoke<void, float, float, float, float>(N::REMOVE_PARTICLE_FX_IN_RANGE, X, Y, Z, radius); }
-	static void USE_PARTICLE_FX_ASSET(char* name) { return Native::Invoke<void, char*>(N::USE_PARTICLE_FX_ASSET, name); }
-	static void SET_PARTICLE_FX_OVERRIDE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_PARTICLE_FX_OVERRIDE, p0, p1); }
-	static void RESET_PARTICLE_FX_OVERRIDE(Any p0) { return Native::Invoke<void, Any>(N::RESET_PARTICLE_FX_OVERRIDE, p0); }
+	static void REMOVE_PARTICLE_FX(int ptfxHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(0x459598F579C98929, ptfxHandle, p1); }
+	static void REMOVE_PARTICLE_FX_FROM_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(0x92884B4A49D81325, entity); }
+	static void REMOVE_PARTICLE_FX_IN_RANGE(float X, float Y, float Z, float radius) { return Native::Invoke<void, float, float, float, float>(0x87B5905ECA623B68, X, Y, Z, radius); }
+	static void USE_PARTICLE_FX_ASSET(const char* name) { return Native::Invoke<void, const char*>(0xA10DB07FC234DD12, name); }
+	static void SET_PARTICLE_FX_OVERRIDE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBE711A169E9C7E95, p0, p1); }
+	static void RESET_PARTICLE_FX_OVERRIDE(Any p0) { return Native::Invoke<void, Any>(0x274B3DABF7E72DEF, p0); }
 	static Any _0x4D14AF567FC02885() { return Native::Invoke<Any>(0x4D14AF567FC02885); }
 	static void _0x4FB67D172C4476F3(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4FB67D172C4476F3, p0, p1, p2, p3); }
 	static Any _0x3C61B52B00848C26() { return Native::Invoke<Any>(0x3C61B52B00848C26); }
@@ -1532,19 +1532,19 @@ namespace GRAPHICS
 	static Any _0x0552AA3FFC5B87AA() { return Native::Invoke<Any>(0x0552AA3FFC5B87AA); }
 	static Any _0x7C348310A6E2FB91() { return Native::Invoke<Any>(0x7C348310A6E2FB91); }
 	static Any _0x72E30372E7CC4415() { return Native::Invoke<Any>(0x72E30372E7CC4415); }
-	static void REMOVE_DECALS_IN_RANGE(float x, float y, float z, float range) { return Native::Invoke<void, float, float, float, float>(N::REMOVE_DECALS_IN_RANGE, x, y, z, range); }
-	static void REMOVE_DECALS_FROM_OBJECT(Object obj) { return Native::Invoke<void, Object>(N::REMOVE_DECALS_FROM_OBJECT, obj); }
-	static Object ADD_DECAL(int decalType, float posX, float posY, float posZ, float p4, float p5, float p6, float p7, float p8, float p9, float width, float height, float rCoef, float gCoef, float bCoef, float opacity, float timeout, BOOL p17, BOOL p18, BOOL p19, Any p20, Any p21) { return Native::Invoke<Object, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, Any, Any>(N::ADD_DECAL, decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19, p20, p21); }
+	static void REMOVE_DECALS_IN_RANGE(float x, float y, float z, float range) { return Native::Invoke<void, float, float, float, float>(0x86DE59FA02902B40, x, y, z, range); }
+	static void REMOVE_DECALS_FROM_OBJECT(Object obj) { return Native::Invoke<void, Object>(0xFB8972BAE0013140, obj); }
+	static Object ADD_DECAL(int decalType, float posX, float posY, float posZ, float p4, float p5, float p6, float p7, float p8, float p9, float width, float height, float rCoef, float gCoef, float bCoef, float opacity, float timeout, BOOL p17, BOOL p18, BOOL p19, Any p20, Any p21) { return Native::Invoke<Object, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, Any, Any>(0x57CB267624EF85C0, decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19, p20, p21); }
 	static void _0xFA2ECC78A6014D4F(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xFA2ECC78A6014D4F, p0, p1, p2, p3); }
 	static void _0xF708298675ABDC6A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xF708298675ABDC6A, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0xDFCE8CE9F3EBE93F(Any p0) { return Native::Invoke<void, Any>(0xDFCE8CE9F3EBE93F, p0); }
 	static void _0xC349EE1E6EFA494B(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xC349EE1E6EFA494B, p0, p1, p2, p3); }
-	static void START_PETROL_TRAIL_DECALS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::START_PETROL_TRAIL_DECALS, p0, p1); }
-	static void ADD_PETROL_TRAIL_DECAL_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::ADD_PETROL_TRAIL_DECAL_INFO, p0, p1, p2, p3); }
-	static void END_PETROL_TRAIL_DECALS() { return Native::Invoke<void>(N::END_PETROL_TRAIL_DECALS); }
+	static void START_PETROL_TRAIL_DECALS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x46F246D6504F0031, p0, p1); }
+	static void ADD_PETROL_TRAIL_DECAL_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x73354FB6D03D2E8A, p0, p1, p2, p3); }
+	static void END_PETROL_TRAIL_DECALS() { return Native::Invoke<void>(0x0E126AAE933F3B56); }
 	static Any _0xE63D68F455CA0B47(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xE63D68F455CA0B47, p0, p1, p2, p3, p4, p5, p6); }
-	static void REMOVE_DECAL(Object decal) { return Native::Invoke<void, Object>(N::REMOVE_DECAL, decal); }
-	static BOOL IS_DECAL_ALIVE(Object decal) { return Native::Invoke<BOOL, Object>(N::IS_DECAL_ALIVE, decal); }
+	static void REMOVE_DECAL(Object decal) { return Native::Invoke<void, Object>(0x49A720552EB0BB88, decal); }
+	static BOOL IS_DECAL_ALIVE(Object decal) { return Native::Invoke<BOOL, Object>(0x3E4B4E5CF5D3EEB5, decal); }
 	static void _0xB032C085D9A03907() { return Native::Invoke<void>(0xB032C085D9A03907); }
 	static Any _0xFB680A9B33D0EDBE() { return Native::Invoke<Any>(0xFB680A9B33D0EDBE); }
 	static void _0x41F88A85A579A61D(Any p0) { return Native::Invoke<void, Any>(0x41F88A85A579A61D, p0); }
@@ -1556,25 +1556,25 @@ namespace GRAPHICS
 	static void _0xF2F543D48F319A3A() { return Native::Invoke<void>(0xF2F543D48F319A3A); }
 	static void _0x1460B644397453EB() { return Native::Invoke<void>(0x1460B644397453EB); }
 	static void _0xCD284E2F6AC27EE9(Any p0) { return Native::Invoke<void, Any>(0xCD284E2F6AC27EE9, p0); }
-	static void SET_TIMECYCLE_MODIFIER(char* modifierName) { return Native::Invoke<void, char*>(N::SET_TIMECYCLE_MODIFIER, modifierName); }
-	static void SET_TIMECYCLE_MODIFIER_STRENGTH(float strength) { return Native::Invoke<void, float>(N::SET_TIMECYCLE_MODIFIER_STRENGTH, strength); }
-	static void SET_TRANSITION_TIMECYCLE_MODIFIER(char* modifierName, float transition) { return Native::Invoke<void, char*, float>(N::SET_TRANSITION_TIMECYCLE_MODIFIER, modifierName, transition); }
+	static void SET_TIMECYCLE_MODIFIER(const char* modifierName) { return Native::Invoke<void, const char*>(0xFA08722A5EA82DA7, modifierName); }
+	static void SET_TIMECYCLE_MODIFIER_STRENGTH(float strength) { return Native::Invoke<void, float>(0xFDB74C9CC54C3F37, strength); }
+	static void SET_TRANSITION_TIMECYCLE_MODIFIER(const char* modifierName, float transition) { return Native::Invoke<void, const char*, float>(0xFF927A09F481D80C, modifierName, transition); }
 	static void _0xBB6C707F20D955D4(Any p0) { return Native::Invoke<void, Any>(0xBB6C707F20D955D4, p0); }
-	static void CLEAR_TIMECYCLE_MODIFIER() { return Native::Invoke<void>(N::CLEAR_TIMECYCLE_MODIFIER); }
-	static int GET_TIMECYCLE_MODIFIER_INDEX() { return Native::Invoke<int>(N::GET_TIMECYCLE_MODIFIER_INDEX); }
-	static Any GET_TIMECYCLE_TRANSITION_MODIFIER_INDEX() { return Native::Invoke<Any>(N::GET_TIMECYCLE_TRANSITION_MODIFIER_INDEX); }
+	static void CLEAR_TIMECYCLE_MODIFIER() { return Native::Invoke<void>(0x0E3F4AF2D63491FB); }
+	static int GET_TIMECYCLE_MODIFIER_INDEX() { return Native::Invoke<int>(0xA705394293E2B3D3); }
+	static Any GET_TIMECYCLE_TRANSITION_MODIFIER_INDEX() { return Native::Invoke<Any>(0x2DA67BA3C8A6755D); }
 	static void _0x67B0778C62E74423(Any p0) { return Native::Invoke<void, Any>(0x67B0778C62E74423, p0); }
 	static void _0x6C03118E9E5C1A14(Any p0) { return Native::Invoke<void, Any>(0x6C03118E9E5C1A14, p0); }
 	static Any _0x25CA89B2A39DCC69() { return Native::Invoke<Any>(0x25CA89B2A39DCC69); }
-	static void _SET_EXTRA_TIMECYCLE_MODIFIER_STRENGTH(Any p0) { return Native::Invoke<void, Any>(N::_SET_EXTRA_TIMECYCLE_MODIFIER_STRENGTH, p0); }
-	static void SET_TV_CHANNEL(int channel) { return Native::Invoke<void, int>(N::SET_TV_CHANNEL, channel); }
-	static int GET_TV_CHANNEL() { return Native::Invoke<int>(N::GET_TV_CHANNEL); }
-	static void SET_TV_VOLUME(float volume) { return Native::Invoke<void, float>(N::SET_TV_VOLUME, volume); }
-	static void DRAW_TV_CHANNEL(float xPos, float yPos, float xScale, float yScale, float rotation, int red, int green, int blue, int alpha) { return Native::Invoke<void, float, float, float, float, float, int, int, int, int>(N::DRAW_TV_CHANNEL, xPos, yPos, xScale, yScale, rotation, red, green, blue, alpha); }
-	static void SET_TV_CHANNEL_PLAYLIST(int channel, char* playlist, BOOL fromBeginning) { return Native::Invoke<void, int, char*, BOOL>(N::SET_TV_CHANNEL_PLAYLIST, channel, playlist, fromBeginning); }
-	static BOOL _IS_TV_PLAYLIST_ITEM_PLAYING(Hash videoClip) { return Native::Invoke<BOOL, Hash>(N::_IS_TV_PLAYLIST_ITEM_PLAYING, videoClip); }
+	static void _SET_EXTRA_TIMECYCLE_MODIFIER_STRENGTH(Any p0) { return Native::Invoke<void, Any>(0x6FE93BCC7BF12B63, p0); }
+	static void SET_TV_CHANNEL(int channel) { return Native::Invoke<void, int>(0x593FAF7FC9401A56, channel); }
+	static int GET_TV_CHANNEL() { return Native::Invoke<int>(0xF90FBFD68F3C59AE); }
+	static void SET_TV_VOLUME(float volume) { return Native::Invoke<void, float>(0x73A97068787D7231, volume); }
+	static void DRAW_TV_CHANNEL(float xPos, float yPos, float xScale, float yScale, float rotation, int red, int green, int blue, int alpha) { return Native::Invoke<void, float, float, float, float, float, int, int, int, int>(0xC0A145540254A840, xPos, yPos, xScale, yScale, rotation, red, green, blue, alpha); }
+	static void SET_TV_CHANNEL_PLAYLIST(int channel, const char* playlist, BOOL fromBeginning) { return Native::Invoke<void, int, const char*, BOOL>(0xDEC6B25F5DC8925B, channel, playlist, fromBeginning); }
+	static BOOL _IS_TV_PLAYLIST_ITEM_PLAYING(Hash videoClip) { return Native::Invoke<BOOL, Hash>(0x4D562223E0EB65F3, videoClip); }
 	static Any _0x5C674EB487891F6B() { return Native::Invoke<Any>(0x5C674EB487891F6B); }
-	static Any ENABLE_MOVIE_SUBTITLES() { return Native::Invoke<Any>(N::ENABLE_MOVIE_SUBTITLES); }
+	static void ENABLE_MOVIE_SUBTITLES() { return Native::Invoke<void>(0x6FC9B065229C0787); }
 	static void _0x32DE2BFFDA43E62A() { return Native::Invoke<void>(0x32DE2BFFDA43E62A); }
 	static Any _0xD543487A1F12828F() { return Native::Invoke<Any>(0xD543487A1F12828F); }
 	static Any _0xD9BC98B55BCFAA9B() { return Native::Invoke<Any>(0xD9BC98B55BCFAA9B); }
@@ -1583,14 +1583,14 @@ namespace GRAPHICS
 	static void _0x5199405EABFBD7F0(Any p0) { return Native::Invoke<void, Any>(0x5199405EABFBD7F0, p0); }
 	static Any _0xBF2DD155B2ADCD0A(Any p0) { return Native::Invoke<Any, Any>(0xBF2DD155B2ADCD0A, p0); }
 	static void _0x37D7BDBA89F13959(Any p0) { return Native::Invoke<void, Any>(0x37D7BDBA89F13959, p0); }
-	static void ANIMPOSTFX_PLAY(Any p0) { return Native::Invoke<void, Any>(N::ANIMPOSTFX_PLAY, p0); }
+	static void ANIMPOSTFX_PLAY(Any p0) { return Native::Invoke<void, Any>(0x4102732DF6B4005F, p0); }
 	static Any _0x3A9A281FF71249E9() { return Native::Invoke<Any>(0x3A9A281FF71249E9); }
-	static void ANIMPOSTFX_STOP(char* effectName) { return Native::Invoke<void, char*>(N::ANIMPOSTFX_STOP, effectName); }
+	static void ANIMPOSTFX_STOP(const char* effectName) { return Native::Invoke<void, const char*>(0xB4FD7446BAB2F394, effectName); }
 	static Any _0x26DD2FB0A88CC412() { return Native::Invoke<Any>(0x26DD2FB0A88CC412); }
 	static void _0xC5CB91D65852ED7E(Any p0) { return Native::Invoke<void, Any>(0xC5CB91D65852ED7E, p0); }
-	static BOOL ANIMPOSTFX_IS_RUNNING(char* effectName) { return Native::Invoke<BOOL, char*>(N::ANIMPOSTFX_IS_RUNNING, effectName); }
+	static BOOL ANIMPOSTFX_IS_RUNNING(const char* effectName) { return Native::Invoke<BOOL, const char*>(0x4A123E85D7C4CA0B, effectName); }
 	static Any _0x2D4F9C852CE8A253() { return Native::Invoke<Any>(0x2D4F9C852CE8A253); }
-	static void ANIMPOSTFX_STOP_ALL() { return Native::Invoke<void>(N::ANIMPOSTFX_STOP_ALL); }
+	static void ANIMPOSTFX_STOP_ALL() { return Native::Invoke<void>(0x66560A0D4C64FD21); }
 	static Any _0xAD74C22A541AB987() { return Native::Invoke<Any>(0xAD74C22A541AB987); }
 	static void _0xCAB4DD2D5B2B7246(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCAB4DD2D5B2B7246, p0, p1); }
 	static void _0xF972F0AB16DC5260(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF972F0AB16DC5260, p0, p1, p2); }
@@ -1698,8 +1698,8 @@ namespace _NAMESPACE26
 }
 namespace GOOGLE_ANALYTICS
 {
-	static void _GOOGLE_ANALYTICS_PUSH_PAGE(Any p0) { return Native::Invoke<void, Any>(N::_GOOGLE_ANALYTICS_PUSH_PAGE, p0); }
-	static void _GOOGLE_ANALYTICS_POP_PAGE(Any p0) { return Native::Invoke<void, Any>(N::_GOOGLE_ANALYTICS_POP_PAGE, p0); }
+	static void _GOOGLE_ANALYTICS_PUSH_PAGE(Any p0) { return Native::Invoke<void, Any>(0xD43A616AE3AC4EF6, p0); }
+	static void _GOOGLE_ANALYTICS_POP_PAGE(Any p0) { return Native::Invoke<void, Any>(0xC6DE040378364798, p0); }
 }
 namespace HUD
 {
@@ -1710,45 +1710,45 @@ namespace HUD
 	static void _0x8BC7C1F929D07BF3(Any p0) { return Native::Invoke<void, Any>(0x8BC7C1F929D07BF3, p0); }
 	static Any _0x7EC0D68233E391AC(Any p0) { return Native::Invoke<Any, Any>(0x7EC0D68233E391AC, p0); }
 	static void _0x7F78CD75CC4539E4(Any p0) { return Native::Invoke<void, Any>(0x7F78CD75CC4539E4, p0); }
-	static void BUSYSPINNER_OFF() { return Native::Invoke<void>(N::BUSYSPINNER_OFF); }
-	static Any BUSYSPINNER_IS_ON() { return Native::Invoke<Any>(N::BUSYSPINNER_IS_ON); }
-	static void _0xD79334A4BB99BAD1(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD79334A4BB99BAD1, p0, p1, p2); }
-	static Any _GET_TEXT_SUBSTRING() { return Native::Invoke<Any>(N::_GET_TEXT_SUBSTRING); }
-	static Any _GET_LABEL_TEXT() { return Native::Invoke<Any>(N::_GET_LABEL_TEXT); }
-	static void CLEAR_ALL_HELP_MESSAGES() { return Native::Invoke<void>(N::CLEAR_ALL_HELP_MESSAGES); }
+	static void BUSYSPINNER_OFF() { return Native::Invoke<void>(0x58F441B90EA84D06); }
+	static Any BUSYSPINNER_IS_ON() { return Native::Invoke<Any>(0x823BF7B1DF613A21); }
+	static void _DRAW_TEXT(const char* text, float xPos, float yPos) { return Native::Invoke<void, const char*, float, float>(0xD79334A4BB99BAD1, text, xPos, yPos); }
+	static const char* _GET_TEXT_SUBSTRING() { return Native::Invoke<const char*>(0x9D7E12EC6A1EE4E5); }
+	static const char* _GET_LABEL_TEXT(const char* labelName) { return Native::Invoke<const char*, const char*>(0xCFEDCCAD3C5BA90D, labelName); }
+	static void CLEAR_ALL_HELP_MESSAGES() { return Native::Invoke<void>(0x916ED8321F087059); }
 	static Any _0xD0976CC34002DB57(Any p0) { return Native::Invoke<Any, Any>(0xD0976CC34002DB57, p0); }
 	static Any _0x3CF96E16265B7DC8(Any p0) { return Native::Invoke<Any, Any>(0x3CF96E16265B7DC8, p0); }
 	static Any _0xF66090013DE648D5(Any p0) { return Native::Invoke<Any, Any>(0xF66090013DE648D5, p0); }
 	static void _0xAA03F130A637D923(Any p0) { return Native::Invoke<void, Any>(0xAA03F130A637D923, p0); }
 	static Any _0x2C729F2B94CEA911(Any p0) { return Native::Invoke<Any, Any>(0x2C729F2B94CEA911, p0); }
-	static BOOL DOES_TEXT_LABEL_EXIST(char* gxt) { return Native::Invoke<BOOL, char*>(N::DOES_TEXT_LABEL_EXIST, gxt); }
-	static char* _GET_LABEL_TEXT(char* labelName) { return Native::Invoke<char*, char*>(N::_GET_LABEL_TEXT, labelName); }
+	static BOOL DOES_TEXT_LABEL_EXIST(const char* gxt) { return Native::Invoke<BOOL, const char*>(0x73C258C68D6F55B6, gxt); }
+	static const const char* _GET_LABEL_TEXT_2(const const char* label) { return Native::Invoke<const const char*, const const char*>(0x3429670F9B9EF2D3, label); }
 	static Any _0xD8402B858F4DDD88(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD8402B858F4DDD88, p0, p1); }
 	static Any _0x806862E5D266CF38(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x806862E5D266CF38, p0, p1, p2); }
-	static int GET_LENGTH_OF_LITERAL_STRING(char* string) { return Native::Invoke<int, char*>(N::GET_LENGTH_OF_LITERAL_STRING, string); }
-	static Any GET_LENGTH_OF_LITERAL_STRING_IN_BYTES() { return Native::Invoke<Any>(N::GET_LENGTH_OF_LITERAL_STRING_IN_BYTES); }
+	static int GET_LENGTH_OF_LITERAL_STRING(const char* string) { return Native::Invoke<int, const char*>(0x481FBF588B0B76DB, string); }
+	static Any GET_LENGTH_OF_LITERAL_STRING_IN_BYTES() { return Native::Invoke<Any>(0xDC5AD6B7AB8184F5); }
 	static Any _0xBD5DD5EAE2B6CE14(Any p0) { return Native::Invoke<Any, Any>(0xBD5DD5EAE2B6CE14, p0); }
-	static BOOL IS_RADAR_PREFERENCE_SWITCHED_ON() { return Native::Invoke<BOOL>(N::IS_RADAR_PREFERENCE_SWITCHED_ON); }
-	static void DISPLAY_HUD(BOOL toggle) { return Native::Invoke<void, BOOL>(N::DISPLAY_HUD, toggle); }
-	static BOOL IS_HUD_HIDDEN() { return Native::Invoke<BOOL>(N::IS_HUD_HIDDEN); }
-	static BOOL IS_RADAR_HIDDEN() { return Native::Invoke<BOOL>(N::IS_RADAR_HIDDEN); }
+	static BOOL IS_RADAR_PREFERENCE_SWITCHED_ON() { return Native::Invoke<BOOL>(0x81E47F0EE1F2B21E); }
+	static void DISPLAY_HUD(BOOL toggle) { return Native::Invoke<void, BOOL>(0xD63FE3AF9FB3D53F, toggle); }
+	static BOOL IS_HUD_HIDDEN() { return Native::Invoke<BOOL>(0x71B72B478F8189DC); }
+	static BOOL IS_RADAR_HIDDEN() { return Native::Invoke<BOOL>(0x1B82FD5FFA4D666E); }
 	static Any _0x66F35DD9D2B58579() { return Native::Invoke<Any>(0x66F35DD9D2B58579); }
 	static Any _0xB981DD2DFAF9B1C9() { return Native::Invoke<Any>(0xB981DD2DFAF9B1C9); }
-	static void SET_TEXT_SCALE(float unk, float scale) { return Native::Invoke<void, float, float>(N::SET_TEXT_SCALE, unk, scale); }
-	static void _0x50A41AD966910F03(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x50A41AD966910F03, p0, p1, p2, p3); }
-	static Any SET_TEXT_CENTRE() { return Native::Invoke<Any>(N::SET_TEXT_CENTRE); }
-	static Any SET_TEXT_DROPSHADOW() { return Native::Invoke<Any>(N::SET_TEXT_DROPSHADOW); }
-	static void SET_TEXT_RENDER_ID(int renderId) { return Native::Invoke<void, int>(N::SET_TEXT_RENDER_ID, renderId); }
-	static BOOL REGISTER_NAMED_RENDERTARGET(char* p0, BOOL p1) { return Native::Invoke<BOOL, char*, BOOL>(N::REGISTER_NAMED_RENDERTARGET, p0, p1); }
-	static BOOL IS_NAMED_RENDERTARGET_REGISTERED(char* p0) { return Native::Invoke<BOOL, char*>(N::IS_NAMED_RENDERTARGET_REGISTERED, p0); }
-	static BOOL RELEASE_NAMED_RENDERTARGET(Any* p0) { return Native::Invoke<BOOL, Any*>(N::RELEASE_NAMED_RENDERTARGET, p0); }
-	static void LINK_NAMED_RENDERTARGET(Hash hash) { return Native::Invoke<void, Hash>(N::LINK_NAMED_RENDERTARGET, hash); }
-	static Any GET_NAMED_RENDERTARGET_RENDER_ID(char* p0) { return Native::Invoke<Any, char*>(N::GET_NAMED_RENDERTARGET_RENDER_ID, p0); }
-	static BOOL IS_NAMED_RENDERTARGET_LINKED(Hash hash) { return Native::Invoke<BOOL, Hash>(N::IS_NAMED_RENDERTARGET_LINKED, hash); }
+	static void SET_TEXT_SCALE(float unk, float scale) { return Native::Invoke<void, float, float>(0x4170B650590B3B00, unk, scale); }
+	static void _SET_TEXT_COLOR(int p0, int p1, int p2, int p3) { return Native::Invoke<void, int, int, int, int>(0x50A41AD966910F03, p0, p1, p2, p3); }
+	static void SET_TEXT_CENTRE() { return Native::Invoke<void>(0xBE5261939FBECB8C); }
+	static void SET_TEXT_DROPSHADOW() { return Native::Invoke<void>(0x1BE39DBAA7263CA5); }
+	static void SET_TEXT_RENDER_ID(int renderId) { return Native::Invoke<void, int>(0xE550CDE128D56757, renderId); }
+	static BOOL REGISTER_NAMED_RENDERTARGET(const char* p0, BOOL p1) { return Native::Invoke<BOOL, const char*, BOOL>(0x98AF2BB6F62BD588, p0, p1); }
+	static BOOL IS_NAMED_RENDERTARGET_REGISTERED(const char* p0) { return Native::Invoke<BOOL, const char*>(0x3EE32F7964C40FE6, p0); }
+	static BOOL RELEASE_NAMED_RENDERTARGET(Any* p0) { return Native::Invoke<BOOL, Any*>(0x0E692EE61761361F, p0); }
+	static void LINK_NAMED_RENDERTARGET(Hash hash) { return Native::Invoke<void, Hash>(0x2F506B8556242DDB, hash); }
+	static Any GET_NAMED_RENDERTARGET_RENDER_ID(const char* p0) { return Native::Invoke<Any, const char*>(0xB6762A85EE29AA60, p0); }
+	static BOOL IS_NAMED_RENDERTARGET_LINKED(Hash hash) { return Native::Invoke<BOOL, Hash>(0x707032835FF09AE7, hash); }
 	static void _0x9D37EB5003E0F2CF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9D37EB5003E0F2CF, p0, p1); }
-	static void HIDE_LOADING_ON_FADE_THIS_FRAME() { return Native::Invoke<void>(N::HIDE_LOADING_ON_FADE_THIS_FRAME); }
+	static void HIDE_LOADING_ON_FADE_THIS_FRAME() { return Native::Invoke<void>(0xEA600AABAF4B9084); }
 	static void _0x052D4AC0922AF91A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x052D4AC0922AF91A, p0, p1); }
-	static void HIDE_HUD_AND_RADAR_THIS_FRAME() { return Native::Invoke<void>(N::HIDE_HUD_AND_RADAR_THIS_FRAME); }
+	static void HIDE_HUD_AND_RADAR_THIS_FRAME() { return Native::Invoke<void>(0x36CDD81627A6FCD2); }
 	static void _0x8A59D44189AF2BC5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8A59D44189AF2BC5, p0, p1); }
 	static void _0x160825DADF1B04B3() { return Native::Invoke<void>(0x160825DADF1B04B3); }
 	static Any _0x9C409BBC492CB5B1() { return Native::Invoke<Any>(0x9C409BBC492CB5B1); }
@@ -1758,137 +1758,137 @@ namespace HUD
 	static Any _0x28AE29D909C8FDCE() { return Native::Invoke<Any>(0x28AE29D909C8FDCE); }
 	static void _0x2F7BB105144ACF30() { return Native::Invoke<void>(0x2F7BB105144ACF30); }
 	static void _0xBFFF81E12A745A5F() { return Native::Invoke<void>(0xBFFF81E12A745A5F); }
-	static void SET_MISSION_NAME(BOOL p0, char* name) { return Native::Invoke<void, BOOL, char*>(N::SET_MISSION_NAME, p0, name); }
-	static Any _SET_MISSION_NAME_2() { return Native::Invoke<Any>(N::_SET_MISSION_NAME_2); }
+	static void SET_MISSION_NAME(BOOL p0, const char* name) { return Native::Invoke<void, BOOL, const char*>(0x402669A4BDAA72DA, p0, name); }
+	static void _SET_MISSION_NAME_2() { return Native::Invoke<void>(0xD98630CE73C61E98); }
 	static Any _0xCE0D2F5586627CCE() { return Native::Invoke<Any>(0xCE0D2F5586627CCE); }
-	static Any GET_HUD_SCREEN_POSITION_FROM_WORLD_POSITION(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::GET_HUD_SCREEN_POSITION_FROM_WORLD_POSITION, p0, p1, p2, p3, p4); }
+	static Any GET_HUD_SCREEN_POSITION_FROM_WORLD_POSITION(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xB39C81628EF10B42, p0, p1, p2, p3, p4); }
 	static void _0xBF4F34A85CA2970D() { return Native::Invoke<void>(0xBF4F34A85CA2970D); }
-	static void DISABLE_FRONTEND_THIS_FRAME() { return Native::Invoke<void>(N::DISABLE_FRONTEND_THIS_FRAME); }
+	static void DISABLE_FRONTEND_THIS_FRAME() { return Native::Invoke<void>(0x56CE42A528156A67); }
 	static void _0x5651516D947ABC53() { return Native::Invoke<void>(0x5651516D947ABC53); }
-	static Any _ALLOW_PAUSE_MENU_WHEN_DEAD_THIS_FRAME() { return Native::Invoke<Any>(N::_ALLOW_PAUSE_MENU_WHEN_DEAD_THIS_FRAME); }
-	static void SET_FRONTEND_ACTIVE(BOOL active) { return Native::Invoke<void, BOOL>(N::SET_FRONTEND_ACTIVE, active); }
-	static BOOL IS_PAUSE_MENU_ACTIVE() { return Native::Invoke<BOOL>(N::IS_PAUSE_MENU_ACTIVE); }
-	static Any _FORCE_CLOSE_TEXT_INPUT_BOX() { return Native::Invoke<Any>(N::_FORCE_CLOSE_TEXT_INPUT_BOX); }
-	static Any _IS_MULTIPLAYER_CHAT_ACTIVE() { return Native::Invoke<Any>(N::_IS_MULTIPLAYER_CHAT_ACTIVE); }
+	static Any _ALLOW_PAUSE_MENU_WHEN_DEAD_THIS_FRAME() { return Native::Invoke<Any>(0x30996422DF1EE561); }
+	static void SET_FRONTEND_ACTIVE(BOOL active) { return Native::Invoke<void, BOOL>(0xCE47C21C0687EBC2, active); }
+	static BOOL IS_PAUSE_MENU_ACTIVE() { return Native::Invoke<BOOL>(0x535384D6067BA42E); }
+	static Any _FORCE_CLOSE_TEXT_INPUT_BOX() { return Native::Invoke<Any>(0xFBBF5943E4C2C992); }
+	static Any _IS_MULTIPLAYER_CHAT_ACTIVE() { return Native::Invoke<Any>(0xBC19069D5FBB5C46); }
 	static void _0x50C803A4CD5932C5(Any p0) { return Native::Invoke<void, Any>(0x50C803A4CD5932C5, p0); }
 	static void _0xD4EE21B7CC7FD350(Any p0) { return Native::Invoke<void, Any>(0xD4EE21B7CC7FD350, p0); }
 	static void _0x3FE4FB41EF7D2196(Any p0) { return Native::Invoke<void, Any>(0x3FE4FB41EF7D2196, p0); }
-	static void _JOURNAL_WRITE_ENTRY(Any p0) { return Native::Invoke<void, Any>(N::_JOURNAL_WRITE_ENTRY, p0); }
-	static Any _JOURNAL_CAN_WRITE_ENTRY(Any p0) { return Native::Invoke<Any, Any>(N::_JOURNAL_CAN_WRITE_ENTRY, p0); }
-	static Any _JOURNAL_GET_ENTRY_COUNT() { return Native::Invoke<Any>(N::_JOURNAL_GET_ENTRY_COUNT); }
-	static Any _JOURNAL_GET_ENTRY_AT_INDEX(Any p0) { return Native::Invoke<Any, Any>(N::_JOURNAL_GET_ENTRY_AT_INDEX, p0); }
-	static Any _JOURNAL_GET_GRIME_AT_INDEX(Any p0) { return Native::Invoke<Any, Any>(N::_JOURNAL_GET_GRIME_AT_INDEX, p0); }
-	static Any _JOURNAL_GET_ENTRY_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_JOURNAL_GET_ENTRY_INFO, p0, p1); }
-	static Any _JORUNAL_GET_TEXTURE_WITH_LAYOUT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_JORUNAL_GET_TEXTURE_WITH_LAYOUT, p0, p1, p2); }
-	static void _JORUNAL_MARK_READ(Any p0) { return Native::Invoke<void, Any>(N::_JORUNAL_MARK_READ, p0); }
-	static void _JORUNAL_CLEAR_ALL_PROGRESS() { return Native::Invoke<void>(N::_JORUNAL_CLEAR_ALL_PROGRESS); }
+	static void _JOURNAL_WRITE_ENTRY(Any p0) { return Native::Invoke<void, Any>(0x6DFDD665E416B093, p0); }
+	static Any _JOURNAL_CAN_WRITE_ENTRY(Any p0) { return Native::Invoke<Any, Any>(0xCF782691D91F270E, p0); }
+	static Any _JOURNAL_GET_ENTRY_COUNT() { return Native::Invoke<Any>(0xE65B5DE53351BE22); }
+	static Any _JOURNAL_GET_ENTRY_AT_INDEX(Any p0) { return Native::Invoke<Any, Any>(0x3D16ABD7A1FD8C96, p0); }
+	static Any _JOURNAL_GET_GRIME_AT_INDEX(Any p0) { return Native::Invoke<Any, Any>(0xCB5945E1B855852F, p0); }
+	static Any _JOURNAL_GET_ENTRY_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x5514C3E60673530F, p0, p1); }
+	static Any _JORUNAL_GET_TEXTURE_WITH_LAYOUT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x62CC549B3B8EA2AA, p0, p1, p2); }
+	static void _JORUNAL_MARK_READ(Any p0) { return Native::Invoke<void, Any>(0xE4509BABE59BD24E, p0); }
+	static void _JORUNAL_CLEAR_ALL_PROGRESS() { return Native::Invoke<void>(0xF402978DE6F88D6E); }
 	static Any _0xB6857100F8FD433C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB6857100F8FD433C, p0, p1); }
 	static void _0xF1E6979C0B779985(Any p0) { return Native::Invoke<void, Any>(0xF1E6979C0B779985, p0); }
 	static Any _0xBE1067CD1C9570F6(Any p0) { return Native::Invoke<Any, Any>(0xBE1067CD1C9570F6, p0); }
 	static void _0x51DE09A2196BD951(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x51DE09A2196BD951, p0, p1); }
-	static Any _CREATE_PROMPT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(N::_CREATE_PROMPT, p0, p1, p2, p3, p4, p5); }
-	static Any _BEGIN_REGISTER_PROMPT() { return Native::Invoke<Any>(N::_BEGIN_REGISTER_PROMPT); }
-	static void _END_REGISTER_PROMPT(Any p0) { return Native::Invoke<void, Any>(N::_END_REGISTER_PROMPT, p0); }
-	static void _PROMPT_SET_PRIORITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_PRIORITY, p0, p1); }
-	static Any _PROMPT_SET_CONTROL_ACTION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_PROMPT_SET_CONTROL_ACTION, p0, p1); }
-	static void _PROMPT_SET_ALLOWED_ACTION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_ALLOWED_ACTION, p0, p1); }
-	static void _PROMPT_SET_STANDARD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_STANDARD_MODE, p0, p1); }
-	static Any _PROMPT_HAS_STANDARD_MODE_COMPLETED(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_PROMPT_HAS_STANDARD_MODE_COMPLETED, p0, p1); }
-	static void _PROMPT_SET_PRESSED_TIMED_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_PRESSED_TIMED_MODE, p0, p1); }
-	static Any _PROMPT_HAS_PRESSED_TIMED_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_PRESSED_TIMED_MODE_COMPLETED, p0); }
-	static Any _PROMPT_HAS_PRESSED_TIMED_MODE_FAILED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_PRESSED_TIMED_MODE_FAILED, p0); }
-	static void _PROMPT_SET_HOLD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_HOLD_MODE, p0, p1); }
-	static void _PROMPT_SET_STANDARDIZED_HOLD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_STANDARDIZED_HOLD_MODE, p0, p1); }
-	static void _PROMPT_SET_HOLD_INDEFINITELY_MODE(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_SET_HOLD_INDEFINITELY_MODE, p0); }
-	static void _PROMPT_SET_HOLD_AUTO_FILL_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_HOLD_AUTO_FILL_MODE, p0, p1, p2); }
+	static Any _CREATE_PROMPT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x29FA7910726C3889, p0, p1, p2, p3, p4, p5); }
+	static Any _BEGIN_REGISTER_PROMPT() { return Native::Invoke<Any>(0x04F97DE45A519419); }
+	static void _END_REGISTER_PROMPT(Any p0) { return Native::Invoke<void, Any>(0xF7AA2696A22AD8B9, p0); }
+	static void _PROMPT_SET_PRIORITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCA24F528D0D16289, p0, p1); }
+	static Any _PROMPT_SET_CONTROL_ACTION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB5352B7494A08258, p0, p1); }
+	static void _PROMPT_SET_ALLOWED_ACTION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x565C1CE183CB0EAF, p0, p1); }
+	static void _PROMPT_SET_STANDARD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCC6656799977741B, p0, p1); }
+	static Any _PROMPT_HAS_STANDARD_MODE_COMPLETED(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC92AC953F0A982AE, p0, p1); }
+	static void _PROMPT_SET_PRESSED_TIMED_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1473D3AF51D54276, p0, p1); }
+	static Any _PROMPT_HAS_PRESSED_TIMED_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(0x3CE854D250A88DAF, p0); }
+	static Any _PROMPT_HAS_PRESSED_TIMED_MODE_FAILED(Any p0) { return Native::Invoke<Any, Any>(0x1A17B9ECFF617562, p0); }
+	static void _PROMPT_SET_HOLD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x94073D5CA3F16B7B, p0, p1); }
+	static void _PROMPT_SET_STANDARDIZED_HOLD_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x74C7D7B72ED0D3CF, p0, p1); }
+	static void _PROMPT_SET_HOLD_INDEFINITELY_MODE(Any p0) { return Native::Invoke<void, Any>(0xEA5CCF4EEB2F82D1, p0); }
+	static void _PROMPT_SET_HOLD_AUTO_FILL_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3CE932E737C145D6, p0, p1, p2); }
 	static Any _0xA3F2149AA24F3D8E() { return Native::Invoke<Any>(0xA3F2149AA24F3D8E); }
-	static Any _PROMPT_HAS_HOLD_AUTO_FILL_MODE(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_HOLD_AUTO_FILL_MODE, p0); }
+	static Any _PROMPT_HAS_HOLD_AUTO_FILL_MODE(Any p0) { return Native::Invoke<Any, Any>(0x8010BEBD0D5ED5BC, p0); }
 	static Any _0xB60C9F9ED47ABB76(Any p0) { return Native::Invoke<Any, Any>(0xB60C9F9ED47ABB76, p0); }
-	static Any _PROMPT_IS_HOLD_MODE_RUNNING(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_HOLD_MODE_RUNNING, p0); }
-	static Any _PROMPT_HAS_HOLD_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_HOLD_MODE_COMPLETED, p0); }
+	static Any _PROMPT_IS_HOLD_MODE_RUNNING(Any p0) { return Native::Invoke<Any, Any>(0xC7D70EAEF92EFF48, p0); }
+	static Any _PROMPT_HAS_HOLD_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(0xE0F65F0640EF0617, p0); }
 	static Any _0x81801291806DBC50(Any p0) { return Native::Invoke<Any, Any>(0x81801291806DBC50, p0); }
-	static void _PROMPT_SET_MASH_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_MASH_MODE, p0, p1); }
-	static void _PROMPT_SET_MASH_INDEFINITELY_MODE(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_SET_MASH_INDEFINITELY_MODE, p0); }
-	static void _PROMPT_SET_MASH_WITH_RESISTANCE_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_PROMPT_SET_MASH_WITH_RESISTANCE_MODE, p0, p1, p2, p3); }
-	static void _PROMPT_SET_MASH_WITH_RESISTANCE_CAN_FAIL_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_PROMPT_SET_MASH_WITH_RESISTANCE_CAN_FAIL_MODE, p0, p1, p2, p3); }
-	static void _PROMPT_SET_MASH_AUTO_FILL_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_MASH_AUTO_FILL_MODE, p0, p1, p2); }
-	static void _PROMPT_SET_MASH_MANUAL_MODE(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::_PROMPT_SET_MASH_MANUAL_MODE, p0, p1, p2, p3, p4); }
-	static void _PROMPT_SET_MASH_MANUAL_CAN_FAIL_MODE(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::_PROMPT_SET_MASH_MANUAL_CAN_FAIL_MODE, p0, p1, p2, p3, p4); }
+	static void _PROMPT_SET_MASH_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDF6423BF071C7F71, p0, p1); }
+	static void _PROMPT_SET_MASH_INDEFINITELY_MODE(Any p0) { return Native::Invoke<void, Any>(0x7B66E89312727274, p0); }
+	static void _PROMPT_SET_MASH_WITH_RESISTANCE_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xCD1BDFF15EFA79F5, p0, p1, p2, p3); }
+	static void _PROMPT_SET_MASH_WITH_RESISTANCE_CAN_FAIL_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xDC0CB602DEADBA53, p0, p1, p2, p3); }
+	static void _PROMPT_SET_MASH_AUTO_FILL_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x6C39587D7CC66801, p0, p1, p2); }
+	static void _PROMPT_SET_MASH_MANUAL_MODE(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x32DF729D8BD3C1C6, p0, p1, p2, p3, p4); }
+	static void _PROMPT_SET_MASH_MANUAL_CAN_FAIL_MODE(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x179DCF71F705DA20, p0, p1, p2, p3, p4); }
 	static Any _0xA6C6A4ADB3BAC409(Any p0) { return Native::Invoke<Any, Any>(0xA6C6A4ADB3BAC409, p0); }
 	static Any _0xCD072523791DDC1B(Any p0) { return Native::Invoke<Any, Any>(0xCD072523791DDC1B, p0); }
 	static Any _0xB0E8599243B3F568(Any p0) { return Native::Invoke<Any, Any>(0xB0E8599243B3F568, p0); }
-	static Any _PROMPT_HAS_MASH_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_MASH_MODE_COMPLETED, p0); }
-	static Any _PROMPT_HAS_MASH_MODE_FAILED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_HAS_MASH_MODE_FAILED, p0); }
-	static Any _PROMPT_GET_MASH_MODE_PROGRESS(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_GET_MASH_MODE_PROGRESS, p0); }
-	static void _PROMPT_SET_MASH_MANUAL_MODE_INCREASE_PER_PRESS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_MASH_MANUAL_MODE_INCREASE_PER_PRESS, p0, p1); }
-	static void _PROMPT_SET_MASH_MANUAL_MODE_DECAY_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_MASH_MANUAL_MODE_DECAY_SPEED, p0, p1); }
-	static void _PROMPT_SET_MASH_MANUAL_MODE_PRESSED_GROWTH_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_MASH_MANUAL_MODE_PRESSED_GROWTH_SPEED, p0, p1); }
-	static void _PROMPT_SET_ROTATE_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_ROTATE_MODE, p0, p1, p2); }
-	static void _PROMPT_SET_TARGET_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_PROMPT_SET_TARGET_MODE, p0, p1, p2, p3); }
-	static void _PROMPT_SET_TARGET_MODE_TARGET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_TARGET_MODE_TARGET, p0, p1, p2); }
-	static void _PROMPT_SET_TARGET_MODE_PROGRESS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_TARGET_MODE_PROGRESS, p0, p1); }
-	static void _PROMPT_SET_BEAT_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_BEAT_MODE, p0, p1); }
-	static Any _PROMPT_WAS_BEAT_MODE_PRESSED_IN_TIME_WINDOW(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_WAS_BEAT_MODE_PRESSED_IN_TIME_WINDOW, p0); }
-	static void _PROMPT_SET_BEAT_MODE_GRAYED_OUT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_BEAT_MODE_GRAYED_OUT, p0, p1); }
-	static void _PROMPT_RESTART_MODES(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_RESTART_MODES, p0); }
-	static void _PROMPT_SET_SPINNER_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_SPINNER_SPEED, p0, p1); }
-	static void _PROMPT_SET_SPINNER_POSITION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_SPINNER_POSITION, p0, p1); }
-	static void _PROMPT_SET_URGENT_PULSING_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_URGENT_PULSING_ENABLED, p0, p1); }
-	static Any _PROMPT_GET_URGENT_PULSING_ENABLED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_GET_URGENT_PULSING_ENABLED, p0); }
-	static void _PROMPT_SET_TAG(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_TAG, p0, p1); }
-	static Any _PROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY, p0); }
-	static Any _PROMPT_GET_GROUP_ID_FOR_SCENARIO_POINT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_PROMPT_GET_GROUP_ID_FOR_SCENARIO_POINT, p0, p1); }
-	static void _PROMPT_SET_GROUP(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_GROUP, p0, p1, p2); }
-	static void _PROMPT_REMOVE_GROUP(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_REMOVE_GROUP, p0, p1); }
-	static Any _PROMPT_SET_ACTIVE_GROUP_THIS_FRAME(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::_PROMPT_SET_ACTIVE_GROUP_THIS_FRAME, p0, p1, p2, p3, p4); }
-	static Any _PROMPT_GET_GROUP_ACTIVE_PAGE(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_GET_GROUP_ACTIVE_PAGE, p0); }
-	static Any _PROMPT_SET_AMBIENT_GROUP_THIS_FRAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(N::_PROMPT_SET_AMBIENT_GROUP_THIS_FRAME, p0, p1, p2, p3, p4, p5, p6); }
-	static Any _PROMPT_DOES_AMBIENT_GROUP_EXIST(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_DOES_AMBIENT_GROUP_EXIST, p0); }
-	static void _PROMPT_ADD_GROUP_LINK(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_ADD_GROUP_LINK, p0, p1, p2); }
-	static void _PROMPT_ADD_GROUP_RETURN_LINK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_ADD_GROUP_RETURN_LINK, p0, p1); }
-	static void _PROMPT_SET_TRANSPORT_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_TRANSPORT_MODE, p0, p1); }
+	static Any _PROMPT_HAS_MASH_MODE_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(0x845CE958416DC473, p0); }
+	static Any _PROMPT_HAS_MASH_MODE_FAILED(Any p0) { return Native::Invoke<Any, Any>(0x25B18E530CF39D6F, p0); }
+	static Any _PROMPT_GET_MASH_MODE_PROGRESS(Any p0) { return Native::Invoke<Any, Any>(0x8A9585293863B8A5, p0); }
+	static void _PROMPT_SET_MASH_MANUAL_MODE_INCREASE_PER_PRESS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA0D1D79C6036A855, p0, p1); }
+	static void _PROMPT_SET_MASH_MANUAL_MODE_DECAY_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7D393C247FB9B431, p0, p1); }
+	static void _PROMPT_SET_MASH_MANUAL_MODE_PRESSED_GROWTH_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x56DBB26F98582C29, p0, p1); }
+	static void _PROMPT_SET_ROTATE_MODE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x7ABE7095FB3D2581, p0, p1, p2); }
+	static void _PROMPT_SET_TARGET_MODE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x5F6503D9CD2754EB, p0, p1, p2, p3); }
+	static void _PROMPT_SET_TARGET_MODE_TARGET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5E019C45DD3B6A14, p0, p1, p2); }
+	static void _PROMPT_SET_TARGET_MODE_PROGRESS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x00123054BEC8A30F, p0, p1); }
+	static void _PROMPT_SET_BEAT_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF957A1654C6322FE, p0, p1); }
+	static Any _PROMPT_WAS_BEAT_MODE_PRESSED_IN_TIME_WINDOW(Any p0) { return Native::Invoke<Any, Any>(0x1FE4788AB1430C55, p0); }
+	static void _PROMPT_SET_BEAT_MODE_GRAYED_OUT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB487A4936FBF40AC, p0, p1); }
+	static void _PROMPT_RESTART_MODES(Any p0) { return Native::Invoke<void, Any>(0xDC6C55DFA2C24EE5, p0); }
+	static void _PROMPT_SET_SPINNER_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAC6586A7FDCD4B68, p0, p1); }
+	static void _PROMPT_SET_SPINNER_POSITION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x832CB510DE546282, p0, p1); }
+	static void _PROMPT_SET_URGENT_PULSING_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC5F428EE08FA7F2C, p0, p1); }
+	static Any _PROMPT_GET_URGENT_PULSING_ENABLED(Any p0) { return Native::Invoke<Any, Any>(0x1FBA0DABECDDB52B, p0); }
+	static void _PROMPT_SET_TAG(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDEC85C174751292B, p0, p1); }
+	static Any _PROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(Any p0) { return Native::Invoke<Any, Any>(0xB796970BD125FCE8, p0); }
+	static Any _PROMPT_GET_GROUP_ID_FOR_SCENARIO_POINT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCB73D7521E7103F0, p0, p1); }
+	static void _PROMPT_SET_GROUP(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x2F11D3A254169EA4, p0, p1, p2); }
+	static void _PROMPT_REMOVE_GROUP(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4E52C800A28F7BE8, p0, p1); }
+	static Any _PROMPT_SET_ACTIVE_GROUP_THIS_FRAME(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xC65A45D4453C2627, p0, p1, p2, p3, p4); }
+	static Any _PROMPT_GET_GROUP_ACTIVE_PAGE(Any p0) { return Native::Invoke<Any, Any>(0xC1FCC36C3F7286C8, p0); }
+	static Any _PROMPT_SET_AMBIENT_GROUP_THIS_FRAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0x315C81D760609108, p0, p1, p2, p3, p4, p5, p6); }
+	static Any _PROMPT_DOES_AMBIENT_GROUP_EXIST(Any p0) { return Native::Invoke<Any, Any>(0xEB550B927B34A1BB, p0); }
+	static void _PROMPT_ADD_GROUP_LINK(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x684C96CC7C66E8EF, p0, p1, p2); }
+	static void _PROMPT_ADD_GROUP_RETURN_LINK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x837972ED28159536, p0, p1); }
+	static void _PROMPT_SET_TRANSPORT_MODE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x876E4A35C73A6655, p0, p1); }
 	static Any _0xF1622CE88A1946FB() { return Native::Invoke<Any>(0xF1622CE88A1946FB); }
-	static void _PROMPT_DELETE(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_DELETE, p0); }
-	static Any _PROMPT_IS_VALID(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_VALID, p0); }
-	static Any _PROMPT_IS_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_ACTIVE, p0); }
-	static void _PROMPT_SET_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_VISIBLE, p0, p1); }
-	static void _PROMPT_SET_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_ENABLED, p0, p1); }
-	static void _PROMPT_SET_TEXT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_TEXT, p0, p1); }
-	static void _PROMPT_SET_ATTRIBUTE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_PROMPT_SET_ATTRIBUTE, p0, p1, p2); }
+	static void _PROMPT_DELETE(Any p0) { return Native::Invoke<void, Any>(0x00EDE88D4D13CF59, p0); }
+	static Any _PROMPT_IS_VALID(Any p0) { return Native::Invoke<Any, Any>(0x347469FBDD1589A9, p0); }
+	static Any _PROMPT_IS_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(0x546E342E01DE71CF, p0); }
+	static void _PROMPT_SET_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x71215ACCFDE075EE, p0, p1); }
+	static void _PROMPT_SET_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8A0FB4D03A630D21, p0, p1); }
+	static void _PROMPT_SET_TEXT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5DD02A8318420DD7, p0, p1); }
+	static void _PROMPT_SET_ATTRIBUTE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x560E76D5E2E1803F, p0, p1, p2); }
 	static void _0xF4A5C4509BF923B1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF4A5C4509BF923B1, p0, p1); }
 	static void _0x53CE46C01A089DA1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x53CE46C01A089DA1, p0, p1); }
 	static void _0xA520C7B05FA4EB2A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA520C7B05FA4EB2A, p0, p1); }
 	static void _0x4D107406667423BE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4D107406667423BE, p0, p1); }
-	static void _PROMPT_SET_POSITION(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_PROMPT_SET_POSITION, p0, p1, p2, p3); }
+	static void _PROMPT_SET_POSITION(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xAE84C5EE2C384FB3, p0, p1, p2, p3); }
 	static void _0x0C718001B77CA468(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0C718001B77CA468, p0, p1); }
-	static Any _PROMPT_IS_PRESSED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_PRESSED, p0); }
-	static Any _PROMPT_IS_JUST_PRESSED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_JUST_PRESSED, p0); }
-	static Any _PROMPT_IS_JUST_RELEASED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_JUST_RELEASED, p0); }
-	static Any _PROMPT_IS_RELEASED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_RELEASED, p0); }
-	static void _PROMPT_GLOBAL_ENABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_GLOBAL_ENABLE_PROMPT_TYPE_THIS_FRAME, p0); }
-	static void _PROMPT_GLOBAL_DISABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_GLOBAL_DISABLE_PROMPT_TYPE_THIS_FRAME, p0); }
-	static void _PROMPT_GLOBAL_FILTER_CLEAR() { return Native::Invoke<void>(N::_PROMPT_GLOBAL_FILTER_CLEAR); }
-	static void _PROMPT_GLOBAL_SET_FAVOURED_PED_FOR_CONFLICT_RESOLUTION(Any p0) { return Native::Invoke<void, Any>(N::_PROMPT_GLOBAL_SET_FAVOURED_PED_FOR_CONFLICT_RESOLUTION, p0); }
-	static void _PROMPT_GLOBAL_CLEAR_FAVOURED_PED_FOR_CONFLICT_RESOLUTION() { return Native::Invoke<void>(N::_PROMPT_GLOBAL_CLEAR_FAVOURED_PED_FOR_CONFLICT_RESOLUTION); }
-	static Any _PROMPT_IS_ENABLED(Any p0) { return Native::Invoke<Any, Any>(N::_PROMPT_IS_ENABLED, p0); }
+	static Any _PROMPT_IS_PRESSED(Any p0) { return Native::Invoke<Any, Any>(0x21E60E230086697F, p0); }
+	static Any _PROMPT_IS_JUST_PRESSED(Any p0) { return Native::Invoke<Any, Any>(0x2787CC611D3FACC5, p0); }
+	static Any _PROMPT_IS_JUST_RELEASED(Any p0) { return Native::Invoke<Any, Any>(0x635CC82FA297A827, p0); }
+	static Any _PROMPT_IS_RELEASED(Any p0) { return Native::Invoke<Any, Any>(0xAFC887BA7A7756D6, p0); }
+	static void _PROMPT_GLOBAL_ENABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(0x06565032897BA861, p0); }
+	static void _PROMPT_GLOBAL_DISABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(0xFC094EF26DD153FA, p0); }
+	static void _PROMPT_GLOBAL_FILTER_CLEAR() { return Native::Invoke<void>(0x6A2F820452017EA2); }
+	static void _PROMPT_GLOBAL_SET_FAVOURED_PED_FOR_CONFLICT_RESOLUTION(Any p0) { return Native::Invoke<void, Any>(0x530A428705BE5DEF, p0); }
+	static void _PROMPT_GLOBAL_CLEAR_FAVOURED_PED_FOR_CONFLICT_RESOLUTION() { return Native::Invoke<void>(0x51259AE5C72D4A1B); }
+	static Any _PROMPT_IS_ENABLED(Any p0) { return Native::Invoke<Any, Any>(0x0D00EDDFB58B7F28, p0); }
 	static Any _0x1BE19185B8AFE299() { return Native::Invoke<Any>(0x1BE19185B8AFE299); }
 	static Any _0xD6BD313CFA41E57A() { return Native::Invoke<Any>(0xD6BD313CFA41E57A); }
 	static Any _0xD9459157EB22C895() { return Native::Invoke<Any>(0xD9459157EB22C895); }
 	static Any _0x6095358C4142932A() { return Native::Invoke<Any>(0x6095358C4142932A); }
-	static void _PROMPT_SET_ORDERING_AS_INPUT_TYPE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_PROMPT_SET_ORDERING_AS_INPUT_TYPE, p0, p1); }
+	static void _PROMPT_SET_ORDERING_AS_INPUT_TYPE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2F385ECC5200938D, p0, p1); }
 	static Any _0xD877AF112AD2B41B() { return Native::Invoke<Any>(0xD877AF112AD2B41B); }
-	static Any CREATE_FAKE_MP_GAMER_TAG() { return Native::Invoke<Any>(N::CREATE_FAKE_MP_GAMER_TAG); }
+	static Any CREATE_FAKE_MP_GAMER_TAG() { return Native::Invoke<Any>(0x53CB4B502E1C57EA); }
 	static Any _0xE961BF23EAB76B12() { return Native::Invoke<Any>(0xE961BF23EAB76B12); }
-	static void REMOVE_MP_GAMER_TAG(int gamerTagId) { return Native::Invoke<void, int>(N::REMOVE_MP_GAMER_TAG, gamerTagId); }
-	static BOOL IS_MP_GAMER_TAG_ACTIVE(int gamerTagId) { return Native::Invoke<BOOL, int>(N::IS_MP_GAMER_TAG_ACTIVE, gamerTagId); }
+	static void REMOVE_MP_GAMER_TAG(int gamerTagId) { return Native::Invoke<void, int>(0x839BFD7D7E49FE09, gamerTagId); }
+	static BOOL IS_MP_GAMER_TAG_ACTIVE(int gamerTagId) { return Native::Invoke<BOOL, int>(0x6E1C31E14C7A5F97, gamerTagId); }
 	static Any _0x502E1591A504F843() { return Native::Invoke<Any>(0x502E1591A504F843); }
 	static Any _0x93171DDDAB274EB8() { return Native::Invoke<Any>(0x93171DDDAB274EB8); }
 	static void _0x25B9C78A25105C35(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x25B9C78A25105C35, p0, p1); }
 	static Any _0x84BD27DDF9575816() { return Native::Invoke<Any>(0x84BD27DDF9575816); }
 	static Any _0xEF7AB1A0E8C86170() { return Native::Invoke<Any>(0xEF7AB1A0E8C86170); }
-	static Any SET_MP_GAMER_TAG_NAME() { return Native::Invoke<Any>(N::SET_MP_GAMER_TAG_NAME); }
+	static void SET_MP_GAMER_TAG_NAME() { return Native::Invoke<void>(0xEA6F4B8D4B4B5B3E); }
 	static Any _0x1EA716E0628A6F44() { return Native::Invoke<Any>(0x1EA716E0628A6F44); }
-	static Any SET_MP_GAMER_TAG_BIG_TEXT() { return Native::Invoke<Any>(N::SET_MP_GAMER_TAG_BIG_TEXT); }
+	static Any SET_MP_GAMER_TAG_BIG_TEXT() { return Native::Invoke<Any>(0xA0D7CE5F83259663); }
 	static void _0x5F57522BC1EB9D9D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5F57522BC1EB9D9D, p0, p1); }
 	static void _0x95384C6CE1526EFF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x95384C6CE1526EFF, p0, p1); }
 	static Any _0xFFF6579CF0139FCE() { return Native::Invoke<Any>(0xFFF6579CF0139FCE); }
@@ -1904,41 +1904,41 @@ namespace _NAMESPACE29
 }
 namespace _NAMESPACE30
 {
-	static Any _SET_MOUSE_CURSOR_ACTIVE_THIS_FRAME() { return Native::Invoke<Any>(N::_SET_MOUSE_CURSOR_ACTIVE_THIS_FRAME); }
-	static Any _SET_MOUSE_CURSOR_SPRITE() { return Native::Invoke<Any>(N::_SET_MOUSE_CURSOR_SPRITE); }
+	static Any _SET_MOUSE_CURSOR_ACTIVE_THIS_FRAME() { return Native::Invoke<Any>(0xF12E4CCAF249DC10); }
+	static Any _SET_MOUSE_CURSOR_SPRITE() { return Native::Invoke<Any>(0x7F5858AAB5A58CCE); }
 	static Any _0x61CAE9D1FD055E44() { return Native::Invoke<Any>(0x61CAE9D1FD055E44); }
 	static Any _0xF7F51A57349739F2() { return Native::Invoke<Any>(0xF7F51A57349739F2); }
 }
 namespace INTERIOR
 {
-	static BOOL IS_VALID_INTERIOR(int interiorID) { return Native::Invoke<BOOL, int>(N::IS_VALID_INTERIOR, interiorID); }
+	static BOOL IS_VALID_INTERIOR(int interiorID) { return Native::Invoke<BOOL, int>(0x017C1B3159F79F6C, interiorID); }
 	static void _0x8451E87D3C2B0286(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8451E87D3C2B0286, p0, p1, p2); }
 	static Any _0x3039BE60B3749716(Any p0) { return Native::Invoke<Any, Any>(0x3039BE60B3749716, p0); }
 	static Any _0x2C9746D0CA15BE1C(Any p0) { return Native::Invoke<Any, Any>(0x2C9746D0CA15BE1C, p0); }
-	static BOOL IS_INTERIOR_SCENE() { return Native::Invoke<BOOL>(N::IS_INTERIOR_SCENE); }
-	static void CLEAR_ROOM_FOR_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(N::CLEAR_ROOM_FOR_ENTITY, entity); }
-	static void FORCE_ROOM_FOR_ENTITY(Entity entity, int interiorID, Hash roomHashKey) { return Native::Invoke<void, Entity, int, Hash>(N::FORCE_ROOM_FOR_ENTITY, entity, interiorID, roomHashKey); }
-	static Hash GET_ROOM_KEY_FROM_ENTITY(Entity entity) { return Native::Invoke<Hash, Entity>(N::GET_ROOM_KEY_FROM_ENTITY, entity); }
-	static Hash GET_KEY_FOR_ENTITY_IN_ROOM(Entity entity) { return Native::Invoke<Hash, Entity>(N::GET_KEY_FOR_ENTITY_IN_ROOM, entity); }
-	static int GET_INTERIOR_FROM_ENTITY(Entity entity) { return Native::Invoke<int, Entity>(N::GET_INTERIOR_FROM_ENTITY, entity); }
+	static BOOL IS_INTERIOR_SCENE() { return Native::Invoke<BOOL>(0x4200F14D6F840A9A); }
+	static void CLEAR_ROOM_FOR_ENTITY(Entity entity) { return Native::Invoke<void, Entity>(0xA1762D5BBFCA13A8, entity); }
+	static void FORCE_ROOM_FOR_ENTITY(Entity entity, int interiorID, Hash roomHashKey) { return Native::Invoke<void, Entity, int, Hash>(0xBC29A9894C976945, entity, interiorID, roomHashKey); }
+	static Hash GET_ROOM_KEY_FROM_ENTITY(Entity entity) { return Native::Invoke<Hash, Entity>(0x076E46E0EB52AFC6, entity); }
+	static Hash GET_KEY_FOR_ENTITY_IN_ROOM(Entity entity) { return Native::Invoke<Hash, Entity>(0x27D7B6F79E1F4603, entity); }
+	static int GET_INTERIOR_FROM_ENTITY(Entity entity) { return Native::Invoke<int, Entity>(0xB417689857646F61, entity); }
 	static void _0x5BD616735F16BF5C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5BD616735F16BF5C, p0, p1); }
-	static Any FORCE_ROOM_FOR_GAME_VIEWPORT() { return Native::Invoke<Any>(N::FORCE_ROOM_FOR_GAME_VIEWPORT); }
-	static void CLEAR_ROOM_FOR_GAME_VIEWPORT() { return Native::Invoke<void>(N::CLEAR_ROOM_FOR_GAME_VIEWPORT); }
+	static Any FORCE_ROOM_FOR_GAME_VIEWPORT() { return Native::Invoke<Any>(0x115B4AA8FB28AB43); }
+	static void CLEAR_ROOM_FOR_GAME_VIEWPORT() { return Native::Invoke<void>(0x951A049765E0D450); }
 	static Any _0xBC8A281FF125C655() { return Native::Invoke<Any>(0xBC8A281FF125C655); }
-	static int GET_INTERIOR_AT_COORDS(float x, float y, float z) { return Native::Invoke<int, float, float, float>(N::GET_INTERIOR_AT_COORDS, x, y, z); }
-	static void PIN_INTERIOR_IN_MEMORY(Any p0) { return Native::Invoke<void, Any>(N::PIN_INTERIOR_IN_MEMORY, p0); }
-	static void UNPIN_INTERIOR(int interiorID) { return Native::Invoke<void, int>(N::UNPIN_INTERIOR, interiorID); }
-	static BOOL IS_INTERIOR_READY(int interiorID) { return Native::Invoke<BOOL, int>(N::IS_INTERIOR_READY, interiorID); }
+	static int GET_INTERIOR_AT_COORDS(float x, float y, float z) { return Native::Invoke<int, float, float, float>(0xCDD36C9E5C469070, x, y, z); }
+	static void PIN_INTERIOR_IN_MEMORY(Any p0) { return Native::Invoke<void, Any>(0xBD3D33EABF680168, p0); }
+	static void UNPIN_INTERIOR(int interiorID) { return Native::Invoke<void, int>(0x07FD1A0B814F6055, interiorID); }
+	static BOOL IS_INTERIOR_READY(int interiorID) { return Native::Invoke<BOOL, int>(0x941560D2D45DBFC8, interiorID); }
 	static Any _0xB5EF6FEF2DC9EBED() { return Native::Invoke<Any>(0xB5EF6FEF2DC9EBED); }
-	static int GET_INTERIOR_AT_COORDS_WITH_TYPE(float x, float y, float z, char* interiorType) { return Native::Invoke<int, float, float, float, char*>(N::GET_INTERIOR_AT_COORDS_WITH_TYPE, x, y, z, interiorType); }
-	static Any GET_INTERIOR_AT_COORDS_WITH_TYPEHASH(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::GET_INTERIOR_AT_COORDS_WITH_TYPEHASH, p0, p1, p2, p3); }
-	static BOOL _ARE_COORDS_COLLIDING_WITH_EXTERIOR(float x, float y, float z) { return Native::Invoke<BOOL, float, float, float>(N::_ARE_COORDS_COLLIDING_WITH_EXTERIOR, x, y, z); }
-	static int GET_INTERIOR_FROM_COLLISION(float x, float y, float z) { return Native::Invoke<int, float, float, float>(N::GET_INTERIOR_FROM_COLLISION, x, y, z); }
-	static void ACTIVATE_INTERIOR_ENTITY_SET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::ACTIVATE_INTERIOR_ENTITY_SET, p0, p1, p2); }
-	static void DEACTIVATE_INTERIOR_ENTITY_SET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::DEACTIVATE_INTERIOR_ENTITY_SET, p0, p1, p2); }
-	static Any IS_INTERIOR_ENTITY_SET_ACTIVE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::IS_INTERIOR_ENTITY_SET_ACTIVE, p0, p1); }
+	static int GET_INTERIOR_AT_COORDS_WITH_TYPE(float x, float y, float z, const char* interiorType) { return Native::Invoke<int, float, float, float, const char*>(0xAAD6170AA33B13C0, x, y, z, interiorType); }
+	static Any GET_INTERIOR_AT_COORDS_WITH_TYPEHASH(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x3543AEA1816D1D2B, p0, p1, p2, p3); }
+	static BOOL _ARE_COORDS_COLLIDING_WITH_EXTERIOR(float x, float y, float z) { return Native::Invoke<BOOL, float, float, float>(0xF291396B517E25B2, x, y, z); }
+	static int GET_INTERIOR_FROM_COLLISION(float x, float y, float z) { return Native::Invoke<int, float, float, float>(0x5054D1A5218FA696, x, y, z); }
+	static void ACTIVATE_INTERIOR_ENTITY_SET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x174D0AAB11CED739, p0, p1, p2); }
+	static void DEACTIVATE_INTERIOR_ENTITY_SET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x33B81A2C07A51FFF, p0, p1, p2); }
+	static Any IS_INTERIOR_ENTITY_SET_ACTIVE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x32810CA2125F5842, p0, p1); }
 	static Any _0xD56FF170710FC826(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD56FF170710FC826, p0, p1); }
-	static void DISABLE_INTERIOR(int interiorID, BOOL toggle) { return Native::Invoke<void, int, BOOL>(N::DISABLE_INTERIOR, interiorID, toggle); }
+	static void DISABLE_INTERIOR(int interiorID, BOOL toggle) { return Native::Invoke<void, int, BOOL>(0x3C2B92A1A07D4FCE, interiorID, toggle); }
 	static void _0x2533F2AB0EB9C6F9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2533F2AB0EB9C6F9, p0, p1); }
 	static void _0xFE2B3D5500B1B2E4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFE2B3D5500B1B2E4, p0, p1); }
 }
@@ -2024,87 +2024,87 @@ namespace _NAMESPACE32
 }
 namespace ITEMDATABASE
 {
-	static Any _ITEM_DATABASE_CAN_EQUIP_ITEM_ON_CATEGORY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_CAN_EQUIP_ITEM_ON_CATEGORY, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_FITS_SLOT_COUNT(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_FITS_SLOT_COUNT, p0); }
-	static Any _ITEM_DATABASE_GET_FITS_SLOT_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_FITS_SLOT_INFO, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_HAS_SLOT_COUNT(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_HAS_SLOT_COUNT, p0); }
-	static Any _ITEM_DATABASE_GET_HAS_SLOT_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_HAS_SLOT_INFO, p0, p1, p2); }
+	static Any _ITEM_DATABASE_CAN_EQUIP_ITEM_ON_CATEGORY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x856FF92C57742AE5, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_FITS_SLOT_COUNT(Any p0) { return Native::Invoke<Any, Any>(0x2970D1D6BFCF9B46, p0); }
+	static Any _ITEM_DATABASE_GET_FITS_SLOT_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x77210C146CED5261, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_HAS_SLOT_COUNT(Any p0) { return Native::Invoke<Any, Any>(0x44915068579D7710, p0); }
+	static Any _ITEM_DATABASE_GET_HAS_SLOT_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x8A9BD0DB7E8376CF, p0, p1, p2); }
 	static Any _0x2A610BEE7D341CC4() { return Native::Invoke<Any>(0x2A610BEE7D341CC4); }
-	static Any _ITEM_DATABASE_FILLOUT_ITEM_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_ITEM_INFO, p0, p1); }
-	static Any _ITEM_DATABASE_FILLOUT_ACQUIRE_COST(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_ACQUIRE_COST, p0, p1, p2); }
-	static Any _ITEM_DATABASE_FILLOUT_SELL_PRICE(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_SELL_PRICE, p0, p1, p2); }
-	static Any _ITEM_DATABASE_FILLOUT_SATCHEL_DATA(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_SATCHEL_DATA, p0, p1); }
-	static Any _ITEM_DATABASE_FILLOUT_UI_DATA(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_UI_DATA, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_ITEM_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xFE90ABBCBFDC13B2, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_ACQUIRE_COST(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x74F7928816E4E181, p0, p1, p2); }
+	static Any _ITEM_DATABASE_FILLOUT_SELL_PRICE(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7A62A2EEDE1C3766, p0, p1, p2); }
+	static Any _ITEM_DATABASE_FILLOUT_SATCHEL_DATA(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4776EFD78F75C23F, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_UI_DATA(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB86F7CC2DC67AC60, p0, p1); }
 	static Any _0x74C3B1093728D263() { return Native::Invoke<Any>(0x74C3B1093728D263); }
-	static Any _ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_IDS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_IDS, p0, p1); }
-	static Any _ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_ID_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_ID_INFO, p0, p1); }
-	static Any _ITEM_DATABASE_FILLOUT_TAG_DATA(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_TAG_DATA, p0, p1, p2, p3); }
-	static Any _ITEM_DATABASE_GET_ACQUIRE_COSTS_COUNT(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_ACQUIRE_COSTS_COUNT, p0); }
-	static Any _ITEM_DATABASE_GET_ACQUIRE_COST(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_ACQUIRE_COST, p0, p1, p2); }
-	static Any _ITEM_DATABASE_CREATE_ITEM_COLLECTION(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_CREATE_ITEM_COLLECTION, p0, p1, p2); }
+	static Any _ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_IDS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9379BE60DC55BBE6, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_ITEM_EFFECTS_ID_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCF2D360D27FD1ABF, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_TAG_DATA(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x5A11D6EEA17165B0, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_GET_ACQUIRE_COSTS_COUNT(Any p0) { return Native::Invoke<Any, Any>(0x01FDDAD392D04144, p0); }
+	static Any _ITEM_DATABASE_GET_ACQUIRE_COST(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6772A83C67A25775, p0, p1, p2); }
+	static Any _ITEM_DATABASE_CREATE_ITEM_COLLECTION(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x71EFA7999AE79408, p0, p1, p2); }
 	static Any _0xD389A2549C4EFB30(Any p0) { return Native::Invoke<Any, Any>(0xD389A2549C4EFB30, p0); }
 	static Any _0x8750F69A720C2E41(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x8750F69A720C2E41, p0, p1, p2); }
 	static Any _0xCBB7B6EDFA933ADE(Any p0) { return Native::Invoke<Any, Any>(0xCBB7B6EDFA933ADE, p0); }
-	static Any _ITEM_DATABASE_IS_INTRINSIC_ITEM(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_IS_INTRINSIC_ITEM, p0); }
-	static Any _ITEM_DATABASE_IS_OVERPOWERED_ITEM(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_IS_OVERPOWERED_ITEM, p0); }
-	static Any _ITEM_DATABASE_IS_KEY_VALID(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_IS_KEY_VALID, p0, p1); }
-	static Any _ITEM_DATABASE_GET_BUNDLE_ID(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_BUNDLE_ID, p0); }
-	static Any _ITEM_DATABASE_GET_BUNDLE_ITEM_COUNT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_GET_BUNDLE_ITEM_COUNT, p0, p1); }
-	static Any _ITEM_DATABASE_GET_BUNDLE_ITEM_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_BUNDLE_ITEM_INFO, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_IS_INTRINSIC_ITEM(Any p0) { return Native::Invoke<Any, Any>(0x337F88E3A063995E, p0); }
+	static Any _ITEM_DATABASE_IS_OVERPOWERED_ITEM(Any p0) { return Native::Invoke<Any, Any>(0x337F88E3A063995F, p0); }
+	static Any _ITEM_DATABASE_IS_KEY_VALID(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6D5D51B188333FD1, p0, p1); }
+	static Any _ITEM_DATABASE_GET_BUNDLE_ID(Any p0) { return Native::Invoke<Any, Any>(0x891A45960B6B768A, p0); }
+	static Any _ITEM_DATABASE_GET_BUNDLE_ITEM_COUNT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3332695B01015DF9, p0, p1); }
+	static Any _ITEM_DATABASE_GET_BUNDLE_ITEM_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x5D48A77E4B668B57, p0, p1, p2, p3); }
 	static Any _0x4308812A6E9CA62E() { return Native::Invoke<Any>(0x4308812A6E9CA62E); }
 	static Any _0xA97EE5E4589FCF5A() { return Native::Invoke<Any>(0xA97EE5E4589FCF5A); }
 	static Any _0x7A35A72A692BE9DB() { return Native::Invoke<Any>(0x7A35A72A692BE9DB); }
 	static Any _0x3A0B667ABFF87F6E() { return Native::Invoke<Any>(0x3A0B667ABFF87F6E); }
-	static Any _ITEM_DATABASE_IS_SHOP_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_IS_SHOP_KEY_VALID, p0); }
-	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEMS_COUNT(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEMS_COUNT, p0); }
-	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO_BY_KEY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO_BY_KEY, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_GROUP_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_GROUP_INFO, p0, p1, p2, p3); }
-	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_INFO(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_INFO, p0, p1, p2, p3, p4); }
+	static Any _ITEM_DATABASE_IS_SHOP_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(0x00B9507D8E1D8716, p0); }
+	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEMS_COUNT(Any p0) { return Native::Invoke<Any, Any>(0xC568B1A0F17C7025, p0); }
+	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x4A79B41B4EB91F4E, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_ITEM_INFO_BY_KEY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xCFB06801F5099B25, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_GROUP_INFO(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x76C752D788A76813, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_GET_SHOP_INVENTORIES_REQUIREMENT_INFO(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xE0EA5C031AE5539F, p0, p1, p2, p3, p4); }
 	static Any _0x17721003A66C72BF() { return Native::Invoke<Any>(0x17721003A66C72BF); }
-	static Any _ITEM_DATABASE_IS_SHOP_LAYOUT_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_IS_SHOP_LAYOUT_KEY_VALID, p0); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_INFO, p0, p1); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_ROOT_MENU_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_ROOT_MENU_INFO, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_ID(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_ID, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_INDEX(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_INDEX, p0, p1, p2, p3); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_PAGE_KEY(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_PAGE_KEY, p0, p1, p2, p3); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_INFO_BY_KEY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_INFO_BY_KEY, p0, p1, p2); }
-	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_ITEM_KEY(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_ITEM_KEY, p0, p1, p2, p3, p4, p5); }
-	static Any _ITEM_DATABASE_IS_BUY_AWARD_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_IS_BUY_AWARD_KEY_VALID, p0); }
-	static Any _ITEM_DATABASE_FILLOUT_BUY_AWARD_ACQUIRE_COSTS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_BUY_AWARD_ACQUIRE_COSTS, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_IS_SHOP_LAYOUT_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(0x3AFE5182C45A84F6, p0); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_INFO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x66A6D76B6BB999B4, p0, p1); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_ROOT_MENU_INFO(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x86FCB565CCA0CFA7, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_ID(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xD66114469978B55B, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_INFO_BY_INDEX(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xF04247092F193B75, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_MENU_PAGE_KEY(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x9A60570657A7B635, p0, p1, p2, p3); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_INFO_BY_KEY(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xB347C100DF0C9B7F, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_SHOP_LAYOUT_PAGE_ITEM_KEY(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xF32BEF578B3DBAE8, p0, p1, p2, p3, p4, p5); }
+	static Any _ITEM_DATABASE_IS_BUY_AWARD_KEY_VALID(Any p0) { return Native::Invoke<Any, Any>(0x4CE753203FA42214, p0); }
+	static Any _ITEM_DATABASE_FILLOUT_BUY_AWARD_ACQUIRE_COSTS(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xB52E20F6767A09A2, p0, p1, p2, p3); }
 	static Any _0xF8D09EF8CE61D7BF() { return Native::Invoke<Any>(0xF8D09EF8CE61D7BF); }
-	static Any _ITEM_DATABASE_GET_ITEM_PRICE_MODIFIERS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_GET_ITEM_PRICE_MODIFIERS, p0, p1); }
-	static Any _ITEM_DATABASE_FILLOUT_PRICE_MODIFIER_BY_KEY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_PRICE_MODIFIER_BY_KEY, p0, p1); }
-	static Any _ITEM_DATABASE_GET_NUMBER_OF_MODIFIED_PRICES(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_NUMBER_OF_MODIFIED_PRICES, p0); }
-	static Any _ITEM_DATABASE_GET_MODIFIED_PRICE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_GET_MODIFIED_PRICE, p0, p1); }
-	static Any _ITEM_DATABASE_GET_NUMBER_OF_MODIFIERS(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_GET_NUMBER_OF_MODIFIERS, p0); }
-	static Any _ITEM_DATABASE_FILLOUT_MODIFIER(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_FILLOUT_MODIFIER, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_ITEM_PRICE_MODIFIERS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4EB37AAB79AB0C48, p0, p1); }
+	static Any _ITEM_DATABASE_FILLOUT_PRICE_MODIFIER_BY_KEY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x40C5D95818823C94, p0, p1); }
+	static Any _ITEM_DATABASE_GET_NUMBER_OF_MODIFIED_PRICES(Any p0) { return Native::Invoke<Any, Any>(0x5AAAF40E9B224F5E, p0); }
+	static Any _ITEM_DATABASE_GET_MODIFIED_PRICE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCB92EC9C004732B4, p0, p1); }
+	static Any _ITEM_DATABASE_GET_NUMBER_OF_MODIFIERS(Any p0) { return Native::Invoke<Any, Any>(0x1289D8315235856D, p0); }
+	static Any _ITEM_DATABASE_FILLOUT_MODIFIER(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x60614A0AB580A2B5, p0, p1, p2); }
 	static Any _0xEF254F1A4C08B7E6() { return Native::Invoke<Any>(0xEF254F1A4C08B7E6); }
 	static Any _0x3FAA928A79591761() { return Native::Invoke<Any>(0x3FAA928A79591761); }
 	static Any _0x48229CE0C7938237() { return Native::Invoke<Any>(0x48229CE0C7938237); }
 	static Any _0x121D2005DD64496B() { return Native::Invoke<Any>(0x121D2005DD64496B); }
 	static Any _0x8D029948CA29409B() { return Native::Invoke<Any>(0x8D029948CA29409B); }
-	static Any _ITEM_DATABASE_DOES_ITEM_HAVE_TAG(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_DOES_ITEM_HAVE_TAG, p0, p1, p2); }
+	static Any _ITEM_DATABASE_DOES_ITEM_HAVE_TAG(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xFF5FB5605AD56856, p0, p1, p2); }
 	static Any _0x99C6EA66DFE73757() { return Native::Invoke<Any>(0x99C6EA66DFE73757); }
-	static Any _ITEM_DATABASE_GET_ITEM_TAG_TYPE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_GET_ITEM_TAG_TYPE, p0, p1); }
-	static Any _ITEM_DATABASE_LOCALIZATION_GET_NUM_LABEL_TYPES(Any p0) { return Native::Invoke<Any, Any>(N::_ITEM_DATABASE_LOCALIZATION_GET_NUM_LABEL_TYPES, p0); }
-	static Any _ITEM_DATABASE_LOCALIZATION_GET_NUM_VALUES(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_LOCALIZATION_GET_NUM_VALUES, p0, p1); }
-	static Any _ITEM_DATABASE_LOCALIZATION_GET_TYPE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ITEM_DATABASE_LOCALIZATION_GET_TYPE, p0, p1); }
-	static Any _ITEM_DATABASE_LOCALIZATION_GET_VALUE(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_ITEM_DATABASE_LOCALIZATION_GET_VALUE, p0, p1, p2); }
+	static Any _ITEM_DATABASE_GET_ITEM_TAG_TYPE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6111B8F9413F413A, p0, p1); }
+	static Any _ITEM_DATABASE_LOCALIZATION_GET_NUM_LABEL_TYPES(Any p0) { return Native::Invoke<Any, Any>(0xCEC6A41E8910486A, p0); }
+	static Any _ITEM_DATABASE_LOCALIZATION_GET_NUM_VALUES(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x49885D82A13EEAEA, p0, p1); }
+	static Any _ITEM_DATABASE_LOCALIZATION_GET_TYPE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCABF5D41D0073D4A, p0, p1); }
+	static Any _ITEM_DATABASE_LOCALIZATION_GET_VALUE(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x9AE5610FDCED6EA7, p0, p1, p2); }
 	static Any _0xF4452CE83118C738() { return Native::Invoke<Any>(0xF4452CE83118C738); }
 }
 namespace ITEMSET
 {
-	static Vehicle CREATE_ITEMSET(Vehicle distri) { return Native::Invoke<Vehicle, Vehicle>(N::CREATE_ITEMSET, distri); }
-	static void DESTROY_ITEMSET(Any p0) { return Native::Invoke<void, Any>(N::DESTROY_ITEMSET, p0); }
-	static BOOL IS_ITEMSET_VALID(Any p0) { return Native::Invoke<BOOL, Any>(N::IS_ITEMSET_VALID, p0); }
-	static BOOL ADD_TO_ITEMSET(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(N::ADD_TO_ITEMSET, p0, p1); }
-	static void REMOVE_FROM_ITEMSET(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::REMOVE_FROM_ITEMSET, p0, p1); }
-	static Any GET_ITEMSET_SIZE(ScrHandle x) { return Native::Invoke<Any, ScrHandle>(N::GET_ITEMSET_SIZE, x); }
-	static Any GET_INDEXED_ITEM_IN_ITEMSET(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::GET_INDEXED_ITEM_IN_ITEMSET, p0, p1); }
-	static Any _0x9FC3CDB5CE815901(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9FC3CDB5CE815901, p0, p1); }
-	static BOOL IS_IN_ITEMSET(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(N::IS_IN_ITEMSET, p0, p1); }
-	static void CLEAN_ITEMSET(Any p0) { return Native::Invoke<void, Any>(N::CLEAN_ITEMSET, p0); }
+	static Vehicle CREATE_ITEMSET(Vehicle distri) { return Native::Invoke<Vehicle, Vehicle>(0xA1AF16083320065A, distri); }
+	static void DESTROY_ITEMSET(Any p0) { return Native::Invoke<void, Any>(0x712BC69F10549B92, p0); }
+	static BOOL IS_ITEMSET_VALID(Any p0) { return Native::Invoke<BOOL, Any>(0xD30765D153EF5C76, p0); }
+	static BOOL ADD_TO_ITEMSET(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(0xABE74510883C7950, p0, p1); }
+	static void REMOVE_FROM_ITEMSET(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC5BAA432B429DC24, p0, p1); }
+	static Any GET_ITEMSET_SIZE(ScrHandle x) { return Native::Invoke<Any, ScrHandle>(0x55F2E375AC6018A9, x); }
+	static Any GET_INDEXED_ITEM_IN_ITEMSET(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x275A2E2C0FAB7612, p0, p1); }
+	static Any GET_INDEXED_SCENARIO_POINT_INDEX_IN_ITEMSET(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9FC3CDB5CE815901, p0, p1); }
+	static BOOL IS_IN_ITEMSET(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(0xD1503C2EE2FE688C, p0, p1); }
+	static void CLEAN_ITEMSET(Any p0) { return Native::Invoke<void, Any>(0x85F3A86CA9021FB0, p0); }
 	static void _0x20A4BF0E09BEE146(Any p0) { return Native::Invoke<void, Any>(0x20A4BF0E09BEE146, p0); }
 }
 namespace _NAMESPACE35
@@ -2235,15 +2235,15 @@ namespace _NAMESPACE35
 }
 namespace LOCALIZATION
 {
-	static Any _GET_SYSTEM_LANGUAGE() { return Native::Invoke<Any>(N::_GET_SYSTEM_LANGUAGE); }
-	static Any GET_CURRENT_LANGUAGE() { return Native::Invoke<Any>(N::GET_CURRENT_LANGUAGE); }
+	static Any _GET_SYSTEM_LANGUAGE() { return Native::Invoke<Any>(0x3C1A05F86AE6ACB5); }
+	static Any GET_CURRENT_LANGUAGE() { return Native::Invoke<Any>(0xDB917DA5C6835FCC); }
 	static Any _0x45D50415E4D885FF() { return Native::Invoke<Any>(0x45D50415E4D885FF); }
-	static Any _LOCALIZATION_GET_USER_LANGUAGE() { return Native::Invoke<Any>(N::_LOCALIZATION_GET_USER_LANGUAGE); }
+	static Any _LOCALIZATION_GET_USER_LANGUAGE() { return Native::Invoke<Any>(0x76E30B799EBEEA0F); }
 }
 namespace MAP
 {
-	static Blip GET_BLIP_FROM_ENTITY(Entity entity) { return Native::Invoke<Blip, Entity>(N::GET_BLIP_FROM_ENTITY, entity); }
-	static Blip GET_MAIN_PLAYER_BLIP_ID() { return Native::Invoke<Blip>(N::GET_MAIN_PLAYER_BLIP_ID); }
+	static Blip GET_BLIP_FROM_ENTITY(Entity entity) { return Native::Invoke<Blip, Entity>(0x6D2C41A8BD6D6FD0, entity); }
+	static Blip GET_MAIN_PLAYER_BLIP_ID() { return Native::Invoke<Blip>(0x5CD2889B2B381D45); }
 	static Any _0x3E593DF9C2962EC6(Any p0) { return Native::Invoke<Any, Any>(0x3E593DF9C2962EC6, p0); }
 	static Any _0x554D9D53F696D002(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x554D9D53F696D002, p0, p1, p2, p3); }
 	static Any _0x23F74C2FDA6E7C61(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x23F74C2FDA6E7C61, p0, p1); }
@@ -2256,53 +2256,53 @@ namespace MAP
 	static Any _0x662D364ABF16DE2F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x662D364ABF16DE2F, p0, p1); }
 	static Any _0xB059D7BD3D78C16F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB059D7BD3D78C16F, p0, p1); }
 	static void _0x250C75EB1728CC0D(Any p0) { return Native::Invoke<void, Any>(0x250C75EB1728CC0D, p0); }
-	static void SET_BLIP_FLASH_TIMER(Blip blip, int duration, Any p2) { return Native::Invoke<void, Blip, int, Any>(N::SET_BLIP_FLASH_TIMER, blip, duration, p2); }
-	static void SET_BLIP_FLASHES(Blip blip, BOOL toggle, Any p2) { return Native::Invoke<void, Blip, BOOL, Any>(N::SET_BLIP_FLASHES, blip, toggle, p2); }
-	static void TRIGGER_SONAR_BLIP(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::TRIGGER_SONAR_BLIP, p0, p1, p2, p3); }
+	static void SET_BLIP_FLASH_TIMER(Blip blip, int duration, Any p2) { return Native::Invoke<void, Blip, int, Any>(0x02FF4CF43B7209D1, blip, duration, p2); }
+	static void SET_BLIP_FLASHES(Blip blip, BOOL toggle, Any p2) { return Native::Invoke<void, Blip, BOOL, Any>(0x0DF2B55F717DDB10, blip, toggle, p2); }
+	static void TRIGGER_SONAR_BLIP(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x72DD432F3CDFC0EE, p0, p1, p2, p3); }
 	static void _0x0C7A2289A5C4D7C9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0C7A2289A5C4D7C9, p0, p1); }
 	static void _0x6E6E64788C07D2E0(Any p0) { return Native::Invoke<void, Any>(0x6E6E64788C07D2E0, p0); }
-	static void SET_BLIP_COORDS(Blip blip, float posX, float posY, float posZ) { return Native::Invoke<void, Blip, float, float, float>(N::SET_BLIP_COORDS, blip, posX, posY, posZ); }
-	static Vector3 GET_BLIP_COORDS(Blip blip) { return Native::Invoke<Vector3, Blip>(N::GET_BLIP_COORDS, blip); }
-	static void SET_BLIP_SPRITE(Blip blip, int spriteId, Any p2) { return Native::Invoke<void, Blip, int, Any>(N::SET_BLIP_SPRITE, blip, spriteId, p2); }
+	static void SET_BLIP_COORDS(Blip blip, float posX, float posY, float posZ) { return Native::Invoke<void, Blip, float, float, float>(0x4FF674F5E23D49CE, blip, posX, posY, posZ); }
+	static Vector3 GET_BLIP_COORDS(Blip blip) { return Native::Invoke<Vector3, Blip>(0x201C319797BDA603, blip); }
+	static void SET_BLIP_SPRITE(Blip blip, int spriteId, Any p2) { return Native::Invoke<void, Blip, int, Any>(0x74F74D3207ED525C, blip, spriteId, p2); }
 	static Any _0x01B928CA2E198B01(Any p0) { return Native::Invoke<Any, Any>(0x01B928CA2E198B01, p0); }
-	static void SET_BLIP_NAME_FROM_TEXT_FILE(Blip blip, char* gxtEntry) { return Native::Invoke<void, Blip, char*>(N::SET_BLIP_NAME_FROM_TEXT_FILE, blip, gxtEntry); }
+	static void SET_BLIP_NAME_FROM_TEXT_FILE(Blip blip, const char* gxtEntry) { return Native::Invoke<void, Blip, const char*>(0x0A062D6D7C0B2C2C, blip, gxtEntry); }
 	static void _0x9CB1A1623062F402(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9CB1A1623062F402, p0, p1); }
-	static Any SET_BLIP_NAME_TO_PLAYER_NAME() { return Native::Invoke<Any>(N::SET_BLIP_NAME_TO_PLAYER_NAME); }
-	static void SET_BLIP_ROTATION(Blip blip, int rotation) { return Native::Invoke<void, Blip, int>(N::SET_BLIP_ROTATION, blip, rotation); }
-	static void SET_BLIP_SCALE(Blip blip, float scale) { return Native::Invoke<void, Blip, float>(N::SET_BLIP_SCALE, blip, scale); }
-	static void REMOVE_BLIP(Blip* blip) { return Native::Invoke<void, Blip*>(N::REMOVE_BLIP, blip); }
-	static BOOL DOES_BLIP_EXIST(Blip blip) { return Native::Invoke<BOOL, Blip>(N::DOES_BLIP_EXIST, blip); }
+	static void SET_BLIP_NAME_TO_PLAYER_NAME() { return Native::Invoke<void>(0x093DD5A31BC2B459); }
+	static void SET_BLIP_ROTATION(Blip blip, int rotation) { return Native::Invoke<void, Blip, int>(0x6049966A94FBE706, blip, rotation); }
+	static void SET_BLIP_SCALE(Blip blip, float scale) { return Native::Invoke<void, Blip, float>(0xD38744167B2FA257, blip, scale); }
+	static void REMOVE_BLIP(Blip* blip) { return Native::Invoke<void, Blip*>(0xF2C3C9DA47AAA54A, blip); }
+	static BOOL DOES_BLIP_EXIST(Blip blip) { return Native::Invoke<BOOL, Blip>(0xCD82FA174080B3B1, blip); }
 	static Any _0x9FA00E2FC134A9D0(Any p0) { return Native::Invoke<Any, Any>(0x9FA00E2FC134A9D0, p0); }
-	static void SET_RADAR_ZOOM(int zoomLevel) { return Native::Invoke<void, int>(N::SET_RADAR_ZOOM, zoomLevel); }
+	static void SET_RADAR_ZOOM(int zoomLevel) { return Native::Invoke<void, int>(0xCAF6489DA2C8DD9E, zoomLevel); }
 	static Any _0xDEEDE7C41742E011() { return Native::Invoke<Any>(0xDEEDE7C41742E011); }
 	static Any _0xE9F676788F8D5E1E(Any p0) { return Native::Invoke<Any, Any>(0xE9F676788F8D5E1E, p0); }
-	static BOOL IS_BLIP_ON_MINIMAP(Blip blip) { return Native::Invoke<BOOL, Blip>(N::IS_BLIP_ON_MINIMAP, blip); }
-	static Any FORCE_SONAR_BLIPS_THIS_FRAME() { return Native::Invoke<Any>(N::FORCE_SONAR_BLIPS_THIS_FRAME); }
-	static void SET_GPS_FLAGS(int p0, float p1) { return Native::Invoke<void, int, float>(N::SET_GPS_FLAGS, p0, p1); }
-	static void CLEAR_GPS_FLAGS() { return Native::Invoke<void>(N::CLEAR_GPS_FLAGS); }
-	static void SET_GPS_CUSTOM_ROUTE_RENDER(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_GPS_CUSTOM_ROUTE_RENDER, p0, p1, p2); }
-	static void CLEAR_GPS_CUSTOM_ROUTE() { return Native::Invoke<void>(N::CLEAR_GPS_CUSTOM_ROUTE); }
-	static void START_GPS_MULTI_ROUTE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::START_GPS_MULTI_ROUTE, p0, p1, p2); }
-	static void ADD_POINT_TO_GPS_MULTI_ROUTE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::ADD_POINT_TO_GPS_MULTI_ROUTE, p0, p1, p2, p3); }
-	static void SET_GPS_MULTI_ROUTE_RENDER(Any p0) { return Native::Invoke<void, Any>(N::SET_GPS_MULTI_ROUTE_RENDER, p0); }
-	static void CLEAR_GPS_MULTI_ROUTE() { return Native::Invoke<void>(N::CLEAR_GPS_MULTI_ROUTE); }
+	static BOOL IS_BLIP_ON_MINIMAP(Blip blip) { return Native::Invoke<BOOL, Blip>(0x46534526B9CD2D17, blip); }
+	static Any FORCE_SONAR_BLIPS_THIS_FRAME() { return Native::Invoke<Any>(0xEE1C7BA69BB74B08); }
+	static void SET_GPS_FLAGS(int p0, float p1) { return Native::Invoke<void, int, float>(0x5DE61C90DDECFA2D, p0, p1); }
+	static void CLEAR_GPS_FLAGS() { return Native::Invoke<void>(0x4D3771237C79FF41); }
+	static void SET_GPS_CUSTOM_ROUTE_RENDER(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF6CEF599FC470B33, p0, p1, p2); }
+	static void CLEAR_GPS_CUSTOM_ROUTE() { return Native::Invoke<void>(0x1EAA5674B4D181C5); }
+	static void START_GPS_MULTI_ROUTE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3D3D15AF7BCAAF83, p0, p1, p2); }
+	static void ADD_POINT_TO_GPS_MULTI_ROUTE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x64C59DD6834FA942, p0, p1, p2, p3); }
+	static void SET_GPS_MULTI_ROUTE_RENDER(Any p0) { return Native::Invoke<void, Any>(0x4426D65E029A4DC0, p0); }
+	static void CLEAR_GPS_MULTI_ROUTE() { return Native::Invoke<void>(0x9E0AB9AAEE87CE28); }
 	static void _0x6B44F13D888F770D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x6B44F13D888F770D, p0, p1, p2, p3, p4, p5); }
-	static void CLEAR_GPS_PLAYER_WAYPOINT() { return Native::Invoke<void>(N::CLEAR_GPS_PLAYER_WAYPOINT); }
+	static void CLEAR_GPS_PLAYER_WAYPOINT() { return Native::Invoke<void>(0x08FDC6F796E350D1); }
 	static void _0xD3F58E9316B7FC2A(Any p0) { return Native::Invoke<void, Any>(0xD3F58E9316B7FC2A, p0); }
-	static void SET_WAYPOINT_OFF() { return Native::Invoke<void>(N::SET_WAYPOINT_OFF); }
-	static BOOL IS_WAYPOINT_ACTIVE() { return Native::Invoke<BOOL>(N::IS_WAYPOINT_ACTIVE); }
+	static void SET_WAYPOINT_OFF() { return Native::Invoke<void>(0xFA8C41E8020D3439); }
+	static BOOL IS_WAYPOINT_ACTIVE() { return Native::Invoke<BOOL>(0x202B1BBFC6AB5EE4); }
 	static Any _0x29B30D07C3F7873B() { return Native::Invoke<Any>(0x29B30D07C3F7873B); }
 	static Any _0xF08E42BFA46BDFF8() { return Native::Invoke<Any>(0xF08E42BFA46BDFF8); }
 	static Any _0xA1B4052C2A3DCC1E() { return Native::Invoke<Any>(0xA1B4052C2A3DCC1E); }
 	static Any _0x3FBB838AEA30C1D8() { return Native::Invoke<Any>(0x3FBB838AEA30C1D8); }
 	static Any _0xF47A1EB2A538A3A3() { return Native::Invoke<Any>(0xF47A1EB2A538A3A3); }
 	static Any _0x3FDA2B79AEEE351C(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x3FDA2B79AEEE351C, p0, p1, p2, p3); }
-	static Any DISPLAY_RADAR(BOOL Toggle) { return Native::Invoke<Any, BOOL>(N::DISPLAY_RADAR, Toggle); }
+	static Any DISPLAY_RADAR(BOOL Toggle) { return Native::Invoke<Any, BOOL>(0x1B3DA717B9AFF828, Toggle); }
 	static void _0x9C113883487FD53C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9C113883487FD53C, p0, p1); }
 	static void _0x1392105DA88BBFFB(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x1392105DA88BBFFB, p0, p1, p2, p3, p4); }
 	static void _0xE057FEA9A22EB3EE(Any p0) { return Native::Invoke<void, Any>(0xE057FEA9A22EB3EE, p0); }
-	static void SET_RADAR_AS_EXTERIOR_THIS_FRAME() { return Native::Invoke<void>(N::SET_RADAR_AS_EXTERIOR_THIS_FRAME); }
-	static void _SET_MINIMAP_REVEALED(BOOL toggle) { return Native::Invoke<void, BOOL>(N::_SET_MINIMAP_REVEALED, toggle); }
+	static void SET_RADAR_AS_EXTERIOR_THIS_FRAME() { return Native::Invoke<void>(0xA8EBBAE986FB5457); }
+	static void _SET_MINIMAP_REVEALED(BOOL toggle) { return Native::Invoke<void, BOOL>(0x4B8F743A4A6D2FF8, toggle); }
 	static void _0x63E7279D04160477(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x63E7279D04160477, p0, p1); }
 	static Any _0xE5A7F70B7C0F3271() { return Native::Invoke<Any>(0xE5A7F70B7C0F3271); }
 	static void _0x632AA10BF7EA53D3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x632AA10BF7EA53D3, p0, p1); }
@@ -2311,8 +2311,8 @@ namespace MAP
 	static void _0xEB3CB3386C775D72(Any p0) { return Native::Invoke<void, Any>(0xEB3CB3386C775D72, p0); }
 	static void _0xF8096DF9B87246E3(Any p0) { return Native::Invoke<void, Any>(0xF8096DF9B87246E3, p0); }
 	static void _0xA657EC9DBC6CC900(Any p0) { return Native::Invoke<void, Any>(0xA657EC9DBC6CC900, p0); }
-	static void LOCK_MINIMAP_ANGLE(int angle) { return Native::Invoke<void, int>(N::LOCK_MINIMAP_ANGLE, angle); }
-	static void UNLOCK_MINIMAP_ANGLE() { return Native::Invoke<void>(N::UNLOCK_MINIMAP_ANGLE); }
+	static void LOCK_MINIMAP_ANGLE(int angle) { return Native::Invoke<void, int>(0x0BFD145EF819FB3A, angle); }
+	static void UNLOCK_MINIMAP_ANGLE() { return Native::Invoke<void>(0x5373DE8E179BC2A0); }
 	static void _0x563FCB6620523917(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x563FCB6620523917, p0, p1); }
 	static void _0x6786D7AFAC3162B3(Any p0) { return Native::Invoke<void, Any>(0x6786D7AFAC3162B3, p0); }
 	static Any _0xE38450DBCBC70E3D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE38450DBCBC70E3D, p0, p1); }
@@ -2337,41 +2337,41 @@ namespace MINIGAME
 	static void _0x0876326238914A3F() { return Native::Invoke<void>(0x0876326238914A3F); }
 	static Any _0x3FFE60DD8A936551() { return Native::Invoke<Any>(0x3FFE60DD8A936551); }
 	static Any _0x18A0D48DF9211C07() { return Native::Invoke<Any>(0x18A0D48DF9211C07); }
-	static Any _MINIGAME_IS_CONNECTED_TO_SERVER(Any p0) { return Native::Invoke<Any, Any>(N::_MINIGAME_IS_CONNECTED_TO_SERVER, p0); }
+	static Any _MINIGAME_IS_CONNECTED_TO_SERVER(Any p0) { return Native::Invoke<Any, Any>(0x2A0C4736AC5AF0CE, p0); }
 	static Any _0x39654E1F68B78287() { return Native::Invoke<Any>(0x39654E1F68B78287); }
 	static Any _0x3EECAADAB0D9FE29() { return Native::Invoke<Any>(0x3EECAADAB0D9FE29); }
 	static Any _0xD39D32EB3B52DD83() { return Native::Invoke<Any>(0xD39D32EB3B52DD83); }
 	static Any _0x8593A8CB0ED2C3B4() { return Native::Invoke<Any>(0x8593A8CB0ED2C3B4); }
 	static Any _0xF6AC6085D8D6C004() { return Native::Invoke<Any>(0xF6AC6085D8D6C004); }
-	static Any _MINIGAME_LEAVE_TABLE(Any p0) { return Native::Invoke<Any, Any>(N::_MINIGAME_LEAVE_TABLE, p0); }
-	static Any _MINIGAME_GET_NEXT_EVENT_TYPE() { return Native::Invoke<Any>(N::_MINIGAME_GET_NEXT_EVENT_TYPE); }
-	static Any _MINIGAME_GET_NEXT_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_MINIGAME_GET_NEXT_EVENT, p0, p1); }
-	static void _MINIGAME_POP_NEXT_EVENT() { return Native::Invoke<void>(N::_MINIGAME_POP_NEXT_EVENT); }
+	static Any _MINIGAME_LEAVE_TABLE(Any p0) { return Native::Invoke<Any, Any>(0xF5446E47941E654C, p0); }
+	static Any _MINIGAME_GET_NEXT_EVENT_TYPE() { return Native::Invoke<Any>(0x578907F59BA01B6C); }
+	static Any _MINIGAME_GET_NEXT_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDF728C5AE137FC13, p0, p1); }
+	static void _MINIGAME_POP_NEXT_EVENT() { return Native::Invoke<void>(0x833E03BAEBADC4B0); }
 	static Any _0x3B31732FADE5BAF3() { return Native::Invoke<Any>(0x3B31732FADE5BAF3); }
 	static Any _0x578907F59BA01B6D() { return Native::Invoke<Any>(0x578907F59BA01B6D); }
 	static Any _0xDF728C5AE137FC14() { return Native::Invoke<Any>(0xDF728C5AE137FC14); }
-	static Any _MINIGAME_IS_REQUEST_PENDING(Any p0) { return Native::Invoke<Any, Any>(N::_MINIGAME_IS_REQUEST_PENDING, p0); }
+	static Any _MINIGAME_IS_REQUEST_PENDING(Any p0) { return Native::Invoke<Any, Any>(0x9105A4A2556FA937, p0); }
 	static Any _0x644439B5387EE57E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x644439B5387EE57E, p0, p1); }
 	static Any _0x15E90B6A993017AA() { return Native::Invoke<Any>(0x15E90B6A993017AA); }
 	static Any _0x10342CC82E8356E9() { return Native::Invoke<Any>(0x10342CC82E8356E9); }
 	static Any _0x32A7C216344D623B(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x32A7C216344D623B, p0, p1, p2); }
 	static Any _0xEC819D612038EF4B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xEC819D612038EF4B, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static Any _POKER_GET_GAME_SETTINGS_FOR_ID(Any p0) { return Native::Invoke<Any, Any>(N::_POKER_GET_GAME_SETTINGS_FOR_ID, p0); }
-	static Any _POKER_BUY_IN(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_POKER_BUY_IN, p0, p1); }
-	static Any _POKER_CALL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_POKER_CALL, p0, p1); }
-	static Any _POKER_CHECK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_POKER_CHECK, p0, p1); }
-	static Any _POKER_FOLD(Any p0) { return Native::Invoke<Any, Any>(N::_POKER_FOLD, p0); }
-	static Any _POKER_RAISE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_POKER_RAISE, p0, p1); }
-	static Any _POKER_REVEAL(Any p0) { return Native::Invoke<Any, Any>(N::_POKER_REVEAL, p0); }
+	static Any _POKER_GET_GAME_SETTINGS_FOR_ID(Any p0) { return Native::Invoke<Any, Any>(0x2D20E12E1990D584, p0); }
+	static Any _POKER_BUY_IN(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB4D610EA5A1FDE74, p0, p1); }
+	static Any _POKER_CALL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x8DED681B161EBD78, p0, p1); }
+	static Any _POKER_CHECK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x49A045628D9B1B86, p0, p1); }
+	static Any _POKER_FOLD(Any p0) { return Native::Invoke<Any, Any>(0x3DFAB7D9BB45B5BE, p0); }
+	static Any _POKER_RAISE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xECCF45A79A17BB96, p0, p1); }
+	static Any _POKER_REVEAL(Any p0) { return Native::Invoke<Any, Any>(0x2F2131DB0A8B02DC, p0); }
 	static void _0x58521E6DCDE97D74(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x58521E6DCDE97D74, p0, p1, p2); }
 	static void _0xF6DE98516FD3AC9B() { return Native::Invoke<void>(0xF6DE98516FD3AC9B); }
 	static Any _0x3F4FD4BED07AB8C4(Any p0) { return Native::Invoke<Any, Any>(0x3F4FD4BED07AB8C4, p0); }
 	static Any _0x3AE451860F03CA8A(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3AE451860F03CA8A, p0, p1); }
 	static Any _0x012027C28F421F46(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x012027C28F421F46, p0, p1); }
 	static void _0x455ECCA0715C507F() { return Native::Invoke<void>(0x455ECCA0715C507F); }
-	static Any _DOMINOES_BUY_IN(Any p0) { return Native::Invoke<Any, Any>(N::_DOMINOES_BUY_IN, p0); }
-	static Any _DOMINOES_PLACE_DOMINO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DOMINOES_PLACE_DOMINO, p0, p1); }
-	static Any _DOMINOES_REQUEST_VALID_PLACEMENTS(Any p0) { return Native::Invoke<Any, Any>(N::_DOMINOES_REQUEST_VALID_PLACEMENTS, p0); }
+	static Any _DOMINOES_BUY_IN(Any p0) { return Native::Invoke<Any, Any>(0x399E6CD12FC8CA89, p0); }
+	static Any _DOMINOES_PLACE_DOMINO(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB79A29B33BF29BA5, p0, p1); }
+	static Any _DOMINOES_REQUEST_VALID_PLACEMENTS(Any p0) { return Native::Invoke<Any, Any>(0xE26AEE7E67D9E21D, p0); }
 	static Any _0xA2DB3C6270C122E3() { return Native::Invoke<Any>(0xA2DB3C6270C122E3); }
 	static Any _0x398066F893149856() { return Native::Invoke<Any>(0x398066F893149856); }
 	static Any _0xBEA7D3CB47E1479C() { return Native::Invoke<Any>(0xBEA7D3CB47E1479C); }
@@ -2380,17 +2380,17 @@ namespace MINIGAME
 }
 namespace MISC
 {
-	static Any GET_NUMBER_OF_FREE_STACKS_OF_THIS_SIZE(Any p0) { return Native::Invoke<Any, Any>(N::GET_NUMBER_OF_FREE_STACKS_OF_THIS_SIZE, p0); }
+	static Any GET_NUMBER_OF_FREE_STACKS_OF_THIS_SIZE(Any p0) { return Native::Invoke<Any, Any>(0x40DC2907A9697EF7, p0); }
 	static Any _0x72904D3D62AF5839() { return Native::Invoke<Any>(0x72904D3D62AF5839); }
 	static Any _0xC43CD2668B204419() { return Native::Invoke<Any>(0xC43CD2668B204419); }
 	static Any _0x5FC9357C26DAEFCE() { return Native::Invoke<Any>(0x5FC9357C26DAEFCE); }
-	static void SET_RANDOM_SEED(int time) { return Native::Invoke<void, int>(N::SET_RANDOM_SEED, time); }
-	static void SET_TIME_SCALE(float time) { return Native::Invoke<void, float>(N::SET_TIME_SCALE, time); }
-	static void SET_MISSION_FLAG(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_MISSION_FLAG, toggle); }
-	static BOOL GET_MISSION_FLAG() { return Native::Invoke<BOOL>(N::GET_MISSION_FLAG); }
+	static void SET_RANDOM_SEED(int time) { return Native::Invoke<void, int>(0x5CD7A49104AFCB6B, time); }
+	static void SET_TIME_SCALE(float time) { return Native::Invoke<void, float>(0x9682AF6050854856, time); }
+	static void SET_MISSION_FLAG(BOOL toggle) { return Native::Invoke<void, BOOL>(0x36694B456BE80D0A, toggle); }
+	static BOOL GET_MISSION_FLAG() { return Native::Invoke<BOOL>(0xB15CD1CF58771DE1); }
 	static Any _0x5801BE2DF2AF07EC() { return Native::Invoke<Any>(0x5801BE2DF2AF07EC); }
-	static void SET_RANDOM_EVENT_FLAG(BOOL p0) { return Native::Invoke<void, BOOL>(N::SET_RANDOM_EVENT_FLAG, p0); }
-	static BOOL GET_RANDOM_EVENT_FLAG() { return Native::Invoke<BOOL>(N::GET_RANDOM_EVENT_FLAG); }
+	static void SET_RANDOM_EVENT_FLAG(BOOL p0) { return Native::Invoke<void, BOOL>(0xB1ADCCC4150C6473, p0); }
+	static BOOL GET_RANDOM_EVENT_FLAG() { return Native::Invoke<BOOL>(0x924D54E5698AE3E0); }
 	static void _0x9BF2C0C568C61641(Any p0) { return Native::Invoke<void, Any>(0x9BF2C0C568C61641, p0); }
 	static void _0xCC7FC854B956A128(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCC7FC854B956A128, p0, p1); }
 	static void _0x9935F76407C32539(Any p0) { return Native::Invoke<void, Any>(0x9935F76407C32539, p0); }
@@ -2412,161 +2412,161 @@ namespace MISC
 	static void _0x2C6A07AF9AEDABD8(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x2C6A07AF9AEDABD8, p0, p1, p2, p3, p4); }
 	static Any _0x7F4CE164D9A11DFE() { return Native::Invoke<Any>(0x7F4CE164D9A11DFE); }
 	static Any _0x1359C181BC625503() { return Native::Invoke<Any>(0x1359C181BC625503); }
-	static void SET_RANDOM_WEATHER_TYPE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_RANDOM_WEATHER_TYPE, p0, p1); }
-	static void CLEAR_WEATHER_TYPE_PERSIST() { return Native::Invoke<void>(N::CLEAR_WEATHER_TYPE_PERSIST); }
+	static void SET_RANDOM_WEATHER_TYPE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6E5A7FBEECAB3C72, p0, p1); }
+	static void CLEAR_WEATHER_TYPE_PERSIST() { return Native::Invoke<void>(0xD85DFE5C131E4AE9); }
 	static Any _0xCE7690C0A0D1C36D() { return Native::Invoke<Any>(0xCE7690C0A0D1C36D); }
-	static void _GET_WEATHER_TYPE_TRANSITION(Hash* weatherType1, Hash* weatherType2, float* percentWeather2) { return Native::Invoke<void, Hash*, Hash*, float*>(N::_GET_WEATHER_TYPE_TRANSITION, weatherType1, weatherType2, percentWeather2); }
-	static void _SET_WEATHER_TYPE_TRANSITION(Hash weatherType1, Hash weatherType2, float percentWeather2, Any p3) { return Native::Invoke<void, Hash, Hash, float, Any>(N::_SET_WEATHER_TYPE_TRANSITION, weatherType1, weatherType2, percentWeather2, p3); }
+	static void _GET_WEATHER_TYPE_TRANSITION(Hash* weatherType1, Hash* weatherType2, float* percentWeather2) { return Native::Invoke<void, Hash*, Hash*, float*>(0x0AC679B2342F14F2, weatherType1, weatherType2, percentWeather2); }
+	static void _SET_WEATHER_TYPE_TRANSITION(Hash weatherType1, Hash weatherType2, float percentWeather2, Any p3) { return Native::Invoke<void, Hash, Hash, float, Any>(0xFA3E3CA8A1DE6D5D, weatherType1, weatherType2, percentWeather2, p3); }
 	static void _0xD74ACDF7DB8114AF(Any p0) { return Native::Invoke<void, Any>(0xD74ACDF7DB8114AF, p0); }
 	static void _0xDD560ABEF5D3784C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDD560ABEF5D3784C, p0, p1); }
 	static void _0x2916B30DC6C41179(Any p0) { return Native::Invoke<void, Any>(0x2916B30DC6C41179, p0); }
 	static void _0xD3F943B88F55376A(Any p0) { return Native::Invoke<void, Any>(0xD3F943B88F55376A, p0); }
 	static void _0x243CEDE8F916B994() { return Native::Invoke<void>(0x243CEDE8F916B994); }
 	static Any _0xBE83CAE8ED77A94F() { return Native::Invoke<Any>(0xBE83CAE8ED77A94F); }
-	static void CLEAR_OVERRIDE_WEATHER() { return Native::Invoke<void>(N::CLEAR_OVERRIDE_WEATHER); }
+	static void CLEAR_OVERRIDE_WEATHER() { return Native::Invoke<void>(0x80A398F16FFE3CC3); }
 	static void _0x3373779BAF7CAF48(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3373779BAF7CAF48, p0, p1); }
 	static void _0x0E71C80FA4EC8147(Any p0) { return Native::Invoke<void, Any>(0x0E71C80FA4EC8147, p0); }
 	static void _0x55123D5A7D9D3C42(Any p0) { return Native::Invoke<void, Any>(0x55123D5A7D9D3C42, p0); }
 	static void _0xF06C5B66DE20B2B8(Any p0) { return Native::Invoke<void, Any>(0xF06C5B66DE20B2B8, p0); }
 	static Any _0xB98B78C3768AF6E0(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xB98B78C3768AF6E0, p0, p1, p2); }
-	static void SET_WIND_SPEED(float speed) { return Native::Invoke<void, float>(N::SET_WIND_SPEED, speed); }
-	static float GET_WIND_SPEED() { return Native::Invoke<float>(N::GET_WIND_SPEED); }
-	static void SET_WIND_DIRECTION(float direction) { return Native::Invoke<void, float>(N::SET_WIND_DIRECTION, direction); }
-	static Vector3 GET_WIND_DIRECTION() { return Native::Invoke<Vector3>(N::GET_WIND_DIRECTION); }
-	static void _SET_RAIN_FX_INTENSITY(float intensity) { return Native::Invoke<void, float>(N::_SET_RAIN_FX_INTENSITY, intensity); }
-	static float GET_RAIN_LEVEL() { return Native::Invoke<float>(N::GET_RAIN_LEVEL); }
+	static void SET_WIND_SPEED(float speed) { return Native::Invoke<void, float>(0xD00C2D82DC04A99F, speed); }
+	static float GET_WIND_SPEED() { return Native::Invoke<float>(0xFFB7E74E041150A4); }
+	static void SET_WIND_DIRECTION(float direction) { return Native::Invoke<void, float>(0xB56C4F5F57A45600, direction); }
+	static Vector3 GET_WIND_DIRECTION() { return Native::Invoke<Vector3>(0xF703E82F3FE14A5F); }
+	static void _SET_RAIN_FX_INTENSITY(float intensity) { return Native::Invoke<void, float>(0x193DFC0526830FD6, intensity); }
+	static float GET_RAIN_LEVEL() { return Native::Invoke<float>(0x931B5F4CC130224B); }
 	static void _0x745808BB01CEC6B9(Any p0) { return Native::Invoke<void, Any>(0x745808BB01CEC6B9, p0); }
 	static void _0xF6BEE7E80EC5CA40(Any p0) { return Native::Invoke<void, Any>(0xF6BEE7E80EC5CA40, p0); }
-	static float GET_SNOW_LEVEL() { return Native::Invoke<float>(N::GET_SNOW_LEVEL); }
-	static void FORCE_LIGHTNING_FLASH() { return Native::Invoke<void>(N::FORCE_LIGHTNING_FLASH); }
+	static float GET_SNOW_LEVEL() { return Native::Invoke<float>(0x1E5D727041BE1709); }
+	static void FORCE_LIGHTNING_FLASH() { return Native::Invoke<void>(0x369DB5B2510FA080); }
 	static void _0x67943537D179597C(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x67943537D179597C, p0, p1, p2); }
 	static void _0xA9342743B634A462(Any p0) { return Native::Invoke<void, Any>(0xA9342743B634A462, p0); }
-	static int GET_GAME_TIMER() { return Native::Invoke<int>(N::GET_GAME_TIMER); }
+	static int GET_GAME_TIMER() { return Native::Invoke<int>(0x4F67E8ECA7D3F667); }
 	static Any _0x483B8C542103AD72() { return Native::Invoke<Any>(0x483B8C542103AD72); }
-	static Any _GET_SYSTEM_TIME() { return Native::Invoke<Any>(N::_GET_SYSTEM_TIME); }
-	static Any _GET_NUMBER_OF_MICROSECONDS_SINCE_LAST_CALL() { return Native::Invoke<Any>(N::_GET_NUMBER_OF_MICROSECONDS_SINCE_LAST_CALL); }
-	static Any _GET_SCRIPT_TIME_WITHIN_FRAME_IN_MICROSECONDS() { return Native::Invoke<Any>(N::_GET_SCRIPT_TIME_WITHIN_FRAME_IN_MICROSECONDS); }
-	static void _RESET_SCRIPT_TIME_WITHIN_FRAME() { return Native::Invoke<void>(N::_RESET_SCRIPT_TIME_WITHIN_FRAME); }
-	static float GET_FRAME_TIME() { return Native::Invoke<float>(N::GET_FRAME_TIME); }
-	static float _GET_BENCHMARK_TIME() { return Native::Invoke<float>(N::_GET_BENCHMARK_TIME); }
-	static int GET_FRAME_COUNT() { return Native::Invoke<int>(N::GET_FRAME_COUNT); }
+	static Any _GET_SYSTEM_TIME() { return Native::Invoke<Any>(0xBE7F225417E35A7C); }
+	static Any _GET_NUMBER_OF_MICROSECONDS_SINCE_LAST_CALL() { return Native::Invoke<Any>(0xB0CE5E5ED8BB3581); }
+	static Any _GET_SCRIPT_TIME_WITHIN_FRAME_IN_MICROSECONDS() { return Native::Invoke<Any>(0x63219768C586667C); }
+	static void _RESET_SCRIPT_TIME_WITHIN_FRAME() { return Native::Invoke<void>(0x1411A7CBC3A6EB7B); }
+	static float GET_FRAME_TIME() { return Native::Invoke<float>(0x5E72022914CE3C38); }
+	static float _GET_BENCHMARK_TIME() { return Native::Invoke<float>(0x3F3172FEAE3AFE1C); }
+	static int GET_FRAME_COUNT() { return Native::Invoke<int>(0x77DFA958FCF100C1); }
 	static Any _0x6BED40493A1AFDB8() { return Native::Invoke<Any>(0x6BED40493A1AFDB8); }
 	static Any _0xD2C9126410DFA1B2() { return Native::Invoke<Any>(0xD2C9126410DFA1B2); }
-	static float GET_RANDOM_FLOAT_IN_RANGE(float startRange, float endRange) { return Native::Invoke<float, float, float>(N::GET_RANDOM_FLOAT_IN_RANGE, startRange, endRange); }
-	static int GET_RANDOM_INT_IN_RANGE(int startRange, int endRange) { return Native::Invoke<int, int, int>(N::GET_RANDOM_INT_IN_RANGE, startRange, endRange); }
-	static BOOL GET_GROUND_Z_FOR_3D_COORD(float x, float y, float z, float* groundZ, BOOL unk) { return Native::Invoke<BOOL, float, float, float, float*, BOOL>(N::GET_GROUND_Z_FOR_3D_COORD, x, y, z, groundZ, unk); }
-	static Any GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD, p0, p1, p2, p3, p4); }
+	static float GET_RANDOM_FLOAT_IN_RANGE(float startRange, float endRange) { return Native::Invoke<float, float, float>(0xE29F927A961F8AAA, startRange, endRange); }
+	static int GET_RANDOM_INT_IN_RANGE(int startRange, int endRange) { return Native::Invoke<int, int, int>(0xD53343AA4FB7DD28, startRange, endRange); }
+	static BOOL GET_GROUND_Z_FOR_3D_COORD(float x, float y, float z, float* groundZ, BOOL unk) { return Native::Invoke<BOOL, float, float, float, float*, BOOL>(0x24FA4267BB8D2431, x, y, z, groundZ, unk); }
+	static Any GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x2A29CA9A6319E6AB, p0, p1, p2, p3, p4); }
 	static Any _0xBBE5B63EFFB08E68(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xBBE5B63EFFB08E68, p0, p1, p2, p3, p4, p5, p6); }
-	static float ASIN(float p0) { return Native::Invoke<float, float>(N::ASIN, p0); }
-	static float ACOS(float p0) { return Native::Invoke<float, float>(N::ACOS, p0); }
-	static float TAN(float p0) { return Native::Invoke<float, float>(N::TAN, p0); }
-	static float ATAN(float p0) { return Native::Invoke<float, float>(N::ATAN, p0); }
-	static float ATAN2(float p0, float p1) { return Native::Invoke<float, float, float>(N::ATAN2, p0, p1); }
-	static float GET_DISTANCE_BETWEEN_COORDS(float x1, float y1, float z1, float x2, float y2, float z2, BOOL useZ) { return Native::Invoke<float, float, float, float, float, float, float, BOOL>(N::GET_DISTANCE_BETWEEN_COORDS, x1, y1, z1, x2, y2, z2, useZ); }
-	static float GET_ANGLE_BETWEEN_2D_VECTORS(float x1, float y1, float x2, float y2) { return Native::Invoke<float, float, float, float, float>(N::GET_ANGLE_BETWEEN_2D_VECTORS, x1, y1, x2, y2); }
-	static float GET_HEADING_FROM_VECTOR_2D(float dx, float dy) { return Native::Invoke<float, float, float>(N::GET_HEADING_FROM_VECTOR_2D, dx, dy); }
+	static float ASIN(float p0) { return Native::Invoke<float, float>(0x6E3C15D296C15583, p0); }
+	static float ACOS(float p0) { return Native::Invoke<float, float>(0x586690F0176DC575, p0); }
+	static float TAN(float p0) { return Native::Invoke<float, float>(0x8C13DB96497B7ABF, p0); }
+	static float ATAN(float p0) { return Native::Invoke<float, float>(0x503054DED0B78027, p0); }
+	static float ATAN2(float p0, float p1) { return Native::Invoke<float, float, float>(0x965B220A066E3F07, p0, p1); }
+	static float GET_DISTANCE_BETWEEN_COORDS(float x1, float y1, float z1, float x2, float y2, float z2, BOOL useZ) { return Native::Invoke<float, float, float, float, float, float, float, BOOL>(0x0BE7F4E3CDBAFB28, x1, y1, z1, x2, y2, z2, useZ); }
+	static float GET_ANGLE_BETWEEN_2D_VECTORS(float x1, float y1, float x2, float y2) { return Native::Invoke<float, float, float, float, float>(0xD0DFE1C486097BBB, x1, y1, x2, y2); }
+	static float GET_HEADING_FROM_VECTOR_2D(float dx, float dy) { return Native::Invoke<float, float, float>(0x38D5202FF9271C62, dx, dy); }
 	static Any _0x83ACC65D9ACEC5EF(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x83ACC65D9ACEC5EF, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static Any _0xAB6A04CEC428258B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAB6A04CEC428258B, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
-	static void SET_BIT(int* address, int offset) { return Native::Invoke<void, int*, int>(N::SET_BIT, address, offset); }
-	static void CLEAR_BIT(int* address, int offset) { return Native::Invoke<void, int*, int>(N::CLEAR_BIT, address, offset); }
+	static void SET_BIT(int* address, int offset) { return Native::Invoke<void, int*, int>(0xF73FBE4845C43B5B, address, offset); }
+	static void CLEAR_BIT(int* address, int offset) { return Native::Invoke<void, int*, int>(0x7D1D4A3602B6AD4E, address, offset); }
 	static Any _0x8F4F050054005C27(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x8F4F050054005C27, p0, p1); }
 	static Any _0x80E9C316EF84DD81() { return Native::Invoke<Any>(0x80E9C316EF84DD81); }
 	static void _0xE84AAC1B22A73E99(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE84AAC1B22A73E99, p0, p1); }
 	static void _0xB909149F2BB5F6DA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB909149F2BB5F6DA, p0, p1); }
 	static Any _0xD2D74F89DF844A50() { return Native::Invoke<Any>(0xD2D74F89DF844A50); }
-	static Hash GET_HASH_KEY(char* string) { return Native::Invoke<Hash, char*>(N::GET_HASH_KEY, string); }
+	static Hash GET_HASH_KEY(const char* string) { return Native::Invoke<Hash, const char*>(0xFD340785ADF8CFB7, string); }
 	static Any _0xEF50E344A8F93784(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xEF50E344A8F93784, p0, p1, p2, p3); }
-	static BOOL IS_POSITION_OCCUPIED(float x, float y, float z, float range, BOOL p4, BOOL p5, BOOL p6, BOOL p7, BOOL p8, Any p9, BOOL p10) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL, BOOL, BOOL, BOOL, Any, BOOL>(N::IS_POSITION_OCCUPIED, x, y, z, range, p4, p5, p6, p7, p8, p9, p10); }
-	static void CLEAR_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::CLEAR_AREA, p0, p1, p2, p3, p4); }
+	static BOOL IS_POSITION_OCCUPIED(float x, float y, float z, float range, BOOL p4, BOOL p5, BOOL p6, BOOL p7, BOOL p8, Any p9, BOOL p10) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL, BOOL, BOOL, BOOL, Any, BOOL>(0x825CA3ED43831015, x, y, z, range, p4, p5, p6, p7, p8, p9, p10); }
+	static void CLEAR_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3B882A96EA77D5B1, p0, p1, p2, p3, p4); }
 	static void _0x2FCD528A397E5C88(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2FCD528A397E5C88, p0, p1); }
-	static void CLEAR_ANGLED_AREA_OF_VEHICLES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(N::CLEAR_ANGLED_AREA_OF_VEHICLES, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void SET_CREDITS_ACTIVE(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_CREDITS_ACTIVE, toggle); }
-	static void NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME() { return Native::Invoke<void>(N::NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME); }
-	static void PAUSE_DEATH_ARREST_RESTART(Any p0) { return Native::Invoke<void, Any>(N::PAUSE_DEATH_ARREST_RESTART, p0); }
-	static void IGNORE_NEXT_RESTART(BOOL toggle) { return Native::Invoke<void, BOOL>(N::IGNORE_NEXT_RESTART, toggle); }
-	static void SET_FADE_IN_AFTER_DEATH_ARREST(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_FADE_IN_AFTER_DEATH_ARREST, toggle); }
-	static void SET_FADE_IN_AFTER_LOAD(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_FADE_IN_AFTER_LOAD, toggle); }
-	static BOOL OVERRIDE_SAVE_HOUSE(BOOL p0, float p1, float p2, float p3, float p4, BOOL p5, float p6, float p7) { return Native::Invoke<BOOL, BOOL, float, float, float, float, BOOL, float, float>(N::OVERRIDE_SAVE_HOUSE, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void SHOOT_SINGLE_BULLET_BETWEEN_COORDS(float x1, float y1, float z1, float x2, float y2, float z2, int damage, BOOL p7, Hash weaponHash, Ped ownerPed, BOOL isAudible, BOOL isInvisible, float speed, Any p13) { return Native::Invoke<void, float, float, float, float, float, float, int, BOOL, Hash, Ped, BOOL, BOOL, float, Any>(N::SHOOT_SINGLE_BULLET_BETWEEN_COORDS, x1, y1, z1, x2, y2, z2, damage, p7, weaponHash, ownerPed, isAudible, isInvisible, speed, p13); }
-	static void _0xCBC9A21F6A2A679C(Any p0) { return Native::Invoke<void, Any>(0xCBC9A21F6A2A679C, p0); }
-	static void GET_MODEL_DIMENSIONS(Hash modelHash, Vector3* minimum, Vector3* maximum) { return Native::Invoke<void, Hash, Vector3*, Vector3*>(N::GET_MODEL_DIMENSIONS, modelHash, minimum, maximum); }
-	static BOOL IS_BIT_SET(int* address, int offset) { return Native::Invoke<BOOL, int*, int>(N::IS_BIT_SET, address, offset); }
+	static void CLEAR_ANGLED_AREA_OF_VEHICLES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xA4D83115C1E02F8A, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void SET_CREDITS_ACTIVE(BOOL toggle) { return Native::Invoke<void, BOOL>(0xD37BECF862DA726F, toggle); }
+	static void NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME() { return Native::Invoke<void>(0x3D0EAC6385DD6100); }
+	static void PAUSE_DEATH_ARREST_RESTART(Any p0) { return Native::Invoke<void, Any>(0x66AB6B6C7E72F393, p0); }
+	static void IGNORE_NEXT_RESTART(BOOL toggle) { return Native::Invoke<void, BOOL>(0x6C9FF40FF1B69F8F, toggle); }
+	static void SET_FADE_IN_AFTER_DEATH_ARREST(BOOL toggle) { return Native::Invoke<void, BOOL>(0xDF3B5846DE5904AF, toggle); }
+	static void SET_FADE_IN_AFTER_LOAD(BOOL toggle) { return Native::Invoke<void, BOOL>(0xAC806C4CAB973517, toggle); }
+	static BOOL OVERRIDE_SAVE_HOUSE(BOOL p0, float p1, float p2, float p3, float p4, BOOL p5, float p6, float p7) { return Native::Invoke<BOOL, BOOL, float, float, float, float, BOOL, float, float>(0xB2C69E11A37B5AF0, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void SHOOT_SINGLE_BULLET_BETWEEN_COORDS(float x1, float y1, float z1, float x2, float y2, float z2, int damage, BOOL p7, Hash weaponHash, Ped ownerPed, BOOL isAudible, BOOL isInvisible, float speed, Any p13) { return Native::Invoke<void, float, float, float, float, float, float, int, BOOL, Hash, Ped, BOOL, BOOL, float, Any>(0x867654CBC7606F2C, x1, y1, z1, x2, y2, z2, damage, p7, weaponHash, ownerPed, isAudible, isInvisible, speed, p13); }
+	static void _SHOOT_SINGLE_BULLET_BETWEEN_COORDS_IGNORE_ENTITY_NEW(Any* data) { return Native::Invoke<void, Any*>(0xCBC9A21F6A2A679C, data); }
+	static void GET_MODEL_DIMENSIONS(Hash modelHash, Vector3* minimum, Vector3* maximum) { return Native::Invoke<void, Hash, Vector3*, Vector3*>(0xDCB8DDD5D054A7E7, modelHash, minimum, maximum); }
+	static BOOL IS_BIT_SET(int* address, int offset) { return Native::Invoke<BOOL, int*, int>(0x4ED6CFDFE8D4131A, address, offset); }
 	static Any _0x0A487CC74A517FB5() { return Native::Invoke<Any>(0x0A487CC74A517FB5); }
-	static BOOL IS_MINIGAME_IN_PROGRESS() { return Native::Invoke<BOOL>(N::IS_MINIGAME_IN_PROGRESS); }
-	static Any SHOULD_USE_METRIC_MEASUREMENTS() { return Native::Invoke<Any>(N::SHOULD_USE_METRIC_MEASUREMENTS); }
+	static BOOL IS_MINIGAME_IN_PROGRESS() { return Native::Invoke<BOOL>(0xF4D8BCD052E7EA1B); }
+	static Any SHOULD_USE_METRIC_MEASUREMENTS() { return Native::Invoke<Any>(0x4FB556ACEFA93098); }
 	static Any _0x58BCDC75BA52110A() { return Native::Invoke<Any>(0x58BCDC75BA52110A); }
 	static Any _0xFF4AAF3275BAAB4F() { return Native::Invoke<Any>(0xFF4AAF3275BAAB4F); }
 	static Any _0x8F24157FEDB85EA2() { return Native::Invoke<Any>(0x8F24157FEDB85EA2); }
 	static Any _0x0177CF20345F44DD() { return Native::Invoke<Any>(0x0177CF20345F44DD); }
-	static int COMPARE_STRINGS(char* str1, char* str2, BOOL matchCase, int maxLength) { return Native::Invoke<int, char*, char*, BOOL, int>(N::COMPARE_STRINGS, str1, str2, matchCase, maxLength); }
-	static int ABSI(int value) { return Native::Invoke<int, int>(N::ABSI, value); }
-	static float ABSF(float value) { return Native::Invoke<float, float>(N::ABSF, value); }
-	static BOOL IS_PROJECTILE_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL ownedByPlayer) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL>(N::IS_PROJECTILE_IN_AREA, x1, y1, z1, x2, y2, z2, ownedByPlayer); }
-	static BOOL IS_PROJECTILE_TYPE_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, int type, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, int, BOOL>(N::IS_PROJECTILE_TYPE_IN_AREA, x1, y1, z1, x2, y2, z2, type, p7); }
-	static BOOL IS_PROJECTILE_TYPE_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, Any p7, BOOL p8) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, Any, BOOL>(N::IS_PROJECTILE_TYPE_IN_ANGLED_AREA, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static Any _IS_PROJECTILE_TYPE_IN_RADIUS(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(N::_IS_PROJECTILE_TYPE_IN_RADIUS, p0, p1, p2, p3, p4, p5); }
-	static BOOL _GET_PROJECTILE_NEAR_PED_COORDS(Ped ped, Hash projHash, float radius, Vector3* projPos, BOOL ownedByPlayer, Any p5) { return Native::Invoke<BOOL, Ped, Hash, float, Vector3*, BOOL, Any>(N::_GET_PROJECTILE_NEAR_PED_COORDS, ped, projHash, radius, projPos, ownedByPlayer, p5); }
-	static BOOL _GET_PROJECTILE_NEAR_PED(Ped ped, Hash projHash, float radius, Vector3* projPos, Entity* projEnt, BOOL ownedByPlayer, Any p6) { return Native::Invoke<BOOL, Ped, Hash, float, Vector3*, Entity*, BOOL, Any>(N::_GET_PROJECTILE_NEAR_PED, ped, projHash, radius, projPos, projEnt, ownedByPlayer, p6); }
-	static BOOL IS_BULLET_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, BOOL>(N::IS_BULLET_IN_ANGLED_AREA, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static BOOL IS_BULLET_IN_AREA(float p0, float p1, float p2, float p3, BOOL p4) { return Native::Invoke<BOOL, float, float, float, float, BOOL>(N::IS_BULLET_IN_AREA, p0, p1, p2, p3, p4); }
-	static BOOL IS_BULLET_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL>(N::IS_BULLET_IN_BOX, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL HAS_BULLET_IMPACTED_IN_AREA(float x, float y, float z, float p3, BOOL p4, BOOL p5) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL>(N::HAS_BULLET_IMPACTED_IN_AREA, x, y, z, p3, p4, p5); }
-	static BOOL HAS_BULLET_IMPACTED_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL, BOOL>(N::HAS_BULLET_IMPACTED_IN_BOX, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static int COMPARE_STRINGS(const char* str1, const char* str2, BOOL matchCase, int maxLength) { return Native::Invoke<int, const char*, const char*, BOOL, int>(0xBFBB74A15EFC149B, str1, str2, matchCase, maxLength); }
+	static int ABSI(int value) { return Native::Invoke<int, int>(0x0C214D5B8A38C828, value); }
+	static float ABSF(float value) { return Native::Invoke<float, float>(0x134549B388167CBF, value); }
+	static BOOL IS_PROJECTILE_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL ownedByPlayer) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL>(0x05B0061EFDFC8941, x1, y1, z1, x2, y2, z2, ownedByPlayer); }
+	static BOOL IS_PROJECTILE_TYPE_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, int type, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, int, BOOL>(0x04965FB9E14235C7, x1, y1, z1, x2, y2, z2, type, p7); }
+	static BOOL IS_PROJECTILE_TYPE_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, Any p7, BOOL p8) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, Any, BOOL>(0x928431F4133CD3D4, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static Any _IS_PROJECTILE_TYPE_IN_RADIUS(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xF51C9BAAD9ED64C4, p0, p1, p2, p3, p4, p5); }
+	static BOOL _GET_PROJECTILE_NEAR_PED_COORDS(Ped ped, Hash projHash, float radius, Vector3* projPos, BOOL ownedByPlayer, Any p5) { return Native::Invoke<BOOL, Ped, Hash, float, Vector3*, BOOL, Any>(0xD73C960A681052DF, ped, projHash, radius, projPos, ownedByPlayer, p5); }
+	static BOOL _GET_PROJECTILE_NEAR_PED(Ped ped, Hash projHash, float radius, Vector3* projPos, Entity* projEnt, BOOL ownedByPlayer, Any p6) { return Native::Invoke<BOOL, Ped, Hash, float, Vector3*, Entity*, BOOL, Any>(0x9578986A6105A6AD, ped, projHash, radius, projPos, projEnt, ownedByPlayer, p6); }
+	static BOOL IS_BULLET_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, BOOL>(0x9D09D8493747CF02, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static BOOL IS_BULLET_IN_AREA(float p0, float p1, float p2, float p3, BOOL p4) { return Native::Invoke<BOOL, float, float, float, float, BOOL>(0xC652FD308772D79E, p0, p1, p2, p3, p4); }
+	static BOOL IS_BULLET_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL>(0xC128137C52152741, p0, p1, p2, p3, p4, p5, p6); }
+	static BOOL HAS_BULLET_IMPACTED_IN_AREA(float x, float y, float z, float p3, BOOL p4, BOOL p5) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL>(0xC153E5BCCF411814, x, y, z, p3, p4, p5); }
+	static BOOL HAS_BULLET_IMPACTED_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL, BOOL>(0x3B6A4C05FB2B33AC, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x7A76104CC2CC69E8(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7A76104CC2CC69E8, p0, p1, p2); }
 	static Any _0xDC416CA762BC4F43(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xDC416CA762BC4F43, p0, p1, p2, p3, p4, p5); }
 	static Any _0x970339EFA4FDE518(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x970339EFA4FDE518, p0, p1, p2); }
-	static BOOL IS_ORBIS_VERSION() { return Native::Invoke<BOOL>(N::IS_ORBIS_VERSION); }
-	static BOOL IS_DURANGO_VERSION() { return Native::Invoke<BOOL>(N::IS_DURANGO_VERSION); }
-	static BOOL IS_PC_VERSION() { return Native::Invoke<BOOL>(N::IS_PC_VERSION); }
+	static BOOL IS_ORBIS_VERSION() { return Native::Invoke<BOOL>(0x88CFAE250D3E0C71); }
+	static BOOL IS_DURANGO_VERSION() { return Native::Invoke<BOOL>(0xD1CCC2A2639D325F); }
+	static BOOL IS_PC_VERSION() { return Native::Invoke<BOOL>(0xB0FB6CFAA5A1C833); }
 	static Any _0x268AB8420A9E4ED7() { return Native::Invoke<Any>(0x268AB8420A9E4ED7); }
-	static BOOL IS_STRING_NULL(char* string) { return Native::Invoke<BOOL, char*>(N::IS_STRING_NULL, string); }
-	static BOOL IS_STRING_NULL_OR_EMPTY(char* string) { return Native::Invoke<BOOL, char*>(N::IS_STRING_NULL_OR_EMPTY, string); }
+	static BOOL IS_STRING_NULL(const char* string) { return Native::Invoke<BOOL, const char*>(0x602102324604D96B, string); }
+	static BOOL IS_STRING_NULL_OR_EMPTY(const char* string) { return Native::Invoke<BOOL, const char*>(0x2CF12F9ACF18F048, string); }
 	static Any _0x375F5870A7B8BEC1(Any p0) { return Native::Invoke<Any, Any>(0x375F5870A7B8BEC1, p0); }
-	static BOOL ARE_STRINGS_EQUAL(char* string1, char* string2) { return Native::Invoke<BOOL, char*, char*>(N::ARE_STRINGS_EQUAL, string1, string2); }
-	static Any _DOES_STRING_EXIST_IN_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_DOES_STRING_EXIST_IN_STRING, p0, p1); }
+	static BOOL ARE_STRINGS_EQUAL(const char* string1, const char* string2) { return Native::Invoke<BOOL, const char*, const char*>(0xD3852F22AB713A1F, string1, string2); }
+	static Any _DOES_STRING_EXIST_IN_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9382D5D43D2AA6FF, p0, p1); }
 	static void _0x3C3C7B1B5EC08764() { return Native::Invoke<void>(0x3C3C7B1B5EC08764); }
 	static Any _0x94E8CA3DEE952789(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x94E8CA3DEE952789, p0, p1); }
 	static Any _0x5B4A8121A47D844D(Any p0) { return Native::Invoke<Any, Any>(0x5B4A8121A47D844D, p0); }
-	static Any STRING_TO_INT() { return Native::Invoke<Any>(N::STRING_TO_INT); }
-	static void _STRING_FORMAT_INT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_STRING_FORMAT_INT, p0, p1, p2); }
+	static BOOL STRING_TO_INT() { return Native::Invoke<BOOL>(0xF2DD2298B3AF23E2); }
+	static void _STRING_FORMAT_INT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCF11C0CEB40C401B, p0, p1, p2); }
 	static Any _0x74ACA66484CEBAF0() { return Native::Invoke<Any>(0x74ACA66484CEBAF0); }
 	static void _0x49C44FE78A135A1D(Any p0) { return Native::Invoke<void, Any>(0x49C44FE78A135A1D, p0); }
 	static Any _0x2B6846401D68E563(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x2B6846401D68E563, p0, p1); }
 	static Any _0x6C4DBF553885F9EB() { return Native::Invoke<Any>(0x6C4DBF553885F9EB); }
 	static Any _0xF216F74101968DB0() { return Native::Invoke<Any>(0xF216F74101968DB0); }
-	static Any _CREATE_VAR_STRING(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_CREATE_VAR_STRING, p0, p1, p2); }
+	static const char* _CREATE_VAR_STRING(int p0, const char* p1, const char* p2) { return Native::Invoke<const char*, int, const char*, const char*>(0xFA925AC00EB830B9, p0, p1, p2); }
 	static Any _0xBCC2CFADEA1AEA6C(Any p0) { return Native::Invoke<Any, Any>(0xBCC2CFADEA1AEA6C, p0); }
-	static void SET_BITS_IN_RANGE(int* var, int rangeStart, int rangeEnd, int p3) { return Native::Invoke<void, int*, int, int, int>(N::SET_BITS_IN_RANGE, var, rangeStart, rangeEnd, p3); }
-	static int GET_BITS_IN_RANGE(int var, int rangeStart, int rangeEnd) { return Native::Invoke<int, int, int, int>(N::GET_BITS_IN_RANGE, var, rangeStart, rangeEnd); }
-	static void SET_GAME_PAUSED(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_GAME_PAUSED, toggle); }
-	static void SET_THIS_SCRIPT_CAN_BE_PAUSED(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_THIS_SCRIPT_CAN_BE_PAUSED, toggle); }
-	static void SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT, toggle); }
+	static void SET_BITS_IN_RANGE(int* var, int rangeStart, int rangeEnd, int p3) { return Native::Invoke<void, int*, int, int, int>(0x324DC1CEF57F31E6, var, rangeStart, rangeEnd, p3); }
+	static int GET_BITS_IN_RANGE(int var, int rangeStart, int rangeEnd) { return Native::Invoke<int, int, int, int>(0x68E1352AF48F905D, var, rangeStart, rangeEnd); }
+	static void SET_GAME_PAUSED(BOOL toggle) { return Native::Invoke<void, BOOL>(0xFAEC088D28B1DE4A, toggle); }
+	static void SET_THIS_SCRIPT_CAN_BE_PAUSED(BOOL toggle) { return Native::Invoke<void, BOOL>(0x3215376E79F6EA18, toggle); }
+	static void SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(BOOL toggle) { return Native::Invoke<void, BOOL>(0x8ABD939C2E5D00ED, toggle); }
 	static void _0xD4958E8CF0DE0DD0(Any p0) { return Native::Invoke<void, Any>(0xD4958E8CF0DE0DD0, p0); }
 	static Any _0xB711EB4BC8D06013() { return Native::Invoke<Any>(0xB711EB4BC8D06013); }
-	static void POPULATE_NOW() { return Native::Invoke<void>(N::POPULATE_NOW); }
+	static void POPULATE_NOW() { return Native::Invoke<void>(0xEA6DC3A8ADD2005F); }
 	static Any _0xF9E7DBB39080640B() { return Native::Invoke<Any>(0xF9E7DBB39080640B); }
 	static Any _0x279B0696DA4657EB(Any p0) { return Native::Invoke<Any, Any>(0x279B0696DA4657EB, p0); }
 	static Any _0x1B065A2BF7953815(Any p0) { return Native::Invoke<Any, Any>(0x1B065A2BF7953815, p0); }
 	static Any _0x6C7B68D3CE60E8DE(Any p0) { return Native::Invoke<Any, Any>(0x6C7B68D3CE60E8DE, p0); }
 	static Any _0x627B68D9CE6EE8DE(Any p0) { return Native::Invoke<Any, Any>(0x627B68D9CE6EE8DE, p0); }
 	static Any _0x7CF96F1250EF3221(Any p0) { return Native::Invoke<Any, Any>(0x7CF96F1250EF3221, p0); }
-	static void _COPY_MEMORY(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_COPY_MEMORY, p0, p1, p2); }
-	static void ENABLE_DISPATCH_SERVICE(int dispatchService, BOOL toggle) { return Native::Invoke<void, int, BOOL>(N::ENABLE_DISPATCH_SERVICE, dispatchService, toggle); }
-	static void BLOCK_DISPATCH_SERVICE_RESOURCE_CREATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::BLOCK_DISPATCH_SERVICE_RESOURCE_CREATION, p0, p1); }
-	static BOOL CREATE_INCIDENT(int incidentType, float x, float y, float z, int p5, float radius, int* outIncidentID, Any p7, Any p8) { return Native::Invoke<BOOL, int, float, float, float, int, float, int*, Any, Any>(N::CREATE_INCIDENT, incidentType, x, y, z, p5, radius, outIncidentID, p7, p8); }
+	static void _COPY_MEMORY(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF7AC7DC0DEE7C9BE, p0, p1, p2); }
+	static void ENABLE_DISPATCH_SERVICE(int dispatchService, BOOL toggle) { return Native::Invoke<void, int, BOOL>(0x50E52637EF70EF77, dispatchService, toggle); }
+	static void BLOCK_DISPATCH_SERVICE_RESOURCE_CREATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x66947E61A44DE2C6, p0, p1); }
+	static BOOL CREATE_INCIDENT(int incidentType, float x, float y, float z, int p5, float radius, int* outIncidentID, Any p7, Any p8) { return Native::Invoke<BOOL, int, float, float, float, int, float, int*, Any, Any>(0x3F892CAF67444AE7, incidentType, x, y, z, p5, radius, outIncidentID, p7, p8); }
 	static Any _0xAB3D3F45436DB1D8(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xAB3D3F45436DB1D8, p0, p1, p2, p3, p4, p5, p6); }
-	static void DELETE_INCIDENT(int incidentId) { return Native::Invoke<void, int>(N::DELETE_INCIDENT, incidentId); }
-	static BOOL IS_INCIDENT_VALID(int incidentId) { return Native::Invoke<BOOL, int>(N::IS_INCIDENT_VALID, incidentId); }
+	static void DELETE_INCIDENT(int incidentId) { return Native::Invoke<void, int>(0x5CFD0F0D6AAE0AEE, incidentId); }
+	static BOOL IS_INCIDENT_VALID(int incidentId) { return Native::Invoke<BOOL, int>(0x39F2B1BAD412246A, incidentId); }
 	static void _0x9617B6E5F6537B63(Any p0) { return Native::Invoke<void, Any>(0x9617B6E5F6537B63, p0); }
-	static Any ADD_POP_MULTIPLIER_AREA() { return Native::Invoke<Any>(N::ADD_POP_MULTIPLIER_AREA); }
-	static Any DOES_POP_MULTIPLIER_AREA_EXIST() { return Native::Invoke<Any>(N::DOES_POP_MULTIPLIER_AREA_EXIST); }
-	static Any REMOVE_POP_MULTIPLIER_AREA() { return Native::Invoke<Any>(N::REMOVE_POP_MULTIPLIER_AREA); }
+	static Any ADD_POP_MULTIPLIER_AREA() { return Native::Invoke<Any>(0x5EBDA1A3B8CB5EF7); }
+	static Any DOES_POP_MULTIPLIER_AREA_EXIST() { return Native::Invoke<Any>(0x03BA619C81A646B3); }
+	static Any REMOVE_POP_MULTIPLIER_AREA() { return Native::Invoke<Any>(0x88CB484364EFB37A); }
 	static Any _0x3233C4EC0514C7EC() { return Native::Invoke<Any>(0x3233C4EC0514C7EC); }
 	static Any _0x39D6DACE323A20B6() { return Native::Invoke<Any>(0x39D6DACE323A20B6); }
 	static Any _0xBD090F5B1DB82189() { return Native::Invoke<Any>(0xBD090F5B1DB82189); }
 	static void _0xF569E33FB72ED28E() { return Native::Invoke<void>(0xF569E33FB72ED28E); }
-	static void RESET_DISPATCH_IDEAL_SPAWN_DISTANCE() { return Native::Invoke<void>(N::RESET_DISPATCH_IDEAL_SPAWN_DISTANCE); }
-	static void SET_DISPATCH_IDEAL_SPAWN_DISTANCE(float p0) { return Native::Invoke<void, float>(N::SET_DISPATCH_IDEAL_SPAWN_DISTANCE, p0); }
+	static void RESET_DISPATCH_IDEAL_SPAWN_DISTANCE() { return Native::Invoke<void>(0xC7817264BC4B6377); }
+	static void SET_DISPATCH_IDEAL_SPAWN_DISTANCE(float p0) { return Native::Invoke<void, float>(0xEAB6823B82FBD283, p0); }
 	static void _0x96498D922D8D0D0A() { return Native::Invoke<void>(0x96498D922D8D0D0A); }
 	static void _0x27A1B170AA8AF84C(Any p0) { return Native::Invoke<void, Any>(0x27A1B170AA8AF84C, p0); }
 	static void _0x54EC7B6BC72BAD69() { return Native::Invoke<void>(0x54EC7B6BC72BAD69); }
@@ -2574,30 +2574,30 @@ namespace MISC
 	static void _0x4B0501A468B749F8() { return Native::Invoke<void>(0x4B0501A468B749F8); }
 	static void _0x6BCF7B5CD338281A(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x6BCF7B5CD338281A, p0, p1, p2); }
 	static Any _0xA2D5A26208421426() { return Native::Invoke<Any>(0xA2D5A26208421426); }
-	static Any REMOVE_DISPATCH_SPAWN_BLOCKING_AREA() { return Native::Invoke<Any>(N::REMOVE_DISPATCH_SPAWN_BLOCKING_AREA); }
+	static void REMOVE_DISPATCH_SPAWN_BLOCKING_AREA() { return Native::Invoke<void>(0x49F751F6868DDC5B); }
 	static void _0xEF42F56F69877125() { return Native::Invoke<void>(0xEF42F56F69877125); }
 	static void _0xE4EE55E63FA9AF45(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xE4EE55E63FA9AF45, p0, p1, p2, p3); }
 	static void _0xD93B6516C6878267() { return Native::Invoke<void>(0xD93B6516C6878267); }
-	static void DISPLAY_ONSCREEN_KEYBOARD(int p0, char* windowTitle, char* p2, char* defaultText, char* defaultConcat1, char* defaultConcat2, char* defaultConcat3, int maxInputLength) { return Native::Invoke<void, int, char*, char*, char*, char*, char*, char*, int>(N::DISPLAY_ONSCREEN_KEYBOARD, p0, windowTitle, p2, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, maxInputLength); }
-	static int UPDATE_ONSCREEN_KEYBOARD() { return Native::Invoke<int>(N::UPDATE_ONSCREEN_KEYBOARD); }
-	static char* GET_ONSCREEN_KEYBOARD_RESULT() { return Native::Invoke<char*>(N::GET_ONSCREEN_KEYBOARD_RESULT); }
-	static Any _CANCEL_ONSCREEN_KEYBOARD() { return Native::Invoke<Any>(N::_CANCEL_ONSCREEN_KEYBOARD); }
+	static void DISPLAY_ONSCREEN_KEYBOARD(int p0, const char* windowTitle, const char* p2, const char* defaultText, const char* defaultConcat1, const char* defaultConcat2, const char* defaultConcat3, int maxInputLength) { return Native::Invoke<void, int, const char*, const char*, const char*, const char*, const char*, const char*, int>(0x044131118D8DB3CD, p0, windowTitle, p2, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, maxInputLength); }
+	static int UPDATE_ONSCREEN_KEYBOARD() { return Native::Invoke<int>(0x37DF360F235A3893); }
+	static const char* GET_ONSCREEN_KEYBOARD_RESULT() { return Native::Invoke<const char*>(0xAFB4CF58A4A292B1); }
+	static Any _CANCEL_ONSCREEN_KEYBOARD() { return Native::Invoke<Any>(0x58A39BE597CE99CD); }
 	static Any _0x5CB71EAA1429A358() { return Native::Invoke<Any>(0x5CB71EAA1429A358); }
-	static void _REMOVE_STEALTH_KILL(Hash hash, BOOL p1) { return Native::Invoke<void, Hash, BOOL>(N::_REMOVE_STEALTH_KILL, hash, p1); }
+	static void _REMOVE_STEALTH_KILL(Hash hash, BOOL p1) { return Native::Invoke<void, Hash, BOOL>(0x7ACF124C12A2B045, hash, p1); }
 	static Any _0xFD0759658268FD8E(Any p0) { return Native::Invoke<Any, Any>(0xFD0759658268FD8E, p0); }
 	static Any _0x2E036F0480B8BF02() { return Native::Invoke<Any>(0x2E036F0480B8BF02); }
-	static Any SET_SUPER_JUMP_THIS_FRAME() { return Native::Invoke<Any>(N::SET_SUPER_JUMP_THIS_FRAME); }
+	static void SET_SUPER_JUMP_THIS_FRAME() { return Native::Invoke<void>(0xB3E9BE963F10C445); }
 	static Any _0x8AE059F47158417E() { return Native::Invoke<Any>(0x8AE059F47158417E); }
 	static Any _0x334CE0DA4FAF330C() { return Native::Invoke<Any>(0x334CE0DA4FAF330C); }
 	static Any _0xBA62B4D80FA66BD6() { return Native::Invoke<Any>(0xBA62B4D80FA66BD6); }
 	static Any _0x769E848C66E3C2BB() { return Native::Invoke<Any>(0x769E848C66E3C2BB); }
-	static Any _START_BENCHMARK_RECORDING() { return Native::Invoke<Any>(N::_START_BENCHMARK_RECORDING); }
-	static Any _STOP_BENCHMARK_RECORDING() { return Native::Invoke<Any>(N::_STOP_BENCHMARK_RECORDING); }
-	static Any _RESET_BENCHMARK_RECORDING() { return Native::Invoke<Any>(N::_RESET_BENCHMARK_RECORDING); }
-	static Any _SAVE_BENCHMARK_RECORDING() { return Native::Invoke<Any>(N::_SAVE_BENCHMARK_RECORDING); }
-	static Any _UI_IS_SINGLEPLAYER_PAUSE_MENU_ACTIVE() { return Native::Invoke<Any>(N::_UI_IS_SINGLEPLAYER_PAUSE_MENU_ACTIVE); }
-	static Any _GET_BENCHMARK_ITERATIONS_FROM_COMMAND_LINE() { return Native::Invoke<Any>(N::_GET_BENCHMARK_ITERATIONS_FROM_COMMAND_LINE); }
-	static Any _GET_BENCHMARK_PASS_FROM_COMMAND_LINE() { return Native::Invoke<Any>(N::_GET_BENCHMARK_PASS_FROM_COMMAND_LINE); }
+	static Any _START_BENCHMARK_RECORDING() { return Native::Invoke<Any>(0x29D1F6DF864A094E); }
+	static Any _STOP_BENCHMARK_RECORDING() { return Native::Invoke<Any>(0xB89AEC71AFF2B599); }
+	static Any _RESET_BENCHMARK_RECORDING() { return Native::Invoke<Any>(0xECBABD0307FB216F); }
+	static Any _SAVE_BENCHMARK_RECORDING() { return Native::Invoke<Any>(0xF4743E2ECC02B3DA); }
+	static Any _UI_IS_SINGLEPLAYER_PAUSE_MENU_ACTIVE() { return Native::Invoke<Any>(0x4FFA0386A6216113); }
+	static Any _GET_BENCHMARK_ITERATIONS_FROM_COMMAND_LINE() { return Native::Invoke<Any>(0x22FC52CF470CC98D); }
+	static Any _GET_BENCHMARK_PASS_FROM_COMMAND_LINE() { return Native::Invoke<Any>(0x9297DACF3A2CDFF7); }
 	static Any _0xDC057B86FC157031() { return Native::Invoke<Any>(0xDC057B86FC157031); }
 	static Any _0x9A252AA23D7098F2() { return Native::Invoke<Any>(0x9A252AA23D7098F2); }
 	static Any _0xBDC6E364C9C78178(Any p0) { return Native::Invoke<Any, Any>(0xBDC6E364C9C78178, p0); }
@@ -2663,7 +2663,7 @@ namespace MISC
 	static Any _0x0358B8A41916C613(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x0358B8A41916C613, p0, p1, p2, p3); }
 	static Any _0xA565FAC215CBC77D() { return Native::Invoke<Any>(0xA565FAC215CBC77D); }
 }
-namespace _NAMESPACE40
+namespace MISSIONDATA
 {
 	static Any _0xE54DC27571D5EDC5() { return Native::Invoke<Any>(0xE54DC27571D5EDC5); }
 	static Any _0x57E798B56C45EE15(Any p0) { return Native::Invoke<Any, Any>(0x57E798B56C45EE15, p0); }
@@ -2673,10 +2673,10 @@ namespace _NAMESPACE40
 	static void _0xE824CE7D13FCB300(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE824CE7D13FCB300, p0, p1); }
 	static Any _0xE824CE7D13FCB35E(Any p0) { return Native::Invoke<Any, Any>(0xE824CE7D13FCB35E, p0); }
 	static Any _0xE4E2C581F127A11C() { return Native::Invoke<Any>(0xE4E2C581F127A11C); }
-	static Any _0x8C32D86E9556ED86() { return Native::Invoke<Any>(0x8C32D86E9556ED86); }
-	static Any _0x12F65317708749A5() { return Native::Invoke<Any>(0x12F65317708749A5); }
-	static Any _0x3A04F0169DA87A9D() { return Native::Invoke<Any>(0x3A04F0169DA87A9D); }
-	static Any _0x9AABABF8313C3516() { return Native::Invoke<Any>(0x9AABABF8313C3516); }
+	static Any MISSIONDATA_GET_REPLAY_STATE() { return Native::Invoke<Any>(0x8C32D86E9556ED86); }
+	static Any MISSIONDATA_SET_RATING_SCORES() { return Native::Invoke<Any>(0x12F65317708749A5); }
+	static Any MISSIONDATA_SET_HIGH_SCORE() { return Native::Invoke<Any>(0x3A04F0169DA87A9D); }
+	static Any MISSIONDATA_GET_HIGH_SCORE() { return Native::Invoke<Any>(0x9AABABF8313C3516); }
 	static void _0x25855B1574BF8CD5(Any p0) { return Native::Invoke<void, Any>(0x25855B1574BF8CD5, p0); }
 	static void _0x7F89E15A8FB8DE97() { return Native::Invoke<void>(0x7F89E15A8FB8DE97); }
 	static Any _0x7E8F86A4FA33033C() { return Native::Invoke<Any>(0x7E8F86A4FA33033C); }
@@ -2695,22 +2695,22 @@ namespace _NAMESPACE41
 namespace NETSHOPPING
 {
 	static Any _0xC019112F8995DC1C() { return Native::Invoke<Any>(0xC019112F8995DC1C); }
-	static Any _CASH_INVENTORY_TRANSACTION_READY_FOR_TRANSITIONING() { return Native::Invoke<Any>(N::_CASH_INVENTORY_TRANSACTION_READY_FOR_TRANSITIONING); }
+	static Any _CASH_INVENTORY_TRANSACTION_READY_FOR_TRANSITIONING() { return Native::Invoke<Any>(0xFCC24220FDDAC929); }
 	static Any _0x6CE9FB6332B5E46E() { return Native::Invoke<Any>(0x6CE9FB6332B5E46E); }
 	static Any _0xD1CE92D1D9BE170A() { return Native::Invoke<Any>(0xD1CE92D1D9BE170A); }
-	static Any _CASH_INVENTORY_TRANSACTION_FIRE_AND_FORGET_ITEM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(N::_CASH_INVENTORY_TRANSACTION_FIRE_AND_FORGET_ITEM, p0, p1, p2, p3); }
-	static Any _CASH_INVENTORY_TRANSACTION_START(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_CASH_INVENTORY_TRANSACTION_START, p0, p1, p2); }
-	static Any _CASH_INVENTORY_TRANSACTION_FIND(Any p0) { return Native::Invoke<Any, Any>(N::_CASH_INVENTORY_TRANSACTION_FIND, p0); }
-	static Any _CASH_INVENTORY_TRANSACTION_DELETE(Any p0) { return Native::Invoke<Any, Any>(N::_CASH_INVENTORY_TRANSACTION_DELETE, p0); }
+	static Any _CASH_INVENTORY_TRANSACTION_FIRE_AND_FORGET_ITEM(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xFFEA09CCEC4AF32F, p0, p1, p2, p3); }
+	static Any _CASH_INVENTORY_TRANSACTION_START(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xF039EC27F4490E96, p0, p1, p2); }
+	static Any _CASH_INVENTORY_TRANSACTION_FIND(Any p0) { return Native::Invoke<Any, Any>(0x52A226ADF4A270D2, p0); }
+	static Any _CASH_INVENTORY_TRANSACTION_DELETE(Any p0) { return Native::Invoke<Any, Any>(0x59EF5D516E2D96B9, p0); }
 	static Any _0x6C9F12700BCE69F4() { return Native::Invoke<Any>(0x6C9F12700BCE69F4); }
-	static Any _CASH_INVENTORY_TRANSACTION_ADD_ITEM_WITH_INGREDIENTS(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::_CASH_INVENTORY_TRANSACTION_ADD_ITEM_WITH_INGREDIENTS, p0, p1, p2); }
+	static Any _CASH_INVENTORY_TRANSACTION_ADD_ITEM_WITH_INGREDIENTS(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x3745C002F5A21C45, p0, p1, p2); }
 	static Any _0xF65D2D35037BF5EC() { return Native::Invoke<Any>(0xF65D2D35037BF5EC); }
 	static Any _0x52BDE32F21BA3B6D() { return Native::Invoke<Any>(0x52BDE32F21BA3B6D); }
 	static Any _0x7616B5F0895C2D99() { return Native::Invoke<Any>(0x7616B5F0895C2D99); }
-	static Any _CASH_INVENTORY_TRANSACTION_GET_NUMBER_ITEMS(Any p0) { return Native::Invoke<Any, Any>(N::_CASH_INVENTORY_TRANSACTION_GET_NUMBER_ITEMS, p0); }
+	static Any _CASH_INVENTORY_TRANSACTION_GET_NUMBER_ITEMS(Any p0) { return Native::Invoke<Any, Any>(0xCF2D04D076847478, p0); }
 	static Any _0xBD2D520C51CCFF52(Any p0) { return Native::Invoke<Any, Any>(0xBD2D520C51CCFF52, p0); }
-	static Any _CASH_INVENTORY_TRANSACTION_CHECKOUT(Any p0) { return Native::Invoke<Any, Any>(N::_CASH_INVENTORY_TRANSACTION_CHECKOUT, p0); }
-	static Any _CASH_INVENTORY_TRANSACTION_CHECKOUT_STATUS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_CASH_INVENTORY_TRANSACTION_CHECKOUT_STATUS, p0, p1); }
+	static Any _CASH_INVENTORY_TRANSACTION_CHECKOUT(Any p0) { return Native::Invoke<Any, Any>(0x592BC00BF6629BE7, p0); }
+	static Any _CASH_INVENTORY_TRANSACTION_CHECKOUT_STATUS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x26C008791D066F37, p0, p1); }
 	static Any _0xB6F4557060EF0FB4() { return Native::Invoke<Any>(0xB6F4557060EF0FB4); }
 	static Any _0x98412398BBE73F61() { return Native::Invoke<Any>(0x98412398BBE73F61); }
 	static Any _0xCE54C9ABE6FBC6DB() { return Native::Invoke<Any>(0xCE54C9ABE6FBC6DB); }
@@ -2721,13 +2721,13 @@ namespace NETSHOPPING
 }
 namespace NETWORK
 {
-	static BOOL NETWORK_IS_SIGNED_ONLINE() { return Native::Invoke<BOOL>(N::NETWORK_IS_SIGNED_ONLINE); }
+	static BOOL NETWORK_IS_SIGNED_ONLINE() { return Native::Invoke<BOOL>(0x1077788E268557C2); }
 	static Any _0x74FB3E29E6D10FA9() { return Native::Invoke<Any>(0x74FB3E29E6D10FA9); }
-	static BOOL _NETWORK_ARE_ROS_AVAILABLE() { return Native::Invoke<BOOL>(N::_NETWORK_ARE_ROS_AVAILABLE); }
-	static BOOL NETWORK_IS_CLOUD_AVAILABLE() { return Native::Invoke<BOOL>(N::NETWORK_IS_CLOUD_AVAILABLE); }
+	static BOOL _NETWORK_ARE_ROS_AVAILABLE() { return Native::Invoke<BOOL>(0x85443FF4C328F53B); }
+	static BOOL NETWORK_IS_CLOUD_AVAILABLE() { return Native::Invoke<BOOL>(0x9A4CF4F48AD77302); }
 	static Any _0x67A5589628E0CFF6() { return Native::Invoke<Any>(0x67A5589628E0CFF6); }
-	static BOOL NETWORK_IS_HOST() { return Native::Invoke<BOOL>(N::NETWORK_IS_HOST); }
-	static BOOL NETWORK_HAVE_ONLINE_PRIVILEGES() { return Native::Invoke<BOOL>(N::NETWORK_HAVE_ONLINE_PRIVILEGES); }
+	static BOOL NETWORK_IS_HOST() { return Native::Invoke<BOOL>(0x8DB296B814EDDA07); }
+	static BOOL NETWORK_HAVE_ONLINE_PRIVILEGES() { return Native::Invoke<BOOL>(0x25CB5A9F37BFD063); }
 	static Any _0x595F028698072DD9(Any p0) { return Native::Invoke<Any, Any>(0x595F028698072DD9, p0); }
 	static Any _0x83F28CE49FBBFFBA() { return Native::Invoke<Any>(0x83F28CE49FBBFFBA); }
 	static Any _0x246545C37C27A717() { return Native::Invoke<Any>(0x246545C37C27A717); }
@@ -2741,7 +2741,7 @@ namespace NETWORK
 	static Any _0x160F0CE6D76A39C9() { return Native::Invoke<Any>(0x160F0CE6D76A39C9); }
 	static Any _0x2FB53C631A49BE92() { return Native::Invoke<Any>(0x2FB53C631A49BE92); }
 	static void _0xE5FF65CFF5160752() { return Native::Invoke<void>(0xE5FF65CFF5160752); }
-	static BOOL NETWORK_CAN_ACCESS_MULTIPLAYER(int* loadingState) { return Native::Invoke<BOOL, int*>(N::NETWORK_CAN_ACCESS_MULTIPLAYER, loadingState); }
+	static BOOL NETWORK_CAN_ACCESS_MULTIPLAYER(int* loadingState) { return Native::Invoke<BOOL, int*>(0xAF50DA1A3F8B1BA4, loadingState); }
 	static Any _0x2A8112A974DE1EF6() { return Native::Invoke<Any>(0x2A8112A974DE1EF6); }
 	static Any _0xDD7806FD0543BC3D() { return Native::Invoke<Any>(0xDD7806FD0543BC3D); }
 	static Any _0xA95470DA137587F5() { return Native::Invoke<Any>(0xA95470DA137587F5); }
@@ -2750,7 +2750,7 @@ namespace NETWORK
 	static Any _0x2C5BD9A43987AA27(Any p0) { return Native::Invoke<Any, Any>(0x2C5BD9A43987AA27, p0); }
 	static Any _0x86FD10251A7118A4() { return Native::Invoke<Any>(0x86FD10251A7118A4); }
 	static void _0x3E74A687A73979C6(Any p0) { return Native::Invoke<void, Any>(0x3E74A687A73979C6, p0); }
-	static BOOL NETWORK_SESSION_IS_PRIVATE() { return Native::Invoke<BOOL>(N::NETWORK_SESSION_IS_PRIVATE); }
+	static BOOL NETWORK_SESSION_IS_PRIVATE() { return Native::Invoke<BOOL>(0xCEF70AA5B3F89BA1); }
 	static Any _0x04019AE4956D4393() { return Native::Invoke<Any>(0x04019AE4956D4393); }
 	static Any _0x2989E131FDE37E97() { return Native::Invoke<Any>(0x2989E131FDE37E97); }
 	static Any _0x309BBEBEA8A3986C() { return Native::Invoke<Any>(0x309BBEBEA8A3986C); }
@@ -2775,30 +2775,30 @@ namespace NETWORK
 	static void _0xFD4272A137703449() { return Native::Invoke<void>(0xFD4272A137703449); }
 	static Any _0x236905C700FDB54D() { return Native::Invoke<Any>(0x236905C700FDB54D); }
 	static Any _0x71FA2D1880C48032() { return Native::Invoke<Any>(0x71FA2D1880C48032); }
-	static Any _NETWORK_GET_SERVER_TIME() { return Native::Invoke<Any>(N::_NETWORK_GET_SERVER_TIME); }
-	static void NETWORK_CLEAR_CLOCK_TIME_OVERRIDE() { return Native::Invoke<void>(N::NETWORK_CLEAR_CLOCK_TIME_OVERRIDE); }
-	static BOOL NETWORK_IS_CLOCK_TIME_OVERRIDDEN() { return Native::Invoke<BOOL>(N::NETWORK_IS_CLOCK_TIME_OVERRIDDEN); }
+	static void _NETWORK_GET_SERVER_TIME() { return Native::Invoke<void>(0x6D03BFBD643B2A02); }
+	static void NETWORK_CLEAR_CLOCK_TIME_OVERRIDE() { return Native::Invoke<void>(0xD972DF67326F966E); }
+	static BOOL NETWORK_IS_CLOCK_TIME_OVERRIDDEN() { return Native::Invoke<BOOL>(0xD7C95D322FF57522); }
 	static Any _0x11A7ADCD629E170F() { return Native::Invoke<Any>(0x11A7ADCD629E170F); }
 	static Any _0x669E223E64B1903C() { return Native::Invoke<Any>(0x669E223E64B1903C); }
 	static Any _0xE28C13ECC36FF14E() { return Native::Invoke<Any>(0xE28C13ECC36FF14E); }
 	static Any _0x65F040D91001ED4B() { return Native::Invoke<Any>(0x65F040D91001ED4B); }
 	static Any _0x0E54D4DA6018FF8E() { return Native::Invoke<Any>(0x0E54D4DA6018FF8E); }
-	static BOOL NETWORK_IS_FINDING_GAMERS() { return Native::Invoke<BOOL>(N::NETWORK_IS_FINDING_GAMERS); }
+	static BOOL NETWORK_IS_FINDING_GAMERS() { return Native::Invoke<BOOL>(0xDDDF64C91BFCF0AA); }
 	static Any _0xF9B83B77929D8863() { return Native::Invoke<Any>(0xF9B83B77929D8863); }
 	static Any _0x7BCA0A3972708436() { return Native::Invoke<Any>(0x7BCA0A3972708436); }
-	static void NETWORK_CLEAR_FOUND_GAMERS() { return Native::Invoke<void>(N::NETWORK_CLEAR_FOUND_GAMERS); }
+	static void NETWORK_CLEAR_FOUND_GAMERS() { return Native::Invoke<void>(0x6D14CCEE1B40381A); }
 	static Any _0xFBDFE1C1356E12E8() { return Native::Invoke<Any>(0xFBDFE1C1356E12E8); }
 	static Any _0x25189F9908E9CD65() { return Native::Invoke<Any>(0x25189F9908E9CD65); }
 	static Any _0x5AE17C6B0134B7F1() { return Native::Invoke<Any>(0x5AE17C6B0134B7F1); }
 	static Any _0xDDAEB478E58F8DEA() { return Native::Invoke<Any>(0xDDAEB478E58F8DEA); }
-	static Any NETWORK_CLEAR_GET_GAMER_STATUS() { return Native::Invoke<Any>(N::NETWORK_CLEAR_GET_GAMER_STATUS); }
+	static Any NETWORK_CLEAR_GET_GAMER_STATUS() { return Native::Invoke<Any>(0x86E0660E4F5C956D); }
 	static void _0x7AC752103856FB20(Any p0) { return Native::Invoke<void, Any>(0x7AC752103856FB20, p0); }
-	static BOOL NETWORK_IS_GAME_IN_PROGRESS() { return Native::Invoke<BOOL>(N::NETWORK_IS_GAME_IN_PROGRESS); }
-	static BOOL NETWORK_IS_SESSION_ACTIVE() { return Native::Invoke<BOOL>(N::NETWORK_IS_SESSION_ACTIVE); }
-	static BOOL NETWORK_IS_IN_SESSION() { return Native::Invoke<BOOL>(N::NETWORK_IS_IN_SESSION); }
+	static BOOL NETWORK_IS_GAME_IN_PROGRESS() { return Native::Invoke<BOOL>(0x10FAB35428CCC9D7); }
+	static BOOL NETWORK_IS_SESSION_ACTIVE() { return Native::Invoke<BOOL>(0xD83C2B94E7508980); }
+	static BOOL NETWORK_IS_IN_SESSION() { return Native::Invoke<BOOL>(0xCA97246103B63917); }
 	static Any _0xC5196C42DE19F646() { return Native::Invoke<Any>(0xC5196C42DE19F646); }
-	static BOOL NETWORK_IS_SESSION_STARTED() { return Native::Invoke<BOOL>(N::NETWORK_IS_SESSION_STARTED); }
-	static BOOL NETWORK_CAN_SESSION_END() { return Native::Invoke<BOOL>(N::NETWORK_CAN_SESSION_END); }
+	static BOOL NETWORK_IS_SESSION_STARTED() { return Native::Invoke<BOOL>(0x9DE624D2FC4B603F); }
+	static BOOL NETWORK_CAN_SESSION_END() { return Native::Invoke<BOOL>(0x4EEBC3694E49C572); }
 	static Any _0x225640E09EFFDC3F() { return Native::Invoke<Any>(0x225640E09EFFDC3F); }
 	static Any _0xE546BDA1B3E288EE() { return Native::Invoke<Any>(0xE546BDA1B3E288EE); }
 	static Any _0x78335E12DB0BF961() { return Native::Invoke<Any>(0x78335E12DB0BF961); }
@@ -2841,92 +2841,92 @@ namespace NETWORK
 	static void _0xA4484173759749B1() { return Native::Invoke<void>(0xA4484173759749B1); }
 	static Any _0x603469298A4308AF() { return Native::Invoke<Any>(0x603469298A4308AF); }
 	static Any _0xF5C5929E07512F80() { return Native::Invoke<Any>(0xF5C5929E07512F80); }
-	static Any NETWORK_IS_IN_PLATFORM_PARTY() { return Native::Invoke<Any>(N::NETWORK_IS_IN_PLATFORM_PARTY); }
+	static Any NETWORK_IS_IN_PLATFORM_PARTY() { return Native::Invoke<Any>(0x2FC5650B0271CB57); }
 	static Any _0x11820D1AE80DEA39() { return Native::Invoke<Any>(0x11820D1AE80DEA39); }
 	static Any _0xFD8B834A8BA05048() { return Native::Invoke<Any>(0xFD8B834A8BA05048); }
 	static Any _0xF1B84178F8674195() { return Native::Invoke<Any>(0xF1B84178F8674195); }
-	static Any NETWORK_GET_RANDOM_INT_RANGED() { return Native::Invoke<Any>(N::NETWORK_GET_RANDOM_INT_RANGED); }
-	static void NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT(int lobbySize, BOOL p1, int instanceId) { return Native::Invoke<void, int, BOOL, int>(N::NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT, lobbySize, p1, instanceId); }
-	static BOOL NETWORK_GET_THIS_SCRIPT_IS_NETWORK_SCRIPT() { return Native::Invoke<BOOL>(N::NETWORK_GET_THIS_SCRIPT_IS_NETWORK_SCRIPT); }
-	static int _NETWORK_GET_NUM_PARTICIPANTS_HOST() { return Native::Invoke<int>(N::_NETWORK_GET_NUM_PARTICIPANTS_HOST); }
-	static int NETWORK_GET_NUM_PARTICIPANTS() { return Native::Invoke<int>(N::NETWORK_GET_NUM_PARTICIPANTS); }
-	static int NETWORK_GET_SCRIPT_STATUS() { return Native::Invoke<int>(N::NETWORK_GET_SCRIPT_STATUS); }
-	static Any NETWORK_REGISTER_HOST_BROADCAST_VARIABLES() { return Native::Invoke<Any>(N::NETWORK_REGISTER_HOST_BROADCAST_VARIABLES); }
+	static Any NETWORK_GET_RANDOM_INT_RANGED() { return Native::Invoke<Any>(0xE30CF56F1EFA5F43); }
+	static void NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT(int lobbySize, BOOL p1, int instanceId) { return Native::Invoke<void, int, BOOL, int>(0x1CA59E306ECB80A5, lobbySize, p1, instanceId); }
+	static BOOL NETWORK_GET_THIS_SCRIPT_IS_NETWORK_SCRIPT() { return Native::Invoke<BOOL>(0x2910669969E9535E); }
+	static int _NETWORK_GET_NUM_PARTICIPANTS_HOST() { return Native::Invoke<int>(0xA6C90FBC38E395EE); }
+	static int NETWORK_GET_NUM_PARTICIPANTS() { return Native::Invoke<int>(0x18D0456E86604654); }
+	static int NETWORK_GET_SCRIPT_STATUS() { return Native::Invoke<int>(0x57D158647A6BFABF); }
+	static void NETWORK_REGISTER_HOST_BROADCAST_VARIABLES() { return Native::Invoke<void>(0x3E9B2F01C50DF595); }
 	static Any _0xBA24095EA96DFE17() { return Native::Invoke<Any>(0xBA24095EA96DFE17); }
-	static Any NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES() { return Native::Invoke<Any>(N::NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES); }
+	static void NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES() { return Native::Invoke<void>(0x3364AA97340CA215); }
 	static Any _0x690806BC83BC8CA2() { return Native::Invoke<Any>(0x690806BC83BC8CA2); }
 	static Any _0x5D10B3795F3FC886() { return Native::Invoke<Any>(0x5D10B3795F3FC886); }
-	static Any NETWORK_GET_PLAYER_INDEX() { return Native::Invoke<Any>(N::NETWORK_GET_PLAYER_INDEX); }
-	static Any NETWORK_GET_PARTICIPANT_INDEX() { return Native::Invoke<Any>(N::NETWORK_GET_PARTICIPANT_INDEX); }
-	static Any NETWORK_GET_PLAYER_INDEX_FROM_PED() { return Native::Invoke<Any>(N::NETWORK_GET_PLAYER_INDEX_FROM_PED); }
-	static int NETWORK_GET_NUM_CONNECTED_PLAYERS() { return Native::Invoke<int>(N::NETWORK_GET_NUM_CONNECTED_PLAYERS); }
-	static Any NETWORK_IS_PLAYER_CONNECTED() { return Native::Invoke<Any>(N::NETWORK_IS_PLAYER_CONNECTED); }
-	static Any NETWORK_GET_TOTAL_NUM_PLAYERS() { return Native::Invoke<Any>(N::NETWORK_GET_TOTAL_NUM_PLAYERS); }
-	static Any NETWORK_IS_PARTICIPANT_ACTIVE() { return Native::Invoke<Any>(N::NETWORK_IS_PARTICIPANT_ACTIVE); }
-	static BOOL NETWORK_IS_PLAYER_ACTIVE(Player player) { return Native::Invoke<BOOL, Player>(N::NETWORK_IS_PLAYER_ACTIVE, player); }
-	static BOOL NETWORK_IS_PLAYER_A_PARTICIPANT(Player playerId) { return Native::Invoke<BOOL, Player>(N::NETWORK_IS_PLAYER_A_PARTICIPANT, playerId); }
-	static BOOL NETWORK_IS_HOST_OF_THIS_SCRIPT() { return Native::Invoke<BOOL>(N::NETWORK_IS_HOST_OF_THIS_SCRIPT); }
+	static int NETWORK_GET_PLAYER_INDEX() { return Native::Invoke<int>(0x24FB80D107371267); }
+	static int NETWORK_GET_PARTICIPANT_INDEX() { return Native::Invoke<int>(0x1B84DF6AF2A46938); }
+	static Player NETWORK_GET_PLAYER_INDEX_FROM_PED() { return Native::Invoke<Player>(0x6C0E2E0125610278); }
+	static int NETWORK_GET_NUM_CONNECTED_PLAYERS() { return Native::Invoke<int>(0xA4A79DD2D9600654); }
+	static BOOL NETWORK_IS_PLAYER_CONNECTED() { return Native::Invoke<BOOL>(0x93DC1BE4E1ABE9D1); }
+	static Any NETWORK_GET_TOTAL_NUM_PLAYERS() { return Native::Invoke<Any>(0xCF61D4B4702EE9EB); }
+	static BOOL NETWORK_IS_PARTICIPANT_ACTIVE() { return Native::Invoke<BOOL>(0x6FF8FF40B6357D45); }
+	static BOOL NETWORK_IS_PLAYER_ACTIVE(Player player) { return Native::Invoke<BOOL, Player>(0xB8DFD30D6973E135, player); }
+	static BOOL NETWORK_IS_PLAYER_A_PARTICIPANT(Player playerId) { return Native::Invoke<BOOL, Player>(0x3CA58F6CB7CBD784, playerId); }
+	static BOOL NETWORK_IS_HOST_OF_THIS_SCRIPT() { return Native::Invoke<BOOL>(0x83CD99A1E6061AB5); }
 	static Any _0xB4A25351D79B444C() { return Native::Invoke<Any>(0xB4A25351D79B444C); }
-	static void NETWORK_SET_MISSION_FINISHED() { return Native::Invoke<void>(N::NETWORK_SET_MISSION_FINISHED); }
-	static BOOL NETWORK_IS_SCRIPT_ACTIVE(char* scriptName, int instanceId, BOOL unk, int positionHash) { return Native::Invoke<BOOL, char*, int, BOOL, int>(N::NETWORK_IS_SCRIPT_ACTIVE, scriptName, instanceId, unk, positionHash); }
+	static void NETWORK_SET_MISSION_FINISHED() { return Native::Invoke<void>(0x3B3D11CD9FFCDFC9); }
+	static BOOL NETWORK_IS_SCRIPT_ACTIVE(const char* scriptName, int instanceId, BOOL unk, int positionHash) { return Native::Invoke<BOOL, const char*, int, BOOL, int>(0x9D40DF90FAD26098, scriptName, instanceId, unk, positionHash); }
 	static Any _0x1B89BC43B6E69107() { return Native::Invoke<Any>(0x1B89BC43B6E69107); }
 	static Any _0x31DAD2CD6D49546E() { return Native::Invoke<Any>(0x31DAD2CD6D49546E); }
 	static Any _0xFB9ECED5B68F3B78() { return Native::Invoke<Any>(0xFB9ECED5B68F3B78); }
-	static Any NETWORK_GET_NUM_SCRIPT_PARTICIPANTS() { return Native::Invoke<Any>(N::NETWORK_GET_NUM_SCRIPT_PARTICIPANTS); }
+	static int NETWORK_GET_NUM_SCRIPT_PARTICIPANTS() { return Native::Invoke<int>(0x3658E8CD94FC121A); }
 	static Any _0x638A3A81733086DB() { return Native::Invoke<Any>(0x638A3A81733086DB); }
 	static Any _0x1AD5B71586B94820() { return Native::Invoke<Any>(0x1AD5B71586B94820); }
 	static Any _0x2302C0264EA58D31() { return Native::Invoke<Any>(0x2302C0264EA58D31); }
 	static Any _0x9C725D149622BFDE() { return Native::Invoke<Any>(0x9C725D149622BFDE); }
-	static Player PARTICIPANT_ID() { return Native::Invoke<Player>(N::PARTICIPANT_ID); }
-	static int PARTICIPANT_ID_TO_INT() { return Native::Invoke<int>(N::PARTICIPANT_ID_TO_INT); }
-	static Any NETWORK_GET_DESTROYER_OF_NETWORK_ID() { return Native::Invoke<Any>(N::NETWORK_GET_DESTROYER_OF_NETWORK_ID); }
+	static Player PARTICIPANT_ID() { return Native::Invoke<Player>(0x90986E8876CE0A83); }
+	static int PARTICIPANT_ID_TO_INT() { return Native::Invoke<int>(0x57A3BDDAD8E5AA0A); }
+	static int NETWORK_GET_DESTROYER_OF_NETWORK_ID() { return Native::Invoke<int>(0x7A1ADEEF01740A24); }
 	static Any _0x6CF82A7F65A5AD5F() { return Native::Invoke<Any>(0x6CF82A7F65A5AD5F); }
 	static Any _0x236321F1178A5446() { return Native::Invoke<Any>(0x236321F1178A5446); }
-	static Any _NETWORK_GET_DESTROYER_OF_ENTITY() { return Native::Invoke<Any>(N::_NETWORK_GET_DESTROYER_OF_ENTITY); }
-	static Any NETWORK_GET_ENTITY_KILLER_OF_PLAYER() { return Native::Invoke<Any>(N::NETWORK_GET_ENTITY_KILLER_OF_PLAYER); }
-	static Any NETWORK_RESURRECT_LOCAL_PLAYER() { return Native::Invoke<Any>(N::NETWORK_RESURRECT_LOCAL_PLAYER); }
+	static BOOL _NETWORK_GET_DESTROYER_OF_ENTITY() { return Native::Invoke<BOOL>(0x4CACA84440FA26F6); }
+	static Entity NETWORK_GET_ENTITY_KILLER_OF_PLAYER() { return Native::Invoke<Entity>(0x42B2DAA6B596F5F8); }
+	static void NETWORK_RESURRECT_LOCAL_PLAYER() { return Native::Invoke<void>(0xEA23C49EAA83ACFB); }
 	static Any _0x4154B7D8C75E5DCF() { return Native::Invoke<Any>(0x4154B7D8C75E5DCF); }
-	static Any NETWORK_SET_LOCAL_PLAYER_INVINCIBLE_TIME() { return Native::Invoke<Any>(N::NETWORK_SET_LOCAL_PLAYER_INVINCIBLE_TIME); }
-	static Any NETWORK_SET_LOCAL_PLAYER_SYNC_LOOK_AT() { return Native::Invoke<Any>(N::NETWORK_SET_LOCAL_PLAYER_SYNC_LOOK_AT); }
+	static void NETWORK_SET_LOCAL_PLAYER_INVINCIBLE_TIME() { return Native::Invoke<void>(0x2D95C7E2D7E07307); }
+	static Any NETWORK_SET_LOCAL_PLAYER_SYNC_LOOK_AT() { return Native::Invoke<Any>(0x524FF0AEFF9C3973); }
 	static Any _0xB07D3185E11657A5() { return Native::Invoke<Any>(0xB07D3185E11657A5); }
-	static Any NETWORK_GET_NETWORK_ID_FROM_ENTITY() { return Native::Invoke<Any>(N::NETWORK_GET_NETWORK_ID_FROM_ENTITY); }
-	static Any NETWORK_GET_ENTITY_FROM_NETWORK_ID() { return Native::Invoke<Any>(N::NETWORK_GET_ENTITY_FROM_NETWORK_ID); }
-	static BOOL NETWORK_GET_ENTITY_IS_NETWORKED(Entity entity) { return Native::Invoke<BOOL, Entity>(N::NETWORK_GET_ENTITY_IS_NETWORKED, entity); }
-	static void NETWORK_REGISTER_ENTITY_AS_NETWORKED(Entity entity) { return Native::Invoke<void, Entity>(N::NETWORK_REGISTER_ENTITY_AS_NETWORKED, entity); }
-	static BOOL NETWORK_DOES_NETWORK_ID_EXIST(int netID) { return Native::Invoke<BOOL, int>(N::NETWORK_DOES_NETWORK_ID_EXIST, netID); }
-	static Any NETWORK_REQUEST_CONTROL_OF_NETWORK_ID() { return Native::Invoke<Any>(N::NETWORK_REQUEST_CONTROL_OF_NETWORK_ID); }
-	static Any NETWORK_HAS_CONTROL_OF_NETWORK_ID() { return Native::Invoke<Any>(N::NETWORK_HAS_CONTROL_OF_NETWORK_ID); }
-	static BOOL NETWORK_REQUEST_CONTROL_OF_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(N::NETWORK_REQUEST_CONTROL_OF_ENTITY, entity); }
+	static int NETWORK_GET_NETWORK_ID_FROM_ENTITY() { return Native::Invoke<int>(0xA11700682F3AD45C); }
+	static Entity NETWORK_GET_ENTITY_FROM_NETWORK_ID() { return Native::Invoke<Entity>(0xCE4E5D9B0A4FF560); }
+	static BOOL NETWORK_GET_ENTITY_IS_NETWORKED(Entity entity) { return Native::Invoke<BOOL, Entity>(0xC7827959479DCC78, entity); }
+	static void NETWORK_REGISTER_ENTITY_AS_NETWORKED(Entity entity) { return Native::Invoke<void, Entity>(0x06FAACD625D80CAA, entity); }
+	static BOOL NETWORK_DOES_NETWORK_ID_EXIST(int netID) { return Native::Invoke<BOOL, int>(0x38CE16C96BD11344, netID); }
+	static BOOL NETWORK_REQUEST_CONTROL_OF_NETWORK_ID() { return Native::Invoke<BOOL>(0xA670B3662FAFFBD0); }
+	static BOOL NETWORK_HAS_CONTROL_OF_NETWORK_ID() { return Native::Invoke<BOOL>(0x4D36070FE0215186); }
+	static BOOL NETWORK_REQUEST_CONTROL_OF_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(0xB69317BF5E782347, entity); }
 	static Any _0xAAA92B631B13F614() { return Native::Invoke<Any>(0xAAA92B631B13F614); }
-	static BOOL NETWORK_HAS_CONTROL_OF_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(N::NETWORK_HAS_CONTROL_OF_ENTITY, entity); }
-	static Any NETWORK_HAS_CONTROL_OF_PICKUP() { return Native::Invoke<Any>(N::NETWORK_HAS_CONTROL_OF_PICKUP); }
+	static BOOL NETWORK_HAS_CONTROL_OF_ENTITY(Entity entity) { return Native::Invoke<BOOL, Entity>(0x01BF60A500E28887, entity); }
+	static BOOL NETWORK_HAS_CONTROL_OF_PICKUP() { return Native::Invoke<BOOL>(0x5BC9495F0B3B6FA6); }
 	static Any _0x26A5C12FACFF8724() { return Native::Invoke<Any>(0x26A5C12FACFF8724); }
 	static Any _0xF260AF6F43953316() { return Native::Invoke<Any>(0xF260AF6F43953316); }
-	static Any VEH_TO_NET() { return Native::Invoke<Any>(N::VEH_TO_NET); }
-	static int PED_TO_NET(Ped ped) { return Native::Invoke<int, Ped>(N::PED_TO_NET, ped); }
-	static Any OBJ_TO_NET() { return Native::Invoke<Any>(N::OBJ_TO_NET); }
+	static int VEH_TO_NET() { return Native::Invoke<int>(0xB4C94523F023419C); }
+	static int PED_TO_NET(Ped ped) { return Native::Invoke<int, Ped>(0x0EDEC3C276198689, ped); }
+	static int OBJ_TO_NET() { return Native::Invoke<int>(0x99BFDC94A603E541); }
 	static Any _0xE0D73CDDEA79DDCD() { return Native::Invoke<Any>(0xE0D73CDDEA79DDCD); }
-	static Any NET_TO_VEH() { return Native::Invoke<Any>(N::NET_TO_VEH); }
-	static Ped NET_TO_PED(int netHandle) { return Native::Invoke<Ped, int>(N::NET_TO_PED, netHandle); }
-	static Any NET_TO_OBJ() { return Native::Invoke<Any>(N::NET_TO_OBJ); }
-	static Any NET_TO_ENT() { return Native::Invoke<Any>(N::NET_TO_ENT); }
+	static Vehicle NET_TO_VEH() { return Native::Invoke<Vehicle>(0x367B936610BA360C); }
+	static Ped NET_TO_PED(int netHandle) { return Native::Invoke<Ped, int>(0xBDCD95FC216A8B3E, netHandle); }
+	static Object NET_TO_OBJ() { return Native::Invoke<Object>(0xD8515F5FEA14CB3F); }
+	static Entity NET_TO_ENT() { return Native::Invoke<Entity>(0xBFFEAB45A9A9094A); }
 	static Any _0xD7F6781A0ABAF6FB() { return Native::Invoke<Any>(0xD7F6781A0ABAF6FB); }
 	static Any _0x74F99EF7EF503398() { return Native::Invoke<Any>(0x74F99EF7EF503398); }
 	static Any _0xD08066E00D26C448() { return Native::Invoke<Any>(0xD08066E00D26C448); }
 	static Any _0x0CC28C08613BA9E5() { return Native::Invoke<Any>(0x0CC28C08613BA9E5); }
-	static Any NETWORK_GET_LOCAL_HANDLE() { return Native::Invoke<Any>(N::NETWORK_GET_LOCAL_HANDLE); }
-	static void NETWORK_HANDLE_FROM_PLAYER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::NETWORK_HANDLE_FROM_PLAYER, p0, p1); }
-	static Any NETWORK_HASH_FROM_PLAYER_HANDLE() { return Native::Invoke<Any>(N::NETWORK_HASH_FROM_PLAYER_HANDLE); }
-	static Any NETWORK_HANDLE_FROM_FRIEND() { return Native::Invoke<Any>(N::NETWORK_HANDLE_FROM_FRIEND); }
-	static Any NETWORK_GET_GAMERTAG_FROM_HANDLE() { return Native::Invoke<Any>(N::NETWORK_GET_GAMERTAG_FROM_HANDLE); }
+	static void NETWORK_GET_LOCAL_HANDLE() { return Native::Invoke<void>(0xE86051786B66CD8E); }
+	static void NETWORK_HANDLE_FROM_PLAYER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x388EB2B86C73B6B3, p0, p1); }
+	static Any NETWORK_HASH_FROM_PLAYER_HANDLE() { return Native::Invoke<Any>(0xBC1D768F2F5D6C05); }
+	static void NETWORK_HANDLE_FROM_FRIEND() { return Native::Invoke<void>(0xD45CB817D7E177D2); }
+	static const char* NETWORK_GET_GAMERTAG_FROM_HANDLE() { return Native::Invoke<const char*>(0x426141162EBE5CDB); }
 	static Any _0xD66C9E72B3CC4982(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD66C9E72B3CC4982, p0, p1); }
 	static Any _0x58CC181719256197(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x58CC181719256197, p0, p1, p2); }
 	static Any _0x7FEE4F07C54B6B3C() { return Native::Invoke<Any>(0x7FEE4F07C54B6B3C); }
-	static BOOL NETWORK_ARE_HANDLES_THE_SAME(int* netHandle1, int* netHandle2) { return Native::Invoke<BOOL, int*, int*>(N::NETWORK_ARE_HANDLES_THE_SAME, netHandle1, netHandle2); }
-	static Any NETWORK_IS_HANDLE_VALID(Any p0) { return Native::Invoke<Any, Any>(N::NETWORK_IS_HANDLE_VALID, p0); }
-	static Player NETWORK_GET_PLAYER_FROM_GAMER_HANDLE(int* networkHandle) { return Native::Invoke<Player, int*>(N::NETWORK_GET_PLAYER_FROM_GAMER_HANDLE, networkHandle); }
-	static BOOL NETWORK_IS_GAMER_IN_MY_SESSION(int* networkHandle) { return Native::Invoke<BOOL, int*>(N::NETWORK_IS_GAMER_IN_MY_SESSION, networkHandle); }
-	static Any NETWORK_SHOW_PROFILE_UI() { return Native::Invoke<Any>(N::NETWORK_SHOW_PROFILE_UI); }
+	static BOOL NETWORK_ARE_HANDLES_THE_SAME(int* netHandle1, int* netHandle2) { return Native::Invoke<BOOL, int*, int*>(0x57DBA049E110F217, netHandle1, netHandle2); }
+	static BOOL NETWORK_IS_HANDLE_VALID(Any p0) { return Native::Invoke<BOOL, Any>(0x6F79B93B0A8E4133, p0); }
+	static Player NETWORK_GET_PLAYER_FROM_GAMER_HANDLE(int* networkHandle) { return Native::Invoke<Player, int*>(0xCE5F689CF5A0A49D, networkHandle); }
+	static BOOL NETWORK_IS_GAMER_IN_MY_SESSION(int* networkHandle) { return Native::Invoke<BOOL, int*>(0x0F10B05DDF8D16E9, networkHandle); }
+	static void NETWORK_SHOW_PROFILE_UI() { return Native::Invoke<void>(0x859ED1CEA343FCA8); }
 	static Any _0x5759160AC17C13CE() { return Native::Invoke<Any>(0x5759160AC17C13CE); }
 	static Any _0xF302AB9D978352EE() { return Native::Invoke<Any>(0xF302AB9D978352EE); }
 	static Any _0x4538EE7C321590BC() { return Native::Invoke<Any>(0x4538EE7C321590BC); }
@@ -2945,15 +2945,15 @@ namespace NETWORK
 	static Any _0xE348D1404BD80146() { return Native::Invoke<Any>(0xE348D1404BD80146); }
 	static Any _0x665161D250850A9F() { return Native::Invoke<Any>(0x665161D250850A9F); }
 	static Any _0x5659D87BE674AB17() { return Native::Invoke<Any>(0x5659D87BE674AB17); }
-	static Any NETWORK_IS_FRIEND() { return Native::Invoke<Any>(N::NETWORK_IS_FRIEND); }
-	static Any NETWORK_IS_PENDING_FRIEND() { return Native::Invoke<Any>(N::NETWORK_IS_PENDING_FRIEND); }
-	static Any NETWORK_ADD_FRIEND() { return Native::Invoke<Any>(N::NETWORK_ADD_FRIEND); }
+	static BOOL NETWORK_IS_FRIEND() { return Native::Invoke<BOOL>(0x1A24A179F9B31654); }
+	static BOOL NETWORK_IS_PENDING_FRIEND() { return Native::Invoke<BOOL>(0x0BE73DA6984A6E33); }
+	static BOOL NETWORK_ADD_FRIEND() { return Native::Invoke<BOOL>(0x8E02D73914064223); }
 	static Any _0x55F618F68AB854D3() { return Native::Invoke<Any>(0x55F618F68AB854D3); }
 	static Any _0x99ABE9BF9DADA162() { return Native::Invoke<Any>(0x99ABE9BF9DADA162); }
 	static Any _0x9C25E8EC4C535FBD() { return Native::Invoke<Any>(0x9C25E8EC4C535FBD); }
-	static Any NETWORK_SET_FRIENDLY_FIRE_OPTION() { return Native::Invoke<Any>(N::NETWORK_SET_FRIENDLY_FIRE_OPTION); }
-	static void NETWORK_SET_RICH_PRESENCE(int p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, int, Any, Any, Any>(N::NETWORK_SET_RICH_PRESENCE, p0, p1, p2, p3); }
-	static int NETWORK_GET_TIMEOUT_TIME() { return Native::Invoke<int>(N::NETWORK_GET_TIMEOUT_TIME); }
+	static void NETWORK_SET_FRIENDLY_FIRE_OPTION() { return Native::Invoke<void>(0xF808475FA571D823); }
+	static void NETWORK_SET_RICH_PRESENCE(int p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, int, Any, Any, Any>(0x1DCCACDCFC569362, p0, p1, p2, p3); }
+	static int NETWORK_GET_TIMEOUT_TIME() { return Native::Invoke<int>(0x5ED0356A0CE3A34F); }
 	static Any _0xBC7D36946D19E60E() { return Native::Invoke<Any>(0xBC7D36946D19E60E); }
 	static Any _0xC964FCD3D1720697() { return Native::Invoke<Any>(0xC964FCD3D1720697); }
 	static Any _0xEC089F84A9C16C62() { return Native::Invoke<Any>(0xEC089F84A9C16C62); }
@@ -2961,42 +2961,42 @@ namespace NETWORK
 	static Any _0xE1BC73D6815BA361() { return Native::Invoke<Any>(0xE1BC73D6815BA361); }
 	static void _0x02C4C6C2900D84DF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x02C4C6C2900D84DF, p0, p1); }
 	static void _0xD78A26024BB13E08(Any p0) { return Native::Invoke<void, Any>(0xD78A26024BB13E08, p0); }
-	static void SET_NETWORK_ID_EXISTS_ON_ALL_MACHINES(int netId, BOOL toggle) { return Native::Invoke<void, int, BOOL>(N::SET_NETWORK_ID_EXISTS_ON_ALL_MACHINES, netId, toggle); }
-	static Any _SET_NETWORK_ID_SYNC_TO_PLAYER() { return Native::Invoke<Any>(N::_SET_NETWORK_ID_SYNC_TO_PLAYER); }
+	static void SET_NETWORK_ID_EXISTS_ON_ALL_MACHINES(int netId, BOOL toggle) { return Native::Invoke<void, int, BOOL>(0xE05E81A888FA63C8, netId, toggle); }
+	static void _SET_NETWORK_ID_SYNC_TO_PLAYER() { return Native::Invoke<void>(0xA8A024587329F36A); }
 	static Any _0x9ED3108D6847760A() { return Native::Invoke<Any>(0x9ED3108D6847760A); }
 	static Any _0xD785864798258032() { return Native::Invoke<Any>(0xD785864798258032); }
-	static Any _NETWORK_SET_ENTITY_INVISIBLE_TO_NETWORK() { return Native::Invoke<Any>(N::_NETWORK_SET_ENTITY_INVISIBLE_TO_NETWORK); }
+	static void _NETWORK_SET_ENTITY_INVISIBLE_TO_NETWORK() { return Native::Invoke<void>(0xF1CA12B18AEF5298); }
 	static Any _0xE31A04513237DC89() { return Native::Invoke<Any>(0xE31A04513237DC89); }
-	static Any SET_NETWORK_ID_VISIBLE_IN_CUTSCENE() { return Native::Invoke<Any>(N::SET_NETWORK_ID_VISIBLE_IN_CUTSCENE); }
-	static Any _NETWORK_CAN_NETWORK_ID_BE_SEEN() { return Native::Invoke<Any>(N::_NETWORK_CAN_NETWORK_ID_BE_SEEN); }
+	static void SET_NETWORK_ID_VISIBLE_IN_CUTSCENE() { return Native::Invoke<void>(0xA6928482543022B4); }
+	static BOOL _NETWORK_CAN_NETWORK_ID_BE_SEEN() { return Native::Invoke<BOOL>(0xA1607996431332DF); }
 	static Any _0xA6C0787443C9583E() { return Native::Invoke<Any>(0xA6C0787443C9583E); }
-	static void SET_LOCAL_PLAYER_VISIBLE_IN_CUTSCENE(BOOL p0, BOOL p1) { return Native::Invoke<void, BOOL, BOOL>(N::SET_LOCAL_PLAYER_VISIBLE_IN_CUTSCENE, p0, p1); }
+	static void SET_LOCAL_PLAYER_VISIBLE_IN_CUTSCENE(BOOL p0, BOOL p1) { return Native::Invoke<void, BOOL, BOOL>(0xD1065D68947E7B6E, p0, p1); }
 	static Any _0x89D803CD48622150() { return Native::Invoke<Any>(0x89D803CD48622150); }
-	static Any SET_LOCAL_PLAYER_INVISIBLE_LOCALLY() { return Native::Invoke<Any>(N::SET_LOCAL_PLAYER_INVISIBLE_LOCALLY); }
-	static void SET_PLAYER_INVISIBLE_LOCALLY(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_INVISIBLE_LOCALLY, player, toggle); }
-	static Any SET_PLAYER_VISIBLE_LOCALLY() { return Native::Invoke<Any>(N::SET_PLAYER_VISIBLE_LOCALLY); }
-	static void SET_ENTITY_VISIBLE_IN_CUTSCENE(Any p0, BOOL p1, BOOL p2) { return Native::Invoke<void, Any, BOOL, BOOL>(N::SET_ENTITY_VISIBLE_IN_CUTSCENE, p0, p1, p2); }
+	static void SET_LOCAL_PLAYER_INVISIBLE_LOCALLY() { return Native::Invoke<void>(0xE5F773C1A1D9D168); }
+	static void SET_PLAYER_INVISIBLE_LOCALLY(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0x12B37D54667DB0B8, player, toggle); }
+	static void SET_PLAYER_VISIBLE_LOCALLY() { return Native::Invoke<void>(0xFAA10F1FAFB11AF2); }
+	static void SET_ENTITY_VISIBLE_IN_CUTSCENE(Any p0, BOOL p1, BOOL p2) { return Native::Invoke<void, Any, BOOL, BOOL>(0xE0031D3C8F36AB82, p0, p1, p2); }
 	static Any _0x51D99497ABF3F451() { return Native::Invoke<Any>(0x51D99497ABF3F451); }
 	static Any _0xC1E1A3D5ED7617B8() { return Native::Invoke<Any>(0xC1E1A3D5ED7617B8); }
-	static Any IS_DAMAGE_TRACKER_ACTIVE_ON_NETWORK_ID() { return Native::Invoke<Any>(N::IS_DAMAGE_TRACKER_ACTIVE_ON_NETWORK_ID); }
-	static Any ACTIVATE_DAMAGE_TRACKER_ON_NETWORK_ID() { return Native::Invoke<Any>(N::ACTIVATE_DAMAGE_TRACKER_ON_NETWORK_ID); }
-	static BOOL IS_SPHERE_VISIBLE_TO_ANOTHER_MACHINE(float p0, float p1, float p2, float p3, Any p4) { return Native::Invoke<BOOL, float, float, float, float, Any>(N::IS_SPHERE_VISIBLE_TO_ANOTHER_MACHINE, p0, p1, p2, p3, p4); }
-	static Any IS_SPHERE_VISIBLE_TO_PLAYER() { return Native::Invoke<Any>(N::IS_SPHERE_VISIBLE_TO_PLAYER); }
-	static Any RESERVE_NETWORK_MISSION_OBJECTS() { return Native::Invoke<Any>(N::RESERVE_NETWORK_MISSION_OBJECTS); }
+	static BOOL IS_DAMAGE_TRACKER_ACTIVE_ON_NETWORK_ID() { return Native::Invoke<BOOL>(0x6E192E33AD436366); }
+	static void ACTIVATE_DAMAGE_TRACKER_ON_NETWORK_ID() { return Native::Invoke<void>(0xD45B1FFCCD52FF19); }
+	static BOOL IS_SPHERE_VISIBLE_TO_ANOTHER_MACHINE(float p0, float p1, float p2, float p3, Any p4) { return Native::Invoke<BOOL, float, float, float, float, Any>(0xD82CF8E64C8729D8, p0, p1, p2, p3, p4); }
+	static BOOL IS_SPHERE_VISIBLE_TO_PLAYER() { return Native::Invoke<BOOL>(0xDC3A310219E5DA62); }
+	static void RESERVE_NETWORK_MISSION_OBJECTS() { return Native::Invoke<void>(0x4E5C93BD0C32FBF8); }
 	static Any _0xE7DDA8BD3BCF751C() { return Native::Invoke<Any>(0xE7DDA8BD3BCF751C); }
-	static void RESERVE_NETWORK_MISSION_PEDS(int amount) { return Native::Invoke<void, int>(N::RESERVE_NETWORK_MISSION_PEDS, amount); }
+	static void RESERVE_NETWORK_MISSION_PEDS(int amount) { return Native::Invoke<void, int>(0xB60FEBA45333D36F, amount); }
 	static void _0x807E119F80231732(Any p0) { return Native::Invoke<void, Any>(0x807E119F80231732, p0); }
-	static Any RESERVE_NETWORK_MISSION_VEHICLES() { return Native::Invoke<Any>(N::RESERVE_NETWORK_MISSION_VEHICLES); }
+	static void RESERVE_NETWORK_MISSION_VEHICLES() { return Native::Invoke<void>(0x76B02E21ED27A469); }
 	static Any _0x9F24A34863FD35DA() { return Native::Invoke<Any>(0x9F24A34863FD35DA); }
 	static Any _0x4D40E7D749BC6E6D() { return Native::Invoke<Any>(0x4D40E7D749BC6E6D); }
-	static BOOL CAN_REGISTER_MISSION_OBJECTS(int amount) { return Native::Invoke<BOOL, int>(N::CAN_REGISTER_MISSION_OBJECTS, amount); }
-	static BOOL CAN_REGISTER_MISSION_PEDS(int amount) { return Native::Invoke<BOOL, int>(N::CAN_REGISTER_MISSION_PEDS, amount); }
-	static Any CAN_REGISTER_MISSION_VEHICLES() { return Native::Invoke<Any>(N::CAN_REGISTER_MISSION_VEHICLES); }
+	static BOOL CAN_REGISTER_MISSION_OBJECTS(int amount) { return Native::Invoke<BOOL, int>(0x800DD4721A8B008B, amount); }
+	static BOOL CAN_REGISTER_MISSION_PEDS(int amount) { return Native::Invoke<BOOL, int>(0xBCBF4FEF9FA5D781, amount); }
+	static BOOL CAN_REGISTER_MISSION_VEHICLES() { return Native::Invoke<BOOL>(0x7277F1F2E085EE74); }
 	static Any _0xF0460C7BF80011EA() { return Native::Invoke<Any>(0xF0460C7BF80011EA); }
-	static Any CAN_REGISTER_MISSION_ENTITIES() { return Native::Invoke<Any>(N::CAN_REGISTER_MISSION_ENTITIES); }
-	static Any GET_NUM_RESERVED_MISSION_OBJECTS() { return Native::Invoke<Any>(N::GET_NUM_RESERVED_MISSION_OBJECTS); }
-	static Any GET_NUM_RESERVED_MISSION_PEDS() { return Native::Invoke<Any>(N::GET_NUM_RESERVED_MISSION_PEDS); }
-	static Any GET_NUM_RESERVED_MISSION_VEHICLES() { return Native::Invoke<Any>(N::GET_NUM_RESERVED_MISSION_VEHICLES); }
+	static BOOL CAN_REGISTER_MISSION_ENTITIES() { return Native::Invoke<BOOL>(0x69778E7564BADE6D); }
+	static int GET_NUM_RESERVED_MISSION_OBJECTS() { return Native::Invoke<int>(0xAA81B5F10BC43AC2); }
+	static int GET_NUM_RESERVED_MISSION_PEDS() { return Native::Invoke<int>(0x1F13D5AE5CB17E17); }
+	static int GET_NUM_RESERVED_MISSION_VEHICLES() { return Native::Invoke<int>(0xCF3A965906452031); }
 	static Any _0x62BE3ECC79FBD004() { return Native::Invoke<Any>(0x62BE3ECC79FBD004); }
 	static Any _0x12B6281B6C6706C0() { return Native::Invoke<Any>(0x12B6281B6C6706C0); }
 	static Any _0xCB215C4B56A7FAE7() { return Native::Invoke<Any>(0xCB215C4B56A7FAE7); }
@@ -3010,24 +3010,24 @@ namespace NETWORK
 	static Any _0x75FC34A2BA345BD1() { return Native::Invoke<Any>(0x75FC34A2BA345BD1); }
 	static Any _0x979765465A6F25FC() { return Native::Invoke<Any>(0x979765465A6F25FC); }
 	static Any _0x5133CF81924F1129() { return Native::Invoke<Any>(0x5133CF81924F1129); }
-	static int GET_NETWORK_TIME() { return Native::Invoke<int>(N::GET_NETWORK_TIME); }
-	static Any GET_NETWORK_TIME_ACCURATE() { return Native::Invoke<Any>(N::GET_NETWORK_TIME_ACCURATE); }
-	static BOOL HAS_NETWORK_TIME_STARTED() { return Native::Invoke<BOOL>(N::HAS_NETWORK_TIME_STARTED); }
-	static int GET_TIME_OFFSET(int timeA, int timeB) { return Native::Invoke<int, int, int>(N::GET_TIME_OFFSET, timeA, timeB); }
-	static Any IS_TIME_LESS_THAN() { return Native::Invoke<Any>(N::IS_TIME_LESS_THAN); }
-	static Any IS_TIME_MORE_THAN() { return Native::Invoke<Any>(N::IS_TIME_MORE_THAN); }
-	static int GET_TIME_DIFFERENCE(int timeA, int timeB) { return Native::Invoke<int, int, int>(N::GET_TIME_DIFFERENCE, timeA, timeB); }
-	static Any GET_CLOUD_TIME_AS_INT() { return Native::Invoke<Any>(N::GET_CLOUD_TIME_AS_INT); }
-	static Any _GET_DATE_AND_TIME_FROM_UNIX_EPOCH() { return Native::Invoke<Any>(N::_GET_DATE_AND_TIME_FROM_UNIX_EPOCH); }
-	static Any NETWORK_SET_IN_SPECTATOR_MODE() { return Native::Invoke<Any>(N::NETWORK_SET_IN_SPECTATOR_MODE); }
+	static int GET_NETWORK_TIME() { return Native::Invoke<int>(0x7A5487FE9FAA6B48); }
+	static Any GET_NETWORK_TIME_ACCURATE() { return Native::Invoke<Any>(0x89023FBBF9200E9F); }
+	static BOOL HAS_NETWORK_TIME_STARTED() { return Native::Invoke<BOOL>(0x46718ACEEDEAFC84); }
+	static int GET_TIME_OFFSET(int timeA, int timeB) { return Native::Invoke<int, int, int>(0x017008CCDAD48503, timeA, timeB); }
+	static BOOL IS_TIME_LESS_THAN() { return Native::Invoke<BOOL>(0xCB2CF5148012C8D0); }
+	static BOOL IS_TIME_MORE_THAN() { return Native::Invoke<BOOL>(0xDE350F8651E4346C); }
+	static int GET_TIME_DIFFERENCE(int timeA, int timeB) { return Native::Invoke<int, int, int>(0xA2C6FC031D46FFF0, timeA, timeB); }
+	static Any GET_CLOUD_TIME_AS_INT() { return Native::Invoke<Any>(0x9A73240B49945C76); }
+	static void _GET_DATE_AND_TIME_FROM_UNIX_EPOCH() { return Native::Invoke<void>(0xAC97AF97FA68E5D5); }
+	static void NETWORK_SET_IN_SPECTATOR_MODE() { return Native::Invoke<void>(0x423DE3854BB50894); }
 	static Any _0xFBF1ECFB39A77B5F() { return Native::Invoke<Any>(0xFBF1ECFB39A77B5F); }
-	static BOOL NETWORK_IS_IN_SPECTATOR_MODE() { return Native::Invoke<BOOL>(N::NETWORK_IS_IN_SPECTATOR_MODE); }
+	static BOOL NETWORK_IS_IN_SPECTATOR_MODE() { return Native::Invoke<BOOL>(0x048746E388762E11); }
 	static Any _0x5B709519997ECF0F() { return Native::Invoke<Any>(0x5B709519997ECF0F); }
-	static void NETWORK_SET_IN_MP_CUTSCENE(BOOL p0, BOOL p1, Any p2, Any p3) { return Native::Invoke<void, BOOL, BOOL, Any, Any>(N::NETWORK_SET_IN_MP_CUTSCENE, p0, p1, p2, p3); }
-	static BOOL NETWORK_IS_IN_MP_CUTSCENE() { return Native::Invoke<BOOL>(N::NETWORK_IS_IN_MP_CUTSCENE); }
-	static Any NETWORK_IS_PLAYER_IN_MP_CUTSCENE() { return Native::Invoke<Any>(N::NETWORK_IS_PLAYER_IN_MP_CUTSCENE); }
+	static void NETWORK_SET_IN_MP_CUTSCENE(BOOL p0, BOOL p1, Any p2, Any p3) { return Native::Invoke<void, BOOL, BOOL, Any, Any>(0x9CA5DE655269FEC4, p0, p1, p2, p3); }
+	static BOOL NETWORK_IS_IN_MP_CUTSCENE() { return Native::Invoke<BOOL>(0x6CC27C9FA2040220); }
+	static BOOL NETWORK_IS_PLAYER_IN_MP_CUTSCENE() { return Native::Invoke<BOOL>(0x63F9EE203C3619F2); }
 	static Any _0x442B4347B6EC36E8() { return Native::Invoke<Any>(0x442B4347B6EC36E8); }
-	static void USE_PLAYER_COLOUR_INSTEAD_OF_TEAM_COLOUR(BOOL toggle) { return Native::Invoke<void, BOOL>(N::USE_PLAYER_COLOUR_INSTEAD_OF_TEAM_COLOUR, toggle); }
+	static void USE_PLAYER_COLOUR_INSTEAD_OF_TEAM_COLOUR(BOOL toggle) { return Native::Invoke<void, BOOL>(0x5FFE9B4144F9712F, toggle); }
 	static Any _0x21D04D7BC538C146() { return Native::Invoke<Any>(0x21D04D7BC538C146); }
 	static Any _0xDCA6ABDB9288FBE4() { return Native::Invoke<Any>(0xDCA6ABDB9288FBE4); }
 	static Any _0xEE5AE9956743BA20() { return Native::Invoke<Any>(0xEE5AE9956743BA20); }
@@ -3066,23 +3066,23 @@ namespace NETWORK
 	static Any _0x765E60A1DCB8B1CE() { return Native::Invoke<Any>(0x765E60A1DCB8B1CE); }
 	static Any _0x691E4DE5309EAEFC() { return Native::Invoke<Any>(0x691E4DE5309EAEFC); }
 	static void _0x17E0198B3882C2CB() { return Native::Invoke<void>(0x17E0198B3882C2CB); }
-	static void NETWORK_END_TUTORIAL_SESSION() { return Native::Invoke<void>(N::NETWORK_END_TUTORIAL_SESSION); }
-	static BOOL NETWORK_IS_IN_TUTORIAL_SESSION() { return Native::Invoke<BOOL>(N::NETWORK_IS_IN_TUTORIAL_SESSION); }
+	static void NETWORK_END_TUTORIAL_SESSION() { return Native::Invoke<void>(0xD0AFAFF5A51D72F7); }
+	static BOOL NETWORK_IS_IN_TUTORIAL_SESSION() { return Native::Invoke<BOOL>(0xADA24309FE08DACF); }
 	static Any _0x35F0B98A8387274D() { return Native::Invoke<Any>(0x35F0B98A8387274D); }
 	static Any _0x3B39236746714134() { return Native::Invoke<Any>(0x3B39236746714134); }
-	static Any _NETWORK_IS_PLAYER_EQUAL_TO_INDEX() { return Native::Invoke<Any>(N::_NETWORK_IS_PLAYER_EQUAL_TO_INDEX); }
+	static BOOL _NETWORK_IS_PLAYER_EQUAL_TO_INDEX() { return Native::Invoke<BOOL>(0x9DE986FC9A87C474); }
 	static Any _0x4B05B97BA46F419D() { return Native::Invoke<Any>(0x4B05B97BA46F419D); }
 	static Any _0xF3354D6CA46F419D() { return Native::Invoke<Any>(0xF3354D6CA46F419D); }
 	static Any _0xDC6AD5C046F33AB4() { return Native::Invoke<Any>(0xDC6AD5C046F33AB4); }
 	static Any _0x6C7E04E9DE451789() { return Native::Invoke<Any>(0x6C7E04E9DE451789); }
 	static Any _0x007FF852DCF49DA4() { return Native::Invoke<Any>(0x007FF852DCF49DA4); }
 	static Any _0xD9267375834C5EAB() { return Native::Invoke<Any>(0xD9267375834C5EAB); }
-	static Any NETWORK_CONCEAL_PLAYER() { return Native::Invoke<Any>(N::NETWORK_CONCEAL_PLAYER); }
-	static Any NETWORK_IS_PLAYER_CONCEALED() { return Native::Invoke<Any>(N::NETWORK_IS_PLAYER_CONCEALED); }
-	static Any NETWORK_IS_TUNABLE_CLOUD_REQUEST_PENDING() { return Native::Invoke<Any>(N::NETWORK_IS_TUNABLE_CLOUD_REQUEST_PENDING); }
-	static Any NETWORK_DOES_TUNABLE_EXIST() { return Native::Invoke<Any>(N::NETWORK_DOES_TUNABLE_EXIST); }
-	static Any NETWORK_ACCESS_TUNABLE_INT() { return Native::Invoke<Any>(N::NETWORK_ACCESS_TUNABLE_INT); }
-	static Any NETWORK_ACCESS_TUNABLE_BOOL() { return Native::Invoke<Any>(N::NETWORK_ACCESS_TUNABLE_BOOL); }
+	static Any NETWORK_CONCEAL_PLAYER() { return Native::Invoke<Any>(0xBBDF066252829606); }
+	static Any NETWORK_IS_PLAYER_CONCEALED() { return Native::Invoke<Any>(0x919B3C98ED8292F9); }
+	static Any NETWORK_IS_TUNABLE_CLOUD_REQUEST_PENDING() { return Native::Invoke<Any>(0x0467C11ED88B7D28); }
+	static BOOL NETWORK_DOES_TUNABLE_EXIST() { return Native::Invoke<BOOL>(0x85E5F8B9B898B20A); }
+	static BOOL NETWORK_ACCESS_TUNABLE_INT() { return Native::Invoke<BOOL>(0x8BE1146DFD5D4468); }
+	static BOOL NETWORK_ACCESS_TUNABLE_BOOL() { return Native::Invoke<BOOL>(0xAA6A47A573ABB75A); }
 	static Any _0xA25E006B36719774() { return Native::Invoke<Any>(0xA25E006B36719774); }
 	static Any _0xA18393089C05E49C() { return Native::Invoke<Any>(0xA18393089C05E49C); }
 	static Any _0xB2AD5D29A99D4B26() { return Native::Invoke<Any>(0xB2AD5D29A99D4B26); }
@@ -3125,8 +3125,8 @@ namespace NETWORK
 	static Any _0xF794765390A6DCA5() { return Native::Invoke<Any>(0xF794765390A6DCA5); }
 	static Any _0x98539FC453AEA639() { return Native::Invoke<Any>(0x98539FC453AEA639); }
 	static Any _0x6506BFA755FB209C() { return Native::Invoke<Any>(0x6506BFA755FB209C); }
-	static Any UGC_REQUEST_CONTENT_DATA_FROM_PARAMS() { return Native::Invoke<Any>(N::UGC_REQUEST_CONTENT_DATA_FROM_PARAMS); }
-	static Any UGC_REQUEST_CACHED_DESCRIPTION() { return Native::Invoke<Any>(N::UGC_REQUEST_CACHED_DESCRIPTION); }
+	static Any UGC_REQUEST_CONTENT_DATA_FROM_PARAMS() { return Native::Invoke<Any>(0x7FD2990AF016795E); }
+	static Any UGC_REQUEST_CACHED_DESCRIPTION() { return Native::Invoke<Any>(0x5E0165278F6339EE); }
 	static Any _0x2D5DC831176D0114() { return Native::Invoke<Any>(0x2D5DC831176D0114); }
 	static Any _0xEBFA8D50ADDC54C4() { return Native::Invoke<Any>(0xEBFA8D50ADDC54C4); }
 	static Any _0x162C23CA83ED0A62() { return Native::Invoke<Any>(0x162C23CA83ED0A62); }
@@ -3144,20 +3144,20 @@ namespace NETWORK
 	static Any _0xCAF4CA2F87779F8F() { return Native::Invoke<Any>(0xCAF4CA2F87779F8F); }
 	static Any _0xB5C4B18B12A2AF23() { return Native::Invoke<Any>(0xB5C4B18B12A2AF23); }
 	static Any _0xE2C3CEC3C0903A00() { return Native::Invoke<Any>(0xE2C3CEC3C0903A00); }
-	static int TEXTURE_DOWNLOAD_REQUEST(int* PlayerHandle, char* FilePath, char* Name, BOOL p3) { return Native::Invoke<int, int*, char*, char*, BOOL>(N::TEXTURE_DOWNLOAD_REQUEST, PlayerHandle, FilePath, Name, p3); }
+	static int TEXTURE_DOWNLOAD_REQUEST(int* PlayerHandle, const char* FilePath, const char* Name, BOOL p3) { return Native::Invoke<int, int*, const char*, const char*, BOOL>(0x16160DA74A8E74A2, PlayerHandle, FilePath, Name, p3); }
 	static Any _0x9B5DB6CEAFAA10BB() { return Native::Invoke<Any>(0x9B5DB6CEAFAA10BB); }
-	static Any UGC_TEXTURE_DOWNLOAD_REQUEST() { return Native::Invoke<Any>(N::UGC_TEXTURE_DOWNLOAD_REQUEST); }
+	static Any UGC_TEXTURE_DOWNLOAD_REQUEST() { return Native::Invoke<Any>(0x308F96458B7087CC); }
 	static Any _0x6E2FD8CF7EB10E53() { return Native::Invoke<Any>(0x6E2FD8CF7EB10E53); }
-	static void TEXTURE_DOWNLOAD_RELEASE(int p0) { return Native::Invoke<void, int>(N::TEXTURE_DOWNLOAD_RELEASE, p0); }
+	static void TEXTURE_DOWNLOAD_RELEASE(int p0) { return Native::Invoke<void, int>(0x487EB90B98E9FB19, p0); }
 	static Any _0x7A17B7981560FFA5() { return Native::Invoke<Any>(0x7A17B7981560FFA5); }
-	static char* TEXTURE_DOWNLOAD_GET_NAME(int p0) { return Native::Invoke<char*, int>(N::TEXTURE_DOWNLOAD_GET_NAME, p0); }
-	static Any _GET_STATUS_OF_TEXTURE_DOWNLOAD(Any p0) { return Native::Invoke<Any, Any>(N::_GET_STATUS_OF_TEXTURE_DOWNLOAD, p0); }
+	static const char* TEXTURE_DOWNLOAD_GET_NAME(int p0) { return Native::Invoke<const char*, int>(0x3448505B6E35262D, p0); }
+	static Any _GET_STATUS_OF_TEXTURE_DOWNLOAD(Any p0) { return Native::Invoke<Any, Any>(0x8BD6C6DEA20E82C6, p0); }
 	static Any _0xCBAC13F065C47596() { return Native::Invoke<Any>(0xCBAC13F065C47596); }
 	static Any _0xCD954F330693F5F2() { return Native::Invoke<Any>(0xCD954F330693F5F2); }
 	static Any _0xFBC30B70B3CDB87E() { return Native::Invoke<Any>(0xFBC30B70B3CDB87E); }
 	static Any _0x814729078AED6D30() { return Native::Invoke<Any>(0x814729078AED6D30); }
-	static Any _NETWORK_HAS_PLAYER_BEEN_BANNED() { return Native::Invoke<Any>(N::_NETWORK_HAS_PLAYER_BEEN_BANNED); }
-	static Any NETWORK_HAS_ROS_PRIVILEGE() { return Native::Invoke<Any>(N::NETWORK_HAS_ROS_PRIVILEGE); }
+	static Any _NETWORK_HAS_PLAYER_BEEN_BANNED() { return Native::Invoke<Any>(0x8020A73847E0CA7D); }
+	static BOOL NETWORK_HAS_ROS_PRIVILEGE() { return Native::Invoke<BOOL>(0xA699957E60D80214); }
 	static Any _0xDEB2B99A1AF1A2A6() { return Native::Invoke<Any>(0xDEB2B99A1AF1A2A6); }
 	static Any _0x0A428058079EE65C() { return Native::Invoke<Any>(0x0A428058079EE65C); }
 	static Any _0xAADED99A6B268A27() { return Native::Invoke<Any>(0xAADED99A6B268A27); }
@@ -3184,9 +3184,9 @@ namespace NETWORK
 	static Any _0xD414BE129BB81B32() { return Native::Invoke<Any>(0xD414BE129BB81B32); }
 	static Any _0x0E3A041ED6AC2B45() { return Native::Invoke<Any>(0x0E3A041ED6AC2B45); }
 	static Any _0x350C23949E43686C() { return Native::Invoke<Any>(0x350C23949E43686C); }
-	static Any _NETWORK_GET_NUM_UNACKED_FOR_PLAYER() { return Native::Invoke<Any>(N::_NETWORK_GET_NUM_UNACKED_FOR_PLAYER); }
+	static Any _NETWORK_GET_NUM_UNACKED_FOR_PLAYER() { return Native::Invoke<Any>(0xFF8FCF9FFC458A1C); }
 	static Any _0x3765C3A3E8192E10() { return Native::Invoke<Any>(0x3765C3A3E8192E10); }
-	static Any _NETWORK_GET_OLDEST_RESEND_COUNT_FOR_PLAYER() { return Native::Invoke<Any>(N::_NETWORK_GET_OLDEST_RESEND_COUNT_FOR_PLAYER); }
+	static Any _NETWORK_GET_OLDEST_RESEND_COUNT_FOR_PLAYER() { return Native::Invoke<Any>(0x52C1EADAF7B10302); }
 	static Any _0xAEDF1BC1C133D6E3() { return Native::Invoke<Any>(0xAEDF1BC1C133D6E3); }
 	static Any _0x6FD992C4A1C1B986() { return Native::Invoke<Any>(0x6FD992C4A1C1B986); }
 	static Any _0x255A5EF65EDA9167(Any p0) { return Native::Invoke<Any, Any>(0x255A5EF65EDA9167, p0); }
@@ -3203,7 +3203,7 @@ namespace NETWORK
 	static Any _0x2CD41AC000E6F611() { return Native::Invoke<Any>(0x2CD41AC000E6F611); }
 	static Any _0xACC44768AF229042() { return Native::Invoke<Any>(0xACC44768AF229042); }
 	static Any _0x7E300B5B86AB1D1A() { return Native::Invoke<Any>(0x7E300B5B86AB1D1A); }
-	static Any _0x07F723401B9D921C() { return Native::Invoke<Any>(0x07F723401B9D921C); }
+	static Any GET_UNIQUE_INT_FOR_PLAYER() { return Native::Invoke<Any>(0x07F723401B9D921C); }
 	static Any _0xE525878A35B9EEBD() { return Native::Invoke<Any>(0xE525878A35B9EEBD); }
 	static Any _0x8E7CE19219669AEB() { return Native::Invoke<Any>(0x8E7CE19219669AEB); }
 	static Any _0x2C4E98DDA475364F() { return Native::Invoke<Any>(0x2C4E98DDA475364F); }
@@ -3238,30 +3238,30 @@ namespace NETWORK
 }
 namespace OBJECT
 {
-	static Object CREATE_OBJECT(Object modelHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7, Any p8) { return Native::Invoke<Object, Object, float, float, float, BOOL, BOOL, BOOL, Any, Any>(N::CREATE_OBJECT, modelHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7, p8); }
-	static float CREATE_OBJECT_NO_OFFSET(int* modelfwgaHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7) { return Native::Invoke<float, int*, float, float, float, BOOL, BOOL, BOOL, Any>(N::CREATE_OBJECT_NO_OFFSET, modelfwgaHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7); }
-	static void DELETE_OBJECT(Object* object) { return Native::Invoke<void, Object*>(N::DELETE_OBJECT, object); }
-	static BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Object object, Any p1) { return Native::Invoke<BOOL, Object, Any>(N::PLACE_OBJECT_ON_GROUND_PROPERLY, object, p1); }
-	static BOOL SLIDE_OBJECT(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return Native::Invoke<BOOL, Object, float, float, float, float, float, float, BOOL>(N::SLIDE_OBJECT, object, toX, toY, toZ, speedX, speedY, speedZ, collision); }
-	static Any SET_OBJECT_TARGETTABLE(Object object, BOOL targettable) { return Native::Invoke<Any, Object, BOOL>(N::SET_OBJECT_TARGETTABLE, object, targettable); }
+	static Object CREATE_OBJECT(Object modelHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7, Any p8) { return Native::Invoke<Object, Object, float, float, float, BOOL, BOOL, BOOL, Any, Any>(0x509D5878EB39E842, modelHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7, p8); }
+	static float CREATE_OBJECT_NO_OFFSET(int* modelfwgaHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7) { return Native::Invoke<float, int*, float, float, float, BOOL, BOOL, BOOL, Any>(0x9A294B2138ABB884, modelfwgaHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7); }
+	static void DELETE_OBJECT(Object* object) { return Native::Invoke<void, Object*>(0x931914268722C263, object); }
+	static BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Object object, Any p1) { return Native::Invoke<BOOL, Object, Any>(0x58A850EAEE20FAA3, object, p1); }
+	static BOOL SLIDE_OBJECT(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return Native::Invoke<BOOL, Object, float, float, float, float, float, float, BOOL>(0x2FDFF4107B8C1147, object, toX, toY, toZ, speedX, speedY, speedZ, collision); }
+	static Any SET_OBJECT_TARGETTABLE(Object object, BOOL targettable) { return Native::Invoke<Any, Object, BOOL>(0x8A7391690F5AFD81, object, targettable); }
 	static Any _0x581EDBE56E8D62C9() { return Native::Invoke<Any>(0x581EDBE56E8D62C9); }
 	static void _0xA22712E8471AA08E(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA22712E8471AA08E, p0, p1, p2); }
 	static Any _0xF6E88489B4E6EBE5() { return Native::Invoke<Any>(0xF6E88489B4E6EBE5); }
 	static void _0xE157A8A336C7F04A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE157A8A336C7F04A, p0, p1); }
 	static Any _0x46CBCF0E98A4E156() { return Native::Invoke<Any>(0x46CBCF0E98A4E156); }
-	static Object GET_CLOSEST_OBJECT_OF_TYPE(float x, float y, float z, float radius, Hash modelHash, BOOL isMission, BOOL p6, BOOL p7) { return Native::Invoke<Object, float, float, float, float, Hash, BOOL, BOOL, BOOL>(N::GET_CLOSEST_OBJECT_OF_TYPE, x, y, z, radius, modelHash, isMission, p6, p7); }
-	static BOOL HAS_OBJECT_BEEN_BROKEN(Object object) { return Native::Invoke<BOOL, Object>(N::HAS_OBJECT_BEEN_BROKEN, object); }
-	static BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float p0, float p1, float p2, float p3, Hash modelHash, Any p5) { return Native::Invoke<BOOL, float, float, float, float, Hash, Any>(N::HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN, p0, p1, p2, p3, modelHash, p5); }
-	static Vector3 _GET_OBJECT_OFFSET_FROM_COORDS(float xPos, float yPos, float zPos, float heading, float xOffset, float yOffset, float zOffset) { return Native::Invoke<Vector3, float, float, float, float, float, float, float>(N::_GET_OBJECT_OFFSET_FROM_COORDS, xPos, yPos, zPos, heading, xOffset, yOffset, zOffset); }
+	static Object GET_CLOSEST_OBJECT_OF_TYPE(float x, float y, float z, float radius, Hash modelHash, BOOL isMission, BOOL p6, BOOL p7) { return Native::Invoke<Object, float, float, float, float, Hash, BOOL, BOOL, BOOL>(0xE143FA2249364369, x, y, z, radius, modelHash, isMission, p6, p7); }
+	static BOOL HAS_OBJECT_BEEN_BROKEN(Object object) { return Native::Invoke<BOOL, Object>(0x8ABFB70C49CC43E2, object); }
+	static BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float p0, float p1, float p2, float p3, Hash modelHash, Any p5) { return Native::Invoke<BOOL, float, float, float, float, Hash, Any>(0x761B0E69AC4D007E, p0, p1, p2, p3, modelHash, p5); }
+	static Vector3 _GET_OBJECT_OFFSET_FROM_COORDS(float xPos, float yPos, float zPos, float heading, float xOffset, float yOffset, float zOffset) { return Native::Invoke<Vector3, float, float, float, float, float, float, float>(0x163E252DE035A133, xPos, yPos, zPos, heading, xOffset, yOffset, zOffset); }
 	static void _0xD99229FE93B46286(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xD99229FE93B46286, p0, p1, p2, p3, p4, p5); }
 	static Any _0xB5DED7B65C604FDF(Any p0) { return Native::Invoke<Any, Any>(0xB5DED7B65C604FDF, p0); }
-	static void REMOVE_DOOR_FROM_SYSTEM(Hash doorHash) { return Native::Invoke<void, Hash>(N::REMOVE_DOOR_FROM_SYSTEM, doorHash); }
-	static void DOOR_SYSTEM_SET_DOOR_STATE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::DOOR_SYSTEM_SET_DOOR_STATE, p0, p1); }
-	static Any DOOR_SYSTEM_GET_DOOR_STATE(Any p0) { return Native::Invoke<Any, Any>(N::DOOR_SYSTEM_GET_DOOR_STATE, p0); }
-	static void DOOR_SYSTEM_SET_AUTOMATIC_RATE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::DOOR_SYSTEM_SET_AUTOMATIC_RATE, p0, p1); }
-	static void DOOR_SYSTEM_SET_AUTOMATIC_DISTANCE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::DOOR_SYSTEM_SET_AUTOMATIC_DISTANCE, p0, p1); }
+	static void REMOVE_DOOR_FROM_SYSTEM(Hash doorHash) { return Native::Invoke<void, Hash>(0x464D8E1427156FE4, doorHash); }
+	static void DOOR_SYSTEM_SET_DOOR_STATE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6BAB9442830C7F53, p0, p1); }
+	static Any DOOR_SYSTEM_GET_DOOR_STATE(Any p0) { return Native::Invoke<Any, Any>(0x160AA1B32F6139B8, p0); }
+	static void DOOR_SYSTEM_SET_AUTOMATIC_RATE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x03C27E13B42A0E82, p0, p1); }
+	static void DOOR_SYSTEM_SET_AUTOMATIC_DISTANCE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9BA001CB45CBF627, p0, p1); }
 	static void _0xB3B1546D23DF8DE1(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xB3B1546D23DF8DE1, p0, p1, p2, p3, p4); }
-	static void DOOR_SYSTEM_SET_OPEN_RATIO(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::DOOR_SYSTEM_SET_OPEN_RATIO, p0, p1, p2); }
+	static void DOOR_SYSTEM_SET_OPEN_RATIO(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB6E6FBA95C7324AC, p0, p1, p2); }
 	static void _0x3A77DAE8B4FD7586(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3A77DAE8B4FD7586, p0, p1); }
 	static void _0x1F1FABFE9B2A1254(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1F1FABFE9B2A1254, p0, p1); }
 	static Any _0x4F89DAD4156BA145() { return Native::Invoke<Any>(0x4F89DAD4156BA145); }
@@ -3269,7 +3269,7 @@ namespace OBJECT
 	static Any _0x8433E1954BE323FC(Any p0) { return Native::Invoke<Any, Any>(0x8433E1954BE323FC, p0); }
 	static Any _0x6E2AA80BB0C03728(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6E2AA80BB0C03728, p0, p1); }
 	static void _0x1BC47A9DEDC8DF5D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1BC47A9DEDC8DF5D, p0, p1); }
-	static Any DOOR_SYSTEM_GET_OPEN_RATIO(Any p0) { return Native::Invoke<Any, Any>(N::DOOR_SYSTEM_GET_OPEN_RATIO, p0); }
+	static Any DOOR_SYSTEM_GET_OPEN_RATIO(Any p0) { return Native::Invoke<Any, Any>(0x65499865FCA6E5EC, p0); }
 	static void _0x7F458B543006C8FE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7F458B543006C8FE, p0, p1); }
 	static Any _0xACD4F9831DFAD7F5(Any p0) { return Native::Invoke<Any, Any>(0xACD4F9831DFAD7F5, p0); }
 	static void _0x0C0A373D181BF900(Any p0) { return Native::Invoke<void, Any>(0x0C0A373D181BF900, p0); }
@@ -3279,20 +3279,20 @@ namespace OBJECT
 	static void _0x4AE07EBA3462C5D5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4AE07EBA3462C5D5, p0, p1); }
 	static void _0x22031584496CFB70(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x22031584496CFB70, p0, p1); }
 	static void _0xC07B91B996C1DE89(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC07B91B996C1DE89, p0, p1); }
-	static Any IS_DOOR_REGISTERED_WITH_SYSTEM(Any p0) { return Native::Invoke<Any, Any>(N::IS_DOOR_REGISTERED_WITH_SYSTEM, p0); }
-	static BOOL IS_DOOR_CLOSED(Hash door) { return Native::Invoke<BOOL, Hash>(N::IS_DOOR_CLOSED, door); }
+	static Any IS_DOOR_REGISTERED_WITH_SYSTEM(Any p0) { return Native::Invoke<Any, Any>(0xC153C43EA202C8C1, p0); }
+	static BOOL IS_DOOR_CLOSED(Hash door) { return Native::Invoke<BOOL, Hash>(0xC531EE8A1145A149, door); }
 	static Any _0x0943113E02322164(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0943113E02322164, p0, p1); }
 	static Any _0x614D0B4533F842D3(Any p0) { return Native::Invoke<Any, Any>(0x614D0B4533F842D3, p0); }
 	static void _0x276AAF0F1C7F2494(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x276AAF0F1C7F2494, p0, p1); }
 	static Any _0xEBA314768FB35D58(Any p0) { return Native::Invoke<Any, Any>(0xEBA314768FB35D58, p0); }
 	static void _0x5230BF34EB0EC645(Any p0) { return Native::Invoke<void, Any>(0x5230BF34EB0EC645, p0); }
-	static BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float x, float y, float z, float radius, Hash hash, BOOL p5) { return Native::Invoke<BOOL, float, float, float, float, Hash, BOOL>(N::DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS, x, y, z, radius, hash, p5); }
-	static BOOL IS_POINT_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, BOOL p10, BOOL p11) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL>(N::IS_POINT_IN_ANGLED_AREA, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
+	static BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float x, float y, float z, float radius, Hash hash, BOOL p5) { return Native::Invoke<BOOL, float, float, float, float, Hash, BOOL>(0xBFA48E2FF417213F, x, y, z, radius, hash, p5); }
+	static BOOL IS_POINT_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, BOOL p10, BOOL p11) { return Native::Invoke<BOOL, float, float, float, float, float, float, float, float, float, float, BOOL, BOOL>(0x2A70BAE8883E4C81, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
 	static Any _0x4D89D607CB3DD1D2() { return Native::Invoke<Any>(0x4D89D607CB3DD1D2); }
-	static void SET_OBJECT_PHYSICS_PARAMS(Object object, float mass, float gravityFactor, float dampingLinearC, float dampingLinearV, float dampingLinearV2, float dampingAngularC, float dampingAngularV, float dampingAngularV2, float margin, float default2Pi, float buoyancyFactor) { return Native::Invoke<void, Object, float, float, float, float, float, float, float, float, float, float, float>(N::SET_OBJECT_PHYSICS_PARAMS, object, mass, gravityFactor, dampingLinearC, dampingLinearV, dampingLinearV2, dampingAngularC, dampingAngularV, dampingAngularV2, margin, default2Pi, buoyancyFactor); }
-	static float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(Any p0, BOOL p1) { return Native::Invoke<float, Any, BOOL>(N::GET_OBJECT_FRAGMENT_DAMAGE_HEALTH, p0, p1); }
+	static void SET_OBJECT_PHYSICS_PARAMS(Object object, float mass, float gravityFactor, float dampingLinearC, float dampingLinearV, float dampingLinearV2, float dampingAngularC, float dampingAngularV, float dampingAngularV2, float margin, float default2Pi, float buoyancyFactor) { return Native::Invoke<void, Object, float, float, float, float, float, float, float, float, float, float, float>(0xF6DF6E90DE7DF90F, object, mass, gravityFactor, dampingLinearC, dampingLinearV, dampingLinearV2, dampingAngularC, dampingAngularV, dampingAngularV2, margin, default2Pi, buoyancyFactor); }
+	static float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(Any p0, BOOL p1) { return Native::Invoke<float, Any, BOOL>(0xB6FBFD079B8D0596, p0, p1); }
 	static Any _0x235C863DA77BD88D() { return Native::Invoke<Any>(0x235C863DA77BD88D); }
-	static void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(Object object, BOOL toggle) { return Native::Invoke<void, Object, BOOL>(N::SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN, object, toggle); }
+	static void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(Object object, BOOL toggle) { return Native::Invoke<void, Object, BOOL>(0x406137F8EF90EAF5, object, toggle); }
 	static void _0xE7E4C198B0185900(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xE7E4C198B0185900, p0, p1, p2); }
 	static void _0x8462BE2341A55B6F(Any p0) { return Native::Invoke<void, Any>(0x8462BE2341A55B6F, p0); }
 	static void _0xAAACF33CBF9B990A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAAACF33CBF9B990A, p0, p1); }
@@ -3302,8 +3302,8 @@ namespace OBJECT
 	static Any _0x491439AEF410A2FC() { return Native::Invoke<Any>(0x491439AEF410A2FC); }
 	static void _0xFFB99FFD17F65889(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFFB99FFD17F65889, p0, p1); }
 	static Any _0xCEAB54F4632C6EF6() { return Native::Invoke<Any>(0xCEAB54F4632C6EF6); }
-	static void TRACK_OBJECT_VISIBILITY(Any p0) { return Native::Invoke<void, Any>(N::TRACK_OBJECT_VISIBILITY, p0); }
-	static BOOL IS_OBJECT_VISIBLE(Object object) { return Native::Invoke<BOOL, Object>(N::IS_OBJECT_VISIBLE, object); }
+	static void TRACK_OBJECT_VISIBILITY(Any p0) { return Native::Invoke<void, Any>(0xB252BC036B525623, p0); }
+	static BOOL IS_OBJECT_VISIBLE(Object object) { return Native::Invoke<BOOL, Object>(0x8B32ACE6326A7546, object); }
 	static Any _0xEB6F1A9B5510A5D2() { return Native::Invoke<Any>(0xEB6F1A9B5510A5D2); }
 	static Any _0xE2B3B852B537C398() { return Native::Invoke<Any>(0xE2B3B852B537C398); }
 	static Any _0x6579860A5558524A() { return Native::Invoke<Any>(0x6579860A5558524A); }
@@ -3313,56 +3313,56 @@ namespace OBJECT
 	static void _0x63E39F09310F481F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x63E39F09310F481F, p0, p1); }
 	static void _0x04D1D4E411CE52D0(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x04D1D4E411CE52D0, p0, p1); }
 	static void _0x7FCD49388BC9B775(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7FCD49388BC9B775, p0, p1); }
-	static Any GET_RAYFIRE_MAP_OBJECT(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::GET_RAYFIRE_MAP_OBJECT, p0, p1, p2, p3, p4); }
-	static void SET_STATE_OF_RAYFIRE_MAP_OBJECT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_STATE_OF_RAYFIRE_MAP_OBJECT, p0, p1); }
-	static Any GET_STATE_OF_RAYFIRE_MAP_OBJECT(Any p0) { return Native::Invoke<Any, Any>(N::GET_STATE_OF_RAYFIRE_MAP_OBJECT, p0); }
-	static Any DOES_RAYFIRE_MAP_OBJECT_EXIST(Any p0) { return Native::Invoke<Any, Any>(N::DOES_RAYFIRE_MAP_OBJECT_EXIST, p0); }
-	static Any GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE(Any p0) { return Native::Invoke<Any, Any>(N::GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE, p0); }
-	static Pickup CREATE_PICKUP(Hash pickupHash, float posX, float posY, float posZ, int p4, int value, BOOL p6, Hash modelHash, Any p8) { return Native::Invoke<Pickup, Hash, float, float, float, int, int, BOOL, Hash, Any>(N::CREATE_PICKUP, pickupHash, posX, posY, posZ, p4, value, p6, modelHash, p8); }
-	static Pickup CREATE_PICKUP_ROTATE(Hash pickupHash, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int flag, int amount, Any p9, BOOL p10, Hash modelHash, Any p12) { return Native::Invoke<Pickup, Hash, float, float, float, float, float, float, int, int, Any, BOOL, Hash, Any>(N::CREATE_PICKUP_ROTATE, pickupHash, posX, posY, posZ, rotX, rotY, rotZ, flag, amount, p9, p10, modelHash, p12); }
-	static Any CREATE_AMBIENT_PICKUP() { return Native::Invoke<Any>(N::CREATE_AMBIENT_PICKUP); }
-	static Any CREATE_PORTABLE_PICKUP() { return Native::Invoke<Any>(N::CREATE_PORTABLE_PICKUP); }
-	static Any ATTACH_PORTABLE_PICKUP_TO_PED() { return Native::Invoke<Any>(N::ATTACH_PORTABLE_PICKUP_TO_PED); }
-	static Any DETACH_PORTABLE_PICKUP_FROM_PED() { return Native::Invoke<Any>(N::DETACH_PORTABLE_PICKUP_FROM_PED); }
+	static Any GET_RAYFIRE_MAP_OBJECT(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xB48FCED898292E52, p0, p1, p2, p3, p4); }
+	static void SET_STATE_OF_RAYFIRE_MAP_OBJECT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5C29F698D404C5E1, p0, p1); }
+	static Any GET_STATE_OF_RAYFIRE_MAP_OBJECT(Any p0) { return Native::Invoke<Any, Any>(0x899BA936634A322E, p0); }
+	static Any DOES_RAYFIRE_MAP_OBJECT_EXIST(Any p0) { return Native::Invoke<Any, Any>(0x52AF537A0C5B8AAD, p0); }
+	static Any GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE(Any p0) { return Native::Invoke<Any, Any>(0x260EE4FDBDF4DB01, p0); }
+	static Pickup CREATE_PICKUP(Hash pickupHash, float posX, float posY, float posZ, int p4, int value, BOOL p6, Hash modelHash, Any p8) { return Native::Invoke<Pickup, Hash, float, float, float, int, int, BOOL, Hash, Any>(0xFBA08C503DD5FA58, pickupHash, posX, posY, posZ, p4, value, p6, modelHash, p8); }
+	static Pickup CREATE_PICKUP_ROTATE(Hash pickupHash, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int flag, int amount, Any p9, BOOL p10, Hash modelHash, Any p12) { return Native::Invoke<Pickup, Hash, float, float, float, float, float, float, int, int, Any, BOOL, Hash, Any>(0x891804727E0A98B7, pickupHash, posX, posY, posZ, rotX, rotY, rotZ, flag, amount, p9, p10, modelHash, p12); }
+	static Pickup CREATE_AMBIENT_PICKUP() { return Native::Invoke<Pickup>(0x673966A0C0FD7171); }
+	static Pickup CREATE_PORTABLE_PICKUP() { return Native::Invoke<Pickup>(0x2EAF1FDB2FB55698); }
+	static void ATTACH_PORTABLE_PICKUP_TO_PED() { return Native::Invoke<void>(0x8DC39368BDD57755); }
+	static void DETACH_PORTABLE_PICKUP_FROM_PED() { return Native::Invoke<void>(0xCF463D1E9A0AECB1); }
 	static Any _0x2777150CC7D9365E() { return Native::Invoke<Any>(0x2777150CC7D9365E); }
 	static Any _0x0BF3B3BD47D79C08() { return Native::Invoke<Any>(0x0BF3B3BD47D79C08); }
 	static Any _0x3E2616E7EA539480() { return Native::Invoke<Any>(0x3E2616E7EA539480); }
 	static Any _0x78857FC65CADB909() { return Native::Invoke<Any>(0x78857FC65CADB909); }
-	static Any GET_SAFE_PICKUP_COORDS() { return Native::Invoke<Any>(N::GET_SAFE_PICKUP_COORDS); }
-	static Vector3 GET_PICKUP_COORDS(Pickup pickup) { return Native::Invoke<Vector3, Pickup>(N::GET_PICKUP_COORDS, pickup); }
-	static void REMOVE_ALL_PICKUPS_OF_TYPE(Hash pickupHash) { return Native::Invoke<void, Hash>(N::REMOVE_ALL_PICKUPS_OF_TYPE, pickupHash); }
-	static BOOL HAS_PICKUP_BEEN_COLLECTED(Pickup pickup) { return Native::Invoke<BOOL, Pickup>(N::HAS_PICKUP_BEEN_COLLECTED, pickup); }
-	static void REMOVE_PICKUP(Pickup pickup) { return Native::Invoke<void, Pickup>(N::REMOVE_PICKUP, pickup); }
+	static Vector3 GET_SAFE_PICKUP_COORDS() { return Native::Invoke<Vector3>(0x6E16BC2503FF1FF0); }
+	static Vector3 GET_PICKUP_COORDS(Pickup pickup) { return Native::Invoke<Vector3, Pickup>(0x225B8B35C88029B3, pickup); }
+	static void REMOVE_ALL_PICKUPS_OF_TYPE(Hash pickupHash) { return Native::Invoke<void, Hash>(0x27F9D613092159CF, pickupHash); }
+	static BOOL HAS_PICKUP_BEEN_COLLECTED(Pickup pickup) { return Native::Invoke<BOOL, Pickup>(0x80EC48E6679313F9, pickup); }
+	static void REMOVE_PICKUP(Pickup pickup) { return Native::Invoke<void, Pickup>(0x3288D8ACAECD2AB2, pickup); }
 	static Any _0x634C19521485AB25() { return Native::Invoke<Any>(0x634C19521485AB25); }
-	static BOOL DOES_PICKUP_EXIST(Pickup pickup) { return Native::Invoke<BOOL, Pickup>(N::DOES_PICKUP_EXIST, pickup); }
-	static BOOL DOES_PICKUP_OBJECT_EXIST(Object pickupObject) { return Native::Invoke<BOOL, Object>(N::DOES_PICKUP_OBJECT_EXIST, pickupObject); }
-	static Object GET_PICKUP_OBJECT(Pickup pickup) { return Native::Invoke<Object, Pickup>(N::GET_PICKUP_OBJECT, pickup); }
+	static BOOL DOES_PICKUP_EXIST(Pickup pickup) { return Native::Invoke<BOOL, Pickup>(0xAFC1CA75AD4074D1, pickup); }
+	static BOOL DOES_PICKUP_OBJECT_EXIST(Object pickupObject) { return Native::Invoke<BOOL, Object>(0xD9EFB6DBF7DAAEA3, pickupObject); }
+	static Object GET_PICKUP_OBJECT(Pickup pickup) { return Native::Invoke<Object, Pickup>(0x5099BC55630B25AE, pickup); }
 	static Any _0x0378C08504160D0D() { return Native::Invoke<Any>(0x0378C08504160D0D); }
 	static Any _0x007BD043587F7C82() { return Native::Invoke<Any>(0x007BD043587F7C82); }
-	static Any DOES_PICKUP_OF_TYPE_EXIST_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::DOES_PICKUP_OF_TYPE_EXIST_IN_AREA, p0, p1, p2, p3, p4); }
-	static Any SET_PICKUP_REGENERATION_TIME() { return Native::Invoke<Any>(N::SET_PICKUP_REGENERATION_TIME); }
-	static Any _0x758A5C1B3B1E1990() { return Native::Invoke<Any>(0x758A5C1B3B1E1990); }
+	static Any DOES_PICKUP_OF_TYPE_EXIST_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xF9C36251F6E48E33, p0, p1, p2, p3, p4); }
+	static void SET_PICKUP_REGENERATION_TIME() { return Native::Invoke<void>(0x78015C9B4B3ECC9D); }
+	static Any FORCE_PICKUP_REGENERATE() { return Native::Invoke<Any>(0x758A5C1B3B1E1990); }
 	static Any _0x94F3D956BFAEAE18() { return Native::Invoke<Any>(0x94F3D956BFAEAE18); }
-	static Any _SET_LOCAL_PLAYER_CAN_USE_PICKUPS_WITH_THIS_MODEL() { return Native::Invoke<Any>(N::_SET_LOCAL_PLAYER_CAN_USE_PICKUPS_WITH_THIS_MODEL); }
-	static void _0xB8F5062070BB6DBD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB8F5062070BB6DBD, p0, p1); }
-	static void _0x92E87F60F21A0C3A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x92E87F60F21A0C3A, p0, p1); }
+	static Any _SET_LOCAL_PLAYER_CAN_USE_PICKUPS_WITH_THIS_MODEL() { return Native::Invoke<Any>(0x88EAEC617CD26926); }
+	static void BLOCK_PICKUP_FROM_PLAYER_COLLECTION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB8F5062070BB6DBD, p0, p1); }
+	static void SET_PICKUP_NOT_LOOTABLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x92E87F60F21A0C3A, p0, p1); }
 	static Any _0x1F5E07E14A86FAFC() { return Native::Invoke<Any>(0x1F5E07E14A86FAFC); }
-	static Any SET_TEAM_PICKUP_OBJECT() { return Native::Invoke<Any>(N::SET_TEAM_PICKUP_OBJECT); }
+	static void SET_TEAM_PICKUP_OBJECT() { return Native::Invoke<void>(0x53E0DF1A2A3CF0CA); }
 	static Any _0x9F52AD67D1A91BAD() { return Native::Invoke<Any>(0x9F52AD67D1A91BAD); }
 	static Any _0x92AEFB5F6E294023() { return Native::Invoke<Any>(0x92AEFB5F6E294023); }
-	static Any SET_PICKUP_GENERATION_RANGE_MULTIPLIER() { return Native::Invoke<Any>(N::SET_PICKUP_GENERATION_RANGE_MULTIPLIER); }
-	static Any _0x4A8CB328CD6F1C9B() { return Native::Invoke<Any>(0x4A8CB328CD6F1C9B); }
-	static Any _0x81218CE01B672219() { return Native::Invoke<Any>(0x81218CE01B672219); }
+	static Any SET_PICKUP_GENERATION_RANGE_MULTIPLIER() { return Native::Invoke<Any>(0x318516E02DE3ECE2); }
+	static Any SET_PICKUP_UNCOLLECTABLE() { return Native::Invoke<Any>(0x4A8CB328CD6F1C9B); }
+	static Any SET_PICKUP_HIDDEN_WHEN_UNCOLLECTABLE() { return Native::Invoke<Any>(0x81218CE01B672219); }
 	static Any _0xAC9AE68F0A463752() { return Native::Invoke<Any>(0xAC9AE68F0A463752); }
-	static Any _0xEB9740A38FD6D634() { return Native::Invoke<Any>(0xEB9740A38FD6D634); }
-	static Any _0x1607C7D9B3021DF5() { return Native::Invoke<Any>(0x1607C7D9B3021DF5); }
+	static Any SET_PICKUP_PARTICLE_FX_SPAWN() { return Native::Invoke<Any>(0xEB9740A38FD6D634); }
+	static Any SET_PICKUP_PARTICLE_FX_HIGHLIGHT() { return Native::Invoke<Any>(0x1607C7D9B3021DF5); }
 	static Any _0xF92099527DB8E2A7() { return Native::Invoke<Any>(0xF92099527DB8E2A7); }
 	static Any _0x20135AF9C10D2A3D() { return Native::Invoke<Any>(0x20135AF9C10D2A3D); }
 	static Any _0x00EE08603EADEE92() { return Native::Invoke<Any>(0x00EE08603EADEE92); }
 	static void _0xDE116ECFFDD4B997(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDE116ECFFDD4B997, p0, p1); }
-	static Any GET_WEAPON_TYPE_FROM_PICKUP_TYPE() { return Native::Invoke<Any>(N::GET_WEAPON_TYPE_FROM_PICKUP_TYPE); }
+	static Any GET_WEAPON_TYPE_FROM_PICKUP_TYPE() { return Native::Invoke<Any>(0x08F96CA6C551AD51); }
 	static Any _0x44B09A23D728045A() { return Native::Invoke<Any>(0x44B09A23D728045A); }
-	static void _SET_OBJECT_TEXTURE_VARIATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_OBJECT_TEXTURE_VARIATION, p0, p1); }
+	static void _SET_OBJECT_TEXTURE_VARIATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x971DA0055324D033, p0, p1); }
 	static Any _0x3397CD4E0353DFBA() { return Native::Invoke<Any>(0x3397CD4E0353DFBA); }
 	static void _0x7D7285EFEAB5AF15(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7D7285EFEAB5AF15, p0, p1); }
 	static void _0xC8E21C1677DC5E6F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC8E21C1677DC5E6F, p0, p1); }
@@ -3371,10 +3371,10 @@ namespace OBJECT
 	static void _0xF40AB58D83C35027(Any p0) { return Native::Invoke<void, Any>(0xF40AB58D83C35027, p0); }
 	static void _0x646564A3B7DF68F8(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x646564A3B7DF68F8, p0, p1, p2); }
 	static void _0xCBFBD38F2E0A263B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCBFBD38F2E0A263B, p0, p1); }
-	static Any _GET_PICKUP_HASH() { return Native::Invoke<Any>(N::_GET_PICKUP_HASH); }
-	static void SET_FORCE_OBJECT_THIS_FRAME(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::SET_FORCE_OBJECT_THIS_FRAME, p0, p1, p2, p3); }
+	static Hash _GET_PICKUP_HASH() { return Native::Invoke<Hash>(0x5EAAD83F8CFB4575); }
+	static void SET_FORCE_OBJECT_THIS_FRAME(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xF538081986E49E9D, p0, p1, p2, p3); }
 	static Any _0xD91E55B6C005EB09() { return Native::Invoke<Any>(0xD91E55B6C005EB09); }
-	static void _MARK_OBJECT_FOR_DELETION(Object object) { return Native::Invoke<void, Object>(N::_MARK_OBJECT_FOR_DELETION, object); }
+	static void _MARK_OBJECT_FOR_DELETION(Object object) { return Native::Invoke<void, Object>(0xADBE4809F19F927A, object); }
 	static void _0xCAAF2BCCFEF37F77(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCAAF2BCCFEF37F77, p0, p1); }
 	static Any _0x08C5825A2932EA7B() { return Native::Invoke<Any>(0x08C5825A2932EA7B); }
 	static Any _0x7D4411D6736CD295(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7D4411D6736CD295, p0, p1); }
@@ -3395,80 +3395,80 @@ namespace PAD
 	static void _0x2804658EB7D8A50B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2804658EB7D8A50B, p0, p1); }
 	static Any _0xDDCEB0F26C89C00F() { return Native::Invoke<Any>(0xDDCEB0F26C89C00F); }
 	static Any _0xBC0884BC590951C7(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xBC0884BC590951C7, p0, p1); }
-	static BOOL IS_CONTROL_ENABLED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_CONTROL_ENABLED, inputGroup, control); }
-	static BOOL IS_CONTROL_PRESSED(int inputGroup, int contorl) { return Native::Invoke<BOOL, int, int>(N::IS_CONTROL_PRESSED, inputGroup, contorl); }
-	static BOOL IS_CONTROL_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_CONTROL_RELEASED, inputGroup, control); }
-	static BOOL IS_CONTROL_JUST_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_CONTROL_JUST_PRESSED, inputGroup, control); }
-	static BOOL IS_CONTROL_JUST_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_CONTROL_JUST_RELEASED, inputGroup, control); }
-	static int GET_CONTROL_VALUE(int inputGroup, int control) { return Native::Invoke<int, int, int>(N::GET_CONTROL_VALUE, inputGroup, control); }
-	static float GET_CONTROL_NORMAL(int inputGroup, int control) { return Native::Invoke<float, int, int>(N::GET_CONTROL_NORMAL, inputGroup, control); }
-	static Any GET_CONTROL_UNBOUND_NORMAL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::GET_CONTROL_UNBOUND_NORMAL, p0, p1); }
-	static BOOL _SET_CONTROL_NORMAL(int inputGroup, int control, float amount) { return Native::Invoke<BOOL, int, int, float>(N::_SET_CONTROL_NORMAL, inputGroup, control, amount); }
-	static BOOL IS_DISABLED_CONTROL_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_DISABLED_CONTROL_PRESSED, inputGroup, control); }
-	static BOOL IS_DISABLED_CONTROL_JUST_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_DISABLED_CONTROL_JUST_PRESSED, inputGroup, control); }
-	static BOOL IS_DISABLED_CONTROL_JUST_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(N::IS_DISABLED_CONTROL_JUST_RELEASED, inputGroup, control); }
-	static float GET_DISABLED_CONTROL_NORMAL(int inputGroup, int control) { return Native::Invoke<float, int, int>(N::GET_DISABLED_CONTROL_NORMAL, inputGroup, control); }
-	static Any GET_DISABLED_CONTROL_UNBOUND_NORMAL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::GET_DISABLED_CONTROL_UNBOUND_NORMAL, p0, p1); }
+	static BOOL IS_CONTROL_ENABLED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x1CEA6BFDF248E5D9, inputGroup, control); }
+	static BOOL IS_CONTROL_PRESSED(int inputGroup, int contorl) { return Native::Invoke<BOOL, int, int>(0xF3A21BCD95725A4A, inputGroup, contorl); }
+	static BOOL IS_CONTROL_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x648EE3E7F38877DD, inputGroup, control); }
+	static BOOL IS_CONTROL_JUST_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x580417101DDB492F, inputGroup, control); }
+	static BOOL IS_CONTROL_JUST_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x50F940259D3841E6, inputGroup, control); }
+	static int GET_CONTROL_VALUE(int inputGroup, int control) { return Native::Invoke<int, int, int>(0xD95E79E8686D2C27, inputGroup, control); }
+	static float GET_CONTROL_NORMAL(int inputGroup, int control) { return Native::Invoke<float, int, int>(0xEC3C9B8D5327B563, inputGroup, control); }
+	static Any GET_CONTROL_UNBOUND_NORMAL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x5B84D09CEC5209C5, p0, p1); }
+	static BOOL _SET_CONTROL_NORMAL(int inputGroup, int control, float amount) { return Native::Invoke<BOOL, int, int, float>(0xE8A25867FBA3B05E, inputGroup, control, amount); }
+	static BOOL IS_DISABLED_CONTROL_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0xE2587F8CBBD87B1D, inputGroup, control); }
+	static BOOL IS_DISABLED_CONTROL_JUST_PRESSED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x91AEF906BCA88877, inputGroup, control); }
+	static BOOL IS_DISABLED_CONTROL_JUST_RELEASED(int inputGroup, int control) { return Native::Invoke<BOOL, int, int>(0x305C8DCD79DA8B0F, inputGroup, control); }
+	static float GET_DISABLED_CONTROL_NORMAL(int inputGroup, int control) { return Native::Invoke<float, int, int>(0x11E65974A982637C, inputGroup, control); }
+	static Any GET_DISABLED_CONTROL_UNBOUND_NORMAL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4F8A26A890FD62FB, p0, p1); }
 	static Any _0xD7D22F5592AED8BA(Any p0) { return Native::Invoke<Any, Any>(0xD7D22F5592AED8BA, p0); }
 	static Any _0x771DFCB24D19C2F6() { return Native::Invoke<Any>(0x771DFCB24D19C2F6); }
-	static Any _IS_INPUT_DISABLED() { return Native::Invoke<Any>(N::_IS_INPUT_DISABLED); }
+	static BOOL _IS_INPUT_DISABLED() { return Native::Invoke<BOOL>(0xA571D46727E2B718); }
 	static Any _0x43F35DDB2905D945() { return Native::Invoke<Any>(0x43F35DDB2905D945); }
 	static Any _0xBD629C1C4F501C80(Any p0) { return Native::Invoke<Any, Any>(0xBD629C1C4F501C80, p0); }
 	static Any _0x6CD79468A1E595C6() { return Native::Invoke<Any>(0x6CD79468A1E595C6); }
 	static Any _0x8290252FFF36ACB5() { return Native::Invoke<Any>(0x8290252FFF36ACB5); }
 	static Any _0xCB0360EFEFB2580D() { return Native::Invoke<Any>(0xCB0360EFEFB2580D); }
 	static Any _0xA45884DB10EC7EE3() { return Native::Invoke<Any>(0xA45884DB10EC7EE3); }
-	static void SET_PAD_SHAKE(int p0, int duration, int frequency) { return Native::Invoke<void, int, int, int>(N::SET_PAD_SHAKE, p0, duration, frequency); }
+	static void SET_PAD_SHAKE(int p0, int duration, int frequency) { return Native::Invoke<void, int, int, int>(0x48B3886C1358D0D5, p0, duration, frequency); }
 	static void _0x14D29BB12D47F68C(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x14D29BB12D47F68C, p0, p1, p2, p3, p4); }
-	static void STOP_PAD_SHAKE(Any p0) { return Native::Invoke<void, Any>(N::STOP_PAD_SHAKE, p0); }
+	static void STOP_PAD_SHAKE(Any p0) { return Native::Invoke<void, Any>(0x38C16A305E8CDC8D, p0); }
 	static void _0xF239400E16C23E08(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF239400E16C23E08, p0, p1); }
 	static void _0xA0CEFCEA390AAB9B(Any p0) { return Native::Invoke<void, Any>(0xA0CEFCEA390AAB9B, p0); }
-	static BOOL IS_LOOK_INVERTED() { return Native::Invoke<BOOL>(N::IS_LOOK_INVERTED); }
-	static void SET_INPUT_EXCLUSIVE(int inputGroup, int control) { return Native::Invoke<void, int, int>(N::SET_INPUT_EXCLUSIVE, inputGroup, control); }
-	static void DISABLE_CONTROL_ACTION(int inputGroup, int control, BOOL disable) { return Native::Invoke<void, int, int, BOOL>(N::DISABLE_CONTROL_ACTION, inputGroup, control, disable); }
-	static void ENABLE_CONTROL_ACTION(int inputGroup, int control, BOOL enable) { return Native::Invoke<void, int, int, BOOL>(N::ENABLE_CONTROL_ACTION, inputGroup, control, enable); }
-	static void DISABLE_ALL_CONTROL_ACTIONS(int inputGroup) { return Native::Invoke<void, int>(N::DISABLE_ALL_CONTROL_ACTIONS, inputGroup); }
+	static BOOL IS_LOOK_INVERTED() { return Native::Invoke<BOOL>(0x77B612531280010D); }
+	static void SET_INPUT_EXCLUSIVE(int inputGroup, int control) { return Native::Invoke<void, int, int>(0xEDE476E5EE29EDB1, inputGroup, control); }
+	static void DISABLE_CONTROL_ACTION(int inputGroup, int control, BOOL disable) { return Native::Invoke<void, int, int, BOOL>(0xFE99B66D079CF6BC, inputGroup, control, disable); }
+	static void ENABLE_CONTROL_ACTION(int inputGroup, int control, BOOL enable) { return Native::Invoke<void, int, int, BOOL>(0x351220255D64C155, inputGroup, control, enable); }
+	static void DISABLE_ALL_CONTROL_ACTIONS(int inputGroup) { return Native::Invoke<void, int>(0x5F4B6931816E599B, inputGroup); }
 	static void _0x5F217BC1190503D8(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5F217BC1190503D8, p0, p1); }
 	static void _0x709BA8C08C5C008D() { return Native::Invoke<void>(0x709BA8C08C5C008D); }
 	static Any _0x1252C029FC8EBB4D() { return Native::Invoke<Any>(0x1252C029FC8EBB4D); }
 }
 namespace PATHFIND
 {
-	static void SET_ROADS_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL unknown1, BOOL unknown2, Any p8) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL, Any>(N::SET_ROADS_IN_AREA, x1, y1, z1, x2, y2, z2, unknown1, unknown2, p8); }
-	static void SET_ROADS_IN_ANGLED_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float angle, BOOL unknown1, BOOL unknown2, BOOL unknown3, Any p10) { return Native::Invoke<void, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, Any>(N::SET_ROADS_IN_ANGLED_AREA, x1, y1, z1, x2, y2, z2, angle, unknown1, unknown2, unknown3, p10); }
+	static void SET_ROADS_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL unknown1, BOOL unknown2, Any p8) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL, Any>(0xBF1A602B5BA52FEE, x1, y1, z1, x2, y2, z2, unknown1, unknown2, p8); }
+	static void SET_ROADS_IN_ANGLED_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float angle, BOOL unknown1, BOOL unknown2, BOOL unknown3, Any p10) { return Native::Invoke<void, float, float, float, float, float, float, float, BOOL, BOOL, BOOL, Any>(0x1A5AA1208AF5DB59, x1, y1, z1, x2, y2, z2, angle, unknown1, unknown2, unknown3, p10); }
 	static void _0xC1799FAFD2FDF52B(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xC1799FAFD2FDF52B, p0, p1, p2, p3); }
 	static void _0xD17672447692478E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD17672447692478E, p0, p1); }
-	static void SET_ROADS_BACK_TO_ORIGINAL(float p0, float p1, float p2, float p3, float p4, float p5, Any p6, Any p7) { return Native::Invoke<void, float, float, float, float, float, float, Any, Any>(N::SET_ROADS_BACK_TO_ORIGINAL, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void SET_ROADS_BACK_TO_ORIGINAL_IN_ANGLED_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float p6, Any p7, Any p8) { return Native::Invoke<void, float, float, float, float, float, float, float, Any, Any>(N::SET_ROADS_BACK_TO_ORIGINAL_IN_ANGLED_AREA, x1, y1, z1, x2, y2, z2, p6, p7, p8); }
+	static void SET_ROADS_BACK_TO_ORIGINAL(float p0, float p1, float p2, float p3, float p4, float p5, Any p6, Any p7) { return Native::Invoke<void, float, float, float, float, float, float, Any, Any>(0x1EE7063B80FFC77C, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void SET_ROADS_BACK_TO_ORIGINAL_IN_ANGLED_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float p6, Any p7, Any p8) { return Native::Invoke<void, float, float, float, float, float, float, float, Any, Any>(0x0027501B9F3B407E, x1, y1, z1, x2, y2, z2, p6, p7, p8); }
 	static void _0xAFE2AE66F6251C66(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xAFE2AE66F6251C66, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0x4358BCF14C91761C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x4358BCF14C91761C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static void _0xB03944057FD735BA(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB03944057FD735BA, p0, p1, p2); }
 	static void _0x6C3F12ECEB6D2E2A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x6C3F12ECEB6D2E2A, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0x5A4E1A41E3A02AD0(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5A4E1A41E3A02AD0, p0, p1, p2); }
-	static BOOL GET_CLOSEST_VEHICLE_NODE(float x, float y, float z, Vector3* outPosition, int nodeType, float p5, float p6) { return Native::Invoke<BOOL, float, float, float, Vector3*, int, float, float>(N::GET_CLOSEST_VEHICLE_NODE, x, y, z, outPosition, nodeType, p5, p6); }
+	static BOOL GET_CLOSEST_VEHICLE_NODE(float x, float y, float z, Vector3* outPosition, int nodeType, float p5, float p6) { return Native::Invoke<BOOL, float, float, float, Vector3*, int, float, float>(0x240A18690AE96513, x, y, z, outPosition, nodeType, p5, p6); }
 	static Any _0xCA27A86CAA4E98ED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xCA27A86CAA4E98ED, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(float x, float y, float z, Vector3* outPosition, float* outHeading, int nodeType, float p6, int p7) { return Native::Invoke<BOOL, float, float, float, Vector3*, float*, int, float, int>(N::GET_CLOSEST_VEHICLE_NODE_WITH_HEADING, x, y, z, outPosition, outHeading, nodeType, p6, p7); }
-	static BOOL GET_NTH_CLOSEST_VEHICLE_NODE(float x, float y, float z, int nthClosest, Vector3* outPosition, BOOL p6, float p7, float p8) { return Native::Invoke<BOOL, float, float, float, int, Vector3*, BOOL, float, float>(N::GET_NTH_CLOSEST_VEHICLE_NODE, x, y, z, nthClosest, outPosition, p6, p7, p8); }
-	static int GET_NTH_CLOSEST_VEHICLE_NODE_ID(float x, float y, float z, int nth, int nodetype, float p5, float p6) { return Native::Invoke<int, float, float, float, int, int, float, float>(N::GET_NTH_CLOSEST_VEHICLE_NODE_ID, x, y, z, nth, nodetype, p5, p6); }
-	static Any GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING() { return Native::Invoke<Any>(N::GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING); }
-	static Any GET_NTH_CLOSEST_VEHICLE_NODE_ID_WITH_HEADING() { return Native::Invoke<Any>(N::GET_NTH_CLOSEST_VEHICLE_NODE_ID_WITH_HEADING); }
-	static Any GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION() { return Native::Invoke<Any>(N::GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION); }
-	static Any IS_VEHICLE_NODE_ID_VALID() { return Native::Invoke<Any>(N::IS_VEHICLE_NODE_ID_VALID); }
-	static Any GET_VEHICLE_NODE_POSITION() { return Native::Invoke<Any>(N::GET_VEHICLE_NODE_POSITION); }
-	static Any GET_VEHICLE_NODE_IS_SWITCHED_OFF(Any p0) { return Native::Invoke<Any, Any>(N::GET_VEHICLE_NODE_IS_SWITCHED_OFF, p0); }
-	static Any GET_CLOSEST_ROAD(float posX, float posY, float posZ, float p3, int p4, Vector3* p5, Vector3* p6, int* p7, int* p8, float* p9, int p10) { return Native::Invoke<Any, float, float, float, float, int, Vector3*, Vector3*, int*, int*, float*, int>(N::GET_CLOSEST_ROAD, posX, posY, posZ, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static Any _ARE_PATH_NODES_LOADED_IN_AREA() { return Native::Invoke<Any>(N::_ARE_PATH_NODES_LOADED_IN_AREA); }
+	static BOOL GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(float x, float y, float z, Vector3* outPosition, float* outHeading, int nodeType, float p6, int p7) { return Native::Invoke<BOOL, float, float, float, Vector3*, float*, int, float, int>(0x23CFFD4CCB243354, x, y, z, outPosition, outHeading, nodeType, p6, p7); }
+	static BOOL GET_NTH_CLOSEST_VEHICLE_NODE(float x, float y, float z, int nthClosest, Vector3* outPosition, BOOL p6, float p7, float p8) { return Native::Invoke<BOOL, float, float, float, int, Vector3*, BOOL, float, float>(0x5A6D8DF6FBC5D0C4, x, y, z, nthClosest, outPosition, p6, p7, p8); }
+	static int GET_NTH_CLOSEST_VEHICLE_NODE_ID(float x, float y, float z, int nth, int nodetype, float p5, float p6) { return Native::Invoke<int, float, float, float, int, int, float, float>(0x116443008E5CEFC3, x, y, z, nth, nodetype, p5, p6); }
+	static BOOL GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING() { return Native::Invoke<BOOL>(0x591B40D4390DB54A); }
+	static Any GET_NTH_CLOSEST_VEHICLE_NODE_ID_WITH_HEADING() { return Native::Invoke<Any>(0x4114EAA8A7F7766D); }
+	static BOOL GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION() { return Native::Invoke<BOOL>(0x2FAC235A6062F14A); }
+	static BOOL IS_VEHICLE_NODE_ID_VALID() { return Native::Invoke<BOOL>(0x5829A02AF4F0B3CB); }
+	static void GET_VEHICLE_NODE_POSITION() { return Native::Invoke<void>(0x8E8D72FF24DEE1FB); }
+	static Any GET_VEHICLE_NODE_IS_SWITCHED_OFF(Any p0) { return Native::Invoke<Any, Any>(0x28533DBDDF7C2C97, p0); }
+	static Any GET_CLOSEST_ROAD(float posX, float posY, float posZ, float p3, int p4, Vector3* p5, Vector3* p6, int* p7, int* p8, float* p9, int p10) { return Native::Invoke<Any, float, float, float, float, int, Vector3*, Vector3*, int*, int*, float*, int>(0x132F52BBA570FE92, posX, posY, posZ, p3, p4, p5, p6, p7, p8, p9, p10); }
+	static Any _ARE_PATH_NODES_LOADED_IN_AREA() { return Native::Invoke<Any>(0xF7B79A50B905A30D); }
 	static Any _0x07FB139B592FA687() { return Native::Invoke<Any>(0x07FB139B592FA687); }
-	static Any GET_RANDOM_VEHICLE_NODE() { return Native::Invoke<Any>(N::GET_RANDOM_VEHICLE_NODE); }
+	static BOOL GET_RANDOM_VEHICLE_NODE() { return Native::Invoke<BOOL>(0x93E0DB8440B73A7D); }
 	static Any _0xA3791B915B8B84C6() { return Native::Invoke<Any>(0xA3791B915B8B84C6); }
-	static BOOL IS_POINT_ON_ROAD(float x, float y, float z, Vehicle vehicle) { return Native::Invoke<BOOL, float, float, float, Vehicle>(N::IS_POINT_ON_ROAD, x, y, z, vehicle); }
-	static void SET_PED_PATHS_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL unknown, Any p7) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, Any>(N::SET_PED_PATHS_IN_AREA, x1, y1, z1, x2, y2, z2, unknown, p7); }
+	static BOOL IS_POINT_ON_ROAD(float x, float y, float z, Vehicle vehicle) { return Native::Invoke<BOOL, float, float, float, Vehicle>(0x125BF4ABFC536B09, x, y, z, vehicle); }
+	static void SET_PED_PATHS_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL unknown, Any p7) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, Any>(0x34F060F4BF92E018, x1, y1, z1, x2, y2, z2, unknown, p7); }
 	static void _0xE5EF9DE716FF737E(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xE5EF9DE716FF737E, p0, p1, p2); }
-	static BOOL GET_SAFE_COORD_FOR_PED(float x, float y, float z, BOOL onGround, Vector3* outPosition, int flags) { return Native::Invoke<BOOL, float, float, float, BOOL, Vector3*, int>(N::GET_SAFE_COORD_FOR_PED, x, y, z, onGround, outPosition, flags); }
-	static void SET_PED_PATHS_BACK_TO_ORIGINAL(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(N::SET_PED_PATHS_BACK_TO_ORIGINAL, p0, p1, p2, p3, p4, p5, p6); }
+	static BOOL GET_SAFE_COORD_FOR_PED(float x, float y, float z, BOOL onGround, Vector3* outPosition, int flags) { return Native::Invoke<BOOL, float, float, float, BOOL, Vector3*, int>(0xB61C8E878A4199CA, x, y, z, onGround, outPosition, flags); }
+	static void SET_PED_PATHS_BACK_TO_ORIGINAL(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xE04B48F2CC926253, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xCF213A5FC3ABFC08(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCF213A5FC3ABFC08, p0, p1, p2); }
-	static void ADD_NAVMESH_REQUIRED_REGION(float x, float y, float radius) { return Native::Invoke<void, float, float, float>(N::ADD_NAVMESH_REQUIRED_REGION, x, y, radius); }
-	static BOOL IS_NAVMESH_LOADED_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<BOOL, float, float, float, float, float, float>(N::IS_NAVMESH_LOADED_IN_AREA, x1, y1, z1, x2, y2, z2); }
+	static void ADD_NAVMESH_REQUIRED_REGION(float x, float y, float radius) { return Native::Invoke<void, float, float, float>(0x387EAD7EE42F6685, x, y, radius); }
+	static BOOL IS_NAVMESH_LOADED_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<BOOL, float, float, float, float, float, float>(0xF813C7E63F9062A5, x1, y1, z1, x2, y2, z2); }
 	static Any _0x01708E8DD3FF8C65() { return Native::Invoke<Any>(0x01708E8DD3FF8C65); }
 	static Any _0x7C334FF4D9215912(Any p0) { return Native::Invoke<Any, Any>(0x7C334FF4D9215912, p0); }
 	static Any _0x527B97C203BB8606(Any p0) { return Native::Invoke<Any, Any>(0x527B97C203BB8606, p0); }
@@ -3477,9 +3477,9 @@ namespace PATHFIND
 	static Any _0x5A3B54ADDF5472A3(Any p0) { return Native::Invoke<Any, Any>(0x5A3B54ADDF5472A3, p0); }
 	static Any _0xA33914B00CA55756(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA33914B00CA55756, p0, p1); }
 	static Any _0x44026E3DB3CED602(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x44026E3DB3CED602, p0, p1); }
-	static Any ADD_NAVMESH_BLOCKING_OBJECT(float p0, float p1, float p2, float p3, float p4, float p5, float p6, BOOL p7, Any p8) { return Native::Invoke<Any, float, float, float, float, float, float, float, BOOL, Any>(N::ADD_NAVMESH_BLOCKING_OBJECT, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void REMOVE_NAVMESH_BLOCKING_OBJECT(Any p0) { return Native::Invoke<void, Any>(N::REMOVE_NAVMESH_BLOCKING_OBJECT, p0); }
-	static BOOL DOES_NAVMESH_BLOCKING_OBJECT_EXIST(Any p0) { return Native::Invoke<BOOL, Any>(N::DOES_NAVMESH_BLOCKING_OBJECT_EXIST, p0); }
+	static Any ADD_NAVMESH_BLOCKING_OBJECT(float p0, float p1, float p2, float p3, float p4, float p5, float p6, BOOL p7, Any p8) { return Native::Invoke<Any, float, float, float, float, float, float, float, BOOL, Any>(0xFCD5C8E06E502F5A, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void REMOVE_NAVMESH_BLOCKING_OBJECT(Any p0) { return Native::Invoke<void, Any>(0x46399A7895957C0E, p0); }
+	static BOOL DOES_NAVMESH_BLOCKING_OBJECT_EXIST(Any p0) { return Native::Invoke<BOOL, Any>(0x0EAEB0DB4B132399, p0); }
 	static Any _0x19C7567D2F2287D6(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x19C7567D2F2287D6, p0, p1); }
 	static void _0x2C87C3E1C7B96EE2(Any p0) { return Native::Invoke<void, Any>(0x2C87C3E1C7B96EE2, p0); }
 	static Any _0xDE0EA444735C1368(Any p0) { return Native::Invoke<Any, Any>(0xDE0EA444735C1368, p0); }
@@ -3492,8 +3492,8 @@ namespace PATHFIND
 	static Any _0xD470725E0703D22F(Any p0) { return Native::Invoke<Any, Any>(0xD470725E0703D22F, p0); }
 	static Any _0x430F8319AE56C8A9(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x430F8319AE56C8A9, p0, p1); }
 	static Any _0x336511A34F2E5185(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x336511A34F2E5185, p0, p1); }
-	static void SET_AMBIENT_PED_RANGE_MULTIPLIER_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(N::SET_AMBIENT_PED_RANGE_MULTIPLIER_THIS_FRAME, p0); }
-	static Any SET_IGNORE_NO_GPS_FLAG() { return Native::Invoke<Any>(N::SET_IGNORE_NO_GPS_FLAG); }
+	static void SET_AMBIENT_PED_RANGE_MULTIPLIER_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(0x0B919E1FB47CC4E0, p0); }
+	static void SET_IGNORE_NO_GPS_FLAG() { return Native::Invoke<void>(0x72751156E7678833); }
 	static Any _0xBBB45C3CF5C8AA85() { return Native::Invoke<Any>(0xBBB45C3CF5C8AA85); }
 	static Any _0xEFC535C9FAF563B3(Any p0) { return Native::Invoke<Any, Any>(0xEFC535C9FAF563B3, p0); }
 	static Any _0x665B21666351CB37() { return Native::Invoke<Any>(0x665B21666351CB37); }
@@ -3509,56 +3509,56 @@ namespace PATHFIND
 	static Any _0x65A8196B8D7F5E0B() { return Native::Invoke<Any>(0x65A8196B8D7F5E0B); }
 	static Any _0x240915043CB799D7() { return Native::Invoke<Any>(0x240915043CB799D7); }
 	static Any _0xA1A3DE1C215C7394() { return Native::Invoke<Any>(0xA1A3DE1C215C7394); }
-	static Any _0x2DD5F78D73B24172() { return Native::Invoke<Any>(0x2DD5F78D73B24172); }
+	static Any SIMULATED_ROUTE_GET_ETA() { return Native::Invoke<Any>(0x2DD5F78D73B24172); }
 }
 namespace PED
 {
-	static Player* CREATE_PED(int pedType, Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL thisScriptCheck, Any p8) { return Native::Invoke<Player*, int, Hash, float, float, float, float, BOOL, BOOL, Any>(N::CREATE_PED, pedType, modelHash, x, y, z, heading, isNetwork, thisScriptCheck, p8); }
-	static void DELETE_PED(Ped* ped) { return Native::Invoke<void, Ped*>(N::DELETE_PED, ped); }
+	static Player* CREATE_PED(int pedType, Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL thisScriptCheck, Any p8) { return Native::Invoke<Player*, int, Hash, float, float, float, float, BOOL, BOOL, Any>(0xD49F9B0955C367DE, pedType, modelHash, x, y, z, heading, isNetwork, thisScriptCheck, p8); }
+	static void DELETE_PED(Ped* ped) { return Native::Invoke<void, Ped*>(0xCC0EF140F99365C5, ped); }
 	static void _0x39A2FC5AF55A52B1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x39A2FC5AF55A52B1, p0, p1); }
 	static Any _0x7C08E7CB8D951B70() { return Native::Invoke<Any>(0x7C08E7CB8D951B70); }
 	static void _0x36E4B61DC56DE77C(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x36E4B61DC56DE77C, p0, p1, p2, p3, p4); }
-	static Ped CLONE_PED(Ped ped, float heading, BOOL isNetwork, BOOL thisScriptCheck) { return Native::Invoke<Ped, Ped, float, BOOL, BOOL>(N::CLONE_PED, ped, heading, isNetwork, thisScriptCheck); }
-	static Any CLONE_PED_TO_TARGET() { return Native::Invoke<Any>(N::CLONE_PED_TO_TARGET); }
-	static BOOL IS_PED_IN_VEHICLE(Ped ped, Vehicle vehicle, BOOL atGetIn) { return Native::Invoke<BOOL, Ped, Vehicle, BOOL>(N::IS_PED_IN_VEHICLE, ped, vehicle, atGetIn); }
-	static BOOL IS_PED_IN_MODEL(Ped ped, Hash modelHash) { return Native::Invoke<BOOL, Ped, Hash>(N::IS_PED_IN_MODEL, ped, modelHash); }
-	static BOOL IS_PED_IN_ANY_VEHICLE(Ped ped, BOOL atGetIn) { return Native::Invoke<BOOL, Ped, BOOL>(N::IS_PED_IN_ANY_VEHICLE, ped, atGetIn); }
+	static Ped CLONE_PED(Ped ped, float heading, BOOL isNetwork, BOOL thisScriptCheck) { return Native::Invoke<Ped, Ped, float, BOOL, BOOL>(0xEF29A16337FACADB, ped, heading, isNetwork, thisScriptCheck); }
+	static void CLONE_PED_TO_TARGET() { return Native::Invoke<void>(0xE952D6431689AD9A); }
+	static BOOL IS_PED_IN_VEHICLE(Ped ped, Vehicle vehicle, BOOL atGetIn) { return Native::Invoke<BOOL, Ped, Vehicle, BOOL>(0xA3EE4A07279BB9DB, ped, vehicle, atGetIn); }
+	static BOOL IS_PED_IN_MODEL(Ped ped, Hash modelHash) { return Native::Invoke<BOOL, Ped, Hash>(0x796D90EFB19AA332, ped, modelHash); }
+	static BOOL IS_PED_IN_ANY_VEHICLE(Ped ped, BOOL atGetIn) { return Native::Invoke<BOOL, Ped, BOOL>(0x997ABD671D25CA0B, ped, atGetIn); }
 	static void _0x9851DE7AEC10B4E1(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x9851DE7AEC10B4E1, p0, p1, p2, p3, p4, p5); }
-	static BOOL IS_PED_INJURED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_INJURED, ped); }
-	static BOOL IS_PED_FATALLY_INJURED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_FATALLY_INJURED, ped); }
-	static BOOL IS_PED_DEAD_OR_DYING(Ped ped, BOOL p1) { return Native::Invoke<BOOL, Ped, BOOL>(N::IS_PED_DEAD_OR_DYING, ped, p1); }
+	static BOOL IS_PED_INJURED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x84A2DD9AC37C35C1, ped); }
+	static BOOL IS_PED_FATALLY_INJURED(Ped ped) { return Native::Invoke<BOOL, Ped>(0xD839450756ED5A80, ped); }
+	static BOOL IS_PED_DEAD_OR_DYING(Ped ped, BOOL p1) { return Native::Invoke<BOOL, Ped, BOOL>(0x3317DEDB88C95038, ped, p1); }
 	static void _0x66C047719B0E80E1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x66C047719B0E80E1, p0, p1); }
-	static BOOL IS_PED_AIMING_FROM_COVER(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_AIMING_FROM_COVER, ped); }
-	static BOOL IS_PED_RELOADING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_RELOADING, ped); }
-	static BOOL IS_PED_A_PLAYER(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_A_PLAYER, ped); }
-	static Ped CREATE_PED_INSIDE_VEHICLE(Vehicle vehicle, int pedType, Hash modelHash, int seat, BOOL isNetwork, BOOL thisScriptCheck) { return Native::Invoke<Ped, Vehicle, int, Hash, int, BOOL, BOOL>(N::CREATE_PED_INSIDE_VEHICLE, vehicle, pedType, modelHash, seat, isNetwork, thisScriptCheck); }
-	static void SET_PED_DESIRED_HEADING(Ped ped, float heading) { return Native::Invoke<void, Ped, float>(N::SET_PED_DESIRED_HEADING, ped, heading); }
-	static Any _FREEZE_PED_CAMERA_ROTATION() { return Native::Invoke<Any>(N::_FREEZE_PED_CAMERA_ROTATION); }
-	static BOOL IS_PED_FACING_PED(Ped ped, Ped otherPed, float angle) { return Native::Invoke<BOOL, Ped, Ped, float>(N::IS_PED_FACING_PED, ped, otherPed, angle); }
-	static BOOL IS_PED_IN_MELEE_COMBAT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_MELEE_COMBAT, ped); }
+	static BOOL IS_PED_AIMING_FROM_COVER(Ped ped) { return Native::Invoke<BOOL, Ped>(0x3998B1276A3300E5, ped); }
+	static BOOL IS_PED_RELOADING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x24B100C68C645951, ped); }
+	static BOOL IS_PED_A_PLAYER(Ped ped) { return Native::Invoke<BOOL, Ped>(0x12534C348C6CB68B, ped); }
+	static Ped CREATE_PED_INSIDE_VEHICLE(Vehicle vehicle, int pedType, Hash modelHash, int seat, BOOL isNetwork, BOOL thisScriptCheck) { return Native::Invoke<Ped, Vehicle, int, Hash, int, BOOL, BOOL>(0x7DD959874C1FD534, vehicle, pedType, modelHash, seat, isNetwork, thisScriptCheck); }
+	static void SET_PED_DESIRED_HEADING(Ped ped, float heading) { return Native::Invoke<void, Ped, float>(0xAA5A7ECE2AA8FE70, ped, heading); }
+	static void _FREEZE_PED_CAMERA_ROTATION() { return Native::Invoke<void>(0xFF287323B0E2C69A); }
+	static BOOL IS_PED_FACING_PED(Ped ped, Ped otherPed, float angle) { return Native::Invoke<BOOL, Ped, Ped, float>(0xD71649DB0A545AA3, ped, otherPed, angle); }
+	static BOOL IS_PED_IN_MELEE_COMBAT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x4E209B2C1EAD5159, ped); }
 	static Any _0x6DB875AFC584FA32(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6DB875AFC584FA32, p0, p1); }
-	static BOOL IS_PED_STOPPED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_STOPPED, ped); }
+	static BOOL IS_PED_STOPPED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x530944F6F4B8A214, ped); }
 	static Any _0x84D0BF2B21862059(Any p0) { return Native::Invoke<Any, Any>(0x84D0BF2B21862059, p0); }
 	static Any _0x09D7AFD3716DA8E1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x09D7AFD3716DA8E1, p0, p1); }
 	static Any _0x9C81338B2E62CE0A(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x9C81338B2E62CE0A, p0, p1, p2); }
 	static Any _0xB7DBB2986B87E230(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB7DBB2986B87E230, p0, p1); }
 	static Any _0xD355E2F1BB41087E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD355E2F1BB41087E, p0, p1); }
-	static BOOL IS_ANY_PED_SHOOTING_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL, BOOL>(N::IS_ANY_PED_SHOOTING_IN_AREA, x1, y1, z1, x2, y2, z2, p6, p7); }
-	static BOOL IS_PED_SHOOTING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_SHOOTING, ped); }
+	static BOOL IS_ANY_PED_SHOOTING_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, BOOL p7) { return Native::Invoke<BOOL, float, float, float, float, float, float, BOOL, BOOL>(0xA0D3D71EA1086C55, x1, y1, z1, x2, y2, z2, p6, p7); }
+	static BOOL IS_PED_SHOOTING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x34616828CD07F1A1, ped); }
 	static Any _0x285D36C5C72B0569(Any p0) { return Native::Invoke<Any, Any>(0x285D36C5C72B0569, p0); }
-	static Any SET_PED_ACCURACY(Ped ped, int accuracy) { return Native::Invoke<Any, Ped, int>(N::SET_PED_ACCURACY, ped, accuracy); }
-	static int GET_PED_ACCURACY(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_ACCURACY, ped); }
-	static BOOL IS_PED_MODEL(Ped ped, Hash modelHash) { return Native::Invoke<BOOL, Ped, Hash>(N::IS_PED_MODEL, ped, modelHash); }
-	static void EXPLODE_PED_HEAD(Ped ped, Hash weaponHash) { return Native::Invoke<void, Ped, Hash>(N::EXPLODE_PED_HEAD, ped, weaponHash); }
-	static void ADD_ARMOUR_TO_PED(Ped ped, int amount) { return Native::Invoke<void, Ped, int>(N::ADD_ARMOUR_TO_PED, ped, amount); }
+	static Any SET_PED_ACCURACY(Ped ped, int accuracy) { return Native::Invoke<Any, Ped, int>(0x7AEFB85C1D49DEB6, ped, accuracy); }
+	static int GET_PED_ACCURACY(Ped ped) { return Native::Invoke<int, Ped>(0x37F4AD56ECBC0CD6, ped); }
+	static BOOL IS_PED_MODEL(Ped ped, Hash modelHash) { return Native::Invoke<BOOL, Ped, Hash>(0xC9D55B1A358A5BF7, ped, modelHash); }
+	static void EXPLODE_PED_HEAD(Ped ped, Hash weaponHash) { return Native::Invoke<void, Ped, Hash>(0x2D05CED3A38D0F3A, ped, weaponHash); }
+	static void ADD_ARMOUR_TO_PED(Ped ped, int amount) { return Native::Invoke<void, Ped, int>(0x5BA652A0CD14DF2F, ped, amount); }
 	static void _0x5CA20FBE49891BBD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5CA20FBE49891BBD, p0, p1); }
-	static void SET_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seatIndex) { return Native::Invoke<void, Ped, Vehicle, int>(N::SET_PED_INTO_VEHICLE, ped, vehicle, seatIndex); }
-	static void SET_PED_MOVE_ANIMS_BLEND_OUT(Ped ped) { return Native::Invoke<void, Ped>(N::SET_PED_MOVE_ANIMS_BLEND_OUT, ped); }
+	static void SET_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seatIndex) { return Native::Invoke<void, Ped, Vehicle, int>(0xF75B0D629E1C063D, ped, vehicle, seatIndex); }
+	static void SET_PED_MOVE_ANIMS_BLEND_OUT(Ped ped) { return Native::Invoke<void, Ped>(0x9E8C908F41584ECD, ped); }
 	static void _0x606D529DADA3C940(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x606D529DADA3C940, p0, p1); }
-	static BOOL IS_PED_MALE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_MALE, ped); }
-	static BOOL IS_PED_HUMAN(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_HUMAN, ped); }
-	static Vehicle GET_VEHICLE_PED_IS_IN(Ped ped, BOOL lastVehicle) { return Native::Invoke<Vehicle, Ped, BOOL>(N::GET_VEHICLE_PED_IS_IN, ped, lastVehicle); }
-	static void RESET_PED_LAST_VEHICLE(Ped ped) { return Native::Invoke<void, Ped>(N::RESET_PED_LAST_VEHICLE, ped); }
+	static BOOL IS_PED_MALE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x6D9F5FAA7488BA46, ped); }
+	static BOOL IS_PED_HUMAN(Ped ped) { return Native::Invoke<BOOL, Ped>(0xB980061DA992779D, ped); }
+	static Vehicle GET_VEHICLE_PED_IS_IN(Ped ped, BOOL lastVehicle) { return Native::Invoke<Vehicle, Ped, BOOL>(0x9A9112A0FE9A4713, ped, lastVehicle); }
+	static void RESET_PED_LAST_VEHICLE(Ped ped) { return Native::Invoke<void, Ped>(0xBB8DE8CF6A8DD8BB, ped); }
 	static Any _0xC6136B40FFFB778B() { return Native::Invoke<Any>(0xC6136B40FFFB778B); }
 	static void _0x6E8B87139854022D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6E8B87139854022D, p0, p1); }
 	static Any _0x313778EDCA9158E2() { return Native::Invoke<Any>(0x313778EDCA9158E2); }
@@ -3571,7 +3571,7 @@ namespace PED
 	static void _0xA77FA7BE9312F8C0(Any p0) { return Native::Invoke<void, Any>(0xA77FA7BE9312F8C0, p0); }
 	static void _0x9E3842E5DAD69F80(Any p0) { return Native::Invoke<void, Any>(0x9E3842E5DAD69F80, p0); }
 	static void _0xAB0D553FE20A6E25(Any p0) { return Native::Invoke<void, Any>(0xAB0D553FE20A6E25, p0); }
-	static void SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(N::SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME, p0); }
+	static void SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(0x7A556143A1C03898, p0); }
 	static void _0xC0258742B034DFAF(Any p0) { return Native::Invoke<void, Any>(0xC0258742B034DFAF, p0); }
 	static void _0xBA0980B5C0A11924(Any p0) { return Native::Invoke<void, Any>(0xBA0980B5C0A11924, p0); }
 	static Any _0xDB48E99F8E064E56() { return Native::Invoke<Any>(0xDB48E99F8E064E56); }
@@ -3580,17 +3580,17 @@ namespace PED
 	static void _0x4759CC730F947C81() { return Native::Invoke<void>(0x4759CC730F947C81); }
 	static Any _0xBFA6B7731C3BAF02() { return Native::Invoke<Any>(0xBFA6B7731C3BAF02); }
 	static Any _0x0EE3F0D7FECCC54F() { return Native::Invoke<Any>(0x0EE3F0D7FECCC54F); }
-	static void SET_PED_NON_CREATION_AREA(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<void, float, float, float, float, float, float>(N::SET_PED_NON_CREATION_AREA, x1, y1, z1, x2, y2, z2); }
-	static void CLEAR_PED_NON_CREATION_AREA() { return Native::Invoke<void>(N::CLEAR_PED_NON_CREATION_AREA); }
+	static void SET_PED_NON_CREATION_AREA(float x1, float y1, float z1, float x2, float y2, float z2) { return Native::Invoke<void, float, float, float, float, float, float>(0xEE01041D559983EA, x1, y1, z1, x2, y2, z2); }
+	static void CLEAR_PED_NON_CREATION_AREA() { return Native::Invoke<void>(0x2E05208086BA0651); }
 	static void _0x7C00CFC48A782DC0(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7C00CFC48A782DC0, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static void _0x19C975B81BE53C28(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x19C975B81BE53C28, p0, p1); }
 	static void _0x028F76B6E78246EB(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x028F76B6E78246EB, p0, p1, p2, p3); }
 	static void _0x5337B721C51883A9(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5337B721C51883A9, p0, p1, p2); }
 	static Any _0xF89AA2BD01FC06B7(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xF89AA2BD01FC06B7, p0, p1, p2, p3, p4, p5); }
 	static Any _0xAAB0FE202E9FC9F0(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xAAB0FE202E9FC9F0, p0, p1); }
-	static BOOL IS_PED_ON_MOUNT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_ON_MOUNT, ped); }
+	static BOOL IS_PED_ON_MOUNT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x460BC76A0E10655E, ped); }
 	static Any _0x95CBC65780DE7EB1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x95CBC65780DE7EB1, p0, p1); }
-	static Ped GET_MOUNT(Ped ped) { return Native::Invoke<Ped, Ped>(N::GET_MOUNT, ped); }
+	static Ped GET_MOUNT(Ped ped) { return Native::Invoke<Ped, Ped>(0xE7E11B8DCBED1058, ped); }
 	static Any _0x4C8B59171957BCF7(Any p0) { return Native::Invoke<Any, Any>(0x4C8B59171957BCF7, p0); }
 	static void _0xED1C764997A86D5A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xED1C764997A86D5A, p0, p1); }
 	static void _0xB8AB265426CFE6DD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB8AB265426CFE6DD, p0, p1); }
@@ -3608,26 +3608,26 @@ namespace PED
 	static Any _0x7FC84E85D98F063D(Any p0) { return Native::Invoke<Any, Any>(0x7FC84E85D98F063D, p0); }
 	static Any _0x8BE24D74D74C6E9B() { return Native::Invoke<Any>(0x8BE24D74D74C6E9B); }
 	static Any _0x77243ED4F7CAAA55(Any p0) { return Native::Invoke<Any, Any>(0x77243ED4F7CAAA55, p0); }
-	static BOOL IS_PED_ON_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_ON_VEHICLE, ped); }
-	static BOOL IS_PED_ON_SPECIFIC_VEHICLE(Ped ped, Vehicle vehicle) { return Native::Invoke<BOOL, Ped, Vehicle>(N::IS_PED_ON_SPECIFIC_VEHICLE, ped, vehicle); }
+	static BOOL IS_PED_ON_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x67722AEB798E5FAB, ped); }
+	static BOOL IS_PED_ON_SPECIFIC_VEHICLE(Ped ped, Vehicle vehicle) { return Native::Invoke<BOOL, Ped, Vehicle>(0xEC5F66E459AF3BB2, ped, vehicle); }
 	static void _0xE0B61ED8BB37712F(Any p0) { return Native::Invoke<void, Any>(0xE0B61ED8BB37712F, p0); }
-	static void SET_PED_MONEY(Ped ped, int amount) { return Native::Invoke<void, Ped, int>(N::SET_PED_MONEY, ped, amount); }
-	static int GET_PED_MONEY(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_MONEY, ped); }
+	static void SET_PED_MONEY(Ped ped, int amount) { return Native::Invoke<void, Ped, int>(0xA9C8960E8684C1B5, ped, amount); }
+	static int GET_PED_MONEY(Ped ped) { return Native::Invoke<int, Ped>(0x3F69145BBA87BAE7, ped); }
 	static void _0x9911F4A24485F653(Any p0) { return Native::Invoke<void, Any>(0x9911F4A24485F653, p0); }
 	static void _0x34EDDD59364AD74A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x34EDDD59364AD74A, p0, p1); }
 	static void _0x2D976DBDC731DF80(Any p0) { return Native::Invoke<void, Any>(0x2D976DBDC731DF80, p0); }
-	static BOOL IS_PED_SITTING_IN_VEHICLE(Ped ped, Vehicle vehicle) { return Native::Invoke<BOOL, Ped, Vehicle>(N::IS_PED_SITTING_IN_VEHICLE, ped, vehicle); }
-	static BOOL IS_PED_SITTING_IN_ANY_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_SITTING_IN_ANY_VEHICLE, ped); }
-	static BOOL IS_PED_ON_FOOT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_ON_FOOT, ped); }
-	static BOOL IS_PED_PLANTING_BOMB(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_PLANTING_BOMB, ped); }
-	static Vector3 GET_DEAD_PED_PICKUP_COORDS(Ped ped, float p1, float p2) { return Native::Invoke<Vector3, Ped, float, float>(N::GET_DEAD_PED_PICKUP_COORDS, ped, p1, p2); }
-	static BOOL IS_PED_IN_ANY_BOAT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_ANY_BOAT, ped); }
-	static Any IS_PED_IN_ANY_HELI() { return Native::Invoke<Any>(N::IS_PED_IN_ANY_HELI); }
-	static Any IS_PED_IN_ANY_PLANE() { return Native::Invoke<Any>(N::IS_PED_IN_ANY_PLANE); }
-	static Any IS_PED_IN_FLYING_VEHICLE() { return Native::Invoke<Any>(N::IS_PED_IN_FLYING_VEHICLE); }
+	static BOOL IS_PED_SITTING_IN_VEHICLE(Ped ped, Vehicle vehicle) { return Native::Invoke<BOOL, Ped, Vehicle>(0xA808AA1D79230FC2, ped, vehicle); }
+	static BOOL IS_PED_SITTING_IN_ANY_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x826AA586EDB9FEF8, ped); }
+	static BOOL IS_PED_ON_FOOT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x01FEE67DB37F59B2, ped); }
+	static BOOL IS_PED_PLANTING_BOMB(Ped ped) { return Native::Invoke<BOOL, Ped>(0xC70B5FAE151982D8, ped); }
+	static Vector3 GET_DEAD_PED_PICKUP_COORDS(Ped ped, float p1, float p2) { return Native::Invoke<Vector3, Ped, float, float>(0xCD5003B097200F36, ped, p1, p2); }
+	static BOOL IS_PED_IN_ANY_BOAT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x2E0E1C2B4F6CB339, ped); }
+	static BOOL IS_PED_IN_ANY_HELI() { return Native::Invoke<BOOL>(0x298B91AE825E5705); }
+	static BOOL IS_PED_IN_ANY_PLANE() { return Native::Invoke<BOOL>(0x5FFF4CFC74D8FB80); }
+	static BOOL IS_PED_IN_FLYING_VEHICLE() { return Native::Invoke<BOOL>(0x9134873537FA419C); }
 	static Any _0x256EDD55C6BE1482() { return Native::Invoke<Any>(0x256EDD55C6BE1482); }
-	static BOOL GET_PED_LAST_DAMAGE_BONE(Ped ped, int* outBone) { return Native::Invoke<BOOL, Ped, int*>(N::GET_PED_LAST_DAMAGE_BONE, ped, outBone); }
-	static Any CLEAR_PED_LAST_DAMAGE_BONE() { return Native::Invoke<Any>(N::CLEAR_PED_LAST_DAMAGE_BONE); }
+	static BOOL GET_PED_LAST_DAMAGE_BONE(Ped ped, int* outBone) { return Native::Invoke<BOOL, Ped, int*>(0xD75960F6BD9EA49C, ped, outBone); }
+	static void CLEAR_PED_LAST_DAMAGE_BONE() { return Native::Invoke<void>(0x8EF6B7AC68E2F01B); }
 	static Any _0x88EFFED5FE8B0B4A(Any p0) { return Native::Invoke<Any, Any>(0x88EFFED5FE8B0B4A, p0); }
 	static void _0x7528720101A807A5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7528720101A807A5, p0, p1); }
 	static Any _0x6CFC373008A1EDAF() { return Native::Invoke<Any>(0x6CFC373008A1EDAF); }
@@ -3636,15 +3636,15 @@ namespace PED
 	static Any _0x101B45C5F56D970F(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x101B45C5F56D970F, p0, p1, p2, p3); }
 	static Any _0x6B89FAA36FC909A3(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x6B89FAA36FC909A3, p0, p1, p2, p3); }
 	static Any _0x9E7738B291706746(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x9E7738B291706746, p0, p1, p2); }
-	static void SET_AI_WEAPON_DAMAGE_MODIFIER(float value) { return Native::Invoke<void, float>(N::SET_AI_WEAPON_DAMAGE_MODIFIER, value); }
-	static void RESET_AI_WEAPON_DAMAGE_MODIFIER() { return Native::Invoke<void>(N::RESET_AI_WEAPON_DAMAGE_MODIFIER); }
+	static void SET_AI_WEAPON_DAMAGE_MODIFIER(float value) { return Native::Invoke<void, float>(0x1B1E2A40A65B8521, value); }
+	static void RESET_AI_WEAPON_DAMAGE_MODIFIER() { return Native::Invoke<void>(0xEA16670E7BA4743C); }
 	static void _0x73B6F907B913C860(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x73B6F907B913C860, p0, p1); }
 	static Any _0xA6D6F03095C88F59() { return Native::Invoke<Any>(0xA6D6F03095C88F59); }
 	static Any _0x92C8EACA29F6BED6(Any p0) { return Native::Invoke<Any, Any>(0x92C8EACA29F6BED6, p0); }
 	static void _0xD77AE48611B7B10A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD77AE48611B7B10A, p0, p1); }
 	static Any _0x936E7CAD0AE2EE14(Any p0) { return Native::Invoke<Any, Any>(0x936E7CAD0AE2EE14, p0); }
 	static Any _0x069EDDF1FD4DEB0A() { return Native::Invoke<Any>(0x069EDDF1FD4DEB0A); }
-	static void SET_AI_MELEE_WEAPON_DAMAGE_MODIFIER(float modifier) { return Native::Invoke<void, float>(N::SET_AI_MELEE_WEAPON_DAMAGE_MODIFIER, modifier); }
+	static void SET_AI_MELEE_WEAPON_DAMAGE_MODIFIER(float modifier) { return Native::Invoke<void, float>(0x66460DEDDD417254, modifier); }
 	static void _0xC2266AA617668AD3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC2266AA617668AD3, p0, p1); }
 	static Any _0xDC9273D95976BA22(Any p0) { return Native::Invoke<Any, Any>(0xDC9273D95976BA22, p0); }
 	static void _0x2BA918C823B8BA56(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2BA918C823B8BA56, p0, p1); }
@@ -3657,71 +3657,71 @@ namespace PED
 	static Any _0x3FDCC1F8C17E303E() { return Native::Invoke<Any>(0x3FDCC1F8C17E303E); }
 	static Any _0x9B6808EC46BE849B() { return Native::Invoke<Any>(0x9B6808EC46BE849B); }
 	static void _0xC5B78E41DCF8227C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC5B78E41DCF8227C, p0, p1); }
-	static void SET_PED_CAN_BE_TARGETTED(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_BE_TARGETTED, ped, toggle); }
-	static Any SET_PED_CAN_BE_TARGETTED_BY_TEAM() { return Native::Invoke<Any>(N::SET_PED_CAN_BE_TARGETTED_BY_TEAM); }
-	static void SET_PED_CAN_BE_TARGETTED_BY_PLAYER(Ped ped, Player player, BOOL toggle) { return Native::Invoke<void, Ped, Player, BOOL>(N::SET_PED_CAN_BE_TARGETTED_BY_PLAYER, ped, player, toggle); }
+	static void SET_PED_CAN_BE_TARGETTED(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x63F58F7C80513AAD, ped, toggle); }
+	static void SET_PED_CAN_BE_TARGETTED_BY_TEAM() { return Native::Invoke<void>(0xBF1CA77833E58F2C); }
+	static void SET_PED_CAN_BE_TARGETTED_BY_PLAYER(Ped ped, Player player, BOOL toggle) { return Native::Invoke<void, Ped, Player, BOOL>(0x66B57B72E0836A76, ped, player, toggle); }
 	static Any _0xFECA2081F61ED2CD() { return Native::Invoke<Any>(0xFECA2081F61ED2CD); }
-	static BOOL IS_PED_FALLING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_FALLING, ped); }
+	static BOOL IS_PED_FALLING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xFB92A102F1C4DFA3, ped); }
 	static Any _0xD6740E14E4CEFC0B(Any p0) { return Native::Invoke<Any, Any>(0xD6740E14E4CEFC0B, p0); }
-	static BOOL IS_PED_JUMPING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_JUMPING, ped); }
-	static BOOL IS_PED_CLIMBING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_CLIMBING, ped); }
+	static BOOL IS_PED_JUMPING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xCEDABC5900A0BF97, ped); }
+	static BOOL IS_PED_CLIMBING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x53E8CB4F48BFE623, ped); }
 	static Any _0x59643424B68D52B5(Any p0) { return Native::Invoke<Any, Any>(0x59643424B68D52B5, p0); }
 	static Any _0x577C60BA06D0EA64(Any p0) { return Native::Invoke<Any, Any>(0x577C60BA06D0EA64, p0); }
-	static BOOL IS_PED_VAULTING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_VAULTING, ped); }
-	static BOOL IS_PED_DIVING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_DIVING, ped); }
-	static Any _IS_PED_OPENING_A_DOOR(Any p0) { return Native::Invoke<Any, Any>(N::_IS_PED_OPENING_A_DOOR, p0); }
+	static BOOL IS_PED_VAULTING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x117C70D1F5730B5E, ped); }
+	static BOOL IS_PED_DIVING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x5527B8246FEF9B11, ped); }
+	static Any _IS_PED_OPENING_A_DOOR(Any p0) { return Native::Invoke<Any, Any>(0x26AF0E8E30BD2A2C, p0); }
 	static Any _0x5C6C7C70CA302801(Any p0) { return Native::Invoke<Any, Any>(0x5C6C7C70CA302801, p0); }
 	static Any _0xB91AB3BE7F655D49(Any p0) { return Native::Invoke<Any, Any>(0xB91AB3BE7F655D49, p0); }
-	static BOOL IS_PED_IN_ANY_TAXI(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_ANY_TAXI, ped); }
-	static void SET_PED_ID_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_ID_RANGE, ped, value); }
+	static BOOL IS_PED_IN_ANY_TAXI(Ped ped) { return Native::Invoke<BOOL, Ped>(0x6E575D6A898AB852, ped); }
+	static void SET_PED_ID_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0xF107E836A70DCE05, ped, value); }
 	static Any _0x31167ED4324B758D(Any p0) { return Native::Invoke<Any, Any>(0x31167ED4324B758D, p0); }
-	static void SET_PED_HIGHLY_PERCEPTIVE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_PED_HIGHLY_PERCEPTIVE, p0, p1); }
+	static void SET_PED_HIGHLY_PERCEPTIVE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x52D59AB61DDC05DD, p0, p1); }
 	static void _0x733C87D4CE22BEA2(Any p0) { return Native::Invoke<void, Any>(0x733C87D4CE22BEA2, p0); }
 	static void _0x028E7B3BBA0BD2FC(Any p0) { return Native::Invoke<void, Any>(0x028E7B3BBA0BD2FC, p0); }
 	static Any _0xFA8C10DCE0706D43(Any p0) { return Native::Invoke<Any, Any>(0xFA8C10DCE0706D43, p0); }
 	static Any _0x2BA9D7BF629F920C(Any p0) { return Native::Invoke<Any, Any>(0x2BA9D7BF629F920C, p0); }
-	static void SET_PED_SEEING_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_SEEING_RANGE, ped, value); }
+	static void SET_PED_SEEING_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0xF29CF591C4BF6CEE, ped, value); }
 	static Any _0x900CA00CE703E1E2(Any p0) { return Native::Invoke<Any, Any>(0x900CA00CE703E1E2, p0); }
-	static void SET_PED_HEARING_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_HEARING_RANGE, ped, value); }
-	static void SET_PED_VISUAL_FIELD_MIN_ANGLE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_VISUAL_FIELD_MIN_ANGLE, ped, value); }
-	static void SET_PED_VISUAL_FIELD_MAX_ANGLE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_VISUAL_FIELD_MAX_ANGLE, ped, value); }
-	static void SET_PED_VISUAL_FIELD_PERIPHERAL_RANGE(Ped ped, float range) { return Native::Invoke<void, Ped, float>(N::SET_PED_VISUAL_FIELD_PERIPHERAL_RANGE, ped, range); }
-	static void SET_PED_VISUAL_FIELD_CENTER_ANGLE(Ped ped, float angle) { return Native::Invoke<void, Ped, float>(N::SET_PED_VISUAL_FIELD_CENTER_ANGLE, ped, angle); }
+	static void SET_PED_HEARING_RANGE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x33A8F7F7D5F7F33C, ped, value); }
+	static void SET_PED_VISUAL_FIELD_MIN_ANGLE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x2DB492222FB21E26, ped, value); }
+	static void SET_PED_VISUAL_FIELD_MAX_ANGLE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x70793BDCA1E854D4, ped, value); }
+	static void SET_PED_VISUAL_FIELD_PERIPHERAL_RANGE(Ped ped, float range) { return Native::Invoke<void, Ped, float>(0x9C74B0BC831B753A, ped, range); }
+	static void SET_PED_VISUAL_FIELD_CENTER_ANGLE(Ped ped, float angle) { return Native::Invoke<void, Ped, float>(0x3B6405E8AB34A907, ped, angle); }
 	static void _0x9AB33CB5834885B3(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x9AB33CB5834885B3, p0, p1, p2, p3, p4); }
 	static void _0x899DFA0009AC93DE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x899DFA0009AC93DE, p0, p1); }
 	static void _0x3A5697B80FED5EBE(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3A5697B80FED5EBE, p0, p1, p2, p3, p4); }
-	static void SET_PED_STEALTH_MOVEMENT(Ped ped, BOOL p1, char* action, Any p3) { return Native::Invoke<void, Ped, BOOL, char*, Any>(N::SET_PED_STEALTH_MOVEMENT, ped, p1, action, p3); }
-	static BOOL GET_PED_STEALTH_MOVEMENT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::GET_PED_STEALTH_MOVEMENT, ped); }
+	static void SET_PED_STEALTH_MOVEMENT(Ped ped, BOOL p1, const char* action, Any p3) { return Native::Invoke<void, Ped, BOOL, const char*, Any>(0x88CBB5CEB96B7BD2, ped, p1, action, p3); }
+	static BOOL GET_PED_STEALTH_MOVEMENT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x7C2AC9CA66575FBF, ped); }
 	static void _0x7DE9692C6F64CFE8(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x7DE9692C6F64CFE8, p0, p1, p2, p3); }
 	static Any _0xD5FE956C70FF370B(Any p0) { return Native::Invoke<Any, Any>(0xD5FE956C70FF370B, p0); }
 	static Any _0xC48A9EB0D499B3E5(Any p0) { return Native::Invoke<Any, Any>(0xC48A9EB0D499B3E5, p0); }
-	static int CREATE_GROUP(int unused) { return Native::Invoke<int, int>(N::CREATE_GROUP, unused); }
-	static void SET_PED_AS_GROUP_LEADER(Ped ped, int groupId, Any p2) { return Native::Invoke<void, Ped, int, Any>(N::SET_PED_AS_GROUP_LEADER, ped, groupId, p2); }
-	static void SET_PED_AS_GROUP_MEMBER(Ped ped, int groupId) { return Native::Invoke<void, Ped, int>(N::SET_PED_AS_GROUP_MEMBER, ped, groupId); }
-	static void SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(Ped pedHandle, int groupHandle, BOOL toggle) { return Native::Invoke<void, Ped, int, BOOL>(N::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER, pedHandle, groupHandle, toggle); }
-	static void REMOVE_GROUP(int groupId) { return Native::Invoke<void, int>(N::REMOVE_GROUP, groupId); }
-	static void REMOVE_PED_FROM_GROUP(Ped ped) { return Native::Invoke<void, Ped>(N::REMOVE_PED_FROM_GROUP, ped); }
-	static BOOL IS_PED_GROUP_MEMBER(Ped ped, int groupId, Any p2) { return Native::Invoke<BOOL, Ped, int, Any>(N::IS_PED_GROUP_MEMBER, ped, groupId, p2); }
+	static int CREATE_GROUP(int unused) { return Native::Invoke<int, int>(0x90370EBE0FEE1A3D, unused); }
+	static void SET_PED_AS_GROUP_LEADER(Ped ped, int groupId, Any p2) { return Native::Invoke<void, Ped, int, Any>(0x2A7819605465FBCE, ped, groupId, p2); }
+	static void SET_PED_AS_GROUP_MEMBER(Ped ped, int groupId) { return Native::Invoke<void, Ped, int>(0x9F3480FE65DB31B5, ped, groupId); }
+	static void SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(Ped pedHandle, int groupHandle, BOOL toggle) { return Native::Invoke<void, Ped, int, BOOL>(0x2E2F4240B3F24647, pedHandle, groupHandle, toggle); }
+	static void REMOVE_GROUP(int groupId) { return Native::Invoke<void, int>(0x8EB2F69076AF7053, groupId); }
+	static void REMOVE_PED_FROM_GROUP(Ped ped) { return Native::Invoke<void, Ped>(0xED74007FFB146BC2, ped); }
+	static BOOL IS_PED_GROUP_MEMBER(Ped ped, int groupId, Any p2) { return Native::Invoke<BOOL, Ped, int, Any>(0x9BB01E3834671191, ped, groupId, p2); }
 	static Any _0x878B68960C1C2A35(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x878B68960C1C2A35, p0, p1); }
-	static BOOL IS_PED_HANGING_ON_TO_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_HANGING_ON_TO_VEHICLE, ped); }
-	static void SET_GROUP_SEPARATION_RANGE(int groupHandle, float separationRange) { return Native::Invoke<void, int, float>(N::SET_GROUP_SEPARATION_RANGE, groupHandle, separationRange); }
+	static BOOL IS_PED_HANGING_ON_TO_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x1C86D8AEF8254B78, ped); }
+	static void SET_GROUP_SEPARATION_RANGE(int groupHandle, float separationRange) { return Native::Invoke<void, int, float>(0x4102C7858CFEE4E4, groupHandle, separationRange); }
 	static void _0x89E59DBD15E21177(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x89E59DBD15E21177, p0, p1); }
-	static BOOL IS_PED_PRONE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_PRONE, ped); }
+	static BOOL IS_PED_PRONE(Ped ped) { return Native::Invoke<BOOL, Ped>(0xD6A86331A537A7B9, ped); }
 	static Any _0x7583A9D35248B83F(Any p0) { return Native::Invoke<Any, Any>(0x7583A9D35248B83F, p0); }
-	static BOOL IS_PED_IN_COMBAT(Ped ped, Ped target) { return Native::Invoke<BOOL, Ped, Ped>(N::IS_PED_IN_COMBAT, ped, target); }
-	static Any CAN_PED_IN_COMBAT_SEE_TARGET() { return Native::Invoke<Any>(N::CAN_PED_IN_COMBAT_SEE_TARGET); }
-	static BOOL IS_PED_JACKING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_JACKING, ped); }
-	static BOOL IS_PED_BEING_JACKED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_BEING_JACKED, ped); }
-	static BOOL IS_PED_BEING_STUNNED(Ped ped, int p1) { return Native::Invoke<BOOL, Ped, int>(N::IS_PED_BEING_STUNNED, ped, p1); }
-	static Ped GET_PEDS_JACKER(Ped ped) { return Native::Invoke<Ped, Ped>(N::GET_PEDS_JACKER, ped); }
-	static Ped GET_JACK_TARGET(Ped ped) { return Native::Invoke<Ped, Ped>(N::GET_JACK_TARGET, ped); }
-	static BOOL IS_PED_FLEEING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_FLEEING, ped); }
-	static BOOL IS_PED_IN_COVER(Ped ped, BOOL exceptUseWeapon, Any p2) { return Native::Invoke<BOOL, Ped, BOOL, Any>(N::IS_PED_IN_COVER, ped, exceptUseWeapon, p2); }
+	static BOOL IS_PED_IN_COMBAT(Ped ped, Ped target) { return Native::Invoke<BOOL, Ped, Ped>(0x4859F1FC66A6278E, ped, target); }
+	static BOOL CAN_PED_IN_COMBAT_SEE_TARGET() { return Native::Invoke<BOOL>(0xEAD42DE3610D0721); }
+	static BOOL IS_PED_JACKING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x4AE4FF911DFB61DA, ped); }
+	static BOOL IS_PED_BEING_JACKED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x9A497FE2DF198913, ped); }
+	static BOOL IS_PED_BEING_STUNNED(Ped ped, int p1) { return Native::Invoke<BOOL, Ped, int>(0x4FBACCE3B4138EE8, ped, p1); }
+	static Ped GET_PEDS_JACKER(Ped ped) { return Native::Invoke<Ped, Ped>(0x9B128DC36C1E04CF, ped); }
+	static Ped GET_JACK_TARGET(Ped ped) { return Native::Invoke<Ped, Ped>(0x5486A79D9FBD342D, ped); }
+	static BOOL IS_PED_FLEEING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xBBCCE00B381F8482, ped); }
+	static BOOL IS_PED_IN_COVER(Ped ped, BOOL exceptUseWeapon, Any p2) { return Native::Invoke<BOOL, Ped, BOOL, Any>(0x60DFD0691A170B88, ped, exceptUseWeapon, p2); }
 	static Any _0x2DD4E0E26DFAD97D(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x2DD4E0E26DFAD97D, p0, p1, p2); }
 	static Any _0x06FA94C835787C64(Any p0) { return Native::Invoke<Any, Any>(0x06FA94C835787C64, p0); }
 	static Any _0xBD6B242B8BD5543A(Any p0) { return Native::Invoke<Any, Any>(0xBD6B242B8BD5543A, p0); }
-	static BOOL IS_PED_IN_COVER_FACING_LEFT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_COVER_FACING_LEFT, ped); }
-	static BOOL IS_PED_GOING_INTO_COVER(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_GOING_INTO_COVER, ped); }
+	static BOOL IS_PED_IN_COVER_FACING_LEFT(Ped ped) { return Native::Invoke<BOOL, Ped>(0x845333B3150583AB, ped); }
+	static BOOL IS_PED_GOING_INTO_COVER(Ped ped) { return Native::Invoke<BOOL, Ped>(0x9F65DBC537E59AD5, ped); }
 	static Any _0x77525BBF433F2CD6(Any p0) { return Native::Invoke<Any, Any>(0x77525BBF433F2CD6, p0); }
 	static Any _0xC22AA08A8ADB87D4(Any p0) { return Native::Invoke<Any, Any>(0xC22AA08A8ADB87D4, p0); }
 	static Any _0x569F1E1237508DEB(Any p0) { return Native::Invoke<Any, Any>(0x569F1E1237508DEB, p0); }
@@ -3731,61 +3731,61 @@ namespace PED
 	static Any _0xBEC65C6049B3219D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xBEC65C6049B3219D, p0, p1, p2, p3, p4, p5); }
 	static Any _0xBDED916A9F9B0604(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xBDED916A9F9B0604, p0, p1, p2, p3, p4, p5); }
 	static Any _0x4D0D2E3D8BC000EB(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x4D0D2E3D8BC000EB, p0, p1, p2); }
-	static int GET_SEAT_PED_IS_TRYING_TO_ENTER(Ped ped) { return Native::Invoke<int, Ped>(N::GET_SEAT_PED_IS_TRYING_TO_ENTER, ped); }
-	static Entity GET_PED_SOURCE_OF_DEATH(Ped ped) { return Native::Invoke<Entity, Ped>(N::GET_PED_SOURCE_OF_DEATH, ped); }
-	static Hash GET_PED_CAUSE_OF_DEATH(Ped ped) { return Native::Invoke<Hash, Ped>(N::GET_PED_CAUSE_OF_DEATH, ped); }
-	static Any GET_PED_TIME_OF_DEATH(Any p0) { return Native::Invoke<Any, Any>(N::GET_PED_TIME_OF_DEATH, p0); }
+	static int GET_SEAT_PED_IS_TRYING_TO_ENTER(Ped ped) { return Native::Invoke<int, Ped>(0x6F4C85ACD641BCD2, ped); }
+	static Entity GET_PED_SOURCE_OF_DEATH(Ped ped) { return Native::Invoke<Entity, Ped>(0x93C8B64DEB84728C, ped); }
+	static Hash GET_PED_CAUSE_OF_DEATH(Ped ped) { return Native::Invoke<Hash, Ped>(0x16FFE42AB2D2DC59, ped); }
+	static Any GET_PED_TIME_OF_DEATH(Any p0) { return Native::Invoke<Any, Any>(0x1E98817B311AE98A, p0); }
 	static Any _0x5407B7288D0478B7(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x5407B7288D0478B7, p0, p1); }
 	static Any _0x7BE607DAFF382FD2(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7BE607DAFF382FD2, p0, p1, p2); }
 	static Any _0x336B3D200AB007CB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x336B3D200AB007CB, p0, p1, p2, p3, p4, p5); }
 	static Any _0xCD66FEA29400A0B5(Any p0) { return Native::Invoke<Any, Any>(0xCD66FEA29400A0B5, p0); }
-	static void SET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped, Hash hash) { return Native::Invoke<void, Ped, Hash>(N::SET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH, ped, hash); }
+	static void SET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped, Hash hash) { return Native::Invoke<void, Ped, Hash>(0xADB3F206518799E8, ped, hash); }
 	static Any _0x3CC4A718C258BDD0(Any p0) { return Native::Invoke<Any, Any>(0x3CC4A718C258BDD0, p0); }
-	static void SET_PED_RELATIONSHIP_GROUP_HASH(Ped ped, Hash hash) { return Native::Invoke<void, Ped, Hash>(N::SET_PED_RELATIONSHIP_GROUP_HASH, ped, hash); }
-	static void SET_RELATIONSHIP_BETWEEN_GROUPS(int relationship, Hash group1, Hash group2) { return Native::Invoke<void, int, Hash, Hash>(N::SET_RELATIONSHIP_BETWEEN_GROUPS, relationship, group1, group2); }
-	static void CLEAR_RELATIONSHIP_BETWEEN_GROUPS(int relationship, Hash group1, Hash group2) { return Native::Invoke<void, int, Hash, Hash>(N::CLEAR_RELATIONSHIP_BETWEEN_GROUPS, relationship, group1, group2); }
-	static Any ADD_RELATIONSHIP_GROUP(char* name, Hash* groupHash) { return Native::Invoke<Any, char*, Hash*>(N::ADD_RELATIONSHIP_GROUP, name, groupHash); }
-	static void REMOVE_RELATIONSHIP_GROUP(Hash groupHash) { return Native::Invoke<void, Hash>(N::REMOVE_RELATIONSHIP_GROUP, groupHash); }
-	static int GET_RELATIONSHIP_BETWEEN_PEDS(Ped ped1, Ped ped2) { return Native::Invoke<int, Ped, Ped>(N::GET_RELATIONSHIP_BETWEEN_PEDS, ped1, ped2); }
-	static Hash GET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped) { return Native::Invoke<Hash, Ped>(N::GET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH, ped); }
-	static Hash GET_PED_RELATIONSHIP_GROUP_HASH(Ped ped) { return Native::Invoke<Hash, Ped>(N::GET_PED_RELATIONSHIP_GROUP_HASH, ped); }
-	static int GET_RELATIONSHIP_BETWEEN_GROUPS(Hash group1, Hash group2) { return Native::Invoke<int, Hash, Hash>(N::GET_RELATIONSHIP_BETWEEN_GROUPS, group1, group2); }
+	static void SET_PED_RELATIONSHIP_GROUP_HASH(Ped ped, Hash hash) { return Native::Invoke<void, Ped, Hash>(0xC80A74AC829DDD92, ped, hash); }
+	static void SET_RELATIONSHIP_BETWEEN_GROUPS(int relationship, Hash group1, Hash group2) { return Native::Invoke<void, int, Hash, Hash>(0xBF25EB89375A37AD, relationship, group1, group2); }
+	static void CLEAR_RELATIONSHIP_BETWEEN_GROUPS(int relationship, Hash group1, Hash group2) { return Native::Invoke<void, int, Hash, Hash>(0x5E29243FB56FC6D4, relationship, group1, group2); }
+	static Any ADD_RELATIONSHIP_GROUP(const char* name, Hash* groupHash) { return Native::Invoke<Any, const char*, Hash*>(0xF372BC22FCB88606, name, groupHash); }
+	static void REMOVE_RELATIONSHIP_GROUP(Hash groupHash) { return Native::Invoke<void, Hash>(0xB6BA2444AB393DA2, groupHash); }
+	static int GET_RELATIONSHIP_BETWEEN_PEDS(Ped ped1, Ped ped2) { return Native::Invoke<int, Ped, Ped>(0xEBA5AD3A0EAF7121, ped1, ped2); }
+	static Hash GET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped) { return Native::Invoke<Hash, Ped>(0x42FDD0F017B1E38E, ped); }
+	static Hash GET_PED_RELATIONSHIP_GROUP_HASH(Ped ped) { return Native::Invoke<Hash, Ped>(0x7DBDD04862D95F04, ped); }
+	static int GET_RELATIONSHIP_BETWEEN_GROUPS(Hash group1, Hash group2) { return Native::Invoke<int, Hash, Hash>(0x9E6B70061662AE5C, group1, group2); }
 	static void _0xDC91F22F09BC6C2F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDC91F22F09BC6C2F, p0, p1); }
 	static Any _0x9629FAF6460D35CB() { return Native::Invoke<Any>(0x9629FAF6460D35CB); }
 	static Any _0x4E68C7EF706DF35D() { return Native::Invoke<Any>(0x4E68C7EF706DF35D); }
 	static Any _0x3ACCE14DFA6BA8C2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0x3ACCE14DFA6BA8C2, p0, p1, p2, p3, p4, p5, p6); }
-	static Any SET_PED_TO_INFORM_RESPECTED_FRIENDS() { return Native::Invoke<Any>(N::SET_PED_TO_INFORM_RESPECTED_FRIENDS); }
+	static void SET_PED_TO_INFORM_RESPECTED_FRIENDS() { return Native::Invoke<void>(0x112942C6E708F70B); }
 	static Any _0x40C9155AF8BC13F3(Any p0) { return Native::Invoke<Any, Any>(0x40C9155AF8BC13F3, p0); }
 	static Any _0xF4860514AD354226(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xF4860514AD354226, p0, p1, p2, p3, p4, p5); }
-	static BOOL IS_PED_RESPONDING_TO_EVENT(Ped ped, Any event) { return Native::Invoke<BOOL, Ped, Any>(N::IS_PED_RESPONDING_TO_EVENT, ped, event); }
+	static BOOL IS_PED_RESPONDING_TO_EVENT(Ped ped, Any event) { return Native::Invoke<BOOL, Ped, Any>(0x625B774D75C87068, ped, event); }
 	static Any _0x5E9FAF6C513347B4(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x5E9FAF6C513347B4, p0, p1); }
 	static Any _0x326F7951EF0D7F75(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x326F7951EF0D7F75, p0, p1); }
 	static Any _0xE76687023D8C8505(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE76687023D8C8505, p0, p1); }
 	static Any _0xCB8F4C9343EBE240(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xCB8F4C9343EBE240, p0, p1, p2); }
-	static void SET_PED_FIRING_PATTERN(Ped ped, Hash patternHash) { return Native::Invoke<void, Ped, Hash>(N::SET_PED_FIRING_PATTERN, ped, patternHash); }
+	static void SET_PED_FIRING_PATTERN(Ped ped, Hash patternHash) { return Native::Invoke<void, Ped, Hash>(0x9AC577F5A12AD8A9, ped, patternHash); }
 	static void _0x20E54854DEF6A54A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x20E54854DEF6A54A, p0, p1); }
 	static Any _0x244E8C282188E40F() { return Native::Invoke<Any>(0x244E8C282188E40F); }
-	static void SET_PED_SHOOT_RATE(Ped ped, int shootRate) { return Native::Invoke<void, Ped, int>(N::SET_PED_SHOOT_RATE, ped, shootRate); }
+	static void SET_PED_SHOOT_RATE(Ped ped, int shootRate) { return Native::Invoke<void, Ped, int>(0x614DA022990752DC, ped, shootRate); }
 	static void _0x3C529A827998F9B3(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3C529A827998F9B3, p0, p1, p2); }
 	static void _0x1F44B7E283C09EDE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x1F44B7E283C09EDE, p0, p1, p2); }
-	static void SET_COMBAT_FLOAT(Ped ped, int combatType, float p2) { return Native::Invoke<void, Ped, int, float>(N::SET_COMBAT_FLOAT, ped, combatType, p2); }
-	static float GET_COMBAT_FLOAT(Ped ped, int p1) { return Native::Invoke<float, Ped, int>(N::GET_COMBAT_FLOAT, ped, p1); }
-	static void GET_GROUP_SIZE(int groupID, Any* unknown, int* sizeInMembers) { return Native::Invoke<void, int, Any*, int*>(N::GET_GROUP_SIZE, groupID, unknown, sizeInMembers); }
-	static BOOL DOES_GROUP_EXIST(int groupId) { return Native::Invoke<BOOL, int>(N::DOES_GROUP_EXIST, groupId); }
+	static void SET_COMBAT_FLOAT(Ped ped, int combatType, float p2) { return Native::Invoke<void, Ped, int, float>(0xFF41B4B141ED981C, ped, combatType, p2); }
+	static float GET_COMBAT_FLOAT(Ped ped, int p1) { return Native::Invoke<float, Ped, int>(0x52DFF8A10508090A, ped, p1); }
+	static void GET_GROUP_SIZE(int groupID, Any* unknown, int* sizeInMembers) { return Native::Invoke<void, int, Any*, int*>(0x8DE69FE35CA09A45, groupID, unknown, sizeInMembers); }
+	static BOOL DOES_GROUP_EXIST(int groupId) { return Native::Invoke<BOOL, int>(0x7C6B0C22F9F40BBE, groupId); }
 	static Any _0x0455546F23FF08E4(Any p0) { return Native::Invoke<Any, Any>(0x0455546F23FF08E4, p0); }
 	static Any _0x909AD9E9A92A10DF() { return Native::Invoke<Any>(0x909AD9E9A92A10DF); }
-	static int GET_PED_GROUP_INDEX(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_GROUP_INDEX, ped); }
-	static BOOL IS_PED_IN_GROUP(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_GROUP, ped); }
+	static int GET_PED_GROUP_INDEX(Ped ped) { return Native::Invoke<int, Ped>(0xF162E133B4E7A675, ped); }
+	static BOOL IS_PED_IN_GROUP(Ped ped) { return Native::Invoke<BOOL, Ped>(0x5891CAC5D4ACFF74, ped); }
 	static Any _0x917760CFE7A0E0F1(Any p0) { return Native::Invoke<Any, Any>(0x917760CFE7A0E0F1, p0); }
-	static Any GET_PLAYER_PED_IS_FOLLOWING() { return Native::Invoke<Any>(N::GET_PLAYER_PED_IS_FOLLOWING); }
-	static void SET_GROUP_FORMATION(int groupId, int formationType) { return Native::Invoke<void, int, int>(N::SET_GROUP_FORMATION, groupId, formationType); }
+	static Player GET_PLAYER_PED_IS_FOLLOWING() { return Native::Invoke<Player>(0x6A3975DEA89F9A17); }
+	static void SET_GROUP_FORMATION(int groupId, int formationType) { return Native::Invoke<void, int, int>(0xCE2F5FC3AF7E8C1E, groupId, formationType); }
 	static Any _0x13A1B061007C906B(Any p0) { return Native::Invoke<Any, Any>(0x13A1B061007C906B, p0); }
-	static void SET_GROUP_FORMATION_SPACING(int groupId, float p1, float p2, float p3) { return Native::Invoke<void, int, float, float, float>(N::SET_GROUP_FORMATION_SPACING, groupId, p1, p2, p3); }
-	static void RESET_GROUP_FORMATION_DEFAULT_SPACING(int groupId) { return Native::Invoke<void, int>(N::RESET_GROUP_FORMATION_DEFAULT_SPACING, groupId); }
+	static void SET_GROUP_FORMATION_SPACING(int groupId, float p1, float p2, float p3) { return Native::Invoke<void, int, float, float, float>(0x1D9D45004C28C916, groupId, p1, p2, p3); }
+	static void RESET_GROUP_FORMATION_DEFAULT_SPACING(int groupId) { return Native::Invoke<void, int>(0x63DAB4CCB3273205, groupId); }
 	static Any _0xB05CC690CDE8A4A9(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB05CC690CDE8A4A9, p0, p1); }
 	static void _0x4E23CD07BD161E06(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x4E23CD07BD161E06, p0, p1, p2, p3, p4); }
 	static Any _0xB05945C1E9E60D91(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xB05945C1E9E60D91, p0, p1, p2, p3); }
-	static Any _0x7CC7D3B7AF7FB71F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7CC7D3B7AF7FB71F, p0, p1); }
+	static Any SET_FORMATION_POSITIONS_TARGET_RADIUS(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7CC7D3B7AF7FB71F, p0, p1); }
 	static void _0x478F6B9920446CE2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x478F6B9920446CE2, p0, p1); }
 	static void _0x0E9E95FDEDCC9D35(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x0E9E95FDEDCC9D35, p0, p1, p2); }
 	static Any _0x8AF8E647D6B2A649(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x8AF8E647D6B2A649, p0, p1); }
@@ -3806,23 +3806,23 @@ namespace PED
 	static void _0x86FAFC18E3D4380C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x86FAFC18E3D4380C, p0, p1); }
 	static Any _0x07EA5B053FA60AC7() { return Native::Invoke<Any>(0x07EA5B053FA60AC7); }
 	static void _0xF9CBD46433E36713(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xF9CBD46433E36713, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static Vehicle GET_VEHICLE_PED_IS_USING(Ped ped) { return Native::Invoke<Vehicle, Ped>(N::GET_VEHICLE_PED_IS_USING, ped); }
-	static Any GET_VEHICLE_PED_IS_ENTERING(Any p0) { return Native::Invoke<Any, Any>(N::GET_VEHICLE_PED_IS_ENTERING, p0); }
+	static Vehicle GET_VEHICLE_PED_IS_USING(Ped ped) { return Native::Invoke<Vehicle, Ped>(0x6094AD011A2EA87D, ped); }
+	static Any GET_VEHICLE_PED_IS_ENTERING(Any p0) { return Native::Invoke<Any, Any>(0xF92691AED837A5FC, p0); }
 	static Any _0xE4770DA1B8FF4FD1(Any p0) { return Native::Invoke<Any, Any>(0xE4770DA1B8FF4FD1, p0); }
 	static Any _0x5064DB5083C29921() { return Native::Invoke<Any>(0x5064DB5083C29921); }
 	static Any _0x4E76CB57222A00E5(Any p0) { return Native::Invoke<Any, Any>(0x4E76CB57222A00E5, p0); }
 	static Any _0x849BD6C6314793D0(Any p0) { return Native::Invoke<Any, Any>(0x849BD6C6314793D0, p0); }
 	static Any _0x1D46B417F926D34D(Any p0) { return Native::Invoke<Any, Any>(0x1D46B417F926D34D, p0); }
-	static void SET_PED_GRAVITY(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_GRAVITY, ped, toggle); }
+	static void SET_PED_GRAVITY(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x9FF447B6B6AD960A, ped, toggle); }
 	static void _0x96595B36D6A2279B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x96595B36D6A2279B, p0, p1); }
 	static void _0x7FB0088E8769CDDB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7FB0088E8769CDDB, p0, p1); }
 	static void _0xA90684ED185CCB4B(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xA90684ED185CCB4B, p0, p1, p2, p3); }
 	static void _0x8B3CB08158E98481(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8B3CB08158E98481, p0, p1); }
 	static void _0x1CE875505D45338A(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x1CE875505D45338A, p0, p1, p2); }
-	static void APPLY_DAMAGE_TO_PED(Ped ped, int damageAmount, BOOL armorFirst, Any p3, Any p4) { return Native::Invoke<void, Ped, int, BOOL, Any, Any>(N::APPLY_DAMAGE_TO_PED, ped, damageAmount, armorFirst, p3, p4); }
+	static void APPLY_DAMAGE_TO_PED(Ped ped, int damageAmount, BOOL armorFirst, Any p3, Any p4) { return Native::Invoke<void, Ped, int, BOOL, Any, Any>(0x697157CED63F18D4, ped, damageAmount, armorFirst, p3, p4); }
 	static void _0xBAD2A311667A50D7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBAD2A311667A50D7, p0, p1); }
-	static int GET_PED_TYPE(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_TYPE, ped); }
-	static void SET_PED_AS_COP(Ped Player, BOOL True) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_AS_COP, Player, True); }
+	static int GET_PED_TYPE(Ped ped) { return Native::Invoke<int, Ped>(0xFF059E1E4C01E63C, ped); }
+	static void SET_PED_AS_COP(Ped Player, BOOL True) { return Native::Invoke<void, Ped, BOOL>(0xBB03C38DD3FB7FFD, Player, True); }
 	static Any _0x405180B14DA5A935() { return Native::Invoke<Any>(0x405180B14DA5A935); }
 	static void _0x24C82EF607105FAA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x24C82EF607105FAA, p0, p1); }
 	static Any _0xD7AD3C7EBAF88C92() { return Native::Invoke<Any>(0xD7AD3C7EBAF88C92); }
@@ -3848,37 +3848,37 @@ namespace PED
 	static void _0x0ADA3EC589E1736E() { return Native::Invoke<void>(0x0ADA3EC589E1736E); }
 	static Any _0xE33F98BD76490ABC(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xE33F98BD76490ABC, p0, p1, p2); }
 	static Any _0xD55DB4466D00A258(Any p0) { return Native::Invoke<Any, Any>(0xD55DB4466D00A258, p0); }
-	static void SET_PED_MAX_HEALTH(Ped ped, int value) { return Native::Invoke<void, Ped, int>(N::SET_PED_MAX_HEALTH, ped, value); }
-	static int GET_PED_MAX_HEALTH(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_MAX_HEALTH, ped); }
+	static void SET_PED_MAX_HEALTH(Ped ped, int value) { return Native::Invoke<void, Ped, int>(0xF5F6378C4F3419D3, ped, value); }
+	static int GET_PED_MAX_HEALTH(Ped ped) { return Native::Invoke<int, Ped>(0x4700A416E8324EF3, ped); }
 	static void _0xF6B82FCE03B43A37(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF6B82FCE03B43A37, p0, p1); }
 	static void _0x7DD7FB3480D8083E(Any p0) { return Native::Invoke<void, Any>(0x7DD7FB3480D8083E, p0); }
-	static void SET_PED_MAX_TIME_IN_WATER(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_MAX_TIME_IN_WATER, ped, value); }
-	static void SET_PED_MAX_TIME_UNDERWATER(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_MAX_TIME_UNDERWATER, ped, value); }
+	static void SET_PED_MAX_TIME_IN_WATER(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x43C851690662113D, ped, value); }
+	static void SET_PED_MAX_TIME_UNDERWATER(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x6BA428C528D9E522, ped, value); }
 	static void _0xAF041C10756C30FB(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xAF041C10756C30FB, p0, p1, p2, p3); }
 	static void _0x5AF24CA9C974E51A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5AF24CA9C974E51A, p0, p1); }
-	static void SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE(Ped ped, int state) { return Native::Invoke<void, Ped, int>(N::SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE, ped, state); }
-	static BOOL CAN_KNOCK_PED_OFF_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::CAN_KNOCK_PED_OFF_VEHICLE, ped); }
-	static void KNOCK_PED_OFF_VEHICLE(Ped ped) { return Native::Invoke<void, Ped>(N::KNOCK_PED_OFF_VEHICLE, ped); }
-	static Ped GET_PED_AS_GROUP_MEMBER(int groupID, int memberNumber) { return Native::Invoke<Ped, int, int>(N::GET_PED_AS_GROUP_MEMBER, groupID, memberNumber); }
-	static Any GET_PED_AS_GROUP_LEADER(Any p0) { return Native::Invoke<Any, Any>(N::GET_PED_AS_GROUP_LEADER, p0); }
-	static void SET_PED_KEEP_TASK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_KEEP_TASK, ped, toggle); }
-	static BOOL IS_PED_SWIMMING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_SWIMMING, ped); }
-	static BOOL IS_PED_SWIMMING_UNDER_WATER(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_SWIMMING_UNDER_WATER, ped); }
+	static void SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE(Ped ped, int state) { return Native::Invoke<void, Ped, int>(0x7A6535691B477C48, ped, state); }
+	static BOOL CAN_KNOCK_PED_OFF_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x51AC07A44D4F5B8A, ped); }
+	static void KNOCK_PED_OFF_VEHICLE(Ped ped) { return Native::Invoke<void, Ped>(0x45BBCBA77C29A841, ped); }
+	static Ped GET_PED_AS_GROUP_MEMBER(int groupID, int memberNumber) { return Native::Invoke<Ped, int, int>(0x51455483CF23ED97, groupID, memberNumber); }
+	static Any GET_PED_AS_GROUP_LEADER(Any p0) { return Native::Invoke<Any, Any>(0x5CCE68DBD5FE93EC, p0); }
+	static void SET_PED_KEEP_TASK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x971D38760FBC02EF, ped, toggle); }
+	static BOOL IS_PED_SWIMMING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x9DE327631295B4C2, ped); }
+	static BOOL IS_PED_SWIMMING_UNDER_WATER(Ped ped) { return Native::Invoke<BOOL, Ped>(0xC024869A53992F34, ped); }
 	static Any _0xDC88D06719070C39(Any p0) { return Native::Invoke<Any, Any>(0xDC88D06719070C39, p0); }
-	static void SET_CREATE_RANDOM_COPS(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_CREATE_RANDOM_COPS, toggle); }
-	static BOOL IS_PED_IN_ANY_TRAIN(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_ANY_TRAIN, ped); }
-	static BOOL IS_PED_GETTING_INTO_A_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_GETTING_INTO_A_VEHICLE, ped); }
+	static void SET_CREATE_RANDOM_COPS(BOOL toggle) { return Native::Invoke<void, BOOL>(0x102E68B2024D536D, toggle); }
+	static BOOL IS_PED_IN_ANY_TRAIN(Ped ped) { return Native::Invoke<BOOL, Ped>(0x6F972C1AB75A1ED0, ped); }
+	static BOOL IS_PED_GETTING_INTO_A_VEHICLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0xBB062B2B5722478E, ped); }
 	static Any _0x550CB89DD7F4FA3D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x550CB89DD7F4FA3D, p0, p1); }
-	static void SET_ENABLE_HANDCUFFS(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(N::SET_ENABLE_HANDCUFFS, ped, toggle, p2); }
-	static void SET_ENABLE_BOUND_ANKLES(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_ENABLE_BOUND_ANKLES, ped, toggle); }
+	static void SET_ENABLE_HANDCUFFS(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(0xDF1AF8B5D56542FA, ped, toggle, p2); }
+	static void SET_ENABLE_BOUND_ANKLES(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xC52E0F855C58FC2E, ped, toggle); }
 	static Any _0x8822F139408B8D0A(Any p0) { return Native::Invoke<Any, Any>(0x8822F139408B8D0A, p0); }
 	static void _0x8822F124788B8D0A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8822F124788B8D0A, p0, p1); }
-	static void RESET_PED_WEAPON_MOVEMENT_CLIPSET(Ped ped) { return Native::Invoke<void, Ped>(N::RESET_PED_WEAPON_MOVEMENT_CLIPSET, ped); }
+	static void RESET_PED_WEAPON_MOVEMENT_CLIPSET(Ped ped) { return Native::Invoke<void, Ped>(0x97B0DB5B4AA74E77, ped); }
 	static void _0x3AE3552E7C207CC5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3AE3552E7C207CC5, p0, p1); }
 	static void _0x88A95BB640FC186F(Any p0) { return Native::Invoke<void, Any>(0x88A95BB640FC186F, p0); }
-	static void RESET_PED_IN_VEHICLE_CONTEXT(Ped ped) { return Native::Invoke<void, Ped>(N::RESET_PED_IN_VEHICLE_CONTEXT, ped); }
+	static void RESET_PED_IN_VEHICLE_CONTEXT(Ped ped) { return Native::Invoke<void, Ped>(0x22EF8FF8778030EB, ped); }
 	static void _0x878E8104FA27CDAE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x878E8104FA27CDAE, p0, p1); }
-	static void SET_PED_GESTURE_GROUP(Ped ped, char* animGroupGesture, Any p2) { return Native::Invoke<void, Ped, char*, Any>(N::SET_PED_GESTURE_GROUP, ped, animGroupGesture, p2); }
+	static void SET_PED_GESTURE_GROUP(Ped ped, const char* animGroupGesture, Any p2) { return Native::Invoke<void, Ped, const char*, Any>(0xDDF803377F94AAA8, ped, animGroupGesture, p2); }
 	static void _0x923583741DC87BCE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x923583741DC87BCE, p0, p1); }
 	static void _0x4FD80C3DD84B817B(Any p0) { return Native::Invoke<void, Any>(0x4FD80C3DD84B817B, p0); }
 	static void _0x89F5E7ADECCCB49C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x89F5E7ADECCCB49C, p0, p1); }
@@ -3894,54 +3894,54 @@ namespace PED
 	static void _0x406CCF555B04FAD3(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x406CCF555B04FAD3, p0, p1, p2); }
 	static Any _0x50F124E6EF188B22(Any p0) { return Native::Invoke<Any, Any>(0x50F124E6EF188B22, p0); }
 	static Any _0x6FB76442469ABD68(Any p0) { return Native::Invoke<Any, Any>(0x6FB76442469ABD68, p0); }
-	static Vector3 GET_ANIM_INITIAL_OFFSET_POSITION(char* animDict, char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return Native::Invoke<Vector3, char*, char*, float, float, float, float, float, float, float, int>(N::GET_ANIM_INITIAL_OFFSET_POSITION, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); }
-	static Vector3 GET_ANIM_INITIAL_OFFSET_ROTATION(char* animDict, char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return Native::Invoke<Vector3, char*, char*, float, float, float, float, float, float, float, int>(N::GET_ANIM_INITIAL_OFFSET_ROTATION, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); }
-	static Any SET_PED_RANDOM_COMPONENT_VARIATION() { return Native::Invoke<Any>(N::SET_PED_RANDOM_COMPONENT_VARIATION); }
-	static void KNOCK_OFF_PED_PROP(Ped ped, BOOL p1, BOOL knockOff, BOOL p2, BOOL p3) { return Native::Invoke<void, Ped, BOOL, BOOL, BOOL, BOOL>(N::KNOCK_OFF_PED_PROP, ped, p1, knockOff, p2, p3); }
-	static void SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS, ped, toggle); }
+	static Vector3 GET_ANIM_INITIAL_OFFSET_POSITION(const char* animDict, const char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return Native::Invoke<Vector3, const char*, const char*, float, float, float, float, float, float, float, int>(0xBE22B26DD764C040, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); }
+	static Vector3 GET_ANIM_INITIAL_OFFSET_ROTATION(const char* animDict, const char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return Native::Invoke<Vector3, const char*, const char*, float, float, float, float, float, float, float, int>(0x4B805E6046EE9E47, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); }
+	static void SET_PED_RANDOM_COMPONENT_VARIATION() { return Native::Invoke<void>(0xC8A9481A01E63C28); }
+	static void KNOCK_OFF_PED_PROP(Ped ped, BOOL p1, BOOL knockOff, BOOL p2, BOOL p3) { return Native::Invoke<void, Ped, BOOL, BOOL, BOOL, BOOL>(0x6FD7816A36615F48, ped, p1, knockOff, p2, p3); }
+	static void SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x9F8AA94D6D97DBF4, ped, toggle); }
 	static Any _0x268B3AEBF032A88D(Any p0) { return Native::Invoke<Any, Any>(0x268B3AEBF032A88D, p0); }
 	static void _0xC17A94CC8FC3C61A(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xC17A94CC8FC3C61A, p0, p1, p2, p3, p4); }
 	static void _0x25ACFC650B65C538(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x25ACFC650B65C538, p0, p1); }
 	static Any _0x134775B093AD5C38(Any p0) { return Native::Invoke<Any, Any>(0x134775B093AD5C38, p0); }
 	static Any _0x1D491CCF7211FB74(Any p0) { return Native::Invoke<Any, Any>(0x1D491CCF7211FB74, p0); }
-	static void REGISTER_TARGET(Ped ped, Ped target, Any p2) { return Native::Invoke<void, Ped, Ped, Any>(N::REGISTER_TARGET, ped, target, p2); }
+	static void REGISTER_TARGET(Ped ped, Ped target, Any p2) { return Native::Invoke<void, Ped, Ped, Any>(0x2F25D9AEFA34FBA2, ped, target, p2); }
 	static void _0xD8736EFDA38EDC5C(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xD8736EFDA38EDC5C, p0, p1, p2, p3, p4); }
-	static void REGISTER_HATED_TARGETS_AROUND_PED(Ped ped, float radius) { return Native::Invoke<void, Ped, float>(N::REGISTER_HATED_TARGETS_AROUND_PED, ped, radius); }
+	static void REGISTER_HATED_TARGETS_AROUND_PED(Ped ped, float radius) { return Native::Invoke<void, Ped, float>(0x9222F300BF8354FE, ped, radius); }
 	static Any _0x6E5CBCB3941D7D08() { return Native::Invoke<Any>(0x6E5CBCB3941D7D08); }
 	static void _0x4707E9C23D8CA3FE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4707E9C23D8CA3FE, p0, p1); }
-	static BOOL GET_CLOSEST_PED(float x, float y, float z, float radius, BOOL p4, BOOL p5, Ped* outPed, BOOL p7, BOOL p8, int pedType, Any p10) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL, Ped*, BOOL, BOOL, int, Any>(N::GET_CLOSEST_PED, x, y, z, radius, p4, p5, outPed, p7, p8, pedType, p10); }
-	static BOOL CAN_PED_RAGDOLL(Ped ped) { return Native::Invoke<BOOL, Ped>(N::CAN_PED_RAGDOLL, ped); }
-	static BOOL SET_PED_TO_RAGDOLL(Ped ped, int time1, int time2, int ragdollType, BOOL p4, BOOL p5, BOOL p6) { return Native::Invoke<BOOL, Ped, int, int, int, BOOL, BOOL, BOOL>(N::SET_PED_TO_RAGDOLL, ped, time1, time2, ragdollType, p4, p5, p6); }
-	static BOOL SET_PED_TO_RAGDOLL_WITH_FALL(Ped ped, int time, int p2, int ragdollType, float x, float y, float z, float p7, float p8, float p9, float p10, float p11, float p12, float p13) { return Native::Invoke<BOOL, Ped, int, int, int, float, float, float, float, float, float, float, float, float, float>(N::SET_PED_TO_RAGDOLL_WITH_FALL, ped, time, p2, ragdollType, x, y, z, p7, p8, p9, p10, p11, p12, p13); }
-	static void SET_PED_RAGDOLL_ON_COLLISION(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(N::SET_PED_RAGDOLL_ON_COLLISION, ped, toggle, p2); }
+	static BOOL GET_CLOSEST_PED(float x, float y, float z, float radius, BOOL p4, BOOL p5, Ped* outPed, BOOL p7, BOOL p8, int pedType, Any p10) { return Native::Invoke<BOOL, float, float, float, float, BOOL, BOOL, Ped*, BOOL, BOOL, int, Any>(0xC33AB876A77F8164, x, y, z, radius, p4, p5, outPed, p7, p8, pedType, p10); }
+	static BOOL CAN_PED_RAGDOLL(Ped ped) { return Native::Invoke<BOOL, Ped>(0x128F79EDCECE4FD5, ped); }
+	static BOOL SET_PED_TO_RAGDOLL(Ped ped, int time1, int time2, int ragdollType, BOOL p4, BOOL p5, BOOL p6) { return Native::Invoke<BOOL, Ped, int, int, int, BOOL, BOOL, BOOL>(0xAE99FB955581844A, ped, time1, time2, ragdollType, p4, p5, p6); }
+	static BOOL SET_PED_TO_RAGDOLL_WITH_FALL(Ped ped, int time, int p2, int ragdollType, float x, float y, float z, float p7, float p8, float p9, float p10, float p11, float p12, float p13) { return Native::Invoke<BOOL, Ped, int, int, int, float, float, float, float, float, float, float, float, float, float>(0xD76632D99E4966C8, ped, time, p2, ragdollType, x, y, z, p7, p8, p9, p10, p11, p12, p13); }
+	static void SET_PED_RAGDOLL_ON_COLLISION(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(0xF0A4F1BBF4FA7497, ped, toggle, p2); }
 	static void _0x221F4D9912B7FE86(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x221F4D9912B7FE86, p0, p1); }
-	static BOOL IS_PED_RAGDOLL(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_RAGDOLL, ped); }
-	static BOOL IS_PED_RUNNING_RAGDOLL_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_RUNNING_RAGDOLL_TASK, ped); }
-	static void SET_PED_RAGDOLL_FORCE_FALL(Ped ped) { return Native::Invoke<void, Ped>(N::SET_PED_RAGDOLL_FORCE_FALL, ped); }
+	static BOOL IS_PED_RAGDOLL(Ped ped) { return Native::Invoke<BOOL, Ped>(0x47E4E977581C5B55, ped); }
+	static BOOL IS_PED_RUNNING_RAGDOLL_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(0xE3B6097CC25AA69E, ped); }
+	static void SET_PED_RAGDOLL_FORCE_FALL(Ped ped) { return Native::Invoke<void, Ped>(0x01F6594B923B9251, ped); }
 	static void _0x8CB2553C559102C1(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8CB2553C559102C1, p0, p1, p2); }
 	static void _0xFD3C31A2E45671E7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFD3C31A2E45671E7, p0, p1); }
-	static void RESET_PED_RAGDOLL_TIMER(Ped ped) { return Native::Invoke<void, Ped>(N::RESET_PED_RAGDOLL_TIMER, ped); }
-	static void SET_PED_CAN_RAGDOLL(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_RAGDOLL, ped, toggle); }
+	static void RESET_PED_RAGDOLL_TIMER(Ped ped) { return Native::Invoke<void, Ped>(0x9FA4664CF62E47E8, ped); }
+	static void SET_PED_CAN_RAGDOLL(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xB128377056A54E2A, ped, toggle); }
 	static Any _0x3AEC4A410ECAF30D(Any p0) { return Native::Invoke<Any, Any>(0x3AEC4A410ECAF30D, p0); }
-	static Any IS_PED_RUNNING_MOBILE_PHONE_TASK() { return Native::Invoke<Any>(N::IS_PED_RUNNING_MOBILE_PHONE_TASK); }
-	static void SET_RAGDOLL_BLOCKING_FLAGS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_RAGDOLL_BLOCKING_FLAGS, p0, p1); }
-	static void CLEAR_RAGDOLL_BLOCKING_FLAGS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::CLEAR_RAGDOLL_BLOCKING_FLAGS, p0, p1); }
+	static BOOL IS_PED_RUNNING_MOBILE_PHONE_TASK() { return Native::Invoke<BOOL>(0x2AFE52F782F25775); }
+	static void SET_RAGDOLL_BLOCKING_FLAGS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x26695EC767728D84, p0, p1); }
+	static void CLEAR_RAGDOLL_BLOCKING_FLAGS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD86D101FCFD00A4B, p0, p1); }
 	static void _0x9F933E0985E12C51(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x9F933E0985E12C51, p0, p1, p2, p3); }
 	static void _0x88B2026A3B0BE33D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x88B2026A3B0BE33D, p0, p1); }
 	static void _0xFC3DB99C8144CD81(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xFC3DB99C8144CD81, p0, p1, p2, p3); }
-	static void SET_PED_SPHERE_DEFENSIVE_AREA(Ped ped, float x, float y, float z, float radius, BOOL p5, BOOL p6) { return Native::Invoke<void, Ped, float, float, float, float, BOOL, BOOL>(N::SET_PED_SPHERE_DEFENSIVE_AREA, ped, x, y, z, radius, p5, p6); }
+	static void SET_PED_SPHERE_DEFENSIVE_AREA(Ped ped, float x, float y, float z, float radius, BOOL p5, BOOL p6) { return Native::Invoke<void, Ped, float, float, float, float, BOOL, BOOL>(0x9D3151A373974804, ped, x, y, z, radius, p5, p6); }
 	static void _0x1854217C640B39EC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x1854217C640B39EC, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void SET_PED_DEFENSIVE_AREA_DIRECTION(Ped ped, float p1, float p2, float p3, BOOL p4) { return Native::Invoke<void, Ped, float, float, float, BOOL>(N::SET_PED_DEFENSIVE_AREA_DIRECTION, ped, p1, p2, p3, p4); }
-	static void REMOVE_PED_DEFENSIVE_AREA(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::REMOVE_PED_DEFENSIVE_AREA, ped, toggle); }
-	static Vector3 GET_PED_DEFENSIVE_AREA_POSITION(Ped ped, BOOL p1) { return Native::Invoke<Vector3, Ped, BOOL>(N::GET_PED_DEFENSIVE_AREA_POSITION, ped, p1); }
-	static Any IS_PED_DEFENSIVE_AREA_ACTIVE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::IS_PED_DEFENSIVE_AREA_ACTIVE, p0, p1); }
+	static void SET_PED_DEFENSIVE_AREA_DIRECTION(Ped ped, float p1, float p2, float p3, BOOL p4) { return Native::Invoke<void, Ped, float, float, float, BOOL>(0x413C6C763A4AFFAD, ped, p1, p2, p3, p4); }
+	static void REMOVE_PED_DEFENSIVE_AREA(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x74D4E028107450A9, ped, toggle); }
+	static Vector3 GET_PED_DEFENSIVE_AREA_POSITION(Ped ped, BOOL p1) { return Native::Invoke<Vector3, Ped, BOOL>(0x3C06B8786DD94CD1, ped, p1); }
+	static Any IS_PED_DEFENSIVE_AREA_ACTIVE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xBA63D9FE45412247, p0, p1); }
 	static Any _0xEF2E6F870783369B(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xEF2E6F870783369B, p0, p1); }
 	static void _0x4EC4EA2F72B36358(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4EC4EA2F72B36358, p0, p1); }
 	static void _0xCF0B19806473D324(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xCF0B19806473D324, p0, p1, p2, p3); }
 	static void _0xB4B7C92FCE7347B7(Any p0) { return Native::Invoke<void, Any>(0xB4B7C92FCE7347B7, p0); }
-	static void REVIVE_INJURED_PED(Ped ped) { return Native::Invoke<void, Ped>(N::REVIVE_INJURED_PED, ped); }
-	static void RESURRECT_PED(Ped ped) { return Native::Invoke<void, Ped>(N::RESURRECT_PED, ped); }
-	static void SET_PED_NAME_DEBUG(Ped ped, char* name) { return Native::Invoke<void, Ped, char*>(N::SET_PED_NAME_DEBUG, ped, name); }
+	static void REVIVE_INJURED_PED(Ped ped) { return Native::Invoke<void, Ped>(0x8D8ACD8388CD99CE, ped); }
+	static void RESURRECT_PED(Ped ped) { return Native::Invoke<void, Ped>(0x71BC8E838B9C6035, ped); }
+	static void SET_PED_NAME_DEBUG(Ped ped, const char* name) { return Native::Invoke<void, Ped, const char*>(0x98EFA132A4117BE1, ped, name); }
 	static void _0xF9ACF4A08098EA25(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF9ACF4A08098EA25, p0, p1); }
 	static Any _0x7020839C7302D8AC(Any p0) { return Native::Invoke<Any, Any>(0x7020839C7302D8AC, p0); }
 	static void _0xE1AADD0055D76603(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xE1AADD0055D76603, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
@@ -3952,41 +3952,41 @@ namespace PED
 	static Any _0x354CA4DDDEEC397A(Any p0) { return Native::Invoke<Any, Any>(0x354CA4DDDEEC397A, p0); }
 	static void _0xFEA6126C34DF2532(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFEA6126C34DF2532, p0, p1); }
 	static void _0xA967D6A8ED2D713B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA967D6A8ED2D713B, p0, p1); }
-	static void APPLY_PED_BLOOD_SPECIFIC(Ped ped, Any p1, float xOffset, float yOffset, float zOffset, float scale, Any p6, float p7, char* bloodType) { return Native::Invoke<void, Ped, Any, float, float, float, float, Any, float, char*>(N::APPLY_PED_BLOOD_SPECIFIC, ped, p1, xOffset, yOffset, zOffset, scale, p6, p7, bloodType); }
+	static void APPLY_PED_BLOOD_SPECIFIC(Ped ped, Any p1, float xOffset, float yOffset, float zOffset, float scale, Any p6, float p7, const char* bloodType) { return Native::Invoke<void, Ped, Any, float, float, float, float, Any, float, const char*>(0xEF0D582CBF2D9B0F, ped, p1, xOffset, yOffset, zOffset, scale, p6, p7, bloodType); }
 	static void _0x58D32261AE0F0843(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x58D32261AE0F0843, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0x735662994E60A710(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x735662994E60A710, p0, p1); }
 	static void _0x91BAB9E064F036CD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x91BAB9E064F036CD, p0, p1); }
 	static void _0x897934E868EDDD6C(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x897934E868EDDD6C, p0, p1, p2, p3, p4); }
 	static void _0xFFD54D9FE71B966A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xFFD54D9FE71B966A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static void _0x66B1CB778D911F49(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x66B1CB778D911F49, p0, p1); }
-	static void APPLY_PED_DAMAGE_PACK(Ped ped, char* damagePack, float damage, float mult) { return Native::Invoke<void, Ped, char*, float, float>(N::APPLY_PED_DAMAGE_PACK, ped, damagePack, damage, mult); }
-	static void CLEAR_PED_BLOOD_DAMAGE(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_PED_BLOOD_DAMAGE, ped); }
-	static void CLEAR_PED_BLOOD_DAMAGE_BY_ZONE(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(N::CLEAR_PED_BLOOD_DAMAGE_BY_ZONE, ped, p1); }
-	static void CLEAR_PED_DAMAGE_DECAL_BY_ZONE(Ped ped, int p1, char* p2) { return Native::Invoke<void, Ped, int, char*>(N::CLEAR_PED_DAMAGE_DECAL_BY_ZONE, ped, p1, p2); }
+	static void APPLY_PED_DAMAGE_PACK(Ped ped, const char* damagePack, float damage, float mult) { return Native::Invoke<void, Ped, const char*, float, float>(0x46DF918788CB093F, ped, damagePack, damage, mult); }
+	static void CLEAR_PED_BLOOD_DAMAGE(Ped ped) { return Native::Invoke<void, Ped>(0x8FE22675A5A45817, ped); }
+	static void CLEAR_PED_BLOOD_DAMAGE_BY_ZONE(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(0x56E3B78C5408D9F4, ped, p1); }
+	static void CLEAR_PED_DAMAGE_DECAL_BY_ZONE(Ped ped, int p1, const char* p2) { return Native::Invoke<void, Ped, int, const char*>(0x523C79AEEFCC4A2A, ped, p1, p2); }
 	static void _0x7F5D88333EE8A86F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7F5D88333EE8A86F, p0, p1); }
 	static void _0x34C11114887150FD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x34C11114887150FD, p0, p1); }
 	static void _0xEB8886E1065654CD(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xEB8886E1065654CD, p0, p1, p2, p3); }
 	static Any _0x7043D0681285BA2D() { return Native::Invoke<Any>(0x7043D0681285BA2D); }
 	static Any _0x8D9BFCE3352DE47F() { return Native::Invoke<Any>(0x8D9BFCE3352DE47F); }
-	static void CLEAR_PED_WETNESS(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_PED_WETNESS, ped); }
-	static void SET_PED_WETNESS_HEIGHT(Ped ped, float height) { return Native::Invoke<void, Ped, float>(N::SET_PED_WETNESS_HEIGHT, ped, height); }
+	static void CLEAR_PED_WETNESS(Ped ped) { return Native::Invoke<void, Ped>(0x9C720776DAA43E7E, ped); }
+	static void SET_PED_WETNESS_HEIGHT(Ped ped, float height) { return Native::Invoke<void, Ped, float>(0x44CB6447D2571AA0, ped, height); }
 	static void _0xF9CFF5BB70E8A2CB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF9CFF5BB70E8A2CB, p0, p1); }
-	static void SET_PED_WETNESS_ENABLED_THIS_FRAME(Ped ped) { return Native::Invoke<void, Ped>(N::SET_PED_WETNESS_ENABLED_THIS_FRAME, ped); }
+	static void SET_PED_WETNESS_ENABLED_THIS_FRAME(Ped ped) { return Native::Invoke<void, Ped>(0xB5485E4907B53019, ped); }
 	static void _0xA7A806677F8DE138(Any p0) { return Native::Invoke<void, Any>(0xA7A806677F8DE138, p0); }
 	static void _0xA064BBABB064446F(Any p0) { return Native::Invoke<void, Any>(0xA064BBABB064446F, p0); }
-	static void CLEAR_PED_ENV_DIRT(Any p0) { return Native::Invoke<void, Any>(N::CLEAR_PED_ENV_DIRT, p0); }
-	static void SET_PED_SWEAT(Ped ped, float sweat) { return Native::Invoke<void, Ped, float>(N::SET_PED_SWEAT, ped, sweat); }
-	static void CLEAR_PED_DECORATIONS(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_PED_DECORATIONS, ped); }
-	static BOOL WAS_PED_SKELETON_UPDATED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::WAS_PED_SKELETON_UPDATED, ped); }
-	static Vector3 GET_PED_BONE_COORDS(Ped ped, int boneId, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Vector3, Ped, int, float, float, float>(N::GET_PED_BONE_COORDS, ped, boneId, offsetX, offsetY, offsetZ); }
-	static Any ADD_SCENARIO_BLOCKING_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::ADD_SCENARIO_BLOCKING_AREA, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void REMOVE_SCENARIO_BLOCKING_AREAS() { return Native::Invoke<void>(N::REMOVE_SCENARIO_BLOCKING_AREAS); }
-	static void REMOVE_SCENARIO_BLOCKING_AREA(int areaHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(N::REMOVE_SCENARIO_BLOCKING_AREA, areaHandle, p1); }
+	static void CLEAR_PED_ENV_DIRT(Any p0) { return Native::Invoke<void, Any>(0x6585D955A68452A5, p0); }
+	static void SET_PED_SWEAT(Ped ped, float sweat) { return Native::Invoke<void, Ped, float>(0x27B0405F59637D1F, ped, sweat); }
+	static void CLEAR_PED_DECORATIONS(Ped ped) { return Native::Invoke<void, Ped>(0x0E5173C163976E38, ped); }
+	static BOOL WAS_PED_SKELETON_UPDATED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x11B499C1E0FF8559, ped); }
+	static Vector3 GET_PED_BONE_COORDS(Ped ped, int boneId, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Vector3, Ped, int, float, float, float>(0x17C07FC640E86B4E, ped, boneId, offsetX, offsetY, offsetZ); }
+	static int ADD_SCENARIO_BLOCKING_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<int, Any, Any, Any, Any, Any, Any, Any, Any>(0x1B5C85C612E5256E, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void REMOVE_SCENARIO_BLOCKING_AREAS() { return Native::Invoke<void>(0xD37401D78A929A49); }
+	static void REMOVE_SCENARIO_BLOCKING_AREA(int areaHandle, BOOL p1) { return Native::Invoke<void, int, BOOL>(0x31D16B74C6E29D66, areaHandle, p1); }
 	static Any _0x4C39C95AE5DB1329(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x4C39C95AE5DB1329, p0, p1, p2); }
 	static Any _0x6F46F8ACB44C4FC1(Any p0) { return Native::Invoke<Any, Any>(0x6F46F8ACB44C4FC1, p0); }
 	static Any _0x91A5F9CBEBB9D936(Any p0) { return Native::Invoke<Any, Any>(0x91A5F9CBEBB9D936, p0); }
 	static Any _0x34D6AC1157C8226C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x34D6AC1157C8226C, p0, p1); }
-	static BOOL IS_PED_USING_ANY_SCENARIO(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_USING_ANY_SCENARIO, ped); }
+	static BOOL IS_PED_USING_ANY_SCENARIO(Ped ped) { return Native::Invoke<BOOL, Ped>(0x57AB4A3080F85143, ped); }
 	static Any _0x9C54041BB66BCF9E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9C54041BB66BCF9E, p0, p1); }
 	static Any _0xAB643407D0B26F07(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xAB643407D0B26F07, p0, p1, p2, p3, p4); }
 	static Any _0x1148F706CF4EBDDA() { return Native::Invoke<Any>(0x1148F706CF4EBDDA); }
@@ -4004,59 +4004,59 @@ namespace PED
 	static void _0xE735A7DA22E88359(Any p0) { return Native::Invoke<void, Any>(0xE735A7DA22E88359, p0); }
 	static Any _0x82CB0F3F0C7785E5(Any p0) { return Native::Invoke<Any, Any>(0x82CB0F3F0C7785E5, p0); }
 	static void _0xCA95C156C14B2054(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCA95C156C14B2054, p0, p1); }
-	static void SET_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped, char* animName, char* animDict) { return Native::Invoke<void, Ped, char*, char*>(N::SET_FACIAL_IDLE_ANIM_OVERRIDE, ped, animName, animDict); }
-	static void CLEAR_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_FACIAL_IDLE_ANIM_OVERRIDE, ped); }
+	static void SET_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped, const char* animName, const char* animDict) { return Native::Invoke<void, Ped, const char*, const char*>(0xFFC24B988B938B38, ped, animName, animDict); }
+	static void CLEAR_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped) { return Native::Invoke<void, Ped>(0x726256CC1EEB182F, ped); }
 	static void _0x8B3B71C80A29A4BB(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8B3B71C80A29A4BB, p0, p1, p2); }
 	static void _0xD2F0FE8805D91647(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD2F0FE8805D91647, p0, p1); }
-	static void SET_PED_CAN_PLAY_GESTURE_ANIMS(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(N::SET_PED_CAN_PLAY_GESTURE_ANIMS, ped, toggle, p2); }
-	static void SET_PED_CAN_PLAY_AMBIENT_ANIMS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_PLAY_AMBIENT_ANIMS, ped, toggle); }
-	static void SET_PED_CAN_PLAY_AMBIENT_BASE_ANIMS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_PLAY_AMBIENT_BASE_ANIMS, ped, toggle); }
-	static void SET_PED_CAN_ARM_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_ARM_IK, ped, toggle); }
+	static void SET_PED_CAN_PLAY_GESTURE_ANIMS(Ped ped, BOOL toggle, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(0xBAF20C5432058024, ped, toggle, p2); }
+	static void SET_PED_CAN_PLAY_AMBIENT_ANIMS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x6373D1349925A70E, ped, toggle); }
+	static void SET_PED_CAN_PLAY_AMBIENT_BASE_ANIMS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x0EB0585D15254740, ped, toggle); }
+	static void SET_PED_CAN_ARM_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x6C3B4D6D13B4C841, ped, toggle); }
 	static void _0xEE9DF765990E8D1D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xEE9DF765990E8D1D, p0, p1); }
-	static void SET_PED_CAN_HEAD_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_HEAD_IK, ped, toggle); }
-	static void SET_PED_CAN_LEG_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_LEG_IK, ped, toggle); }
-	static void SET_PED_CAN_TORSO_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_TORSO_IK, ped, toggle); }
+	static void SET_PED_CAN_HEAD_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xC11C18092C5530DC, ped, toggle); }
+	static void SET_PED_CAN_LEG_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x73518ECE2485412B, ped, toggle); }
+	static void SET_PED_CAN_TORSO_IK(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xF2B7106D37947CE0, ped, toggle); }
 	static void _0xF5846EDB26A98A24(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF5846EDB26A98A24, p0, p1); }
 	static void _0x6647C5F6F5792496(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6647C5F6F5792496, p0, p1); }
-	static void SET_PED_CAN_USE_AUTO_CONVERSATION_LOOKAT(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_USE_AUTO_CONVERSATION_LOOKAT, ped, toggle); }
-	static BOOL IS_PED_HEADTRACKING_PED(Ped ped1, Ped ped2) { return Native::Invoke<BOOL, Ped, Ped>(N::IS_PED_HEADTRACKING_PED, ped1, ped2); }
-	static BOOL IS_PED_HEADTRACKING_ENTITY(Ped ped, Entity entity) { return Native::Invoke<BOOL, Ped, Entity>(N::IS_PED_HEADTRACKING_ENTITY, ped, entity); }
-	static void _0x80038740C96AD17F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x80038740C96AD17F, p0, p1); }
+	static void SET_PED_CAN_USE_AUTO_CONVERSATION_LOOKAT(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xEC4686EC06434678, ped, toggle); }
+	static BOOL IS_PED_HEADTRACKING_PED(Ped ped1, Ped ped2) { return Native::Invoke<BOOL, Ped, Ped>(0x5CD3CB88A7F8850D, ped1, ped2); }
+	static BOOL IS_PED_HEADTRACKING_ENTITY(Ped ped, Entity entity) { return Native::Invoke<BOOL, Ped, Entity>(0x813A0A7C9D2E831F, ped, entity); }
+	static void _DISABLE_AMBIENT_LOOK_AT_REQUESTS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x80038740C96AD17F, p0, p1); }
 	static Any _0xCD9E5F94A2F38683() { return Native::Invoke<Any>(0xCD9E5F94A2F38683); }
 	static void _0x78C4E9961DB3EB5B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x78C4E9961DB3EB5B, p0, p1); }
 	static void _0x1D4636C90BBEFACB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1D4636C90BBEFACB, p0, p1); }
 	static void _0xEF371232BC6053E1(Any p0) { return Native::Invoke<void, Any>(0xEF371232BC6053E1, p0); }
 	static void _0x86F0B6730C32AC14(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x86F0B6730C32AC14, p0, p1); }
 	static void _0x8101BA1C0B462412(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8101BA1C0B462412, p0, p1); }
-	static void SET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL value) { return Native::Invoke<void, Ped, int, BOOL>(N::SET_PED_CONFIG_FLAG, ped, flagId, value); }
-	static void SET_PED_RESET_FLAG(Ped ped, int flagId, BOOL value) { return Native::Invoke<void, Ped, int, BOOL>(N::SET_PED_RESET_FLAG, ped, flagId, value); }
-	static BOOL GET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL p2) { return Native::Invoke<BOOL, Ped, int, BOOL>(N::GET_PED_CONFIG_FLAG, ped, flagId, p2); }
-	static BOOL GET_PED_RESET_FLAG(Ped ped, int flagId) { return Native::Invoke<BOOL, Ped, int>(N::GET_PED_RESET_FLAG, ped, flagId); }
+	static void SET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL value) { return Native::Invoke<void, Ped, int, BOOL>(0x1913FE4CBF41C463, ped, flagId, value); }
+	static void SET_PED_RESET_FLAG(Ped ped, int flagId, BOOL value) { return Native::Invoke<void, Ped, int, BOOL>(0xC1E8A365BF3B29F2, ped, flagId, value); }
+	static BOOL GET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL p2) { return Native::Invoke<BOOL, Ped, int, BOOL>(0x7EE53118C892B513, ped, flagId, p2); }
+	static BOOL GET_PED_RESET_FLAG(Ped ped, int flagId) { return Native::Invoke<BOOL, Ped, int>(0xAF9E59B1B1FBF2A0, ped, flagId); }
 	static void _0xC6981AFF6D2A71C2(Any p0) { return Native::Invoke<void, Any>(0xC6981AFF6D2A71C2, p0); }
 	static void _0xE0FE107AB174D64A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE0FE107AB174D64A, p0, p1); }
-	static Any SET_PED_GROUP_MEMBER_PASSENGER_INDEX() { return Native::Invoke<Any>(N::SET_PED_GROUP_MEMBER_PASSENGER_INDEX); }
-	static Any IS_PED_EVASIVE_DIVING() { return Native::Invoke<Any>(N::IS_PED_EVASIVE_DIVING); }
+	static void SET_PED_GROUP_MEMBER_PASSENGER_INDEX() { return Native::Invoke<void>(0x0BDDB8D9EC6BCF3C); }
+	static BOOL IS_PED_EVASIVE_DIVING() { return Native::Invoke<BOOL>(0x414641C26E105898); }
 	static Any _0x4C57F27D1554E6B0(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x4C57F27D1554E6B0, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x772A1969F649E902(Any p0) { return Native::Invoke<Any, Any>(0x772A1969F649E902, p0); }
-	static void SET_PED_MODEL_IS_SUPPRESSED(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_MODEL_IS_SUPPRESSED, ped, toggle); }
+	static void SET_PED_MODEL_IS_SUPPRESSED(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xE163A4BCE4DE6F11, ped, toggle); }
 	static Any _0xAA9F048DCF69B6DC(Any p0) { return Native::Invoke<Any, Any>(0xAA9F048DCF69B6DC, p0); }
 	static void _0x7ABBD9E449E0DB00(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7ABBD9E449E0DB00, p0, p1); }
 	static Any _0xADD31A5C7A5FAA73() { return Native::Invoke<Any>(0xADD31A5C7A5FAA73); }
-	static void SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT, ped, toggle); }
+	static void SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0xDF993EE5E90ABA25, ped, toggle); }
 	static void _0xE6CB36F43A95D75F(Any p0) { return Native::Invoke<void, Any>(0xE6CB36F43A95D75F, p0); }
-	static void SET_PED_LEG_IK_MODE(Ped ped, int mode) { return Native::Invoke<void, Ped, int>(N::SET_PED_LEG_IK_MODE, ped, mode); }
+	static void SET_PED_LEG_IK_MODE(Ped ped, int mode) { return Native::Invoke<void, Ped, int>(0xC396F5B86FF9FEBD, ped, mode); }
 	static Any _0x078076AB50FB117F(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x078076AB50FB117F, p0, p1, p2, p3, p4, p5); }
 	static void _0xFD6943B6DF77E449(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFD6943B6DF77E449, p0, p1); }
-	static void SET_PED_COMBAT_MOVEMENT(Ped ped, int combatMovement) { return Native::Invoke<void, Ped, int>(N::SET_PED_COMBAT_MOVEMENT, ped, combatMovement); }
-	static int GET_PED_COMBAT_MOVEMENT(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_COMBAT_MOVEMENT, ped); }
+	static void SET_PED_COMBAT_MOVEMENT(Ped ped, int combatMovement) { return Native::Invoke<void, Ped, int>(0x4D9CA1009AFBD057, ped, combatMovement); }
+	static int GET_PED_COMBAT_MOVEMENT(Ped ped) { return Native::Invoke<int, Ped>(0xDEA92412FCAEB3F5, ped); }
 	static void _0x815C0074A1BC0D93(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x815C0074A1BC0D93, p0, p1); }
 	static Any _0xFFDE295662405B25() { return Native::Invoke<Any>(0xFFDE295662405B25); }
-	static void SET_PED_COMBAT_ABILITY(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(N::SET_PED_COMBAT_ABILITY, ped, p1); }
-	static void SET_PED_COMBAT_RANGE(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(N::SET_PED_COMBAT_RANGE, ped, p1); }
-	static void SET_PED_COMBAT_ATTRIBUTES(Ped ped, int attributeIndex, BOOL enabled) { return Native::Invoke<void, Ped, int, BOOL>(N::SET_PED_COMBAT_ATTRIBUTES, ped, attributeIndex, enabled); }
+	static void SET_PED_COMBAT_ABILITY(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(0xC7622C0D36B2FDA8, ped, p1); }
+	static void SET_PED_COMBAT_RANGE(Ped ped, int p1) { return Native::Invoke<void, Ped, int>(0x3C606747B23E497B, ped, p1); }
+	static void SET_PED_COMBAT_ATTRIBUTES(Ped ped, int attributeIndex, BOOL enabled) { return Native::Invoke<void, Ped, int, BOOL>(0x9F7794730795E019, ped, attributeIndex, enabled); }
 	static Any _0xCC2B20596E29E4E3(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCC2B20596E29E4E3, p0, p1); }
 	static void _0xBD75500141E4725C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBD75500141E4725C, p0, p1); }
-	static void SET_PED_TARGET_LOSS_RESPONSE(Ped ped, int responseType) { return Native::Invoke<void, Ped, int>(N::SET_PED_TARGET_LOSS_RESPONSE, ped, responseType); }
+	static void SET_PED_TARGET_LOSS_RESPONSE(Ped ped, int responseType) { return Native::Invoke<void, Ped, int>(0x0703B9079823DA4A, ped, responseType); }
 	static void _0x0A4618FFD517E24D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0A4618FFD517E24D, p0, p1); }
 	static void _0x712B2C2B2471B493(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x712B2C2B2471B493, p0, p1); }
 	static void _0x00B380FF2DF6AB7A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x00B380FF2DF6AB7A, p0, p1); }
@@ -4066,10 +4066,10 @@ namespace PED
 	static void _0x1FA132CBCD7CB239(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1FA132CBCD7CB239, p0, p1); }
 	static Any _0x5BF0B9D9A8E227A0(Any p0) { return Native::Invoke<Any, Any>(0x5BF0B9D9A8E227A0, p0); }
 	static void _0x642720D8D69328B6(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x642720D8D69328B6, p0, p1); }
-	static Any IS_PED_PERFORMING_MELEE_ACTION(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(N::IS_PED_PERFORMING_MELEE_ACTION, p0, p1, p2); }
+	static Any IS_PED_PERFORMING_MELEE_ACTION(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xDCCA191DF9980FD7, p0, p1, p2); }
 	static Any _0x6127F25ED21C533C(Any p0) { return Native::Invoke<Any, Any>(0x6127F25ED21C533C, p0); }
-	static BOOL IS_PED_BEING_STEALTH_KILLED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_BEING_STEALTH_KILLED, ped); }
-	static Ped GET_MELEE_TARGET_FOR_PED(Ped ped) { return Native::Invoke<Ped, Ped>(N::GET_MELEE_TARGET_FOR_PED, ped); }
+	static BOOL IS_PED_BEING_STEALTH_KILLED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x863B23EFDE9C5DF2, ped); }
+	static Ped GET_MELEE_TARGET_FOR_PED(Ped ped) { return Native::Invoke<Ped, Ped>(0x18A3E9EE1297FD39, ped); }
 	static void _0xDEDBED3020DA49DC(Any p0) { return Native::Invoke<void, Any>(0xDEDBED3020DA49DC, p0); }
 	static void _0xA405BF9F01960C16(Any p0) { return Native::Invoke<void, Any>(0xA405BF9F01960C16, p0); }
 	static Any _0xEC6B59BE445FEC51(Any p0) { return Native::Invoke<Any, Any>(0xEC6B59BE445FEC51, p0); }
@@ -4110,23 +4110,23 @@ namespace PED
 	static void _0x8301D87B1B89E219(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8301D87B1B89E219, p0, p1); }
 	static Any _0x99A6E246C315BF60(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x99A6E246C315BF60, p0, p1); }
 	static void _0x56E9C26CD29D1ED6(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x56E9C26CD29D1ED6, p0, p1); }
-	static void SET_PED_FLEE_ATTRIBUTES(Ped ped, int attributes, BOOL p2) { return Native::Invoke<void, Ped, int, BOOL>(N::SET_PED_FLEE_ATTRIBUTES, ped, attributes, p2); }
+	static void SET_PED_FLEE_ATTRIBUTES(Ped ped, int attributes, BOOL p2) { return Native::Invoke<void, Ped, int, BOOL>(0x70A2D1137C8ED7C9, ped, attributes, p2); }
 	static Any _0xB086C8C0F5701D14(Any p0) { return Native::Invoke<Any, Any>(0xB086C8C0F5701D14, p0); }
-	static BOOL IS_ANY_PED_NEAR_POINT(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(N::IS_ANY_PED_NEAR_POINT, x, y, z, radius); }
+	static BOOL IS_ANY_PED_NEAR_POINT(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(0x083961498679DC9F, x, y, z, radius); }
 	static void _0x2208438012482A1A(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x2208438012482A1A, p0, p1, p2); }
 	static Any _0xC488B8C0E52560D8(Any p0) { return Native::Invoke<Any, Any>(0xC488B8C0E52560D8, p0); }
 	static Any _0x2DC0E8DCBD3546E9(Any p0) { return Native::Invoke<Any, Any>(0x2DC0E8DCBD3546E9, p0); }
 	static void _0x6D07B371E9439019(Any p0) { return Native::Invoke<void, Any>(0x6D07B371E9439019, p0); }
 	static void _0xD65FDC686A031C83(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD65FDC686A031C83, p0, p1, p2); }
 	static Any _0x68821369A2CEADD5(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x68821369A2CEADD5, p0, p1); }
-	static Any IS_PED_HEADING_TOWARDS_POSITION(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(N::IS_PED_HEADING_TOWARDS_POSITION, p0, p1, p2, p3, p4); }
+	static Any IS_PED_HEADING_TOWARDS_POSITION(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0xFCF37A457CB96DC0, p0, p1, p2, p3, p4); }
 	static void _0x600BBDD29820370C(Any p0) { return Native::Invoke<void, Any>(0x600BBDD29820370C, p0); }
-	static void REQUEST_PED_VISIBILITY_TRACKING(Any p0) { return Native::Invoke<void, Any>(N::REQUEST_PED_VISIBILITY_TRACKING, p0); }
+	static void REQUEST_PED_VISIBILITY_TRACKING(Any p0) { return Native::Invoke<void, Any>(0x7D7A2E43E74E2EB8, p0); }
 	static void _0x3088634CF8C819CF(Any p0) { return Native::Invoke<void, Any>(0x3088634CF8C819CF, p0); }
-	static void REQUEST_PED_VEHICLE_VISIBILITY_TRACKING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::REQUEST_PED_VEHICLE_VISIBILITY_TRACKING, p0, p1); }
+	static void REQUEST_PED_VEHICLE_VISIBILITY_TRACKING(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2BC338A7B21F4608, p0, p1); }
 	static void _0x75BA1CB3B7D40CAF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x75BA1CB3B7D40CAF, p0, p1); }
 	static Any _0x511F1A683387C7E2(Any p0) { return Native::Invoke<Any, Any>(0x511F1A683387C7E2, p0); }
-	static BOOL IS_TRACKED_PED_VISIBLE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_TRACKED_PED_VISIBLE, ped); }
+	static BOOL IS_TRACKED_PED_VISIBLE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x91C8E617F64188AC, ped); }
 	static Any _0x164CECC59E70DF86(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x164CECC59E70DF86, p0, p1); }
 	static Any _0x5102307CE88798EB(Any p0) { return Native::Invoke<Any, Any>(0x5102307CE88798EB, p0); }
 	static Any _0x2D64376CF437363E(Any p0) { return Native::Invoke<Any, Any>(0x2D64376CF437363E, p0); }
@@ -4135,7 +4135,7 @@ namespace PED
 	static Any _0x7F9B9791D4CB71F6(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x7F9B9791D4CB71F6, p0, p1, p2); }
 	static Any _0x9D9473CB82D83A30(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x9D9473CB82D83A30, p0, p1, p2); }
 	static Any _0x0EA9EACBA3B01601(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x0EA9EACBA3B01601, p0, p1, p2); }
-	static int GET_PED_BONE_INDEX(Ped ped, int boneId) { return Native::Invoke<int, Ped, int>(N::GET_PED_BONE_INDEX, ped, boneId); }
+	static int GET_PED_BONE_INDEX(Ped ped, int boneId) { return Native::Invoke<int, Ped, int>(0x3F428D08BE5AAE31, ped, boneId); }
 	static Any _0xC5303F460A40D21D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC5303F460A40D21D, p0, p1); }
 	static Any _0xE29D8CD66553DBAA() { return Native::Invoke<Any>(0xE29D8CD66553DBAA); }
 	static void _0xB06F5F1DEF417216(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xB06F5F1DEF417216, p0, p1, p2, p3); }
@@ -4153,11 +4153,11 @@ namespace PED
 	static void _0x0FFDF937E5C11382(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x0FFDF937E5C11382, p0, p1, p2, p3, p4, p5); }
 	static void _0x5FCF25D584065BFD(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x5FCF25D584065BFD, p0, p1, p2, p3); }
 	static void _0xA2116C1E4ED85C24(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA2116C1E4ED85C24, p0, p1); }
-	static BOOL FORCE_PED_MOTION_STATE(Ped ped, Hash motionStateHash, BOOL p2, BOOL p3, BOOL p4) { return Native::Invoke<BOOL, Ped, Hash, BOOL, BOOL, BOOL>(N::FORCE_PED_MOTION_STATE, ped, motionStateHash, p2, p3, p4); }
+	static BOOL FORCE_PED_MOTION_STATE(Ped ped, Hash motionStateHash, BOOL p2, BOOL p3, BOOL p4) { return Native::Invoke<BOOL, Ped, Hash, BOOL, BOOL, BOOL>(0xF28965D04F570DCA, ped, motionStateHash, p2, p3, p4); }
 	static void _0x75D3333409CD33CE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x75D3333409CD33CE, p0, p1, p2); }
 	static Any _0xF60165E1D2C5370B(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xF60165E1D2C5370B, p0, p1, p2); }
-	static void SET_PED_MAX_MOVE_BLEND_RATIO(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_MAX_MOVE_BLEND_RATIO, ped, value); }
-	static void SET_PED_MIN_MOVE_BLEND_RATIO(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_MIN_MOVE_BLEND_RATIO, ped, value); }
+	static void SET_PED_MAX_MOVE_BLEND_RATIO(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x433083750C5E064A, ped, value); }
+	static void SET_PED_MIN_MOVE_BLEND_RATIO(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x01A898D26E2333DD, ped, value); }
 	static void _0xBC1DC48270468444(Any p0) { return Native::Invoke<void, Any>(0xBC1DC48270468444, p0); }
 	static Any _0x46BF2A810679D6E6(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x46BF2A810679D6E6, p0, p1); }
 	static Any _0xCA95924C893A0C91(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCA95924C893A0C91, p0, p1); }
@@ -4168,15 +4168,15 @@ namespace PED
 	static void _0xAD3330E3C3E98007(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xAD3330E3C3E98007, p0, p1); }
 	static Any _0xB8E2D655E1D5BD39(Any p0) { return Native::Invoke<Any, Any>(0xB8E2D655E1D5BD39, p0); }
 	static Any _0x7BB810E8B343AC7B(Any p0) { return Native::Invoke<Any, Any>(0x7BB810E8B343AC7B, p0); }
-	static void SET_PED_MOVE_RATE_OVERRIDE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_MOVE_RATE_OVERRIDE, ped, value); }
-	static Any GET_PED_NEARBY_VEHICLES() { return Native::Invoke<Any>(N::GET_PED_NEARBY_VEHICLES); }
-	static int GET_PED_NEARBY_PEDS(Ped ped, int* sizeAndPeds, int ignore, Any p3) { return Native::Invoke<int, Ped, int*, int, Any>(N::GET_PED_NEARBY_PEDS, ped, sizeAndPeds, ignore, p3); }
+	static void SET_PED_MOVE_RATE_OVERRIDE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x085BF80FA50A39D1, ped, value); }
+	static int GET_PED_NEARBY_VEHICLES() { return Native::Invoke<int>(0xCFF869CBFA210D82); }
+	static int GET_PED_NEARBY_PEDS(Ped ped, int* sizeAndPeds, int ignore, Any p3) { return Native::Invoke<int, Ped, int*, int, Any>(0x23F8F5FC7E8C4A6B, ped, sizeAndPeds, ignore, p3); }
 	static Any _0xA0BC8FAED8CFEB3C(Any p0) { return Native::Invoke<Any, Any>(0xA0BC8FAED8CFEB3C, p0); }
 	static Any _0x6A489892E813951A() { return Native::Invoke<Any>(0x6A489892E813951A); }
-	static BOOL IS_PED_USING_ACTION_MODE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_USING_ACTION_MODE, ped); }
+	static BOOL IS_PED_USING_ACTION_MODE(Ped ped) { return Native::Invoke<BOOL, Ped>(0x00E73468D085F745, ped); }
 	static Any _0xEBB208D6AE712C03(Any p0) { return Native::Invoke<Any, Any>(0xEBB208D6AE712C03, p0); }
-	static void SET_PED_USING_ACTION_MODE(Ped ped, BOOL p1, Any p2, char* action) { return Native::Invoke<void, Ped, BOOL, Any, char*>(N::SET_PED_USING_ACTION_MODE, ped, p1, p2, action); }
-	static void SET_PED_CAPSULE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(N::SET_PED_CAPSULE, ped, value); }
+	static void SET_PED_USING_ACTION_MODE(Ped ped, BOOL p1, Any p2, const char* action) { return Native::Invoke<void, Ped, BOOL, Any, const char*>(0xD75ACCF5E0FB5367, ped, p1, p2, action); }
+	static void SET_PED_CAPSULE(Ped ped, float value) { return Native::Invoke<void, Ped, float>(0x364DF566EC833DE2, ped, value); }
 	static Any _0xB676EFDA03DADA52(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB676EFDA03DADA52, p0, p1); }
 	static void _0x2DF9038C90AD5264(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x2DF9038C90AD5264, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static Any _0xB2AFF10216DEFA2F() { return Native::Invoke<Any>(0xB2AFF10216DEFA2F); }
@@ -4188,7 +4188,7 @@ namespace PED
 	static Any _0xA635C11B8C44AFC2() { return Native::Invoke<Any>(0xA635C11B8C44AFC2); }
 	static void _0x280C7E3AC7F56E90(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x280C7E3AC7F56E90, p0, p1, p2, p3); }
 	static Any _0xB782F8238512BAD5() { return Native::Invoke<Any>(0xB782F8238512BAD5); }
-	static void SET_IK_TARGET(Ped ped, int ikIndex, Entity entityLookAt, int boneLookAt, float offsetX, float offsetY, float offsetZ, Any p7, int blendInDuration, int blendOutDuration) { return Native::Invoke<void, Ped, int, Entity, int, float, float, float, Any, int, int>(N::SET_IK_TARGET, ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, p7, blendInDuration, blendOutDuration); }
+	static void SET_IK_TARGET(Ped ped, int ikIndex, Entity entityLookAt, int boneLookAt, float offsetX, float offsetY, float offsetZ, Any p7, int blendInDuration, int blendOutDuration) { return Native::Invoke<void, Ped, int, Entity, int, float, float, float, Any, int, int>(0xC32779C16FCEECD9, ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, p7, blendInDuration, blendOutDuration); }
 	static void _0x5C3C55EAAD19915F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5C3C55EAAD19915F, p0, p1); }
 	static Any _0xDE3904B22695D9F9(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDE3904B22695D9F9, p0, p1); }
 	static void _0xFC3BAB1801A8255A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFC3BAB1801A8255A, p0, p1); }
@@ -4197,7 +4197,7 @@ namespace PED
 	static void _0xDE7B2B4144906CDF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDE7B2B4144906CDF, p0, p1); }
 	static Any _0x290B2E6CCDE532E1() { return Native::Invoke<Any>(0x290B2E6CCDE532E1); }
 	static Any _0x0EEF7A81C17679DB() { return Native::Invoke<Any>(0x0EEF7A81C17679DB); }
-	static void SET_PED_LOD_MULTIPLIER(Ped ped, float multiplier) { return Native::Invoke<void, Ped, float>(N::SET_PED_LOD_MULTIPLIER, ped, multiplier); }
+	static void SET_PED_LOD_MULTIPLIER(Ped ped, float multiplier) { return Native::Invoke<void, Ped, float>(0xDC2C5C242AAC342B, ped, multiplier); }
 	static Any _0xA218D2BBCAA7388C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA218D2BBCAA7388C, p0, p1); }
 	static void _0xCBDE59C48F2B06F5(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCBDE59C48F2B06F5, p0, p1, p2); }
 	static void _0x6A190B94C2541A99(Any p0) { return Native::Invoke<void, Any>(0x6A190B94C2541A99, p0); }
@@ -4463,7 +4463,7 @@ namespace PED
 	static Any _0x59BD177A1A48600A() { return Native::Invoke<Any>(0x59BD177A1A48600A); }
 	static void _0xD103F6DBB5442BE8(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD103F6DBB5442BE8, p0, p1); }
 	static void _0xFCA8FB9E15FA80D3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFCA8FB9E15FA80D3, p0, p1); }
-	static void _0x4A48B6E03BABB4AC(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4A48B6E03BABB4AC, p0, p1); }
+	static void _SET_PED_PROMPT_NAME(Ped ped, const const char* name) { return Native::Invoke<void, Ped, const const char*>(0x4A48B6E03BABB4AC, ped, name); }
 	static Any _0xC2745D9261664901() { return Native::Invoke<Any>(0xC2745D9261664901); }
 	static Any _0x19B14E04B009E28B() { return Native::Invoke<Any>(0x19B14E04B009E28B); }
 	static Any _0xF917F92BF22ECBAB() { return Native::Invoke<Any>(0xF917F92BF22ECBAB); }
@@ -4567,30 +4567,30 @@ namespace _NAMESPACE49
 }
 namespace PHYSICS
 {
-	static Object ADD_ROPE(float x, float y, float z, float rotX, float rotY, float rotZ, float length, int ropeType, float maxLength, float minLength, float p10, BOOL p11, BOOL p12, BOOL rigid, float p14, BOOL breakWhenShot, Any* unkPtr, Any p17) { return Native::Invoke<Object, float, float, float, float, float, float, float, int, float, float, float, BOOL, BOOL, BOOL, float, BOOL, Any*, Any>(N::ADD_ROPE, x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength, minLength, p10, p11, p12, rigid, p14, breakWhenShot, unkPtr, p17); }
+	static Object ADD_ROPE(float x, float y, float z, float rotX, float rotY, float rotZ, float length, int ropeType, float maxLength, float minLength, float p10, BOOL p11, BOOL p12, BOOL rigid, float p14, BOOL breakWhenShot, Any* unkPtr, Any p17) { return Native::Invoke<Object, float, float, float, float, float, float, float, int, float, float, float, BOOL, BOOL, BOOL, float, BOOL, Any*, Any>(0xE832D760399EB220, x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength, minLength, p10, p11, p12, rigid, p14, breakWhenShot, unkPtr, p17); }
 	static Any _0xE9C59F6809373A99(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xE9C59F6809373A99, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void DELETE_ROPE(Object* rope) { return Native::Invoke<void, Object*>(N::DELETE_ROPE, rope); }
+	static void DELETE_ROPE(Object* rope) { return Native::Invoke<void, Object*>(0x52B4829281364649, rope); }
 	static void _0x6076213101A47B3B(Any p0) { return Native::Invoke<void, Any>(0x6076213101A47B3B, p0); }
-	static Any DELETE_CHILD_ROPE(Object rope) { return Native::Invoke<Any, Object>(N::DELETE_CHILD_ROPE, rope); }
+	static Any DELETE_CHILD_ROPE(Object rope) { return Native::Invoke<Any, Object>(0xAA5D6B1888E4DB20, rope); }
 	static void _0x4CFA2B7FAE115ECB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x4CFA2B7FAE115ECB, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL DOES_ROPE_EXIST(Object* rope) { return Native::Invoke<BOOL, Object*>(N::DOES_ROPE_EXIST, rope); }
+	static BOOL DOES_ROPE_EXIST(Object* rope) { return Native::Invoke<BOOL, Object*>(0xFD5448BE3111ED96, rope); }
 	static Any _0x79C2BEC82CFD7F7F(Any p0) { return Native::Invoke<Any, Any>(0x79C2BEC82CFD7F7F, p0); }
 	static void _0x7A54D82227A139DB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7A54D82227A139DB, p0, p1); }
-	static void ROPE_DRAW_SHADOW_ENABLED(Object* rope, BOOL toggle) { return Native::Invoke<void, Object*, BOOL>(N::ROPE_DRAW_SHADOW_ENABLED, rope, toggle); }
-	static int GET_ROPE_VERTEX_COUNT(Object rope) { return Native::Invoke<int, Object>(N::GET_ROPE_VERTEX_COUNT, rope); }
+	static void ROPE_DRAW_SHADOW_ENABLED(Object* rope, BOOL toggle) { return Native::Invoke<void, Object*, BOOL>(0xF159A63806BB5BA8, rope, toggle); }
+	static int GET_ROPE_VERTEX_COUNT(Object rope) { return Native::Invoke<int, Object>(0x3655F544CD30F0B5, rope); }
 	static void _0xE54BF2CE6C7D23A9(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xE54BF2CE6C7D23A9, p0, p1, p2, p3, p4); }
 	static void _0x9C24846D0A4A2776(Any p0) { return Native::Invoke<void, Any>(0x9C24846D0A4A2776, p0); }
 	static void _0x0CB16D05E03FB525(Any p0) { return Native::Invoke<void, Any>(0x0CB16D05E03FB525, p0); }
 	static void _0xF27F1A8DE4F50A1B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xF27F1A8DE4F50A1B, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x21D0890D88DFB0B0(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x21D0890D88DFB0B0, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void ATTACH_ENTITIES_TO_ROPE(Object rope, Entity ent1, Entity ent2, float ent1_x, float ent1_y, float ent1_z, float ent2_x, float ent2_y, float ent2_z, float length, BOOL p10, BOOL p11, char* boneName1, char* boneName2, Any p14, Any p15, Any p16, Any p17, Any p18, Any p19, Any p20) { return Native::Invoke<void, Object, Entity, Entity, float, float, float, float, float, float, float, BOOL, BOOL, char*, char*, Any, Any, Any, Any, Any, Any, Any>(N::ATTACH_ENTITIES_TO_ROPE, rope, ent1, ent2, ent1_x, ent1_y, ent1_z, ent2_x, ent2_y, ent2_z, length, p10, p11, boneName1, boneName2, p14, p15, p16, p17, p18, p19, p20); }
+	static void ATTACH_ENTITIES_TO_ROPE(Object rope, Entity ent1, Entity ent2, float ent1_x, float ent1_y, float ent1_z, float ent2_x, float ent2_y, float ent2_z, float length, BOOL p10, BOOL p11, const char* boneName1, const char* boneName2, Any p14, Any p15, Any p16, Any p17, Any p18, Any p19, Any p20) { return Native::Invoke<void, Object, Entity, Entity, float, float, float, float, float, float, float, BOOL, BOOL, const char*, const char*, Any, Any, Any, Any, Any, Any, Any>(0x3D95EC8B6D940AC3, rope, ent1, ent2, ent1_x, ent1_y, ent1_z, ent2_x, ent2_y, ent2_z, length, p10, p11, boneName1, boneName2, p14, p15, p16, p17, p18, p19, p20); }
 	static void _0x462FF2A432733A44(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x462FF2A432733A44, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0xE9CD9A67834985A7(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xE9CD9A67834985A7, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0x69C810B72291D831(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x69C810B72291D831, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xB7469CB9AC3C0FD4(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xB7469CB9AC3C0FD4, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0xC64E7A62632AD2FE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xC64E7A62632AD2FE, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x9B4F7E3E4F9C77B3(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9B4F7E3E4F9C77B3, p0, p1); }
-	static void DETACH_ROPE_FROM_ENTITY(Object rope, Entity entity) { return Native::Invoke<void, Object, Entity>(N::DETACH_ROPE_FROM_ENTITY, rope, entity); }
+	static void DETACH_ROPE_FROM_ENTITY(Object rope, Entity entity) { return Native::Invoke<void, Object, Entity>(0xBCF3026912A8647D, rope, entity); }
 	static void _0x06AADE17334F7A40(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x06AADE17334F7A40, p0, p1, p2, p3); }
 	static void _0x0348469DAA17576C(Any p0) { return Native::Invoke<void, Any>(0x0348469DAA17576C, p0); }
 	static void _0x6EA0E93CFFA472CC(Any p0) { return Native::Invoke<void, Any>(0x6EA0E93CFFA472CC, p0); }
@@ -4609,12 +4609,12 @@ namespace PHYSICS
 	static void _0xC89E7410A93AC19A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC89E7410A93AC19A, p0, p1); }
 	static void _0x1D97DA8ACB5D2582(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1D97DA8ACB5D2582, p0, p1); }
 	static void _0x3C6490D940FF5D0B(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3C6490D940FF5D0B, p0, p1, p2, p3, p4); }
-	static Any GET_ROPE_LAST_VERTEX_COORD(Object rope) { return Native::Invoke<Any, Object>(N::GET_ROPE_LAST_VERTEX_COORD, rope); }
-	static Any GET_ROPE_VERTEX_COORD(Object rope, int vertex) { return Native::Invoke<Any, Object, int>(N::GET_ROPE_VERTEX_COORD, rope, vertex); }
-	static void START_ROPE_WINDING(Object rope) { return Native::Invoke<void, Object>(N::START_ROPE_WINDING, rope); }
-	static void STOP_ROPE_WINDING(Object rope) { return Native::Invoke<void, Object>(N::STOP_ROPE_WINDING, rope); }
-	static void START_ROPE_UNWINDING_FRONT(Object rope) { return Native::Invoke<void, Object>(N::START_ROPE_UNWINDING_FRONT, rope); }
-	static void STOP_ROPE_UNWINDING_FRONT(Object rope) { return Native::Invoke<void, Object>(N::STOP_ROPE_UNWINDING_FRONT, rope); }
+	static Any GET_ROPE_LAST_VERTEX_COORD(Object rope) { return Native::Invoke<Any, Object>(0x21BB0FBD3E217C2D, rope); }
+	static Any GET_ROPE_VERTEX_COORD(Object rope, int vertex) { return Native::Invoke<Any, Object, int>(0xEA61CA8E80F09E4D, rope, vertex); }
+	static void START_ROPE_WINDING(Object rope) { return Native::Invoke<void, Object>(0x1461C72C889E343E, rope); }
+	static void STOP_ROPE_WINDING(Object rope) { return Native::Invoke<void, Object>(0xCB2D4AB84A19AA7C, rope); }
+	static void START_ROPE_UNWINDING_FRONT(Object rope) { return Native::Invoke<void, Object>(0x538D1179EC1AA9A9, rope); }
+	static void STOP_ROPE_UNWINDING_FRONT(Object rope) { return Native::Invoke<void, Object>(0xFFF3A50779EFBBB3, rope); }
 	static void _0x00F611A794A3C36E(Any p0) { return Native::Invoke<void, Any>(0x00F611A794A3C36E, p0); }
 	static void _0x10DAA76CB8A201A1(Any p0) { return Native::Invoke<void, Any>(0x10DAA76CB8A201A1, p0); }
 	static void _0x461FCBDEB4D06717(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x461FCBDEB4D06717, p0, p1); }
@@ -4623,7 +4623,7 @@ namespace PHYSICS
 	static void _0xB40EA9E0D2E2F7F3(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xB40EA9E0D2E2F7F3, p0, p1); }
 	static Any _0x3D69537039F8D824(Any p0) { return Native::Invoke<Any, Any>(0x3D69537039F8D824, p0); }
 	static void _0x751DF00EEFF122E3(Any p0) { return Native::Invoke<void, Any>(0x751DF00EEFF122E3, p0); }
-	static Any ROPE_FORCE_LENGTH(Object rope, float length) { return Native::Invoke<Any, Object, float>(N::ROPE_FORCE_LENGTH, rope, length); }
+	static Any ROPE_FORCE_LENGTH(Object rope, float length) { return Native::Invoke<Any, Object, float>(0xD009F759A723DB1B, rope, length); }
 	static void _0x8D59079C37C21D78(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8D59079C37C21D78, p0, p1); }
 	static void _0x814D453FCFDF119F(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x814D453FCFDF119F, p0, p1, p2); }
 	static void _0x1FC92BDBA1106BD2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1FC92BDBA1106BD2, p0, p1); }
@@ -4631,39 +4631,39 @@ namespace PHYSICS
 	static void _0xF1EA2A881EB7F2CD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF1EA2A881EB7F2CD, p0, p1); }
 	static void _0x5A989B7EE3672A56(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5A989B7EE3672A56, p0, p1); }
 	static void _0x483D4E917B0D35A9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x483D4E917B0D35A9, p0, p1); }
-	static void SET_DAMPING(Object ropeorobject, int vertex, float value) { return Native::Invoke<void, Object, int, float>(N::SET_DAMPING, ropeorobject, vertex, value); }
-	static void ACTIVATE_PHYSICS(Entity entity) { return Native::Invoke<void, Entity>(N::ACTIVATE_PHYSICS, entity); }
-	static void BREAK_ENTITY_GLASS(Object object, float posX, float posY, float posZ, float p4, float offsetX, float offsetY, float offsetZ, float p8, int p9, BOOL p10) { return Native::Invoke<void, Object, float, float, float, float, float, float, float, float, int, BOOL>(N::BREAK_ENTITY_GLASS, object, posX, posY, posZ, p4, offsetX, offsetY, offsetZ, p8, p9, p10); }
+	static void SET_DAMPING(Object ropeorobject, int vertex, float value) { return Native::Invoke<void, Object, int, float>(0xEEA3B200A6FEB65B, ropeorobject, vertex, value); }
+	static void ACTIVATE_PHYSICS(Entity entity) { return Native::Invoke<void, Entity>(0x710311ADF0E20730, entity); }
+	static void BREAK_ENTITY_GLASS(Object object, float posX, float posY, float posZ, float p4, float offsetX, float offsetY, float offsetZ, float p8, int p9, BOOL p10) { return Native::Invoke<void, Object, float, float, float, float, float, float, float, float, int, BOOL>(0x2E648D16F6E308F3, object, posX, posY, posZ, p4, offsetX, offsetY, offsetZ, p8, p9, p10); }
 	static void _0x8EEDFD8921389928(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x8EEDFD8921389928, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static Any SET_DISABLE_BREAKING(Object rope, BOOL enabled) { return Native::Invoke<Any, Object, BOOL>(N::SET_DISABLE_BREAKING, rope, enabled); }
-	static void SET_DISABLE_FRAG_DAMAGE(Object object, BOOL toggle) { return Native::Invoke<void, Object, BOOL>(N::SET_DISABLE_FRAG_DAMAGE, object, toggle); }
+	static Any SET_DISABLE_BREAKING(Object rope, BOOL enabled) { return Native::Invoke<Any, Object, BOOL>(0x5CEC1A84620E7D5B, rope, enabled); }
+	static void SET_DISABLE_FRAG_DAMAGE(Object object, BOOL toggle) { return Native::Invoke<void, Object, BOOL>(0x01BA3AED21C16CFB, object, toggle); }
 	static void _0x5BD7457221CC5FF4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5BD7457221CC5FF4, p0, p1); }
 }
 namespace PLAYER
 {
-	static Player* GET_PLAYER_PED(Vehicle player) { return Native::Invoke<Player*, Vehicle>(N::GET_PLAYER_PED, player); }
+	static Player* GET_PLAYER_PED(Vehicle player) { return Native::Invoke<Player*, Vehicle>(0x275F255ED201B937, player); }
 	static Any _0x5EBE38A20BC51C27() { return Native::Invoke<Any>(0x5EBE38A20BC51C27); }
 	static Any _0x325434C68358D282() { return Native::Invoke<Any>(0x325434C68358D282); }
-	static Any GET_PLAYER_PED_SCRIPT_INDEX() { return Native::Invoke<Any>(N::GET_PLAYER_PED_SCRIPT_INDEX); }
-	static void SET_PLAYER_MODEL(Player player, Hash modelHash, Any p2) { return Native::Invoke<void, Player, Hash, Any>(N::SET_PLAYER_MODEL, player, modelHash, p2); }
+	static float* GET_PLAYER_PED_SCRIPT_INDEX() { return Native::Invoke<float*>(0x5C880F9056D784C8); }
+	static void SET_PLAYER_MODEL(Player player, Hash modelHash, Any p2) { return Native::Invoke<void, Player, Hash, Any>(0xED40380076A31506, player, modelHash, p2); }
 	static Any _0x0760D6F70EBCC05C() { return Native::Invoke<Any>(0x0760D6F70EBCC05C); }
-	static int GET_PLAYER_TEAM(Player player) { return Native::Invoke<int, Player>(N::GET_PLAYER_TEAM, player); }
-	static Any SET_PLAYER_TEAM() { return Native::Invoke<Any>(N::SET_PLAYER_TEAM); }
-	static char* GET_PLAYER_NAME(float player) { return Native::Invoke<char*, float>(N::GET_PLAYER_NAME, player); }
+	static int GET_PLAYER_TEAM(Player player) { return Native::Invoke<int, Player>(0xB464EB6A40C7975B, player); }
+	static void SET_PLAYER_TEAM() { return Native::Invoke<void>(0xE8DD8536F01DE600); }
+	static const char* GET_PLAYER_NAME(float player) { return Native::Invoke<const char*, float>(0x7124FD9AC0E01BA0, player); }
 	static Any _0x5B6193813E03E4E9() { return Native::Invoke<Any>(0x5B6193813E03E4E9); }
-	static BOOL GET_WANTED_LEVEL_RADIUS(BOOL player) { return Native::Invoke<BOOL, BOOL>(N::GET_WANTED_LEVEL_RADIUS, player); }
-	static int GET_WANTED_LEVEL_THRESHOLD(int wantedLevel) { return Native::Invoke<int, int>(N::GET_WANTED_LEVEL_THRESHOLD, wantedLevel); }
-	static void SET_PLAYER_WANTED_LEVEL(Player player, int wantedLevel, BOOL disableNoMission) { return Native::Invoke<void, Player, int, BOOL>(N::SET_PLAYER_WANTED_LEVEL, player, wantedLevel, disableNoMission); }
-	static BOOL IS_PLAYER_WANTED_LEVEL_GREATER(Player player, int wantedLevel) { return Native::Invoke<BOOL, Player, int>(N::IS_PLAYER_WANTED_LEVEL_GREATER, player, wantedLevel); }
-	static void CLEAR_PLAYER_WANTED_LEVEL(Player player) { return Native::Invoke<void, Player>(N::CLEAR_PLAYER_WANTED_LEVEL, player); }
-	static BOOL IS_PLAYER_DEAD(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_DEAD, player); }
-	static void SET_PLAYER_CONTROL(Player player, BOOL toggle, int flags, Any p3) { return Native::Invoke<void, Player, BOOL, int, Any>(N::SET_PLAYER_CONTROL, player, toggle, flags, p3); }
-	static int GET_PLAYER_WANTED_LEVEL(Player player) { return Native::Invoke<int, Player>(N::GET_PLAYER_WANTED_LEVEL, player); }
-	static Any SET_MAX_WANTED_LEVEL() { return Native::Invoke<Any>(N::SET_MAX_WANTED_LEVEL); }
+	static BOOL GET_WANTED_LEVEL_RADIUS(BOOL player) { return Native::Invoke<BOOL, BOOL>(0x80B00EB26D9521C7, player); }
+	static int GET_WANTED_LEVEL_THRESHOLD(int wantedLevel) { return Native::Invoke<int, int>(0x1B1A3B358F7D8F07, wantedLevel); }
+	static void SET_PLAYER_WANTED_LEVEL(Player player, int wantedLevel, BOOL disableNoMission) { return Native::Invoke<void, Player, int, BOOL>(0x384D4765395E006C, player, wantedLevel, disableNoMission); }
+	static BOOL IS_PLAYER_WANTED_LEVEL_GREATER(Player player, int wantedLevel) { return Native::Invoke<BOOL, Player, int>(0xE1C0AD4C24324C36, player, wantedLevel); }
+	static void CLEAR_PLAYER_WANTED_LEVEL(Player player) { return Native::Invoke<void, Player>(0x4E4B996C928C7AA6, player); }
+	static BOOL IS_PLAYER_DEAD(Player player) { return Native::Invoke<BOOL, Player>(0x2E9C3FCB6798F397, player); }
+	static void SET_PLAYER_CONTROL(Player player, BOOL toggle, int flags, Any p3) { return Native::Invoke<void, Player, BOOL, int, Any>(0x4D51E59243281D80, player, toggle, flags, p3); }
+	static int GET_PLAYER_WANTED_LEVEL(Player player) { return Native::Invoke<int, Player>(0xABC532F9098BFD9D, player); }
+	static void SET_MAX_WANTED_LEVEL() { return Native::Invoke<void>(0x28A4BD2CEE236E19); }
 	static void _0xEA6DE0CD15AECBE2(Any p0) { return Native::Invoke<void, Any>(0xEA6DE0CD15AECBE2, p0); }
-	static void SET_POLICE_RADAR_BLIPS(Player test) { return Native::Invoke<void, Player>(N::SET_POLICE_RADAR_BLIPS, test); }
-	static BOOL IS_PLAYER_PLAYING(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_PLAYING, player); }
-	static void SET_EVERYONE_IGNORE_PLAYER(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_EVERYONE_IGNORE_PLAYER, player, toggle); }
+	static void SET_POLICE_RADAR_BLIPS(Player test) { return Native::Invoke<void, Player>(0x6FD7DD6B63F2820E, test); }
+	static BOOL IS_PLAYER_PLAYING(Player player) { return Native::Invoke<BOOL, Player>(0xBFFB35986CAAE58C, player); }
+	static void SET_EVERYONE_IGNORE_PLAYER(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0x34630A768925B852, player, toggle); }
 	static Any _0x51BEA356B1C60225(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x51BEA356B1C60225, p0, p1); }
 	static void _0x0751D461F06E41CE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x0751D461F06E41CE, p0, p1, p2, p3); }
 	static Any _0x6614F9039BD31931(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6614F9039BD31931, p0, p1, p2); }
@@ -4672,46 +4672,46 @@ namespace PLAYER
 	static void _0x93624B36E8851B42(Any p0) { return Native::Invoke<void, Any>(0x93624B36E8851B42, p0); }
 	static void _0x9073EC5456651A90(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9073EC5456651A90, p0, p1); }
 	static void _0x2E67707BEC52CA4B(Any p0) { return Native::Invoke<void, Any>(0x2E67707BEC52CA4B, p0); }
-	static void SET_ALL_RANDOM_PEDS_FLEE(Player* player, Any toggle) { return Native::Invoke<void, Player*, Any>(N::SET_ALL_RANDOM_PEDS_FLEE, player, toggle); }
-	static void SET_ALL_RANDOM_PEDS_FLEE_THIS_FRAME(Player player) { return Native::Invoke<void, Player>(N::SET_ALL_RANDOM_PEDS_FLEE_THIS_FRAME, player); }
+	static void SET_ALL_RANDOM_PEDS_FLEE(Player* player, Any toggle) { return Native::Invoke<void, Player*, Any>(0xE705309B8C6445A4, player, toggle); }
+	static void SET_ALL_RANDOM_PEDS_FLEE_THIS_FRAME(Player player) { return Native::Invoke<void, Player>(0xD5C198A62F1DEB0A, player); }
 	static void _0x16752DAA7E6D3F72(Any p0) { return Native::Invoke<void, Any>(0x16752DAA7E6D3F72, p0); }
 	static void _0x1D256EED194F5B58(Any p0) { return Native::Invoke<void, Any>(0x1D256EED194F5B58, p0); }
 	static Any _0x5B7B97E99F84138B(Any p0) { return Native::Invoke<Any, Any>(0x5B7B97E99F84138B, p0); }
 	static void _0x8674D138391FFB1B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8674D138391FFB1B, p0, p1); }
 	static Any _0xA82964B9D8D6A983() { return Native::Invoke<Any>(0xA82964B9D8D6A983); }
-	static void SET_WANTED_LEVEL_MULTIPLIER(float multiplier) { return Native::Invoke<void, float>(N::SET_WANTED_LEVEL_MULTIPLIER, multiplier); }
-	static Any RESET_WANTED_LEVEL_DIFFICULTY() { return Native::Invoke<Any>(N::RESET_WANTED_LEVEL_DIFFICULTY); }
+	static void SET_WANTED_LEVEL_MULTIPLIER(float multiplier) { return Native::Invoke<void, float>(0xD7FA719CB54866C2, multiplier); }
+	static void RESET_WANTED_LEVEL_DIFFICULTY() { return Native::Invoke<void>(0x062D14F18E8B0CAE); }
 	static void _0xD0B0B044112BF424(Any p0) { return Native::Invoke<void, Any>(0xD0B0B044112BF424, p0); }
 	static void _0x96722257E5381E00(Any p0) { return Native::Invoke<void, Any>(0x96722257E5381E00, p0); }
 	static void _0xCBCCF73FFA69CC6B(Any p0) { return Native::Invoke<void, Any>(0xCBCCF73FFA69CC6B, p0); }
 	static void _0xD2DFC9CCA5596A11(Any p0) { return Native::Invoke<void, Any>(0xD2DFC9CCA5596A11, p0); }
 	static void _0x5CE5CACC01D0F985() { return Native::Invoke<void>(0x5CE5CACC01D0F985); }
-	static BOOL CAN_PLAYER_START_MISSION(Player player) { return Native::Invoke<BOOL, Player>(N::CAN_PLAYER_START_MISSION, player); }
-	static BOOL IS_PLAYER_READY_FOR_CUTSCENE(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_READY_FOR_CUTSCENE, player); }
-	static BOOL IS_PLAYER_TARGETTING_ENTITY(Player player, Entity entity, Any p2) { return Native::Invoke<BOOL, Player, Entity, Any>(N::IS_PLAYER_TARGETTING_ENTITY, player, entity, p2); }
-	static BOOL GET_PLAYER_TARGET_ENTITY(Player player, Entity* entity) { return Native::Invoke<BOOL, Player, Entity*>(N::GET_PLAYER_TARGET_ENTITY, player, entity); }
+	static BOOL CAN_PLAYER_START_MISSION(Player player) { return Native::Invoke<BOOL, Player>(0x2DF170B1185AF777, player); }
+	static BOOL IS_PLAYER_READY_FOR_CUTSCENE(Player player) { return Native::Invoke<BOOL, Player>(0xAA67BCB0097F2FA3, player); }
+	static BOOL IS_PLAYER_TARGETTING_ENTITY(Player player, Entity entity, Any p2) { return Native::Invoke<BOOL, Player, Entity, Any>(0x27F89FDC16688A7A, player, entity, p2); }
+	static BOOL GET_PLAYER_TARGET_ENTITY(Player player, Entity* entity) { return Native::Invoke<BOOL, Player, Entity*>(0xAE663DDD99C8A670, player, entity); }
 	static Any _0x927861B2C08DBEA5() { return Native::Invoke<Any>(0x927861B2C08DBEA5); }
 	static Any _0x1A51BFE60708E482(Any p0) { return Native::Invoke<Any, Any>(0x1A51BFE60708E482, p0); }
 	static Any _0x3EE1F7A8C32F24E1(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x3EE1F7A8C32F24E1, p0, p1, p2, p3); }
 	static Any _0xBEA3A6E5F5F79A6F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xBEA3A6E5F5F79A6F, p0, p1); }
 	static Any _0x04D7F33640662FA2() { return Native::Invoke<Any>(0x04D7F33640662FA2); }
-	static BOOL IS_PLAYER_FREE_AIMING(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_FREE_AIMING, player); }
-	static BOOL IS_PLAYER_FREE_AIMING_AT_ENTITY(Player player, Entity entity) { return Native::Invoke<BOOL, Player, Entity>(N::IS_PLAYER_FREE_AIMING_AT_ENTITY, player, entity); }
-	static BOOL GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(Player player, Entity* entity) { return Native::Invoke<BOOL, Player, Entity*>(N::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT, player, entity); }
+	static BOOL IS_PLAYER_FREE_AIMING(Player player) { return Native::Invoke<BOOL, Player>(0x936F967D4BE1CE9D, player); }
+	static BOOL IS_PLAYER_FREE_AIMING_AT_ENTITY(Player player, Entity entity) { return Native::Invoke<BOOL, Player, Entity>(0x8C67C11C68713D25, player, entity); }
+	static BOOL GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(Player player, Entity* entity) { return Native::Invoke<BOOL, Player, Entity*>(0xA6817C110B830EAD, player, entity); }
 	static void _0x3DAABE78A23694BC(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3DAABE78A23694BC, p0, p1); }
 	static Any _0x7AE93C45EC14A166(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7AE93C45EC14A166, p0, p1); }
-	static void SET_PLAYER_LOCKON_RANGE_OVERRIDE(Player player, float range) { return Native::Invoke<void, Player, float>(N::SET_PLAYER_LOCKON_RANGE_OVERRIDE, player, range); }
-	static void SET_PLAYER_CAN_BE_HASSLED_BY_GANGS(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_CAN_BE_HASSLED_BY_GANGS, player, toggle); }
-	static Any SET_PLAYER_CAN_USE_COVER(Player player, BOOL toggle) { return Native::Invoke<Any, Player, BOOL>(N::SET_PLAYER_CAN_USE_COVER, player, toggle); }
+	static void SET_PLAYER_LOCKON_RANGE_OVERRIDE(Player player, float range) { return Native::Invoke<void, Player, float>(0x3A3CD06597388322, player, range); }
+	static void SET_PLAYER_CAN_BE_HASSLED_BY_GANGS(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0xC7FE774412046825, player, toggle); }
+	static Any SET_PLAYER_CAN_USE_COVER(Player player, BOOL toggle) { return Native::Invoke<Any, Player, BOOL>(0x5EDA520F7A3BAF4E, player, toggle); }
 	static void _0xD1A70C1E8D1031FE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD1A70C1E8D1031FE, p0, p1); }
 	static void _0xACA45DDCEF6071C4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xACA45DDCEF6071C4, p0, p1); }
 	static void _0xA0C683284DF027C7(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA0C683284DF027C7, p0, p1, p2); }
 	static Any _0x4EC8BE63B8A5D4EF() { return Native::Invoke<Any>(0x4EC8BE63B8A5D4EF); }
-	static int GET_MAX_WANTED_LEVEL() { return Native::Invoke<int>(N::GET_MAX_WANTED_LEVEL); }
-	static BOOL IS_PLAYER_TARGETTING_ANYTHING(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_TARGETTING_ANYTHING, player); }
-	static void RESTORE_PLAYER_STAMINA(Player player, float p1) { return Native::Invoke<void, Player, float>(N::RESTORE_PLAYER_STAMINA, player, p1); }
+	static int GET_MAX_WANTED_LEVEL() { return Native::Invoke<int>(0xD04CFAD1E2B7984A); }
+	static BOOL IS_PLAYER_TARGETTING_ANYTHING(Player player) { return Native::Invoke<BOOL, Player>(0x4605C66E0F935F83, player); }
+	static void RESTORE_PLAYER_STAMINA(Player player, float p1) { return Native::Invoke<void, Player, float>(0xC41F4B6E23FE6A4A, player, p1); }
 	static void _0x8591EE69CC3ED257(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8591EE69CC3ED257, p0, p1); }
-	static int GET_PLAYER_GROUP(Player player) { return Native::Invoke<int, Player>(N::GET_PLAYER_GROUP, player); }
+	static int GET_PLAYER_GROUP(Player player) { return Native::Invoke<int, Player>(0x9BAB31815159ABCF, player); }
 	static void _0x3D9DA5C9EFD20D88(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3D9DA5C9EFD20D88, p0, p1); }
 	static void _0x2BEED53B912537D0(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x2BEED53B912537D0, p0, p1, p2); }
 	static void _0x908D4B72854C8F62(Any p0) { return Native::Invoke<void, Any>(0x908D4B72854C8F62, p0); }
@@ -4732,64 +4732,64 @@ namespace PLAYER
 	static Any _0xE7F8707269544B29(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xE7F8707269544B29, p0, p1); }
 	static Any _0xE631EAF35828FA67(Any p0) { return Native::Invoke<Any, Any>(0xE631EAF35828FA67, p0); }
 	static void _0x086549F3B0381CB1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x086549F3B0381CB1, p0, p1); }
-	static BOOL IS_PLAYER_CONTROL_ON(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_CONTROL_ON, player); }
-	static BOOL IS_PLAYER_SCRIPT_CONTROL_ON(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_SCRIPT_CONTROL_ON, player); }
-	static BOOL IS_PLAYER_CLIMBING(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_CLIMBING, player); }
+	static BOOL IS_PLAYER_CONTROL_ON(Player player) { return Native::Invoke<BOOL, Player>(0x7964097FCE4C244B, player); }
+	static BOOL IS_PLAYER_SCRIPT_CONTROL_ON(Player player) { return Native::Invoke<BOOL, Player>(0xB78350754157C00F, player); }
+	static BOOL IS_PLAYER_CLIMBING(Player player) { return Native::Invoke<BOOL, Player>(0xB8A70C22FD48197A, player); }
 	static void _0xEBB6E27AC2FF32DA(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xEBB6E27AC2FF32DA, p0, p1, p2, p3, p4); }
 	static Any _0xB15CD2F9932C9AB5(Any p0) { return Native::Invoke<Any, Any>(0xB15CD2F9932C9AB5, p0); }
 	static Any _0x621D1B289CAF5978(Any p0) { return Native::Invoke<Any, Any>(0x621D1B289CAF5978, p0); }
-	static BOOL IS_PLAYER_BEING_ARRESTED(Player player, BOOL atArresting) { return Native::Invoke<BOOL, Player, BOOL>(N::IS_PLAYER_BEING_ARRESTED, player, atArresting); }
-	static void RESET_PLAYER_ARREST_STATE(Player player) { return Native::Invoke<void, Player>(N::RESET_PLAYER_ARREST_STATE, player); }
+	static BOOL IS_PLAYER_BEING_ARRESTED(Player player, BOOL atArresting) { return Native::Invoke<BOOL, Player, BOOL>(0xC8183AE963C58374, player, atArresting); }
+	static void RESET_PLAYER_ARREST_STATE(Player player) { return Native::Invoke<void, Player>(0x12917931C31F1750, player); }
 	static void _0xCBB54CC7FFFFAB86(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCBB54CC7FFFFAB86, p0, p1, p2); }
 	static void _0xBED386157F65942C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBED386157F65942C, p0, p1); }
 	static Any _0xDAB6A2FC56B7DE65(Any p0) { return Native::Invoke<Any, Any>(0xDAB6A2FC56B7DE65, p0); }
 	static Any _0x0F4EAF69DA41AF43(Any p0) { return Native::Invoke<Any, Any>(0x0F4EAF69DA41AF43, p0); }
 	static Any _0x6ADF821FBF21920E() { return Native::Invoke<Any>(0x6ADF821FBF21920E); }
 	static Any _0x8F2A81C09DA9124A() { return Native::Invoke<Any>(0x8F2A81C09DA9124A); }
-	static Vehicle GET_PLAYERS_LAST_VEHICLE() { return Native::Invoke<Vehicle>(N::GET_PLAYERS_LAST_VEHICLE); }
-	static Player GET_PLAYER_INDEX() { return Native::Invoke<Player>(N::GET_PLAYER_INDEX); }
-	static Player INT_TO_PLAYERINDEX(int value) { return Native::Invoke<Player, int>(N::INT_TO_PLAYERINDEX, value); }
-	static Any INT_TO_PARTICIPANTINDEX() { return Native::Invoke<Any>(N::INT_TO_PARTICIPANTINDEX); }
-	static Player PLAYER_ID() { return Native::Invoke<Player>(N::PLAYER_ID); }
-	static Ped PLAYER_PED_ID() { return Native::Invoke<Ped>(N::PLAYER_PED_ID); }
-	static int NETWORK_PLAYER_ID_TO_INT() { return Native::Invoke<int>(N::NETWORK_PLAYER_ID_TO_INT); }
-	static BOOL HAS_FORCE_CLEANUP_OCCURRED(int cleanupFlags) { return Native::Invoke<BOOL, int>(N::HAS_FORCE_CLEANUP_OCCURRED, cleanupFlags); }
-	static void FORCE_CLEANUP(int cleanupFlags) { return Native::Invoke<void, int>(N::FORCE_CLEANUP, cleanupFlags); }
-	static void FORCE_CLEANUP_FOR_ALL_THREADS_WITH_THIS_NAME(char* name, int cleanupFlags) { return Native::Invoke<void, char*, int>(N::FORCE_CLEANUP_FOR_ALL_THREADS_WITH_THIS_NAME, name, cleanupFlags); }
-	static void FORCE_CLEANUP_FOR_THREAD_WITH_THIS_ID(int id, int cleanupFlags) { return Native::Invoke<void, int, int>(N::FORCE_CLEANUP_FOR_THREAD_WITH_THIS_ID, id, cleanupFlags); }
-	static Vehicle* GET_CAUSE_OF_MOST_RECENT_FORCE_CLEANUP() { return Native::Invoke<Vehicle*>(N::GET_CAUSE_OF_MOST_RECENT_FORCE_CLEANUP); }
+	static Vehicle GET_PLAYERS_LAST_VEHICLE() { return Native::Invoke<Vehicle>(0x2F96E7720B0B19EA); }
+	static Player GET_PLAYER_INDEX() { return Native::Invoke<Player>(0x47E385B0D957C8D4); }
+	static Player INT_TO_PLAYERINDEX(int value) { return Native::Invoke<Player, int>(0x748B3A65C2604C33, value); }
+	static int INT_TO_PARTICIPANTINDEX() { return Native::Invoke<int>(0x58FF971FC8F2702C); }
+	static Player PLAYER_ID() { return Native::Invoke<Player>(0x217E9DC48139933D); }
+	static Ped PLAYER_PED_ID() { return Native::Invoke<Ped>(0x096275889B8E0EE0); }
+	static int NETWORK_PLAYER_ID_TO_INT() { return Native::Invoke<int>(0x8A9386F0749A17FA); }
+	static BOOL HAS_FORCE_CLEANUP_OCCURRED(int cleanupFlags) { return Native::Invoke<BOOL, int>(0xC11469DCA6FC3BB5, cleanupFlags); }
+	static void FORCE_CLEANUP(int cleanupFlags) { return Native::Invoke<void, int>(0x768C017FB878E4F4, cleanupFlags); }
+	static void FORCE_CLEANUP_FOR_ALL_THREADS_WITH_THIS_NAME(const char* name, int cleanupFlags) { return Native::Invoke<void, const char*, int>(0xDAACAF8B687F2353, name, cleanupFlags); }
+	static void FORCE_CLEANUP_FOR_THREAD_WITH_THIS_ID(int id, int cleanupFlags) { return Native::Invoke<void, int, int>(0xF4C9512A2F0A3031, id, cleanupFlags); }
+	static Vehicle* GET_CAUSE_OF_MOST_RECENT_FORCE_CLEANUP() { return Native::Invoke<Vehicle*>(0x84E8E29EBD4A46D2); }
 	static void _0x39BED552DB46FFA9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x39BED552DB46FFA9, p0, p1); }
 	static Any _0x054473164C012699(Any p0) { return Native::Invoke<Any, Any>(0x054473164C012699, p0); }
-	static Any SET_PLAYER_MAY_ONLY_ENTER_THIS_VEHICLE() { return Native::Invoke<Any>(N::SET_PLAYER_MAY_ONLY_ENTER_THIS_VEHICLE); }
+	static void SET_PLAYER_MAY_ONLY_ENTER_THIS_VEHICLE() { return Native::Invoke<void>(0xDA35A134038557EC); }
 	static void _0xC71D07C96946E263(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC71D07C96946E263, p0, p1); }
-	static void SET_PLAYER_MAY_NOT_ENTER_ANY_VEHICLE(Player* player) { return Native::Invoke<void, Player*>(N::SET_PLAYER_MAY_NOT_ENTER_ANY_VEHICLE, player); }
-	static BOOL IS_SYSTEM_UI_BEING_DISPLAYED() { return Native::Invoke<BOOL>(N::IS_SYSTEM_UI_BEING_DISPLAYED); }
+	static void SET_PLAYER_MAY_NOT_ENTER_ANY_VEHICLE(Player* player) { return Native::Invoke<void, Player*>(0xBEC463B3A11C909E, player); }
+	static BOOL IS_SYSTEM_UI_BEING_DISPLAYED() { return Native::Invoke<BOOL>(0x908258B6209E71F7); }
 	static void _0x3946FC742AC305CD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x3946FC742AC305CD, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0xC67A4910425F11F1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC67A4910425F11F1, p0, p1); }
-	static void SET_PLAYER_INVINCIBLE(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_INVINCIBLE, player, toggle); }
-	static BOOL GET_PLAYER_INVINCIBLE(Player player) { return Native::Invoke<BOOL, Player>(N::GET_PLAYER_INVINCIBLE, player); }
-	static void SET_PLAYER_LOCKON(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_LOCKON, player, toggle); }
+	static void SET_PLAYER_INVINCIBLE(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0xFEBEEBC9CBDF4B12, player, toggle); }
+	static BOOL GET_PLAYER_INVINCIBLE(Player player) { return Native::Invoke<BOOL, Player>(0x0CBBCB2CCFA7DC4E, player); }
+	static void SET_PLAYER_LOCKON(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0x462AA1973CBBA75E, player, toggle); }
 	static Any _0x4A056257802DD3E5() { return Native::Invoke<Any>(0x4A056257802DD3E5); }
-	static Any SET_PLAYER_TARGETING_MODE() { return Native::Invoke<Any>(N::SET_PLAYER_TARGETING_MODE); }
+	static void SET_PLAYER_TARGETING_MODE() { return Native::Invoke<void>(0xD66A941F401E7302); }
 	static Any _0x19B4F71703902238() { return Native::Invoke<Any>(0x19B4F71703902238); }
 	static Any _0x747257807B8721CE() { return Native::Invoke<Any>(0x747257807B8721CE); }
 	static Any _0x8702D9150D9FBB3D() { return Native::Invoke<Any>(0x8702D9150D9FBB3D); }
 	static void _0xCB0B9506BC91E441(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCB0B9506BC91E441, p0, p1); }
-	static void CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_PED(Player player) { return Native::Invoke<void, Player>(N::CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_PED, player); }
-	static BOOL HAS_PLAYER_DAMAGED_AT_LEAST_ONE_PED(Player player) { return Native::Invoke<BOOL, Player>(N::HAS_PLAYER_DAMAGED_AT_LEAST_ONE_PED, player); }
-	static void CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED(Player player) { return Native::Invoke<void, Player>(N::CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED, player); }
-	static BOOL HAS_PLAYER_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED(Player player) { return Native::Invoke<BOOL, Player>(N::HAS_PLAYER_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED, player); }
+	static void CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_PED(Player player) { return Native::Invoke<void, Player>(0x270B63A641BE32F2, player); }
+	static BOOL HAS_PLAYER_DAMAGED_AT_LEAST_ONE_PED(Player player) { return Native::Invoke<BOOL, Player>(0xDA4A4B9B96E20092, player); }
+	static void CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED(Player player) { return Native::Invoke<void, Player>(0x0361096D6CE4372C, player); }
+	static BOOL HAS_PLAYER_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED(Player player) { return Native::Invoke<BOOL, Player>(0x16C8D205DD5A2E90, player); }
 	static void _0xEACEBAAE0A33FB3F(Any p0) { return Native::Invoke<void, Any>(0xEACEBAAE0A33FB3F, p0); }
 	static Any _0x72AD59F7B7FB6E24(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x72AD59F7B7FB6E24, p0, p1); }
 	static Any _0x1A6E84F13C952094(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x1A6E84F13C952094, p0, p1, p2); }
 	static Any _0x78B3D19AF6391A55() { return Native::Invoke<Any>(0x78B3D19AF6391A55); }
 	static Any _0x1F488807BC8E0630() { return Native::Invoke<Any>(0x1F488807BC8E0630); }
-	static Any SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE() { return Native::Invoke<Any>(N::SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE); }
-	static void SET_SWIM_MULTIPLIER_FOR_PLAYER(Ped player, float multiplier) { return Native::Invoke<void, Ped, float>(N::SET_SWIM_MULTIPLIER_FOR_PLAYER, player, multiplier); }
+	static void SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE() { return Native::Invoke<void>(0x5DA6500FE849DA16); }
+	static void SET_SWIM_MULTIPLIER_FOR_PLAYER(Ped player, float multiplier) { return Native::Invoke<void, Ped, float>(0xBFCEABDE34DA5085, player, multiplier); }
 	static Any _0x73EB2EF2E92D23BF() { return Native::Invoke<Any>(0x73EB2EF2E92D23BF); }
-	static void SET_PLAYER_FORCED_AIM(Player player, BOOL toggle, Any p2, Any p3) { return Native::Invoke<void, Player, BOOL, Any, Any>(N::SET_PLAYER_FORCED_AIM, player, toggle, p2, p3); }
+	static void SET_PLAYER_FORCED_AIM(Player player, BOOL toggle, Any p2, Any p3) { return Native::Invoke<void, Player, BOOL, Any, Any>(0xD5FCC166AEB2FD0F, player, toggle, p2, p3); }
 	static void _0x310CE349E0C0EC4B(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x310CE349E0C0EC4B, p0, p1, p2); }
-	static Any DISABLE_PLAYER_FIRING() { return Native::Invoke<Any>(N::DISABLE_PLAYER_FIRING); }
+	static void DISABLE_PLAYER_FIRING() { return Native::Invoke<void>(0x2970929FD5F9FC89); }
 	static void _0xEBFF94328FF7A18A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xEBFF94328FF7A18A, p0, p1); }
 	static void _0xF993373285053D77(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF993373285053D77, p0, p1, p2); }
 	static Any _0xE956C2340A76272E(Any p0) { return Native::Invoke<Any, Any>(0xE956C2340A76272E, p0); }
@@ -4833,13 +4833,13 @@ namespace PLAYER
 	static void _0x64FF4BF9AF59E139(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x64FF4BF9AF59E139, p0, p1); }
 	static Any _0x45AB66D02B601FA7(Any p0) { return Native::Invoke<Any, Any>(0x45AB66D02B601FA7, p0); }
 	static void _0x107F2A66E1C4C83A(Any p0) { return Native::Invoke<void, Any>(0x107F2A66E1C4C83A, p0); }
-	static void START_PLAYER_TELEPORT(Player player, float x, float y, float z, float heading, Any keepVehicle, Any keepVelocity, Any p7, Any p8) { return Native::Invoke<void, Player, float, float, float, float, Any, Any, Any, Any>(N::START_PLAYER_TELEPORT, player, x, y, z, heading, keepVehicle, keepVelocity, p7, p8); }
+	static void START_PLAYER_TELEPORT(Player player, float x, float y, float z, float heading, Any keepVehicle, Any keepVelocity, Any p7, Any p8) { return Native::Invoke<void, Player, float, float, float, float, Any, Any, Any, Any>(0xDF8822C55EDDA65B, player, x, y, z, heading, keepVehicle, keepVelocity, p7, p8); }
 	static void _0x2C2D287748E8E9B7(Any p0) { return Native::Invoke<void, Any>(0x2C2D287748E8E9B7, p0); }
-	static BOOL _HAS_PLAYER_TELEPORT_FINISHED(Player player) { return Native::Invoke<BOOL, Player>(N::_HAS_PLAYER_TELEPORT_FINISHED, player); }
-	static void STOP_PLAYER_TELEPORT() { return Native::Invoke<void>(N::STOP_PLAYER_TELEPORT); }
-	static BOOL IS_PLAYER_TELEPORT_ACTIVE() { return Native::Invoke<BOOL>(N::IS_PLAYER_TELEPORT_ACTIVE); }
-	static float GET_PLAYER_CURRENT_STEALTH_NOISE(Player player) { return Native::Invoke<float, Player>(N::GET_PLAYER_CURRENT_STEALTH_NOISE, player); }
-	static void SET_PLAYER_HEALTH_RECHARGE_MULTIPLIER(Player player, float regenRate) { return Native::Invoke<void, Player, float>(N::SET_PLAYER_HEALTH_RECHARGE_MULTIPLIER, player, regenRate); }
+	static BOOL _HAS_PLAYER_TELEPORT_FINISHED(Player player) { return Native::Invoke<BOOL, Player>(0xC39DCE4672CBFBC1, player); }
+	static void STOP_PLAYER_TELEPORT() { return Native::Invoke<void>(0x0858B86146601BE8); }
+	static BOOL IS_PLAYER_TELEPORT_ACTIVE() { return Native::Invoke<BOOL>(0x085EEAEB8783FEB5); }
+	static float GET_PLAYER_CURRENT_STEALTH_NOISE(Player player) { return Native::Invoke<float, Player>(0xD7ECC25E176ECBA5, player); }
+	static void SET_PLAYER_HEALTH_RECHARGE_MULTIPLIER(Player player, float regenRate) { return Native::Invoke<void, Player, float>(0x8899C244EBCF70DE, player, regenRate); }
 	static Any _0x22CD23BB0C45E0CD(Any p0) { return Native::Invoke<Any, Any>(0x22CD23BB0C45E0CD, p0); }
 	static Any _0x535ED4605F89AB6E() { return Native::Invoke<Any>(0x535ED4605F89AB6E); }
 	static void _0xFECA17CF3343694B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFECA17CF3343694B, p0, p1); }
@@ -4856,10 +4856,10 @@ namespace PLAYER
 	static void _0xDF93973251FB2CA5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDF93973251FB2CA5, p0, p1); }
 	static Any _0x694FFA4308060CD1() { return Native::Invoke<Any>(0x694FFA4308060CD1); }
 	static void _0x09C28F828EE674FA(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x09C28F828EE674FA, p0, p1, p2); }
-	static void SET_PLAYER_WEAPON_DAMAGE_MODIFIER(Player player, Pickup* damageAmount) { return Native::Invoke<void, Player, Pickup*>(N::SET_PLAYER_WEAPON_DAMAGE_MODIFIER, player, damageAmount); }
-	static Any SET_PLAYER_WEAPON_DEFENSE_MODIFIER() { return Native::Invoke<Any>(N::SET_PLAYER_WEAPON_DEFENSE_MODIFIER); }
+	static void SET_PLAYER_WEAPON_DAMAGE_MODIFIER(Player player, Pickup* damageAmount) { return Native::Invoke<void, Player, Pickup*>(0x94D529F7B73D7A85, player, damageAmount); }
+	static void SET_PLAYER_WEAPON_DEFENSE_MODIFIER() { return Native::Invoke<void>(0xD15CC2D493160BE3); }
 	static Any _0x818241B3EDA84191() { return Native::Invoke<Any>(0x818241B3EDA84191); }
-	static Any SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER() { return Native::Invoke<Any>(N::SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER); }
+	static void SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER() { return Native::Invoke<void>(0xE4CB5A3F18170381); }
 	static Any _0x2D3ACE3DE0A2B622() { return Native::Invoke<Any>(0x2D3ACE3DE0A2B622); }
 	static void _0x83C989D5B5B5B466(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x83C989D5B5B5B466, p0, p1); }
 	static Any _0x03B4B759A8990505(Any p0) { return Native::Invoke<Any, Any>(0x03B4B759A8990505, p0); }
@@ -4882,17 +4882,17 @@ namespace PLAYER
 	static Any _0x4EA69188FBCE6A7D() { return Native::Invoke<Any>(0x4EA69188FBCE6A7D); }
 	static Any _0xDEE80FEDFDD43C9B() { return Native::Invoke<Any>(0xDEE80FEDFDD43C9B); }
 	static void _0x3AD212429E095EFB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3AD212429E095EFB, p0, p1); }
-	static void SET_PLAYER_NOISE_MULTIPLIER(Player player, float multiplier) { return Native::Invoke<void, Player, float>(N::SET_PLAYER_NOISE_MULTIPLIER, player, multiplier); }
+	static void SET_PLAYER_NOISE_MULTIPLIER(Player player, float multiplier) { return Native::Invoke<void, Player, float>(0xB5EC6BDAEBCA454C, player, multiplier); }
 	static void _0x113EF458AB6CDA67(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x113EF458AB6CDA67, p0, p1); }
-	static void SET_PLAYER_SNEAKING_NOISE_MULTIPLIER(Player player, float multiplier) { return Native::Invoke<void, Player, float>(N::SET_PLAYER_SNEAKING_NOISE_MULTIPLIER, player, multiplier); }
-	static void SIMULATE_PLAYER_INPUT_GAIT(Player control, float amount, int gaitType, float speed, BOOL p4, BOOL p5) { return Native::Invoke<void, Player, float, int, float, BOOL, BOOL>(N::SIMULATE_PLAYER_INPUT_GAIT, control, amount, gaitType, speed, p4, p5); }
-	static void RESET_PLAYER_INPUT_GAIT(Player player) { return Native::Invoke<void, Player>(N::RESET_PLAYER_INPUT_GAIT, player); }
-	static void SET_PLAYER_SIMULATE_AIMING(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_SIMULATE_AIMING, player, toggle); }
-	static void SET_PLAYER_CLOTH_PIN_FRAMES(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(N::SET_PLAYER_CLOTH_PIN_FRAMES, player, toggle); }
-	static Any HAS_PLAYER_BEEN_SPOTTED_IN_STOLEN_VEHICLE() { return Native::Invoke<Any>(N::HAS_PLAYER_BEEN_SPOTTED_IN_STOLEN_VEHICLE); }
+	static void SET_PLAYER_SNEAKING_NOISE_MULTIPLIER(Player player, float multiplier) { return Native::Invoke<void, Player, float>(0x4DE44FA389DCA565, player, multiplier); }
+	static void SIMULATE_PLAYER_INPUT_GAIT(Player control, float amount, int gaitType, float speed, BOOL p4, BOOL p5) { return Native::Invoke<void, Player, float, int, float, BOOL, BOOL>(0xFA0C063C422C4355, control, amount, gaitType, speed, p4, p5); }
+	static void RESET_PLAYER_INPUT_GAIT(Player player) { return Native::Invoke<void, Player>(0x61A2EECAB274829B, player); }
+	static void SET_PLAYER_SIMULATE_AIMING(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0xE0447DEF81CCDFD2, player, toggle); }
+	static void SET_PLAYER_CLOTH_PIN_FRAMES(Player player, BOOL toggle) { return Native::Invoke<void, Player, BOOL>(0xD0D9317DFEEF9A66, player, toggle); }
+	static BOOL HAS_PLAYER_BEEN_SPOTTED_IN_STOLEN_VEHICLE() { return Native::Invoke<BOOL>(0xC932F57F31EA9152); }
 	static Any _0xFB6EB8785F808551() { return Native::Invoke<Any>(0xFB6EB8785F808551); }
 	static void _0x5B9813ECF7633FE8(Any p0) { return Native::Invoke<void, Any>(0x5B9813ECF7633FE8, p0); }
-	static BOOL IS_PLAYER_RIDING_TRAIN(Player player) { return Native::Invoke<BOOL, Player>(N::IS_PLAYER_RIDING_TRAIN, player); }
+	static BOOL IS_PLAYER_RIDING_TRAIN(Player player) { return Native::Invoke<BOOL, Player>(0x2FB0ACADA6A238DD, player); }
 	static void _0x9AFCF9FE1884BF62(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9AFCF9FE1884BF62, p0, p1); }
 	static Any _0x1E8099F449ABB0BA(Any p0) { return Native::Invoke<Any, Any>(0x1E8099F449ABB0BA, p0); }
 	static Any _0xCCE7C695C164C35F(Any p0) { return Native::Invoke<Any, Any>(0xCCE7C695C164C35F, p0); }
@@ -5021,21 +5021,21 @@ namespace PLAYER
 	static Any _0x506CE71FB6E8CF5E() { return Native::Invoke<Any>(0x506CE71FB6E8CF5E); }
 	static Any _0xF4CB347D7B5EB0FD() { return Native::Invoke<Any>(0xF4CB347D7B5EB0FD); }
 }
-namespace _NAMESPACE52
+namespace POPULATION
 {
-	static Any _0xA1E3171ED0E47564(Any p0) { return Native::Invoke<Any, Any>(0xA1E3171ED0E47564, p0); }
-	static Any _0x3EAFA1C533B7139E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3EAFA1C533B7139E, p0, p1); }
-	static Any _0x6B12ED8C77E8567B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x6B12ED8C77E8567B, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static Any GET_NUM_MODELS_IN_POPULATION_SET(Any p0) { return Native::Invoke<Any, Any>(0xA1E3171ED0E47564, p0); }
+	static Any GET_PED_MODEL_NAME_IN_POPULATION_SET(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3EAFA1C533B7139E, p0, p1); }
+	static Any GET_RANDOM_MODEL_FROM_POPULATION_SET(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x6B12ED8C77E8567B, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x9AC1C64FE46B6D09(Any p0) { return Native::Invoke<Any, Any>(0x9AC1C64FE46B6D09, p0); }
 	static void _0xA6E6A66FC4CA4224(Any p0) { return Native::Invoke<void, Any>(0xA6E6A66FC4CA4224, p0); }
 	static Any _0xA5BD585005EFCAD4(Any p0) { return Native::Invoke<Any, Any>(0xA5BD585005EFCAD4, p0); }
-	static void _0x3E6A49D9B519E85C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3E6A49D9B519E85C, p0, p1); }
+	static void SET_POPZONE_POPULATION_SET(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3E6A49D9B519E85C, p0, p1); }
 	static void _0x7E6BC0B94F5928F0(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x7E6BC0B94F5928F0, p0, p1, p2); }
 	static void _0x578E2FA64E847C60(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x578E2FA64E847C60, p0, p1); }
 	static void _0x08892122769770D5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x08892122769770D5, p0, p1); }
 	static void _0x0F1861101C9A9944(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0F1861101C9A9944, p0, p1); }
-	static void _0x60CDE717A6D47769(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x60CDE717A6D47769, p0, p1, p2); }
-	static void _0x217A54DE2D200305(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x217A54DE2D200305, p0, p1); }
+	static void SET_SPAWNER_INFO_PRIORITY(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x60CDE717A6D47769, p0, p1, p2); }
+	static void CLEAR_SPAWNER_INFO_PRIORITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x217A54DE2D200305, p0, p1); }
 	static void _0x638FCFC6042A9473(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x638FCFC6042A9473, p0, p1); }
 	static void _0xB56D41A694E42E86(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xB56D41A694E42E86, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x74C2B3DC0B294102(Any p0) { return Native::Invoke<void, Any>(0x74C2B3DC0B294102, p0); }
@@ -5130,16 +5130,16 @@ namespace _NAMESPACE54
 }
 namespace QUEUE
 {
-	static Any _EVENT_QUEUE_IS_EMPTY(Any p0) { return Native::Invoke<Any, Any>(N::_EVENT_QUEUE_IS_EMPTY, p0); }
-	static void _EVENT_QUEUE_POP(Any p0) { return Native::Invoke<void, Any>(N::_EVENT_QUEUE_POP, p0); }
+	static Any _EVENT_QUEUE_IS_EMPTY(Any p0) { return Native::Invoke<Any, Any>(0x402B5D7D269FF796, p0); }
+	static void _EVENT_QUEUE_POP(Any p0) { return Native::Invoke<void, Any>(0xD87DF294B049211D, p0); }
 }
 namespace _NAMESPACE56
 {
-	static Any _STOP_RECORDING_THIS_FRAME() { return Native::Invoke<Any>(N::_STOP_RECORDING_THIS_FRAME); }
+	static Any _STOP_RECORDING_THIS_FRAME() { return Native::Invoke<Any>(0xA8C44C13419634F2); }
 }
 namespace REPLAY
 {
-	static BOOL _IS_INTERIOR_RENDERING_DISABLED() { return Native::Invoke<BOOL>(N::_IS_INTERIOR_RENDERING_DISABLED); }
+	static BOOL _IS_INTERIOR_RENDERING_DISABLED() { return Native::Invoke<BOOL>(0x0F838D47DE58EDB2); }
 	static void _0x57C6525034E76EB0() { return Native::Invoke<void>(0x57C6525034E76EB0); }
 	static Any _0xB3F2829907403C13() { return Native::Invoke<Any>(0xB3F2829907403C13); }
 	static Any _0xCEEC64BD27A59312(Any p0) { return Native::Invoke<Any, Any>(0xCEEC64BD27A59312, p0); }
@@ -5156,8 +5156,8 @@ namespace SCRIPTS
 	static void _0xDE544B7EC0C187CC(Any p0) { return Native::Invoke<void, Any>(0xDE544B7EC0C187CC, p0); }
 	static Any _0x72B2E00C9BAC6789(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x72B2E00C9BAC6789, p0, p1); }
 	static Any _0x179A6F0EE2E79026(Any p0) { return Native::Invoke<Any, Any>(0x179A6F0EE2E79026, p0); }
-	static Any _0xFA3B530A5CC693D5() { return Native::Invoke<Any>(0xFA3B530A5CC693D5); }
-	static Any _0xC6DFB8C04C86D5A5() { return Native::Invoke<Any>(0xC6DFB8C04C86D5A5); }
+	static Any GET_BLOCK_OF_PLAYER_BITS() { return Native::Invoke<Any>(0xFA3B530A5CC693D5); }
+	static Any SET_BLOCK_OF_PLAYER_BITS() { return Native::Invoke<Any>(0xC6DFB8C04C86D5A5); }
 	static Any _0x462C687BEA254BD9(Any p0) { return Native::Invoke<Any, Any>(0x462C687BEA254BD9, p0); }
 	static Any _0x1BDB5A07307F6929() { return Native::Invoke<Any>(0x1BDB5A07307F6929); }
 	static Any _0x1C5EB3C27F7508CB() { return Native::Invoke<Any>(0x1C5EB3C27F7508CB); }
@@ -5166,46 +5166,46 @@ namespace SCRIPTS
 	static Any _0x0A79C81C418F5D38() { return Native::Invoke<Any>(0x0A79C81C418F5D38); }
 	static Any _0xA88E1D7FA1E20080() { return Native::Invoke<Any>(0xA88E1D7FA1E20080); }
 	static Any _0x2F050A3FF8738245() { return Native::Invoke<Any>(0x2F050A3FF8738245); }
-	static void REQUEST_SCRIPT(char* scriptName) { return Native::Invoke<void, char*>(N::REQUEST_SCRIPT, scriptName); }
-	static void SET_SCRIPT_AS_NO_LONGER_NEEDED(char* scriptName) { return Native::Invoke<void, char*>(N::SET_SCRIPT_AS_NO_LONGER_NEEDED, scriptName); }
-	static BOOL HAS_SCRIPT_LOADED(char* scriptName) { return Native::Invoke<BOOL, char*>(N::HAS_SCRIPT_LOADED, scriptName); }
-	static BOOL DOES_SCRIPT_EXIST(char* scriptName) { return Native::Invoke<BOOL, char*>(N::DOES_SCRIPT_EXIST, scriptName); }
-	static void REQUEST_SCRIPT_WITH_NAME_HASH(Hash scriptHash) { return Native::Invoke<void, Hash>(N::REQUEST_SCRIPT_WITH_NAME_HASH, scriptHash); }
-	static void SET_SCRIPT_WITH_NAME_HASH_AS_NO_LONGER_NEEDED(Hash scriptHash) { return Native::Invoke<void, Hash>(N::SET_SCRIPT_WITH_NAME_HASH_AS_NO_LONGER_NEEDED, scriptHash); }
-	static BOOL HAS_SCRIPT_WITH_NAME_HASH_LOADED(Hash scriptHash) { return Native::Invoke<BOOL, Hash>(N::HAS_SCRIPT_WITH_NAME_HASH_LOADED, scriptHash); }
-	static Any DOES_SCRIPT_WITH_NAME_HASH_EXIST(Any p0) { return Native::Invoke<Any, Any>(N::DOES_SCRIPT_WITH_NAME_HASH_EXIST, p0); }
-	static void TERMINATE_THREAD(int threadId) { return Native::Invoke<void, int>(N::TERMINATE_THREAD, threadId); }
-	static BOOL IS_THREAD_ACTIVE(int threadId, Any p1) { return Native::Invoke<BOOL, int, Any>(N::IS_THREAD_ACTIVE, threadId, p1); }
+	static void REQUEST_SCRIPT(const char* scriptName) { return Native::Invoke<void, const char*>(0x46ED607DDD40D7FE, scriptName); }
+	static void SET_SCRIPT_AS_NO_LONGER_NEEDED(const char* scriptName) { return Native::Invoke<void, const char*>(0x0086D3067E1CFD1C, scriptName); }
+	static BOOL HAS_SCRIPT_LOADED(const char* scriptName) { return Native::Invoke<BOOL, const char*>(0xE97BD36574F8B0A6, scriptName); }
+	static BOOL DOES_SCRIPT_EXIST(const char* scriptName) { return Native::Invoke<BOOL, const char*>(0x552B171E3F69E5AE, scriptName); }
+	static void REQUEST_SCRIPT_WITH_NAME_HASH(Hash scriptHash) { return Native::Invoke<void, Hash>(0xF6B9CE3F8D5B9B74, scriptHash); }
+	static void SET_SCRIPT_WITH_NAME_HASH_AS_NO_LONGER_NEEDED(Hash scriptHash) { return Native::Invoke<void, Hash>(0x50723A1567C8361E, scriptHash); }
+	static BOOL HAS_SCRIPT_WITH_NAME_HASH_LOADED(Hash scriptHash) { return Native::Invoke<BOOL, Hash>(0xA5D8E0C2F3C7EEBC, scriptHash); }
+	static Any DOES_SCRIPT_WITH_NAME_HASH_EXIST(Any p0) { return Native::Invoke<Any, Any>(0xA34E89749F628284, p0); }
+	static void TERMINATE_THREAD(int threadId) { return Native::Invoke<void, int>(0x87ED52AE40EA1A52, threadId); }
+	static BOOL IS_THREAD_ACTIVE(int threadId, Any p1) { return Native::Invoke<BOOL, int, Any>(0x46E9AE36D8FA6417, threadId, p1); }
 	static Any _0xFF975BC4435A0FA3(Any p0) { return Native::Invoke<Any, Any>(0xFF975BC4435A0FA3, p0); }
 	static Any _0xD92FA81B64920E85() { return Native::Invoke<Any>(0xD92FA81B64920E85); }
 	static Any _0x724CB89D35B283D0(Any p0) { return Native::Invoke<Any, Any>(0x724CB89D35B283D0, p0); }
-	static void SCRIPT_THREAD_ITERATOR_RESET() { return Native::Invoke<void>(N::SCRIPT_THREAD_ITERATOR_RESET); }
-	static Any SCRIPT_THREAD_ITERATOR_GET_NEXT_THREAD_ID() { return Native::Invoke<Any>(N::SCRIPT_THREAD_ITERATOR_GET_NEXT_THREAD_ID); }
+	static void SCRIPT_THREAD_ITERATOR_RESET() { return Native::Invoke<void>(0x39382EB8DCD8684D); }
+	static Any SCRIPT_THREAD_ITERATOR_GET_NEXT_THREAD_ID() { return Native::Invoke<Any>(0x3CE3FB167E837D7C); }
 	static Any _0x20B7F69B40C6B755(Any p0) { return Native::Invoke<Any, Any>(0x20B7F69B40C6B755, p0); }
-	static int GET_ID_OF_THIS_THREAD() { return Native::Invoke<int>(N::GET_ID_OF_THIS_THREAD); }
-	static void TERMINATE_THIS_THREAD() { return Native::Invoke<void>(N::TERMINATE_THIS_THREAD); }
-	static Any _GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(Any p0) { return Native::Invoke<Any, Any>(N::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH, p0); }
+	static int GET_ID_OF_THIS_THREAD() { return Native::Invoke<int>(0x55525C346BEF6960); }
+	static void TERMINATE_THIS_THREAD() { return Native::Invoke<void>(0x5E8B6D17FF91CD59); }
+	static Any _GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(Any p0) { return Native::Invoke<Any, Any>(0x8E34C953364A76DD, p0); }
 	static void _0x7DE4643157AD646C(Any p0) { return Native::Invoke<void, Any>(0x7DE4643157AD646C, p0); }
 	static void _0x7423F7835770F619(Any p0) { return Native::Invoke<void, Any>(0x7423F7835770F619, p0); }
 	static Any _0x9E4EF615E307FBBE() { return Native::Invoke<Any>(0x9E4EF615E307FBBE); }
 	static Any _0x30BED53646C86D11(Any p0) { return Native::Invoke<Any, Any>(0x30BED53646C86D11, p0); }
 	static Any _0x54AE4FDEEFEAB77E() { return Native::Invoke<Any>(0x54AE4FDEEFEAB77E); }
-	static Hash GET_HASH_OF_THIS_SCRIPT_NAME() { return Native::Invoke<Hash>(N::GET_HASH_OF_THIS_SCRIPT_NAME); }
-	static int GET_NUMBER_OF_EVENTS(int eventGroup) { return Native::Invoke<int, int>(N::GET_NUMBER_OF_EVENTS, eventGroup); }
-	static BOOL GET_EVENT_EXISTS(int eventGroup, int eventIndex) { return Native::Invoke<BOOL, int, int>(N::GET_EVENT_EXISTS, eventGroup, eventIndex); }
-	static int GET_EVENT_AT_INDEX(int eventGroup, int eventIndex) { return Native::Invoke<int, int, int>(N::GET_EVENT_AT_INDEX, eventGroup, eventIndex); }
-	static BOOL GET_EVENT_DATA(int eventGroup, int eventIndex, int* argStruct, int argStructSize) { return Native::Invoke<BOOL, int, int, int*, int>(N::GET_EVENT_DATA, eventGroup, eventIndex, argStruct, argStructSize); }
-	static void _0x4768D5252EAEB76F(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4768D5252EAEB76F, p0, p1, p2); }
-	static void TRIGGER_SCRIPT_EVENT(int eventGroup, Any* args, int argCount, Any bit, Any p4) { return Native::Invoke<void, int, Any*, int, Any, Any>(N::TRIGGER_SCRIPT_EVENT, eventGroup, args, argCount, bit, p4); }
+	static Hash GET_HASH_OF_THIS_SCRIPT_NAME() { return Native::Invoke<Hash>(0xBC2C927F5C264960); }
+	static int GET_NUMBER_OF_EVENTS(int eventGroup) { return Native::Invoke<int, int>(0x5CE8DE5909565748, eventGroup); }
+	static BOOL GET_EVENT_EXISTS(int eventGroup, int eventIndex) { return Native::Invoke<BOOL, int, int>(0xC9F59C0A710ECD34, eventGroup, eventIndex); }
+	static int GET_EVENT_AT_INDEX(int eventGroup, int eventIndex) { return Native::Invoke<int, int, int>(0xA85E614430EFF816, eventGroup, eventIndex); }
+	static BOOL GET_EVENT_DATA(int eventGroup, int eventIndex, int* argStruct, int argStructSize) { return Native::Invoke<BOOL, int, int, int*, int>(0x57EC5FA4D4D6AFCA, eventGroup, eventIndex, argStruct, argStructSize); }
+	static void SET_EVENT_FLAG_FOR_DELETION(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4768D5252EAEB76F, p0, p1, p2); }
+	static void TRIGGER_SCRIPT_EVENT(int eventGroup, Any* args, int argCount, Any bit, Any p4) { return Native::Invoke<void, int, Any*, int, Any, Any>(0x5AE99C571D5BBE5D, eventGroup, args, argCount, bit, p4); }
 	static Any _0x8B61C950A148FFA2() { return Native::Invoke<Any>(0x8B61C950A148FFA2); }
 	static Any _0xE7282390542F570D(Any p0) { return Native::Invoke<Any, Any>(0xE7282390542F570D, p0); }
 	static void _0x11B0A0B282FA9B10(Any p0) { return Native::Invoke<void, Any>(0x11B0A0B282FA9B10, p0); }
 	static Any _0x6F700A4BF7C3331B() { return Native::Invoke<Any>(0x6F700A4BF7C3331B); }
 	static void _0xF9E951A1E5517C06() { return Native::Invoke<void>(0xF9E951A1E5517C06); }
 	static Any _0x76CBCD9EADC00955() { return Native::Invoke<Any>(0x76CBCD9EADC00955); }
-	static void SHUTDOWN_LOADING_SCREEN() { return Native::Invoke<void>(N::SHUTDOWN_LOADING_SCREEN); }
-	static void SET_NO_LOADING_SCREEN(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_NO_LOADING_SCREEN, toggle); }
-	static Any GET_NO_LOADING_SCREEN() { return Native::Invoke<Any>(N::GET_NO_LOADING_SCREEN); }
+	static void SHUTDOWN_LOADING_SCREEN() { return Native::Invoke<void>(0xFC179D7E8886DADF); }
+	static void SET_NO_LOADING_SCREEN(BOOL toggle) { return Native::Invoke<void, BOOL>(0x5CB83156AA038F95, toggle); }
+	static Any GET_NO_LOADING_SCREEN() { return Native::Invoke<Any>(0x323DAF00687E0F28); }
 	static Any _0x1E5B70E53DB661E5() { return Native::Invoke<Any>(0x1E5B70E53DB661E5); }
 	static Any _0x29FB4CE89472C3CB() { return Native::Invoke<Any>(0x29FB4CE89472C3CB); }
 	static Any _0x778D4733E0F2F265() { return Native::Invoke<Any>(0x778D4733E0F2F265); }
@@ -5214,10 +5214,10 @@ namespace SCRIPTS
 	static void _0xE98204D3C25AE14C(Any p0) { return Native::Invoke<void, Any>(0xE98204D3C25AE14C, p0); }
 	static Any _0x2238EC3EC631AB1F() { return Native::Invoke<Any>(0x2238EC3EC631AB1F); }
 	static Any _0x4858148E3B8A75D0() { return Native::Invoke<Any>(0x4858148E3B8A75D0); }
-	static Any BG_START_CONTEXT_HASH() { return Native::Invoke<Any>(N::BG_START_CONTEXT_HASH); }
-	static Any BG_END_CONTEXT_HASH() { return Native::Invoke<Any>(N::BG_END_CONTEXT_HASH); }
-	static Any BG_START_CONTEXT() { return Native::Invoke<Any>(N::BG_START_CONTEXT); }
-	static Any BG_END_CONTEXT() { return Native::Invoke<Any>(N::BG_END_CONTEXT); }
+	static Any BG_START_CONTEXT_HASH() { return Native::Invoke<Any>(0x2EB67D564DCC09D5); }
+	static Any BG_END_CONTEXT_HASH() { return Native::Invoke<Any>(0x6D1431744182CDE8); }
+	static Any BG_START_CONTEXT() { return Native::Invoke<Any>(0x49BA5678BA040CA7); }
+	static Any BG_END_CONTEXT() { return Native::Invoke<Any>(0x3ABF7BA1C3E2C8CF); }
 	static Any _0x4AE1DFF337A86FDE() { return Native::Invoke<Any>(0x4AE1DFF337A86FDE); }
 	static Any _0x55C40B7592BAD213() { return Native::Invoke<Any>(0x55C40B7592BAD213); }
 	static Any _0x829CD22E043A2577() { return Native::Invoke<Any>(0x829CD22E043A2577); }
@@ -5264,33 +5264,33 @@ namespace _NAMESPACE59
 }
 namespace SHAPETEST
 {
-	static int START_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity ent, int p8) { return Native::Invoke<int, float, float, float, float, float, float, int, Entity, int>(N::START_SHAPE_TEST_LOS_PROBE, x1, y1, z1, x2, y2, z2, flags, ent, p8); }
+	static int START_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity ent, int p8) { return Native::Invoke<int, float, float, float, float, float, float, int, Entity, int>(0x7EE9F5D83DD4F90E, x1, y1, z1, x2, y2, z2, flags, ent, p8); }
 	static Any _0x04AA59CA40571C2E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x04AA59CA40571C2E, p0, p1); }
-	static int _START_SHAPE_TEST_RAY(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return Native::Invoke<int, float, float, float, float, float, float, int, Entity, int>(N::_START_SHAPE_TEST_RAY, x1, y1, z1, x2, y2, z2, flags, entity, p8); }
-	static int START_SHAPE_TEST_BOX(float x, float y, float z, float x1, float y2, float z2, float rotX, float rotY, float rotZ, Any p9, Any p10, Any entity, Any p12) { return Native::Invoke<int, float, float, float, float, float, float, float, float, float, Any, Any, Any, Any>(N::START_SHAPE_TEST_BOX, x, y, z, x1, y2, z2, rotX, rotY, rotZ, p9, p10, entity, p12); }
-	static int START_SHAPE_TEST_CAPSULE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entity, int p9) { return Native::Invoke<int, float, float, float, float, float, float, float, int, Entity, int>(N::START_SHAPE_TEST_CAPSULE, x1, y1, z1, x2, y2, z2, radius, flags, entity, p9); }
-	static Any START_SHAPE_TEST_SWEPT_SPHERE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(N::START_SHAPE_TEST_SWEPT_SPHERE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static Any _START_SHAPE_TEST_SURROUNDING_COORDS() { return Native::Invoke<Any>(N::_START_SHAPE_TEST_SURROUNDING_COORDS); }
-	static int GET_SHAPE_TEST_RESULT(int rayHandle, BOOL* hit, Vector3* endCoords, Vector3* surfaceNormal, Entity* entityHit) { return Native::Invoke<int, int, BOOL*, Vector3*, Vector3*, Entity*>(N::GET_SHAPE_TEST_RESULT, rayHandle, hit, endCoords, surfaceNormal, entityHit); }
+	static int _START_SHAPE_TEST_RAY(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return Native::Invoke<int, float, float, float, float, float, float, int, Entity, int>(0x377906D8A31E5586, x1, y1, z1, x2, y2, z2, flags, entity, p8); }
+	static int START_SHAPE_TEST_BOX(float x, float y, float z, float x1, float y2, float z2, float rotX, float rotY, float rotZ, Any p9, Any p10, Any entity, Any p12) { return Native::Invoke<int, float, float, float, float, float, float, float, float, float, Any, Any, Any, Any>(0xFE466162C4401D18, x, y, z, x1, y2, z2, rotX, rotY, rotZ, p9, p10, entity, p12); }
+	static int START_SHAPE_TEST_CAPSULE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entity, int p9) { return Native::Invoke<int, float, float, float, float, float, float, float, int, Entity, int>(0x28579D1B8F8AAC80, x1, y1, z1, x2, y2, z2, radius, flags, entity, p9); }
+	static Any START_SHAPE_TEST_SWEPT_SPHERE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAA5B7C8309F73230, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
+	static int _START_SHAPE_TEST_SURROUNDING_COORDS() { return Native::Invoke<int>(0x9839013D8B6014F1); }
+	static int GET_SHAPE_TEST_RESULT(int rayHandle, BOOL* hit, Vector3* endCoords, Vector3* surfaceNormal, Entity* entityHit) { return Native::Invoke<int, int, BOOL*, Vector3*, Vector3*, Entity*>(0xEDE8AC7C5108FB1D, rayHandle, hit, endCoords, surfaceNormal, entityHit); }
 }
 namespace SOCIALCLUB
 {
-	static int _GET_TOTAL_SC_INBOX_IDS() { return Native::Invoke<int>(N::_GET_TOTAL_SC_INBOX_IDS); }
-	static Any _SC_INBOX_MESSAGE_INIT() { return Native::Invoke<Any>(N::_SC_INBOX_MESSAGE_INIT); }
-	static Any _IS_SC_INBOX_VALID() { return Native::Invoke<Any>(N::_IS_SC_INBOX_VALID); }
-	static Any _SC_INBOX_MESSAGE_POP() { return Native::Invoke<Any>(N::_SC_INBOX_MESSAGE_POP); }
-	static Any SC_INBOX_MESSAGE_GET_DATA_INT() { return Native::Invoke<Any>(N::SC_INBOX_MESSAGE_GET_DATA_INT); }
-	static Any SC_INBOX_MESSAGE_GET_DATA_STRING() { return Native::Invoke<Any>(N::SC_INBOX_MESSAGE_GET_DATA_STRING); }
-	static Any _SC_INBOX_MESSAGE_GET_STRING() { return Native::Invoke<Any>(N::_SC_INBOX_MESSAGE_GET_STRING); }
+	static int _GET_TOTAL_SC_INBOX_IDS() { return Native::Invoke<int>(0x8EF0F633280C0663); }
+	static Hash _SC_INBOX_MESSAGE_INIT() { return Native::Invoke<Hash>(0xFF92537C4DDC1241); }
+	static BOOL _IS_SC_INBOX_VALID() { return Native::Invoke<BOOL>(0x74CF39E030A382C4); }
+	static BOOL _SC_INBOX_MESSAGE_POP() { return Native::Invoke<BOOL>(0x63CAC501FFF66DC4); }
+	static BOOL SC_INBOX_MESSAGE_GET_DATA_INT() { return Native::Invoke<BOOL>(0x95BB39C4DA99F348); }
+	static BOOL SC_INBOX_MESSAGE_GET_DATA_STRING() { return Native::Invoke<BOOL>(0x66F77FD58506FF6B); }
+	static const char* _SC_INBOX_MESSAGE_GET_STRING() { return Native::Invoke<const char*>(0x176D077685CD83E4); }
 	static Any _0xA31DAFCDC33775E9() { return Native::Invoke<Any>(0xA31DAFCDC33775E9); }
 	static Any _0x0000000085488C49() { return Native::Invoke<Any>(0x0000000085488C49); }
 	static Any _0x00000000467F4CAA() { return Native::Invoke<Any>(0x00000000467F4CAA); }
 	static Any _0x00000000EB2D93B3() { return Native::Invoke<Any>(0x00000000EB2D93B3); }
-	static Any SC_PROFANITY_CHECK_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::SC_PROFANITY_CHECK_STRING, p0, p1); }
-	static Any SC_PROFANITY_GET_CHECK_IS_VALID(Any p0) { return Native::Invoke<Any, Any>(N::SC_PROFANITY_GET_CHECK_IS_VALID, p0); }
-	static Any SC_PROFANITY_GET_CHECK_IS_PENDING(Any p0) { return Native::Invoke<Any, Any>(N::SC_PROFANITY_GET_CHECK_IS_PENDING, p0); }
-	static Any SC_PROFANITY_GET_STRING_PASSED(Any p0) { return Native::Invoke<Any, Any>(N::SC_PROFANITY_GET_STRING_PASSED, p0); }
-	static Any SC_PROFANITY_GET_STRING_STATUS(Any p0) { return Native::Invoke<Any, Any>(N::SC_PROFANITY_GET_STRING_STATUS, p0); }
+	static Any SC_PROFANITY_CHECK_STRING(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x9C74AC9D87B3FFF4, p0, p1); }
+	static Any SC_PROFANITY_GET_CHECK_IS_VALID(Any p0) { return Native::Invoke<Any, Any>(0x08C8052AF40C4247, p0); }
+	static Any SC_PROFANITY_GET_CHECK_IS_PENDING(Any p0) { return Native::Invoke<Any, Any>(0x3A10BCD0C8AA0B82, p0); }
+	static Any SC_PROFANITY_GET_STRING_PASSED(Any p0) { return Native::Invoke<Any, Any>(0xF302973BB8BE70E6, p0); }
+	static Any SC_PROFANITY_GET_STRING_STATUS(Any p0) { return Native::Invoke<Any, Any>(0x0CF3BFB99EBBE5B1, p0); }
 	static Any _0xCBF743C984695CF3() { return Native::Invoke<Any>(0xCBF743C984695CF3); }
 	static Any _0xD635DF6BAA5A6017() { return Native::Invoke<Any>(0xD635DF6BAA5A6017); }
 	static Any _0xB4411D4D6B81438E() { return Native::Invoke<Any>(0xB4411D4D6B81438E); }
@@ -5311,36 +5311,36 @@ namespace SOCIALCLUB
 }
 namespace SOCIALCLUBFEED
 {
-	static Any _SC_FEED_SUBMIT_PRESET_MESSAGE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_SC_FEED_SUBMIT_PRESET_MESSAGE, p0, p1); }
+	static Any _SC_FEED_SUBMIT_PRESET_MESSAGE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xEFB64240F6B17817, p0, p1); }
 }
 namespace SPACTIONPROXY
 {
-	static Any _START_MANAGER() { return Native::Invoke<Any>(N::_START_MANAGER); }
-	static Any _MANAGER_IS_READY() { return Native::Invoke<Any>(N::_MANAGER_IS_READY); }
-	static Any _MANAGER_IS_FAILED() { return Native::Invoke<Any>(N::_MANAGER_IS_FAILED); }
+	static Any _START_MANAGER() { return Native::Invoke<Any>(0x1F471B79ACC91BEE); }
+	static Any _MANAGER_IS_READY() { return Native::Invoke<Any>(0x1F471B79ACC91BED); }
+	static Any _MANAGER_IS_FAILED() { return Native::Invoke<Any>(0x1F471B79ACC91BEC); }
 	static Any _0x1F471B79ACC97BEF(Any p0) { return Native::Invoke<Any, Any>(0x1F471B79ACC97BEF, p0); }
 	static Any _0x1F471B79ACC98BEF(Any p0) { return Native::Invoke<Any, Any>(0x1F471B79ACC98BEF, p0); }
 	static Any _0x1F471B79ACC94BEF(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x1F471B79ACC94BEF, p0, p1); }
 }
-namespace _NAMESPACE64
+namespace STATS
 {
 	static Any _0xC48FE1971C9743FF(Any p0) { return Native::Invoke<Any, Any>(0xC48FE1971C9743FF, p0); }
-	static Any _0xA4DDF5DF95E65EEE(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xA4DDF5DF95E65EEE, p0, p1, p2); }
-	static Any _0x481BDF6A10C5EF68() { return Native::Invoke<Any>(0x481BDF6A10C5EF68); }
-	static Any _0x3B5107353267D7A1(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x3B5107353267D7A1, p0, p1, p2); }
-	static Any _0x05060A54834F2382(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x05060A54834F2382, p0, p1, p2); }
-	static Any _0x1FAE9B2FAA2DFE06() { return Native::Invoke<Any>(0x1FAE9B2FAA2DFE06); }
-	static Any _0x767FBC2AC802EF3E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x767FBC2AC802EF3E, p0, p1); }
-	static Any _0xD7AE6C9C9C6AC54D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD7AE6C9C9C6AC54D, p0, p1); }
-	static Any _0x11B5E6D2AE73F48F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x11B5E6D2AE73F48F, p0, p1); }
-	static Any _0x8B0FACEFC36C824C() { return Native::Invoke<Any>(0x8B0FACEFC36C824C); }
+	static Any STAT_ID_SET_INT(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xA4DDF5DF95E65EEE, p0, p1, p2); }
+	static Any STAT_ID_SET_FLOAT() { return Native::Invoke<Any>(0x481BDF6A10C5EF68); }
+	static Any STAT_ID_SET_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x3B5107353267D7A1, p0, p1, p2); }
+	static Any STAT_ID_SET_GXT_LABEL(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x05060A54834F2382, p0, p1, p2); }
+	static Any STAT_ID_SET_DATE() { return Native::Invoke<Any>(0x1FAE9B2FAA2DFE06); }
+	static Any STAT_ID_GET_INT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x767FBC2AC802EF3E, p0, p1); }
+	static Any STAT_ID_GET_FLOAT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xD7AE6C9C9C6AC54D, p0, p1); }
+	static Any STAT_ID_GET_BOOL(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x11B5E6D2AE73F48F, p0, p1); }
+	static Any STAT_ID_GET_DATE() { return Native::Invoke<Any>(0x8B0FACEFC36C824C); }
 	static void _0x0FEE2561120F3333(Any p0) { return Native::Invoke<void, Any>(0x0FEE2561120F3333, p0); }
 	static void _0x6A0184E904CDF25E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6A0184E904CDF25E, p0, p1); }
 	static void _0x4A47E38EA3D60939(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4A47E38EA3D60939, p0, p1); }
 	static void _0xBD861AE8A5181ED7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBD861AE8A5181ED7, p0, p1); }
 	static void _0x91A4F58E01ED5E4C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x91A4F58E01ED5E4C, p0, p1); }
 	static void _0xE141F6B40B1E3683(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE141F6B40B1E3683, p0, p1); }
-	static Any _0x34B22DE38477EDB4() { return Native::Invoke<Any>(0x34B22DE38477EDB4); }
+	static Any STAT_ID_SET_TO_POSSE_ID() { return Native::Invoke<Any>(0x34B22DE38477EDB4); }
 	static Any _0xCAAE29CB5591B2A5() { return Native::Invoke<Any>(0xCAAE29CB5591B2A5); }
 	static Any _0xDCEC875A02991AD0() { return Native::Invoke<Any>(0xDCEC875A02991AD0); }
 	static Any _0x1E7384AB5D4F4581(Any p0) { return Native::Invoke<Any, Any>(0x1E7384AB5D4F4581, p0); }
@@ -5370,26 +5370,26 @@ namespace _NAMESPACE64
 	static void _0x025E98E317652CDD(Any p0) { return Native::Invoke<void, Any>(0x025E98E317652CDD, p0); }
 	static Any _0xE5A680A5D8B1F687() { return Native::Invoke<Any>(0xE5A680A5D8B1F687); }
 	static Any _0x4DAC398297981B87(Any p0) { return Native::Invoke<Any, Any>(0x4DAC398297981B87, p0); }
-	static Any _0x04DAC3929796EB87(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x04DAC3929796EB87, p0, p1); }
-	static Any _0x58CB53DB63F84DE9(Any p0) { return Native::Invoke<Any, Any>(0x58CB53DB63F84DE9, p0); }
-	static Any _0x58CB53DB63F84DEA(Any p0) { return Native::Invoke<Any, Any>(0x58CB53DB63F84DEA, p0); }
-	static void _0xDDBD560745B1EE9A(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xDDBD560745B1EE9A, p0, p1, p2); }
-	static Any _0x86922D8C02FB7703() { return Native::Invoke<Any>(0x86922D8C02FB7703); }
-	static Any _0xDDBD560745B1EE9B() { return Native::Invoke<Any>(0xDDBD560745B1EE9B); }
-	static void _0xDDBD560745B1EE9C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDDBD560745B1EE9C, p0, p1); }
-	static Any _0x4ABF7E4DB6279E8F() { return Native::Invoke<Any>(0x4ABF7E4DB6279E8F); }
-	static Any _0x43B0163154A50C86() { return Native::Invoke<Any>(0x43B0163154A50C86); }
-	static Any _0xC3FCB47344DCB638() { return Native::Invoke<Any>(0xC3FCB47344DCB638); }
-	static Any _0x00CE6A93324A590B() { return Native::Invoke<Any>(0x00CE6A93324A590B); }
+	static Any CHAL_IS_GOAL_ACTIVE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x04DAC3929796EB87, p0, p1); }
+	static Any CHAL_GET_NUM_RANKS_COMPLETED(Any p0) { return Native::Invoke<Any, Any>(0x58CB53DB63F84DE9, p0); }
+	static Any CHAL_GET_MAX_RANKS(Any p0) { return Native::Invoke<Any, Any>(0x58CB53DB63F84DEA, p0); }
+	static void CHAL_ADD_GOAL_PROGRESS_INT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xDDBD560745B1EE9A, p0, p1, p2); }
+	static Any CHAL_ADD_GOAL_PROGRESS_FLOAT() { return Native::Invoke<Any>(0x86922D8C02FB7703); }
+	static Any CHAL_SET_GOAL_PROGRESS_INT() { return Native::Invoke<Any>(0xDDBD560745B1EE9B); }
+	static void CHAL_ADD_GOAL_PROGRESS_INT_BY_SCORE_ID(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDDBD560745B1EE9C, p0, p1); }
+	static Any CHAL_NET_START_CHAL() { return Native::Invoke<Any>(0x4ABF7E4DB6279E8F); }
+	static Any CHAL_NET_STOP_CHAL() { return Native::Invoke<Any>(0x43B0163154A50C86); }
+	static Any CHAL_NET_START_GOAL() { return Native::Invoke<Any>(0xC3FCB47344DCB638); }
+	static Any CHAL_NET_STOP_GOAL() { return Native::Invoke<Any>(0x00CE6A93324A590B); }
 	static Any _0xDDBD560745B1EE98() { return Native::Invoke<Any>(0xDDBD560745B1EE98); }
 	static Any _0xB112B9262EC29C20() { return Native::Invoke<Any>(0xB112B9262EC29C20); }
 	static Any _0x4FCBCC0584CD08E9() { return Native::Invoke<Any>(0x4FCBCC0584CD08E9); }
 	static Any _0xCA1F0B5103936891() { return Native::Invoke<Any>(0xCA1F0B5103936891); }
 	static Any _0x8BA3D7B1E83EF803() { return Native::Invoke<Any>(0x8BA3D7B1E83EF803); }
-	static Any _0x0B0576DD3A75E58D(Any p0) { return Native::Invoke<Any, Any>(0x0B0576DD3A75E58D, p0); }
-	static Any _0xA785A52B59B7E7B2(Any p0) { return Native::Invoke<Any, Any>(0xA785A52B59B7E7B2, p0); }
-	static Any _0xC0BB774787BBF301(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC0BB774787BBF301, p0, p1); }
-	static void _0x97E18E7C098626DE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x97E18E7C098626DE, p0, p1, p2); }
+	static Any CHAL_MISSION_GET_NUM_GOALS(Any p0) { return Native::Invoke<Any, Any>(0x0B0576DD3A75E58D, p0); }
+	static Any CHAL_MISSION_GET_NUM_GOALS_COMPLETE(Any p0) { return Native::Invoke<Any, Any>(0xA785A52B59B7E7B2, p0); }
+	static Any CHAL_MISSION_IS_GOAL_COMPLETE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC0BB774787BBF301, p0, p1); }
+	static void CHAL_MISSION_ADD_GOAL_PROGRESS_INT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x97E18E7C098626DE, p0, p1, p2); }
 	static Any _0x9D0F5D2E1951CD84() { return Native::Invoke<Any>(0x9D0F5D2E1951CD84); }
 	static Any _0x218F7710A139D012() { return Native::Invoke<Any>(0x218F7710A139D012); }
 	static Any _0x3AEABAE3F3C7600C() { return Native::Invoke<Any>(0x3AEABAE3F3C7600C); }
@@ -5399,40 +5399,40 @@ namespace _NAMESPACE64
 	static Any _0x3F6FD87D2030ADC6() { return Native::Invoke<Any>(0x3F6FD87D2030ADC6); }
 	static Any _0xA2E2BEA4E83F6270() { return Native::Invoke<Any>(0xA2E2BEA4E83F6270); }
 	static Any _0xB5E2EDA2135E0FA1() { return Native::Invoke<Any>(0xB5E2EDA2135E0FA1); }
-	static Any _0x8F5317729F791D10() { return Native::Invoke<Any>(0x8F5317729F791D10); }
-	static Any _0x610783F646894D25() { return Native::Invoke<Any>(0x610783F646894D25); }
-	static Any _0xBFFA88522FF0F730() { return Native::Invoke<Any>(0xBFFA88522FF0F730); }
-	static Any _0x7D675C9DDDB365BE() { return Native::Invoke<Any>(0x7D675C9DDDB365BE); }
-	static Any _0xBA61BA6205A3F5A8() { return Native::Invoke<Any>(0xBA61BA6205A3F5A8); }
+	static Any WEEKLY_COLLECTIBLE_GET_NUM_SETS() { return Native::Invoke<Any>(0x8F5317729F791D10); }
+	static Any WEEKLY_COLLECTIBLE_GET_ITEM_SET_BUY_AWARD() { return Native::Invoke<Any>(0x610783F646894D25); }
+	static Any WEEKLY_COLLECTIBLE_GET_ITEM_SET_LABEL() { return Native::Invoke<Any>(0xBFFA88522FF0F730); }
+	static Any WEEKLY_COLLECTIBLE_GET_NUM_ITEMS_IN_SET() { return Native::Invoke<Any>(0x7D675C9DDDB365BE); }
+	static Any WEEKLY_COLLECTIBLE_GET_ITEM_IN_SET() { return Native::Invoke<Any>(0xBA61BA6205A3F5A8); }
 	static Any _0x4F2D5FA23DB992DE() { return Native::Invoke<Any>(0x4F2D5FA23DB992DE); }
 	static Any _0x4E463A3CDEFFFE96() { return Native::Invoke<Any>(0x4E463A3CDEFFFE96); }
 }
 namespace STREAMING
 {
-	static void REQUEST_MODEL(Hash model, Any p1) { return Native::Invoke<void, Hash, Any>(N::REQUEST_MODEL, model, p1); }
-	static BOOL HAS_MODEL_LOADED(Hash model) { return Native::Invoke<BOOL, Hash>(N::HAS_MODEL_LOADED, model); }
-	static void SET_MODEL_AS_NO_LONGER_NEEDED(Hash model) { return Native::Invoke<void, Hash>(N::SET_MODEL_AS_NO_LONGER_NEEDED, model); }
-	static Any IS_MODEL_IN_CDIMAGE() { return Native::Invoke<Any>(N::IS_MODEL_IN_CDIMAGE); }
-	static BOOL IS_MODEL_VALID(Hash model) { return Native::Invoke<BOOL, Hash>(N::IS_MODEL_VALID, model); }
+	static void REQUEST_MODEL(Hash model, Any p1) { return Native::Invoke<void, Hash, Any>(0xFA28FE3A6246FC30, model, p1); }
+	static BOOL HAS_MODEL_LOADED(Hash model) { return Native::Invoke<BOOL, Hash>(0x1283B8B89DD5D1B6, model); }
+	static void SET_MODEL_AS_NO_LONGER_NEEDED(Hash model) { return Native::Invoke<void, Hash>(0x4AD96EF928BD4F9A, model); }
+	static BOOL IS_MODEL_IN_CDIMAGE() { return Native::Invoke<BOOL>(0xD6F3B6D7716CFF8E); }
+	static BOOL IS_MODEL_VALID(Hash model) { return Native::Invoke<BOOL, Hash>(0x392C8D8E07B70EFC, model); }
 	static Any _0xC3F09DE9D6D17DDA(Any p0) { return Native::Invoke<Any, Any>(0xC3F09DE9D6D17DDA, p0); }
-	static BOOL IS_MODEL_A_VEHICLE(Hash model) { return Native::Invoke<BOOL, Hash>(N::IS_MODEL_A_VEHICLE, model); }
+	static BOOL IS_MODEL_A_VEHICLE(Hash model) { return Native::Invoke<BOOL, Hash>(0x354F62672DE7DB0A, model); }
 	static Any _0x274EE1B90CFA669E(Any p0) { return Native::Invoke<Any, Any>(0x274EE1B90CFA669E, p0); }
 	static Any _0xDA8B2EAF29E872E2(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xDA8B2EAF29E872E2, p0, p1, p2); }
 	static void _0x80B3E0597366ADF1() { return Native::Invoke<void>(0x80B3E0597366ADF1); }
-	static Any REQUEST_COLLISION_AT_COORD(float x, float y, float z) { return Native::Invoke<Any, float, float, float>(N::REQUEST_COLLISION_AT_COORD, x, y, z); }
+	static Any REQUEST_COLLISION_AT_COORD(float x, float y, float z) { return Native::Invoke<Any, float, float, float>(0x0A3720F162A033C9, x, y, z); }
 	static void _0xA8432A14D4DC2101(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA8432A14D4DC2101, p0, p1, p2); }
-	static void REQUEST_COLLISION_FOR_MODEL(Hash model) { return Native::Invoke<void, Hash>(N::REQUEST_COLLISION_FOR_MODEL, model); }
-	static BOOL HAS_COLLISION_FOR_MODEL_LOADED(Hash model) { return Native::Invoke<BOOL, Hash>(N::HAS_COLLISION_FOR_MODEL_LOADED, model); }
-	static BOOL DOES_ANIM_DICT_EXIST(char* animDict) { return Native::Invoke<BOOL, char*>(N::DOES_ANIM_DICT_EXIST, animDict); }
-	static void REQUEST_ANIM_DICT(char* animDict) { return Native::Invoke<void, char*>(N::REQUEST_ANIM_DICT, animDict); }
-	static BOOL HAS_ANIM_DICT_LOADED(char* animDict) { return Native::Invoke<BOOL, char*>(N::HAS_ANIM_DICT_LOADED, animDict); }
-	static void REMOVE_ANIM_DICT(char* animDict) { return Native::Invoke<void, char*>(N::REMOVE_ANIM_DICT, animDict); }
+	static void REQUEST_COLLISION_FOR_MODEL(Hash model) { return Native::Invoke<void, Hash>(0xF1767BE37F661551, model); }
+	static BOOL HAS_COLLISION_FOR_MODEL_LOADED(Hash model) { return Native::Invoke<BOOL, Hash>(0x210A79C9EC89778F, model); }
+	static BOOL DOES_ANIM_DICT_EXIST(const char* animDict) { return Native::Invoke<BOOL, const char*>(0x537F44CB0D7F150D, animDict); }
+	static void REQUEST_ANIM_DICT(const char* animDict) { return Native::Invoke<void, const char*>(0xA862A2AD321F94B4, animDict); }
+	static BOOL HAS_ANIM_DICT_LOADED(const char* animDict) { return Native::Invoke<BOOL, const char*>(0x27FF6FE8009B40CA, animDict); }
+	static void REMOVE_ANIM_DICT(const char* animDict) { return Native::Invoke<void, const char*>(0x4763145053A33D46, animDict); }
 	static void _0x2B6529C54D29037A(Any p0) { return Native::Invoke<void, Any>(0x2B6529C54D29037A, p0); }
 	static Any _0x2C04D89A0FB4E244(Any p0) { return Native::Invoke<Any, Any>(0x2C04D89A0FB4E244, p0); }
 	static void _0x57A197AD83F66BBF(Any p0) { return Native::Invoke<void, Any>(0x57A197AD83F66BBF, p0); }
-	static void REQUEST_CLIP_SET(char* clipSet) { return Native::Invoke<void, char*>(N::REQUEST_CLIP_SET, clipSet); }
-	static BOOL HAS_CLIP_SET_LOADED(char* clipSet) { return Native::Invoke<BOOL, char*>(N::HAS_CLIP_SET_LOADED, clipSet); }
-	static void REMOVE_CLIP_SET(char* clipSet) { return Native::Invoke<void, char*>(N::REMOVE_CLIP_SET, clipSet); }
+	static void REQUEST_CLIP_SET(const char* clipSet) { return Native::Invoke<void, const char*>(0xEF7611B57A820126, clipSet); }
+	static BOOL HAS_CLIP_SET_LOADED(const char* clipSet) { return Native::Invoke<BOOL, const char*>(0x1F23D6B6DA1CC3B2, clipSet); }
+	static void REMOVE_CLIP_SET(const char* clipSet) { return Native::Invoke<void, const char*>(0x817FA1B1EE7CD6F0, clipSet); }
 	static Any _0xAC37644A538F7524() { return Native::Invoke<Any>(0xAC37644A538F7524); }
 	static void _0x03DDBF2D73799F9E(Any p0) { return Native::Invoke<void, Any>(0x03DDBF2D73799F9E, p0); }
 	static Any _0x85B8F04555AB49B8(Any p0) { return Native::Invoke<Any, Any>(0x85B8F04555AB49B8, p0); }
@@ -5452,22 +5452,22 @@ namespace STREAMING
 	static Any _0xD779B9B910BD3B7C(Any p0) { return Native::Invoke<Any, Any>(0xD779B9B910BD3B7C, p0); }
 	static Any _0x93AC1B91CB6D9913(Any p0) { return Native::Invoke<Any, Any>(0x93AC1B91CB6D9913, p0); }
 	static Any _0x73B40D97D7BAAD77(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x73B40D97D7BAAD77, p0, p1, p2, p3); }
-	static void SET_GAME_PAUSES_FOR_STREAMING(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_GAME_PAUSES_FOR_STREAMING, toggle); }
-	static int GET_NUMBER_OF_STREAMING_REQUESTS() { return Native::Invoke<int>(N::GET_NUMBER_OF_STREAMING_REQUESTS); }
-	static Any REQUEST_PTFX_ASSET() { return Native::Invoke<Any>(N::REQUEST_PTFX_ASSET); }
-	static BOOL HAS_PTFX_ASSET_LOADED() { return Native::Invoke<BOOL>(N::HAS_PTFX_ASSET_LOADED); }
-	static void REMOVE_PTFX_ASSET() { return Native::Invoke<void>(N::REMOVE_PTFX_ASSET); }
-	static void REQUEST_NAMED_PTFX_ASSET(char* assetName) { return Native::Invoke<void, char*>(N::REQUEST_NAMED_PTFX_ASSET, assetName); }
-	static BOOL HAS_NAMED_PTFX_ASSET_LOADED(char* assetName) { return Native::Invoke<BOOL, char*>(N::HAS_NAMED_PTFX_ASSET_LOADED, assetName); }
-	static void REMOVE_NAMED_PTFX_ASSET(Any p0) { return Native::Invoke<void, Any>(N::REMOVE_NAMED_PTFX_ASSET, p0); }
+	static void SET_GAME_PAUSES_FOR_STREAMING(BOOL toggle) { return Native::Invoke<void, BOOL>(0xB3BC8250F4FE8B63, toggle); }
+	static int GET_NUMBER_OF_STREAMING_REQUESTS() { return Native::Invoke<int>(0x30CCCC4D88E654CA); }
+	static Any REQUEST_PTFX_ASSET() { return Native::Invoke<Any>(0x001FF43843028E0C); }
+	static BOOL HAS_PTFX_ASSET_LOADED() { return Native::Invoke<BOOL>(0x13A3F30A9ED0BC31); }
+	static void REMOVE_PTFX_ASSET() { return Native::Invoke<void>(0x042F9049EA419E86); }
+	static void REQUEST_NAMED_PTFX_ASSET(const char* assetName) { return Native::Invoke<void, const char*>(0xF2B2353BBC0D4E8F, assetName); }
+	static BOOL HAS_NAMED_PTFX_ASSET_LOADED(const char* assetName) { return Native::Invoke<BOOL, const char*>(0x65BB72F29138F5D6, assetName); }
+	static void REMOVE_NAMED_PTFX_ASSET(Any p0) { return Native::Invoke<void, Any>(0xF20866829E1C81A2, p0); }
 	static void _0x2F9AC754FE179D58(Any p0) { return Native::Invoke<void, Any>(0x2F9AC754FE179D58, p0); }
 	static Any _0x8A3945405B31048F() { return Native::Invoke<Any>(0x8A3945405B31048F); }
 	static Any _0x071769BCB24379E5() { return Native::Invoke<Any>(0x071769BCB24379E5); }
-	static void CLEAR_FOCUS() { return Native::Invoke<void>(N::CLEAR_FOCUS); }
-	static void _SET_FOCUS_AREA(float x, float y, float z, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<void, float, float, float, float, float, float>(N::_SET_FOCUS_AREA, x, y, z, offsetX, offsetY, offsetZ); }
-	static Any SET_FOCUS_ENTITY() { return Native::Invoke<Any>(N::SET_FOCUS_ENTITY); }
-	static Any IS_ENTITY_FOCUS() { return Native::Invoke<Any>(N::IS_ENTITY_FOCUS); }
-	static void SET_MAPDATACULLBOX_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_MAPDATACULLBOX_ENABLED, p0, p1); }
+	static void CLEAR_FOCUS() { return Native::Invoke<void>(0x86CCAF7CE493EFBE); }
+	static void _SET_FOCUS_AREA(float x, float y, float z, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<void, float, float, float, float, float, float>(0x25F6EF88664540E2, x, y, z, offsetX, offsetY, offsetZ); }
+	static void SET_FOCUS_ENTITY() { return Native::Invoke<void>(0x955AEDD58F4BD309); }
+	static BOOL IS_ENTITY_FOCUS() { return Native::Invoke<BOOL>(0xF87DE697E9A06EC6); }
+	static void SET_MAPDATACULLBOX_ENABLED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3CACC83F6FED837C, p0, p1); }
 	static Any _0x19ABCC581D28E6F9() { return Native::Invoke<Any>(0x19ABCC581D28E6F9); }
 	static void _0xF01D21DF39554115(Any p0) { return Native::Invoke<void, Any>(0xF01D21DF39554115, p0); }
 	static Any _0x387AD749E3B69B70(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x387AD749E3B69B70, p0, p1, p2, p3, p4, p5, p6, p7); }
@@ -5476,25 +5476,25 @@ namespace STREAMING
 	static Any _0xCF45DF50C7775F2A() { return Native::Invoke<Any>(0xCF45DF50C7775F2A); }
 	static Any _0x0909F71B5C070797() { return Native::Invoke<Any>(0x0909F71B5C070797); }
 	static Any _0x45BF3A6239A576B7() { return Native::Invoke<Any>(0x45BF3A6239A576B7); }
-	static BOOL IS_PLAYER_SWITCH_IN_PROGRESS() { return Native::Invoke<BOOL>(N::IS_PLAYER_SWITCH_IN_PROGRESS); }
+	static BOOL IS_PLAYER_SWITCH_IN_PROGRESS() { return Native::Invoke<BOOL>(0xED20CB1F5297791D); }
 	static void _0xA03A6812529AD9C8() { return Native::Invoke<void>(0xA03A6812529AD9C8); }
 	static void _0x20D504994FDC4412(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x20D504994FDC4412, p0, p1); }
 	static void _0x31108BB5715D035F() { return Native::Invoke<void>(0x31108BB5715D035F); }
 	static Any _0xC2C05DEFE85A0B64() { return Native::Invoke<Any>(0xC2C05DEFE85A0B64); }
 	static void _0x040EE319EFD1D3B5() { return Native::Invoke<void>(0x040EE319EFD1D3B5); }
 	static Any _0xFC464598F6EE97B0() { return Native::Invoke<Any>(0xFC464598F6EE97B0); }
-	static void PREFETCH_SRL(char* srl) { return Native::Invoke<void, char*>(N::PREFETCH_SRL, srl); }
+	static void PREFETCH_SRL(const char* srl) { return Native::Invoke<void, const char*>(0x354837E5A5BAA5AF, srl); }
 	static void _0xAE00387E53B1E9FC() { return Native::Invoke<void>(0xAE00387E53B1E9FC); }
 	static void _0xEF1A8A484118735E() { return Native::Invoke<void>(0xEF1A8A484118735E); }
 	static void _0xD9F2FF4AF394D926() { return Native::Invoke<void>(0xD9F2FF4AF394D926); }
-	static BOOL IS_SRL_LOADED() { return Native::Invoke<BOOL>(N::IS_SRL_LOADED); }
-	static void BEGIN_SRL() { return Native::Invoke<void>(N::BEGIN_SRL); }
-	static void END_SRL() { return Native::Invoke<void>(N::END_SRL); }
-	static void SET_SRL_TIME(float p0) { return Native::Invoke<void, float>(N::SET_SRL_TIME, p0); }
+	static BOOL IS_SRL_LOADED() { return Native::Invoke<BOOL>(0x5C2C88512CF6DAFB); }
+	static void BEGIN_SRL() { return Native::Invoke<void>(0x0360710033BE60D9); }
+	static void END_SRL() { return Native::Invoke<void>(0x1CE71FB33CA079FE); }
+	static void SET_SRL_TIME(float p0) { return Native::Invoke<void, float>(0x18231AEF458BCFF2, p0); }
 	static void _0xD346248C1DCE0D76(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xD346248C1DCE0D76, p0, p1, p2, p3); }
 	static void _0x7C907E8A725E5FD2(Any p0) { return Native::Invoke<void, Any>(0x7C907E8A725E5FD2, p0); }
-	static void SET_HD_AREA(float x, float y, float z, float radius) { return Native::Invoke<void, float, float, float, float>(N::SET_HD_AREA, x, y, z, radius); }
-	static void CLEAR_HD_AREA() { return Native::Invoke<void>(N::CLEAR_HD_AREA); }
+	static void SET_HD_AREA(float x, float y, float z, float radius) { return Native::Invoke<void, float, float, float, float>(0xB88B905AFA35CB4D, x, y, z, radius); }
+	static void CLEAR_HD_AREA() { return Native::Invoke<void>(0xD83B22434E52728D); }
 	static void _0x09FBF15D73EFC900() { return Native::Invoke<void>(0x09FBF15D73EFC900); }
 	static void _0xF11D7CB962FCD747(Any p0) { return Native::Invoke<void, Any>(0xF11D7CB962FCD747, p0); }
 	static void _0xB9B9E47EDB9D63DB() { return Native::Invoke<void>(0xB9B9E47EDB9D63DB); }
@@ -5524,64 +5524,64 @@ namespace STREAMING
 }
 namespace TASK
 {
-	static void TASK_PAUSE(Ped ped, int time) { return Native::Invoke<void, Ped, int>(N::TASK_PAUSE, ped, time); }
-	static void TASK_STAND_STILL(Ped ped, int time) { return Native::Invoke<void, Ped, int>(N::TASK_STAND_STILL, ped, time); }
-	static void TASK_JUMP(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(N::TASK_JUMP, ped, unused); }
+	static void TASK_PAUSE(Ped ped, int time) { return Native::Invoke<void, Ped, int>(0xE73A266DB0CA9042, ped, time); }
+	static void TASK_STAND_STILL(Ped ped, int time) { return Native::Invoke<void, Ped, int>(0x919BE13EED931959, ped, time); }
+	static void TASK_JUMP(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(0x0AE4086104E067B1, ped, unused); }
 	static void _0x91083103137D7254(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x91083103137D7254, p0, p1, p2, p3, p4); }
-	static void TASK_COWER(Ped ped, int duration, Any p2, Any p3) { return Native::Invoke<void, Ped, int, Any, Any>(N::TASK_COWER, ped, duration, p2, p3); }
-	static void TASK_HANDS_UP(Ped ped, int duration, Ped facingPed, int p3, BOOL p4) { return Native::Invoke<void, Ped, int, Ped, int, BOOL>(N::TASK_HANDS_UP, ped, duration, facingPed, p3, p4); }
-	static void _0xF90427F00A495A28(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF90427F00A495A28, p0, p1, p2); }
-	static void _0x42AC6401ABB8C7E5(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x42AC6401ABB8C7E5, p0, p1, p2); }
+	static void TASK_COWER(Ped ped, int duration, Any p2, Any p3) { return Native::Invoke<void, Ped, int, Any, Any>(0x3EB1FE9E8E908E15, ped, duration, p2, p3); }
+	static void TASK_HANDS_UP(Ped ped, int duration, Ped facingPed, int p3, BOOL p4) { return Native::Invoke<void, Ped, int, Ped, int, BOOL>(0xF2EAB31979A7F910, ped, duration, facingPed, p3, p4); }
+	static void TASK_KNOCKED_OUT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF90427F00A495A28, p0, p1, p2); }
+	static void TASK_KNOCKED_OUT_AND_HOGTIED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x42AC6401ABB8C7E5, p0, p1, p2); }
 	static void _0xFFB520A3E16F7B7B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFFB520A3E16F7B7B, p0, p1); }
 	static Any _0x8B1FDF63C3193EDA() { return Native::Invoke<Any>(0x8B1FDF63C3193EDA); }
-	static void UPDATE_TASK_HANDS_UP_DURATION(Ped ped, int duration) { return Native::Invoke<void, Ped, int>(N::UPDATE_TASK_HANDS_UP_DURATION, ped, duration); }
+	static void UPDATE_TASK_HANDS_UP_DURATION(Ped ped, int duration) { return Native::Invoke<void, Ped, int>(0xA98FCAFD7893C834, ped, duration); }
 	static Any _0x28EF780BDEA8A639() { return Native::Invoke<Any>(0x28EF780BDEA8A639); }
-	static void _0xA14B5FBF986BAC23(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA14B5FBF986BAC23, p0, p1); }
+	static void TASK_DUCK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA14B5FBF986BAC23, p0, p1); }
 	static void _0xE53D17AD837CBF7C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xE53D17AD837CBF7C, p0, p1, p2, p3, p4, p5); }
 	static void _0xA7C6854BB5A4192A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xA7C6854BB5A4192A, p0, p1, p2, p3, p4, p5); }
-	static Any _0xE41A09C8DDFF7AA4() { return Native::Invoke<Any>(0xE41A09C8DDFF7AA4); }
-	static void _0x0A11F3BDEC03ED5F(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x0A11F3BDEC03ED5F, p0, p1, p2); }
-	static void TASK_ENTER_VEHICLE(Ped ped, Vehicle vehicle, int timeout, int seat, float speed, int flag, Any p6) { return Native::Invoke<void, Ped, Vehicle, int, int, float, int, Any>(N::TASK_ENTER_VEHICLE, ped, vehicle, timeout, seat, speed, flag, p6); }
-	static void TASK_LEAVE_VEHICLE(Ped ped, Vehicle vehicle, int flags, Any p3) { return Native::Invoke<void, Ped, Vehicle, int, Any>(N::TASK_LEAVE_VEHICLE, ped, vehicle, flags, p3); }
-	static void _0x92DB0739813C5186(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x92DB0739813C5186, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0x48E92D3DDE23C23A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x48E92D3DDE23C23A, p0, p1, p2, p3, p4, p5); }
-	static void _0x9030AD4B6207BFE8(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9030AD4B6207BFE8, p0, p1, p2); }
+	static Any TASK_BOARD_VEHICLE() { return Native::Invoke<Any>(0xE41A09C8DDFF7AA4); }
+	static void TASK_DISEMBARK_VEHICLE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x0A11F3BDEC03ED5F, p0, p1, p2); }
+	static void TASK_ENTER_VEHICLE(Ped ped, Vehicle vehicle, int timeout, int seat, float speed, int flag, Any p6) { return Native::Invoke<void, Ped, Vehicle, int, int, float, int, Any>(0xC20E50AA46D09CA8, ped, vehicle, timeout, seat, speed, flag, p6); }
+	static void TASK_LEAVE_VEHICLE(Ped ped, Vehicle vehicle, int flags, Any p3) { return Native::Invoke<void, Ped, Vehicle, int, Any>(0xD3DBCE61A490BE02, ped, vehicle, flags, p3); }
+	static void TASK_MOUNT_ANIMAL(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x92DB0739813C5186, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void TASK_DISMOUNT_ANIMAL(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x48E92D3DDE23C23A, p0, p1, p2, p3, p4, p5); }
+	static void TASK_HITCH_ANIMAL(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x9030AD4B6207BFE8, p0, p1, p2); }
 	static void _0xE05A5D39BE6E93AF(Any p0) { return Native::Invoke<void, Any>(0xE05A5D39BE6E93AF, p0); }
-	static void TASK_VEHICLE_DRIVE_TO_COORD(Ped ped, Vehicle vehicle, float x, float y, float z, float speed, Any p6, Hash vehicleModel, int drivingMode, float stopRange, float p10) { return Native::Invoke<void, Ped, Vehicle, float, float, float, float, Any, Hash, int, float, float>(N::TASK_VEHICLE_DRIVE_TO_COORD, ped, vehicle, x, y, z, speed, p6, vehicleModel, drivingMode, stopRange, p10); }
+	static void TASK_VEHICLE_DRIVE_TO_COORD(Ped ped, Vehicle vehicle, float x, float y, float z, float speed, Any p6, Hash vehicleModel, int drivingMode, float stopRange, float p10) { return Native::Invoke<void, Ped, Vehicle, float, float, float, float, Any, Hash, int, float, float>(0xE2A2AA2F659D77A7, ped, vehicle, x, y, z, speed, p6, vehicleModel, drivingMode, stopRange, p10); }
 	static void _0xF0108F01FB105DA2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xF0108F01FB105DA2, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_VEHICLE_DRIVE_WANDER(Ped ped, Vehicle vehicle, float speed, int drivingStyle) { return Native::Invoke<void, Ped, Vehicle, float, int>(N::TASK_VEHICLE_DRIVE_WANDER, ped, vehicle, speed, drivingStyle); }
-	static void TASK_FOLLOW_TO_OFFSET_OF_ENTITY(Ped ped, Entity entity, float offsetX, float offsetY, float offsetZ, float movementSpeed, int timeout, float stoppingRange, BOOL persistFollowing, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<void, Ped, Entity, float, float, float, float, int, float, BOOL, Any, Any, Any, Any>(N::TASK_FOLLOW_TO_OFFSET_OF_ENTITY, ped, entity, offsetX, offsetY, offsetZ, movementSpeed, timeout, stoppingRange, persistFollowing, p9, p10, p11, p12); }
-	static void _0x2E3676282C18A692(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x2E3676282C18A692, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
+	static void TASK_VEHICLE_DRIVE_WANDER(Ped ped, Vehicle vehicle, float speed, int drivingStyle) { return Native::Invoke<void, Ped, Vehicle, float, int>(0x480142959D337D00, ped, vehicle, speed, drivingStyle); }
+	static void TASK_FOLLOW_TO_OFFSET_OF_ENTITY(Ped ped, Entity entity, float offsetX, float offsetY, float offsetZ, float movementSpeed, int timeout, float stoppingRange, BOOL persistFollowing, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<void, Ped, Entity, float, float, float, float, int, float, BOOL, Any, Any, Any, Any>(0x304AE42E357B8C7E, ped, entity, offsetX, offsetY, offsetZ, movementSpeed, timeout, stoppingRange, persistFollowing, p9, p10, p11, p12); }
+	static void TASK_FOLLOW_TO_OFFSET_OF_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x2E3676282C18A692, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
 	static void _0x3FFCD7BBA074CC80(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x3FFCD7BBA074CC80, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_GO_STRAIGHT_TO_COORD(Ped ped, float x, float y, float z, float speed, int timeout, float targetHeading, float distanceToSlide, Any p8) { return Native::Invoke<void, Ped, float, float, float, float, int, float, float, Any>(N::TASK_GO_STRAIGHT_TO_COORD, ped, x, y, z, speed, timeout, targetHeading, distanceToSlide, p8); }
-	static void TASK_GO_STRAIGHT_TO_COORD_RELATIVE_TO_ENTITY(Entity entity1, Entity entity2, float p2, float p3, float p4, float p5, Any p6, Any p7) { return Native::Invoke<void, Entity, Entity, float, float, float, float, Any, Any>(N::TASK_GO_STRAIGHT_TO_COORD_RELATIVE_TO_ENTITY, entity1, entity2, p2, p3, p4, p5, p6, p7); }
-	static void _0x8AA1593AEC087A29(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x8AA1593AEC087A29, p0, p1, p2, p3); }
-	static void _0xDCA3A13F7A45338B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xDCA3A13F7A45338B, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0x13DED0BC45600FE1(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x13DED0BC45600FE1, p0, p1, p2, p3, p4); }
+	static void TASK_GO_STRAIGHT_TO_COORD(Ped ped, float x, float y, float z, float speed, int timeout, float targetHeading, float distanceToSlide, Any p8) { return Native::Invoke<void, Ped, float, float, float, float, int, float, float, Any>(0xD76B57B44F1E6F8B, ped, x, y, z, speed, timeout, targetHeading, distanceToSlide, p8); }
+	static void TASK_GO_STRAIGHT_TO_COORD_RELATIVE_TO_ENTITY(Entity entity1, Entity entity2, float p2, float p3, float p4, float p5, Any p6, Any p7) { return Native::Invoke<void, Entity, Entity, float, float, float, float, Any, Any>(0x61E360B7E040D12E, entity1, entity2, p2, p3, p4, p5, p6, p7); }
+	static void _TASK_MOVE_IN_TRAFFIC(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x8AA1593AEC087A29, p0, p1, p2, p3); }
+	static void _TASK_MOVE_IN_TRAFFIC_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0xDCA3A13F7A45338B, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void _TASK_MOVE_IN_TRAFFIC_3(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x13DED0BC45600FE1, p0, p1, p2, p3, p4); }
 	static void _0xBAAB791AA72C2821(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xBAAB791AA72C2821, p0, p1); }
-	static void _0x79482C12482A860D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x79482C12482A860D, p0, p1, p2, p3, p4, p5); }
-	static void TASK_ACHIEVE_HEADING(Ped ped, float heading, int timeout) { return Native::Invoke<void, Ped, float, int>(N::TASK_ACHIEVE_HEADING, ped, heading, timeout); }
-	static void TASK_FLUSH_ROUTE() { return Native::Invoke<void>(N::TASK_FLUSH_ROUTE); }
-	static void TASK_EXTEND_ROUTE(float x, float y, float z) { return Native::Invoke<void, float, float, float>(N::TASK_EXTEND_ROUTE, x, y, z); }
-	static void _0x0E14C5550DC3CD1D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x0E14C5550DC3CD1D, p0, p1, p2, p3, p4, p5); }
-	static void _0xC2329B0206426644(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xC2329B0206426644, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void _0x4AA5AA97C65E4A2F(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x4AA5AA97C65E4A2F, p0, p1, p2, p3, p4, p5, p6); }
-	static void TASK_GO_TO_ENTITY(Entity entity, Entity target, int duration, float distance, float speed, float p5, int p6) { return Native::Invoke<void, Entity, Entity, int, float, float, float, int>(N::TASK_GO_TO_ENTITY, entity, target, duration, distance, speed, p5, p6); }
+	static void _TASK_MOVE_IN_TRAFFIC_4(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x79482C12482A860D, p0, p1, p2, p3, p4, p5); }
+	static void TASK_ACHIEVE_HEADING(Ped ped, float heading, int timeout) { return Native::Invoke<void, Ped, float, int>(0x93B93A37987F1F3D, ped, heading, timeout); }
+	static void TASK_FLUSH_ROUTE() { return Native::Invoke<void>(0x841142A1376E9006); }
+	static void TASK_EXTEND_ROUTE(float x, float y, float z) { return Native::Invoke<void, float, float, float>(0x1E7889778264843A, x, y, z); }
+	static void TASK_FOLLOW_POINT_ROUTE(Ped ped, float speed, int unknown, Any p3, Any p4, Any p5) { return Native::Invoke<void, Ped, float, int, Any, Any, Any>(0x0E14C5550DC3CD1D, ped, speed, unknown, p3, p4, p5); }
+	static void TASK_ENTER_ANIM_SCENE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xC2329B0206426644, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_MOVE_BE_IN_FORMATION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x4AA5AA97C65E4A2F, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_GO_TO_ENTITY(Entity entity, Entity target, int duration, float distance, float speed, float p5, int p6) { return Native::Invoke<void, Entity, Entity, int, float, float, float, int>(0x6A071245EB0D1882, entity, target, duration, distance, speed, p5, p6); }
 	static void _0x489FFCCCE7392B55(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x489FFCCCE7392B55, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0xA052608A12559BBB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA052608A12559BBB, p0, p1); }
 	static void _0x8AC76D1408731732(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x8AC76D1408731732, p0, p1, p2, p3); }
-	static void _0xAA19711D33C6708C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAA19711D33C6708C, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_LEAD_AND_CONVERSE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAA19711D33C6708C, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0xDE0C8B145EA466FF(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xDE0C8B145EA466FF, p0, p1, p2, p3, p4, p5); }
-	static void _0x8D7F2A63688C20A4(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x8D7F2A63688C20A4, p0, p1, p2, p3, p4); }
-	static void _0xBAD6545608CECA6E(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBAD6545608CECA6E, p0, p1, p2); }
+	static void TASK_SEEK_CLEAR_LOS_TO_ENTITY(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x8D7F2A63688C20A4, p0, p1, p2, p3, p4); }
+	static void TASK_GO_TO_WHISTLE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBAD6545608CECA6E, p0, p1, p2); }
 	static Any _0xEB67D4E056C85A81(Any p0) { return Native::Invoke<Any, Any>(0xEB67D4E056C85A81, p0); }
 	static Any _0x78D8C1D4EB80C588(Any p0) { return Native::Invoke<Any, Any>(0x78D8C1D4EB80C588, p0); }
-	static void _0x9A7A4A54596FE09D(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9A7A4A54596FE09D, p0, p1); }
+	static void TASK_LEAD_HORSE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9A7A4A54596FE09D, p0, p1); }
 	static void _0xED27560703F37258(Any p0) { return Native::Invoke<void, Any>(0xED27560703F37258, p0); }
 	static void _0x6879FF208ED87F2A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x6879FF208ED87F2A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
 	static void _0x7B74D8EEDE9B5727(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7B74D8EEDE9B5727, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void TASK_SMART_FLEE_COORD(Ped ped, float x, float y, float z, float distance, int time, BOOL p6, BOOL p7) { return Native::Invoke<void, Ped, float, float, float, float, int, BOOL, BOOL>(N::TASK_SMART_FLEE_COORD, ped, x, y, z, distance, time, p6, p7); }
-	static void TASK_SMART_FLEE_PED(Ped ped, Ped fleeTarget, float distance, Any fleeTime, BOOL p4, BOOL p5, Any p6) { return Native::Invoke<void, Ped, Ped, float, Any, BOOL, BOOL, Any>(N::TASK_SMART_FLEE_PED, ped, fleeTarget, distance, fleeTime, p4, p5, p6); }
+	static void TASK_SMART_FLEE_COORD(Ped ped, float x, float y, float z, float distance, int time, BOOL p6, BOOL p7) { return Native::Invoke<void, Ped, float, float, float, float, int, BOOL, BOOL>(0x94587F17E9C365D5, ped, x, y, z, distance, time, p6, p7); }
+	static void TASK_SMART_FLEE_PED(Ped ped, Ped fleeTarget, float distance, Any fleeTime, BOOL p4, BOOL p5, Any p6) { return Native::Invoke<void, Ped, Ped, float, Any, BOOL, BOOL, Any>(0x22B0D0E37CCB840D, ped, fleeTarget, distance, fleeTime, p4, p5, p6); }
 	static void _0x673A8779D229BA5A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x673A8779D229BA5A, p0, p1, p2, p3, p4, p5); }
 	static void _0x2E1D6D87346BB7D2(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x2E1D6D87346BB7D2, p0, p1, p2, p3); }
 	static void _0x58428248BF4B64E4(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x58428248BF4B64E4, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
@@ -5591,35 +5591,35 @@ namespace TASK
 	static void _0xE8F1A5B4CED3725A(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xE8F1A5B4CED3725A, p0, p1, p2, p3, p4); }
 	static void _0x3923EC958249657D(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x3923EC958249657D, p0, p1, p2); }
 	static void _0xA42DC7919159CCCF(Any p0) { return Native::Invoke<void, Any>(0xA42DC7919159CCCF, p0); }
-	static void _0xE86A537B5A3C297C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE86A537B5A3C297C, p0, p1); }
-	static void _0xD6CFC2D59DA72042(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xD6CFC2D59DA72042, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x72997893BFB8ECCC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x72997893BFB8ECCC, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x04ACFAC71E6858F9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x04ACFAC71E6858F9, p0, p1); }
-	static void TASK_SHOCKING_EVENT_REACT(Ped ped, int eventHandle, Any p2) { return Native::Invoke<void, Ped, int, Any>(N::TASK_SHOCKING_EVENT_REACT, ped, eventHandle, p2); }
-	static void _0xC4C32C31920E1B70(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xC4C32C31920E1B70, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_WANDER_IN_AREA(Ped ped, float x, float y, float z, float radius, float minimalLength, float timeBetweenWalks, Any p7) { return Native::Invoke<void, Ped, float, float, float, float, float, float, Any>(N::TASK_WANDER_IN_AREA, ped, x, y, z, radius, minimalLength, timeBetweenWalks, p7); }
-	static void _0x9FDA168777B28424(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x9FDA168777B28424, p0, p1, p2, p3, p4); }
-	static void TASK_WANDER_STANDARD(Ped ped, float p1, int p2) { return Native::Invoke<void, Ped, float, int>(N::TASK_WANDER_STANDARD, ped, p1, p2); }
-	static void _0x527EA3DB8BC7F03B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x527EA3DB8BC7F03B, p0, p1); }
-	static void TASK_PLANT_BOMB(Ped ped, float x, float y, float z, float heading) { return Native::Invoke<void, Ped, float, float, float, float>(N::TASK_PLANT_BOMB, ped, x, y, z, heading); }
-	static void _0xA09CFD29100F06C3(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xA09CFD29100F06C3, p0, p1, p2, p3); }
-	static void _0xCD181A959CFDD7F4(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xCD181A959CFDD7F4, p0, p1, p2, p3, p4); }
-	static void _0xF960F3D57B660E96(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF960F3D57B660E96, p0, p1, p2); }
-	static void _0xEE3AA414CF99F368(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xEE3AA414CF99F368, p0, p1, p2, p3); }
-	static Any _0x37C13863ABA1B4A3() { return Native::Invoke<Any>(0x37C13863ABA1B4A3); }
-	static void _0x4B39D8F9D0FE7749(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4B39D8F9D0FE7749, p0, p1, p2); }
-	static void _0x21FDF9A25CFE1CE5(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x21FDF9A25CFE1CE5, p0, p1, p2, p3, p4); }
-	static void _0x979D93372FC8C565(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x979D93372FC8C565, p0, p1, p2); }
-	static void _0xA899B61C66F09134(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA899B61C66F09134, p0, p1, p2); }
+	static void TASK_FLY_AWAY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE86A537B5A3C297C, p0, p1); }
+	static void TASK_FLY_TO_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xD6CFC2D59DA72042, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_FLYING_CIRCLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x72997893BFB8ECCC, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_WALK_AWAY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x04ACFAC71E6858F9, p0, p1); }
+	static void TASK_SHOCKING_EVENT_REACT(Ped ped, int eventHandle, Any p2) { return Native::Invoke<void, Ped, int, Any>(0x452419CBD838065B, ped, eventHandle, p2); }
+	static void TASK_REACT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xC4C32C31920E1B70, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_WANDER_IN_AREA(Ped ped, float x, float y, float z, float radius, float minimalLength, float timeBetweenWalks, Any p7) { return Native::Invoke<void, Ped, float, float, float, float, float, float, Any>(0xE054346CA3A0F315, ped, x, y, z, radius, minimalLength, timeBetweenWalks, p7); }
+	static void TASK_WANDER_IN_VOLUME(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x9FDA168777B28424, p0, p1, p2, p3, p4); }
+	static void TASK_WANDER_STANDARD(Ped ped, float p1, int p2) { return Native::Invoke<void, Ped, float, int>(0xBB9CE077274F6A1B, ped, p1, p2); }
+	static void TASK_WANDER_SWIM(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x527EA3DB8BC7F03B, p0, p1); }
+	static void TASK_PLANT_BOMB(Ped ped, float x, float y, float z, float heading) { return Native::Invoke<void, Ped, float, float, float, float>(0x965FEC691D55E9BF, ped, x, y, z, heading); }
+	static void TASK_HORSE_ACTION(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xA09CFD29100F06C3, p0, p1, p2, p3); }
+	static void TASK_ANIMAL_INTERACTION(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xCD181A959CFDD7F4, p0, p1, p2, p3, p4); }
+	static void TASK_COMBAT_ANIMAL_WARN(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF960F3D57B660E96, p0, p1, p2); }
+	static void TASK_COMBAT_ANIMAL_CHARGE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xEE3AA414CF99F368, p0, p1, p2, p3); }
+	static Any TASK_AMBIENT_ANIMAL_STALK() { return Native::Invoke<Any>(0x37C13863ABA1B4A3); }
+	static void TASK_AMBIENT_ANIMAL_HUNT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x4B39D8F9D0FE7749, p0, p1, p2); }
+	static void TASK_ANIMAL_UNALERTED(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x21FDF9A25CFE1CE5, p0, p1, p2, p3, p4); }
+	static void TASK_ANIMAL_ALERTED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x979D93372FC8C565, p0, p1, p2); }
+	static void TASK_ANIMAL_FLEE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA899B61C66F09134, p0, p1, p2); }
 	static Any _0x244430C13BA5258E(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x244430C13BA5258E, p0, p1, p2, p3); }
-	static void _0xBD7949BD07299672(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBD7949BD07299672, p0, p1, p2); }
-	static void _0x83BFC1F836B2F3F2(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x83BFC1F836B2F3F2, p0, p1, p2); }
-	static void _0x1B1475414E70DD8E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1B1475414E70DD8E, p0, p1); }
-	static void TASK_FOLLOW_NAV_MESH_TO_COORD(Ped ped, float x, float y, float z, float speed, int timeout, float stoppingRange, BOOL persistFollowing, float unk) { return Native::Invoke<void, Ped, float, float, float, float, int, float, BOOL, float>(N::TASK_FOLLOW_NAV_MESH_TO_COORD, ped, x, y, z, speed, timeout, stoppingRange, persistFollowing, unk); }
-	static void TASK_FOLLOW_NAV_MESH_TO_COORD_ADVANCED(Ped ped, float x, float y, float z, float speed, int timeout, float unkFloat, int unkInt, float unkX, float unkY, float unkZ, float unk_40000f, Any p12) { return Native::Invoke<void, Ped, float, float, float, float, int, float, int, float, float, float, float, Any>(N::TASK_FOLLOW_NAV_MESH_TO_COORD_ADVANCED, ped, x, y, z, speed, timeout, unkFloat, unkInt, unkX, unkY, unkZ, unk_40000f, p12); }
-	static Any SET_PED_PATH_CAN_USE_CLIMBOVERS(Ped ped, BOOL Toggle) { return Native::Invoke<Any, Ped, BOOL>(N::SET_PED_PATH_CAN_USE_CLIMBOVERS, ped, Toggle); }
-	static Any SET_PED_PATH_CAN_USE_LADDERS(Ped ped, BOOL Toggle) { return Native::Invoke<Any, Ped, BOOL>(N::SET_PED_PATH_CAN_USE_LADDERS, ped, Toggle); }
-	static void SET_PED_PATH_CAN_DROP_FROM_HEIGHT(Ped ped, BOOL Toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_PATH_CAN_DROP_FROM_HEIGHT, ped, Toggle); }
+	static void TASK_EAT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBD7949BD07299672, p0, p1, p2); }
+	static void TASK_BARK(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x83BFC1F836B2F3F2, p0, p1, p2); }
+	static void TASK_FOLLOW_PAVEMENT_TO_COORD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1B1475414E70DD8E, p0, p1); }
+	static void TASK_FOLLOW_NAV_MESH_TO_COORD(Ped ped, float x, float y, float z, float speed, int timeout, float stoppingRange, BOOL persistFollowing, float unk) { return Native::Invoke<void, Ped, float, float, float, float, int, float, BOOL, float>(0x15D3A79D4E44B913, ped, x, y, z, speed, timeout, stoppingRange, persistFollowing, unk); }
+	static void TASK_FOLLOW_NAV_MESH_TO_COORD_ADVANCED(Ped ped, float x, float y, float z, float speed, int timeout, float unkFloat, int unkInt, float unkX, float unkY, float unkZ, float unk_40000f, Any p12) { return Native::Invoke<void, Ped, float, float, float, float, int, float, int, float, float, float, float, Any>(0x17F58B88D085DBAC, ped, x, y, z, speed, timeout, unkFloat, unkInt, unkX, unkY, unkZ, unk_40000f, p12); }
+	static Any SET_PED_PATH_CAN_USE_CLIMBOVERS(Ped ped, BOOL Toggle) { return Native::Invoke<Any, Ped, BOOL>(0x8E06A6FE76C9EFF4, ped, Toggle); }
+	static Any SET_PED_PATH_CAN_USE_LADDERS(Ped ped, BOOL Toggle) { return Native::Invoke<Any, Ped, BOOL>(0x77A5B103C87F476E, ped, Toggle); }
+	static void SET_PED_PATH_CAN_DROP_FROM_HEIGHT(Ped ped, BOOL Toggle) { return Native::Invoke<void, Ped, BOOL>(0xE361C5C71C431A4F, ped, Toggle); }
 	static Any _0xE6A151364C600B24(Any p0) { return Native::Invoke<Any, Any>(0xE6A151364C600B24, p0); }
 	static void _0x1632EB9386CDBE64(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1632EB9386CDBE64, p0, p1); }
 	static void _0x88E32DB8C1A4AA4B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x88E32DB8C1A4AA4B, p0, p1); }
@@ -5632,34 +5632,34 @@ namespace TASK
 	static void _0x098CAA6DBE7D8D82(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x098CAA6DBE7D8D82, p0, p1); }
 	static Any _0x1948BBE561A2375A(Any p0) { return Native::Invoke<Any, Any>(0x1948BBE561A2375A, p0); }
 	static void _0x013A7BA5015C1372(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x013A7BA5015C1372, p0, p1); }
-	static void SET_PED_PATH_MAY_ENTER_WATER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_PED_PATH_MAY_ENTER_WATER, p0, p1); }
+	static void SET_PED_PATH_MAY_ENTER_WATER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF35425A4204367EC, p0, p1); }
 	static void _0x9DE63896B176EA94(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9DE63896B176EA94, p0, p1); }
 	static void _0xC6170856E54557B2(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xC6170856E54557B2, p0, p1, p2); }
 	static void _0xF948F4356F010F11(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xF948F4356F010F11, p0, p1, p2); }
-	static void SET_PED_PATH_PREFER_TO_AVOID_WATER(Ped ped, BOOL avoidWater, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(N::SET_PED_PATH_PREFER_TO_AVOID_WATER, ped, avoidWater, p2); }
+	static void SET_PED_PATH_PREFER_TO_AVOID_WATER(Ped ped, BOOL avoidWater, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(0x38FE1EC73743793C, ped, avoidWater, p2); }
 	static void _0x8BB283A7888AD1AD(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8BB283A7888AD1AD, p0, p1, p2); }
 	static void _0x12990818C1D35886(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x12990818C1D35886, p0, p1, p2); }
 	static void _0x7C015D8BCEC72CF4(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x7C015D8BCEC72CF4, p0, p1); }
-	static void SET_PED_PATH_AVOID_FIRE(Ped ped, BOOL avoidFire) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_PATH_AVOID_FIRE, ped, avoidFire); }
+	static void SET_PED_PATH_AVOID_FIRE(Ped ped, BOOL avoidFire) { return Native::Invoke<void, Ped, BOOL>(0x4455517B28441E60, ped, avoidFire); }
 	static void _0x42CFD8FD8CC8DC69(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x42CFD8FD8CC8DC69, p0, p1); }
 	static void _0x216343750545A486(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x216343750545A486, p0, p1, p2); }
 	static Any _0xFA30E2254461ADEB() { return Native::Invoke<Any>(0xFA30E2254461ADEB); }
-	static void TASK_GO_TO_COORD_ANY_MEANS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float>(N::TASK_GO_TO_COORD_ANY_MEANS, ped, x, y, z, speed, p5, p6, walkingStyle, p8); }
-	static void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float, Any, Any, Any, Any>(N::TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS, ped, x, y, z, speed, p5, p6, walkingStyle, p8, p9, p10, p11, p12); }
-	static void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS_WITH_CRUISE_SPEED(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float, Any, Any, Any, Any, Any, Any>(N::TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS_WITH_CRUISE_SPEED, ped, x, y, z, speed, p5, p6, walkingStyle, p8, p9, p10, p11, p12, p13, p14); }
-	static void TASK_PLAY_ANIM(Ped ped, char* animDictionary, char* animationName, float speed, float speedMultiplier, int duration, int flag, float playbackRate, BOOL lockX, BOOL lockY, BOOL lockZ, Any p11, Any p12) { return Native::Invoke<void, Ped, char*, char*, float, float, int, int, float, BOOL, BOOL, BOOL, Any, Any>(N::TASK_PLAY_ANIM, ped, animDictionary, animationName, speed, speedMultiplier, duration, flag, playbackRate, lockX, lockY, lockZ, p11, p12); }
-	static void TASK_PLAY_ANIM_ADVANCED(Ped ped, char* animDict, char* animName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float speed, float speedMultiplier, int duration, Any flag, float animTime, int p14, int p15, Any p16) { return Native::Invoke<void, Ped, char*, char*, float, float, float, float, float, float, float, float, int, Any, float, int, int, Any>(N::TASK_PLAY_ANIM_ADVANCED, ped, animDict, animName, posX, posY, posZ, rotX, rotY, rotZ, speed, speedMultiplier, duration, flag, animTime, p14, p15, p16); }
-	static void _0xAD67214236AB1CFE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAD67214236AB1CFE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
-	static void STOP_ANIM_TASK(Ped ped, char* animDictionary, char* animationName, float p3) { return Native::Invoke<void, Ped, char*, char*, float>(N::STOP_ANIM_TASK, ped, animDictionary, animationName, p3); }
-	static void TASK_SCRIPTED_ANIMATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::TASK_SCRIPTED_ANIMATION, p0, p1); }
-	static void PLAY_ENTITY_SCRIPTED_ANIM(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::PLAY_ENTITY_SCRIPTED_ANIM, p0, p1); }
-	static void STOP_ANIM_PLAYBACK(Ped ped, int p1, BOOL p2) { return Native::Invoke<void, Ped, int, BOOL>(N::STOP_ANIM_PLAYBACK, ped, p1, p2); }
+	static void TASK_GO_TO_COORD_ANY_MEANS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float>(0x5BC448CB78FA3E88, ped, x, y, z, speed, p5, p6, walkingStyle, p8); }
+	static void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8, Any p9, Any p10, Any p11, Any p12) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float, Any, Any, Any, Any>(0x1DD45F9ECFDB1BC9, ped, x, y, z, speed, p5, p6, walkingStyle, p8, p9, p10, p11, p12); }
+	static void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS_WITH_CRUISE_SPEED(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Ped, float, float, float, float, Any, BOOL, int, float, Any, Any, Any, Any, Any, Any>(0xB8ECD61F531A7B02, ped, x, y, z, speed, p5, p6, walkingStyle, p8, p9, p10, p11, p12, p13, p14); }
+	static void TASK_PLAY_ANIM(Ped ped, const char* animDictionary, const char* animationName, float speed, float speedMultiplier, int duration, int flag, float playbackRate, BOOL lockX, BOOL lockY, BOOL lockZ, Any p11, Any p12) { return Native::Invoke<void, Ped, const char*, const char*, float, float, int, int, float, BOOL, BOOL, BOOL, Any, Any>(0xEA47FE3719165B94, ped, animDictionary, animationName, speed, speedMultiplier, duration, flag, playbackRate, lockX, lockY, lockZ, p11, p12); }
+	static void TASK_PLAY_ANIM_ADVANCED(Ped ped, const char* animDict, const char* animName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float speed, float speedMultiplier, int duration, Any flag, float animTime, int p14, int p15, Any p16) { return Native::Invoke<void, Ped, const char*, const char*, float, float, float, float, float, float, float, float, int, Any, float, int, int, Any>(0x83CDB10EA29B370B, ped, animDict, animName, posX, posY, posZ, rotX, rotY, rotZ, speed, speedMultiplier, duration, flag, animTime, p14, p15, p16); }
+	static void TASK_PLAY_UPPER_ANIM_FACING_ENTITY(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xAD67214236AB1CFE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
+	static void STOP_ANIM_TASK(Ped ped, const char* animDictionary, const char* animationName, float p3) { return Native::Invoke<void, Ped, const char*, const char*, float>(0x97FF36A1D40EA00A, ped, animDictionary, animationName, p3); }
+	static void TASK_SCRIPTED_ANIMATION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x126EF75F1E17ABE5, p0, p1); }
+	static void PLAY_ENTITY_SCRIPTED_ANIM(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x77A1EEC547E7FCF1, p0, p1); }
+	static void STOP_ANIM_PLAYBACK(Ped ped, int p1, BOOL p2) { return Native::Invoke<void, Ped, int, BOOL>(0xEE08C992D238C5D1, ped, p1, p2); }
 	static void _0x87B66D77D545DB66(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x87B66D77D545DB66, p0, p1, p2, p3); }
-	static void SET_ANIM_RATE(Any p0, float p1, Any p2, BOOL p3) { return Native::Invoke<void, Any, float, Any, BOOL>(N::SET_ANIM_RATE, p0, p1, p2, p3); }
+	static void SET_ANIM_RATE(Any p0, float p1, Any p2, BOOL p3) { return Native::Invoke<void, Any, float, Any, BOOL>(0x032D49C5E359C847, p0, p1, p2, p3); }
 	static Any _0x2D19BC4DF626CBE7(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x2D19BC4DF626CBE7, p0, p1, p2, p3); }
-	static void _0xAE72E7DF013AAA61(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xAE72E7DF013AAA61, p0, p1, p2, p3, p4, p5); }
-	static void _0x72F52AA2D2B172CC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x72F52AA2D2B172CC, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0xD61D5E1AD9876DEB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xD61D5E1AD9876DEB, p0, p1, p2, p3, p4, p5, p6); }
+	static void _TASK_ITEM_INTERACTION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xAE72E7DF013AAA61, p0, p1, p2, p3, p4, p5); }
+	static void _TASK_ITEM_INTERACTION_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x72F52AA2D2B172CC, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void _TASK_ITEM_INTERACTION_3(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xD61D5E1AD9876DEB, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xB35370D5353995CB(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB35370D5353995CB, p0, p1, p2); }
 	static Any _0x6AA3DCA2C6F5EB6D(Any p0) { return Native::Invoke<Any, Any>(0x6AA3DCA2C6F5EB6D, p0); }
 	static Any _0x804425C4BBD00883(Any p0) { return Native::Invoke<Any, Any>(0x804425C4BBD00883, p0); }
@@ -5668,127 +5668,127 @@ namespace TASK
 	static Any _0x05A0100EA714DB68(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x05A0100EA714DB68, p0, p1); }
 	static Any _0xBC864A70AD55E0C1(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xBC864A70AD55E0C1, p0, p1); }
 	static Any _0x678D3226CF70B9C8(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x678D3226CF70B9C8, p0, p1); }
-	static void _0x5F22926E1BCE9B08(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5F22926E1BCE9B08, p0, p1, p2); }
-	static void TASK_LOOK_AT_COORD(Entity entity, float x, float y, float z, float duration, Any p5, Any p6, Any p7) { return Native::Invoke<void, Entity, float, float, float, float, Any, Any, Any>(N::TASK_LOOK_AT_COORD, entity, x, y, z, duration, p5, p6, p7); }
-	static void TASK_LOOK_AT_ENTITY(Ped ped, Entity lookAt, int duration, int unknown1, int unknown2, Any p5) { return Native::Invoke<void, Ped, Entity, int, int, int, Any>(N::TASK_LOOK_AT_ENTITY, ped, lookAt, duration, unknown1, unknown2, p5); }
-	static void TASK_CLEAR_LOOK_AT(Ped ped) { return Native::Invoke<void, Ped>(N::TASK_CLEAR_LOOK_AT, ped); }
+	static void TASK_EVASIVE_ANIM(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x5F22926E1BCE9B08, p0, p1, p2); }
+	static void TASK_LOOK_AT_COORD(Entity entity, float x, float y, float z, float duration, Any p5, Any p6, Any p7) { return Native::Invoke<void, Entity, float, float, float, float, Any, Any, Any>(0x6FA46612594F7973, entity, x, y, z, duration, p5, p6, p7); }
+	static void TASK_LOOK_AT_ENTITY(Ped ped, Entity lookAt, int duration, int unknown1, int unknown2, Any p5) { return Native::Invoke<void, Ped, Entity, int, int, int, Any>(0x69F4BE8C8CC4796C, ped, lookAt, duration, unknown1, unknown2, p5); }
+	static void TASK_CLEAR_LOOK_AT(Ped ped) { return Native::Invoke<void, Ped>(0x0F804F1DB19B9689, ped); }
 	static Any _0x508F5053E3F6F0C4(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x508F5053E3F6F0C4, p0, p1, p2, p3, p4); }
-	static Any OPEN_SEQUENCE_TASK(Object* taskSequence) { return Native::Invoke<Any, Object*>(N::OPEN_SEQUENCE_TASK, taskSequence); }
-	static Any CLOSE_SEQUENCE_TASK(Object taskSequence) { return Native::Invoke<Any, Object>(N::CLOSE_SEQUENCE_TASK, taskSequence); }
-	static Any TASK_PERFORM_SEQUENCE(Ped ped, Object taskSequence) { return Native::Invoke<Any, Ped, Object>(N::TASK_PERFORM_SEQUENCE, ped, taskSequence); }
+	static Any OPEN_SEQUENCE_TASK(Object* taskSequence) { return Native::Invoke<Any, Object*>(0xE8854A4326B9E12B, taskSequence); }
+	static Any CLOSE_SEQUENCE_TASK(Object taskSequence) { return Native::Invoke<Any, Object>(0x39E72BC99E6360CB, taskSequence); }
+	static Any TASK_PERFORM_SEQUENCE(Ped ped, Object taskSequence) { return Native::Invoke<Any, Ped, Object>(0x5ABA3986D90D8A3B, ped, taskSequence); }
 	static void _0x4FC0AF869D6E309D(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4FC0AF869D6E309D, p0, p1, p2, p3); }
-	static Any CLEAR_SEQUENCE_TASK(Object* taskSequence) { return Native::Invoke<Any, Object*>(N::CLEAR_SEQUENCE_TASK, taskSequence); }
-	static void SET_SEQUENCE_TO_REPEAT(Object taskSequence, BOOL repeat) { return Native::Invoke<void, Object, BOOL>(N::SET_SEQUENCE_TO_REPEAT, taskSequence, repeat); }
-	static int GET_SEQUENCE_PROGRESS(Ped ped) { return Native::Invoke<int, Ped>(N::GET_SEQUENCE_PROGRESS, ped); }
-	static BOOL GET_IS_TASK_ACTIVE(Ped ped, int taskNumber) { return Native::Invoke<BOOL, Ped, int>(N::GET_IS_TASK_ACTIVE, ped, taskNumber); }
-	static int GET_SCRIPT_TASK_STATUS(Ped targetPed, Hash taskHash, Any p2) { return Native::Invoke<int, Ped, Hash, Any>(N::GET_SCRIPT_TASK_STATUS, targetPed, taskHash, p2); }
+	static Any CLEAR_SEQUENCE_TASK(Object* taskSequence) { return Native::Invoke<Any, Object*>(0x3841422E9C488D8C, taskSequence); }
+	static void SET_SEQUENCE_TO_REPEAT(Object taskSequence, BOOL repeat) { return Native::Invoke<void, Object, BOOL>(0x58C70CF3A41E4AE7, taskSequence, repeat); }
+	static int GET_SEQUENCE_PROGRESS(Ped ped) { return Native::Invoke<int, Ped>(0x00A9010CFE1E3533, ped); }
+	static BOOL GET_IS_TASK_ACTIVE(Ped ped, int taskNumber) { return Native::Invoke<BOOL, Ped, int>(0xB0760331C7AA4155, ped, taskNumber); }
+	static int GET_SCRIPT_TASK_STATUS(Ped targetPed, Hash taskHash, Any p2) { return Native::Invoke<int, Ped, Hash, Any>(0x77F1BEB8863288D5, targetPed, taskHash, p2); }
 	static Any _0x9FF5F9B24E870748(Any p0) { return Native::Invoke<Any, Any>(0x9FF5F9B24E870748, p0); }
 	static Any _0xA710DC5D25F8B942(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA710DC5D25F8B942, p0, p1); }
 	static void _0xE7FA07624574B79A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xE7FA07624574B79A, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0x541E5B41DCA45828(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x541E5B41DCA45828, p0, p1, p2); }
 	static Any _0x916B8E075ABC8B4E(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x916B8E075ABC8B4E, p0, p1); }
-	static int GET_ACTIVE_VEHICLE_MISSION_TYPE(Vehicle veh) { return Native::Invoke<int, Vehicle>(N::GET_ACTIVE_VEHICLE_MISSION_TYPE, veh); }
-	static void TASK_LEAVE_ANY_VEHICLE(Ped ped, int p1, int p2) { return Native::Invoke<void, Ped, int, int>(N::TASK_LEAVE_ANY_VEHICLE, ped, p1, p2); }
+	static int GET_ACTIVE_VEHICLE_MISSION_TYPE(Vehicle veh) { return Native::Invoke<int, Vehicle>(0x534AEBA6E5ED4CAB, veh); }
+	static void TASK_LEAVE_ANY_VEHICLE(Ped ped, int p1, int p2) { return Native::Invoke<void, Ped, int, int>(0x504D54DF3F6F2247, ped, p1, p2); }
 	static Any _0xBD70108D01875299(Any p0) { return Native::Invoke<Any, Any>(0xBD70108D01875299, p0); }
-	static void _0x14747F4A5971DE4E(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x14747F4A5971DE4E, p0, p1, p2, p3, p4); }
-	static void TASK_AIM_GUN_AT_ENTITY(Ped ped, Entity entity, int duration, BOOL unk, Any p4) { return Native::Invoke<void, Ped, Entity, int, BOOL, Any>(N::TASK_AIM_GUN_AT_ENTITY, ped, entity, duration, unk, p4); }
-	static void TASK_TURN_PED_TO_FACE_ENTITY(Ped ped, Entity entity, int duration, Any p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Entity, int, Any, Any, Any>(N::TASK_TURN_PED_TO_FACE_ENTITY, ped, entity, duration, p3, p4, p5); }
-	static void TASK_AIM_GUN_AT_COORD(Ped ped, float x, float y, float z, int time, BOOL p5, BOOL p6) { return Native::Invoke<void, Ped, float, float, float, int, BOOL, BOOL>(N::TASK_AIM_GUN_AT_COORD, ped, x, y, z, time, p5, p6); }
+	static void TASK_USE_RANDOM_SCENARIO_IN_GROUP(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x14747F4A5971DE4E, p0, p1, p2, p3, p4); }
+	static void TASK_AIM_GUN_AT_ENTITY(Ped ped, Entity entity, int duration, BOOL unk, Any p4) { return Native::Invoke<void, Ped, Entity, int, BOOL, Any>(0x9B53BB6E8943AF53, ped, entity, duration, unk, p4); }
+	static void TASK_TURN_PED_TO_FACE_ENTITY(Ped ped, Entity entity, int duration, Any p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Entity, int, Any, Any, Any>(0x5AD23D40115353AC, ped, entity, duration, p3, p4, p5); }
+	static void TASK_AIM_GUN_AT_COORD(Ped ped, float x, float y, float z, int time, BOOL p5, BOOL p6) { return Native::Invoke<void, Ped, float, float, float, int, BOOL, BOOL>(0x6671F3EEC681BDA1, ped, x, y, z, time, p5, p6); }
 	static void _0x4AF1D73861212F52(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x4AF1D73861212F52, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xCF7569BD0FB480A0(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xCF7569BD0FB480A0, p0, p1, p2, p3, p4); }
-	static void TASK_SHOOT_AT_COORD(Ped ped, float x, float y, float z, int duration, Hash firingPattern, Any p6) { return Native::Invoke<void, Ped, float, float, float, int, Hash, Any>(N::TASK_SHOOT_AT_COORD, ped, x, y, z, duration, firingPattern, p6); }
-	static void TASK_SHUFFLE_TO_NEXT_VEHICLE_SEAT(Ped ped, Vehicle vehicle) { return Native::Invoke<void, Ped, Vehicle>(N::TASK_SHUFFLE_TO_NEXT_VEHICLE_SEAT, ped, vehicle); }
-	static void CLEAR_PED_TASKS(Ped ped, Any p1, Any p2) { return Native::Invoke<void, Ped, Any, Any>(N::CLEAR_PED_TASKS, ped, p1, p2); }
+	static void TASK_SHOOT_AT_COORD(Ped ped, float x, float y, float z, int duration, Hash firingPattern, Any p6) { return Native::Invoke<void, Ped, float, float, float, int, Hash, Any>(0x46A6CC01E0826106, ped, x, y, z, duration, firingPattern, p6); }
+	static void TASK_SHUFFLE_TO_NEXT_VEHICLE_SEAT(Ped ped, Vehicle vehicle) { return Native::Invoke<void, Ped, Vehicle>(0x7AA80209BDA643EB, ped, vehicle); }
+	static void CLEAR_PED_TASKS(Ped ped, Any p1, Any p2) { return Native::Invoke<void, Ped, Any, Any>(0xE1EF3C1216AFF2CD, ped, p1, p2); }
 	static void _0x1A7D63CB1B0BB223(Any p0) { return Native::Invoke<void, Any>(0x1A7D63CB1B0BB223, p0); }
 	static void _0xDF94844D474F31E5(Any p0) { return Native::Invoke<void, Any>(0xDF94844D474F31E5, p0); }
 	static void _0xEBA2081E0A5F4D17(Any p0) { return Native::Invoke<void, Any>(0xEBA2081E0A5F4D17, p0); }
 	static void _0x141BC64C8D7C5529(Any p0) { return Native::Invoke<void, Any>(0x141BC64C8D7C5529, p0); }
-	static void CLEAR_PED_SECONDARY_TASK(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_PED_SECONDARY_TASK, ped); }
-	static Any TASK_EVERYONE_LEAVE_VEHICLE() { return Native::Invoke<Any>(N::TASK_EVERYONE_LEAVE_VEHICLE); }
-	static Any _0x6F1C49F275BD25B3() { return Native::Invoke<Any>(0x6F1C49F275BD25B3); }
-	static void _0x5C8514540D27FBFB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x5C8514540D27FBFB, p0, p1, p2, p3, p4, p5); }
-	static void TASK_GOTO_ENTITY_OFFSET(Ped ped, Any p1, Any p2, float x, float y, float z, int duration) { return Native::Invoke<void, Ped, Any, Any, float, float, float, int>(N::TASK_GOTO_ENTITY_OFFSET, ped, p1, p2, x, y, z, duration); }
-	static void TASK_GOTO_ENTITY_OFFSET_XY(Ped ped, Entity entity, int duration, float xOffset, float yOffset, float zOffset, float moveBlendRatio, BOOL useNavmesh) { return Native::Invoke<void, Ped, Entity, int, float, float, float, float, BOOL>(N::TASK_GOTO_ENTITY_OFFSET_XY, ped, entity, duration, xOffset, yOffset, zOffset, moveBlendRatio, useNavmesh); }
-	static void _0x901BD69984400F62(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x901BD69984400F62, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void _0x41B0832CA96B5351(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x41B0832CA96B5351, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void _0x2D532EAA142CF83F(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x2D532EAA142CF83F, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void TASK_TURN_PED_TO_FACE_COORD(Ped ped, float x, float y, float z, int duration) { return Native::Invoke<void, Ped, float, float, float, int>(N::TASK_TURN_PED_TO_FACE_COORD, ped, x, y, z, duration); }
-	static void TASK_VEHICLE_TEMP_ACTION(Ped driver, Vehicle vehicle, int action, int time) { return Native::Invoke<void, Ped, Vehicle, int, int>(N::TASK_VEHICLE_TEMP_ACTION, driver, vehicle, action, time); }
-	static void TASK_VEHICLE_MISSION(int p0, int p1, Vehicle veh, Any p3, float p4, Any p5, float p6, float p7, BOOL p8) { return Native::Invoke<void, int, int, Vehicle, Any, float, Any, float, float, BOOL>(N::TASK_VEHICLE_MISSION, p0, p1, veh, p3, p4, p5, p6, p7, p8); }
-	static void _0x7F241A0D14354583(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7F241A0D14354583, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void _0x391073B9D3CCE2BA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x391073B9D3CCE2BA, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void CLEAR_PED_SECONDARY_TASK(Ped ped) { return Native::Invoke<void, Ped>(0x176CECF6F920D707, ped); }
+	static void TASK_EVERYONE_LEAVE_VEHICLE() { return Native::Invoke<void>(0x7F93691AB4B92272); }
+	static Any TASK_EVERYONE_LEAVE_VEHICLE_IN_ORDER() { return Native::Invoke<Any>(0x6F1C49F275BD25B3); }
+	static void TASK_INVESTIGATE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x5C8514540D27FBFB, p0, p1, p2, p3, p4, p5); }
+	static void TASK_GOTO_ENTITY_OFFSET(Ped ped, Any p1, Any p2, float x, float y, float z, int duration) { return Native::Invoke<void, Ped, Any, Any, float, float, float, int>(0xE39B4FF4FDEBDE27, ped, p1, p2, x, y, z, duration); }
+	static void TASK_GOTO_ENTITY_OFFSET_XY(Ped ped, Entity entity, int duration, float xOffset, float yOffset, float zOffset, float moveBlendRatio, BOOL useNavmesh) { return Native::Invoke<void, Ped, Entity, int, float, float, float, float, BOOL>(0x338E7EF52B6095A9, ped, entity, duration, xOffset, yOffset, zOffset, moveBlendRatio, useNavmesh); }
+	static void TASK_GOTO_ENTITY_OFFSET_XY_AIMING(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x901BD69984400F62, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_GOTO_ENTITY_OFFSET_XYZ_AIMING(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x41B0832CA96B5351, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
+	static void TASK_FOLLOW_ENTITY_WHILE_AIMING_AT_ENTITY(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x2D532EAA142CF83F, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void TASK_TURN_PED_TO_FACE_COORD(Ped ped, float x, float y, float z, int duration) { return Native::Invoke<void, Ped, float, float, float, int>(0x1DDA930A0AC38571, ped, x, y, z, duration); }
+	static void TASK_VEHICLE_TEMP_ACTION(Ped driver, Vehicle vehicle, int action, int time) { return Native::Invoke<void, Ped, Vehicle, int, int>(0xC429DCEEB339E129, driver, vehicle, action, time); }
+	static void TASK_VEHICLE_MISSION(int p0, int p1, Vehicle veh, Any p3, float p4, Any p5, float p6, float p7, BOOL p8) { return Native::Invoke<void, int, int, Vehicle, Any, float, Any, float, float, BOOL>(0x659427E0EF36BCDE, p0, p1, veh, p3, p4, p5, p6, p7, p8); }
+	static void _TASK_VEHICLE_DRIVE_TO_DESTINATION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7F241A0D14354583, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
+	static void _TASK_VEHICLE_DRIVE_TO_DESTINATION_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x391073B9D3CCE2BA, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static Any _0x55CD5FDDD4335C1E() { return Native::Invoke<Any>(0x55CD5FDDD4335C1E); }
-	static void _0x089FF2FB965F0A29(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x089FF2FB965F0A29, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0x6524A8981E8BE7C9(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x6524A8981E8BE7C9, p0, p1, p2, p3, p4, p5, p6); }
+	static void _TASK_VEHICLE_DRIVE_TO_POINT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x089FF2FB965F0A29, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void _TASK_VEHICLE_DRIVE_TO_POINT_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x6524A8981E8BE7C9, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x1D125814EBC517EB(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x1D125814EBC517EB, p0, p1, p2, p3); }
 	static Any _0x583AE9AF9CEE0958() { return Native::Invoke<Any>(0x583AE9AF9CEE0958); }
-	static void TASK_VEHICLE_MISSION_PED_TARGET(Ped ped, Vehicle vehicle, Ped pedTarget, int mode, float maxSpeed, int drivingStyle, float minDistance, float p7, BOOL p8) { return Native::Invoke<void, Ped, Vehicle, Ped, int, float, int, float, float, BOOL>(N::TASK_VEHICLE_MISSION_PED_TARGET, ped, vehicle, pedTarget, mode, maxSpeed, drivingStyle, minDistance, p7, p8); }
+	static void TASK_VEHICLE_MISSION_PED_TARGET(Ped ped, Vehicle vehicle, Ped pedTarget, int mode, float maxSpeed, int drivingStyle, float minDistance, float p7, BOOL p8) { return Native::Invoke<void, Ped, Vehicle, Ped, int, float, int, float, float, BOOL>(0x9454528DF15D657A, ped, vehicle, pedTarget, mode, maxSpeed, drivingStyle, minDistance, p7, p8); }
 	static void _0xA263ADBBC8056214(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA263ADBBC8056214, p0, p1); }
-	static void TASK_VEHICLE_ESCORT(Ped ped, Vehicle vehicle, Vehicle targetVehicle, int mode, float speed, int drivingStyle, float minDistance, int p7, float noRoadsDistance) { return Native::Invoke<void, Ped, Vehicle, Vehicle, int, float, int, float, int, float>(N::TASK_VEHICLE_ESCORT, ped, vehicle, targetVehicle, mode, speed, drivingStyle, minDistance, p7, noRoadsDistance); }
-	static void TASK_BOAT_MISSION(Ped pedDriver, Vehicle boat, Any p2, Any p3, float x, float y, float z, Any p7, float maxSpeed, int drivingStyle, float p10, Any p11) { return Native::Invoke<void, Ped, Vehicle, Any, Any, float, float, float, Any, float, int, float, Any>(N::TASK_BOAT_MISSION, pedDriver, boat, p2, p3, x, y, z, p7, maxSpeed, drivingStyle, p10, p11); }
+	static void TASK_VEHICLE_ESCORT(Ped ped, Vehicle vehicle, Vehicle targetVehicle, int mode, float speed, int drivingStyle, float minDistance, int p7, float noRoadsDistance) { return Native::Invoke<void, Ped, Vehicle, Vehicle, int, float, int, float, int, float>(0x0FA6E4B75F302400, ped, vehicle, targetVehicle, mode, speed, drivingStyle, minDistance, p7, noRoadsDistance); }
+	static void TASK_BOAT_MISSION(Ped pedDriver, Vehicle boat, Any p2, Any p3, float x, float y, float z, Any p7, float maxSpeed, int drivingStyle, float p10, Any p11) { return Native::Invoke<void, Ped, Vehicle, Any, Any, float, float, float, Any, float, int, float, Any>(0x15C86013127CE63F, pedDriver, boat, p2, p3, x, y, z, p7, maxSpeed, drivingStyle, p10, p11); }
 	static void _0x7157B82D60E4BC46(Any p0) { return Native::Invoke<void, Any>(0x7157B82D60E4BC46, p0); }
-	static void TASK_DRIVE_BY(Ped driverPed, Ped targetPed, Vehicle targetVehicle, float targetX, float targetY, float targetZ, float distanceToShoot, int pedAccuracy, BOOL p8, Hash firingPattern) { return Native::Invoke<void, Ped, Ped, Vehicle, float, float, float, float, int, BOOL, Hash>(N::TASK_DRIVE_BY, driverPed, targetPed, targetVehicle, targetX, targetY, targetZ, distanceToShoot, pedAccuracy, p8, firingPattern); }
-	static Any SET_DRIVEBY_TASK_TARGET() { return Native::Invoke<Any>(N::SET_DRIVEBY_TASK_TARGET); }
-	static void CLEAR_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return Native::Invoke<void, Ped>(N::CLEAR_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK, ped); }
-	static BOOL IS_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK, ped); }
+	static void TASK_DRIVE_BY(Ped driverPed, Ped targetPed, Vehicle targetVehicle, float targetX, float targetY, float targetZ, float distanceToShoot, int pedAccuracy, BOOL p8, Hash firingPattern) { return Native::Invoke<void, Ped, Ped, Vehicle, float, float, float, float, int, BOOL, Hash>(0x2F8AF0E82773A171, driverPed, targetPed, targetVehicle, targetX, targetY, targetZ, distanceToShoot, pedAccuracy, p8, firingPattern); }
+	static void SET_DRIVEBY_TASK_TARGET() { return Native::Invoke<void>(0xE5B302114D8162EE); }
+	static void CLEAR_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return Native::Invoke<void, Ped>(0xC35B5CDB2824CF69, ped); }
+	static BOOL IS_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(0x8785E6E40C7A8818, ped); }
 	static Any _0x8785E6E40C7A8819(Any p0) { return Native::Invoke<Any, Any>(0x8785E6E40C7A8819, p0); }
 	static Any _0x34C0010188D7C54A() { return Native::Invoke<Any>(0x34C0010188D7C54A); }
-	static Any IS_MOUNTED_WEAPON_TASK_UNDERNEATH_DRIVING_TASK() { return Native::Invoke<Any>(N::IS_MOUNTED_WEAPON_TASK_UNDERNEATH_DRIVING_TASK); }
-	static void TASK_WARP_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seat) { return Native::Invoke<void, Ped, Vehicle, int>(N::TASK_WARP_PED_INTO_VEHICLE, ped, vehicle, seat); }
-	static void TASK_SHOOT_AT_ENTITY(Entity entity, Entity target, int duration, Hash firingPattern, Any p4) { return Native::Invoke<void, Entity, Entity, int, Hash, Any>(N::TASK_SHOOT_AT_ENTITY, entity, target, duration, firingPattern, p4); }
-	static void _0x08AA95E8298AE772(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x08AA95E8298AE772, p0, p1); }
+	static BOOL IS_MOUNTED_WEAPON_TASK_UNDERNEATH_DRIVING_TASK() { return Native::Invoke<BOOL>(0xA320EF046186FA3B); }
+	static void TASK_WARP_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seat) { return Native::Invoke<void, Ped, Vehicle, int>(0x9A7D091411C5F684, ped, vehicle, seat); }
+	static void TASK_SHOOT_AT_ENTITY(Entity entity, Entity target, int duration, Hash firingPattern, Any p4) { return Native::Invoke<void, Entity, Entity, int, Hash, Any>(0x08DA95E8298AE772, entity, target, duration, firingPattern, p4); }
+	static void TASK_SHOOT_WITH_WEAPON(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x08AA95E8298AE772, p0, p1); }
 	static void _0x2416EC2F31F75266(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x2416EC2F31F75266, p0, p1, p2, p3, p4); }
 	static void _0x41323F4E0C4AE94B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x41323F4E0C4AE94B, p0, p1, p2, p3, p4, p5, p6); }
 	static Any _0x5EA655F01D93667A(Any p0) { return Native::Invoke<Any, Any>(0x5EA655F01D93667A, p0); }
-	static void TASK_CLIMB(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(N::TASK_CLIMB, ped, unused); }
+	static void TASK_CLIMB(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(0x89D9FCC2435112F1, ped, unused); }
 	static void _0xDF1D85BCAF60D537(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xDF1D85BCAF60D537, p0, p1); }
-	static void TASK_CLIMB_LADDER(Ped ped, int p1, Any p2, Any p3) { return Native::Invoke<void, Ped, int, Any, Any>(N::TASK_CLIMB_LADDER, ped, p1, p2, p3); }
-	static void CLEAR_PED_TASKS_IMMEDIATELY(Ped ped, Any p1, Any p2) { return Native::Invoke<void, Ped, Any, Any>(N::CLEAR_PED_TASKS_IMMEDIATELY, ped, p1, p2); }
-	static void TASK_PERFORM_SEQUENCE_FROM_PROGRESS(Ped ped, Object taskSequence, int currentProgress, int progressToSetTo) { return Native::Invoke<void, Ped, Object, int, int>(N::TASK_PERFORM_SEQUENCE_FROM_PROGRESS, ped, taskSequence, currentProgress, progressToSetTo); }
-	static void SET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped, float p1) { return Native::Invoke<void, Ped, float>(N::SET_PED_DESIRED_MOVE_BLEND_RATIO, ped, p1); }
-	static float GET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped) { return Native::Invoke<float, Ped>(N::GET_PED_DESIRED_MOVE_BLEND_RATIO, ped); }
-	static void TASK_GOTO_ENTITY_AIMING(Ped ped, Entity target, float distanceToStopAt, float StartAimingDist) { return Native::Invoke<void, Ped, Entity, float, float>(N::TASK_GOTO_ENTITY_AIMING, ped, target, distanceToStopAt, StartAimingDist); }
-	static void TASK_SET_SPHERE_DEFENSIVE_AREA(Any p0, float p1, float p2, float p3, float p4) { return Native::Invoke<void, Any, float, float, float, float>(N::TASK_SET_SPHERE_DEFENSIVE_AREA, p0, p1, p2, p3, p4); }
-	static void TASK_CLEAR_DEFENSIVE_AREA(Any p0) { return Native::Invoke<void, Any>(N::TASK_CLEAR_DEFENSIVE_AREA, p0); }
-	static void TASK_PED_SLIDE_TO_COORD(Ped ped, float x, float y, float z, float heading, float duration) { return Native::Invoke<void, Ped, float, float, float, float, float>(N::TASK_PED_SLIDE_TO_COORD, ped, x, y, z, heading, duration); }
+	static void TASK_CLIMB_LADDER(Ped ped, int p1, Any p2, Any p3) { return Native::Invoke<void, Ped, int, Any, Any>(0xB6C987F9285A3814, ped, p1, p2, p3); }
+	static void CLEAR_PED_TASKS_IMMEDIATELY(Ped ped, Any p1, Any p2) { return Native::Invoke<void, Ped, Any, Any>(0xAAA34F8A7CB32098, ped, p1, p2); }
+	static void TASK_PERFORM_SEQUENCE_FROM_PROGRESS(Ped ped, Object taskSequence, int currentProgress, int progressToSetTo) { return Native::Invoke<void, Ped, Object, int, int>(0x89221B16730234F0, ped, taskSequence, currentProgress, progressToSetTo); }
+	static void SET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped, float p1) { return Native::Invoke<void, Ped, float>(0x1E982AC8716912C5, ped, p1); }
+	static float GET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped) { return Native::Invoke<float, Ped>(0x8517D4A6CA8513ED, ped); }
+	static void TASK_GOTO_ENTITY_AIMING(Ped ped, Entity target, float distanceToStopAt, float StartAimingDist) { return Native::Invoke<void, Ped, Entity, float, float>(0xA9DA48FAB8A76C12, ped, target, distanceToStopAt, StartAimingDist); }
+	static void TASK_SET_SPHERE_DEFENSIVE_AREA(Any p0, float p1, float p2, float p3, float p4) { return Native::Invoke<void, Any, float, float, float, float>(0x933C06518B52A9A4, p0, p1, p2, p3, p4); }
+	static void TASK_CLEAR_DEFENSIVE_AREA(Any p0) { return Native::Invoke<void, Any>(0x95A6C46A31D1917D, p0); }
+	static void TASK_PED_SLIDE_TO_COORD(Ped ped, float x, float y, float z, float heading, float duration) { return Native::Invoke<void, Ped, float, float, float, float, float>(0xD04FE6765D990A06, ped, x, y, z, heading, duration); }
 	static Any _0x9420FB11B8D77948(Any p0) { return Native::Invoke<Any, Any>(0x9420FB11B8D77948, p0); }
 	static Any _0x6BA606AB3A83BC4D(Any p0) { return Native::Invoke<Any, Any>(0x6BA606AB3A83BC4D, p0); }
-	static Any ADD_COVER_POINT(float posX, float posY, float posZ, float heading, BOOL p4, int p5, BOOL p6, BOOL p7) { return Native::Invoke<Any, float, float, float, float, BOOL, int, BOOL, BOOL>(N::ADD_COVER_POINT, posX, posY, posZ, heading, p4, p5, p6, p7); }
+	static Any ADD_COVER_POINT(float posX, float posY, float posZ, float heading, BOOL p4, int p5, BOOL p6, BOOL p7) { return Native::Invoke<Any, float, float, float, float, BOOL, int, BOOL, BOOL>(0xD5C12A75C7B9497F, posX, posY, posZ, heading, p4, p5, p6, p7); }
 	static Any _0x59872EA4CBD11C56(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x59872EA4CBD11C56, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void REMOVE_COVER_POINT(ScrHandle coverpoint) { return Native::Invoke<void, ScrHandle>(N::REMOVE_COVER_POINT, coverpoint); }
-	static BOOL DOES_SCRIPTED_COVER_POINT_EXIST_AT_COORDS(float x, float y, float z, Any p3) { return Native::Invoke<BOOL, float, float, float, Any>(N::DOES_SCRIPTED_COVER_POINT_EXIST_AT_COORDS, x, y, z, p3); }
-	static Vector3 GET_SCRIPTED_COVER_POINT_COORDS(ScrHandle coverpoint) { return Native::Invoke<Vector3, ScrHandle>(N::GET_SCRIPTED_COVER_POINT_COORDS, coverpoint); }
+	static void REMOVE_COVER_POINT(ScrHandle coverpoint) { return Native::Invoke<void, ScrHandle>(0xAE287C923D891715, coverpoint); }
+	static BOOL DOES_SCRIPTED_COVER_POINT_EXIST_AT_COORDS(float x, float y, float z, Any p3) { return Native::Invoke<BOOL, float, float, float, Any>(0xA98B8E3C088E5A31, x, y, z, p3); }
+	static Vector3 GET_SCRIPTED_COVER_POINT_COORDS(ScrHandle coverpoint) { return Native::Invoke<Vector3, ScrHandle>(0x594A1028FC2A3E85, coverpoint); }
 	static Any _0xE116F6F2DA2D777E(Any p0) { return Native::Invoke<Any, Any>(0xE116F6F2DA2D777E, p0); }
 	static void _0x50AA09A0DA64E73C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x50AA09A0DA64E73C, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xE5831AA1E2FD147C(Any p0) { return Native::Invoke<void, Any>(0xE5831AA1E2FD147C, p0); }
-	static void TASK_COMBAT_PED(Ped ped, Ped targetPed, int p2, int p3) { return Native::Invoke<void, Ped, Ped, int, int>(N::TASK_COMBAT_PED, ped, targetPed, p2, p3); }
-	static void TASK_COMBAT_PED_TIMED(Any p0, Ped ped, int duration, Any p3) { return Native::Invoke<void, Any, Ped, int, Any>(N::TASK_COMBAT_PED_TIMED, p0, ped, duration, p3); }
+	static void TASK_COMBAT_PED(Ped ped, Ped targetPed, int p2, int p3) { return Native::Invoke<void, Ped, Ped, int, int>(0xF166E48407BAC484, ped, targetPed, p2, p3); }
+	static void TASK_COMBAT_PED_TIMED(Any p0, Ped ped, int duration, Any p3) { return Native::Invoke<void, Any, Ped, int, Any>(0x944F30DCB7096BDE, p0, ped, duration, p3); }
 	static void _0xC624414FA748B9BA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xC624414FA748B9BA, p0, p1, p2, p3, p4, p5); }
-	static void TASK_SEEK_COVER_FROM_POS(Ped ped, float x, float y, float z, int duration, BOOL p5, Any p6, Any p7) { return Native::Invoke<void, Ped, float, float, float, int, BOOL, Any, Any>(N::TASK_SEEK_COVER_FROM_POS, ped, x, y, z, duration, p5, p6, p7); }
-	static void TASK_SEEK_COVER_FROM_PED(Ped ped, Ped target, int duration, BOOL p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Ped, int, BOOL, Any, Any>(N::TASK_SEEK_COVER_FROM_PED, ped, target, duration, p3, p4, p5); }
-	static void TASK_SEEK_COVER_TO_COVER_POINT(Any p0, Any p1, float p2, float p3, float p4, Any p5, BOOL p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, float, float, float, Any, BOOL, Any, Any>(N::TASK_SEEK_COVER_TO_COVER_POINT, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_SEEK_COVER_TO_COORDS(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, Any p7, BOOL p8, Any p9, Any p10) { return Native::Invoke<void, Ped, float, float, float, float, float, float, Any, BOOL, Any, Any>(N::TASK_SEEK_COVER_TO_COORDS, ped, x1, y1, z1, x2, y2, z2, p7, p8, p9, p10); }
-	static void TASK_PUT_PED_DIRECTLY_INTO_COVER(Ped ped, float x, float y, float z, Any timeout, BOOL p5, float p6, BOOL p7, BOOL p8, Any p9, BOOL p10, Any p11, Any p12) { return Native::Invoke<void, Ped, float, float, float, Any, BOOL, float, BOOL, BOOL, Any, BOOL, Any, Any>(N::TASK_PUT_PED_DIRECTLY_INTO_COVER, ped, x, y, z, timeout, p5, p6, p7, p8, p9, p10, p11, p12); }
+	static void TASK_SEEK_COVER_FROM_POS(Ped ped, float x, float y, float z, int duration, BOOL p5, Any p6, Any p7) { return Native::Invoke<void, Ped, float, float, float, int, BOOL, Any, Any>(0x75AC2B60386D89F2, ped, x, y, z, duration, p5, p6, p7); }
+	static void TASK_SEEK_COVER_FROM_PED(Ped ped, Ped target, int duration, BOOL p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Ped, int, BOOL, Any, Any>(0x84D32B3BEC531324, ped, target, duration, p3, p4, p5); }
+	static void TASK_SEEK_COVER_TO_COVER_POINT(Any p0, Any p1, float p2, float p3, float p4, Any p5, BOOL p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, float, float, float, Any, BOOL, Any, Any>(0xD43D95C7A869447F, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_SEEK_COVER_TO_COORDS(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, Any p7, BOOL p8, Any p9, Any p10) { return Native::Invoke<void, Ped, float, float, float, float, float, float, Any, BOOL, Any, Any>(0x39246A6958EF072C, ped, x1, y1, z1, x2, y2, z2, p7, p8, p9, p10); }
+	static void TASK_PUT_PED_DIRECTLY_INTO_COVER(Ped ped, float x, float y, float z, Any timeout, BOOL p5, float p6, BOOL p7, BOOL p8, Any p9, BOOL p10, Any p11, Any p12) { return Native::Invoke<void, Ped, float, float, float, Any, BOOL, float, BOOL, BOOL, Any, BOOL, Any, Any>(0x4172393E6BE1FECE, ped, x, y, z, timeout, p5, p6, p7, p8, p9, p10, p11, p12); }
 	static void _0xDF8A5855B9F9A97B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15, Any p16, Any p17) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xDF8A5855B9F9A97B, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17); }
-	static void TASK_PUT_PED_DIRECTLY_INTO_MELEE(Ped ped, Ped target, float p2, float p3, float p4, float flag, Any p6) { return Native::Invoke<void, Ped, Ped, float, float, float, float, Any>(N::TASK_PUT_PED_DIRECTLY_INTO_MELEE, ped, target, p2, p3, p4, flag, p6); }
+	static void TASK_PUT_PED_DIRECTLY_INTO_MELEE(Ped ped, Ped target, float p2, float p3, float p4, float flag, Any p6) { return Native::Invoke<void, Ped, Ped, float, float, float, float, Any>(0x1C6CD14A876FFE39, ped, target, p2, p3, p4, flag, p6); }
 	static void _0xA05F3F20889D7A5B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xA05F3F20889D7A5B, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0xE017CF6E2527FE4F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE017CF6E2527FE4F, p0, p1); }
+	static void TASK_COMPANION_AMBIENT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE017CF6E2527FE4F, p0, p1); }
 	static void _0x098036CAB8373D36(Any p0) { return Native::Invoke<void, Any>(0x098036CAB8373D36, p0); }
 	static void _0x10C44F633E2D6D9E(Any p0) { return Native::Invoke<void, Any>(0x10C44F633E2D6D9E, p0); }
 	static void _0x7FB78B2199C10E92(Any p0) { return Native::Invoke<void, Any>(0x7FB78B2199C10E92, p0); }
-	static Any _0xB9FB242EACCAF30F() { return Native::Invoke<Any>(0xB9FB242EACCAF30F); }
-	static void TASK_GUARD_CURRENT_POSITION(Ped p0, float p1, float p2, BOOL p3) { return Native::Invoke<void, Ped, float, float, BOOL>(N::TASK_GUARD_CURRENT_POSITION, p0, p1, p2, p3); }
-	static void _0x1FC9B33976BACD6C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x1FC9B33976BACD6C, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void TASK_GUARD_ASSIGNED_DEFENSIVE_AREA(Any p0, float p1, float p2, float p3, float p4, float p5, Any p6) { return Native::Invoke<void, Any, float, float, float, float, float, Any>(N::TASK_GUARD_ASSIGNED_DEFENSIVE_AREA, p0, p1, p2, p3, p4, p5, p6); }
-	static void TASK_STAND_GUARD(Ped ped, float x, float y, float z, float heading, char* scenarioName) { return Native::Invoke<void, Ped, float, float, float, float, char*>(N::TASK_STAND_GUARD, ped, x, y, z, heading, scenarioName); }
-	static void SET_DRIVE_TASK_CRUISE_SPEED(Ped driver, float cruiseSpeed) { return Native::Invoke<void, Ped, float>(N::SET_DRIVE_TASK_CRUISE_SPEED, driver, cruiseSpeed); }
-	static void SET_DRIVE_TASK_MAX_CRUISE_SPEED(Any p0, float p1) { return Native::Invoke<void, Any, float>(N::SET_DRIVE_TASK_MAX_CRUISE_SPEED, p0, p1); }
-	static void ADD_COVER_BLOCKING_AREA(float playerX, float playerY, float playerZ, float radiusX, float radiusY, float radiusZ, BOOL p6, BOOL p7, BOOL p8, BOOL p9) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL>(N::ADD_COVER_BLOCKING_AREA, playerX, playerY, playerZ, radiusX, radiusY, radiusZ, p6, p7, p8, p9); }
+	static Any TASK_GUARD() { return Native::Invoke<Any>(0xB9FB242EACCAF30F); }
+	static void TASK_GUARD_CURRENT_POSITION(Ped p0, float p1, float p2, BOOL p3) { return Native::Invoke<void, Ped, float, float, BOOL>(0x4A58A47A72E3FCB4, p0, p1, p2, p3); }
+	static void _TASK_GUARD_ASSIGNED_DEFENSIVE_AREA_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x1FC9B33976BACD6C, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void TASK_GUARD_ASSIGNED_DEFENSIVE_AREA(Any p0, float p1, float p2, float p3, float p4, float p5, Any p6) { return Native::Invoke<void, Any, float, float, float, float, float, Any>(0xD2A207EEBDF9889B, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_STAND_GUARD(Ped ped, float x, float y, float z, float heading, const char* scenarioName) { return Native::Invoke<void, Ped, float, float, float, float, const char*>(0xAE032F8BBA959E90, ped, x, y, z, heading, scenarioName); }
+	static void SET_DRIVE_TASK_CRUISE_SPEED(Ped driver, float cruiseSpeed) { return Native::Invoke<void, Ped, float>(0x5C9B84BD7D31D908, driver, cruiseSpeed); }
+	static void SET_DRIVE_TASK_MAX_CRUISE_SPEED(Any p0, float p1) { return Native::Invoke<void, Any, float>(0x404A5AA9B9F0B746, p0, p1); }
+	static void ADD_COVER_BLOCKING_AREA(float playerX, float playerY, float playerZ, float radiusX, float radiusY, float radiusZ, BOOL p6, BOOL p7, BOOL p8, BOOL p9) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL, BOOL, BOOL>(0x45C597097DD7CB81, playerX, playerY, playerZ, radiusX, radiusY, radiusZ, p6, p7, p8, p9); }
 	static void _0xEB2ED1DC3AEC0654(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xEB2ED1DC3AEC0654, p0, p1, p2, p3, p4); }
-	static void REMOVE_ALL_COVER_BLOCKING_AREAS() { return Native::Invoke<void>(N::REMOVE_ALL_COVER_BLOCKING_AREAS); }
+	static void REMOVE_ALL_COVER_BLOCKING_AREAS() { return Native::Invoke<void>(0xDB6708C0B46F56D8); }
 	static void _0x2A10538D0A005E81(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x2A10538D0A005E81, p0, p1); }
 	static void _0x4F57397388E1DFF8() { return Native::Invoke<void>(0x4F57397388E1DFF8); }
-	static void _0x7BB967F85D8CCBDB(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x7BB967F85D8CCBDB, p0, p1, p2, p3, p4); }
+	static void TASK_ROB_PED(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x7BB967F85D8CCBDB, p0, p1, p2, p3, p4); }
 	static Any _0xBEDBE39B5FD98FD6(Any p0) { return Native::Invoke<Any, Any>(0xBEDBE39B5FD98FD6, p0); }
 	static Any _0x94B745CE41DB58A1(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x94B745CE41DB58A1, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x794AB1379A74064D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x794AB1379A74064D, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
@@ -5831,36 +5831,36 @@ namespace TASK
 	static void _0x4161648394262FDF(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4161648394262FDF, p0, p1, p2, p3); }
 	static void _0x9C8F42A5D1859DC1(Any p0) { return Native::Invoke<void, Any>(0x9C8F42A5D1859DC1, p0); }
 	static void _0x81948DFE4F5A0283(Any p0) { return Native::Invoke<void, Any>(0x81948DFE4F5A0283, p0); }
-	static void _0xCCDAE6324B6A821C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xCCDAE6324B6A821C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void _0x0F6641449DD86FBE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x0F6641449DD86FBE, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0x524B54361229154F(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x524B54361229154F, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0xA917E39F2CEFD215(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xA917E39F2CEFD215, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x4D1F61FC34AF3CD1(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x4D1F61FC34AF3CD1, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
+	static void _TASK_USE_SCENARIO_POINT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xCCDAE6324B6A821C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
+	static void _TASK_USE_SCENARIO_POINT_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x0F6641449DD86FBE, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void _TASK_START_SCENARIO_IN_PLACE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x524B54361229154F, p0, p1, p2, p3, p4, p5, p6); }
+	static void _TASK_START_SCENARIO_IN_PLACE_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xA917E39F2CEFD215, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_START_SCENARIO_AT_POSITION(Ped ped, const char* scenarioName, float x, float y, float z, float heading, int duration, BOOL sittingScenario, BOOL teleport, Any p9, Any p10, Any p11) { return Native::Invoke<void, Ped, const char*, float, float, float, float, int, BOOL, BOOL, Any, Any, Any>(0x4D1F61FC34AF3CD1, ped, scenarioName, x, y, z, heading, duration, sittingScenario, teleport, p9, p10, p11); }
 	static Any _0xF97F462779B31786(Any p0) { return Native::Invoke<Any, Any>(0xF97F462779B31786, p0); }
 	static Any _0x6C269F673C47031E(Any p0) { return Native::Invoke<Any, Any>(0x6C269F673C47031E, p0); }
 	static void _0x9667CCE29BFA0780(Any p0) { return Native::Invoke<void, Any>(0x9667CCE29BFA0780, p0); }
 	static Any _0x00FFE0F85253C572() { return Native::Invoke<Any>(0x00FFE0F85253C572); }
 	static void _0x322BFDEA666E2B0E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x322BFDEA666E2B0E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void TASK_USE_NEAREST_SCENARIO_TO_COORD_WARP(Ped ped, float x, float y, float z, float radius, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Ped, float, float, float, float, Any, Any, Any, Any, Any>(N::TASK_USE_NEAREST_SCENARIO_TO_COORD_WARP, ped, x, y, z, radius, p5, p6, p7, p8, p9); }
-	static void _0x3774B03456DD6106(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3774B03456DD6106, p0, p1, p2, p3, p4); }
-	static void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD(Any p0, float p1, float p2, float p3, float p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, float, float, float, float, Any, Any, Any, Any>(N::TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD_WARP(Any p0, float p1, float p2, float p3, float p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, float, float, float, float, Any, Any, Any, Any>(N::TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD_WARP, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_USE_NEAREST_SCENARIO_TO_COORD_WARP(Ped ped, float x, float y, float z, float radius, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Ped, float, float, float, float, Any, Any, Any, Any, Any>(0x58E2E0F23F6B76C3, ped, x, y, z, radius, p5, p6, p7, p8, p9); }
+	static void TASK_USE_NEAREST_TRAIN_SCENARIO_TO_COORD_WARP(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x3774B03456DD6106, p0, p1, p2, p3, p4); }
+	static void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD(Any p0, float p1, float p2, float p3, float p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, float, float, float, float, Any, Any, Any, Any>(0x9FDA1B3D7E7028B3, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD_WARP(Any p0, float p1, float p2, float p3, float p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, float, float, float, float, Any, Any, Any, Any>(0x97A28E63F0BA5631, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static Any _0xFDECCA06E8B81346(Any p0) { return Native::Invoke<Any, Any>(0xFDECCA06E8B81346, p0); }
 	static Any _0x2D657B10F211C572(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x2D657B10F211C572, p0, p1); }
-	static void _0x37FB1C870E2EC2C6(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x37FB1C870E2EC2C6, p0, p1, p2, p3); }
+	static void TASK_RIDE_TRAIN(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x37FB1C870E2EC2C6, p0, p1, p2, p3); }
 	static Any _0x79197F7D2BB5E73A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x79197F7D2BB5E73A, p0, p1, p2, p3, p4, p5); }
-	static BOOL DOES_SCENARIO_EXIST_IN_AREA(float x, float y, float z, float radius, BOOL b, Any p5, Any p6) { return Native::Invoke<BOOL, float, float, float, float, BOOL, Any, Any>(N::DOES_SCENARIO_EXIST_IN_AREA, x, y, z, radius, b, p5, p6); }
+	static BOOL DOES_SCENARIO_EXIST_IN_AREA(float x, float y, float z, float radius, BOOL b, Any p5, Any p6) { return Native::Invoke<BOOL, float, float, float, float, BOOL, Any, Any>(0x5A59271FFADD33C1, x, y, z, radius, b, p5, p6); }
 	static Any _0x6EEAD6AF637DA752(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x6EEAD6AF637DA752, p0, p1, p2, p3, p4, p5); }
 	static Any _0xF533D68FF970D190(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0xF533D68FF970D190, p0, p1, p2, p3, p4, p5, p6); }
 	static Any _0x0D322AEF8878B8FE() { return Native::Invoke<Any>(0x0D322AEF8878B8FE); }
 	static Any _0xD508FA229F1C4900(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0xD508FA229F1C4900, p0, p1, p2, p3, p4, p5); }
 	static void _0xB8E213D02F37947D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xB8E213D02F37947D, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL IS_SCENARIO_OCCUPIED(float x, float y, float z, float radius, BOOL p4) { return Native::Invoke<BOOL, float, float, float, float, BOOL>(N::IS_SCENARIO_OCCUPIED, x, y, z, radius, p4); }
-	static BOOL PED_HAS_USE_SCENARIO_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(N::PED_HAS_USE_SCENARIO_TASK, ped); }
+	static BOOL IS_SCENARIO_OCCUPIED(float x, float y, float z, float radius, BOOL p4) { return Native::Invoke<BOOL, float, float, float, float, BOOL>(0x788756D73AC2E07C, x, y, z, radius, p4); }
+	static BOOL PED_HAS_USE_SCENARIO_TASK(Ped ped) { return Native::Invoke<BOOL, Ped>(0x295E3CCEC879CCD7, ped); }
 	static Any _0x02EBBB3989B7E695(Any p0) { return Native::Invoke<Any, Any>(0x02EBBB3989B7E695, p0); }
 	static Any _0x90703A8F75EE4ABD(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x90703A8F75EE4ABD, p0, p1); }
 	static void _0xD999E379265A4501(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD999E379265A4501, p0, p1, p2); }
-	static void PLAY_ANIM_ON_RUNNING_SCENARIO(Ped ped, char* animDict, char* animName) { return Native::Invoke<void, Ped, char*, char*>(N::PLAY_ANIM_ON_RUNNING_SCENARIO, ped, animDict, animName); }
+	static void PLAY_ANIM_ON_RUNNING_SCENARIO(Ped ped, const char* animDict, const char* animName) { return Native::Invoke<void, Ped, const char*, const char*>(0x748040460F8DF5DC, ped, animDict, animName); }
 	static Any _0x74F0209674864CBD() { return Native::Invoke<Any>(0x74F0209674864CBD); }
 	static Any _0xE1C105E6BBA48270() { return Native::Invoke<Any>(0xE1C105E6BBA48270); }
 	static Any _0x1AC5A8AB50CFAA33(Any p0) { return Native::Invoke<Any, Any>(0x1AC5A8AB50CFAA33, p0); }
@@ -5890,168 +5890,168 @@ namespace TASK
 	static Any _0x0365000D8BF86531(Any p0) { return Native::Invoke<Any, Any>(0x0365000D8BF86531, p0); }
 	static Any _0x865732725536EE39(Any p0) { return Native::Invoke<Any, Any>(0x865732725536EE39, p0); }
 	static void _0x0E184495B27BB57D() { return Native::Invoke<void>(0x0E184495B27BB57D); }
-	static BOOL DOES_SCENARIO_GROUP_EXIST(char* scenarioGroup) { return Native::Invoke<BOOL, char*>(N::DOES_SCENARIO_GROUP_EXIST, scenarioGroup); }
+	static BOOL DOES_SCENARIO_GROUP_EXIST(const char* scenarioGroup) { return Native::Invoke<BOOL, const char*>(0xF9034C136C9E00D3, scenarioGroup); }
 	static Any _0x76E98B52369A289C(Any p0) { return Native::Invoke<Any, Any>(0x76E98B52369A289C, p0); }
-	static BOOL IS_SCENARIO_GROUP_ENABLED(char* scenarioGroup) { return Native::Invoke<BOOL, char*>(N::IS_SCENARIO_GROUP_ENABLED, scenarioGroup); }
+	static BOOL IS_SCENARIO_GROUP_ENABLED(const char* scenarioGroup) { return Native::Invoke<BOOL, const char*>(0x367A09DED4E05B99, scenarioGroup); }
 	static Any _0xDCC374913DE6AAA6(Any p0) { return Native::Invoke<Any, Any>(0xDCC374913DE6AAA6, p0); }
-	static void SET_SCENARIO_GROUP_ENABLED(char* scenarioGroup, BOOL p1) { return Native::Invoke<void, char*, BOOL>(N::SET_SCENARIO_GROUP_ENABLED, scenarioGroup, p1); }
+	static void SET_SCENARIO_GROUP_ENABLED(const char* scenarioGroup, BOOL p1) { return Native::Invoke<void, const char*, BOOL>(0x02C8E5B49848664E, scenarioGroup, p1); }
 	static void _0x9925EDDB6EAB88CD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9925EDDB6EAB88CD, p0, p1); }
-	static void RESET_SCENARIO_GROUPS_ENABLED() { return Native::Invoke<void>(N::RESET_SCENARIO_GROUPS_ENABLED); }
+	static void RESET_SCENARIO_GROUPS_ENABLED() { return Native::Invoke<void>(0xDD902D0349AFAD3A); }
 	static void _0x358A1A751B335A11(Any p0) { return Native::Invoke<void, Any>(0x358A1A751B335A11, p0); }
 	static void _0x444C910A5058E568(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x444C910A5058E568, p0, p1); }
 	static Any _0xE55478C5EDF70AC2(Any p0) { return Native::Invoke<Any, Any>(0xE55478C5EDF70AC2, p0); }
 	static Any _0x0CC36D4156006509(Any p0) { return Native::Invoke<Any, Any>(0x0CC36D4156006509, p0); }
 	static void _0xEEE4829304F93EEE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xEEE4829304F93EEE, p0, p1); }
 	static void _0x5A40040BB5AE3EA2(Any p0) { return Native::Invoke<void, Any>(0x5A40040BB5AE3EA2, p0); }
-	static BOOL IS_SCENARIO_TYPE_ENABLED(char* scenarioType) { return Native::Invoke<BOOL, char*>(N::IS_SCENARIO_TYPE_ENABLED, scenarioType); }
-	static void SET_SCENARIO_TYPE_ENABLED(char* scenarioType, BOOL toggle) { return Native::Invoke<void, char*, BOOL>(N::SET_SCENARIO_TYPE_ENABLED, scenarioType, toggle); }
+	static BOOL IS_SCENARIO_TYPE_ENABLED(const char* scenarioType) { return Native::Invoke<BOOL, const char*>(0x3A815DB3EA088722, scenarioType); }
+	static void SET_SCENARIO_TYPE_ENABLED(const char* scenarioType, BOOL toggle) { return Native::Invoke<void, const char*, BOOL>(0xEB47EC4E34FB7EE1, scenarioType, toggle); }
 	static void _0xD00E50E673802D71(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD00E50E673802D71, p0, p1); }
-	static void RESET_SCENARIO_TYPES_ENABLED() { return Native::Invoke<void>(N::RESET_SCENARIO_TYPES_ENABLED); }
+	static void RESET_SCENARIO_TYPES_ENABLED() { return Native::Invoke<void>(0x0D40EE2A7F2B2D6D); }
 	static Any _0x2D0571BB55879DA2(Any p0) { return Native::Invoke<Any, Any>(0x2D0571BB55879DA2, p0); }
 	static Any _0xA92450B5AE687AAF(Any p0) { return Native::Invoke<Any, Any>(0xA92450B5AE687AAF, p0); }
-	static BOOL IS_PED_ACTIVE_IN_SCENARIO(Ped ped, Any p1) { return Native::Invoke<BOOL, Ped, Any>(N::IS_PED_ACTIVE_IN_SCENARIO, ped, p1); }
+	static BOOL IS_PED_ACTIVE_IN_SCENARIO(Ped ped, Any p1) { return Native::Invoke<BOOL, Ped, Any>(0xAA135F9482C82CC3, ped, p1); }
 	static Any _0x0C3CB2E600C8977D(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0C3CB2E600C8977D, p0, p1); }
 	static Any _0x2C497BDEF897C6DF(Any p0) { return Native::Invoke<Any, Any>(0x2C497BDEF897C6DF, p0); }
-	static void TASK_COMBAT_HATED_TARGETS_IN_AREA(Ped ped, float x, float y, float z, float radius, Any p5, Any p6) { return Native::Invoke<void, Ped, float, float, float, float, Any, Any>(N::TASK_COMBAT_HATED_TARGETS_IN_AREA, ped, x, y, z, radius, p5, p6); }
-	static Any _0xB5BC69D9C4060BC3() { return Native::Invoke<Any>(0xB5BC69D9C4060BC3); }
-	static void TASK_COMBAT_HATED_TARGETS_AROUND_PED(Ped ped, float radius, int p2, Any p3) { return Native::Invoke<void, Ped, float, int, Any>(N::TASK_COMBAT_HATED_TARGETS_AROUND_PED, ped, radius, p2, p3); }
-	static void TASK_COMBAT_HATED_TARGETS_AROUND_PED_TIMED(Ped ped, float radius, int duration, BOOL unk) { return Native::Invoke<void, Ped, float, int, BOOL>(N::TASK_COMBAT_HATED_TARGETS_AROUND_PED_TIMED, ped, radius, duration, unk); }
-	static void _0x8182B561A29BD597(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8182B561A29BD597, p0, p1); }
+	static void TASK_COMBAT_HATED_TARGETS_IN_AREA(Ped ped, float x, float y, float z, float radius, Any p5, Any p6) { return Native::Invoke<void, Ped, float, float, float, float, Any, Any>(0x4CF5F55DAC3280A0, ped, x, y, z, radius, p5, p6); }
+	static Any TASK_COMBAT_HATED_TARGETS_NO_LOS_TEST() { return Native::Invoke<Any>(0xB5BC69D9C4060BC3); }
+	static void TASK_COMBAT_HATED_TARGETS_AROUND_PED(Ped ped, float radius, int p2, Any p3) { return Native::Invoke<void, Ped, float, int, Any>(0x7BF835BB9E2698C8, ped, radius, p2, p3); }
+	static void TASK_COMBAT_HATED_TARGETS_AROUND_PED_TIMED(Ped ped, float radius, int duration, BOOL unk) { return Native::Invoke<void, Ped, float, int, BOOL>(0x2BBA30B854534A0C, ped, radius, duration, unk); }
+	static void TASK_COMBAT_HATED_TARGETS(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8182B561A29BD597, p0, p1); }
 	static void _0x30B391915538EBE2(Any p0) { return Native::Invoke<void, Any>(0x30B391915538EBE2, p0); }
-	static void TASK_THROW_PROJECTILE(int ped, float x, float y, float z) { return Native::Invoke<void, int, float, float, float>(N::TASK_THROW_PROJECTILE, ped, x, y, z); }
+	static void TASK_THROW_PROJECTILE(int ped, float x, float y, float z) { return Native::Invoke<void, int, float, float, float>(0x7285951DBF6B5A51, ped, x, y, z); }
 	static void _0x7282356DFF6B5A51(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x7282356DFF6B5A51, p0, p1, p2, p3); }
-	static void _0xD6401A1B2F63BED6(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD6401A1B2F63BED6, p0, p1, p2); }
-	static void TASK_SWAP_WEAPON(Ped ped, BOOL p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Ped, BOOL, Any, Any, Any>(N::TASK_SWAP_WEAPON, ped, p1, p2, p3, p4); }
+	static void TASK_WHISTLE_ANIM(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD6401A1B2F63BED6, p0, p1, p2); }
+	static void TASK_SWAP_WEAPON(Ped ped, BOOL p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Ped, BOOL, Any, Any, Any>(0xA21C51255B205245, ped, p1, p2, p3, p4); }
 	static void _0x0000A8ACDC2E1B6A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0000A8ACDC2E1B6A, p0, p1); }
-	static void TASK_RELOAD_WEAPON(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(N::TASK_RELOAD_WEAPON, ped, unused); }
-	static void _0x55B0ECFD98596624(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x55B0ECFD98596624, p0, p1); }
-	static BOOL IS_PED_GETTING_UP(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_GETTING_UP, ped); }
-	static void _0x8C038A39C4A4B6D6(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8C038A39C4A4B6D6, p0, p1, p2); }
+	static void TASK_RELOAD_WEAPON(Ped ped, BOOL unused) { return Native::Invoke<void, Ped, BOOL>(0x62D2916F56B9CD2D, ped, unused); }
+	static void TASK_PICK_UP_WEAPON(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x55B0ECFD98596624, p0, p1); }
+	static BOOL IS_PED_GETTING_UP(Ped ped) { return Native::Invoke<BOOL, Ped>(0x2A74E1D5F2F00EEC, ped); }
+	static void TASK_ANIMAL_WRITHE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8C038A39C4A4B6D6, p0, p1, p2); }
 	static Any _0x30A768C30D385EC5() { return Native::Invoke<Any>(0x30A768C30D385EC5); }
-	static BOOL IS_PED_IN_WRITHE(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_IN_WRITHE, ped); }
+	static BOOL IS_PED_IN_WRITHE(Ped ped) { return Native::Invoke<BOOL, Ped>(0xDEB6D52126E7D640, ped); }
 	static Any _0x3F8387DB1B9F31B7(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3F8387DB1B9F31B7, p0, p1); }
 	static Any _0x756C7B4C43DF0422(Any p0) { return Native::Invoke<Any, Any>(0x756C7B4C43DF0422, p0); }
 	static Any _0x351F74ED6177EBE7() { return Native::Invoke<Any>(0x351F74ED6177EBE7); }
 	static Any _0x6C50B9DCCCA70023() { return Native::Invoke<Any>(0x6C50B9DCCCA70023); }
-	static void _0x356088527D9EBAAD(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x356088527D9EBAAD, p0, p1, p2); }
-	static void OPEN_PATROL_ROUTE(char* patrolRoute) { return Native::Invoke<void, char*>(N::OPEN_PATROL_ROUTE, patrolRoute); }
-	static void CLOSE_PATROL_ROUTE() { return Native::Invoke<void>(N::CLOSE_PATROL_ROUTE); }
-	static void ADD_PATROL_ROUTE_NODE(int p0, char* p1, float x1, float y1, float z1, float x2, float y2, float z2, int p8, Any p9) { return Native::Invoke<void, int, char*, float, float, float, float, float, float, int, Any>(N::ADD_PATROL_ROUTE_NODE, p0, p1, x1, y1, z1, x2, y2, z2, p8, p9); }
-	static void ADD_PATROL_ROUTE_LINK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::ADD_PATROL_ROUTE_LINK, p0, p1); }
-	static void CREATE_PATROL_ROUTE() { return Native::Invoke<void>(N::CREATE_PATROL_ROUTE); }
-	static void DELETE_PATROL_ROUTE(char* patrolRoute) { return Native::Invoke<void, char*>(N::DELETE_PATROL_ROUTE, patrolRoute); }
+	static void TASK_REVIVE_TARGET(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x356088527D9EBAAD, p0, p1, p2); }
+	static void OPEN_PATROL_ROUTE(const char* patrolRoute) { return Native::Invoke<void, const char*>(0xA36BFB5EE89F3D82, patrolRoute); }
+	static void CLOSE_PATROL_ROUTE() { return Native::Invoke<void>(0xB043ECA801B8CBC1); }
+	static void ADD_PATROL_ROUTE_NODE(int p0, const char* p1, float x1, float y1, float z1, float x2, float y2, float z2, int p8, Any p9) { return Native::Invoke<void, int, const char*, float, float, float, float, float, float, int, Any>(0x8EDF950167586B7C, p0, p1, x1, y1, z1, x2, y2, z2, p8, p9); }
+	static void ADD_PATROL_ROUTE_LINK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x23083260DEC3A551, p0, p1); }
+	static void CREATE_PATROL_ROUTE() { return Native::Invoke<void>(0xAF8A443CCC8018DC); }
+	static void DELETE_PATROL_ROUTE(const char* patrolRoute) { return Native::Invoke<void, const char*>(0x7767DD9D65E91319, patrolRoute); }
 	static Any _0x643FD1556F621772(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x643FD1556F621772, p0, p1, p2); }
-	static void TASK_PATROL(Ped ped, char* p1, Any p2, BOOL p3, BOOL p4) { return Native::Invoke<void, Ped, char*, Any, BOOL, BOOL>(N::TASK_PATROL, ped, p1, p2, p3, p4); }
+	static void TASK_PATROL(Ped ped, const char* p1, Any p2, BOOL p3, BOOL p4) { return Native::Invoke<void, Ped, const char*, Any, BOOL, BOOL>(0xBDA5DF49D080FE4E, ped, p1, p2, p3, p4); }
 	static void _0x964B06C88E4C86DB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x964B06C88E4C86DB, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void TASK_STAY_IN_COVER(Ped ped) { return Native::Invoke<void, Ped>(N::TASK_STAY_IN_COVER, ped); }
-	static void TASK_VEHICLE_SHOOT_AT_PED(Ped ped, Ped target, float flag) { return Native::Invoke<void, Ped, Ped, float>(N::TASK_VEHICLE_SHOOT_AT_PED, ped, target, flag); }
-	static void TASK_VEHICLE_AIM_AT_PED(Ped ped, Ped target) { return Native::Invoke<void, Ped, Ped>(N::TASK_VEHICLE_AIM_AT_PED, ped, target); }
-	static void TASK_VEHICLE_SHOOT_AT_COORD(Ped ped, float x, float y, float z, float p4) { return Native::Invoke<void, Ped, float, float, float, float>(N::TASK_VEHICLE_SHOOT_AT_COORD, ped, x, y, z, p4); }
+	static void TASK_STAY_IN_COVER(Ped ped) { return Native::Invoke<void, Ped>(0xE5DA8615A6180789, ped); }
+	static void TASK_VEHICLE_SHOOT_AT_PED(Ped ped, Ped target, float flag) { return Native::Invoke<void, Ped, Ped, float>(0x10AB107B887214D8, ped, target, flag); }
+	static void TASK_VEHICLE_AIM_AT_PED(Ped ped, Ped target) { return Native::Invoke<void, Ped, Ped>(0xE41885592B08B097, ped, target); }
+	static void TASK_VEHICLE_SHOOT_AT_COORD(Ped ped, float x, float y, float z, float p4) { return Native::Invoke<void, Ped, float, float, float, float>(0x5190796ED39C9B6D, ped, x, y, z, p4); }
 	static void _0xAF2EF28CE3084505(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xAF2EF28CE3084505, p0, p1, p2, p3); }
-	static void TASK_VEHICLE_AIM_AT_COORD(Ped ped, float x, float y, float z) { return Native::Invoke<void, Ped, float, float, float>(N::TASK_VEHICLE_AIM_AT_COORD, ped, x, y, z); }
-	static void TASK_VEHICLE_GOTO_NAVMESH(Ped ped, Vehicle vehicle, float x, float y, float z, float speed, int behaviorFlag, float stoppingRange) { return Native::Invoke<void, Ped, Vehicle, float, float, float, float, int, float>(N::TASK_VEHICLE_GOTO_NAVMESH, ped, vehicle, x, y, z, speed, behaviorFlag, stoppingRange); }
-	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_COORD(Ped ped, float x, float y, float z, float aimAtX, float aimAtY, float aimAtZ, float moveSpeed, BOOL p8, float p9, float p10, BOOL p11, Any flags, BOOL p13, Hash firingPattern, Any p15) { return Native::Invoke<void, Ped, float, float, float, float, float, float, float, BOOL, float, float, BOOL, Any, BOOL, Hash, Any>(N::TASK_GO_TO_COORD_WHILE_AIMING_AT_COORD, ped, x, y, z, aimAtX, aimAtY, aimAtZ, moveSpeed, p8, p9, p10, p11, flags, p13, firingPattern, p15); }
-	static void _0x639C0425A0B4E77E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x639C0425A0B4E77E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15); }
-	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_ENTITY(Any p0, float p1, float p2, float p3, Any p4, float p5, BOOL p6, float p7, float p8, BOOL p9, Any p10, BOOL p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, float, float, float, Any, float, BOOL, float, float, BOOL, Any, BOOL, Any, Any, Any>(N::TASK_GO_TO_COORD_WHILE_AIMING_AT_ENTITY, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
-	static void _0x78426D0982D083C9(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x78426D0982D083C9, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
-	static void TASK_GO_TO_ENTITY_WHILE_AIMING_AT_ENTITY(Ped ped, Entity entityToWalkTo, Entity entityToAimAt, float speed, BOOL shootatEntity, float p5, float p6, BOOL p7, BOOL p8, Hash firingPattern, Any p10) { return Native::Invoke<void, Ped, Entity, Entity, float, BOOL, float, float, BOOL, BOOL, Hash, Any>(N::TASK_GO_TO_ENTITY_WHILE_AIMING_AT_ENTITY, ped, entityToWalkTo, entityToAimAt, speed, shootatEntity, p5, p6, p7, p8, firingPattern, p10); }
-	static void _0xCEF0117C233026AD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xCEF0117C233026AD, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void TASK_GO_TO_COORD_AND_AIM_AT_HATED_ENTITIES_NEAR_COORD(Ped pedHandle, float goToLocationX, float goToLocationY, float goToLocationZ, float focusLocationX, float focusLocationY, float focusLocationZ, float speed, BOOL shootAtEnemies, float distanceToStopAt, float noRoadsDistance, BOOL unkTrue, int unkFlag, int aimingFlag, Hash firingPattern) { return Native::Invoke<void, Ped, float, float, float, float, float, float, float, BOOL, float, float, BOOL, int, int, Hash>(N::TASK_GO_TO_COORD_AND_AIM_AT_HATED_ENTITIES_NEAR_COORD, pedHandle, goToLocationX, goToLocationY, goToLocationZ, focusLocationX, focusLocationY, focusLocationZ, speed, shootAtEnemies, distanceToStopAt, noRoadsDistance, unkTrue, unkFlag, aimingFlag, firingPattern); }
-	static void _0x87BD711FC31EA273(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x87BD711FC31EA273, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
-	static void SET_HIGH_FALL_TASK(Ped ped, Any p1, Any p2, Any p3) { return Native::Invoke<void, Ped, Any, Any, Any>(N::SET_HIGH_FALL_TASK, ped, p1, p2, p3); }
+	static void TASK_VEHICLE_AIM_AT_COORD(Ped ped, float x, float y, float z) { return Native::Invoke<void, Ped, float, float, float>(0x447C1E9EF844BC0F, ped, x, y, z); }
+	static void TASK_VEHICLE_GOTO_NAVMESH(Ped ped, Vehicle vehicle, float x, float y, float z, float speed, int behaviorFlag, float stoppingRange) { return Native::Invoke<void, Ped, Vehicle, float, float, float, float, int, float>(0x195AEEB13CEFE2EE, ped, vehicle, x, y, z, speed, behaviorFlag, stoppingRange); }
+	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_COORD(Ped ped, float x, float y, float z, float aimAtX, float aimAtY, float aimAtZ, float moveSpeed, BOOL p8, float p9, float p10, BOOL p11, Any flags, BOOL p13, Hash firingPattern, Any p15) { return Native::Invoke<void, Ped, float, float, float, float, float, float, float, BOOL, float, float, BOOL, Any, BOOL, Hash, Any>(0x11315AB3385B8AC0, ped, x, y, z, aimAtX, aimAtY, aimAtZ, moveSpeed, p8, p9, p10, p11, flags, p13, firingPattern, p15); }
+	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_COORD_USING_COMBAT_STYLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x639C0425A0B4E77E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15); }
+	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_ENTITY(Any p0, float p1, float p2, float p3, Any p4, float p5, BOOL p6, float p7, float p8, BOOL p9, Any p10, BOOL p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, float, float, float, Any, float, BOOL, float, float, BOOL, Any, BOOL, Any, Any, Any>(0xB2A16444EAD9AE47, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
+	static void TASK_GO_TO_COORD_WHILE_AIMING_AT_ENTITY_USING_COMBAT_STYLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x78426D0982D083C9, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
+	static void TASK_GO_TO_ENTITY_WHILE_AIMING_AT_ENTITY(Ped ped, Entity entityToWalkTo, Entity entityToAimAt, float speed, BOOL shootatEntity, float p5, float p6, BOOL p7, BOOL p8, Hash firingPattern, Any p10) { return Native::Invoke<void, Ped, Entity, Entity, float, BOOL, float, float, BOOL, BOOL, Hash, Any>(0x97465886D35210E9, ped, entityToWalkTo, entityToAimAt, speed, shootatEntity, p5, p6, p7, p8, firingPattern, p10); }
+	static void TASK_GO_TO_ENTITY_WHILE_AIMING_AT_ENTITY_USING_COMBAT_STYLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xCEF0117C233026AD, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
+	static void TASK_GO_TO_COORD_AND_AIM_AT_HATED_ENTITIES_NEAR_COORD(Ped pedHandle, float goToLocationX, float goToLocationY, float goToLocationZ, float focusLocationX, float focusLocationY, float focusLocationZ, float speed, BOOL shootAtEnemies, float distanceToStopAt, float noRoadsDistance, BOOL unkTrue, int unkFlag, int aimingFlag, Hash firingPattern) { return Native::Invoke<void, Ped, float, float, float, float, float, float, float, BOOL, float, float, BOOL, int, int, Hash>(0xA55547801EB331FC, pedHandle, goToLocationX, goToLocationY, goToLocationZ, focusLocationX, focusLocationY, focusLocationZ, speed, shootAtEnemies, distanceToStopAt, noRoadsDistance, unkTrue, unkFlag, aimingFlag, firingPattern); }
+	static void TASK_GO_TO_COORD_AND_AIM_AT_HATED_ENTITIES_NEAR_COORD_USING_COMBAT_STYLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x87BD711FC31EA273, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
+	static void SET_HIGH_FALL_TASK(Ped ped, Any p1, Any p2, Any p3) { return Native::Invoke<void, Ped, Any, Any, Any>(0x8C825BDC7741D37C, ped, p1, p2, p3); }
 	static void _0x5217B7B6DB78E1F3(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x5217B7B6DB78E1F3, p0, p1, p2, p3, p4); }
-	static void REQUEST_WAYPOINT_RECORDING(char* name) { return Native::Invoke<void, char*>(N::REQUEST_WAYPOINT_RECORDING, name); }
-	static BOOL GET_IS_WAYPOINT_RECORDING_LOADED(char* name) { return Native::Invoke<BOOL, char*>(N::GET_IS_WAYPOINT_RECORDING_LOADED, name); }
-	static void REMOVE_WAYPOINT_RECORDING(char* name) { return Native::Invoke<void, char*>(N::REMOVE_WAYPOINT_RECORDING, name); }
+	static void REQUEST_WAYPOINT_RECORDING(const char* name) { return Native::Invoke<void, const char*>(0x9EEFB62EB27B5792, name); }
+	static BOOL GET_IS_WAYPOINT_RECORDING_LOADED(const char* name) { return Native::Invoke<BOOL, const char*>(0xCB4E8BE8A0063C5D, name); }
+	static void REMOVE_WAYPOINT_RECORDING(const char* name) { return Native::Invoke<void, const char*>(0xFF1B8B4AA1C25DC8, name); }
 	static Any _0xF718931A82EEB898() { return Native::Invoke<Any>(0xF718931A82EEB898); }
-	static BOOL WAYPOINT_RECORDING_GET_NUM_POINTS(char* name, int* points) { return Native::Invoke<BOOL, char*, int*>(N::WAYPOINT_RECORDING_GET_NUM_POINTS, name, points); }
-	static BOOL WAYPOINT_RECORDING_GET_COORD(char* name, int point, Vector3* coord) { return Native::Invoke<BOOL, char*, int, Vector3*>(N::WAYPOINT_RECORDING_GET_COORD, name, point, coord); }
-	static float WAYPOINT_RECORDING_GET_SPEED_AT_POINT(char* name, int point) { return Native::Invoke<float, char*, int>(N::WAYPOINT_RECORDING_GET_SPEED_AT_POINT, name, point); }
-	static BOOL WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(char* name, float x, float y, float z, int* point) { return Native::Invoke<BOOL, char*, float, float, float, int*>(N::WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT, name, x, y, z, point); }
-	static void _0x0CFC13EBC19BCA52(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0CFC13EBC19BCA52, p0, p1); }
-	static void TASK_FOLLOW_WAYPOINT_RECORDING(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(N::TASK_FOLLOW_WAYPOINT_RECORDING, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0xBE9B0520BD7C445B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xBE9B0520BD7C445B, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x4D2B787BAE9AB760(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x4D2B787BAE9AB760, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_PED(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(N::IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_PED, p0, p1); }
-	static int GET_PED_WAYPOINT_PROGRESS(Ped ped) { return Native::Invoke<int, Ped>(N::GET_PED_WAYPOINT_PROGRESS, ped); }
-	static float GET_PED_WAYPOINT_DISTANCE(Ped ped) { return Native::Invoke<float, Ped>(N::GET_PED_WAYPOINT_DISTANCE, ped); }
-	static Any SET_PED_WAYPOINT_ROUTE_OFFSET(Ped ped, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Any, Ped, float, float, float>(N::SET_PED_WAYPOINT_ROUTE_OFFSET, ped, offsetX, offsetY, offsetZ); }
-	static float GET_WAYPOINT_DISTANCE_ALONG_ROUTE(char* p0, int p1) { return Native::Invoke<float, char*, int>(N::GET_WAYPOINT_DISTANCE_ALONG_ROUTE, p0, p1); }
+	static BOOL WAYPOINT_RECORDING_GET_NUM_POINTS(const char* name, int* points) { return Native::Invoke<BOOL, const char*, int*>(0x5343532C01A07234, name, points); }
+	static BOOL WAYPOINT_RECORDING_GET_COORD(const char* name, int point, Vector3* coord) { return Native::Invoke<BOOL, const char*, int, Vector3*>(0x2FB897405C90B361, name, point, coord); }
+	static float WAYPOINT_RECORDING_GET_SPEED_AT_POINT(const char* name, int point) { return Native::Invoke<float, const char*, int>(0x005622AEBC33ACA9, name, point); }
+	static BOOL WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(const char* name, float x, float y, float z, int* point) { return Native::Invoke<BOOL, const char*, float, float, float, int*>(0xB629A298081F876F, name, x, y, z, point); }
+	static void TASK_FOLLOW_WAYPOINT_RECORDING_ADVANCED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0CFC13EBC19BCA52, p0, p1); }
+	static void TASK_FOLLOW_WAYPOINT_RECORDING(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x0759591819534F7B, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void TASK_FOLLOW_WAYPOINT_RECORDING_AT_OFFSET(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xBE9B0520BD7C445B, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_FOLLOW_ENTITY_ALONG_WAYPOINT_RECORDING_AT_OFFSET(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x4D2B787BAE9AB760, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_PED(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(0xE03B3F2D3DC59B64, p0, p1); }
+	static int GET_PED_WAYPOINT_PROGRESS(Ped ped) { return Native::Invoke<int, Ped>(0x2720AAA75001E094, ped); }
+	static float GET_PED_WAYPOINT_DISTANCE(Ped ped) { return Native::Invoke<float, Ped>(0xE6A877C64CAF1BC5, ped); }
+	static Any SET_PED_WAYPOINT_ROUTE_OFFSET(Ped ped, float offsetX, float offsetY, float offsetZ) { return Native::Invoke<Any, Ped, float, float, float>(0xED98E10B0AFCE4B4, ped, offsetX, offsetY, offsetZ); }
+	static float GET_WAYPOINT_DISTANCE_ALONG_ROUTE(const char* p0, int p1) { return Native::Invoke<float, const char*, int>(0xA5B769058763E497, p0, p1); }
 	static Any _0x3ACC128510142B9D(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x3ACC128510142B9D, p0, p1, p2, p3); }
-	static BOOL WAYPOINT_PLAYBACK_GET_IS_PAUSED(Any p0) { return Native::Invoke<BOOL, Any>(N::WAYPOINT_PLAYBACK_GET_IS_PAUSED, p0); }
-	static Any _0xD73A5D1F0325C71C() { return Native::Invoke<Any>(0xD73A5D1F0325C71C); }
-	static Any _0xA5B94DF8AF058F46(Any p0) { return Native::Invoke<Any, Any>(0xA5B94DF8AF058F46, p0); }
-	static void WAYPOINT_PLAYBACK_PAUSE(Any p0, BOOL p1, BOOL p2, Any p3) { return Native::Invoke<void, Any, BOOL, BOOL, Any>(N::WAYPOINT_PLAYBACK_PAUSE, p0, p1, p2, p3); }
-	static void WAYPOINT_PLAYBACK_RESUME(Any p0, BOOL p1, Any p2, Any p3) { return Native::Invoke<void, Any, BOOL, Any, Any>(N::WAYPOINT_PLAYBACK_RESUME, p0, p1, p2, p3); }
-	static void WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Any p0, float p1, BOOL p2, Any p3, Any p4) { return Native::Invoke<void, Any, float, BOOL, Any, Any>(N::WAYPOINT_PLAYBACK_OVERRIDE_SPEED, p0, p1, p2, p3, p4); }
-	static void WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Any p0) { return Native::Invoke<void, Any>(N::WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED, p0); }
-	static Any _0xD39A2F3E7FCAFF08(Any p0) { return Native::Invoke<Any, Any>(0xD39A2F3E7FCAFF08, p0); }
-	static void USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE(Any* p0, BOOL p1, float p2, float p3, Any p4) { return Native::Invoke<void, Any*, BOOL, float, float, Any>(N::USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE, p0, p1, p2, p3, p4); }
-	static void WAYPOINT_PLAYBACK_START_AIMING_AT_PED(Any p0, Any p1, BOOL p2, Any p3) { return Native::Invoke<void, Any, Any, BOOL, Any>(N::WAYPOINT_PLAYBACK_START_AIMING_AT_PED, p0, p1, p2, p3); }
-	static Any _0x4F158205E0C74385() { return Native::Invoke<Any>(0x4F158205E0C74385); }
-	static void WAYPOINT_PLAYBACK_START_AIMING_AT_COORD(Any p0, float p1, float p2, float p3, BOOL p4, Any p5) { return Native::Invoke<void, Any, float, float, float, BOOL, Any>(N::WAYPOINT_PLAYBACK_START_AIMING_AT_COORD, p0, p1, p2, p3, p4, p5); }
-	static void WAYPOINT_PLAYBACK_START_SHOOTING_AT_PED(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::WAYPOINT_PLAYBACK_START_SHOOTING_AT_PED, p0, p1, p2, p3, p4); }
-	static void _0x4AF458F71C1196D2(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x4AF458F71C1196D2, p0, p1, p2, p3, p4); }
-	static void WAYPOINT_PLAYBACK_START_SHOOTING_AT_COORD(Any p0, float p1, float p2, float p3, BOOL p4, Any p5, Any p6) { return Native::Invoke<void, Any, float, float, float, BOOL, Any, Any>(N::WAYPOINT_PLAYBACK_START_SHOOTING_AT_COORD, p0, p1, p2, p3, p4, p5, p6); }
-	static void WAYPOINT_PLAYBACK_STOP_AIMING_OR_SHOOTING(Any p0) { return Native::Invoke<void, Any>(N::WAYPOINT_PLAYBACK_STOP_AIMING_OR_SHOOTING, p0); }
-	static void ASSISTED_MOVEMENT_REMOVE_ROUTE(char* route) { return Native::Invoke<void, char*>(N::ASSISTED_MOVEMENT_REMOVE_ROUTE, route); }
+	static BOOL WAYPOINT_PLAYBACK_GET_IS_PAUSED(Any p0) { return Native::Invoke<BOOL, Any>(0x701375A7D43F01CB, p0); }
+	static Any WAYPOINT_PLAYBACK_GET_IS_AIMING() { return Native::Invoke<Any>(0xD73A5D1F0325C71C); }
+	static Any WAYPOINT_PLAYBACK_GET_IS_SHOOTING(Any p0) { return Native::Invoke<Any, Any>(0xA5B94DF8AF058F46, p0); }
+	static void WAYPOINT_PLAYBACK_PAUSE(Any p0, BOOL p1, BOOL p2, Any p3) { return Native::Invoke<void, Any, BOOL, BOOL, Any>(0x0F342546AA06FED5, p0, p1, p2, p3); }
+	static void WAYPOINT_PLAYBACK_RESUME(Any p0, BOOL p1, Any p2, Any p3) { return Native::Invoke<void, Any, BOOL, Any, Any>(0x244F70C84C547D2D, p0, p1, p2, p3); }
+	static void WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Any p0, float p1, BOOL p2, Any p3, Any p4) { return Native::Invoke<void, Any, float, BOOL, Any, Any>(0x7D7D2B47FA788E85, p0, p1, p2, p3, p4); }
+	static void WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Any p0) { return Native::Invoke<void, Any>(0x6599D834B12D0800, p0); }
+	static Any GET_PED_WAYPOINT_OVERRIDE_SPEED(Any p0) { return Native::Invoke<Any, Any>(0xD39A2F3E7FCAFF08, p0); }
+	static void USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE(Any* p0, BOOL p1, float p2, float p3, Any p4) { return Native::Invoke<void, Any*, BOOL, float, float, Any>(0x5A353B8E6B1095B5, p0, p1, p2, p3, p4); }
+	static void WAYPOINT_PLAYBACK_START_AIMING_AT_PED(Any p0, Any p1, BOOL p2, Any p3) { return Native::Invoke<void, Any, Any, BOOL, Any>(0x20E330937C399D29, p0, p1, p2, p3); }
+	static Any WAYPOINT_PLAYBACK_START_AIMING_AT_ENTITY() { return Native::Invoke<Any>(0x4F158205E0C74385); }
+	static void WAYPOINT_PLAYBACK_START_AIMING_AT_COORD(Any p0, float p1, float p2, float p3, BOOL p4, Any p5) { return Native::Invoke<void, Any, float, float, float, BOOL, Any>(0x8968400D900ED8B3, p0, p1, p2, p3, p4, p5); }
+	static void WAYPOINT_PLAYBACK_START_SHOOTING_AT_PED(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xE70BA7B90F8390DC, p0, p1, p2, p3, p4); }
+	static void WAYPOINT_PLAYBACK_START_SHOOTING_AT_ENTITY(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x4AF458F71C1196D2, p0, p1, p2, p3, p4); }
+	static void WAYPOINT_PLAYBACK_START_SHOOTING_AT_COORD(Any p0, float p1, float p2, float p3, BOOL p4, Any p5, Any p6) { return Native::Invoke<void, Any, float, float, float, BOOL, Any, Any>(0x057A25CFCC9DB671, p0, p1, p2, p3, p4, p5, p6); }
+	static void WAYPOINT_PLAYBACK_STOP_AIMING_OR_SHOOTING(Any p0) { return Native::Invoke<void, Any>(0x47EFA040EBB8E2EA, p0); }
+	static void ASSISTED_MOVEMENT_REMOVE_ROUTE(const char* route) { return Native::Invoke<void, const char*>(0x3548536485DD792B, route); }
 	static Any _0x5C885E0978B6AD60(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x5C885E0978B6AD60, p0, p1, p2, p3); }
-	static BOOL ASSISTED_MOVEMENT_IS_ROUTE_LOADED(char* route) { return Native::Invoke<BOOL, char*>(N::ASSISTED_MOVEMENT_IS_ROUTE_LOADED, route); }
-	static void ASSISTED_MOVEMENT_SET_ROUTE_PROPERTIES(char* route, int props) { return Native::Invoke<void, char*, int>(N::ASSISTED_MOVEMENT_SET_ROUTE_PROPERTIES, route, props); }
-	static void _0x295F03DC97BEEBC1(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x295F03DC97BEEBC1, p0, p1); }
-	static void _0xB5C51DD544F14F58(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xB5C51DD544F14F58, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
-	static void TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(Ped ped, Vehicle vehicle, char* WPRecording, int p3, int p4, int p5, int p6, float p7, BOOL p8, float p9, Any p10) { return Native::Invoke<void, Ped, Vehicle, char*, int, int, int, int, float, BOOL, float, Any>(N::TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING, ped, vehicle, WPRecording, p3, p4, p5, p6, p7, p8, p9, p10); }
+	static BOOL ASSISTED_MOVEMENT_IS_ROUTE_LOADED(const char* route) { return Native::Invoke<BOOL, const char*>(0x60F9A4393A21F741, route); }
+	static void ASSISTED_MOVEMENT_SET_ROUTE_PROPERTIES(const char* route, int props) { return Native::Invoke<void, const char*, int>(0xD5002D78B7162E1B, route, props); }
+	static void SET_ENABLE_SPEED_RESTRAIN_FOR_WAYPOINT_RECORDING_LEADER(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x295F03DC97BEEBC1, p0, p1); }
+	static void SET_UP_SPEED_RESTRAIN_INFORMATION_FOR_PLAYER_FOLLOWER(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xB5C51DD544F14F58, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
+	static void TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(Ped ped, Vehicle vehicle, const char* WPRecording, int p3, int p4, int p5, int p6, float p7, BOOL p8, float p9, Any p10) { return Native::Invoke<void, Ped, Vehicle, const char*, int, int, int, int, float, BOOL, float, Any>(0x3123FAA6DB1CF7ED, ped, vehicle, WPRecording, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0x041D17A9E221AE30(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x041D17A9E221AE30, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_VEHICLE(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(N::IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_VEHICLE, p0, p1); }
-	static int GET_VEHICLE_WAYPOINT_PROGRESS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(N::GET_VEHICLE_WAYPOINT_PROGRESS, vehicle); }
-	static Any GET_VEHICLE_WAYPOINT_TARGET_POINT(Ped ped) { return Native::Invoke<Any, Ped>(N::GET_VEHICLE_WAYPOINT_TARGET_POINT, ped); }
-	static void VEHICLE_WAYPOINT_PLAYBACK_PAUSE(Any p0) { return Native::Invoke<void, Any>(N::VEHICLE_WAYPOINT_PLAYBACK_PAUSE, p0); }
-	static Any _0x4D6D30AB18B0B089(Any p0) { return Native::Invoke<Any, Any>(0x4D6D30AB18B0B089, p0); }
-	static void VEHICLE_WAYPOINT_PLAYBACK_RESUME(Any p0) { return Native::Invoke<void, Any>(N::VEHICLE_WAYPOINT_PLAYBACK_RESUME, p0); }
-	static void VEHICLE_WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Any p0) { return Native::Invoke<void, Any>(N::VEHICLE_WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED, p0); }
-	static void VEHICLE_WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Any p0, float p1) { return Native::Invoke<void, Any, float>(N::VEHICLE_WAYPOINT_PLAYBACK_OVERRIDE_SPEED, p0, p1); }
-	static Any _0x3DC971EB22F73447() { return Native::Invoke<Any>(0x3DC971EB22F73447); }
-	static void TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS, ped, toggle); }
+	static BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_VEHICLE(Any p0, Any p1) { return Native::Invoke<BOOL, Any, Any>(0xF5134943EA29868C, p0, p1); }
+	static int GET_VEHICLE_WAYPOINT_PROGRESS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(0x9824CFF8FC66E159, vehicle); }
+	static Any GET_VEHICLE_WAYPOINT_TARGET_POINT(Ped ped) { return Native::Invoke<Any, Ped>(0x416B62AC8B9E5BBD, ped); }
+	static void VEHICLE_WAYPOINT_PLAYBACK_PAUSE(Any p0) { return Native::Invoke<void, Any>(0x8A4E6AC373666BC5, p0); }
+	static Any VEHICLE_WAYPOINT_PLAYBACK_GET_IS_PAUSED(Any p0) { return Native::Invoke<Any, Any>(0x4D6D30AB18B0B089, p0); }
+	static void VEHICLE_WAYPOINT_PLAYBACK_RESUME(Any p0) { return Native::Invoke<void, Any>(0xDC04FCAA7839D492, p0); }
+	static void VEHICLE_WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Any p0) { return Native::Invoke<void, Any>(0x5CEB25A7D2848963, p0); }
+	static void VEHICLE_WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Any p0, float p1) { return Native::Invoke<void, Any, float>(0x121F0593E0A431D7, p0, p1); }
+	static Any GET_VEHICLE_WAYPOINT_PLAYBACK_OVERRIDE_SPEED() { return Native::Invoke<Any>(0x3DC971EB22F73447); }
+	static void TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x90D2156198831D69, ped, toggle); }
 	static void _0x4C3FA937B44A90FA(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x4C3FA937B44A90FA, p0, p1, p2, p3); }
 	static void _0x17293C633C8AC019(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x17293C633C8AC019, p0, p1, p2, p3); }
-	static void TASK_FORCE_MOTION_STATE(Ped ped, Hash state, BOOL p2) { return Native::Invoke<void, Ped, Hash, BOOL>(N::TASK_FORCE_MOTION_STATE, ped, state, p2); }
-	static void TASK_MOVE_NETWORK_BY_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(N::TASK_MOVE_NETWORK_BY_NAME, p0, p1, p2, p3, p4, p5); }
+	static void TASK_FORCE_MOTION_STATE(Ped ped, Hash state, BOOL p2) { return Native::Invoke<void, Ped, Hash, BOOL>(0x4F056E1AFFEF17AB, ped, state, p2); }
+	static void TASK_MOVE_NETWORK_BY_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0x2D537BA194896636, p0, p1, p2, p3, p4, p5); }
 	static void _0x139805C2A67C4795(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0x139805C2A67C4795, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x7B6A04F98BBAFB2C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x7B6A04F98BBAFB2C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); }
-	static void _0xF92171093BCABED4(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15, Any p16, Any p17) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xF92171093BCABED4, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17); }
-	static Any IS_TASK_MOVE_NETWORK_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(N::IS_TASK_MOVE_NETWORK_ACTIVE, p0); }
+	static void TASK_MOVE_NETWORK_ADVANCED_BY_NAME_WITH_INIT_PARAMS_ATTACHED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15, Any p16, Any p17) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0xF92171093BCABED4, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17); }
+	static Any IS_TASK_MOVE_NETWORK_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(0x921CE12C489C4C41, p0); }
 	static Any _0xCACC2F9D994504B7(Any p0) { return Native::Invoke<Any, Any>(0xCACC2F9D994504B7, p0); }
-	static Any IS_TASK_MOVE_NETWORK_READY_FOR_TRANSITION(Any p0) { return Native::Invoke<Any, Any>(N::IS_TASK_MOVE_NETWORK_READY_FOR_TRANSITION, p0); }
-	static void REQUEST_TASK_MOVE_NETWORK_STATE_TRANSITION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::REQUEST_TASK_MOVE_NETWORK_STATE_TRANSITION, p0, p1); }
-	static Any GET_TASK_MOVE_NETWORK_STATE(Any p0) { return Native::Invoke<Any, Any>(N::GET_TASK_MOVE_NETWORK_STATE, p0); }
+	static Any IS_TASK_MOVE_NETWORK_READY_FOR_TRANSITION(Any p0) { return Native::Invoke<Any, Any>(0x30ED88D5E0C56A37, p0); }
+	static void REQUEST_TASK_MOVE_NETWORK_STATE_TRANSITION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD01015C7316AE176, p0, p1); }
+	static Any GET_TASK_MOVE_NETWORK_STATE(Any p0) { return Native::Invoke<Any, Any>(0x717E4D1F2048376D, p0); }
 	static Any _0xE9A6400D1A0E7A55(Any p0) { return Native::Invoke<Any, Any>(0xE9A6400D1A0E7A55, p0); }
 	static void _0x615DC4A82E90BB48(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x615DC4A82E90BB48, p0, p1, p2); }
-	static void SET_TASK_MOVE_NETWORK_SIGNAL_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_TASK_MOVE_NETWORK_SIGNAL_FLOAT, p0, p1, p2); }
+	static void SET_TASK_MOVE_NETWORK_SIGNAL_FLOAT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xD5BB4025AE449A4E, p0, p1, p2); }
 	static Any _0x099D4A855D53B03B() { return Native::Invoke<Any>(0x099D4A855D53B03B); }
-	static void SET_TASK_MOVE_NETWORK_SIGNAL_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_TASK_MOVE_NETWORK_SIGNAL_BOOL, p0, p1, p2); }
+	static void SET_TASK_MOVE_NETWORK_SIGNAL_BOOL(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB0A6CFD2C69C1088, p0, p1, p2); }
 	static void _0x4662BFE01938D98D(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x4662BFE01938D98D, p0, p1, p2, p3, p4); }
 	static Any _0x844CEEE428EA35B0(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x844CEEE428EA35B0, p0, p1); }
-	static Any GET_TASK_MOVE_NETWORK_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::GET_TASK_MOVE_NETWORK_EVENT, p0, p1); }
+	static Any GET_TASK_MOVE_NETWORK_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB4F47213DF45A64C, p0, p1); }
 	static void _0x9585FF23C4B8EDE0(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9585FF23C4B8EDE0, p0, p1); }
 	static void _0xEAF87DA2BE78A15B(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xEAF87DA2BE78A15B, p0, p1); }
 	static void _0x3BBEECC5B8F35318(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3BBEECC5B8F35318, p0, p1); }
-	static BOOL IS_MOVE_BLEND_RATIO_STILL(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_MOVE_BLEND_RATIO_STILL, ped); }
-	static BOOL IS_MOVE_BLEND_RATIO_WALKING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_MOVE_BLEND_RATIO_WALKING, ped); }
-	static BOOL IS_MOVE_BLEND_RATIO_RUNNING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_MOVE_BLEND_RATIO_RUNNING, ped); }
-	static BOOL IS_MOVE_BLEND_RATIO_SPRINTING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_MOVE_BLEND_RATIO_SPRINTING, ped); }
-	static BOOL IS_PED_STILL(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_STILL, ped); }
-	static BOOL IS_PED_WALKING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_WALKING, ped); }
-	static BOOL IS_PED_RUNNING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_RUNNING, ped); }
-	static BOOL IS_PED_SPRINTING(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_SPRINTING, ped); }
+	static BOOL IS_MOVE_BLEND_RATIO_STILL(Ped ped) { return Native::Invoke<BOOL, Ped>(0x349CE7B56DAFD95C, ped); }
+	static BOOL IS_MOVE_BLEND_RATIO_WALKING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xF133BBBE91E1691F, ped); }
+	static BOOL IS_MOVE_BLEND_RATIO_RUNNING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xD4D8636C0199A939, ped); }
+	static BOOL IS_MOVE_BLEND_RATIO_SPRINTING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x24A2AD74FA9814E2, ped); }
+	static BOOL IS_PED_STILL(Ped ped) { return Native::Invoke<BOOL, Ped>(0xAC29253EEF8F0180, ped); }
+	static BOOL IS_PED_WALKING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xDE4C184B2B9B071A, ped); }
+	static BOOL IS_PED_RUNNING(Ped ped) { return Native::Invoke<BOOL, Ped>(0xC5286FFC176F28A2, ped); }
+	static BOOL IS_PED_SPRINTING(Ped ped) { return Native::Invoke<BOOL, Ped>(0x57E457CD2C0FC168, ped); }
 	static Any _0xF330A5C062B29BED(Any p0) { return Native::Invoke<Any, Any>(0xF330A5C062B29BED, p0); }
-	static void TASK_ARREST_PED(Ped ped, Ped target) { return Native::Invoke<void, Ped, Ped>(N::TASK_ARREST_PED, ped, target); }
-	static BOOL IS_PED_BEING_ARRESTED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_BEING_ARRESTED, ped); }
+	static void TASK_ARREST_PED(Ped ped, Ped target) { return Native::Invoke<void, Ped, Ped>(0xF3B9A78A178572B1, ped, target); }
+	static BOOL IS_PED_BEING_ARRESTED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x90A09F3A45FED688, ped); }
 	static Any _0xA9CC7856D52DBD25() { return Native::Invoke<Any>(0xA9CC7856D52DBD25); }
 	static void _0x7981037A96E7D174(Any p0) { return Native::Invoke<void, Any>(0x7981037A96E7D174, p0); }
-	static void UNCUFF_PED(Ped ped) { return Native::Invoke<void, Ped>(N::UNCUFF_PED, ped); }
-	static BOOL IS_PED_CUFFED(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_CUFFED, ped); }
+	static void UNCUFF_PED(Ped ped) { return Native::Invoke<void, Ped>(0x67406F2C8F87FC4F, ped); }
+	static BOOL IS_PED_CUFFED(Ped ped) { return Native::Invoke<BOOL, Ped>(0x74E559B3BC910685, ped); }
 	static Any _0xC8B29D18022EA2B7(Any p0) { return Native::Invoke<Any, Any>(0xC8B29D18022EA2B7, p0); }
-	static void _0x5D5B0D5BC3626E5A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x5D5B0D5BC3626E5A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
+	static void TASK_DUEL(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x5D5B0D5BC3626E5A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static Any _0x908BB14BCE85C80E(Any p0) { return Native::Invoke<Any, Any>(0x908BB14BCE85C80E, p0); }
 	static Any _0x1F7A9A9C38C13A56(Any p0) { return Native::Invoke<Any, Any>(0x1F7A9A9C38C13A56, p0); }
 	static Any _0x3FEB770D8ED9047A(Any p0) { return Native::Invoke<Any, Any>(0x3FEB770D8ED9047A, p0); }
@@ -6064,12 +6064,12 @@ namespace TASK
 	static void _0x9EBD34958AB6F824(Any p0) { return Native::Invoke<void, Any>(0x9EBD34958AB6F824, p0); }
 	static Any _0x0CCFE72B43C9CF96(Any p0) { return Native::Invoke<Any, Any>(0x0CCFE72B43C9CF96, p0); }
 	static Any _0x10ADFDF07B7DFFBA(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x10ADFDF07B7DFFBA, p0, p1, p2); }
-	static void _0xC7F0B43DCDC57E3D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xC7F0B43DCDC57E3D, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x6D3D87C57B3D52C7(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6D3D87C57B3D52C7, p0, p1, p2, p3); }
-	static void _0x17CA98707B15926A(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x17CA98707B15926A, p0, p1, p2); }
+	static void TASK_PLACE_CARRIED_ENTITY_AT_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any>(0xC7F0B43DCDC57E3D, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_PLACE_CARRIED_ENTITY_ON_MOUNT(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6D3D87C57B3D52C7, p0, p1, p2, p3); }
+	static void TASK_DUMP_CARRIABLE_FROM_PARENT(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x17CA98707B15926A, p0, p1, p2); }
 	static void _0x36D188AECB26094B(Any p0) { return Native::Invoke<void, Any>(0x36D188AECB26094B, p0); }
 	static Any _0xE2CF104ADD49D4BF() { return Native::Invoke<Any>(0xE2CF104ADD49D4BF); }
-	static void _0x502EC17B1BED4BFA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x502EC17B1BED4BFA, p0, p1); }
+	static void TASK_PICKUP_CARRIABLE_ENTITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x502EC17B1BED4BFA, p0, p1); }
 	static void _0x27829AFD3E03AC1A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x27829AFD3E03AC1A, p0, p1); }
 	static void _0x81D16C4FF3A77ADF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x81D16C4FF3A77ADF, p0, p1); }
 	static Any _0x525421A507216084() { return Native::Invoke<Any>(0x525421A507216084); }
@@ -6125,7 +6125,7 @@ namespace TASK
 	static void _0x41D1331AFAD5A091(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x41D1331AFAD5A091, p0, p1, p2); }
 	static void _0x801BD27403F3CBA0(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x801BD27403F3CBA0, p0, p1, p2, p3); }
 	static void _0x0FE797DD9F70DFA6(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x0FE797DD9F70DFA6, p0, p1, p2, p3); }
-	static void _0x4391700CBD89C3D8(Any p0) { return Native::Invoke<void, Any>(0x4391700CBD89C3D8, p0); }
+	static void TASK_PERSISTENT_CHARACTER(Any p0) { return Native::Invoke<void, Any>(0x4391700CBD89C3D8, p0); }
 	static void _0xFC7F71CF49F70B6B(Any p0) { return Native::Invoke<void, Any>(0xFC7F71CF49F70B6B, p0); }
 	static void _0xE01F55B2896F6B37(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE01F55B2896F6B37, p0, p1); }
 	static Any _0xE62754D09354F6CF(Any p0) { return Native::Invoke<Any, Any>(0xE62754D09354F6CF, p0); }
@@ -6143,22 +6143,22 @@ namespace TASK
 	static void _0x88FD60D846D9CD63(Any p0) { return Native::Invoke<void, Any>(0x88FD60D846D9CD63, p0); }
 	static void _0x9050DF2C53801208(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9050DF2C53801208, p0, p1); }
 	static void _0x22CDBF317C40A122(Any p0) { return Native::Invoke<void, Any>(0x22CDBF317C40A122, p0); }
-	static Any _0xB31A277C1AC7B7FF() { return Native::Invoke<Any>(0xB31A277C1AC7B7FF); }
-	static Any _0x884E3436CC1F41DD() { return Native::Invoke<Any>(0x884E3436CC1F41DD); }
+	static Any _TASK_EMOTE() { return Native::Invoke<Any>(0xB31A277C1AC7B7FF); }
+	static Any _TASK_EMOTE_2() { return Native::Invoke<Any>(0x884E3436CC1F41DD); }
 	static Any _0x6A1AF481407BF6E9() { return Native::Invoke<Any>(0x6A1AF481407BF6E9); }
 	static Any _0xBDFEEB7600BCD938() { return Native::Invoke<Any>(0xBDFEEB7600BCD938); }
 	static Any _0xEC516FE805D2CB2D() { return Native::Invoke<Any>(0xEC516FE805D2CB2D); }
 	static Any _0x59AEA4DC640814B9() { return Native::Invoke<Any>(0x59AEA4DC640814B9); }
 	static Any _0x11C7CE1AE38911B5() { return Native::Invoke<Any>(0x11C7CE1AE38911B5); }
 }
-namespace _NAMESPACE67
+namespace TELEMETRY
 {
 	static void _0x9BEE018A63FFFAD9(Any p0) { return Native::Invoke<void, Any>(0x9BEE018A63FFFAD9, p0); }
 	static Any _0xEC0BD8736DCAF841() { return Native::Invoke<Any>(0xEC0BD8736DCAF841); }
 	static void _0x15B0CC1B36F1DE29(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x15B0CC1B36F1DE29, p0, p1, p2, p3); }
 	static void _0xD894437E12C17AEC(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD894437E12C17AEC, p0, p1); }
 	static void _0x8EC7890D446BD9C1(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8EC7890D446BD9C1, p0, p1, p2); }
-	static Any _0x5DA4718DF897EB25() { return Native::Invoke<Any>(0x5DA4718DF897EB25); }
+	static Any _TELEMETRY_PLAYER_SPAWNED() { return Native::Invoke<Any>(0x5DA4718DF897EB25); }
 	static Any _0xE692D336F8A2A97F() { return Native::Invoke<Any>(0xE692D336F8A2A97F); }
 	static Any _0xF620F47B4F4A78C4() { return Native::Invoke<Any>(0xF620F47B4F4A78C4); }
 	static Any _0xA2058154357726BB() { return Native::Invoke<Any>(0xA2058154357726BB); }
@@ -6223,36 +6223,36 @@ namespace TXD
 	static Any _0xBE72591D1509FFE4(Any p0) { return Native::Invoke<Any, Any>(0xBE72591D1509FFE4, p0); }
 	static void _0x8232F37DF762ACB2(Any p0) { return Native::Invoke<void, Any>(0x8232F37DF762ACB2, p0); }
 	static Any _0x7332461FC59EB7EC(Any p0) { return Native::Invoke<Any, Any>(0x7332461FC59EB7EC, p0); }
-	static void REQUEST_STREAMED_TEXTURE_DICT(char* textureDict, BOOL unused) { return Native::Invoke<void, char*, BOOL>(N::REQUEST_STREAMED_TEXTURE_DICT, textureDict, unused); }
-	static BOOL HAS_STREAMED_TEXTURE_DICT_LOADED(char* textureDict) { return Native::Invoke<BOOL, char*>(N::HAS_STREAMED_TEXTURE_DICT_LOADED, textureDict); }
-	static void SET_STREAMED_TEXTURE_DICT_AS_NO_LONGER_NEEDED(char* textureDict) { return Native::Invoke<void, char*>(N::SET_STREAMED_TEXTURE_DICT_AS_NO_LONGER_NEEDED, textureDict); }
+	static void REQUEST_STREAMED_TEXTURE_DICT(const char* textureDict, BOOL unused) { return Native::Invoke<void, const char*, BOOL>(0xC1BA29DF5631B0F8, textureDict, unused); }
+	static BOOL HAS_STREAMED_TEXTURE_DICT_LOADED(const char* textureDict) { return Native::Invoke<BOOL, const char*>(0x54D6900929CCF162, textureDict); }
+	static void SET_STREAMED_TEXTURE_DICT_AS_NO_LONGER_NEEDED(const char* textureDict) { return Native::Invoke<void, const char*>(0x4ACA10A91F66F1E2, textureDict); }
 }
 namespace UIAPPS
 {
-	static Any _IS_APP_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(N::_IS_APP_ACTIVE, p0); }
+	static Any _IS_APP_ACTIVE(Any p0) { return Native::Invoke<Any, Any>(0x25B7A0206BDFAC76, p0); }
 	static Any _0xAC959AB99AAF3D9F() { return Native::Invoke<Any>(0xAC959AB99AAF3D9F); }
-	static Any _IS_APP_RUNNING(Any p0) { return Native::Invoke<Any, Any>(N::_IS_APP_RUNNING, p0); }
-	static Any _IS_ANY_APP_RUNNING() { return Native::Invoke<Any>(N::_IS_ANY_APP_RUNNING); }
+	static Any _IS_APP_RUNNING(Any p0) { return Native::Invoke<Any, Any>(0x4E511D093A86AD49, p0); }
+	static Any _IS_ANY_APP_RUNNING() { return Native::Invoke<Any>(0xDB30BEC7A7A5CBD3); }
 	static Any _0x96FD694FE5BE55DC() { return Native::Invoke<Any>(0x96FD694FE5BE55DC); }
-	static void _CLOSE_APP_BY_HASH(Any p0) { return Native::Invoke<void, Any>(N::_CLOSE_APP_BY_HASH, p0); }
-	static void _CLOSE_APP_BY_HASH_IMMEDIATE(Any p0) { return Native::Invoke<void, Any>(N::_CLOSE_APP_BY_HASH_IMMEDIATE, p0); }
+	static void _CLOSE_APP_BY_HASH(Any p0) { return Native::Invoke<void, Any>(0x2FF10C9C3F92277E, p0); }
+	static void _CLOSE_APP_BY_HASH_IMMEDIATE(Any p0) { return Native::Invoke<void, Any>(0x04428420A248A354, p0); }
 	static Any _0x818C6CA9B659E8EC() { return Native::Invoke<Any>(0x818C6CA9B659E8EC); }
-	static void _CLOSE_APP(Any p0) { return Native::Invoke<void, Any>(N::_CLOSE_APP, p0); }
-	static void _CLOSE_ALL_APPS() { return Native::Invoke<void>(N::_CLOSE_ALL_APPS); }
+	static void _CLOSE_APP(Any p0) { return Native::Invoke<void, Any>(0x3015635426D1B17C, p0); }
+	static void _CLOSE_ALL_APPS() { return Native::Invoke<void>(0xAD7B70F7230C5A12); }
 	static Any _0x12769EEB8DBD7A7B() { return Native::Invoke<Any>(0x12769EEB8DBD7A7B); }
-	static Any _LAUNCH_APP_BY_HASH_WITH_ENTRY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_LAUNCH_APP_BY_HASH_WITH_ENTRY, p0, p1); }
-	static Any _LAUNCH_APP_BY_HASH(Any p0) { return Native::Invoke<Any, Any>(N::_LAUNCH_APP_BY_HASH, p0); }
-	static Any _LAUNCH_APP_WITH_ENTRY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_LAUNCH_APP_WITH_ENTRY, p0, p1); }
+	static Any _LAUNCH_APP_BY_HASH_WITH_ENTRY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC1BCF31E975B3195, p0, p1); }
+	static Any _LAUNCH_APP_BY_HASH(Any p0) { return Native::Invoke<Any, Any>(0xC8FC7F4E4CF4F581, p0); }
+	static Any _LAUNCH_APP_WITH_ENTRY(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7B2027BAC5C8EC89, p0, p1); }
 	static Any _0x16F47D434B6086BF() { return Native::Invoke<Any>(0x16F47D434B6086BF); }
-	static Any _CAN_LAUNCH_APP_BY_HASH(Any p0) { return Native::Invoke<Any, Any>(N::_CAN_LAUNCH_APP_BY_HASH, p0); }
-	static Any _UIAPP_REQUEST_TRANSITION_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_UIAPP_REQUEST_TRANSITION_BY_HASH, p0, p1); }
+	static Any _CAN_LAUNCH_APP_BY_HASH(Any p0) { return Native::Invoke<Any, Any>(0xE555EC27D65EDE80, p0); }
+	static Any _UIAPP_REQUEST_TRANSITION_BY_HASH(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7689CD255655BFD7, p0, p1); }
 }
 namespace UIEVENTS
 {
-	static Any _IS_EVENT_PENDING(Any p0) { return Native::Invoke<Any, Any>(N::_IS_EVENT_PENDING, p0); }
+	static Any _IS_EVENT_PENDING(Any p0) { return Native::Invoke<Any, Any>(0x67ED5A7963F2F722, p0); }
 	static Any _0xE24E957294241444() { return Native::Invoke<Any>(0xE24E957294241444); }
-	static Any _PEEK_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_PEEK_EVENT, p0, p1); }
-	static void _POP_EVENT(Any p0) { return Native::Invoke<void, Any>(N::_POP_EVENT, p0); }
+	static Any _PEEK_EVENT(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x90237103F27F7937, p0, p1); }
+	static void _POP_EVENT(Any p0) { return Native::Invoke<void, Any>(0x8E8A2369F48EC839, p0); }
 }
 namespace _NAMESPACE71
 {
@@ -6285,35 +6285,35 @@ namespace _NAMESPACE71
 }
 namespace UILOG
 {
-	static Any _LOG_IS_ENTRY_REGISTERED(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_LOG_IS_ENTRY_REGISTERED, p0, p1); }
-	static void _LOG_ADD_ENTRY_HASH(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(N::_LOG_ADD_ENTRY_HASH, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static Any _LOG_IS_ENTRY_REGISTERED(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xB8188CCF52202475, p0, p1); }
+	static void _LOG_ADD_ENTRY_HASH(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any, Any, Any>(0x69D5479982355D8F, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static Any _0x49C63FDF69744A27() { return Native::Invoke<Any>(0x49C63FDF69744A27); }
-	static void _LOG_SET_ENTRY_ICON_TEXTURE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_LOG_SET_ENTRY_ICON_TEXTURE, p0, p1, p2, p3); }
-	static void _LOG_SET_ENTRY_BRIEF_TEXTURE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_LOG_SET_ENTRY_BRIEF_TEXTURE, p0, p1, p2, p3); }
-	static void _LOG_UPDATE_ENTRY_SUBHEADER(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_LOG_UPDATE_ENTRY_SUBHEADER, p0, p1, p2); }
-	static void _LOG_SET_ENTRY_PINNED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_LOG_SET_ENTRY_PINNED, p0, p1, p2); }
-	static void _MARK_MISSION_COMPLETED(Any p0) { return Native::Invoke<void, Any>(N::_MARK_MISSION_COMPLETED, p0); }
-	static void _MARK_ENTRY_AVAILABILITY(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(N::_MARK_ENTRY_AVAILABILITY, p0, p1, p2, p3); }
-	static void _MARK_ALL_ENTRIES_AVAILABILITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_MARK_ALL_ENTRIES_AVAILABILITY, p0, p1); }
-	static void _REMOVE_LOG_ENTRY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_REMOVE_LOG_ENTRY, p0, p1); }
+	static void _LOG_SET_ENTRY_ICON_TEXTURE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x6965469934958D8F, p0, p1, p2, p3); }
+	static void _LOG_SET_ENTRY_BRIEF_TEXTURE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x69684D9936958D8F, p0, p1, p2, p3); }
+	static void _LOG_UPDATE_ENTRY_SUBHEADER(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x80D6524190258C3E, p0, p1, p2); }
+	static void _LOG_SET_ENTRY_PINNED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x72A5CD214B342568, p0, p1, p2); }
+	static void _MARK_MISSION_COMPLETED(Any p0) { return Native::Invoke<void, Any>(0xDE31D66D1E54C471, p0); }
+	static void _MARK_ENTRY_AVAILABILITY(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x13E8D7DD08543482, p0, p1, p2, p3); }
+	static void _MARK_ALL_ENTRIES_AVAILABILITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3920574CF0A2B7B6, p0, p1); }
+	static void _REMOVE_LOG_ENTRY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD594A19BE09A75C6, p0, p1); }
 	static Any _0xA31013798FADCADC() { return Native::Invoke<Any>(0xA31013798FADCADC); }
 	static Any _0xA49D6D503E3EA847() { return Native::Invoke<Any>(0xA49D6D503E3EA847); }
 	static Any _0x763637F9B838B0A7() { return Native::Invoke<Any>(0x763637F9B838B0A7); }
-	static void _CLEAR_LOG_ENTRIES() { return Native::Invoke<void>(N::_CLEAR_LOG_ENTRIES); }
-	static void _LOG_ADD_OR_UPDATE_OBJECTIVE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(N::_LOG_ADD_OR_UPDATE_OBJECTIVE, p0, p1, p2, p3, p4, p5); }
+	static void _CLEAR_LOG_ENTRIES() { return Native::Invoke<void>(0xB95B4EA6B1EDF035); }
+	static void _LOG_ADD_OR_UPDATE_OBJECTIVE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xB43163388484CC87, p0, p1, p2, p3, p4, p5); }
 	static Any _0xA20398536B7F1134() { return Native::Invoke<Any>(0xA20398536B7F1134); }
-	static void _LOG_SET_CACHED_OBJECTIVE(Any p0) { return Native::Invoke<void, Any>(N::_LOG_SET_CACHED_OBJECTIVE, p0); }
-	static void _LOG_CLEAR_CACHED_OBJECTIVE() { return Native::Invoke<void>(N::_LOG_CLEAR_CACHED_OBJECTIVE); }
-	static Any _LOG_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<Any>(N::_LOG_HAS_DISPLAYED_CACHED_OBJECTIVE); }
-	static void _LOG_CLEAR_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<void>(N::_LOG_CLEAR_HAS_DISPLAYED_CACHED_OBJECTIVE); }
-	static void _LOG_SET_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<void>(N::_LOG_SET_HAS_DISPLAYED_CACHED_OBJECTIVE); }
-	static Any _LOG_GET_CACHED_OBJECTIVE() { return Native::Invoke<Any>(N::_LOG_GET_CACHED_OBJECTIVE); }
-	static void _LOG_PRINT_CACHED_OBJECTIVE() { return Native::Invoke<void>(N::_LOG_PRINT_CACHED_OBJECTIVE); }
-	static Any _SET_PENDING_DETAILS_ID(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_SET_PENDING_DETAILS_ID, p0, p1); }
+	static void _LOG_SET_CACHED_OBJECTIVE(Any p0) { return Native::Invoke<void, Any>(0xFA233F8FE190514C, p0); }
+	static void _LOG_CLEAR_CACHED_OBJECTIVE() { return Native::Invoke<void>(0xDFF0D417277B41F8); }
+	static Any _LOG_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<Any>(0xCC48FFBB45B54F71); }
+	static void _LOG_CLEAR_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<void>(0xA3108D6981A5CADB); }
+	static void _LOG_SET_HAS_DISPLAYED_CACHED_OBJECTIVE() { return Native::Invoke<void>(0xA3108D6981A5CADC); }
+	static Any _LOG_GET_CACHED_OBJECTIVE() { return Native::Invoke<Any>(0x15A4461BEB788096); }
+	static void _LOG_PRINT_CACHED_OBJECTIVE() { return Native::Invoke<void>(0xE9990552DEC71600); }
+	static Any _SET_PENDING_DETAILS_ID(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x136A027CF37B0A4F, p0, p1); }
 	static Any _0x2A4765812202E671() { return Native::Invoke<Any>(0x2A4765812202E671); }
-	static void _ADD_TOTAL_TAKE_ENTRY(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(N::_ADD_TOTAL_TAKE_ENTRY, p0, p1, p2, p3, p4); }
-	static void _SET_TOTAL_TAKE_SUMMARY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_TOTAL_TAKE_SUMMARY, p0, p1); }
-	static Any _POST_NOTIFICATION(Any p0) { return Native::Invoke<Any, Any>(N::_POST_NOTIFICATION, p0); }
+	static void _ADD_TOTAL_TAKE_ENTRY(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x60C59968E8E87E6B, p0, p1, p2, p3, p4); }
+	static void _SET_TOTAL_TAKE_SUMMARY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD106B211EF1B8F04, p0, p1); }
+	static Any _POST_NOTIFICATION(Any p0) { return Native::Invoke<Any, Any>(0x49E58FE6EF40B987, p0); }
 	static Any _0xDA0A30153FCC0FFD() { return Native::Invoke<Any>(0xDA0A30153FCC0FFD); }
 }
 namespace _NAMESPACE73
@@ -6322,23 +6322,23 @@ namespace _NAMESPACE73
 }
 namespace UITUTORIAL
 {
-	static Any _GET_IS_THREAT_INDICATOR_CAPABLE_RADAR_SHOWN() { return Native::Invoke<Any>(N::_GET_IS_THREAT_INDICATOR_CAPABLE_RADAR_SHOWN); }
-	static Any _GET_IS_THREAT_INDICATOR_ON() { return Native::Invoke<Any>(N::_GET_IS_THREAT_INDICATOR_ON); }
-	static void _SET_RPG_ICON_VISIBILITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_RPG_ICON_VISIBILITY, p0, p1); }
+	static Any _GET_IS_THREAT_INDICATOR_CAPABLE_RADAR_SHOWN() { return Native::Invoke<Any>(0x2CC24A2A7A1489C4); }
+	static Any _GET_IS_THREAT_INDICATOR_ON() { return Native::Invoke<Any>(0xFC2E0A5E9ED4E1B4); }
+	static void _SET_RPG_ICON_VISIBILITY(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC116E6DF68DCE667, p0, p1); }
 }
 namespace UISTATEMACHINE
 {
-	static Any _REQUEST_FLOW_BLOCK(Any p0) { return Native::Invoke<Any, Any>(N::_REQUEST_FLOW_BLOCK, p0); }
-	static void _RELEASE_FLOW_BLOCK(Any p0) { return Native::Invoke<void, Any>(N::_RELEASE_FLOW_BLOCK, p0); }
-	static Any _IS_FLOW_BLOCK_LOADED(Any p0) { return Native::Invoke<Any, Any>(N::_IS_FLOW_BLOCK_LOADED, p0); }
-	static Any _ENTER_FLOW_BLOCK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_ENTER_FLOW_BLOCK, p0, p1); }
-	static Any _DOES_STATE_MACHINE_EXIST(Any p0) { return Native::Invoke<Any, Any>(N::_DOES_STATE_MACHINE_EXIST, p0); }
-	static Any _STATE_MACHINE_CREATE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_STATE_MACHINE_CREATE, p0, p1); }
+	static Any _REQUEST_FLOW_BLOCK(Any p0) { return Native::Invoke<Any, Any>(0xC0081B34E395CE48, p0); }
+	static void _RELEASE_FLOW_BLOCK(Any p0) { return Native::Invoke<void, Any>(0xF320A77DD5F781DF, p0); }
+	static Any _IS_FLOW_BLOCK_LOADED(Any p0) { return Native::Invoke<Any, Any>(0x10A93C057B6BD944, p0); }
+	static Any _ENTER_FLOW_BLOCK(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x3B7519720C9DCB45, p0, p1); }
+	static Any _DOES_STATE_MACHINE_EXIST(Any p0) { return Native::Invoke<Any, Any>(0x5D15569C0FEBF757, p0); }
+	static Any _STATE_MACHINE_CREATE(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x4C6F2C4B7A03A266, p0, p1); }
 	static Any _0xF7C180F57F85D0B8() { return Native::Invoke<Any>(0xF7C180F57F85D0B8); }
-	static Any _STATE_MACHINE_REQUEST_TRANSITION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(N::_STATE_MACHINE_REQUEST_TRANSITION, p0, p1); }
+	static Any _STATE_MACHINE_REQUEST_TRANSITION(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x7EA9C3547E80350E, p0, p1); }
 	static Any _0x6B9FE4F0BA521A19() { return Native::Invoke<Any>(0x6B9FE4F0BA521A19); }
 	static Any _0x11E73195E735B25B() { return Native::Invoke<Any>(0x11E73195E735B25B); }
-	static void _STATE_MACHINE_DESTROY(Any p0) { return Native::Invoke<void, Any>(N::_STATE_MACHINE_DESTROY, p0); }
+	static void _STATE_MACHINE_DESTROY(Any p0) { return Native::Invoke<void, Any>(0x4EB122210A90E2D8, p0); }
 	static Any _0x2738D68D2B4E09E7() { return Native::Invoke<Any>(0x2738D68D2B4E09E7); }
 }
 namespace _NAMESPACE76
@@ -6355,12 +6355,12 @@ namespace _NAMESPACE76
 namespace UNLOCK
 {
 	static Any _0x6B6369647F26F09F() { return Native::Invoke<Any>(0x6B6369647F26F09F); }
-	static Any _UNLOCK_IS_UNLOCKED(Any p0) { return Native::Invoke<Any, Any>(N::_UNLOCK_IS_UNLOCKED, p0); }
-	static void _UNLOCK_SET_UNLOCKED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_UNLOCK_SET_UNLOCKED, p0, p1); }
-	static Any _UNLOCK_IS_VISIBLE(Any p0) { return Native::Invoke<Any, Any>(N::_UNLOCK_IS_VISIBLE, p0); }
-	static void _UNLOCK_SET_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_UNLOCK_SET_VISIBLE, p0, p1); }
-	static Any _UNLOCK_IS_NEW(Any p0) { return Native::Invoke<Any, Any>(N::_UNLOCK_IS_NEW, p0); }
-	static void _UNLOCK_SET_NEW(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_UNLOCK_SET_NEW, p0, p1); }
+	static Any _UNLOCK_IS_UNLOCKED(Any p0) { return Native::Invoke<Any, Any>(0xC4B660C7B6040E75, p0); }
+	static void _UNLOCK_SET_UNLOCKED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1B7C5ADA8A6910A0, p0, p1); }
+	static Any _UNLOCK_IS_VISIBLE(Any p0) { return Native::Invoke<Any, Any>(0x8588A14B75AF096B, p0); }
+	static void _UNLOCK_SET_VISIBLE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x46B901A8ECDB5A61, p0, p1); }
+	static Any _UNLOCK_IS_NEW(Any p0) { return Native::Invoke<Any, Any>(0x644166BA7AA49DEA, p0); }
+	static void _UNLOCK_SET_NEW(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA6D79C7AEF870A99, p0, p1); }
 	static Any _0x66BF197E066050DE() { return Native::Invoke<Any>(0x66BF197E066050DE); }
 	static Any _0x7C1C2062CFAD06FE() { return Native::Invoke<Any>(0x7C1C2062CFAD06FE); }
 }
@@ -6368,37 +6368,37 @@ namespace VEHICLE
 {
 	static void _0x6355602C02EDC6DF(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6355602C02EDC6DF, p0, p1); }
 	static Any _0xCE1531927AD6C9F8() { return Native::Invoke<Any>(0xCE1531927AD6C9F8); }
-	static Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL thisScriptCheck, Any p7, Any p8) { return Native::Invoke<Vehicle, Hash, float, float, float, float, BOOL, BOOL, Any, Any>(N::CREATE_VEHICLE, modelHash, x, y, z, heading, isNetwork, thisScriptCheck, p7, p8); }
+	static Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL thisScriptCheck, Any p7, Any p8) { return Native::Invoke<Vehicle, Hash, float, float, float, float, BOOL, BOOL, Any, Any>(0xAF35D0D2583051B0, modelHash, x, y, z, heading, isNetwork, thisScriptCheck, p7, p8); }
 	static Any _0x214651FB1DFEBA89(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any>(0x214651FB1DFEBA89, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void DELETE_VEHICLE(Vehicle* vehicle) { return Native::Invoke<void, Vehicle*>(N::DELETE_VEHICLE, vehicle); }
+	static void DELETE_VEHICLE(Vehicle* vehicle) { return Native::Invoke<void, Vehicle*>(0xE20A909D8C4A70F8, vehicle); }
 	static Any _0x35DC1877312FBA0F() { return Native::Invoke<Any>(0x35DC1877312FBA0F); }
 	static Any _0x5136B284B67B35C7() { return Native::Invoke<Any>(0x5136B284B67B35C7); }
 	static Any _0x1240E8596A8308B9() { return Native::Invoke<Any>(0x1240E8596A8308B9); }
-	static Any SET_VEHICLE_ALLOW_NO_PASSENGERS_LOCKON() { return Native::Invoke<Any>(N::SET_VEHICLE_ALLOW_NO_PASSENGERS_LOCKON); }
-	static BOOL IS_VEHICLE_MODEL(Vehicle vehicle, Hash model) { return Native::Invoke<BOOL, Vehicle, Hash>(N::IS_VEHICLE_MODEL, vehicle, model); }
+	static void SET_VEHICLE_ALLOW_NO_PASSENGERS_LOCKON() { return Native::Invoke<void>(0xECB9E9BC887E8060); }
+	static BOOL IS_VEHICLE_MODEL(Vehicle vehicle, Hash model) { return Native::Invoke<BOOL, Vehicle, Hash>(0x0045A54EC7A22455, vehicle, model); }
 	static void _0x424FFCB9F0D2D4B5(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x424FFCB9F0D2D4B5, p0, p1); }
-	static void SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(float minX, float minY, float minZ, float maxX, float maxY, float maxZ, BOOL p6, BOOL p7) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL>(N::SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA, minX, minY, minZ, maxX, maxY, maxZ, p6, p7); }
-	static void SET_ALL_VEHICLE_GENERATORS_ACTIVE() { return Native::Invoke<void>(N::SET_ALL_VEHICLE_GENERATORS_ACTIVE); }
-	static BOOL SET_VEHICLE_ON_GROUND_PROPERLY(Vehicle vehicle, Any p1) { return Native::Invoke<BOOL, Vehicle, Any>(N::SET_VEHICLE_ON_GROUND_PROPERLY, vehicle, p1); }
-	static BOOL IS_VEHICLE_STOPPED(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_VEHICLE_STOPPED, vehicle); }
-	static int GET_VEHICLE_NUMBER_OF_PASSENGERS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(N::GET_VEHICLE_NUMBER_OF_PASSENGERS, vehicle); }
-	static Any GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS() { return Native::Invoke<Any>(N::GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS); }
-	static int GET_VEHICLE_MODEL_NUMBER_OF_SEATS(Hash modelHash) { return Native::Invoke<int, Hash>(N::GET_VEHICLE_MODEL_NUMBER_OF_SEATS, modelHash); }
-	static Any IS_SEAT_WARP_ONLY() { return Native::Invoke<Any>(N::IS_SEAT_WARP_ONLY); }
+	static void SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(float minX, float minY, float minZ, float maxX, float maxY, float maxZ, BOOL p6, BOOL p7) { return Native::Invoke<void, float, float, float, float, float, float, BOOL, BOOL>(0xBBB134FB9D50C0CC, minX, minY, minZ, maxX, maxY, maxZ, p6, p7); }
+	static void SET_ALL_VEHICLE_GENERATORS_ACTIVE() { return Native::Invoke<void>(0x3D596E6E88A02C24); }
+	static BOOL SET_VEHICLE_ON_GROUND_PROPERLY(Vehicle vehicle, Any p1) { return Native::Invoke<BOOL, Vehicle, Any>(0x7263332501E07F52, vehicle, p1); }
+	static BOOL IS_VEHICLE_STOPPED(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x78C3311A73135241, vehicle); }
+	static int GET_VEHICLE_NUMBER_OF_PASSENGERS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(0x59F3F16577CD79B2, vehicle); }
+	static int GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS() { return Native::Invoke<int>(0xA9C55F1C15E62E06); }
+	static int GET_VEHICLE_MODEL_NUMBER_OF_SEATS(Hash modelHash) { return Native::Invoke<int, Hash>(0x9A578736FF3A17C3, modelHash); }
+	static Any IS_SEAT_WARP_ONLY() { return Native::Invoke<Any>(0x7892685BF6D9775E); }
 	static Any _0xFF5791B7639C2A46(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xFF5791B7639C2A46, p0, p1); }
 	static Any _0xA9E185D498B9AC67(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA9E185D498B9AC67, p0, p1); }
-	static void SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(N::SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, multiplier); }
-	static void SET_RANDOM_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(N::SET_RANDOM_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, multiplier); }
-	static void SET_PARKED_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(N::SET_PARKED_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, multiplier); }
-	static void SET_DISABLE_RANDOM_TRAINS_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(N::SET_DISABLE_RANDOM_TRAINS_THIS_FRAME, p0); }
-	static void SET_VEHICLE_DOORS_LOCKED(int* vehicle, float* doorLockStatus) { return Native::Invoke<void, int*, float*>(N::SET_VEHICLE_DOORS_LOCKED, vehicle, doorLockStatus); }
-	static void _SET_VEHICLE_DOOR_DESTROY_TYPE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_SET_VEHICLE_DOOR_DESTROY_TYPE, p0, p1, p2); }
-	static void SET_VEHICLE_DOORS_LOCKED_FOR_PLAYER(Vehicle vehicle, Player player, BOOL toggle) { return Native::Invoke<void, Vehicle, Player, BOOL>(N::SET_VEHICLE_DOORS_LOCKED_FOR_PLAYER, vehicle, player, toggle); }
-	static Any GET_VEHICLE_DOORS_LOCKED_FOR_PLAYER() { return Native::Invoke<Any>(N::GET_VEHICLE_DOORS_LOCKED_FOR_PLAYER); }
-	static Any SET_VEHICLE_DOORS_LOCKED_FOR_ALL_PLAYERS() { return Native::Invoke<Any>(N::SET_VEHICLE_DOORS_LOCKED_FOR_ALL_PLAYERS); }
-	static Any SET_VEHICLE_DOORS_LOCKED_FOR_TEAM() { return Native::Invoke<Any>(N::SET_VEHICLE_DOORS_LOCKED_FOR_TEAM); }
+	static void SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(0x606374EBFC27B133, multiplier); }
+	static void SET_RANDOM_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(0x1F91D44490E1EA0C, multiplier); }
+	static void SET_PARKED_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(float multiplier) { return Native::Invoke<void, float>(0xFEDFA97638D61D4A, multiplier); }
+	static void SET_DISABLE_RANDOM_TRAINS_THIS_FRAME(Any p0) { return Native::Invoke<void, Any>(0xD4288603E8766FF7, p0); }
+	static void SET_VEHICLE_DOORS_LOCKED(int* vehicle, float* doorLockStatus) { return Native::Invoke<void, int*, float*>(0x96F78A6A075D55D9, vehicle, doorLockStatus); }
+	static void _SET_VEHICLE_DOOR_DESTROY_TYPE(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xA9F1D75195CC40F6, p0, p1, p2); }
+	static void SET_VEHICLE_DOORS_LOCKED_FOR_PLAYER(Vehicle vehicle, Player player, BOOL toggle) { return Native::Invoke<void, Vehicle, Player, BOOL>(0x359A8EA1FB8D6F0F, vehicle, player, toggle); }
+	static BOOL GET_VEHICLE_DOORS_LOCKED_FOR_PLAYER() { return Native::Invoke<BOOL>(0xFA2CDDFEB8BC898B); }
+	static void SET_VEHICLE_DOORS_LOCKED_FOR_ALL_PLAYERS() { return Native::Invoke<void>(0x2381977DA948F8DC); }
+	static void SET_VEHICLE_DOORS_LOCKED_FOR_TEAM() { return Native::Invoke<void>(0xE712BC978770F105); }
 	static Any _0xDD1E1393D966D39A() { return Native::Invoke<Any>(0xDD1E1393D966D39A); }
-	static void EXPLODE_VEHICLE(Vehicle vehicle, BOOL isAudible, BOOL isInvisible, Any p3) { return Native::Invoke<void, Vehicle, BOOL, BOOL, Any>(N::EXPLODE_VEHICLE, vehicle, isAudible, isInvisible, p3); }
+	static void EXPLODE_VEHICLE(Vehicle vehicle, BOOL isAudible, BOOL isInvisible, Any p3) { return Native::Invoke<void, Vehicle, BOOL, BOOL, Any>(0x75DCED9EEC5769D7, vehicle, isAudible, isInvisible, p3); }
 	static void _0x750D42C013F64AE7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x750D42C013F64AE7, p0, p1); }
 	static void _0xE78993FF9022C064(Any p0) { return Native::Invoke<void, Any>(0xE78993FF9022C064, p0); }
 	static void _0x9868C0D0134855F7(Any p0) { return Native::Invoke<void, Any>(0x9868C0D0134855F7, p0); }
@@ -6407,38 +6407,38 @@ namespace VEHICLE
 	static void _0xD21A3D421E7F09F7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD21A3D421E7F09F7, p0, p1); }
 	static void _0xA13028E22564A1BD(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA13028E22564A1BD, p0, p1); }
 	static Any _0x485B05EF05B9AEE9() { return Native::Invoke<Any>(0x485B05EF05B9AEE9); }
-	static void SET_BOAT_ANCHOR(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_BOAT_ANCHOR, vehicle, toggle); }
+	static void SET_BOAT_ANCHOR(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xAEAB044F05B92659, vehicle, toggle); }
 	static void _0x6B53F4B811E583D2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6B53F4B811E583D2, p0, p1); }
-	static Any _CAN_BOAT_BE_ANCHORED() { return Native::Invoke<Any>(N::_CAN_BOAT_BE_ANCHORED); }
-	static void _SET_BOAT_FROZEN_WHEN_ANCHORED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::_SET_BOAT_FROZEN_WHEN_ANCHORED, p0, p1, p2); }
+	static Any _CAN_BOAT_BE_ANCHORED() { return Native::Invoke<Any>(0xC075176CFB8B4128); }
+	static void _SET_BOAT_FROZEN_WHEN_ANCHORED(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x286771F3059A37A7, p0, p1, p2); }
 	static Any _0x75B49ACD73617437() { return Native::Invoke<Any>(0x75B49ACD73617437); }
-	static void _SET_BOAT_ANCHOR_BUOYANCY_COEFFICIENT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_BOAT_ANCHOR_BUOYANCY_COEFFICIENT, p0, p1); }
-	static void _SET_BOAT_EXPLODES_ON_WRECKED_ACTION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::_SET_BOAT_EXPLODES_ON_WRECKED_ACTION, p0, p1); }
+	static void _SET_BOAT_ANCHOR_BUOYANCY_COEFFICIENT(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xE3261532550D6A9F, p0, p1); }
+	static void _SET_BOAT_EXPLODES_ON_WRECKED_ACTION(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x62A6D317A011EA1D, p0, p1); }
 	static void _0x1098CDA477890165(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1098CDA477890165, p0, p1); }
 	static void _0x98A7598C579EE871(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x98A7598C579EE871, p0, p1, p2); }
 	static void _0x9E8711C81AA17876(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9E8711C81AA17876, p0, p1); }
-	static void SET_VEHICLE_STRONG(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_STRONG, vehicle, toggle); }
-	static BOOL IS_VEHICLE_SEAT_FREE(Vehicle vehicle, int seatIndex) { return Native::Invoke<BOOL, Vehicle, int>(N::IS_VEHICLE_SEAT_FREE, vehicle, seatIndex); }
-	static Ped GET_PED_IN_VEHICLE_SEAT(Vehicle vehicle, int index) { return Native::Invoke<Ped, Vehicle, int>(N::GET_PED_IN_VEHICLE_SEAT, vehicle, index); }
-	static Any GET_LAST_PED_IN_VEHICLE_SEAT() { return Native::Invoke<Any>(N::GET_LAST_PED_IN_VEHICLE_SEAT); }
+	static void SET_VEHICLE_STRONG(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xAB315515C9F8803D, vehicle, toggle); }
+	static BOOL IS_VEHICLE_SEAT_FREE(Vehicle vehicle, int seatIndex) { return Native::Invoke<BOOL, Vehicle, int>(0xE052C1B1CAA4ECE4, vehicle, seatIndex); }
+	static Ped GET_PED_IN_VEHICLE_SEAT(Vehicle vehicle, int index) { return Native::Invoke<Ped, Vehicle, int>(0xBB40DD2270B65366, vehicle, index); }
+	static Ped GET_LAST_PED_IN_VEHICLE_SEAT() { return Native::Invoke<Ped>(0x74583B19FEEAFDA7); }
 	static Any _0xEA44E97849E9F3DD(Any p0) { return Native::Invoke<Any, Any>(0xEA44E97849E9F3DD, p0); }
 	static Any _0xA8BA0BAE0173457B(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA8BA0BAE0173457B, p0, p1); }
-	static void SET_VEHICLE_FORWARD_SPEED(Vehicle vehicle, float speed) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_FORWARD_SPEED, vehicle, speed); }
-	static void BRING_VEHICLE_TO_HALT(Vehicle vehicle, float distance, int type, BOOL unknown) { return Native::Invoke<void, Vehicle, float, int, BOOL>(N::BRING_VEHICLE_TO_HALT, vehicle, distance, type, unknown); }
+	static void SET_VEHICLE_FORWARD_SPEED(Vehicle vehicle, float speed) { return Native::Invoke<void, Vehicle, float>(0xF9F92AF49F12F6E7, vehicle, speed); }
+	static void BRING_VEHICLE_TO_HALT(Vehicle vehicle, float distance, int type, BOOL unknown) { return Native::Invoke<void, Vehicle, float, int, BOOL>(0x260BE8F09E326A20, vehicle, distance, type, unknown); }
 	static Any _0x404527BC03DA0E6C(Any p0) { return Native::Invoke<Any, Any>(0x404527BC03DA0E6C, p0); }
 	static void _0x7C06330BFDDA182E(Any p0) { return Native::Invoke<void, Any>(0x7C06330BFDDA182E, p0); }
 	static void _0xE12F5ED49F44D40D(Any p0) { return Native::Invoke<void, Any>(0xE12F5ED49F44D40D, p0); }
 	static void _0xF6E3D38869D0F7AD(Any p0) { return Native::Invoke<void, Any>(0xF6E3D38869D0F7AD, p0); }
-	static void SET_VEHICLE_DOORS_SHUT(Vehicle vehicle, BOOL closeInstantly) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_DOORS_SHUT, vehicle, closeInstantly); }
-	static Any SET_VEHICLE_TYRES_CAN_BURST() { return Native::Invoke<Any>(N::SET_VEHICLE_TYRES_CAN_BURST); }
-	static Any SET_VEHICLE_WHEELS_CAN_BREAK(Vehicle vehicle, BOOL enabled) { return Native::Invoke<Any, Vehicle, BOOL>(N::SET_VEHICLE_WHEELS_CAN_BREAK, vehicle, enabled); }
-	static void SET_VEHICLE_DOOR_OPEN(Vehicle vehicle, int doorIndex, BOOL loose, BOOL openInstantly) { return Native::Invoke<void, Vehicle, int, BOOL, BOOL>(N::SET_VEHICLE_DOOR_OPEN, vehicle, doorIndex, loose, openInstantly); }
-	static Any REMOVE_VEHICLE_WINDOW() { return Native::Invoke<Any>(N::REMOVE_VEHICLE_WINDOW); }
+	static void SET_VEHICLE_DOORS_SHUT(Vehicle vehicle, BOOL closeInstantly) { return Native::Invoke<void, Vehicle, BOOL>(0xA4FFCD645B11F25A, vehicle, closeInstantly); }
+	static void SET_VEHICLE_TYRES_CAN_BURST() { return Native::Invoke<void>(0xEBD0A4E935106FE5); }
+	static Any SET_VEHICLE_WHEELS_CAN_BREAK(Vehicle vehicle, BOOL enabled) { return Native::Invoke<Any, Vehicle, BOOL>(0x839137C40275FB77, vehicle, enabled); }
+	static void SET_VEHICLE_DOOR_OPEN(Vehicle vehicle, int doorIndex, BOOL loose, BOOL openInstantly) { return Native::Invoke<void, Vehicle, int, BOOL, BOOL>(0x550CE392A4672412, vehicle, doorIndex, loose, openInstantly); }
+	static void REMOVE_VEHICLE_WINDOW() { return Native::Invoke<void>(0x745F15A215F2DDF1); }
 	static void _0x8878FF3EEE2868A9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8878FF3EEE2868A9, p0, p1); }
 	static Any _0xBAE0EEDF93F05EAA() { return Native::Invoke<Any>(0xBAE0EEDF93F05EAA); }
 	static void _0x4D15E49764CB328A(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4D15E49764CB328A, p0, p1); }
-	static void SET_VEHICLE_LIGHTS(Vehicle vehicle, int state) { return Native::Invoke<void, Vehicle, int>(N::SET_VEHICLE_LIGHTS, vehicle, state); }
-	static void SET_RANDOM_TRAINS(BOOL toggle) { return Native::Invoke<void, BOOL>(N::SET_RANDOM_TRAINS, toggle); }
+	static void SET_VEHICLE_LIGHTS(Vehicle vehicle, int state) { return Native::Invoke<void, Vehicle, int>(0x629F0A0E952CAE7D, vehicle, state); }
+	static void SET_RANDOM_TRAINS(BOOL toggle) { return Native::Invoke<void, BOOL>(0x1156C6EE7E82A98A, toggle); }
 	static Any _0x331CBD247FC5DAA8(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any>(0x331CBD247FC5DAA8, p0, p1, p2, p3, p4, p5); }
 	static Any _0x0516FAE561276EFC(Any p0) { return Native::Invoke<Any, Any>(0x0516FAE561276EFC, p0); }
 	static Any _0x45853F4E17D847D5(Any p0) { return Native::Invoke<Any, Any>(0x45853F4E17D847D5, p0); }
@@ -6474,13 +6474,13 @@ namespace VEHICLE
 	static Any _0x6C87F49BFA181DB5(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6C87F49BFA181DB5, p0, p1, p2); }
 	static Any _0x85D39F5E3B6D7EB0(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x85D39F5E3B6D7EB0, p0, p1, p2); }
 	static Any _0x6DE03BCC15E81710(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6DE03BCC15E81710, p0, p1, p2); }
-	static void DELETE_ALL_TRAINS() { return Native::Invoke<void>(N::DELETE_ALL_TRAINS); }
+	static void DELETE_ALL_TRAINS() { return Native::Invoke<void>(0xA3120A1385F17FF7); }
 	static Any _0x0E558D3A49D759D6(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x0E558D3A49D759D6, p0, p1); }
 	static void _0xD4907EF4334C7602(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD4907EF4334C7602, p0, p1); }
 	static void _0x68830738A6BFB370(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x68830738A6BFB370, p0, p1); }
-	static Any SET_TRAIN_SPEED(Vehicle train, float speed) { return Native::Invoke<Any, Vehicle, float>(N::SET_TRAIN_SPEED, train, speed); }
+	static Any SET_TRAIN_SPEED(Vehicle train, float speed) { return Native::Invoke<Any, Vehicle, float>(0xDFBA6BBFF7CCAFBB, train, speed); }
 	static void _0x9F29999DFDF2AEB8(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9F29999DFDF2AEB8, p0, p1); }
-	static Any SET_TRAIN_CRUISE_SPEED(Vehicle train, float speed) { return Native::Invoke<Any, Vehicle, float>(N::SET_TRAIN_CRUISE_SPEED, train, speed); }
+	static Any SET_TRAIN_CRUISE_SPEED(Vehicle train, float speed) { return Native::Invoke<Any, Vehicle, float>(0x01021EB2E96B793C, train, speed); }
 	static Any _0x60B7D1DCC312697D(Any p0) { return Native::Invoke<Any, Any>(0x60B7D1DCC312697D, p0); }
 	static Any _0x8DF5F6A19F99F0D5(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x8DF5F6A19F99F0D5, p0, p1); }
 	static Any _0x635423D55CA84FC8(Any p0) { return Native::Invoke<Any, Any>(0x635423D55CA84FC8, p0); }
@@ -6491,52 +6491,52 @@ namespace VEHICLE
 	static Any _0xE887BD31D97793F6(Any p0) { return Native::Invoke<Any, Any>(0xE887BD31D97793F6, p0); }
 	static void _0x3660BCAB3A6BB734(Any p0) { return Native::Invoke<void, Any>(0x3660BCAB3A6BB734, p0); }
 	static void _0x787E43477746876F(Any p0) { return Native::Invoke<void, Any>(0x787E43477746876F, p0); }
-	static Any SET_RANDOM_BOATS(BOOL toggle) { return Native::Invoke<Any, BOOL>(N::SET_RANDOM_BOATS, toggle); }
-	static void REQUEST_VEHICLE_RECORDING(int i, char* name) { return Native::Invoke<void, int, char*>(N::REQUEST_VEHICLE_RECORDING, i, name); }
-	static BOOL HAS_VEHICLE_RECORDING_BEEN_LOADED(Any p0, Any* p1) { return Native::Invoke<BOOL, Any, Any*>(N::HAS_VEHICLE_RECORDING_BEEN_LOADED, p0, p1); }
-	static void REMOVE_VEHICLE_RECORDING(Any p0, Any* p1) { return Native::Invoke<void, Any, Any*>(N::REMOVE_VEHICLE_RECORDING, p0, p1); }
-	static Vector3 GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME(int p0, float p1, char* p2) { return Native::Invoke<Vector3, int, float, char*>(N::GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME, p0, p1, p2); }
-	static int GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME(Any p0, float p1, Any* p2) { return Native::Invoke<int, Any, float, Any*>(N::GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME, p0, p1, p2); }
-	static float GET_TIME_POSITION_IN_RECORDING(Any p0) { return Native::Invoke<float, Any>(N::GET_TIME_POSITION_IN_RECORDING, p0); }
-	static void START_PLAYBACK_RECORDED_VEHICLE(Vehicle vehicle, int p1, char* playback, BOOL p3) { return Native::Invoke<void, Vehicle, int, char*, BOOL>(N::START_PLAYBACK_RECORDED_VEHICLE, vehicle, p1, playback, p3); }
+	static Any SET_RANDOM_BOATS(BOOL toggle) { return Native::Invoke<Any, BOOL>(0xF44D446D4E36DB87, toggle); }
+	static void REQUEST_VEHICLE_RECORDING(int i, const char* name) { return Native::Invoke<void, int, const char*>(0xC474CF16EDA45DC9, i, name); }
+	static BOOL HAS_VEHICLE_RECORDING_BEEN_LOADED(Any p0, Any* p1) { return Native::Invoke<BOOL, Any, Any*>(0xBA9325BE372AB6EA, p0, p1); }
+	static void REMOVE_VEHICLE_RECORDING(Any p0, Any* p1) { return Native::Invoke<void, Any, Any*>(0x139E35755418F6AA, p0, p1); }
+	static Vector3 GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME(int p0, float p1, const char* p2) { return Native::Invoke<Vector3, int, float, const char*>(0x1A00961A1BE94E5E, p0, p1, p2); }
+	static int GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME(Any p0, float p1, Any* p2) { return Native::Invoke<int, Any, float, Any*>(0x61787DD28B8CC0D5, p0, p1, p2); }
+	static float GET_TIME_POSITION_IN_RECORDING(Any p0) { return Native::Invoke<float, Any>(0x233B51C7913FA031, p0); }
+	static void START_PLAYBACK_RECORDED_VEHICLE(Vehicle vehicle, int p1, const char* playback, BOOL p3) { return Native::Invoke<void, Vehicle, int, const char*, BOOL>(0x4932B84E3276508E, vehicle, p1, playback, p3); }
 	static void _0x59ECA796021B0539(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x59ECA796021B0539, p0, p1); }
-	static void STOP_PLAYBACK_RECORDED_VEHICLE(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(N::STOP_PLAYBACK_RECORDED_VEHICLE, vehicle); }
-	static BOOL IS_PLAYBACK_GOING_ON_FOR_VEHICLE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_PLAYBACK_GOING_ON_FOR_VEHICLE, vehicle); }
-	static BOOL IS_PLAYBACK_USING_AI_GOING_ON_FOR_VEHICLE(Any p0) { return Native::Invoke<BOOL, Any>(N::IS_PLAYBACK_USING_AI_GOING_ON_FOR_VEHICLE, p0); }
-	static void SET_PLAYBACK_SPEED(Vehicle vehicle, float speed) { return Native::Invoke<void, Vehicle, float>(N::SET_PLAYBACK_SPEED, vehicle, speed); }
-	static void SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(Any p0, float p1) { return Native::Invoke<void, Any, float>(N::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE, p0, p1); }
-	static Vehicle GET_CLOSEST_VEHICLE(float x, float y, float z, float radius, Hash modelHash, int flags) { return Native::Invoke<Vehicle, float, float, float, float, Hash, int>(N::GET_CLOSEST_VEHICLE, x, y, z, radius, modelHash, flags); }
-	static Entity GET_TRAIN_CARRIAGE(Vehicle train, int trailerNumber) { return Native::Invoke<Entity, Vehicle, int>(N::GET_TRAIN_CARRIAGE, train, trailerNumber); }
-	static void DELETE_MISSION_TRAIN(Vehicle* train) { return Native::Invoke<void, Vehicle*>(N::DELETE_MISSION_TRAIN, train); }
-	static void SET_MISSION_TRAIN_AS_NO_LONGER_NEEDED(Vehicle* train, BOOL p1) { return Native::Invoke<void, Vehicle*, BOOL>(N::SET_MISSION_TRAIN_AS_NO_LONGER_NEEDED, train, p1); }
-	static void SET_MISSION_TRAIN_COORDS(Vehicle train, float x, float y, float z) { return Native::Invoke<void, Vehicle, float, float, float>(N::SET_MISSION_TRAIN_COORDS, train, x, y, z); }
+	static void STOP_PLAYBACK_RECORDED_VEHICLE(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(0xBF9B4D6267E8C26D, vehicle); }
+	static BOOL IS_PLAYBACK_GOING_ON_FOR_VEHICLE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x02774B3A9034278F, vehicle); }
+	static BOOL IS_PLAYBACK_USING_AI_GOING_ON_FOR_VEHICLE(Any p0) { return Native::Invoke<BOOL, Any>(0x5A7472606EC5B7C1, p0); }
+	static void SET_PLAYBACK_SPEED(Vehicle vehicle, float speed) { return Native::Invoke<void, Vehicle, float>(0xD78084EED4CD94C6, vehicle, speed); }
+	static void SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(Any p0, float p1) { return Native::Invoke<void, Any, float>(0x5F5E6379C59EFC56, p0, p1); }
+	static Vehicle GET_CLOSEST_VEHICLE(float x, float y, float z, float radius, Hash modelHash, int flags) { return Native::Invoke<Vehicle, float, float, float, float, Hash, int>(0x52F45D033645181B, x, y, z, radius, modelHash, flags); }
+	static Entity GET_TRAIN_CARRIAGE(Vehicle train, int trailerNumber) { return Native::Invoke<Entity, Vehicle, int>(0xD0FB093A4CDB932C, train, trailerNumber); }
+	static void DELETE_MISSION_TRAIN(Vehicle* train) { return Native::Invoke<void, Vehicle*>(0x0D3630FB07E8B570, train); }
+	static void SET_MISSION_TRAIN_AS_NO_LONGER_NEEDED(Vehicle* train, BOOL p1) { return Native::Invoke<void, Vehicle*, BOOL>(0xBBE7648349B49BE8, train, p1); }
+	static void SET_MISSION_TRAIN_COORDS(Vehicle train, float x, float y, float z) { return Native::Invoke<void, Vehicle, float, float, float>(0x7632755962AB9922, train, x, y, z); }
 	static void _0xC9EA26893C9E4024(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0xC9EA26893C9E4024, p0, p1, p2, p3, p4); }
 	static void _0xA72B1BF3857B94D7(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xA72B1BF3857B94D7, p0, p1); }
 	static Any _0xB9D5BDDA88E1BB66(Any p0) { return Native::Invoke<Any, Any>(0xB9D5BDDA88E1BB66, p0); }
-	static BOOL IS_THIS_MODEL_A_BOAT(Hash model) { return Native::Invoke<BOOL, Hash>(N::IS_THIS_MODEL_A_BOAT, model); }
-	static BOOL IS_THIS_MODEL_A_TRAIN(Hash model) { return Native::Invoke<BOOL, Hash>(N::IS_THIS_MODEL_A_TRAIN, model); }
-	static void SET_VEHICLE_CAN_BE_TARGETTED(Vehicle vehicle, BOOL state) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_CAN_BE_TARGETTED, vehicle, state); }
+	static BOOL IS_THIS_MODEL_A_BOAT(Hash model) { return Native::Invoke<BOOL, Hash>(0x799CFC7C5B743B15, model); }
+	static BOOL IS_THIS_MODEL_A_TRAIN(Hash model) { return Native::Invoke<BOOL, Hash>(0xFC08C8F8C1EDF174, model); }
+	static void SET_VEHICLE_CAN_BE_TARGETTED(Vehicle vehicle, BOOL state) { return Native::Invoke<void, Vehicle, BOOL>(0x05254BA0B44ADC16, vehicle, state); }
 	static void _0x63DC1F22C903B709(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x63DC1F22C903B709, p0, p1); }
-	static void SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED(Vehicle vehicle, BOOL state) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED, vehicle, state); }
+	static void SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED(Vehicle vehicle, BOOL state) { return Native::Invoke<void, Vehicle, BOOL>(0x4BF8131AE811541C, vehicle, state); }
 	static void _0xC903855E028A05F2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC903855E028A05F2, p0, p1); }
 	static Any _0x33992A808DF1C1BA() { return Native::Invoke<Any>(0x33992A808DF1C1BA); }
 	static Any _0x065D03A9D6B2C6B5() { return Native::Invoke<Any>(0x065D03A9D6B2C6B5); }
-	static void SET_VEHICLE_DIRT_LEVEL(Vehicle vehicle, float dirtLevel) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_DIRT_LEVEL, vehicle, dirtLevel); }
-	static BOOL IS_VEHICLE_DOOR_FULLY_OPEN(Vehicle v, int doorIndex) { return Native::Invoke<BOOL, Vehicle, int>(N::IS_VEHICLE_DOOR_FULLY_OPEN, v, doorIndex); }
-	static void SET_VEHICLE_ENGINE_ON(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(N::SET_VEHICLE_ENGINE_ON, p0, p1, p2); }
-	static void SET_VEHICLE_UNDRIVEABLE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_UNDRIVEABLE, vehicle, toggle); }
-	static void SET_VEHICLE_PROVIDES_COVER(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_PROVIDES_COVER, vehicle, toggle); }
+	static void SET_VEHICLE_DIRT_LEVEL(Vehicle vehicle, float dirtLevel) { return Native::Invoke<void, Vehicle, float>(0x758C3460EE915D0A, vehicle, dirtLevel); }
+	static BOOL IS_VEHICLE_DOOR_FULLY_OPEN(Vehicle v, int doorIndex) { return Native::Invoke<BOOL, Vehicle, int>(0x7AE191143C7A9107, v, doorIndex); }
+	static void SET_VEHICLE_ENGINE_ON(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB64CFA14CB9A2E78, p0, p1, p2); }
+	static void SET_VEHICLE_UNDRIVEABLE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x6E884BAB713A2A94, vehicle, toggle); }
+	static void SET_VEHICLE_PROVIDES_COVER(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x652712478F1721F4, vehicle, toggle); }
 	static void _0x3053064F909B5F42(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3053064F909B5F42, p0, p1); }
-	static void SET_VEHICLE_DOOR_CONTROL(Vehicle vehicle, int doorIndex, int speed, float angle) { return Native::Invoke<void, Vehicle, int, int, float>(N::SET_VEHICLE_DOOR_CONTROL, vehicle, doorIndex, speed, angle); }
-	static void SET_VEHICLE_DOOR_LATCHED(Vehicle vehicle, int doorIndex, BOOL forceClose, BOOL lock, BOOL p4) { return Native::Invoke<void, Vehicle, int, BOOL, BOOL, BOOL>(N::SET_VEHICLE_DOOR_LATCHED, vehicle, doorIndex, forceClose, lock, p4); }
-	static void SET_VEHICLE_DOOR_SHUT(Vehicle vehicle, int doorIndex, BOOL closeInstantly) { return Native::Invoke<void, Vehicle, int, BOOL>(N::SET_VEHICLE_DOOR_SHUT, vehicle, doorIndex, closeInstantly); }
-	static void SET_VEHICLE_DOOR_BROKEN(Vehicle vehicle, int doorIndex, BOOL deleteDoor) { return Native::Invoke<void, Vehicle, int, BOOL>(N::SET_VEHICLE_DOOR_BROKEN, vehicle, doorIndex, deleteDoor); }
-	static void SET_VEHICLE_CAN_BREAK(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_CAN_BREAK, vehicle, toggle); }
-	static void SET_VEHICLE_IS_CONSIDERED_BY_PLAYER(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_IS_CONSIDERED_BY_PLAYER, vehicle, toggle); }
+	static void SET_VEHICLE_DOOR_CONTROL(Vehicle vehicle, int doorIndex, int speed, float angle) { return Native::Invoke<void, Vehicle, int, int, float>(0xD57F10EBBA814ECF, vehicle, doorIndex, speed, angle); }
+	static void SET_VEHICLE_DOOR_LATCHED(Vehicle vehicle, int doorIndex, BOOL forceClose, BOOL lock, BOOL p4) { return Native::Invoke<void, Vehicle, int, BOOL, BOOL, BOOL>(0x06F8A202EB312A3C, vehicle, doorIndex, forceClose, lock, p4); }
+	static void SET_VEHICLE_DOOR_SHUT(Vehicle vehicle, int doorIndex, BOOL closeInstantly) { return Native::Invoke<void, Vehicle, int, BOOL>(0x6A3C24B91FD0EA09, vehicle, doorIndex, closeInstantly); }
+	static void SET_VEHICLE_DOOR_BROKEN(Vehicle vehicle, int doorIndex, BOOL deleteDoor) { return Native::Invoke<void, Vehicle, int, BOOL>(0x9666CF20A1C6D780, vehicle, doorIndex, deleteDoor); }
+	static void SET_VEHICLE_CAN_BREAK(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xC5ED9D59B4646611, vehicle, toggle); }
+	static void SET_VEHICLE_IS_CONSIDERED_BY_PLAYER(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x54800D386C5825E5, vehicle, toggle); }
 	static Any _0x7549B9E841940695() { return Native::Invoke<Any>(0x7549B9E841940695); }
-	static int GET_VEHICLE_DOOR_LOCK_STATUS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(N::GET_VEHICLE_DOOR_LOCK_STATUS, vehicle); }
-	static void _SET_VEHICLE_DOOR_CAN_BREAK(Vehicle vehicle, int doorIndex, BOOL isBreakable) { return Native::Invoke<void, Vehicle, int, BOOL>(N::_SET_VEHICLE_DOOR_CAN_BREAK, vehicle, doorIndex, isBreakable); }
-	static BOOL IS_VEHICLE_ON_ALL_WHEELS(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_VEHICLE_ON_ALL_WHEELS, vehicle); }
+	static int GET_VEHICLE_DOOR_LOCK_STATUS(Vehicle vehicle) { return Native::Invoke<int, Vehicle>(0xC867FD144F2469D3, vehicle); }
+	static void _SET_VEHICLE_DOOR_CAN_BREAK(Vehicle vehicle, int doorIndex, BOOL isBreakable) { return Native::Invoke<void, Vehicle, int, BOOL>(0x081FB9D6422F804C, vehicle, doorIndex, isBreakable); }
+	static BOOL IS_VEHICLE_ON_ALL_WHEELS(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x0D5D119529654EE0, vehicle); }
 	static Any _0x3C9628A811CBD724() { return Native::Invoke<Any>(0x3C9628A811CBD724); }
 	static Any _0x67995318F5FAA496(Any p0) { return Native::Invoke<Any, Any>(0x67995318F5FAA496, p0); }
 	static Any _0x09034479E6E3E269() { return Native::Invoke<Any>(0x09034479E6E3E269); }
@@ -6569,96 +6569,96 @@ namespace VEHICLE
 	static void _0x6703872EC09BC158(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6703872EC09BC158, p0, p1); }
 	static void _0x1BFBAFCC6760FF02(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x1BFBAFCC6760FF02, p0, p1); }
 	static Any _0xF5EA41C1408695FB(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xF5EA41C1408695FB, p0, p1, p2, p3); }
-	static void SET_VEHICLE_FIXED(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(N::SET_VEHICLE_FIXED, vehicle); }
-	static void SET_DISABLE_VEHICLE_PETROL_TANK_FIRES(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_DISABLE_VEHICLE_PETROL_TANK_FIRES, vehicle, toggle); }
-	static void SET_DISABLE_VEHICLE_PETROL_TANK_DAMAGE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_DISABLE_VEHICLE_PETROL_TANK_DAMAGE, vehicle, toggle); }
+	static void SET_VEHICLE_FIXED(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(0x79811282A9D1AE56, vehicle); }
+	static void SET_DISABLE_VEHICLE_PETROL_TANK_FIRES(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xB70986AB19B04AFF, vehicle, toggle); }
+	static void SET_DISABLE_VEHICLE_PETROL_TANK_DAMAGE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x5795FBE7A2001C14, vehicle, toggle); }
 	static void _0xD146EE5F2B06B95E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xD146EE5F2B06B95E, p0, p1); }
 	static void _0x8F75941C86EEBFCA(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8F75941C86EEBFCA, p0, p1); }
 	static void _0xC84E138448507567(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC84E138448507567, p0, p1); }
-	static void REMOVE_VEHICLES_FROM_GENERATORS_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(N::REMOVE_VEHICLES_FROM_GENERATORS_IN_AREA, p0, p1, p2, p3, p4, p5); }
-	static Any SET_VEHICLE_STEER_BIAS() { return Native::Invoke<Any>(N::SET_VEHICLE_STEER_BIAS); }
-	static BOOL IS_VEHICLE_EXTRA_TURNED_ON(Vehicle vehicle, int extraId) { return Native::Invoke<BOOL, Vehicle, int>(N::IS_VEHICLE_EXTRA_TURNED_ON, vehicle, extraId); }
-	static void SET_VEHICLE_EXTRA(Vehicle vehicle, int extraId, BOOL disable) { return Native::Invoke<void, Vehicle, int, BOOL>(N::SET_VEHICLE_EXTRA, vehicle, extraId, disable); }
-	static BOOL DOES_EXTRA_EXIST(Vehicle vehicle, int extraId) { return Native::Invoke<BOOL, Vehicle, int>(N::DOES_EXTRA_EXIST, vehicle, extraId); }
-	static void SET_VEHICLE_DAMAGE(Vehicle vehicle, float xOffset, float yOffset, float zOffset, float damage, float radius, BOOL p6) { return Native::Invoke<void, Vehicle, float, float, float, float, float, BOOL>(N::SET_VEHICLE_DAMAGE, vehicle, xOffset, yOffset, zOffset, damage, radius, p6); }
-	static Any GET_VEHICLE_ENGINE_HEALTH() { return Native::Invoke<Any>(N::GET_VEHICLE_ENGINE_HEALTH); }
-	static void SET_VEHICLE_ENGINE_HEALTH(Vehicle vehicle, float health) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_ENGINE_HEALTH, vehicle, health); }
-	static Any GET_VEHICLE_PETROL_TANK_HEALTH() { return Native::Invoke<Any>(N::GET_VEHICLE_PETROL_TANK_HEALTH); }
-	static void SET_VEHICLE_PETROL_TANK_HEALTH(Vehicle vehicle, float health) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_PETROL_TANK_HEALTH, vehicle, health); }
-	static BOOL IS_VEHICLE_STUCK_TIMER_UP(Vehicle vehicle, int p1, int p2) { return Native::Invoke<BOOL, Vehicle, int, int>(N::IS_VEHICLE_STUCK_TIMER_UP, vehicle, p1, p2); }
-	static void RESET_VEHICLE_STUCK_TIMER(Vehicle vehicle, int nullAttributes) { return Native::Invoke<void, Vehicle, int>(N::RESET_VEHICLE_STUCK_TIMER, vehicle, nullAttributes); }
-	static BOOL IS_VEHICLE_DRIVEABLE(Vehicle vehicle, BOOL isOnFireCheck, Any p2) { return Native::Invoke<BOOL, Vehicle, BOOL, Any>(N::IS_VEHICLE_DRIVEABLE, vehicle, isOnFireCheck, p2); }
+	static void REMOVE_VEHICLES_FROM_GENERATORS_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return Native::Invoke<void, Any, Any, Any, Any, Any, Any>(0xC619A44639BC0CB4, p0, p1, p2, p3, p4, p5); }
+	static void SET_VEHICLE_STEER_BIAS() { return Native::Invoke<void>(0x84DAAE11E9EE4FC3); }
+	static BOOL IS_VEHICLE_EXTRA_TURNED_ON(Vehicle vehicle, int extraId) { return Native::Invoke<BOOL, Vehicle, int>(0xFA9A55D9C4351625, vehicle, extraId); }
+	static void SET_VEHICLE_EXTRA(Vehicle vehicle, int extraId, BOOL disable) { return Native::Invoke<void, Vehicle, int, BOOL>(0xBB6F89150BC9D16B, vehicle, extraId, disable); }
+	static BOOL DOES_EXTRA_EXIST(Vehicle vehicle, int extraId) { return Native::Invoke<BOOL, Vehicle, int>(0xAF5E7E9A7620FFB5, vehicle, extraId); }
+	static void SET_VEHICLE_DAMAGE(Vehicle vehicle, float xOffset, float yOffset, float zOffset, float damage, float radius, BOOL p6) { return Native::Invoke<void, Vehicle, float, float, float, float, float, BOOL>(0x1D7678F81452BB41, vehicle, xOffset, yOffset, zOffset, damage, radius, p6); }
+	static float GET_VEHICLE_ENGINE_HEALTH() { return Native::Invoke<float>(0x90DBFFAC43B22081); }
+	static void SET_VEHICLE_ENGINE_HEALTH(Vehicle vehicle, float health) { return Native::Invoke<void, Vehicle, float>(0x8BDC5B998B4654EF, vehicle, health); }
+	static float GET_VEHICLE_PETROL_TANK_HEALTH() { return Native::Invoke<float>(0x1E5A9B356D5098BE); }
+	static void SET_VEHICLE_PETROL_TANK_HEALTH(Vehicle vehicle, float health) { return Native::Invoke<void, Vehicle, float>(0x6AB2918EE3BEC94C, vehicle, health); }
+	static BOOL IS_VEHICLE_STUCK_TIMER_UP(Vehicle vehicle, int p1, int p2) { return Native::Invoke<BOOL, Vehicle, int, int>(0x1ABA9753939503C5, vehicle, p1, p2); }
+	static void RESET_VEHICLE_STUCK_TIMER(Vehicle vehicle, int nullAttributes) { return Native::Invoke<void, Vehicle, int>(0x23298B468F7D88B6, vehicle, nullAttributes); }
+	static BOOL IS_VEHICLE_DRIVEABLE(Vehicle vehicle, BOOL isOnFireCheck, Any p2) { return Native::Invoke<BOOL, Vehicle, BOOL, Any>(0xB86D29B10F627379, vehicle, isOnFireCheck, p2); }
 	static Any _0xDDBEA5506C848227(Any p0) { return Native::Invoke<Any, Any>(0xDDBEA5506C848227, p0); }
 	static Any _0x0E3BF7ED4169EC43(Any p0) { return Native::Invoke<Any, Any>(0x0E3BF7ED4169EC43, p0); }
-	static void SET_VEHICLE_HAS_BEEN_OWNED_BY_PLAYER(Vehicle vehicle, BOOL owned) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_HAS_BEEN_OWNED_BY_PLAYER, vehicle, owned); }
-	static void START_VEHICLE_HORN(Vehicle vehicle, int duration, Hash mode, BOOL forever) { return Native::Invoke<void, Vehicle, int, Hash, BOOL>(N::START_VEHICLE_HORN, vehicle, duration, mode, forever); }
-	static void SET_VEHICLE_HAS_STRONG_AXLES(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_HAS_STRONG_AXLES, vehicle, toggle); }
+	static void SET_VEHICLE_HAS_BEEN_OWNED_BY_PLAYER(Vehicle vehicle, BOOL owned) { return Native::Invoke<void, Vehicle, BOOL>(0xBB5A3FA8ED3979C5, vehicle, owned); }
+	static void START_VEHICLE_HORN(Vehicle vehicle, int duration, Hash mode, BOOL forever) { return Native::Invoke<void, Vehicle, int, Hash, BOOL>(0xB4E3BFC39CA16057, vehicle, duration, mode, forever); }
+	static void SET_VEHICLE_HAS_STRONG_AXLES(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x252253C8A45AA1FC, vehicle, toggle); }
 	static void _0x6F73EFAB11651D7F(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x6F73EFAB11651D7F, p0, p1); }
 	static void _0x5AABB09F6FBD1F87(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x5AABB09F6FBD1F87, p0, p1); }
 	static void _0x8268B098F6FCA4E2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x8268B098F6FCA4E2, p0, p1); }
 	static void _0xF89D82A0582E46ED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xF89D82A0582E46ED, p0, p1); }
 	static Any _0xA44D65E6C624526F(Any p0) { return Native::Invoke<Any, Any>(0xA44D65E6C624526F, p0); }
 	static Any _0xBB765B8FD49A796C() { return Native::Invoke<Any>(0xBB765B8FD49A796C); }
-	static Any ARE_ANY_VEHICLE_SEATS_FREE() { return Native::Invoke<Any>(N::ARE_ANY_VEHICLE_SEATS_FREE); }
-	static void SET_VEHICLE_EXPLODES_ON_HIGH_EXPLOSION_DAMAGE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_EXPLODES_ON_HIGH_EXPLOSION_DAMAGE, vehicle, toggle); }
+	static BOOL ARE_ANY_VEHICLE_SEATS_FREE() { return Native::Invoke<BOOL>(0xA0A424505A1B6429); }
+	static void SET_VEHICLE_EXPLODES_ON_HIGH_EXPLOSION_DAMAGE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xA402939C6761E1A3, vehicle, toggle); }
 	static Any _0x8D3230A0ED7DE39F() { return Native::Invoke<Any>(0x8D3230A0ED7DE39F); }
-	static BOOL IS_ANY_VEHICLE_NEAR_POINT(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(N::IS_ANY_VEHICLE_NEAR_POINT, x, y, z, radius); }
-	static void REQUEST_VEHICLE_HIGH_DETAIL_MODEL(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(N::REQUEST_VEHICLE_HIGH_DETAIL_MODEL, vehicle); }
-	static void REQUEST_VEHICLE_ASSET(Hash vehicleHash, int vehicleAsset) { return Native::Invoke<void, Hash, int>(N::REQUEST_VEHICLE_ASSET, vehicleHash, vehicleAsset); }
+	static BOOL IS_ANY_VEHICLE_NEAR_POINT(float x, float y, float z, float radius) { return Native::Invoke<BOOL, float, float, float, float>(0x5698BA4FD04D39C4, x, y, z, radius); }
+	static void REQUEST_VEHICLE_HIGH_DETAIL_MODEL(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(0x84B81EF78BD22357, vehicle); }
+	static void REQUEST_VEHICLE_ASSET(Hash vehicleHash, int vehicleAsset) { return Native::Invoke<void, Hash, int>(0x81A15811460FAB3A, vehicleHash, vehicleAsset); }
 	static void _0xCF9DA72002FC16BF(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xCF9DA72002FC16BF, p0, p1, p2); }
-	static BOOL HAS_VEHICLE_ASSET_LOADED(int vehicleAsset) { return Native::Invoke<BOOL, int>(N::HAS_VEHICLE_ASSET_LOADED, vehicleAsset); }
-	static void REMOVE_VEHICLE_ASSET(int vehicleAsset) { return Native::Invoke<void, int>(N::REMOVE_VEHICLE_ASSET, vehicleAsset); }
-	static Any SET_VEHICLE_AUTOMATICALLY_ATTACHES() { return Native::Invoke<Any>(N::SET_VEHICLE_AUTOMATICALLY_ATTACHES); }
+	static BOOL HAS_VEHICLE_ASSET_LOADED(int vehicleAsset) { return Native::Invoke<BOOL, int>(0xB935F3154BC913C8, vehicleAsset); }
+	static void REMOVE_VEHICLE_ASSET(int vehicleAsset) { return Native::Invoke<void, int>(0x888A4E675B38F5AD, vehicleAsset); }
+	static Any SET_VEHICLE_AUTOMATICALLY_ATTACHES() { return Native::Invoke<Any>(0x501354951CD942DE); }
 	static void _0x104D9A7B1C0D0783(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x104D9A7B1C0D0783, p0, p1); }
-	static BOOL IS_VEHICLE_IN_BURNOUT(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_VEHICLE_IN_BURNOUT, vehicle); }
-	static void SET_VEHICLE_HANDBRAKE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_HANDBRAKE, vehicle, toggle); }
+	static BOOL IS_VEHICLE_IN_BURNOUT(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x3F5029A8FC060C48, vehicle); }
+	static void SET_VEHICLE_HANDBRAKE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x91BE51AEC4E99710, vehicle, toggle); }
 	static void _0x1FF00DB43026B12F() { return Native::Invoke<void>(0x1FF00DB43026B12F); }
 	static Any _0x2701D01D5E18FC31() { return Native::Invoke<Any>(0x2701D01D5E18FC31); }
-	static Any GET_VEHICLE_TRAILER_VEHICLE() { return Native::Invoke<Any>(N::GET_VEHICLE_TRAILER_VEHICLE); }
-	static Any GET_VEHICLE_ESTIMATED_MAX_SPEED(Any p0) { return Native::Invoke<Any, Any>(N::GET_VEHICLE_ESTIMATED_MAX_SPEED, p0); }
-	static int _ADD_SPEED_ZONE_FOR_COORD(float x, float y, float z, float radius, float speed, BOOL p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<int, float, float, float, float, float, BOOL, Any, Any, Any, Any, Any>(N::_ADD_SPEED_ZONE_FOR_COORD, x, y, z, radius, speed, p5, p6, p7, p8, p9, p10); }
-	static BOOL _REMOVE_SPEED_ZONE(int speedzone) { return Native::Invoke<BOOL, int>(N::_REMOVE_SPEED_ZONE, speedzone); }
+	static BOOL GET_VEHICLE_TRAILER_VEHICLE() { return Native::Invoke<BOOL>(0xCF867A239EC30741); }
+	static Any GET_VEHICLE_ESTIMATED_MAX_SPEED(Any p0) { return Native::Invoke<Any, Any>(0xFE52F34491529F0B, p0); }
+	static int _ADD_SPEED_ZONE_FOR_COORD(float x, float y, float z, float radius, float speed, BOOL p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return Native::Invoke<int, float, float, float, float, float, BOOL, Any, Any, Any, Any, Any>(0x4C221BAC54D735C3, x, y, z, radius, speed, p5, p6, p7, p8, p9, p10); }
+	static BOOL _REMOVE_SPEED_ZONE(int speedzone) { return Native::Invoke<BOOL, int>(0xFE9AB3354ACE6C9C, speedzone); }
 	static Any _0x80DDCCB2F4A3EB57(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<Any, Any, Any, Any, Any, Any>(0x80DDCCB2F4A3EB57, p0, p1, p2, p3, p4); }
-	static Any CAN_SHUFFLE_SEAT() { return Native::Invoke<Any>(N::CAN_SHUFFLE_SEAT); }
-	static void MODIFY_VEHICLE_TOP_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::MODIFY_VEHICLE_TOP_SPEED, p0, p1); }
+	static BOOL CAN_SHUFFLE_SEAT() { return Native::Invoke<BOOL>(0xF8B2D32A2231FD24); }
+	static void MODIFY_VEHICLE_TOP_SPEED(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x35AD938C74CACD6A, p0, p1); }
 	static void _0x23A3AB86E0807721(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x23A3AB86E0807721, p0, p1); }
 	static void _0xC1842F40FD501DA2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC1842F40FD501DA2, p0, p1); }
 	static Any _0x30D86B2B7622D0EB(Any p0) { return Native::Invoke<Any, Any>(0x30D86B2B7622D0EB, p0); }
 	static void _0x09C970AE59ABF6B2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x09C970AE59ABF6B2, p0, p1); }
 	static Any _0x1EF36558FBDE2DAA() { return Native::Invoke<Any>(0x1EF36558FBDE2DAA); }
-	static Vehicle GET_LAST_DRIVEN_VEHICLE() { return Native::Invoke<Vehicle>(N::GET_LAST_DRIVEN_VEHICLE); }
-	static void CLEAR_LAST_DRIVEN_VEHICLE() { return Native::Invoke<void>(N::CLEAR_LAST_DRIVEN_VEHICLE); }
+	static Vehicle GET_LAST_DRIVEN_VEHICLE() { return Native::Invoke<Vehicle>(0xA94F3E0AB9695E19); }
+	static void CLEAR_LAST_DRIVEN_VEHICLE() { return Native::Invoke<void>(0x0EFC5DC62E67609B); }
 	static void _0x838C216C2B05A009(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x838C216C2B05A009, p0, p1); }
 	static Any _0xB729679356A889AE() { return Native::Invoke<Any>(0xB729679356A889AE); }
-	static void SET_VEHICLE_LOD_MULTIPLIER(Vehicle vehicle, float multiplier) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_LOD_MULTIPLIER, vehicle, multiplier); }
+	static void SET_VEHICLE_LOD_MULTIPLIER(Vehicle vehicle, float multiplier) { return Native::Invoke<void, Vehicle, float>(0x5F5E2B1B9EAECC0F, vehicle, multiplier); }
 	static void _0x3FA7D7D1E0EA809E(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x3FA7D7D1E0EA809E, p0, p1); }
 	static Any _0x7F8E2B131E1DCA6C() { return Native::Invoke<Any>(0x7F8E2B131E1DCA6C); }
-	static Any COPY_VEHICLE_DAMAGES() { return Native::Invoke<Any>(N::COPY_VEHICLE_DAMAGES); }
-	static void SET_VEHICLE_SHOOT_AT_TARGET(Ped driver, Entity entity, float xTarget, float yTarget, float zTarget, Any p5) { return Native::Invoke<void, Ped, Entity, float, float, float, Any>(N::SET_VEHICLE_SHOOT_AT_TARGET, driver, entity, xTarget, yTarget, zTarget, p5); }
-	static void SET_FORCE_HD_VEHICLE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_FORCE_HD_VEHICLE, vehicle, toggle); }
-	static void TRACK_VEHICLE_VISIBILITY(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(N::TRACK_VEHICLE_VISIBILITY, vehicle); }
-	static BOOL IS_VEHICLE_VISIBLE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(N::IS_VEHICLE_VISIBLE, vehicle); }
+	static Any COPY_VEHICLE_DAMAGES() { return Native::Invoke<Any>(0xDBC28A8C683CD80B); }
+	static void SET_VEHICLE_SHOOT_AT_TARGET(Ped driver, Entity entity, float xTarget, float yTarget, float zTarget, Any p5) { return Native::Invoke<void, Ped, Entity, float, float, float, Any>(0xB79BE78C665B3E6D, driver, entity, xTarget, yTarget, zTarget, p5); }
+	static void SET_FORCE_HD_VEHICLE(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x373CB1283308BD7B, vehicle, toggle); }
+	static void TRACK_VEHICLE_VISIBILITY(Vehicle vehicle) { return Native::Invoke<void, Vehicle>(0x1F3969B140DEE157, vehicle); }
+	static BOOL IS_VEHICLE_VISIBLE(Vehicle vehicle) { return Native::Invoke<BOOL, Vehicle>(0x424910CD5DE8C246, vehicle); }
 	static Any _0x13C190302369308B(Any p0) { return Native::Invoke<Any, Any>(0x13C190302369308B, p0); }
 	static Any _0x73F1E4F6DF26FE30() { return Native::Invoke<Any>(0x73F1E4F6DF26FE30); }
-	static void SET_VEHICLE_INACTIVE_DURING_PLAYBACK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(N::SET_VEHICLE_INACTIVE_DURING_PLAYBACK, p0, p1); }
-	static Any SET_VEHICLE_ENGINE_CAN_DEGRADE() { return Native::Invoke<Any>(N::SET_VEHICLE_ENGINE_CAN_DEGRADE); }
-	static Any SET_VEHICLE_IS_STOLEN(Vehicle vehicle, BOOL isStolen) { return Native::Invoke<Any, Vehicle, BOOL>(N::SET_VEHICLE_IS_STOLEN, vehicle, isStolen); }
+	static void SET_VEHICLE_INACTIVE_DURING_PLAYBACK(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4EA71B4C9DB3C3F1, p0, p1); }
+	static void SET_VEHICLE_ENGINE_CAN_DEGRADE() { return Native::Invoke<void>(0x48E4C137A71C2688); }
+	static Any SET_VEHICLE_IS_STOLEN(Vehicle vehicle, BOOL isStolen) { return Native::Invoke<Any, Vehicle, BOOL>(0x6C32FC81DFF25C9A, vehicle, isStolen); }
 	static void _0xCBF88256E44D5D39(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCBF88256E44D5D39, p0, p1); }
 	static void _0xC325A6BAA62CF8A2(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xC325A6BAA62CF8A2, p0, p1); }
 	static void _0x0CD7914D17A970AB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x0CD7914D17A970AB, p0, p1); }
 	static void _0x23F66C36F8E5EAAB(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x23F66C36F8E5EAAB, p0, p1); }
 	static void _0x697DF68F3A761A50(Any p0) { return Native::Invoke<void, Any>(0x697DF68F3A761A50, p0); }
 	static void _0x27E3F2B57209FA54(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x27E3F2B57209FA54, p0, p1); }
-	static void DISABLE_VEHICLE_WEAPON(BOOL disabled, Hash weaponHash, Vehicle vehicle, Ped owner) { return Native::Invoke<void, BOOL, Hash, Vehicle, Ped>(N::DISABLE_VEHICLE_WEAPON, disabled, weaponHash, vehicle, owner); }
-	static void SET_VEHICLE_CAN_BE_USED_BY_FLEEING_PEDS(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_CAN_BE_USED_BY_FLEEING_PEDS, vehicle, toggle); }
-	static void _SET_VEHICLE_JET_ENGINE_ON(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::_SET_VEHICLE_JET_ENGINE_ON, vehicle, toggle); }
-	static void SET_VEHICLE_WHEELS_CAN_BREAK_OFF_WHEN_BLOW_UP(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(N::SET_VEHICLE_WHEELS_CAN_BREAK_OFF_WHEN_BLOW_UP, vehicle, toggle); }
-	static Any SET_VEHICLE_EXCLUSIVE_DRIVER() { return Native::Invoke<Any>(N::SET_VEHICLE_EXCLUSIVE_DRIVER); }
-	static void _SET_VEHICLE_EXCLUSIVE_DRIVER_2(Vehicle vehicle, Ped ped, int p2) { return Native::Invoke<void, Vehicle, Ped, int>(N::_SET_VEHICLE_EXCLUSIVE_DRIVER_2, vehicle, ped, p2); }
+	static void DISABLE_VEHICLE_WEAPON(BOOL disabled, Hash weaponHash, Vehicle vehicle, Ped owner) { return Native::Invoke<void, BOOL, Hash, Vehicle, Ped>(0x94B1E71B144356A5, disabled, weaponHash, vehicle, owner); }
+	static void SET_VEHICLE_CAN_BE_USED_BY_FLEEING_PEDS(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xE42952510F84AFDB, vehicle, toggle); }
+	static void _SET_VEHICLE_JET_ENGINE_ON(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0x1549BA7FE83A2383, vehicle, toggle); }
+	static void SET_VEHICLE_WHEELS_CAN_BREAK_OFF_WHEN_BLOW_UP(Vehicle vehicle, BOOL toggle) { return Native::Invoke<void, Vehicle, BOOL>(0xC462C79379ABBCB1, vehicle, toggle); }
+	static void SET_VEHICLE_EXCLUSIVE_DRIVER() { return Native::Invoke<void>(0x0893DAFBFA67110E); }
+	static void _SET_VEHICLE_EXCLUSIVE_DRIVER_2(Vehicle vehicle, Ped ped, int p2) { return Native::Invoke<void, Vehicle, Ped, int>(0xC6B9BF123B9463B6, vehicle, ped, p2); }
 	static Any _0xB213D2A560B2E48B(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xB213D2A560B2E48B, p0, p1, p2); }
 	static void _0xDC0556D0F484ECAA(Any p0) { return Native::Invoke<void, Any>(0xDC0556D0F484ECAA, p0); }
-	static float GET_VEHICLE_BODY_HEALTH(Vehicle vehicle) { return Native::Invoke<float, Vehicle>(N::GET_VEHICLE_BODY_HEALTH, vehicle); }
-	static void SET_VEHICLE_BODY_HEALTH(Vehicle vehicle, float value) { return Native::Invoke<void, Vehicle, float>(N::SET_VEHICLE_BODY_HEALTH, vehicle, value); }
+	static float GET_VEHICLE_BODY_HEALTH(Vehicle vehicle) { return Native::Invoke<float, Vehicle>(0x42113B857E33C16E, vehicle); }
+	static void SET_VEHICLE_BODY_HEALTH(Vehicle vehicle, float value) { return Native::Invoke<void, Vehicle, float>(0x55CCAAE4F28C67A0, vehicle, value); }
 	static Any _0xE777DDF3E78397E8(Any p0) { return Native::Invoke<Any, Any>(0xE777DDF3E78397E8, p0); }
 	static void _0xCEC4CA2CAB8FA98C(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xCEC4CA2CAB8FA98C, p0, p1); }
 	static void _0x012701ED938B85DE(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x012701ED938B85DE, p0, p1); }
@@ -6861,11 +6861,11 @@ namespace _NAMESPACE81
 {
 	static void _0x754616EC6965D1FB() { return Native::Invoke<void>(0x754616EC6965D1FB); }
 	static void _0x754616EC6965D1BF() { return Native::Invoke<void>(0x754616EC6965D1BF); }
-	static BOOL GET_WATER_HEIGHT(float x, float y, float A, float* height) { return Native::Invoke<BOOL, float, float, float, float*>(N::GET_WATER_HEIGHT, x, y, A, height); }
-	static BOOL GET_WATER_HEIGHT_NO_WAVES(float B, float y, float z, float* height) { return Native::Invoke<BOOL, float, float, float, float*>(N::GET_WATER_HEIGHT_NO_WAVES, B, y, z, height); }
-	static int TEST_PROBE_AGAINST_ALL_WATER(float x1, float y1, float z1, float x2, float y2, float z2, int type, Vector3* result) { return Native::Invoke<int, float, float, float, float, float, float, int, Vector3*>(N::TEST_PROBE_AGAINST_ALL_WATER, x1, y1, z1, x2, y2, z2, type, result); }
-	static BOOL TEST_VERTICAL_PROBE_AGAINST_ALL_WATER(float x, float y, float z, float p3, float* height) { return Native::Invoke<BOOL, float, float, float, float, float*>(N::TEST_VERTICAL_PROBE_AGAINST_ALL_WATER, x, y, z, p3, height); }
-	static void _REMOVE_CURRENT_RISE(int riseHandle) { return Native::Invoke<void, int>(N::_REMOVE_CURRENT_RISE, riseHandle); }
+	static BOOL GET_WATER_HEIGHT(float x, float y, float A, float* height) { return Native::Invoke<BOOL, float, float, float, float*>(0xFCA8B23F28813F69, x, y, A, height); }
+	static BOOL GET_WATER_HEIGHT_NO_WAVES(float B, float y, float z, float* height) { return Native::Invoke<BOOL, float, float, float, float*>(0xDCF3690AA262C03F, B, y, z, height); }
+	static int TEST_PROBE_AGAINST_ALL_WATER(float x1, float y1, float z1, float x2, float y2, float z2, int type, Vector3* result) { return Native::Invoke<int, float, float, float, float, float, float, int, Vector3*>(0x8974647ED222EA5F, x1, y1, z1, x2, y2, z2, type, result); }
+	static BOOL TEST_VERTICAL_PROBE_AGAINST_ALL_WATER(float x, float y, float z, float p3, float* height) { return Native::Invoke<BOOL, float, float, float, float, float*>(0x2B3451FA1E3142E2, x, y, z, p3, height); }
+	static void _REMOVE_CURRENT_RISE(int riseHandle) { return Native::Invoke<void, int>(0x4BEF8DD75AF6C71C, riseHandle); }
 	static void _0x09A1C7DFDCE54FBC(Any p0) { return Native::Invoke<void, Any>(0x09A1C7DFDCE54FBC, p0); }
 	static void _0xF0FBF193F1F5C0EA(Any p0) { return Native::Invoke<void, Any>(0xF0FBF193F1F5C0EA, p0); }
 	static void _0xA33F5069B0CB89B8() { return Native::Invoke<void>(0xA33F5069B0CB89B8); }
@@ -6885,31 +6885,31 @@ namespace WEAPON
 	static void _0xF4823C813CB8277D(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xF4823C813CB8277D, p0, p1, p2, p3); }
 	static void _0xB6CFEC32E3742779(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0xB6CFEC32E3742779, p0, p1, p2, p3); }
 	static void _0x1B83C0DEEBCBB214(Any p0) { return Native::Invoke<void, Any>(0x1B83C0DEEBCBB214, p0); }
-	static void SET_PED_AMMO(Ped ped, Hash weaponHash, int ammo) { return Native::Invoke<void, Ped, Hash, int>(N::SET_PED_AMMO, ped, weaponHash, ammo); }
+	static void SET_PED_AMMO(Ped ped, Hash weaponHash, int ammo) { return Native::Invoke<void, Ped, Hash, int>(0x14E56BC5B5DB6A19, ped, weaponHash, ammo); }
 	static void _0x8A779706DA5CA3DD(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x8A779706DA5CA3DD, p0, p1, p2); }
 	static void _0x9409C62504A8F9E9(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x9409C62504A8F9E9, p0, p1); }
 	static void _0x56CB3B4305A4F7CE(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x56CB3B4305A4F7CE, p0, p1, p2, p3); }
 	static Any _0xBF5987E1CDE63501(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xBF5987E1CDE63501, p0, p1, p2, p3); }
 	static void _0x194D877FC5597B7D(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x194D877FC5597B7D, p0, p1, p2, p3); }
-	static void SET_PED_INFINITE_AMMO(Ped ped, BOOL toggle, Hash weaponHash) { return Native::Invoke<void, Ped, BOOL, Hash>(N::SET_PED_INFINITE_AMMO, ped, toggle, weaponHash); }
+	static void SET_PED_INFINITE_AMMO(Ped ped, BOOL toggle, Hash weaponHash) { return Native::Invoke<void, Ped, BOOL, Hash>(0x3EDCB0505123623B, ped, toggle, weaponHash); }
 	static void _0xFBAA1E06B6BCA741(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0xFBAA1E06B6BCA741, p0, p1); }
-	static int GET_AMMO_IN_PED_WEAPON(Ped ped, Hash weaponhash) { return Native::Invoke<int, Ped, Hash>(N::GET_AMMO_IN_PED_WEAPON, ped, weaponhash); }
-	static int GET_MAX_AMMO_IN_CLIP(Ped ped, Hash weaponHash, BOOL p2) { return Native::Invoke<int, Ped, Hash, BOOL>(N::GET_MAX_AMMO_IN_CLIP, ped, weaponHash, p2); }
-	static BOOL GET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int* ammo) { return Native::Invoke<BOOL, Ped, Hash, int*>(N::GET_AMMO_IN_CLIP, ped, weaponHash, ammo); }
+	static int GET_AMMO_IN_PED_WEAPON(Ped ped, Hash weaponhash) { return Native::Invoke<int, Ped, Hash>(0x015A522136D7F951, ped, weaponhash); }
+	static int GET_MAX_AMMO_IN_CLIP(Ped ped, Hash weaponHash, BOOL p2) { return Native::Invoke<int, Ped, Hash, BOOL>(0xA38DCFFCEA8962FA, ped, weaponHash, p2); }
+	static BOOL GET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int* ammo) { return Native::Invoke<BOOL, Ped, Hash, int*>(0x2E1202248937775C, ped, weaponHash, ammo); }
 	static Any _0x678F00858980F516() { return Native::Invoke<Any>(0x678F00858980F516); }
-	static BOOL SET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int ammo) { return Native::Invoke<BOOL, Ped, Hash, int>(N::SET_AMMO_IN_CLIP, ped, weaponHash, ammo); }
+	static BOOL SET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int ammo) { return Native::Invoke<BOOL, Ped, Hash, int>(0xDCD2A934D65CB497, ped, weaponHash, ammo); }
 	static Any _0xDF4A3404D022ADDE() { return Native::Invoke<Any>(0xDF4A3404D022ADDE); }
-	static BOOL GET_MAX_AMMO(Ped ped, Hash weaponHash, int* ammo) { return Native::Invoke<BOOL, Ped, Hash, int*>(N::GET_MAX_AMMO, ped, weaponHash, ammo); }
-	static void SET_PED_AMMO_BY_TYPE(Ped ped, Hash ammoType, int ammo) { return Native::Invoke<void, Ped, Hash, int>(N::SET_PED_AMMO_BY_TYPE, ped, ammoType, ammo); }
-	static int GET_PED_AMMO_BY_TYPE(Ped ped, Hash ammoType) { return Native::Invoke<int, Ped, Hash>(N::GET_PED_AMMO_BY_TYPE, ped, ammoType); }
-	static Any SET_PED_AMMO_TO_DROP() { return Native::Invoke<Any>(N::SET_PED_AMMO_TO_DROP); }
+	static BOOL GET_MAX_AMMO(Ped ped, Hash weaponHash, int* ammo) { return Native::Invoke<BOOL, Ped, Hash, int*>(0xDC16122C7A20C933, ped, weaponHash, ammo); }
+	static void SET_PED_AMMO_BY_TYPE(Ped ped, Hash ammoType, int ammo) { return Native::Invoke<void, Ped, Hash, int>(0x5FD1E1F011E76D7E, ped, ammoType, ammo); }
+	static int GET_PED_AMMO_BY_TYPE(Ped ped, Hash ammoType) { return Native::Invoke<int, Ped, Hash>(0x39D22031557946C1, ped, ammoType); }
+	static void SET_PED_AMMO_TO_DROP() { return Native::Invoke<void>(0xA4EFEF9440A5B0EF); }
 	static Any _0x5C2EA6C44F515F34(Any p0) { return Native::Invoke<Any, Any>(0x5C2EA6C44F515F34, p0); }
-	static Hash GET_PED_AMMO_TYPE_FROM_WEAPON(Ped ped, Hash weaponHash) { return Native::Invoke<Hash, Ped, Hash>(N::GET_PED_AMMO_TYPE_FROM_WEAPON, ped, weaponHash); }
+	static Hash GET_PED_AMMO_TYPE_FROM_WEAPON(Ped ped, Hash weaponHash) { return Native::Invoke<Hash, Ped, Hash>(0x7FEAD38B326B9F74, ped, weaponHash); }
 	static Any _0x7AA043F6C41D151E(Any p0) { return Native::Invoke<Any, Any>(0x7AA043F6C41D151E, p0); }
 	static Any _0x59DE03442B6C9598(Any p0) { return Native::Invoke<Any, Any>(0x59DE03442B6C9598, p0); }
 	static Any _0xF70825EB340E7D15(Any p0) { return Native::Invoke<Any, Any>(0xF70825EB340E7D15, p0); }
 	static Any _0x46F032B8DDF46CDE() { return Native::Invoke<Any>(0x46F032B8DDF46CDE); }
-	static Hash GET_WEAPONTYPE_GROUP(Hash weaponHash) { return Native::Invoke<Hash, Hash>(N::GET_WEAPONTYPE_GROUP, weaponHash); }
+	static Hash GET_WEAPONTYPE_GROUP(Hash weaponHash) { return Native::Invoke<Hash, Hash>(0xEDCA14CA5199FF25, weaponHash); }
 	static Any _0xF8204EF17410BF43(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xF8204EF17410BF43, p0, p1, p2, p3); }
 	static Any _0x6ABAD7B0A854F8FB(Any p0) { return Native::Invoke<Any, Any>(0x6ABAD7B0A854F8FB, p0); }
 	static Any _0x49E40483948AF062(Any p0) { return Native::Invoke<Any, Any>(0x49E40483948AF062, p0); }
@@ -6923,47 +6923,47 @@ namespace WEAPON
 	static void _0x94A3C1B804D291EC(Any p0, Any p1, Any p2, Any p3, Any p4) { return Native::Invoke<void, Any, Any, Any, Any, Any>(0x94A3C1B804D291EC, p0, p1, p2, p3, p4); }
 	static void _0xFCCC886EDE3C63EC(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xFCCC886EDE3C63EC, p0, p1, p2); }
 	static void _0x4820A6939D7CEF28(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4820A6939D7CEF28, p0, p1); }
-	static void SET_CURRENT_PED_WEAPON(Ped ped, Hash weaponHash, BOOL equipNow, Any p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Hash, BOOL, Any, Any, Any>(N::SET_CURRENT_PED_WEAPON, ped, weaponHash, equipNow, p3, p4, p5); }
-	static BOOL GET_CURRENT_PED_WEAPON(Ped ped, Hash* weaponHash, BOOL unused, Any p3, Any p4) { return Native::Invoke<BOOL, Ped, Hash*, BOOL, Any, Any>(N::GET_CURRENT_PED_WEAPON, ped, weaponHash, unused, p3, p4); }
-	static Entity GET_CURRENT_PED_WEAPON_ENTITY_INDEX(Ped ped, Any p1) { return Native::Invoke<Entity, Ped, Any>(N::GET_CURRENT_PED_WEAPON_ENTITY_INDEX, ped, p1); }
+	static void SET_CURRENT_PED_WEAPON(Ped ped, Hash weaponHash, BOOL equipNow, Any p3, Any p4, Any p5) { return Native::Invoke<void, Ped, Hash, BOOL, Any, Any, Any>(0xADF692B254977C0C, ped, weaponHash, equipNow, p3, p4, p5); }
+	static BOOL GET_CURRENT_PED_WEAPON(Ped ped, Hash* weaponHash, BOOL unused, Any p3, Any p4) { return Native::Invoke<BOOL, Ped, Hash*, BOOL, Any, Any>(0x3A87E44BB9A01D54, ped, weaponHash, unused, p3, p4); }
+	static Entity GET_CURRENT_PED_WEAPON_ENTITY_INDEX(Ped ped, Any p1) { return Native::Invoke<Entity, Ped, Any>(0x3B390A939AF0B5FC, ped, p1); }
 	static Any _0xC395355843BE134B(Any p0) { return Native::Invoke<Any, Any>(0xC395355843BE134B, p0); }
 	static Any _0xC71FE230A513C30F() { return Native::Invoke<Any>(0xC71FE230A513C30F); }
 	static Any _0xDA37A053C1522F5D(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0xDA37A053C1522F5D, p0, p1, p2, p3); }
-	static Hash GET_BEST_PED_WEAPON(Ped ped, BOOL p1, Any p2) { return Native::Invoke<Hash, Ped, BOOL, Any>(N::GET_BEST_PED_WEAPON, ped, p1, p2); }
+	static Hash GET_BEST_PED_WEAPON(Ped ped, BOOL p1, Any p2) { return Native::Invoke<Hash, Ped, BOOL, Any>(0x8483E98E8B888AE2, ped, p1, p2); }
 	static Any _0xF52BD94B47CCF736() { return Native::Invoke<Any>(0xF52BD94B47CCF736); }
 	static Any _0x6929E22158E52265(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x6929E22158E52265, p0, p1, p2); }
 	static Any _0x9F67929D98E7C6E8(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<Any, Any, Any, Any, Any>(0x9F67929D98E7C6E8, p0, p1, p2, p3); }
 	static Any _0x08FF1099ED2E6E21(Any p0) { return Native::Invoke<Any, Any>(0x08FF1099ED2E6E21, p0); }
 	static void _0xBDDA0C290C228159(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xBDDA0C290C228159, p0, p1, p2); }
-	static BOOL SET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash weaponHash) { return Native::Invoke<BOOL, Ped, Hash>(N::SET_CURRENT_PED_VEHICLE_WEAPON, ped, weaponHash); }
-	static BOOL GET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash* weaponHash) { return Native::Invoke<BOOL, Ped, Hash*>(N::GET_CURRENT_PED_VEHICLE_WEAPON, ped, weaponHash); }
+	static BOOL SET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash weaponHash) { return Native::Invoke<BOOL, Ped, Hash>(0x75C55983C2C39DAA, ped, weaponHash); }
+	static BOOL GET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash* weaponHash) { return Native::Invoke<BOOL, Ped, Hash*>(0x1017582BCD3832DC, ped, weaponHash); }
 	static Any _0xCB690F680A3EA971(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xCB690F680A3EA971, p0, p1); }
 	static Any _0xA2091482ED42EF85(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xA2091482ED42EF85, p0, p1); }
 	static Any _0x2387D6E9C6B478AA(Any p0) { return Native::Invoke<Any, Any>(0x2387D6E9C6B478AA, p0); }
-	static BOOL IS_WEAPON_VALID(Hash weaponHash) { return Native::Invoke<BOOL, Hash>(N::IS_WEAPON_VALID, weaponHash); }
+	static BOOL IS_WEAPON_VALID(Hash weaponHash) { return Native::Invoke<BOOL, Hash>(0x937C71165CF334B3, weaponHash); }
 	static Any _0x1F7977C9101F807F(Any p0) { return Native::Invoke<Any, Any>(0x1F7977C9101F807F, p0); }
 	static Any _0x23BF601A42F329A0(Any p0) { return Native::Invoke<Any, Any>(0x23BF601A42F329A0, p0); }
 	static Any _0xF29A186ED428B552(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xF29A186ED428B552, p0, p1); }
-	static BOOL HAS_PED_GOT_WEAPON(Ped ped, Hash weaponHash, BOOL p2, Any p3) { return Native::Invoke<BOOL, Ped, Hash, BOOL, Any>(N::HAS_PED_GOT_WEAPON, ped, weaponHash, p2, p3); }
+	static BOOL HAS_PED_GOT_WEAPON(Ped ped, Hash weaponHash, BOOL p2, Any p3) { return Native::Invoke<BOOL, Ped, Hash, BOOL, Any>(0x8DECB02F88F428BC, ped, weaponHash, p2, p3); }
 	static Any _0x07E1C35F0078C3F9(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x07E1C35F0078C3F9, p0, p1); }
-	static BOOL IS_PED_WEAPON_READY_TO_SHOOT(Ped ped) { return Native::Invoke<BOOL, Ped>(N::IS_PED_WEAPON_READY_TO_SHOOT, ped); }
+	static BOOL IS_PED_WEAPON_READY_TO_SHOOT(Ped ped) { return Native::Invoke<BOOL, Ped>(0xB80CA294F2F26749, ped); }
 	static Any _0xDBC4B552B2AE9A83(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xDBC4B552B2AE9A83, p0, p1); }
-	static Any GIVE_DELAYED_WEAPON_TO_PED() { return Native::Invoke<Any>(N::GIVE_DELAYED_WEAPON_TO_PED); }
-	static void REMOVE_ALL_PED_WEAPONS(Ped ped, BOOL unused, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(N::REMOVE_ALL_PED_WEAPONS, ped, unused, p2); }
-	static void REMOVE_WEAPON_FROM_PED(Ped ped, Hash weaponHash, Any p2, Any p3) { return Native::Invoke<void, Ped, Hash, Any, Any>(N::REMOVE_WEAPON_FROM_PED, ped, weaponHash, p2, p3); }
-	static void HIDE_PED_WEAPON_FOR_SCRIPTED_CUTSCENE(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::HIDE_PED_WEAPON_FOR_SCRIPTED_CUTSCENE, ped, toggle); }
-	static void SET_PED_CURRENT_WEAPON_VISIBLE(Ped ped, BOOL visible, BOOL deselectWeapon, BOOL p3, BOOL p4) { return Native::Invoke<void, Ped, BOOL, BOOL, BOOL, BOOL>(N::SET_PED_CURRENT_WEAPON_VISIBLE, ped, visible, deselectWeapon, p3, p4); }
+	static void GIVE_DELAYED_WEAPON_TO_PED() { return Native::Invoke<void>(0xB282DC6EBD803C75); }
+	static void REMOVE_ALL_PED_WEAPONS(Ped ped, BOOL unused, Any p2) { return Native::Invoke<void, Ped, BOOL, Any>(0xF25DF915FA38C5F3, ped, unused, p2); }
+	static void REMOVE_WEAPON_FROM_PED(Ped ped, Hash weaponHash, Any p2, Any p3) { return Native::Invoke<void, Ped, Hash, Any, Any>(0x4899CB088EDF59B8, ped, weaponHash, p2, p3); }
+	static void HIDE_PED_WEAPON_FOR_SCRIPTED_CUTSCENE(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x6F6981D2253C208F, ped, toggle); }
+	static void SET_PED_CURRENT_WEAPON_VISIBLE(Ped ped, BOOL visible, BOOL deselectWeapon, BOOL p3, BOOL p4) { return Native::Invoke<void, Ped, BOOL, BOOL, BOOL, BOOL>(0x0725A4CCFDED9A70, ped, visible, deselectWeapon, p3, p4); }
 	static void _0x67E21ACC5C0C970C(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0x67E21ACC5C0C970C, p0, p1, p2); }
 	static void _0x4F806A6CFED89468(Any p0, Any p1) { return Native::Invoke<void, Any, Any>(0x4F806A6CFED89468, p0, p1); }
-	static void SET_PED_DROPS_WEAPONS_WHEN_DEAD(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(N::SET_PED_DROPS_WEAPONS_WHEN_DEAD, ped, toggle); }
+	static void SET_PED_DROPS_WEAPONS_WHEN_DEAD(Ped ped, BOOL toggle) { return Native::Invoke<void, Ped, BOOL>(0x476AE72C1D19D1A8, ped, toggle); }
 	static Any _0x431240A58484D5D0() { return Native::Invoke<Any>(0x431240A58484D5D0); }
 	static Any _0x45E57FDD531C9477() { return Native::Invoke<Any>(0x45E57FDD531C9477); }
 	static Any _0xF08D8FEB455F2C8C() { return Native::Invoke<Any>(0xF08D8FEB455F2C8C); }
 	static Any _0x16D9841A85FA627E() { return Native::Invoke<Any>(0x16D9841A85FA627E); }
-	static BOOL GET_PED_LAST_WEAPON_IMPACT_COORD(Ped ped, Vector3* coords) { return Native::Invoke<BOOL, Ped, Vector3*>(N::GET_PED_LAST_WEAPON_IMPACT_COORD, ped, coords); }
+	static BOOL GET_PED_LAST_WEAPON_IMPACT_COORD(Ped ped, Vector3* coords) { return Native::Invoke<BOOL, Ped, Vector3*>(0x6C4D0409BA1A2BC2, ped, coords); }
 	static void _0x087D8F4BC65F68E4(Any p0) { return Native::Invoke<void, Any>(0x087D8F4BC65F68E4, p0); }
 	static Any _0xDCF06D0CDFF68424(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0xDCF06D0CDFF68424, p0, p1, p2); }
-	static void SET_PED_DROPS_INVENTORY_WEAPON(Ped ped, Hash weaponHash, float xOffset, float yOffset, float zOffset, int ammoCount) { return Native::Invoke<void, Ped, Hash, float, float, float, int>(N::SET_PED_DROPS_INVENTORY_WEAPON, ped, weaponHash, xOffset, yOffset, zOffset, ammoCount); }
+	static void SET_PED_DROPS_INVENTORY_WEAPON(Ped ped, Hash weaponHash, float xOffset, float yOffset, float zOffset, int ammoCount) { return Native::Invoke<void, Ped, Hash, float, float, float, int>(0x208A1888007FC0E6, ped, weaponHash, xOffset, yOffset, zOffset, ammoCount); }
 	static void _0xB0FB9B196A3D13F0(Any p0, Any p1, Any p2) { return Native::Invoke<void, Any, Any, Any>(0xB0FB9B196A3D13F0, p0, p1, p2); }
 	static Any _0x2EBF70E1D8C06683() { return Native::Invoke<Any>(0x2EBF70E1D8C06683); }
 	static Any _0x63B83A526329AFBC() { return Native::Invoke<Any>(0x63B83A526329AFBC); }
@@ -6999,8 +6999,8 @@ namespace WEAPON
 	static Any _0x9E2D5D6BC97A5F1E(Any p0, Any p1, Any p2) { return Native::Invoke<Any, Any, Any, Any>(0x9E2D5D6BC97A5F1E, p0, p1, p2); }
 	static Any _0x90EB1CB189923587() { return Native::Invoke<Any>(0x90EB1CB189923587); }
 	static Any _0x9888652B8BA77F73(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return Native::Invoke<Any, Any, Any, Any, Any, Any, Any, Any>(0x9888652B8BA77F73, p0, p1, p2, p3, p4, p5, p6); }
-	static void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(Object weaponObject, Hash component) { return Native::Invoke<void, Object, Hash>(N::REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT, weaponObject, component); }
-	static BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(Object weapon, Hash addonHash) { return Native::Invoke<BOOL, Object, Hash>(N::HAS_WEAPON_GOT_WEAPON_COMPONENT, weapon, addonHash); }
+	static void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(Object weaponObject, Hash component) { return Native::Invoke<void, Object, Hash>(0xF7D82B0D66777611, weaponObject, component); }
+	static BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(Object weapon, Hash addonHash) { return Native::Invoke<BOOL, Object, Hash>(0x76A18844E743BF91, weapon, addonHash); }
 	static void _0x1A47699E8D533E8F(Any p0, Any p1, Any p2, Any p3) { return Native::Invoke<void, Any, Any, Any, Any>(0x1A47699E8D533E8F, p0, p1, p2, p3); }
 	static Any _0xC6A6789BB405D11C(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0xC6A6789BB405D11C, p0, p1); }
 	static Any _0x6CA484C9A7377E4F(Any p0, Any p1) { return Native::Invoke<Any, Any, Any>(0x6CA484C9A7377E4F, p0, p1); }

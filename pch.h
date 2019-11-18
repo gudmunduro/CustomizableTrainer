@@ -11,12 +11,14 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
+#include <functional>
 #include "core/Hash.h"
 #include "core/NativeEngine.h"
 #include "core/NativeNames.h"
 #include "alt-log.h"
 #include "types.h"
 #include "natives.h"
+#include "Game.h"
 
 #define DLL_EXPORT __declspec(dllexport)
 

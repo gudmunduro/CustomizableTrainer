@@ -1,7 +1,7 @@
 ﻿// dllmain.cpp : Script entry point
 
 #include "pch.h"
-#include "FlyingHorse.h"
+#include "Menu.h"
 
 ALT_LOG_IMPL;
 
@@ -32,11 +32,11 @@ static std::wstring GetModulePath(HMODULE module)
 	return moduleDir;
 }
 
-FlyingHorse flyingHorseResource;
+Menu menu;
 
 void TickCpp()
 {
-	flyingHorseResource.Tick();
+	menu.Tick();
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ extern "C" {
 	{
 		if (key == 0x71)
 		{
-			flyingHorseResource.superRun = !flyingHorseResource.superRun;
+			// flyingHorseResource.superRun = !flyingHorseResource.superRun;
 		}
 		if (key == 0x10)
 		{
