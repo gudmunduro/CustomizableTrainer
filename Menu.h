@@ -10,6 +10,6 @@ public:
 	Vector2 position;
 	std::vector<Submenu*> submenuStack;
     void Tick();
-	void SetSubmenu(std::string id);
+	void SetSubmenu(std::string key);
 private:
 };

@@ -1,7 +1,20 @@
 #include "pch.h"
 #include "ToggleManager.h"
 
-bool* ToggleManager::ToggleForKey(std::string key)
+// MARK: Manage
+void ToggleManager::RegisterToggle(string key, bool* toggle)
 {
-	return nullptr;
+	if (toggles.count(key)) {
+		// Key already registered
+		// TODO: Implement logging
+		return;
+	}
+	toggles[key] = toggle;
+}
+
+
+// MARK: Get
+bool* ToggleManager::GetToggleForKey(string key)
+{
+	return toggles[key];
 }

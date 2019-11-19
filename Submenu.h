@@ -1,24 +1,27 @@
 #pragma once
 
 #include "pch.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
 
 class Submenu {
 public:
-	Submenu(std::string title, std::vector<MenuOption> options, Vector2 menuPos);
-	std::string title;
+	Submenu(std::string title, std::vector<MenuOption> options, Vector2 menuPos, std::function<void(std::string key)> setSubmenu);
+
+	void Draw();
+	void DrawTitle(string text);
+	void DrawSub(string text, string subKey);
+	void DrawAction(string text, std::string actionKey);
+	void DrawToggle(string text, std::string toggleKey);
+
+	int GetOptionCount();
+
+	void RespondToControls();
+	float CurrentOptionPosY();
+private:
+	string title;
 	std::vector<MenuOption> options;
 	Vector2 menuPos;
 	int selection;
 	int drawIndex;
-
-	void Draw();
-	void DrawTitle(string text);
-	void DrawSub(string text);
-	void DrawAction(string text, std::function<void()> action);
-	void DrawToggle(string text, bool* toggle);
-	float CurrentOptionPosY();
-private:
+	std::function<void(std::string key)> setSubmenu;
 };
 

@@ -4,6 +4,9 @@
 class ToggleManager
 {
 public:
-	static bool* ToggleForKey(std::string key);
+	static void RegisterToggle(string key, bool* toggle);
+	static bool* GetToggleForKey(string key);
+private:
+	static std::map<string, bool*> toggles;
 };
 

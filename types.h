@@ -43,6 +43,14 @@ struct Vector2
 	float y;
 };
 
+struct Color
+{
+	int r;
+	int g;
+	int b;
+	int a;
+};
+
 
 // MARK: Custom
 

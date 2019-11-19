@@ -95,6 +95,7 @@
   <ItemGroup>
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="alt-log.h" />
+    <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="core\NativeEngine.h" />
     <ClInclude Include="core\NativeNames.h" />
@@ -109,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
+    <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="core\NativeEngine.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game.cpp" />

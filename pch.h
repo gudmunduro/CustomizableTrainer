@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
+#include <map>
 #include <functional>
 #include "core/Hash.h"
 #include "core/NativeEngine.h"

@@ -1,7 +1,20 @@
 #include "pch.h"
 #include "ActionManager.h"
 
-std::function<void()> ActionManager::ActionForKey(std::string key)
+// Manage
+void ActionManager::RegisterAction(std::string key, std::function<void()> action)
 {
-	return nullptr;
+	if (actions.count(key)) {
+		// Key already registered
+		// TODO: Implement logging
+		return;
+	}
+	actions[key] = action;
+}
+
+
+// Get
+std::function<void()> ActionManager::GetActionForKey(std::string key)
+{
+	return actions[key];
 }

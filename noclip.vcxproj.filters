@@ -54,9 +54,6 @@
     <ClInclude Include="Menu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Headers\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="Submenu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
@@ -65,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="ActionManager.h">
       <Filter>Headers\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlManager.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Headers\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="ToggleManager.cpp">
       <Filter>Source\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlManager.cpp">
+      <Filter>Source\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

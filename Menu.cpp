@@ -14,7 +14,7 @@ void Menu::Tick()
 	}
 }
 
-void Menu::SetSubmenu(std::string id)
+void Menu::SetSubmenu(std::string key)
 {
 
 }
