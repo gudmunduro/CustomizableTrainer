@@ -4,7 +4,7 @@
 #include "ToggleManager.h"
 #include "ControlManager.h"
 
-Submenu::Submenu(std::string title, std::vector<MenuOption> options, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
+Submenu::Submenu(string title, std::vector<MenuOption> options, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
 	this->menuPos = menuPos;
 	this->title = title;
 	this->options = options;
@@ -15,6 +15,7 @@ Submenu::Submenu(std::string title, std::vector<MenuOption> options, Vector2 men
 
 void Submenu::Draw() {
 	drawIndex = 0;
+	RespondToControls();
 	DrawTitle(title);
 	for (MenuOption option : options) {
 		switch (option.type) {
@@ -50,7 +51,7 @@ void Submenu::DrawSub(string text, string subKey) {
 	drawIndex++;
 }
 
-void Submenu::DrawAction(string text, std::string actionKey) {
+void Submenu::DrawAction(string text, string actionKey) {
 	if (selection == drawIndex) {
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, { 0, 0, 255, 255 });
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
@@ -65,7 +66,7 @@ void Submenu::DrawAction(string text, std::string actionKey) {
 	drawIndex++;
 }
 
-void Submenu::DrawToggle(string text, std::string toggleKey)
+void Submenu::DrawToggle(string text, string toggleKey)
 {
 	bool* toggle = ToggleManager::GetToggleForKey(toggleKey);
 	if (selection == drawIndex) {
@@ -95,9 +96,11 @@ void Submenu::RespondToControls()
 {
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuDown)) {
 		if (selection < GetOptionCount() - 1) selection++;
+		else selection = 0;
 	}
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuUp)) {
 		if (selection > 0) selection--;
+		else selection = GetOptionCount() - 1;
 	}
 
 }

@@ -2,7 +2,7 @@
 #include "ActionManager.h"
 
 // Manage
-void ActionManager::RegisterAction(std::string key, std::function<void()> action)
+void ActionManager::RegisterAction(string key, std::function<void()> action)
 {
 	if (actions.count(key)) {
 		// Key already registered
@@ -14,7 +14,7 @@ void ActionManager::RegisterAction(std::string key, std::function<void()> action
 
 
 // Get
-std::function<void()> ActionManager::GetActionForKey(std::string key)
+std::function<void()> ActionManager::GetActionForKey(string key)
 {
 	return actions[key];
 }

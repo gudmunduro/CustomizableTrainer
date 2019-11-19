@@ -9,7 +9,8 @@ public:
 	Menu();
 	Vector2 position;
 	std::vector<Submenu*> submenuStack;
+
     void Tick();
-	void SetSubmenu(std::string key);
 private:
+	std::function<void(string key)> setSubmenu;
 };
