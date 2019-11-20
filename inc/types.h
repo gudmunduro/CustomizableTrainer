@@ -1,6 +1,13 @@
+/*
+	THIS FILE IS A PART OF RDR 2 SCRIPT HOOK SDK
+				http://dev-c.com
+			(C) Alexander Blade 2019
+*/
+
 #pragma once
 
 #include <windows.h>
+#include "pch.h"
 
 typedef DWORD Void;
 typedef DWORD Any;
@@ -27,20 +34,22 @@ typedef int Camera;
 typedef int TaskSequence;
 typedef int ColourIndex;
 typedef int Sphere;
-typedef int INT, ScrHandle;
+typedef int ScrHandle;
 typedef std::string string;
+
+#define ALIGN8 __declspec(align(8))
 
 struct Vector3
 {
-	float x;
-	float y;
-	float z;
+	ALIGN8 float x;
+	ALIGN8 float y;
+	ALIGN8 float z;
 };
 
 struct Vector2
 {
-	float x;
-	float y;
+	ALIGN8 float x;
+	ALIGN8 float y;
 };
 
 struct Color
@@ -51,25 +60,6 @@ struct Color
 	int a;
 };
 
+static_assert(sizeof(Vector3) == 24, "");
 
 // MARK: Custom
-
-// MARK: Enums
-enum class MenuOptionType {
-	Action,
-	Toggle,
-	Sub
-};
-
-struct MenuOption
-{
-	MenuOptionType type;
-	string text;
-	string key;
-};
-
-struct SubmenuData
-{
-	string title;
-	std::vector<MenuOption> options;
-};

@@ -25,30 +25,15 @@
     <Filter Include="Headers\Actions">
       <UniqueIdentifier>{870576bc-9871-4a9d-80ba-fdd58a5aa89f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{41764acf-dadc-4ee8-bef4-b21e743ce62f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="core\NativeEngine.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="core\Hash.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="alt-log.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="core\NativeNames.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="natives.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="types.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
@@ -72,15 +57,33 @@
     <ClInclude Include="E:\Downloads\json.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\enums.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\nativeCaller.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\natives.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\types.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\main.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="script.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="core\NativeEngine.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
@@ -100,6 +103,12 @@
     </ClCompile>
     <ClCompile Include="ControlManager.cpp">
       <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="script.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

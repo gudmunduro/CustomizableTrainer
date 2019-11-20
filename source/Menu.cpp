@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Menu.h"
-#include "alt-log.h"
 
 Menu::Menu()
 {

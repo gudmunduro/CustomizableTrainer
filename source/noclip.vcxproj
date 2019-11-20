@@ -47,6 +47,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\$(Configuration)</OutDir>
+    <IncludePath>$(solutionDir)..\inc;$(IncludePath)</IncludePath>
+    <TargetExt>.asi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -59,7 +61,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;noclip_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -68,6 +70,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ScriptHookRDR2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -93,33 +97,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\inc\enums.h" />
+    <ClInclude Include="..\inc\main.h" />
+    <ClInclude Include="..\inc\nativeCaller.h" />
+    <ClInclude Include="..\inc\natives.h" />
+    <ClInclude Include="..\inc\types.h" />
     <ClInclude Include="ActionManager.h" />
-    <ClInclude Include="alt-log.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
-    <ClInclude Include="core\NativeEngine.h" />
-    <ClInclude Include="core\NativeNames.h" />
     <ClInclude Include="E:\Downloads\json.hpp" />
-    <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="keyboard.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="natives.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="script.h" />
     <ClInclude Include="Submenu.h" />
     <ClInclude Include="ToggleManager.h" />
-    <ClInclude Include="types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="ControlManager.cpp" />
-    <ClCompile Include="core\NativeEngine.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="script.cpp" />
     <ClCompile Include="Submenu.cpp" />
     <ClCompile Include="ToggleManager.cpp" />
   </ItemGroup>
