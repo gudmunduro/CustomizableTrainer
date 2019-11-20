@@ -4,7 +4,7 @@
 
 class Submenu {
 public:
-	Submenu(string title, std::vector<MenuOption> options, Vector2 menuPos, std::function<void(std::string key)> setSubmenu);
+	Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu);
 
 	void Draw();
 	void DrawTitle(string text);

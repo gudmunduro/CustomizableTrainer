@@ -64,6 +64,12 @@ enum class MenuOptionType {
 struct MenuOption
 {
 	MenuOptionType type;
-	std::string text;
-	std::string key;
+	string text;
+	string key;
+};
+
+struct SubmenuData
+{
+	string title;
+	std::vector<MenuOption> options;
 };

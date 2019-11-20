@@ -99,6 +99,7 @@
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="core\NativeEngine.h" />
     <ClInclude Include="core\NativeNames.h" />
+    <ClInclude Include="E:\Downloads\json.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />

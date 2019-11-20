@@ -4,10 +4,10 @@
 #include "ToggleManager.h"
 #include "ControlManager.h"
 
-Submenu::Submenu(string title, std::vector<MenuOption> options, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
+Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
 	this->menuPos = menuPos;
-	this->title = title;
-	this->options = options;
+	this->title = submenuData.title;
+	this->options = submenuData.options;
 	this->setSubmenu = setSubmenu;
 	selection = 0;
 	drawIndex = 0;
@@ -68,7 +68,7 @@ void Submenu::DrawAction(string text, string actionKey) {
 
 void Submenu::DrawToggle(string text, string toggleKey)
 {
-	bool* toggle = ToggleManager::GetToggleForKey(toggleKey);
+	std::shared_ptr<bool> toggle(ToggleManager::GetToggleForKey(toggleKey));
 	if (selection == drawIndex) {
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, { 0, 0, 255, 255 });
 		Game::Text::DrawText(toggle ? "On" : "Off", { menuPos.x + 0.01f, CurrentOptionPosY() }, { 0, 0, 255, 255 });
@@ -77,7 +77,6 @@ void Submenu::DrawToggle(string text, string toggleKey)
 		}
 	}
 	else {
-		bool* toggle = ToggleManager::GetToggleForKey(toggleKey);
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() });
 		Game::Text::DrawText(toggle ? "On" : "Off", { menuPos.x + 0.01f, CurrentOptionPosY() });
 	}

@@ -69,6 +69,9 @@
     <ClInclude Include="Game.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="E:\Downloads\json.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
