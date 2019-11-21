@@ -28,6 +28,12 @@
     <Filter Include="Include">
       <UniqueIdentifier>{41764acf-dadc-4ee8-bef4-b21e743ce62f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Data">
+      <UniqueIdentifier>{12a9c252-4964-49ef-a3c6-46cd04936875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Data">
+      <UniqueIdentifier>{7148d670-9905-4411-8022-0678d0a33354}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -54,9 +60,6 @@
     <ClInclude Include="Game.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Downloads\json.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\enums.h">
       <Filter>Include</Filter>
     </ClInclude>
@@ -77,6 +80,12 @@
     </ClInclude>
     <ClInclude Include="script.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonDataManager.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\json.hpp">
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="script.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonDataManager.cpp">
+      <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

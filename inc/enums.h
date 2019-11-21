@@ -22,5 +22,6 @@ struct MenuOption
 struct SubmenuData
 {
 	string title;
+	string key;
 	std::vector<MenuOption> options;
 };

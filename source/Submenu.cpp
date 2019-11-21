@@ -105,5 +105,5 @@ void Submenu::RespondToControls()
 }
 
 float Submenu::CurrentOptionPosY() {
-	return menuPos.y + 0.04 + (0.02 * (float)drawIndex);
+	return menuPos.y + 0.04 + (0.024 * (float)drawIndex);
 }

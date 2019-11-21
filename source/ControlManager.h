@@ -32,7 +32,9 @@ public:
 enum class MenuControl {
 	MenuOptionPress,
 	MenuUp,
-	MenuDown
+	MenuDown,
+	MenuGoBack,
+	MenuOpen
 };
 
 class ControlManager

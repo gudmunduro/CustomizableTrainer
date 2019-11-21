@@ -1,9 +1,12 @@
 #include "pch.h"
 #include "Menu.h"
+#include "ControlManager.h"
+#include "JsonDataManager.h"
 
 Menu::Menu()
 {
 	position = { 0.054f, 0.1f };
+	shouldDrawMenu = false;
 	setSubmenu = [this](string key) {
 		if (DoesSubmenuExistForKey(key)) {
 			Submenu submenu = GetSubmenuForKey(key);
@@ -11,8 +14,18 @@ Menu::Menu()
 		}
 	};
 	// Test data
-	SubmenuData testMenuData = {
+	/*SubmenuData testMenuData = {
 		"Test menu",
+		"testmenu",
+		{
+			{ MenuOptionType::Sub, "Open sub 1", "testmenu2" },
+			{ MenuOptionType::Action, "Test option 2", "key" },
+			{ MenuOptionType::Action, "Test option 3", "key" }
+		}
+	};
+	SubmenuData testMenuData2 = {
+		"Test menu 2",
+		"testmenu2",
 		{
 			{ MenuOptionType::Action, "Test option 1", "key" },
 			{ MenuOptionType::Action, "Test option 2", "key" },
@@ -20,12 +33,16 @@ Menu::Menu()
 		}
 	};
 	RegisterSubmenuData("testmenu", testMenuData);
-	setSubmenu("testmenu");
+	RegisterSubmenuData("testmenu2", testMenuData2);*/
+	JSONDataManager manager;
+	manager.Load();
+	//submenuDataMap = manager.GetLayoutAsMap();
 }
 
 void Menu::Tick()
 {
-	if (submenuStack.size() > 0) {
+	RespondToControls();
+	if (shouldDrawMenu && submenuStack.size() > 0) {
 		submenuStack.back().Draw();
 	}
 }
@@ -38,6 +55,25 @@ void Menu::RegisterSubmenuData(string key, SubmenuData submenuData)
 void Menu::AddSubmenuToStack(Submenu submenu)
 {
 	submenuStack.push_back(submenu);
+}
+void Menu::GoToLastSub()
+{
+	submenuStack.pop_back();
+	if (submenuStack.size() == 0) {
+		shouldDrawMenu = false;
+	}
+}
+void Menu::RespondToControls()
+{
+	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
+		shouldDrawMenu = !shouldDrawMenu;
+		if (submenuStack.empty()) {
+			setSubmenu("testmenu");
+		}
+	}
+	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
+		GoToLastSub();
+	}
 }
 
 // MARK:

@@ -9,6 +9,8 @@
 #include <Windows.h>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <filesystem>
 #include <cstdint>
 #include <vector>
 #include <map>

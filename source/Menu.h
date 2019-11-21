@@ -11,6 +11,8 @@ public:
 	// MARK: 
 	void RegisterSubmenuData(string key, SubmenuData submenuData);
 	void AddSubmenuToStack(Submenu submenuData);
+	void GoToLastSub();
+	void RespondToControls();
 	// MARK:
 	bool DoesSubmenuExistForKey(string key);
 	// MARK: Getters

@@ -46,7 +46,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\$(Configuration)</OutDir>
+    <OutDir>D:\Games\Rockstar Games\Red Dead Redemption 2</OutDir>
     <IncludePath>$(solutionDir)..\inc;$(IncludePath)</IncludePath>
     <TargetExt>.asi</TargetExt>
   </PropertyGroup>
@@ -98,6 +98,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\enums.h" />
+    <ClInclude Include="..\inc\json.hpp" />
     <ClInclude Include="..\inc\main.h" />
     <ClInclude Include="..\inc\nativeCaller.h" />
     <ClInclude Include="..\inc\natives.h" />
@@ -105,8 +106,8 @@
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
-    <ClInclude Include="E:\Downloads\json.hpp" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="JsonDataManager.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="pch.h" />
@@ -119,6 +120,7 @@
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="pch.cpp">
