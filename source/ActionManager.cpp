@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ActionManager.h"
+#include "Actions.h"
 
 // Manage
 void ActionManager::RegisterAction(string key, std::function<void()> action)
@@ -12,8 +13,16 @@ void ActionManager::RegisterAction(string key, std::function<void()> action)
 	actions[key] = action;
 }
 
+void ActionManager::RegisterActions()
+{
+	RegisterAction("action_setPlayerMaxHealth", Actions::SetPlayerMaxHealth);
+}
 
-// Get
+// Getters
+bool ActionManager::DoesActionExistForKey(string key)
+{
+	return actions.count(key) != 0;
+}
 std::function<void()> ActionManager::GetActionForKey(string key)
 {
 	return actions[key];

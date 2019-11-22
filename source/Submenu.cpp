@@ -3,6 +3,7 @@
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "ControlManager.h"
+#include "Routine.h"
 
 Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
 	this->menuPos = menuPos;
@@ -34,12 +35,13 @@ void Submenu::Draw() {
 
 // MARK: Draw title/option
 void Submenu::DrawTitle(string text) {
-	Game::Text::DrawText(text, menuPos);
+	Game::Text::DrawText(text, { menuPos.x + 0.04f, menuPos.y }, 0.48f, 0.48f, { 255, 255, 255, 255 }, true);
+	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, menuPos.y + 0.017, 0.10, 0.035, 139, 0, 0, 150, 0, 0);
 }
 
 void Submenu::DrawSub(string text, string subKey) {
 	if (selection == drawIndex) {
-		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, { 0, 0, 255, 255 });
+		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.45f, 0.45f, { 139, 0, 0, 255 });
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			setSubmenu(subKey);
 		}
@@ -47,21 +49,25 @@ void Submenu::DrawSub(string text, string subKey) {
 	else {
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() });
 	}
+	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.01, 0.10, 0.035, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
 
 void Submenu::DrawAction(string text, string actionKey) {
 	if (selection == drawIndex) {
-		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, { 0, 0, 255, 255 });
+		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.45f, 0.45f, { 139, 0, 0, 255 });
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			auto action = ActionManager::GetActionForKey(actionKey);
-			if (action) action();
+			if (ActionManager::DoesActionExistForKey(actionKey)) {
+				auto action = ActionManager::GetActionForKey(actionKey);
+				action();
+			}
 		}
 	}
 	else {
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() });
 	}
+	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.01, 0.10, 0.035, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
@@ -70,8 +76,8 @@ void Submenu::DrawToggle(string text, string toggleKey)
 {
 	std::shared_ptr<bool> toggle(ToggleManager::GetToggleForKey(toggleKey));
 	if (selection == drawIndex) {
-		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, { 0, 0, 255, 255 });
-		Game::Text::DrawText(toggle ? "On" : "Off", { menuPos.x + 0.01f, CurrentOptionPosY() }, { 0, 0, 255, 255 });
+		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.45f, 0.45f, { 139, 0, 0, 255 });
+		Game::Text::DrawText(toggle ? "On" : "Off", { menuPos.x + 0.01f, CurrentOptionPosY() }, 0.45f, 0.45f, { 139, 0, 0, 255 });
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			if (toggle) *toggle = !(*toggle);
 		}
@@ -80,6 +86,7 @@ void Submenu::DrawToggle(string text, string toggleKey)
 		Game::Text::DrawText(text, { menuPos.x, CurrentOptionPosY() });
 		Game::Text::DrawText(toggle ? "On" : "Off", { menuPos.x + 0.01f, CurrentOptionPosY() });
 	}
+	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.015, 0.10, 0.03, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
@@ -105,5 +112,5 @@ void Submenu::RespondToControls()
 }
 
 float Submenu::CurrentOptionPosY() {
-	return menuPos.y + 0.04 + (0.024 * (float)drawIndex);
+	return menuPos.y + 0.04 + (0.034 * (float)drawIndex);
 }

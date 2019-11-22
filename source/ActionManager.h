@@ -5,7 +5,9 @@ class ActionManager
 {
 public:
 	static void RegisterAction(string key, std::function<void()> action);
-	static std::function<void ()> GetActionForKey(std::string key);
+	static void RegisterActions();
+	static bool DoesActionExistForKey(string key);
+	static std::function<void ()> GetActionForKey(string key);
 private:
 	static inline std::map<string, std::function<void()>> actions;
 };

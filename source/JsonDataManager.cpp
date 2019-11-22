@@ -50,6 +50,8 @@ string JSONDataManager::ReadFile(string path)
 	if (!std::filesystem::exists(path)) return "";
 
 	std::ifstream file(path);
-	string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	std::string fileContent((std::istreambuf_iterator<char>(file)),
+	std::istreambuf_iterator<char>());
+
 	return fileContent;
 }

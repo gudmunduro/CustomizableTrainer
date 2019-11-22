@@ -41,5 +41,10 @@ class ControlManager
 {
 public:
 	static bool IsMenuControlPressed(MenuControl control);
+	static void CancelForTick();
+	// MARK: Events
+	static void Tick();
+private:
+	static inline bool shouldCancelForTick = false;
 };
 

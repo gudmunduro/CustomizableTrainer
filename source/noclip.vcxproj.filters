@@ -34,6 +34,12 @@
     <Filter Include="Headers\Data">
       <UniqueIdentifier>{7148d670-9905-4411-8022-0678d0a33354}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{50196171-6e66-4b5d-b78a-87b7ad9e1c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game">
+      <UniqueIdentifier>{4a6a6498-9d99-4317-bfc8-7f6a3e970114}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -55,9 +61,6 @@
       <Filter>Headers\Actions</Filter>
     </ClInclude>
     <ClInclude Include="ControlManager.h">
-      <Filter>Headers\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
     <ClInclude Include="..\inc\enums.h">
@@ -87,6 +90,18 @@
     <ClInclude Include="..\inc\json.hpp">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Actions.h">
+      <Filter>Headers\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PedManager.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Routine.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -96,9 +111,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Source\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Submenu.cpp">
@@ -121,6 +133,18 @@
     </ClCompile>
     <ClCompile Include="JsonDataManager.cpp">
       <Filter>Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions.cpp">
+      <Filter>Source\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PedManager.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Routine.cpp">
+      <Filter>Source\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

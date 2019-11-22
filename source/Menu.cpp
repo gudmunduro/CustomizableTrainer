@@ -13,30 +13,10 @@ Menu::Menu()
 			AddSubmenuToStack(submenu);
 		}
 	};
-	// Test data
-	/*SubmenuData testMenuData = {
-		"Test menu",
-		"testmenu",
-		{
-			{ MenuOptionType::Sub, "Open sub 1", "testmenu2" },
-			{ MenuOptionType::Action, "Test option 2", "key" },
-			{ MenuOptionType::Action, "Test option 3", "key" }
-		}
-	};
-	SubmenuData testMenuData2 = {
-		"Test menu 2",
-		"testmenu2",
-		{
-			{ MenuOptionType::Action, "Test option 1", "key" },
-			{ MenuOptionType::Action, "Test option 2", "key" },
-			{ MenuOptionType::Action, "Test option 3", "key" }
-		}
-	};
-	RegisterSubmenuData("testmenu", testMenuData);
-	RegisterSubmenuData("testmenu2", testMenuData2);*/
+	// Load json data
 	JSONDataManager manager;
 	manager.Load();
-	//submenuDataMap = manager.GetLayoutAsMap();
+	submenuDataMap = manager.GetLayoutAsMap();
 }
 
 void Menu::Tick()
@@ -58,18 +38,17 @@ void Menu::AddSubmenuToStack(Submenu submenu)
 }
 void Menu::GoToLastSub()
 {
-	submenuStack.pop_back();
-	if (submenuStack.size() == 0) {
-		shouldDrawMenu = false;
-	}
+	if (submenuStack.size() > 0) submenuStack.pop_back();
+	if (submenuStack.size() == 0) shouldDrawMenu = false;
 }
 void Menu::RespondToControls()
 {
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
-		if (submenuStack.empty()) {
-			setSubmenu("testmenu");
+		if (submenuStack.size() == 0) {
+			setSubmenu("default");
 		}
+		ControlManager::CancelForTick();
 	}
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 		GoToLastSub();

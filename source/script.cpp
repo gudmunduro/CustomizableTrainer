@@ -7,11 +7,22 @@
 #include "pch.h"
 #include "Script.h"
 #include "Menu.h"
+#include "ControlManager.h"
+#include "Routine.h"
+#include "ActionManager.h"
+
+void setup()
+{
+	ActionManager::RegisterActions();
+}
 
 void main()
 {
+	setup();
 	Menu* menu = new Menu();
 	while (true) {
+		Routine::RunAll();
+		ControlManager::Tick();
 		menu->Tick();
 		WAIT(0);
 	}
