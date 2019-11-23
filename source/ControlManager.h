@@ -37,11 +37,17 @@ enum class MenuControl {
 	MenuOpen
 };
 
+enum class FunctionControl {
+	PlayerRun
+};
+
 class ControlManager
 {
 public:
 	static bool IsMenuControlPressed(MenuControl control);
-	static void CancelForTick();
+	static bool IsFunctionControlPressed(FunctionControl control);
+	static bool IsFunctionControlJustReleased(FunctionControl control);
+	static void CanceMenuControlslForTick();
 	// MARK: Events
 	static void Tick();
 private:

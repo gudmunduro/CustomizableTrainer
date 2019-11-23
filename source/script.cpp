@@ -10,10 +10,12 @@
 #include "ControlManager.h"
 #include "Routine.h"
 #include "ActionManager.h"
+#include "ToggleManager.h"
 
 void setup()
 {
 	ActionManager::RegisterActions();
+	ToggleManager::RegisterToggles();
 }
 
 void main()

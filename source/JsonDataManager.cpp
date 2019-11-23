@@ -30,7 +30,8 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 			submenuData.options.push_back({
 				menuOptionType,
 				option["text"].get<string>(),
-				option["key"].get<string>()
+				option["key"].get<string>(),
+				option.contains("params") ? option["params"] : json::array()
 			});
 		}
 		layoutDataMap[key] = submenuData;

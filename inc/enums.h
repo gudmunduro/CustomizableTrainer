@@ -11,17 +11,3 @@ enum class MenuOptionType {
 	Toggle,
 	Sub
 };
-
-struct MenuOption
-{
-	MenuOptionType type;
-	string text;
-	string key;
-};
-
-struct SubmenuData
-{
-	string title;
-	string key;
-	std::vector<MenuOption> options;
-};

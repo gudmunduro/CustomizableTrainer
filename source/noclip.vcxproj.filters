@@ -40,6 +40,12 @@
     <Filter Include="Headers\Game">
       <UniqueIdentifier>{4a6a6498-9d99-4317-bfc8-7f6a3e970114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Toggles">
+      <UniqueIdentifier>{cf0784d0-563e-4b20-b6fc-2584599964cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Toggles">
+      <UniqueIdentifier>{b4d68ac9-eafe-4ec8-9944-591c65fcacb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -53,9 +59,6 @@
     </ClInclude>
     <ClInclude Include="Submenu.h">
       <Filter>Headers\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="ToggleManager.h">
-      <Filter>Headers\Actions</Filter>
     </ClInclude>
     <ClInclude Include="ActionManager.h">
       <Filter>Headers\Actions</Filter>
@@ -102,6 +105,12 @@
     <ClInclude Include="Routine.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="ToggleManager.h">
+      <Filter>Headers\Toggles</Filter>
+    </ClInclude>
+    <ClInclude Include="Toggles.h">
+      <Filter>Headers\Toggles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -117,9 +126,6 @@
       <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="ActionManager.cpp">
-      <Filter>Source\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="ToggleManager.cpp">
       <Filter>Source\Actions</Filter>
     </ClCompile>
     <ClCompile Include="ControlManager.cpp">
@@ -145,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="Routine.cpp">
       <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleManager.cpp">
+      <Filter>Source\Toggles</Filter>
+    </ClCompile>
+    <ClCompile Include="Toggles.cpp">
+      <Filter>Source\Toggles</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

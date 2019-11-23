@@ -117,6 +117,7 @@
     <ClInclude Include="script.h" />
     <ClInclude Include="Submenu.h" />
     <ClInclude Include="ToggleManager.h" />
+    <ClInclude Include="Toggles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="script.cpp" />
     <ClCompile Include="Submenu.cpp" />
     <ClCompile Include="ToggleManager.cpp" />
+    <ClCompile Include="Toggles.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

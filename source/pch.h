@@ -20,6 +20,9 @@
 #include "enums.h"
 #include "natives.h"
 #include "Game.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 #define DLL_EXPORT __declspec(dllexport)
 

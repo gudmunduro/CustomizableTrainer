@@ -14,10 +14,32 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN);
 	case MenuControl::MenuGoBack:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
+	default:
+		return false;
 	}
 }
 
-void ControlManager::CancelForTick()
+bool ControlManager::IsFunctionControlPressed(FunctionControl control)
+{
+	switch (control) {
+	case FunctionControl::PlayerRun:
+		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+	default:
+		return false;
+	}
+}
+
+bool ControlManager::IsFunctionControlJustReleased(FunctionControl control)
+{
+	switch (control) {
+	case FunctionControl::PlayerRun:
+		return CONTROLS::IS_CONTROL_JUST_RELEASED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+	default:
+		return false;
+	}
+}
+
+void ControlManager::CanceMenuControlslForTick()
 {
 	shouldCancelForTick = true;
 }

@@ -8,6 +8,10 @@
 
 #include <windows.h>
 #include "pch.h"
+#include "enums.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 typedef DWORD Void;
 typedef DWORD Any;
@@ -63,3 +67,18 @@ struct Color
 static_assert(sizeof(Vector3) == 24, "");
 
 // MARK: Custom
+
+struct MenuOption
+{
+	MenuOptionType type;
+	string text;
+	string key;
+	json params;
+};
+
+struct SubmenuData
+{
+	string title;
+	string key;
+	std::vector<MenuOption> options;
+};
