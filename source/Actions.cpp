@@ -1,45 +1,68 @@
 #include "pch.h"
 #include "Actions.h"
-#include "PedManager.h"
 #include "Routine.h"
+#include "Player.h"
 
 // MARK: Player
 void Actions::SetPlayerMaxHealth(json params)
 {
-	auto player = PedManager::WithPlayerPed();
+	Player player = Player();
 	player.SetHealth(player.GetMaxHealth());
 	Routine::StartDrawBottomMessage("Player health filled");
 }
 
 void Actions::ClearPlayerWantedLevel(json params)
 {
-	PLAYER::CLEAR_PLAYER_WANTED_LEVEL(Game::playerId);
+	Player().ClearWantedLevel();
+}
+
+void Actions::ChangeModel(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+	}
+	string model = params[0].get<string>();
+	Routine::StartDrawBottomMessage("Changing model to " + model);
+	Hash modelHash = String::Hash(model);
+
+	Player().SetModel(modelHash);
+}
+
+void Actions::RestorePlayerStamina(json params)
+{
+	Player().RestoreStamina();
 }
 
 // MARK: Vehicle
 void Actions::SpawnVehicle(json params)
 {
-	if (!params[0].is_string()) {
+	if (!params.is_array() || !params[0].is_string()) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
 	}
-	string vehicleName = params[0].get<string>();
-	Hash vehicleHash = String::Hash(vehicleName);
+	string vehicleModel = params[0].get<string>();
+	Hash vehicleHash = String::Hash(vehicleModel);
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(vehicleHash)) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid model");
 	}
-	auto playerPed = PedManager::WithPlayerPed();
-	Vector3 playerPosition = playerPed.GetPosition();
+	Player player = Player();
+	Vector3 playerPosition = player.GetPosition();
 
-	Game::RequestModel(vehicleHash);
-	VEHICLE::CREATE_VEHICLE(vehicleHash, playerPosition.x + 3.0f, playerPosition.y, playerPosition.z, playerPed.GetHeading(), false, false, false, false);
+	Vehicle::Spawn(vehicleHash, playerPosition, player.GetHeading());
+}
+
+void Actions::RepairVehicle(json params)
+{
+	auto currentVehicle = Player().GetCurrentVehicle();
+	if (currentVehicle.Exists()) {
+		currentVehicle.Repair();
+	}
 }
 
 void Actions::DeleteCurrentVehicle(json params)
 {
-	Vehicle currentVehicle = PedManager::WithPlayerPed().GetCurrentVehicle();
-	if (currentVehicle) {
-		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(currentVehicle, true, false);
-		VEHICLE::DELETE_VEHICLE(&currentVehicle);
+	Vehicle currentVehicle = Player().GetCurrentVehicle();
+	if (currentVehicle.Exists()) {
+		currentVehicle.Delete();
 		Routine::StartDrawBottomMessage("~g~Deleted!");
 	}
 }

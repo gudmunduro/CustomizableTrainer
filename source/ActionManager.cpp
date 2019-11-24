@@ -18,9 +18,12 @@ void ActionManager::RegisterActions()
 {
 	// MARK: Player
 	RegisterAction("action_setPlayerMaxHealth", Actions::SetPlayerMaxHealth);
+	RegisterAction("action_setPlayerModel", Actions::ChangeModel);
 	RegisterAction("action_clearPlayerWantedLevel", Actions::ClearPlayerWantedLevel);
+	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
 	// MARK: Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
+	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
 }
 

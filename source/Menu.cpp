@@ -45,6 +45,7 @@ void Menu::RespondToControls()
 {
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
+
 		if (submenuStack.size() == 0) {
 			setSubmenu("default");
 		}

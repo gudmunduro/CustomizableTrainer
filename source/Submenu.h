@@ -22,6 +22,7 @@ private:
 	Vector2 menuPos;
 	int selection;
 	int drawIndex;
+	int scrollPosition;
 	std::function<void(std::string key)> setSubmenu;
 };
 

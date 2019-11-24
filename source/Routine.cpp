@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Routine.h"
 #include "Toggles.h"
+#include "Player.h"
 #include "ControlManager.h"
 
 // MARK: Variables
@@ -36,10 +37,23 @@ void RunLoopedToggles()
 			ENTITY::FREEZE_ENTITY_POSITION(Game::playerPedId, false);
 		}
 	}
+	if (*Toggles::playerSuperJump) {
+		GAMEPLAY::SET_SUPER_JUMP_THIS_FRAME(Game::playerId);
+	}
 	if (*Toggles::weaponInfiniteAmmo) {
 		Hash currentWeapon;
 		WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, true, true, true);
 		WEAPON::SET_PED_INFINITE_AMMO(Game::playerPedId, true, currentWeapon);
+	}
+	if (*Toggles::horseEngineTest) {
+		auto currentVehicle = Player().GetCurrentVehicle();
+		if (currentVehicle.Exists()) {
+			VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
+			VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);
+			currentVehicle.SetVehicleEngineOn(true);
+			currentVehicle.SetEnginePowerMultiplier(4000.0f);
+			VEHICLE::_SET_VEHICLE_JET_ENGINE_ON(currentVehicle.GetVehicleId(), true);
+		}
 	}
 }
 

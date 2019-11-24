@@ -28,10 +28,14 @@ void ToggleManager::RegisterToggles()
 {
 	// MARK: Toggles
 	RegisterToggle("toggle_playerInvincible", Toggles::playerInvincible);
+	RegisterToggle("toggle_playerVisible", Toggles::playerVisible);
 	RegisterToggle("toggle_playerSuperRun", Toggles::playerSuperRun);
+	RegisterToggle("toggle_playerSuperJump", Toggles::playerSuperJump);
+	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
 	// MARK: Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
+	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);
 }
 
 void ToggleManager::Toggle(string key)

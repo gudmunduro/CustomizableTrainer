@@ -99,9 +99,6 @@
     <ClInclude Include="Game.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="PedManager.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Routine.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
@@ -110,6 +107,15 @@
     </ClInclude>
     <ClInclude Include="Toggles.h">
       <Filter>Headers\Toggles</Filter>
+    </ClInclude>
+    <ClInclude Include="Ped.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +152,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="PedManager.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Routine.cpp">
       <Filter>Source\Menu</Filter>
     </ClCompile>
@@ -157,6 +160,15 @@
     </ClCompile>
     <ClCompile Include="Toggles.cpp">
       <Filter>Source\Toggles</Filter>
+    </ClCompile>
+    <ClCompile Include="Ped.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Game.h"
+#include "Routine.h"
 
 void Game::DrawText(string text, Vector2 position, float scale1, float scale2, Color color, bool center) {
 	UI::SET_TEXT_CENTRE(center);
@@ -12,8 +13,15 @@ void Game::DrawText(string text, Vector2 position, float scale1, float scale2, C
 void Game::RequestModel(Hash model)
 {
 	STREAMING::REQUEST_MODEL(model, true);
-	while (!STREAMING::HAS_MODEL_LOADED) {
+	SYSTEM::WAIT(10);
+	STREAMING::REQUEST_MODEL(model, true); // For some reason REQUEST_MODEL only workds when it's called twice
+	auto timeout = GetTickCount() + 1000;
+	while (!STREAMING::HAS_MODEL_LOADED(model)) {
 		SYSTEM::WAIT(5);
+		if (GetTickCount() > timeout) {
+			Routine::StartDrawBottomMessage("~r~Error: ~w~Loading model timed out");
+			break;
+		}
 	}
 }
 

@@ -20,6 +20,8 @@
 #include "enums.h"
 #include "natives.h"
 #include "Game.h"
+#include "Ped.h"
+#include "Vehicle.h"
 #include "json.hpp"
 
 using json = nlohmann::json;

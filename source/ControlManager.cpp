@@ -19,6 +19,22 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 	}
 }
 
+void ControlManager::DisableMenuControls()
+{
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, true);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_CANCEL, true);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_DOWN, true);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_UP, true);
+}
+
+void ControlManager::EnableMenuControls()
+{
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, false);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_CANCEL, false);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_DOWN, false);
+	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_UP, false);
+}
+
 bool ControlManager::IsFunctionControlPressed(FunctionControl control)
 {
 	switch (control) {
