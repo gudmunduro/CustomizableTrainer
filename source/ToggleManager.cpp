@@ -31,6 +31,7 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_playerVisible", Toggles::playerVisible);
 	RegisterToggle("toggle_playerSuperRun", Toggles::playerSuperRun);
 	RegisterToggle("toggle_playerSuperJump", Toggles::playerSuperJump);
+	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
 	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
 	// MARK: Toggle actions

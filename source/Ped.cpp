@@ -16,6 +16,17 @@ void Ped::SetVisible(bool visible)
 	ENTITY::SET_ENTITY_VISIBLE(pedId, visible);
 }
 
+void Ped::SetIntoVehicle(VehicleId vehicle, int seat) 
+{
+	PED::SET_PED_INTO_VEHICLE(pedId, vehicle, seat);
+}
+
+// MARK: Booleans
+bool Ped::IsInVehicle()
+{
+	return PED::IS_PED_IN_ANY_VEHICLE(pedId, true);
+}
+
 // Getters
 PedId Ped::GetPedId()
 {

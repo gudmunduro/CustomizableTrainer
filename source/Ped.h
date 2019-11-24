@@ -8,6 +8,9 @@ public:
 	Ped(int pedId);
 	void SetHealth(int health);
 	void SetVisible(bool visible);
+	void SetIntoVehicle(VehicleId vehicle, int seat = -1);
+	// MARK: Booleans
+	bool IsInVehicle();
 	// MARK: Getters
 	PedId GetPedId();
 	int GetMaxHealth();

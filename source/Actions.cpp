@@ -2,6 +2,7 @@
 #include "Actions.h"
 #include "Routine.h"
 #include "Player.h"
+#include "Toggles.h"
 
 // MARK: Player
 void Actions::SetPlayerMaxHealth(json params)
@@ -45,9 +46,22 @@ void Actions::SpawnVehicle(json params)
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid model");
 	}
 	Player player = Player();
-	Vector3 playerPosition = player.GetPosition();
+	Vector3 spawnPosition = player.GetPosition();
 
-	Vehicle::Spawn(vehicleHash, playerPosition, player.GetHeading());
+	if (!(*Toggles::spawnInsideVehicle)) {
+		spawnPosition.x += 3.0f;
+	}
+
+	if (player.IsInVehicle()) {
+		auto vehicle = player.GetCurrentVehicle();
+		vehicle.Delete();
+	}
+
+	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, player.GetHeading());
+
+	if (*Toggles::spawnInsideVehicle) {
+		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
+	}
 }
 
 void Actions::RepairVehicle(json params)

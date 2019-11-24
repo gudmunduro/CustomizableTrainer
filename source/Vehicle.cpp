@@ -51,6 +51,6 @@ void Vehicle::Delete()
 Vehicle Vehicle::Spawn(Hash model, Vector3 postion, float heading)
 {
 	Game::RequestModel(model);
-	VehicleId vehicleId = VEHICLE::CREATE_VEHICLE(model, postion.x + 3.0f, postion.y, postion.z, heading, false, false, false, false);
+	VehicleId vehicleId = VEHICLE::CREATE_VEHICLE(model, postion.x, postion.y, postion.z, heading, false, false, false, false);
 	return Vehicle(vehicleId);
 }
