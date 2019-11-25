@@ -52,5 +52,6 @@ Vehicle Vehicle::Spawn(Hash model, Vector3 postion, float heading)
 {
 	Game::RequestModel(model);
 	VehicleId vehicleId = VEHICLE::CREATE_VEHICLE(model, postion.x, postion.y, postion.z, heading, false, false, false, false);
+	DECORATOR::DECOR_SET_BOOL(vehicleId, "wagon_block_honor", true);
 	return Vehicle(vehicleId);
 }

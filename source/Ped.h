@@ -10,8 +10,13 @@ public:
 	void SetVisible(bool visible);
 	void SetIntoVehicle(VehicleId vehicle, int seat = -1);
 	void SetCoords(Vector3 coords);
+	void SetStamina(float stamina);
+	void SetInvincible(bool invincible);
+	void ClearWetness();
+	void GiveWeapon(Hash model);
 	// MARK: Booleans
 	bool IsInVehicle();
+	bool IsOnMount();
 	// MARK: Getters
 	PedId GetPedId();
 	int GetMaxHealth();
@@ -19,9 +24,9 @@ public:
 	Vector3 GetOffsetInWorldCoords(Vector3 offset);
 	float GetHeading();
 	Vehicle GetCurrentVehicle();
-
-	// MARK: 
-	static Ped PlayerPed();
+	Ped GetMount();
+	// MARK: Static functions
+	static Ped Spawn(Hash model, Vector3 position, float heading = 0);
 private:
 	int pedId;
 };

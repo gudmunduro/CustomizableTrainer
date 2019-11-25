@@ -16,16 +16,22 @@ void ActionManager::RegisterAction(string key, std::function<void(json params)> 
 
 void ActionManager::RegisterActions()
 {
-	// MARK: Player
+	// Player
 	RegisterAction("action_setPlayerMaxHealth", Actions::SetPlayerMaxHealth);
 	RegisterAction("action_setPlayerModel", Actions::ChangeModel);
-	RegisterAction("action_clearPlayerWantedLevel", Actions::ClearPlayerWantedLevel);
+	RegisterAction("action_stopPlayerPursuit", Actions::StopPlayerPursuit);
+	RegisterAction("action_cleaPlayerBounty", Actions::ClearPlayerBounty);
 	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
-	// MARK: Vehicle
+	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
-	// MARK: Teleport
+	// Horse
+	RegisterAction("action_setHorseMaxHealth", Actions::SetHorseMaxHealth);
+	RegisterAction("action_spawnHorse", Actions::SpawnHorse);
+	// Weapons
+	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
+	// Teleport
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
 }

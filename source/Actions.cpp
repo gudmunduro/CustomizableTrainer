@@ -9,12 +9,19 @@ void Actions::SetPlayerMaxHealth(json params)
 {
 	Player player = Player();
 	player.SetHealth(player.GetMaxHealth());
-	Routine::StartDrawBottomMessage("Player health filled");
+	player.RestoreStamina(100.0);
+	player.RestoreSpecialAbility();
+	Routine::StartDrawBottomMessage("Player healed");
 }
 
-void Actions::ClearPlayerWantedLevel(json params)
+void Actions::StopPlayerPursuit(json params)
 {
-	Player().ClearWantedLevel();
+	Player().StopPursuit();
+}
+
+void Actions::ClearPlayerBounty(json params)
+{
+	Player().SetBounty(0);
 }
 
 void Actions::ChangeModel(json params)
@@ -35,6 +42,29 @@ void Actions::RestorePlayerStamina(json params)
 	Player().RestoreStamina();
 }
 
+// Horse
+void Actions::SetHorseMaxHealth(json params)
+{
+	Ped horse = Player().GetMount();
+	horse.SetHealth(horse.GetMaxHealth());
+	horse.SetStamina(100.0);
+	Routine::StartDrawBottomMessage("Horse healed");
+}
+
+void Actions::SpawnHorse(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	string model = params[0].get<string>();
+	Player player;
+	Vector3 spawnPosition = player.GetOffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	float heading = player.GetHeading() + 90;
+
+	Ped::Spawn(String::Hash(model), spawnPosition, heading);
+}
+
 // MARK: Vehicle
 void Actions::SpawnVehicle(json params)
 {
@@ -52,7 +82,7 @@ void Actions::SpawnVehicle(json params)
 	Vector3 spawnPosition = player.GetPosition();
 
 	if (!(*Toggles::spawnInsideVehicle)) {
-		spawnPosition.x += 3.0f;
+		spawnPosition = player.GetOffsetInWorldCoords({0.0, 3.0, 0.0});
 	}
 
 	if (player.IsInVehicle()) {
@@ -81,6 +111,27 @@ void Actions::DeleteCurrentVehicle(json params)
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
 		Routine::StartDrawBottomMessage("~g~Deleted!");
+	}
+}
+
+// Weapons
+void Actions::GivePlayerAllWeapons(json params)
+{
+	Player player;
+	string weaponModels[] = { "WEAPON_KIT_CAMERA", "WEAPON_MOONSHINEJUG", "WEAPON_MELEE_LANTERN_ELECTRIC", "WEAPON_MELEE_TORCH", "WEAPON_MELEE_BROKEN_SWORD", "WEAPON_FISHINGROD",
+							"WEAPON_MELEE_HATCHET", "WEAPON_MELEE_CLEAVER", "WEAPON_MELEE_ANCIENT_HATCHET", "WEAPON_MELEE_HATCHET_VIKING", "WEAPON_MELEE_HATCHET_HEWING",
+							"WEAPON_MELEE_HATCHET_DOUBLE_BIT", "WEAPON_MELEE_HATCHET_DOUBLE_BIT_RUSTED", "WEAPON_MELEE_HATCHET_HUNTER", "WEAPON_MELEE_HATCHET_HUNTER_RUSTED",
+							"WEAPON_MELEE_KNIFE_JOHN", "WEAPON_MELEE_KNIFE", "WEAPON_MELEE_KNIFE_JAWBONE", "WEAPON_THROWN_THROWING_KNIVES", "WEAPON_MELEE_KNIFE_MINER", "WEAPON_MELEE_KNIFE_CIVIL_WAR",
+							"WEAPON_MELEE_KNIFE_BEAR", "WEAPON_MELEE_KNIFE_VAMPIRE", "WEAPON_LASSO", "WEAPON_MELEE_MACHETE", "WEAPON_THROWN_TOMAHAWK", "WEAPON_THROWN_TOMAHAWK_ANCIENT",
+							"WEAPON_PISTOL_M1899", "WEAPON_PISTOL_MAUSER", "WEAPON_PISTOL_MAUSER_DRUNK", "WEAPON_PISTOL_SEMIAUTO", "WEAPON_PISTOL_VOLCANIC", "WEAPON_REPEATER_CARBINE",
+							"WEAPON_REPEATER_EVANS", "WEAPON_REPEATER_HENRY", "WEAPON_RIFLE_VARMINT", "WEAPON_REPEATER_WINCHESTER", "WEAPON_REVOLVER_CATTLEMAN", "WEAPON_REVOLVER_CATTLEMAN_JOHN",
+							"WEAPON_REVOLVER_CATTLEMAN_MEXICAN", "WEAPON_REVOLVER_CATTLEMAN_PIG", "WEAPON_REVOLVER_DOUBLEACTION", "WEAPON_REVOLVER_DOUBLEACTION_EXOTIC", "WEAPON_REVOLVER_DOUBLEACTION_GAMBLER",
+							"WEAPON_REVOLVER_DOUBLEACTION_MICAH", "WEAPON_REVOLVER_LEMAT", "WEAPON_REVOLVER_SCHOFIELD", "WEAPON_REVOLVER_SCHOFIELD_GOLDEN", "WEAPON_REVOLVER_SCHOFIELD_CALLOWAY",
+							"WEAPON_RIFLE_BOLTACTION", "WEAPON_SNIPERRIFLE_CARCANO", "WEAPON_SNIPERRIFLE_ROLLINGBLOCK", "WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC", "WEAPON_RIFLE_SPRINGFIELD",
+							"WEAPON_SHOTGUN_DOUBLEBARREL", "WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC", "WEAPON_SHOTGUN_PUMP", "WEAPON_SHOTGUN_REPEATING", "WEAPON_SHOTGUN_SAWEDOFF", "WEAPON_SHOTGUN_SEMIAUTO",
+							"WEAPON_BOW", "WEAPON_THROWN_DYNAMITE", "WEAPON_THROWN_MOLOTOV" };
+	for each (string weapon in weaponModels) {
+		player.GiveWeapon(String::Hash(weapon));
 	}
 }
 

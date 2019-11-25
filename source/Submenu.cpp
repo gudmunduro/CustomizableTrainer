@@ -37,36 +37,46 @@ void Submenu::Draw() {
 
 // MARK: Draw title/option
 void Submenu::DrawTitle(string text) {
-	Game::DrawText(text, { menuPos.x + 0.04f, menuPos.y }, 0.48f, 0.48f, { 255, 255, 255, 255 }, true);
-	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, menuPos.y + 0.017, 0.14, 0.035, 139, 0, 0, 150, 0, 0);
+	Game::DrawText(text, { menuPos.x + 0.06f, menuPos.y }, 0.48f, 0.48f, { 255, 255, 255, 255 }, true);
+	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, menuPos.y + 0.017, 0.14, 0.035, 0, 0, 0, 0, 200, 0);
+}
+
+void Submenu::DrawOptionText(string text, bool selected)
+{
+	if (selected) {
+		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, { 255, 255, 255, 255 });
+		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 206, 6, 17, 200, 0);
+	}
+	else {
+		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, { 100, 100, 100, 255 });
+		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 0, 0, 0, 200, 0);
+	}
 }
 
 void Submenu::DrawSub(string text, string subKey) {
 	if (selection == drawIndex + scrollPosition) {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f, { 139, 0, 0, 255 });
+		DrawOptionText(text, true);
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			setSubmenu(subKey);
 		}
 	}
 	else {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f);
+		DrawOptionText(text, false);
 	}
-	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
 
 void Submenu::DrawAction(string text, string actionKey, json actionParams) {
 	if (selection == drawIndex + scrollPosition) {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f, { 139, 0, 0, 255 });
+		DrawOptionText(text, true);
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			ActionManager::RunActionForKey(actionKey, actionParams);
 		}
 	}
 	else {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f);
+		DrawOptionText(text, false);
 	}
-	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
@@ -76,18 +86,22 @@ void Submenu::DrawToggle(string text, string toggleKey)
 	if (!ToggleManager::DoesToggleExistForKey(toggleKey)) return;
 	auto toggle = ToggleManager::GetToggleForKey(toggleKey);
 
+	Color toggleColor = { 150, 150, 150, 255 };
+	if (*toggle) {
+		toggleColor = { 35, 142, 35, 255 };
+	}
+
 	if (selection == drawIndex + scrollPosition) {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f, { 139, 0, 0, 255 });
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.08f, CurrentOptionPosY() }, 0.40f, 0.40f, { 139, 0, 0, 255 });
+		DrawOptionText(text, true);
+		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.1f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			ToggleManager::Toggle(toggleKey);
 		}
 	}
 	else {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() }, 0.40f, 0.40f);
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.08f, CurrentOptionPosY() }, 0.40f, 0.40f);
+		DrawOptionText(text, false);
+		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.1f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 	}
-	GRAPHICS::DRAW_RECT(menuPos.x + 0.04, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 0, 0, 150, 0, 0);
 
 	drawIndex++;
 }
@@ -122,5 +136,5 @@ void Submenu::RespondToControls()
 }
 
 float Submenu::CurrentOptionPosY() {
-	return menuPos.y + 0.04 + (0.034 * (float)drawIndex);
+	return menuPos.y + 0.05 + (0.034 * (float)drawIndex);
 }

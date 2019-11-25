@@ -8,6 +8,7 @@ public:
 
 	void Draw();
 	void DrawTitle(string text);
+	void DrawOptionText(string text, bool selected);
 	void DrawSub(string text, string subKey);
 	void DrawAction(string text, string actionKey, json actionParams);
 	void DrawToggle(string text, string toggleKey);

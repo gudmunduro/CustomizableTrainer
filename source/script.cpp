@@ -16,6 +16,8 @@ void setup()
 {
 	ActionManager::RegisterActions();
 	ToggleManager::RegisterToggles();
+	Game::RequestTextureDict("menu_textures");
+	Game::RequestTextureDict("boot_flow");
 }
 
 void main()

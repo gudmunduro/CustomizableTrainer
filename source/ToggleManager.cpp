@@ -26,17 +26,22 @@ void ToggleManager::RegisterToggleAction(string key, std::function<void(bool val
 
 void ToggleManager::RegisterToggles()
 {
-	// MARK: Toggles
+	// Toggles
 	RegisterToggle("toggle_playerInvincible", Toggles::playerInvincible);
 	RegisterToggle("toggle_playerVisible", Toggles::playerVisible);
 	RegisterToggle("toggle_playerSuperRun", Toggles::playerSuperRun);
 	RegisterToggle("toggle_playerSuperJump", Toggles::playerSuperJump);
+	RegisterToggle("toggle_horseInvincible", Toggles::horseInvincible);
+	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
+	RegisterToggle("toggle_horseSuperRun", Toggles::horseSuperRun);
 	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
 	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
-	// MARK: Toggle actions
+	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
 	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);
+	RegisterToggleAction("toggle_horseInvincible", Toggles::OnHorseInvincibleToggle);
+	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
 }
 
 void ToggleManager::Toggle(string key)

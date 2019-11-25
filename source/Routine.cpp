@@ -25,12 +25,13 @@ void DrawBottomMessage()
 
 void RunLoopedToggles()
 {
+	Player player;
 	if (*Toggles::playerInvincible && !PLAYER::GET_PLAYER_INVINCIBLE(Game::playerId)) {
 		PLAYER::SET_PLAYER_INVINCIBLE(Game::playerId, 1);
 	}
-	if (*Toggles::playerSuperRun) {
+	if (*Toggles::playerSuperRun && !player.IsOnMount()) {
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
-			ENTITY::APPLY_FORCE_TO_ENTITY(Game::playerPedId, 1, 0.0, 3.4, 0.4, 0.0, 0.0, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(Game::playerPedId, 1, 0.0, 4.4, 0.2, 0.0, 0.0, 0.2, 1, 1, 1, 1, 0, 1);
 		}
 		if (ControlManager::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
 			ENTITY::FREEZE_ENTITY_POSITION(Game::playerPedId, true);
@@ -39,6 +40,19 @@ void RunLoopedToggles()
 	}
 	if (*Toggles::playerSuperJump) {
 		GAMEPLAY::SET_SUPER_JUMP_THIS_FRAME(Game::playerId);
+	}
+	if (*Toggles::horseInvincible && player.IsOnMount()) {
+		player.GetMount().SetInvincible(true);
+	}
+	if (*Toggles::horseSuperRun && player.IsOnMount()) {
+		Ped horse = Player().GetMount();
+		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 4.4, 0.2, 0.0, 0.0, -0.2, 1, 1, 1, 1, 0, 1);
+		}
+		if (ControlManager::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
+			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
+			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
+		}
 	}
 	if (*Toggles::weaponInfiniteAmmo) {
 		Hash currentWeapon;

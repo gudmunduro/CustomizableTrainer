@@ -26,10 +26,35 @@ void Ped::SetCoords(Vector3 coords)
 	ENTITY::SET_ENTITY_COORDS(pedId, coords.x, coords.y, coords.z, false, false, false, true);
 }
 
+void Ped::SetStamina(float stamina)
+{
+	PED::SET_PED_STAMINA(pedId, stamina);
+}
+
+void Ped::SetInvincible(bool invincible)
+{
+	ENTITY::SET_ENTITY_INVINCIBLE(pedId, invincible);
+}
+
+void Ped::ClearWetness()
+{
+	PED::CLEAR_PED_WETNESS(pedId);
+}
+
+void Ped::GiveWeapon(Hash model)
+{
+	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
+}
+
 // MARK: Booleans
 bool Ped::IsInVehicle()
 {
 	return PED::IS_PED_IN_ANY_VEHICLE(pedId, true);
+}
+
+bool Ped::IsOnMount()
+{
+	return PED::IS_PED_ON_MOUNT(pedId);
 }
 
 // Getters
@@ -64,8 +89,17 @@ Vehicle Ped::GetCurrentVehicle()
 	return Vehicle(currentVehicleId);
 }
 
-// MARK: 
-Ped Ped::PlayerPed()
+Ped Ped::GetMount()
 {
-	return Ped(Game::playerPedId);
+	return PED::GET_MOUNT(pedId);
+}
+
+// MARK: Static functions
+Ped Ped::Spawn(Hash model, Vector3 position, float heading)
+{
+	Game::RequestModel(model);
+	PedId pedId = PED::CREATE_PED(model, position.x, position.y, position.z, heading, false, false, false, false);
+	Ped ped = Ped(pedId);
+	ped.SetVisible(true);
+	return ped;
 }
