@@ -47,9 +47,9 @@ void Menu::RespondToControls()
 		shouldDrawMenu = !shouldDrawMenu;
 
 		if (submenuStack.size() == 0) {
-			setSubmenu("default");
+			setSubmenu("required_sub_default");
 		}
-		ControlManager::CanceMenuControlslForTick();
+		ControlManager::CanceMenuControlslForThisFrame();
 	}
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 		GoToLastSub();

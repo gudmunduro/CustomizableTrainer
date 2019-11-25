@@ -49,10 +49,10 @@ public:
 	static void EnableMenuControls();
 	static bool IsFunctionControlPressed(FunctionControl control);
 	static bool IsFunctionControlJustReleased(FunctionControl control);
-	static void CanceMenuControlslForTick();
+	static void CanceMenuControlslForThisFrame();
 	// MARK: Events
 	static void Tick();
 private:
-	static inline bool shouldCancelForTick = false;
+	static inline bool shouldCancelForThisFrame = false;
 };
 

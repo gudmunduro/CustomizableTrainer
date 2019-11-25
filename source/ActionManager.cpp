@@ -25,6 +25,9 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
+	// MARK: Teleport
+	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
+	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
 }
 
 void ActionManager::RunActionForKey(string key, json params)

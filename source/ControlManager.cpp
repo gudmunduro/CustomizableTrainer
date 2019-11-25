@@ -2,7 +2,7 @@
 #include "ControlManager.h"
 
 bool ControlManager::IsMenuControlPressed(MenuControl control) {
-	if (shouldCancelForTick) return false;
+	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuOptionPress:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
@@ -55,13 +55,13 @@ bool ControlManager::IsFunctionControlJustReleased(FunctionControl control)
 	}
 }
 
-void ControlManager::CanceMenuControlslForTick()
+void ControlManager::CanceMenuControlslForThisFrame()
 {
-	shouldCancelForTick = true;
+	shouldCancelForThisFrame = true;
 }
 
 // MARK: Events
 void ControlManager::Tick()
 {
-	shouldCancelForTick = false;
+	shouldCancelForThisFrame = false;
 }

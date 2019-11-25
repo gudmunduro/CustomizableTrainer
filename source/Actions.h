@@ -9,4 +9,6 @@ namespace Actions {
 	void SpawnVehicle(json params);
 	void RepairVehicle(json params);
 	void DeleteCurrentVehicle(json params);
+	void TeleportPlayerForward(json params);
+	void TeleportPlayerToCoords(json params);
 }

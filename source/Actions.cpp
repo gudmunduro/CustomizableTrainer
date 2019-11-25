@@ -21,6 +21,7 @@ void Actions::ChangeModel(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
 	}
 	string model = params[0].get<string>();
 	Routine::StartDrawBottomMessage("Changing model to " + model);
@@ -39,11 +40,13 @@ void Actions::SpawnVehicle(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
 	}
 	string vehicleModel = params[0].get<string>();
 	Hash vehicleHash = String::Hash(vehicleModel);
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(vehicleHash)) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid model");
+		return;
 	}
 	Player player = Player();
 	Vector3 spawnPosition = player.GetPosition();
@@ -79,4 +82,23 @@ void Actions::DeleteCurrentVehicle(json params)
 		currentVehicle.Delete();
 		Routine::StartDrawBottomMessage("~g~Deleted!");
 	}
+}
+
+// Teleport
+void Actions::TeleportPlayerForward(json params)
+{
+	auto player = Player();
+	auto teleportToCoords = player.GetOffsetInWorldCoords({0, 4.0f, 0});
+	player.SetCoords(teleportToCoords);
+}
+
+void Actions::TeleportPlayerToCoords(json params)
+{
+	if (!params.is_array() || !params[0].is_number_float() || !params[1].is_number_float() || !params[2].is_number_float()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+
+	Vector3 teleportToCoords = { params[0], params[1], params[2] };
+	Player().SetCoords(teleportToCoords);
 }

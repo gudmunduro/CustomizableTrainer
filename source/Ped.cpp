@@ -21,6 +21,11 @@ void Ped::SetIntoVehicle(VehicleId vehicle, int seat)
 	PED::SET_PED_INTO_VEHICLE(pedId, vehicle, seat);
 }
 
+void Ped::SetCoords(Vector3 coords) 
+{
+	ENTITY::SET_ENTITY_COORDS(pedId, coords.x, coords.y, coords.z, false, false, false, true);
+}
+
 // MARK: Booleans
 bool Ped::IsInVehicle()
 {
@@ -41,6 +46,11 @@ int Ped::GetMaxHealth()
 Vector3 Ped::GetPosition()
 {
 	return ENTITY::GET_ENTITY_COORDS(pedId, true, false);
+}
+
+Vector3 Ped::GetOffsetInWorldCoords(Vector3 offset)
+{
+	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(pedId, offset.x, offset.y, offset.z);
 }
 
 float Ped::GetHeading()
