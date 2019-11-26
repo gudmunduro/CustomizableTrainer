@@ -16,10 +16,13 @@ public:
 	// MARK:
 	bool DoesSubmenuExistForKey(string key);
 	// MARK: Getters
+	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
+	// MARK: Getters
 	SubmenuData GetSubmenuDataForKey(string key);
 	Submenu GetSubmenuForKey(string key);
 private:
 	std::function<void(string key)> setSubmenu;
+	std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData;
 	Vector2 position;
 	std::vector<Submenu> submenuStack;
 	std::map<string, SubmenuData> submenuDataMap;

@@ -14,6 +14,14 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN);
 	case MenuControl::MenuGoBack:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
+	case MenuControl::MenuEditModeEnter:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_X);
+	case MenuControl::MenuEditModeExit:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
+	case MenuControl::MenuEditModeExitAndSave:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_X);
+	case MenuControl::MenuEditModeMoveOptionn:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
 	default:
 		return false;
 	}

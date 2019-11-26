@@ -13,6 +13,11 @@ Menu::Menu()
 			AddSubmenuToStack(submenu);
 		}
 	};
+	updateSubmenuData = [this](string key, SubmenuData submenuData) {
+		if (DoesSubmenuExistForKey(key)) {
+			SetSubmenuDataForKey(key, submenuData);
+		}
+	};
 	// Load json data
 	JSONDataManager manager;
 	manager.Load();
@@ -52,8 +57,10 @@ void Menu::RespondToControls()
 		}
 		ControlManager::CanceMenuControlslForThisFrame();
 	}
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
-		GoToLastSub();
+	if (shouldDrawMenu && submenuStack.size() > 0) {
+		if (!submenuStack.back().GetEditModeActive() && ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
+			GoToLastSub();
+		}
 	}
 }
 
@@ -63,6 +70,11 @@ bool Menu::DoesSubmenuExistForKey(string key)
 	return submenuDataMap.count(key) > 0;
 }
 
+// MARK: Setters
+void Menu::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
+	submenuDataMap[key] = submenuData;
+}
+
 // MARK: Getters
 SubmenuData Menu::GetSubmenuDataForKey(string key) 
 {
@@ -70,6 +82,6 @@ SubmenuData Menu::GetSubmenuDataForKey(string key)
 }
 Submenu Menu::GetSubmenuForKey(string submenuKey)
 {
-	Submenu submenu(GetSubmenuDataForKey(submenuKey), position, setSubmenu);
+	Submenu submenu(GetSubmenuDataForKey(submenuKey), position, setSubmenu, updateSubmenuData);
 	return submenu;
 }
