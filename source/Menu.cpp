@@ -16,6 +16,7 @@ Menu::Menu()
 	// Load json data
 	JSONDataManager manager;
 	manager.Load();
+	manager.UpdateMenuSettings();
 	submenuDataMap = manager.GetLayoutAsMap();
 }
 

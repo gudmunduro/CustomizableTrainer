@@ -60,7 +60,7 @@ void Actions::SpawnHorse(json params)
 	string model = params[0].get<string>();
 	Player player;
 	Vector3 spawnPosition = player.GetOffsetInWorldCoords({ 0.0, 2.0, 0.0 });
-	float heading = player.GetHeading() + 90;
+	float heading = player.GetHeading() + 90.0f;
 
 	Ped::Spawn(String::Hash(model), spawnPosition, heading);
 }

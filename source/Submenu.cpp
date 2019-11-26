@@ -3,6 +3,7 @@
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "ControlManager.h"
+#include "MenuSettings.h"
 #include "Routine.h"
 
 Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu) {
@@ -37,19 +38,22 @@ void Submenu::Draw() {
 
 // MARK: Draw title/option
 void Submenu::DrawTitle(string text) {
-	Game::DrawText(text, { menuPos.x + 0.06f, menuPos.y }, 0.48f, 0.48f, { 255, 255, 255, 255 }, true);
-	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, menuPos.y + 0.017, 0.14, 0.035, 0, 0, 0, 0, 200, 0);
+	Game::DrawText(text, { menuPos.x + 0.06f, menuPos.y }, 0.48f, 0.48f, MenuSettings::titleBarTextColor, true);
+	auto titleBarBgColor = MenuSettings::titleBarBgColor;
+	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, menuPos.y + 0.017, 0.14, 0.055, 0, titleBarBgColor.r, titleBarBgColor.g, titleBarBgColor.b, titleBarBgColor.a, 0);
 }
 
 void Submenu::DrawOptionText(string text, bool selected)
 {
 	if (selected) {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, { 255, 255, 255, 255 });
-		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 206, 6, 17, 200, 0);
+		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, MenuSettings::optionSelectedTextColor);
+		auto optionSelectedBgColor = MenuSettings::optionSelectedBgColor;
+		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, optionSelectedBgColor.r, optionSelectedBgColor.g, optionSelectedBgColor.b, optionSelectedBgColor.a, 0);
 	}
 	else {
-		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, { 100, 100, 100, 255 });
-		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, 0, 0, 0, 200, 0);
+		Game::DrawText(text, { menuPos.x, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, MenuSettings::optionTextColor);
+		auto optionBgColor = MenuSettings::optionBgColor;
+		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.06, CurrentOptionPosY() + 0.01, 0.14, 0.035, 0, optionBgColor.r, optionBgColor.g, optionBgColor.b, optionBgColor.a, 0);
 	}
 }
 
@@ -86,21 +90,18 @@ void Submenu::DrawToggle(string text, string toggleKey)
 	if (!ToggleManager::DoesToggleExistForKey(toggleKey)) return;
 	auto toggle = ToggleManager::GetToggleForKey(toggleKey);
 
-	Color toggleColor = { 150, 150, 150, 255 };
-	if (*toggle) {
-		toggleColor = { 35, 142, 35, 255 };
-	}
+	Color toggleColor = (*toggle) ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
 
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionText(text, true);
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.1f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
+		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			ToggleManager::Toggle(toggleKey);
 		}
 	}
 	else {
 		DrawOptionText(text, false);
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.1f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
+		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 	}
 
 	drawIndex++;

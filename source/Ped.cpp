@@ -94,7 +94,7 @@ Ped Ped::GetMount()
 	return PED::GET_MOUNT(pedId);
 }
 
-// MARK: Static functions
+// MARK: Static methods
 Ped Ped::Spawn(Hash model, Vector3 position, float heading)
 {
 	Game::RequestModel(model);
