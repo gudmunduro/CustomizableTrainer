@@ -54,6 +54,46 @@ void JSONDataManager::UpdateMenuSettings()
 	}
 }
 
+// MARK: Save data
+void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap)
+{
+	json submenuDataArray = json::array();
+	int index = 0;
+	for (auto const& [key, submenuData] : submenuDataMap) {
+		submenuDataArray.push_back({
+			{"title", submenuData.title},
+			{"key", key},
+			{"options", json::array()}
+		});
+
+		for each (MenuOption option in submenuData.options) {
+			string typeStringValue;
+			switch (option.type) {
+			case MenuOptionType::Action:
+				typeStringValue = "action";
+				break;
+			case MenuOptionType::Sub:
+				typeStringValue = "sub";
+				break;
+			case MenuOptionType::Toggle:
+				typeStringValue = "toggle";
+				break;
+			}
+			submenuDataArray[index]["options"].push_back({
+				{ "type", typeStringValue },
+				{ "text", option.text },
+				{ "key", option.key }
+			});
+			if (option.params.size() > 0) {
+				submenuDataArray[index]["options"].back()["params"] = option.params;
+			}
+		}
+		index++;
+	}
+	layoutData = submenuDataArray;
+	WriteFile("CustomizableTrainer\\layout.json", submenuDataArray.dump());
+}
+
 // MARK: Load files
 void JSONDataManager::Load()
 {
@@ -88,4 +128,11 @@ string JSONDataManager::ReadFile(string path)
 	std::istreambuf_iterator<char>());
 
 	return fileContent;
+}
+
+void JSONDataManager::WriteFile(string path, string content)
+{
+	std::ofstream file(path);
+	file << content;
+	file.close();
 }

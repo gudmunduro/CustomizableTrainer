@@ -22,6 +22,8 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_X);
 	case MenuControl::MenuEditModeMoveOptionn:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+	case MenuControl::MenuEditModeAddOption:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_Y);
 	default:
 		return false;
 	}

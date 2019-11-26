@@ -106,6 +106,7 @@
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
+    <ClInclude Include="EditModeData.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="JsonDataManager.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="Actions.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="EditModeData.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />

@@ -15,4 +15,8 @@ namespace Actions {
 	void GivePlayerAllWeapons(json params);
 	void TeleportPlayerForward(json params);
 	void TeleportPlayerToCoords(json params);
+	void SetNewOptionType(json params);
+	void SetNewOptionText(json params);
+	void SetNewOptionKey(json params);
+	void AddNewOption(json params);
 }

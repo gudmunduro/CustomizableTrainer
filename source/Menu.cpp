@@ -17,6 +17,8 @@ Menu::Menu()
 		if (DoesSubmenuExistForKey(key)) {
 			SetSubmenuDataForKey(key, submenuData);
 		}
+		JSONDataManager manager;
+		manager.SaveLayoutFromMap(submenuDataMap);
 	};
 	// Load json data
 	JSONDataManager manager;
@@ -33,7 +35,7 @@ void Menu::Tick()
 	}
 }
 
-// MARK:
+// MARK: Manange submenu stack
 void Menu::RegisterSubmenuData(string key, SubmenuData submenuData)
 {
 	submenuDataMap[key] = submenuData;
@@ -47,6 +49,8 @@ void Menu::GoToLastSub()
 	if (submenuStack.size() > 0) submenuStack.pop_back();
 	if (submenuStack.size() == 0) shouldDrawMenu = false;
 }
+
+// MARK: Controls
 void Menu::RespondToControls()
 {
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
@@ -64,7 +68,7 @@ void Menu::RespondToControls()
 	}
 }
 
-// MARK:
+// MARK: Booleans
 bool Menu::DoesSubmenuExistForKey(string key)
 {
 	return submenuDataMap.count(key) > 0;

@@ -13,6 +13,10 @@ public:
 	void DrawAction(string text, string actionKey, json actionParams);
 	void DrawToggle(string text, string toggleKey);
 
+	void OnDraw();
+
+	void OnDrawEditMode();
+
 	int GetOptionCount();
 	bool GetEditModeActive();
 

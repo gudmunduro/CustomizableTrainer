@@ -120,6 +120,9 @@
     <ClInclude Include="MenuSettings.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
+    <ClInclude Include="EditModeData.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -174,6 +177,9 @@
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="MenuSettings.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="EditModeData.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>

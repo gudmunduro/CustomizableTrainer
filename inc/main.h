@@ -36,6 +36,7 @@ IMPORT void nativePush64(UINT64 val);
 IMPORT PUINT64 nativeCall();
 
 static void WAIT(DWORD time) { scriptWait(time); }
+static void WAIT2(DWORD time) { auto endTime = GetTickCount() + time; while (GetTickCount() < time) WAIT(1); }
 static void TERMINATE() { WAIT(MAXDWORD); }
 
 // Returns pointer to global variable

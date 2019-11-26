@@ -5,6 +5,7 @@
 #include "ControlManager.h"
 #include "MenuSettings.h"
 #include "Routine.h"
+#include "EditModeData.h"
 
 Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData) {
 	this->menuPos = menuPos;
@@ -22,7 +23,9 @@ Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(st
 
 void Submenu::Draw() {
 	drawIndex = 0;
-	RespondToControls();
+	OnDraw();
+	if (isEditModeActive) OnDrawEditMode();
+
 	DrawTitle(title);
 	for (int i = scrollPosition; i < ((GetOptionCount() > 8) ? (scrollPosition + 8) : GetOptionCount()); i++) {
 		auto option = options[i];
@@ -111,6 +114,21 @@ void Submenu::DrawToggle(string text, string toggleKey)
 	drawIndex++;
 }
 
+// MARK: Events
+void Submenu::OnDraw()
+{
+	RespondToControls();
+}
+
+void Submenu::OnDrawEditMode()
+{
+	if (EditModeData::shouldAdd) {
+		// Temporary way to transfer the option from the 'Add option' submenu to this
+		options.push_back(EditModeData::optionToAdd);
+		EditModeData::shouldAdd = false;
+	}
+}
+
 // MARK: Getters
 int Submenu::GetOptionCount()
 {
@@ -121,7 +139,7 @@ bool Submenu::GetEditModeActive()
 	return isEditModeActive;
 }
 
-//
+// MARK: Controls
 void Submenu::RespondToControls()
 {
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuDown)) {
@@ -152,6 +170,8 @@ void Submenu::RespondToControls()
 
 		if (selection < scrollPosition) scrollPosition--;
 	}
+
+	// Edit mode
 	if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
 		isEditModeActive = true;
 		ControlManager::CanceMenuControlslForThisFrame();
@@ -170,9 +190,14 @@ void Submenu::RespondToControls()
 			isMoveOptionActive = false;
 			isEditModeActive = false;
 		}
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
+			setSubmenu("required_sub_addOption");
+			ControlManager::CanceMenuControlslForThisFrame();
+		}
 	}
 }
 
+// MARK: Core methods
 float Submenu::CurrentOptionPosY() {
 	return menuPos.y + 0.05 + (0.034 * (float)drawIndex);
 }
