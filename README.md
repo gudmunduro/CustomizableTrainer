@@ -1,3 +1,3 @@
 # CTrainer
 
-Uses [Scripthook](https://www.nexusmods.com/reddeadredemption2/mods/20/?tab=posts)
+Uses [Scripthook](http://www.dev-c.com/rdr2/scripthookrdr2/)
