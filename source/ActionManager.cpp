@@ -52,7 +52,18 @@ bool ActionManager::DoesActionExistForKey(string key)
 {
 	return actions.count(key) != 0;
 }
+
 std::function<void(json params)> ActionManager::GetActionForKey(string key)
 {
 	return actions[key];
+}
+
+std::vector<string> ActionManager::GetKeys()
+{
+	std::vector<string> keys;
+	std::transform(std::begin(actions), std::end(actions), std::back_inserter(keys),
+		[](auto const& pair) {
+			return pair.first;
+	});
+	return keys;
 }

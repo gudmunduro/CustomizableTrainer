@@ -138,6 +138,9 @@
     <ClInclude Include="AddOptionSetTypeSub.h">
       <Filter>Headers\Menu\Submenus</Filter>
     </ClInclude>
+    <ClInclude Include="AddOptionSetKeySub.h">
+      <Filter>Headers\Menu\Submenus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -204,6 +207,9 @@
       <Filter>Source\Menu\Submenus</Filter>
     </ClCompile>
     <ClCompile Include="AddOptionSetTypeSub.cpp">
+      <Filter>Source\Menu\Submenus</Filter>
+    </ClCompile>
+    <ClCompile Include="AddOptionSetKeySub.cpp">
       <Filter>Source\Menu\Submenus</Filter>
     </ClCompile>
   </ItemGroup>

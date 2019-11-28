@@ -6,6 +6,9 @@
 #include "DynamicSubmenu.h"
 #include "AddOptionSub.h"
 #include "AddOptionSetTypeSub.h"
+#include "AddOptionSetKeySub.h"
+#include "ActionManager.h"
+#include "ToggleManager.h"
 
 Menu::Menu()
 {
@@ -23,6 +26,16 @@ Menu::Menu()
 		}
 	};
 	updateSubmenuData = [this](string key, SubmenuData submenuData) {
+		for each (auto option in submenuData.options) {
+			if (option.type == MenuOptionType::Sub && !DoesSubmenuExistForKey(key) && !DoesFixedSubmenuExistForKey(key)) { // Add submenu if it does not exist
+				AddSubmenuData(option.key, {
+					option.text,
+					option.key,
+					{}
+				});
+			}
+		}
+
 		if (DoesSubmenuExistForKey(key)) {
 			SetSubmenuDataForKey(key, submenuData);
 		}
@@ -102,6 +115,11 @@ void Menu::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
 	submenuDataMap[key] = submenuData;
 }
 
+void Menu::AddSubmenuData(string key, SubmenuData submenuData)
+{
+	submenuDataMap[key] = submenuData;
+}
+
 // MARK: Getters
 SubmenuData Menu::GetSubmenuDataForKey(string key) 
 {
@@ -112,6 +130,16 @@ Submenu *Menu::GetSubmenuForKey(string submenuKey)
 	return new DynamicSubmenu(GetSubmenuDataForKey(submenuKey), position, setSubmenu, updateSubmenuData, goToLastSub);
 }
 
+std::vector<string> Menu::GetSubmenuKeys()
+{
+	std::vector<string> keys;
+	std::transform(std::begin(submenuDataMap), std::end(submenuDataMap), std::back_inserter(keys),
+		[](auto const& pair) {
+			return pair.first;
+	});
+	return keys;
+}
+
 Submenu* Menu::GetFixedSubmenuForKey(string key)
 {
 	if (key == "builtin_sub_addOption") {
@@ -119,6 +147,15 @@ Submenu* Menu::GetFixedSubmenuForKey(string key)
 	}
 	else if (key == "builtin_sub_addOptionSetTypeSub") {
 		return new AddOptionSetTypeSub(position, setSubmenu, goToLastSub);
+	}
+	else if (key == "builtin_sub_addOptionSetActionKey") {
+		return new AddOptionSetKeySub(position, MenuOptionType::Action, ActionManager::GetKeys(), setSubmenu, goToLastSub);
+	}
+	else if (key == "builtin_sub_addOptionSetToggleKey") {
+		return new AddOptionSetKeySub(position, MenuOptionType::Toggle, ToggleManager::GetKeys(), setSubmenu, goToLastSub);
+	}
+	else if (key == "builtin_sub_addOptionSetSubKey") {
+		return new AddOptionSetKeySub(position, MenuOptionType::Sub, GetSubmenuKeys(), setSubmenu, goToLastSub);
 	}
 	return nullptr;
 }

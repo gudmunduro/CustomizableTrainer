@@ -9,6 +9,7 @@ public:
 	static void RunActionForKey(string key, json params);
 	static bool DoesActionExistForKey(string key);
 	static std::function<void (json params)> GetActionForKey(string key);
+	static std::vector<string> GetKeys();
 private:
 	static inline std::map<string, std::function<void(json params)>> actions;
 };

@@ -104,6 +104,7 @@
     <ClInclude Include="..\inc\natives.h" />
     <ClInclude Include="..\inc\types.h" />
     <ClInclude Include="ActionManager.h" />
+    <ClInclude Include="AddOptionSetKeySub.h" />
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
     <ClInclude Include="ControlManager.h" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="Actions.cpp" />
+    <ClCompile Include="AddOptionSetKeySub.cpp" />
     <ClCompile Include="AddOptionSetTypeSub.cpp" />
     <ClCompile Include="AddOptionSub.cpp" />
     <ClCompile Include="ControlManager.cpp" />

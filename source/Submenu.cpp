@@ -43,13 +43,13 @@ void Submenu::DrawOptionBase(string text, bool selected)
 
 void Submenu::DrawSub(string text, string subKey, bool enabled) {
 	if (selection == drawIndex + scrollPosition) {
-		DrawOptionBase(text, true);
+		DrawOptionBase(text + " >", true);
 		if (enabled && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			setSubmenu(subKey);
 		}
 	}
 	else {
-		DrawOptionBase(text, false);
+		DrawOptionBase(text + " >", false);
 	}
 
 	drawIndex++;

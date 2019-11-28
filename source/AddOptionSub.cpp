@@ -39,8 +39,17 @@ void AddOptionSub::OnOptionPress(int index)
 		}
 		case 2:
 		{
-			string textInput = Game::GetInputWithKeyboard(optionToAdd.key);
-			optionToAdd.key = textInput;
+			switch (optionToAdd.type) {
+				case MenuOptionType::Action:
+					setSubmenu("builtin_sub_addOptionSetActionKey");
+					break;
+				case MenuOptionType::Toggle:
+					setSubmenu("builtin_sub_addOptionSetToggleKey");
+					break;
+				case MenuOptionType::Sub:
+					setSubmenu("builtin_sub_addOptionSetSubKey");
+					break;
+			}
 			break;
 		}
 		case 3:
@@ -55,5 +64,9 @@ void AddOptionSub::OnMessageReceive(string messageKey, std::any messageValue)
 	if (messageKey == "setOptionType") {
 		MenuOptionType type = std::any_cast<MenuOptionType>(messageValue);
 		optionToAdd.type = type;
+	}
+	else if (messageKey == "setOptionKey") {
+		string key = std::any_cast<string>(messageValue);
+		optionToAdd.key = key;
 	}
 }

@@ -15,6 +15,7 @@
 #include <vector>
 #include <map>
 #include <any>
+#include <regex>
 #include <functional>
 #include "core/Hash.h"
 #include "types.h"

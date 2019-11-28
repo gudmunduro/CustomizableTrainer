@@ -79,3 +79,13 @@ std::function<void(bool value)> ToggleManager::GetToggleActionForKey(string key)
 {
 	return toggleActions[key];
 }
+
+std::vector<string> ToggleManager::GetKeys()
+{
+	std::vector<string> keys;
+	std::transform(std::begin(toggles), std::end(toggles), std::back_inserter(keys),
+		[](auto const& pair) {
+			return pair.first;
+	});
+	return keys;
+}

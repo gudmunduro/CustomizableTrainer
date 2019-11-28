@@ -18,9 +18,11 @@ public:
 	bool DoesFixedSubmenuExistForKey(string key);
 
 	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
+	void AddSubmenuData(string key, SubmenuData submenuData);
 
 	SubmenuData GetSubmenuDataForKey(string key);
 	Submenu* GetSubmenuForKey(string key);
+	std::vector<string> GetSubmenuKeys();
 	Submenu* GetFixedSubmenuForKey(string key);
 private:
 	std::function<void(string key)> setSubmenu;
