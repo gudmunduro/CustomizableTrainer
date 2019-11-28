@@ -4,35 +4,30 @@
 
 class Submenu {
 public:
-	Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData);
+	Submenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
 
-	void Draw();
+	virtual void Draw();
 	void DrawTitle(string text);
 	void DrawOptionBase(string text, bool selected);
-	void DrawSub(string text, string subKey);
-	void DrawAction(string text, string actionKey, json actionParams);
-	void DrawToggle(string text, string toggleKey);
+	void DrawSub(string text, string subKey, bool isEnabled = true);
+	void DrawAction(string text, std::function<void()> onPress);
+	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);
 
-	void OnDraw();
+	virtual void OnDraw();
+	virtual void OnSelectionChange(int to, int from);
+	virtual void OnMessageReceive(string messageKey, std::any messageValue);
 
-	void OnDrawEditMode();
+	virtual int GetOptionCount();
 
-	int GetOptionCount();
-	bool GetEditModeActive();
-
-	void RespondToControls();
+	virtual void RespondToControls();
+	virtual bool IsBackspaceAllowed();
 	float CurrentOptionPosY();
-private:
-	string title;
-	string key;
-	std::vector<MenuOption> options;
+protected:
 	Vector2 menuPos;
 	int selection;
 	int drawIndex;
 	int scrollPosition;
-	bool isEditModeActive;
-	bool isMoveOptionActive;
 	std::function<void(std::string key)> setSubmenu;
-	std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData;
+	std::function<void(string messageKey, std::any messageValue)> goToLastSub;
 };
 

@@ -8,23 +8,26 @@ class Menu
 public:
 	Menu();
     void Tick();
-	// MARK: 
+
 	void RegisterSubmenuData(string key, SubmenuData submenuData);
-	void AddSubmenuToStack(Submenu submenuData);
-	void GoToLastSub();
+	void AddSubmenuToStack(Submenu *submenu);
+	void GoToLastSub(string messageKey, std::any messageValue);
 	void RespondToControls();
-	// MARK:
+
 	bool DoesSubmenuExistForKey(string key);
-	// MARK: Getters
+	bool DoesFixedSubmenuExistForKey(string key);
+
 	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
-	// MARK: Getters
+
 	SubmenuData GetSubmenuDataForKey(string key);
-	Submenu GetSubmenuForKey(string key);
+	Submenu* GetSubmenuForKey(string key);
+	Submenu* GetFixedSubmenuForKey(string key);
 private:
 	std::function<void(string key)> setSubmenu;
-	std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData;
+	std::function<void(string key, SubmenuData submenuData)> updateSubmenuData;
+	std::function<void(string messageKey, std::any messageValue)> goToLastSub;
 	Vector2 position;
-	std::vector<Submenu> submenuStack;
+	std::vector<Submenu*> submenuStack;
 	std::map<string, SubmenuData> submenuDataMap;
 	bool shouldDrawMenu;
 };

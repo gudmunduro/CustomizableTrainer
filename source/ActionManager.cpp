@@ -34,11 +34,6 @@ void ActionManager::RegisterActions()
 	// Teleport
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
-	// Add option
-	RegisterAction("action_setNewOptionType", Actions::SetNewOptionType);
-	RegisterAction("action_setNewOptionText", Actions::SetNewOptionText);
-	RegisterAction("action_setNewOptionKey", Actions::SetNewOptionKey);
-	RegisterAction("action_addOption", Actions::AddNewOption);
 }
 
 void ActionManager::RunActionForKey(string key, json params)

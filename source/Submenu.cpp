@@ -5,42 +5,19 @@
 #include "ControlManager.h"
 #include "MenuSettings.h"
 #include "Routine.h"
-#include "EditModeData.h"
 
-Submenu::Submenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData) {
+Submenu::Submenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub) {
 	this->menuPos = menuPos;
-	this->title = submenuData.title;
-	this->key = submenuData.key;
-	this->options = submenuData.options;
 	this->setSubmenu = setSubmenu;
-	this->updateSubmenuData = updateSubmenuData;
+	this->goToLastSub = goToLastSub;
 	selection = 0;
 	drawIndex = 0;
 	scrollPosition = 0;
-	isEditModeActive = false;
-	isMoveOptionActive = false;
 }
 
 void Submenu::Draw() {
 	drawIndex = 0;
 	OnDraw();
-	if (isEditModeActive) OnDrawEditMode();
-
-	DrawTitle(title);
-	for (int i = scrollPosition; i < ((GetOptionCount() > 8) ? (scrollPosition + 8) : GetOptionCount()); i++) {
-		auto option = options[i];
-		switch (option.type) {
-		case MenuOptionType::Sub:
-			DrawSub(option.text, option.key);
-			break;
-		case MenuOptionType::Action:
-			DrawAction(option.text, option.key, option.params);
-			break;
-		case MenuOptionType::Toggle:
-			DrawToggle(option.text, option.key);
-			break;
-		}
-	}
 }
 
 // MARK: Draw title/option
@@ -64,10 +41,10 @@ void Submenu::DrawOptionBase(string text, bool selected)
 	}
 }
 
-void Submenu::DrawSub(string text, string subKey) {
+void Submenu::DrawSub(string text, string subKey, bool enabled) {
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text, true);
-		if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+		if (enabled && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			setSubmenu(subKey);
 		}
 	}
@@ -78,11 +55,11 @@ void Submenu::DrawSub(string text, string subKey) {
 	drawIndex++;
 }
 
-void Submenu::DrawAction(string text, string actionKey, json actionParams) {
+void Submenu::DrawAction(string text, std::function<void()> onPress) {
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text, true);
-		if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			ActionManager::RunActionForKey(actionKey, actionParams);
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+			onPress();
 		}
 	}
 	else {
@@ -92,23 +69,21 @@ void Submenu::DrawAction(string text, string actionKey, json actionParams) {
 	drawIndex++;
 }
 
-void Submenu::DrawToggle(string text, string toggleKey)
+void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPress)
 {
-	if (!ToggleManager::DoesToggleExistForKey(toggleKey)) return;
-	auto toggle = ToggleManager::GetToggleForKey(toggleKey);
-
-	Color toggleColor = (*toggle) ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
+	Color toggleColor = isToggled ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
 
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text, true);
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
-		if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			ToggleManager::Toggle(toggleKey);
+		Game::DrawText(isToggled ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
+
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+			onPress();
 		}
 	}
 	else {
 		DrawOptionBase(text, false);
-		Game::DrawText((*toggle) ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
+		Game::DrawText(isToggled ? "On" : "Off", { menuPos.x + 0.105f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 	}
 
 	drawIndex++;
@@ -120,23 +95,20 @@ void Submenu::OnDraw()
 	RespondToControls();
 }
 
-void Submenu::OnDrawEditMode()
+void Submenu::OnSelectionChange(int to, int from)
 {
-	if (EditModeData::shouldAdd) {
-		// Temporary way to transfer the option from the 'Add option' submenu to this
-		options.push_back(EditModeData::optionToAdd);
-		EditModeData::shouldAdd = false;
-	}
+
+}
+
+void Submenu::OnMessageReceive(string messageKey, std::any messageValue)
+{
+
 }
 
 // MARK: Getters
 int Submenu::GetOptionCount()
 {
-	return options.size();
-}
-bool Submenu::GetEditModeActive()
-{
-	return isEditModeActive;
+	return 0;
 }
 
 // MARK: Controls
@@ -150,9 +122,7 @@ void Submenu::RespondToControls()
 			scrollPosition = 0;
 		}
 
-		if (isEditModeActive && isMoveOptionActive) {
-			std::swap(options[oldSelection], options[selection]);
-		}
+		OnSelectionChange(selection, oldSelection);
 
 		if (selection > scrollPosition + 7) scrollPosition++;
 	}
@@ -164,37 +134,15 @@ void Submenu::RespondToControls()
 			scrollPosition = (GetOptionCount() > 8) ? GetOptionCount() - 8 : 0;
 		}
 
-		if (isEditModeActive && isMoveOptionActive) {
-			std::swap(options[oldSelection], options[selection]);
-		}
+		OnSelectionChange(selection, oldSelection);
 
 		if (selection < scrollPosition) scrollPosition--;
 	}
+}
 
-	// Edit mode
-	if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
-		isEditModeActive = true;
-		ControlManager::CanceMenuControlslForThisFrame();
-	}
-	if (isEditModeActive) {
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeMoveOptionn)) {
-			isMoveOptionActive = !isMoveOptionActive;
-		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeExitAndSave)) {
-			isMoveOptionActive = false;
-			isEditModeActive = false;
-			SubmenuData updatedSubmenuData = { title, key, options };
-			updateSubmenuData(key, updatedSubmenuData);
-		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeExit)) {
-			isMoveOptionActive = false;
-			isEditModeActive = false;
-		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
-			setSubmenu("required_sub_addOption");
-			ControlManager::CanceMenuControlslForThisFrame();
-		}
-	}
+bool Submenu::IsBackspaceAllowed()
+{
+	return true;
 }
 
 // MARK: Core methods

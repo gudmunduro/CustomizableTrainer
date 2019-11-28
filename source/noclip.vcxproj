@@ -104,9 +104,12 @@
     <ClInclude Include="..\inc\natives.h" />
     <ClInclude Include="..\inc\types.h" />
     <ClInclude Include="ActionManager.h" />
+    <ClInclude Include="AddOptionSetTypeSub.h" />
+    <ClInclude Include="AddOptionSub.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
-    <ClInclude Include="EditModeData.h" />
+    <ClInclude Include="DynamicSubmenu.h" />
+    <ClInclude Include="FixedSubmenu.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="JsonDataManager.h" />
@@ -126,9 +129,12 @@
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="Actions.cpp" />
+    <ClCompile Include="AddOptionSetTypeSub.cpp" />
+    <ClCompile Include="AddOptionSub.cpp" />
     <ClCompile Include="ControlManager.cpp" />
+    <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="EditModeData.cpp" />
+    <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />

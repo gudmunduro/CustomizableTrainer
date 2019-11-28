@@ -34,19 +34,19 @@ void Game::RequestTextureDict(string textureDict)
 string Game::GetInputWithKeyboard(string defaultText)
 {
 	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", (char*) defaultText.c_str(), "", "", "", 100);
-	while (true)
-	{
-		switch (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD())
-		{
-		case 1: return string(GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT());
-		case 2: return "";
-		case 3: 
-			Routine::StartDrawBottomMessage("~r~ ERROR: ~s~Unknown keyboard error");
-			return "";
-		default: continue;
-		}
+	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) {
 		WAIT(0);
 	}
+	switch (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD()) {
+	case 2: return defaultText;
+	case 3:
+		Routine::StartDrawBottomMessage("Error: Unknown keyboard error");
+		return defaultText;
+	}
+	if (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 3) {
+		Routine::StartDrawBottomMessage("Error: Unknown keyboard error");
+	}
+	return GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT();
 }
 
 void Game::UpdateData()

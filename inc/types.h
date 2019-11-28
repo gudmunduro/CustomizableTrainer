@@ -76,6 +76,13 @@ struct MenuOption
 	json params;
 };
 
+struct FixedMenuOption
+{
+	MenuOptionType type;
+	string text;
+	string key; // Key is only used when type is sub
+};
+
 struct SubmenuData
 {
 	string title;

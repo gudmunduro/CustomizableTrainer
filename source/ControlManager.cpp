@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ControlManager.h"
+#include "keyboard.h"
 
 bool ControlManager::IsMenuControlPressed(MenuControl control) {
 	if (shouldCancelForThisFrame) return false;
@@ -11,7 +12,7 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 	case MenuControl::MenuUp:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_UP);
 	case MenuControl::MenuOpen:
-		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN);
+		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN) || IsKeyJustUp(0x72);
 	case MenuControl::MenuGoBack:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
 	case MenuControl::MenuEditModeEnter:
@@ -24,6 +25,8 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
 	case MenuControl::MenuEditModeAddOption:
 		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_Y);
+	case MenuControl::MenuEditModeDeleteOption:
+		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_LB);
 	default:
 		return false;
 	}

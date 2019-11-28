@@ -3,7 +3,6 @@
 #include "Routine.h"
 #include "Player.h"
 #include "Toggles.h"
-#include "EditModeData.h"
 
 // MARK: Player
 void Actions::SetPlayerMaxHealth(json params)
@@ -153,36 +152,4 @@ void Actions::TeleportPlayerToCoords(json params)
 
 	Vector3 teleportToCoords = { params[0], params[1], params[2] };
 	Player().SetCoords(teleportToCoords);
-}
-
-// Add option
-void Actions::SetNewOptionType(json params) 
-{
-	string typeInput = Game::GetInputWithKeyboard();
-	if (typeInput == "action") {
-		EditModeData::optionToAdd.type = MenuOptionType::Action;
-	}
-	else if (typeInput == "toggle") {
-		EditModeData::optionToAdd.type = MenuOptionType::Toggle;
-	}
-	else if (typeInput == "sub") {
-		EditModeData::optionToAdd.type = MenuOptionType::Sub;
-	}
-}
-
-void Actions::SetNewOptionText(json params)
-{
-	string textInput = Game::GetInputWithKeyboard();
-	EditModeData::optionToAdd.text = textInput;
-}
-
-void Actions::SetNewOptionKey(json params)
-{
-	string textInput = Game::GetInputWithKeyboard();
-	EditModeData::optionToAdd.key = textInput;
-}
-
-void Actions::AddNewOption(json params)
-{
-	EditModeData::shouldAdd = true;
 }

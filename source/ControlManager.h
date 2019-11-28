@@ -39,7 +39,8 @@ enum class MenuControl {
 	MenuEditModeExit,
 	MenuEditModeExitAndSave,
 	MenuEditModeMoveOptionn,
-	MenuEditModeAddOption
+	MenuEditModeAddOption,
+	MenuEditModeDeleteOption
 };
 
 enum class FunctionControl {
