@@ -13,6 +13,7 @@ namespace Actions {
 	void RepairVehicle(json params);
 	void DeleteCurrentVehicle(json params);
 	void GivePlayerAllWeapons(json params);
+	void GivePlayerWeapon(json params);
 	void TeleportPlayerForward(json params);
 	void TeleportPlayerToCoords(json params);
 	void SetNewOptionType(json params);

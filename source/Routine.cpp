@@ -38,6 +38,12 @@ void RunLoopedToggles()
 			ENTITY::FREEZE_ENTITY_POSITION(Game::playerPedId, false);
 		}
 	}
+	if (*Toggles::playerUnlStamina) {
+		player.SetStamina(100.0);
+	}
+	if (*Toggles::playerUnlSpecialAbility) {
+		player.RestoreSpecialAbility();
+	}
 	if (*Toggles::playerSuperJump) {
 		GAMEPLAY::SET_SUPER_JUMP_THIS_FRAME(Game::playerId);
 	}
@@ -54,10 +60,20 @@ void RunLoopedToggles()
 			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
 		}
 	}
+	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
+		player.GetMount().SetStamina(100.0);
+	}
 	if (*Toggles::weaponInfiniteAmmo) {
 		Hash currentWeapon;
-		WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, true, true, true);
-		WEAPON::SET_PED_INFINITE_AMMO(Game::playerPedId, true, currentWeapon);
+		if (WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, 0, 0, 0) && WEAPON::IS_WEAPON_VALID(currentWeapon))
+		{
+			int maxAmmo;
+			if (WEAPON::GET_MAX_AMMO(Game::playerPedId, &maxAmmo, currentWeapon))
+				WEAPON::SET_PED_AMMO(Game::playerPedId, currentWeapon, maxAmmo);
+			int maxAmmoInClip = WEAPON::GET_MAX_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, 1);
+			if (maxAmmoInClip > 0)
+				WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
+		}
 	}
 	if (*Toggles::horseEngineTest) {
 		auto currentVehicle = Player().GetCurrentVehicle();

@@ -13,7 +13,7 @@ void Ped::SetHealth(int health)
 
 void Ped::SetVisible(bool visible)
 {
-	ENTITY::SET_ENTITY_VISIBLE(pedId, visible);
+	PED::SET_PED_VISIBLE(pedId, visible);
 }
 
 void Ped::SetIntoVehicle(VehicleId vehicle, int seat) 
@@ -101,5 +101,6 @@ Ped Ped::Spawn(Hash model, Vector3 position, float heading)
 	PedId pedId = PED::CREATE_PED(model, position.x, position.y, position.z, heading, false, false, false, false);
 	Ped ped = Ped(pedId);
 	ped.SetVisible(true);
+	STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 	return ped;
 }

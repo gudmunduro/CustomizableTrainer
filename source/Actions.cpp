@@ -135,6 +135,19 @@ void Actions::GivePlayerAllWeapons(json params)
 	}
 }
 
+void Actions::GivePlayerWeapon(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	string weaponModel = params[0].get<string>();
+	Hash weaponHash = String::Hash(weaponModel);
+	
+	Player().GiveWeapon(weaponHash);
+	WEAPON::SET_PED_AMMO(Game::playerPedId, weaponHash, 9999);
+}
+
 // Teleport
 void Actions::TeleportPlayerForward(json params)
 {

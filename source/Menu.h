@@ -18,7 +18,8 @@ public:
 	bool DoesFixedSubmenuExistForKey(string key);
 
 	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
-	void AddSubmenuData(string key, SubmenuData submenuData);
+	void SetSubmenu(string key);
+	void UpdateSubmenuData(string key, SubmenuData submenuData);
 
 	SubmenuData GetSubmenuDataForKey(string key);
 	Submenu* GetSubmenuForKey(string key);

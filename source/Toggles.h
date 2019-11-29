@@ -8,9 +8,12 @@ namespace Toggles {
 		playerVisible = std::make_shared<bool>(true),
 		playerSuperRun = std::make_shared<bool>(false),
 		playerSuperJump = std::make_shared<bool>(false),
+		playerUnlStamina = std::make_shared<bool>(false),
+		playerUnlSpecialAbility = std::make_shared<bool>(false),
 		horseInvincible = std::make_shared<bool>(false),
 		horseVisible = std::make_shared<bool>(true),
 		horseSuperRun = std::make_shared<bool>(false),
+		horseUnlimitedStamina = std::make_shared<bool>(false),
 		horseEngineTest = std::make_shared<bool>(false),
 		spawnInsideVehicle = std::make_shared<bool>(false),
 		weaponInfiniteAmmo = std::make_shared<bool>(false);

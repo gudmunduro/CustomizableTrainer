@@ -31,6 +31,7 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_spawnHorse", Actions::SpawnHorse);
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
+	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);
 	// Teleport
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
@@ -66,4 +67,17 @@ std::vector<string> ActionManager::GetKeys()
 			return pair.first;
 	});
 	return keys;
+}
+
+std::vector<MenuOptionParameter> ActionManager::GetParameterForKey(string key)
+{
+	std::map<string, std::vector<MenuOptionParameter>> parameters;
+	parameters["action_setPlayerModel"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_spawnHorse"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_spawnVehicle"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_givePlayerWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_teleportPlayerToCoords"] = { { { MenuOptionParameterType::Float, "X" }, { MenuOptionParameterType::Float, "Y" }, { MenuOptionParameterType::Float, "Z" } } };
+
+	if (parameters.count(key) == 0) return {};
+	return parameters[key];
 }

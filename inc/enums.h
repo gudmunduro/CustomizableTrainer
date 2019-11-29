@@ -11,3 +11,9 @@ enum class MenuOptionType {
 	Toggle,
 	Sub
 };
+
+enum class MenuOptionParameterType {
+	String,
+	Int,
+	Float
+};

@@ -14,37 +14,11 @@ Menu::Menu()
 {
 	position = { 0.054f, 0.1f };
 	shouldDrawMenu = false;
-	// std::function functions to be passed to the submenus
-	setSubmenu = [this](string key) {
-		if (DoesSubmenuExistForKey(key)) {
-			Submenu *submenu = GetSubmenuForKey(key);
-			AddSubmenuToStack(submenu);
-		}
-		else if (DoesFixedSubmenuExistForKey(key)) {
-			Submenu* submenu = GetFixedSubmenuForKey(key);
-			AddSubmenuToStack(submenu);
-		}
-	};
-	updateSubmenuData = [this](string key, SubmenuData submenuData) {
-		for each (auto option in submenuData.options) {
-			if (option.type == MenuOptionType::Sub && !DoesSubmenuExistForKey(key) && !DoesFixedSubmenuExistForKey(key)) { // Add submenu if it does not exist
-				AddSubmenuData(option.key, {
-					option.text,
-					option.key,
-					{}
-				});
-			}
-		}
+	// std::function wrappers to be passed to submenus
+	setSubmenu = [this](string key) { SetSubmenu(key); };
+	updateSubmenuData = [this](string key, SubmenuData submenuData) { UpdateSubmenuData(key, submenuData); };
+	goToLastSub = [this](string messageKey, std::any messageValue) { GoToLastSub(messageKey, messageValue); };
 
-		if (DoesSubmenuExistForKey(key)) {
-			SetSubmenuDataForKey(key, submenuData);
-		}
-		JSONDataManager manager;
-		manager.SaveLayoutFromMap(submenuDataMap);
-	};
-	goToLastSub = [this](string messageKey, std::any messageValue) {
-		GoToLastSub(messageKey, messageValue);
-	};
 	// Load json data
 	JSONDataManager manager;
 	manager.Load();
@@ -115,9 +89,36 @@ void Menu::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
 	submenuDataMap[key] = submenuData;
 }
 
-void Menu::AddSubmenuData(string key, SubmenuData submenuData)
+void Menu::SetSubmenu(string key)
 {
-	submenuDataMap[key] = submenuData;
+	if (DoesSubmenuExistForKey(key)) {
+		Submenu* submenu = GetSubmenuForKey(key);
+		AddSubmenuToStack(submenu);
+	}
+	else if (DoesFixedSubmenuExistForKey(key)) {
+		Submenu* submenu = GetFixedSubmenuForKey(key);
+		AddSubmenuToStack(submenu);
+	}
+}
+
+void Menu::UpdateSubmenuData(string key, SubmenuData submenuData)
+{
+	for each (auto option in submenuData.options) {
+		if (option.type == MenuOptionType::Sub && !DoesSubmenuExistForKey(option.key) && !DoesFixedSubmenuExistForKey(option.key)) { // Add submenu if it does not exist
+			Routine::StartDrawBottomMessage("Creating submenu");
+			SetSubmenuDataForKey(option.key, {
+				option.text,
+				option.key,
+				{}
+			});
+		}
+	}
+
+	if (DoesSubmenuExistForKey(key)) {
+		SetSubmenuDataForKey(key, submenuData);
+	}
+	JSONDataManager manager;
+	manager.SaveLayoutFromMap(submenuDataMap);
 }
 
 // MARK: Getters

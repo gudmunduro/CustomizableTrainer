@@ -83,6 +83,12 @@ struct FixedMenuOption
 	string key; // Key is only used when type is sub
 };
 
+struct MenuOptionParameter 
+{
+	MenuOptionParameterType type;
+	string name;
+};
+
 struct SubmenuData
 {
 	string title;
