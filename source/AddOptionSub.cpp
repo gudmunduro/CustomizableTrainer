@@ -26,7 +26,7 @@ void AddOptionSub::Setup()
 		},
 		{
 			MenuOptionType::Action,
-			"Key"
+			"Key >"
 		}
 	};
 	if (optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action && ActionManager::GetParameterForKey(optionToAdd.key).size() > 0) {

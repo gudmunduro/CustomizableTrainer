@@ -42,7 +42,7 @@ void Actions::RestorePlayerStamina(json params)
 	Player().RestoreStamina();
 }
 
-// Horse
+// MARK: Horse
 void Actions::SetHorseMaxHealth(json params)
 {
 	Ped horse = Player().GetMount();
@@ -80,9 +80,11 @@ void Actions::SpawnVehicle(json params)
 	}
 	Player player = Player();
 	Vector3 spawnPosition = player.GetPosition();
+	float vehicleSpawnHeading = player.GetHeading();
 
 	if (!(*Toggles::spawnInsideVehicle)) {
-		spawnPosition = player.GetOffsetInWorldCoords({0.0, 3.0, 0.0});
+		spawnPosition = player.GetOffsetInWorldCoords({0.0, 2.0, 0.0});
+		vehicleSpawnHeading += 90;
 	}
 
 	if (player.IsInVehicle()) {
@@ -90,7 +92,7 @@ void Actions::SpawnVehicle(json params)
 		vehicle.Delete();
 	}
 
-	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, player.GetHeading());
+	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, vehicleSpawnHeading);
 
 	if (*Toggles::spawnInsideVehicle) {
 		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
@@ -102,6 +104,14 @@ void Actions::RepairVehicle(json params)
 	auto currentVehicle = Player().GetCurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Repair();
+	}
+}
+
+void Actions::BoostVehicle(json params)
+{
+	auto currentVehicle = Player().GetCurrentVehicle();
+	if (currentVehicle.Exists()) {
+		currentVehicle.SetForwardSpeed(16.66);
 	}
 }
 
@@ -148,7 +158,31 @@ void Actions::GivePlayerWeapon(json params)
 	WEAPON::SET_PED_AMMO(Game::playerPedId, weaponHash, 9999);
 }
 
-// Teleport
+// MARK: Weather
+void Actions::SetWeather(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	string weather = params[0].get<string>();
+	Game::SetWeather(String::Hash(weather));
+}
+
+// MARK: Time
+void Actions::AddToClockTime(json params)
+{
+	if (!params.is_array() || !params[0].is_number_integer() || !params[1].is_number_integer() || !params[2].is_number_integer()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	int hours = params[0].get<int>();
+	int minutes = params[0].get<int>();
+	int seconds = params[0].get<int>();
+	TIME::ADD_TO_CLOCK_TIME(hours, minutes, seconds);
+}
+
+// MARK: Teleport
 void Actions::TeleportPlayerForward(json params)
 {
 	auto player = Player();

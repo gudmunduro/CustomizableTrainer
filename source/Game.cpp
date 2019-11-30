@@ -23,6 +23,13 @@ void Game::RequestModel(Hash model)
 	}
 }
 
+void Game::SetWeather(Hash weather)
+{
+	GAMEPLAY::CLEAR_OVERRIDE_WEATHER();
+	GAMEPLAY::SET_WEATHER_TYPE(weather, true, true, true, 0.0, true);
+	GAMEPLAY::CLEAR_WEATHER_TYPE_PERSIST();
+}
+
 void Game::RequestTextureDict(string textureDict)
 {
 	TEXTURE::REQUEST_STREAMED_TEXTURE_DICT((char*)textureDict.c_str(), true);

@@ -78,7 +78,17 @@ void DynamicSubmenu::OnDrawEditMode()
 void DynamicSubmenu::OnSelectionChange(int to, int from)
 {
 	if (isEditModeActive && isMoveOptionActive) {
-		std::swap(options[from], options[to]);
+		if (to == 0 && from == GetOptionCount() - 1) { // From bottom to top
+			options.insert(options.begin(), options[from]);
+			options.erase(options.begin() + from + 1);
+		}
+		else if (to == GetOptionCount() - 1 && from == 0) { // From top to bottom
+			options.push_back(options[from]);
+			options.erase(options.begin());
+		}
+		else {
+			std::swap(options[from], options[to]);
+		}
 	}
 }
 

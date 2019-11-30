@@ -26,6 +26,7 @@ void DrawBottomMessage()
 void RunLoopedToggles()
 {
 	Player player;
+	// Player
 	if (*Toggles::playerInvincible && !PLAYER::GET_PLAYER_INVINCIBLE(Game::playerId)) {
 		PLAYER::SET_PLAYER_INVINCIBLE(Game::playerId, 1);
 	}
@@ -47,22 +48,43 @@ void RunLoopedToggles()
 	if (*Toggles::playerSuperJump) {
 		GAMEPLAY::SET_SUPER_JUMP_THIS_FRAME(Game::playerId);
 	}
+
+	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
 		player.GetMount().SetInvincible(true);
 	}
 	if (*Toggles::horseSuperRun && player.IsOnMount()) {
 		Ped horse = Player().GetMount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 4.4, 0.2, 0.0, 0.0, -0.2, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 		if (ControlManager::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
 			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
 			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
 		}
 	}
+	if (*Toggles::horseSuperJump && player.IsOnMount()) {
+		Ped horse = Player().GetMount();
+		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.8, /**/ -0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.8, /**/ 0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);
+		}
+	}
 	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
 		player.GetMount().SetStamina(100.0);
 	}
+	
+	// Vehicle
+	if (*Toggles::vehicleBindBoost && player.IsInVehicle()) {
+		if (ControlManager::IsFunctionControlPressed(FunctionControl::BindBoost)) {
+			player.GetCurrentVehicle().SetForwardSpeed(27.00);
+		}
+	}
+
+	// Weapons
 	if (*Toggles::weaponInfiniteAmmo) {
 		Hash currentWeapon;
 		if (WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, 0, 0, 0) && WEAPON::IS_WEAPON_VALID(currentWeapon))
@@ -75,6 +97,8 @@ void RunLoopedToggles()
 				WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
 		}
 	}
+
+	// Test
 	if (*Toggles::horseEngineTest) {
 		auto currentVehicle = Player().GetCurrentVehicle();
 		if (currentVehicle.Exists()) {

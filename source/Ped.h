@@ -8,6 +8,7 @@ public:
 	Ped(int pedId);
 	void SetHealth(int health);
 	void SetVisible(bool visible);
+	void SetPedVisible(bool visible);
 	void SetIntoVehicle(VehicleId vehicle, int seat = -1);
 	void SetCoords(Vector3 coords);
 	void SetStamina(float stamina);

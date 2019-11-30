@@ -44,13 +44,16 @@ enum class MenuControl {
 };
 
 enum class FunctionControl {
-	PlayerRun
+	PlayerRun,
+	HorseJump,
+	BindBoost
 };
 
 class ControlManager
 {
 public:
 	static bool IsMenuControlPressed(MenuControl control);
+	static bool IsUsingController();
 	static void DisableMenuControls();
 	static void EnableMenuControls();
 	static bool IsFunctionControlPressed(FunctionControl control);

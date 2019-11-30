@@ -36,7 +36,9 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_horseInvincible", Toggles::horseInvincible);
 	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
 	RegisterToggle("toggle_horseSuperRun", Toggles::horseSuperRun);
+	RegisterToggle("toggle_horseSuperJump", Toggles::horseSuperJump);
 	RegisterToggle("toggle_horseUnlimitedStamina", Toggles::horseUnlimitedStamina);
+	RegisterToggle("toggle_vehicleBindBoost", Toggles::vehicleBindBoost);
 	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
 	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);

@@ -1,35 +1,41 @@
 #include "pch.h"
 #include "ControlManager.h"
 #include "keyboard.h"
+#include "MenuSettings.h"
 
 bool ControlManager::IsMenuControlPressed(MenuControl control) {
 	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuOptionPress:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOptionPress) : IsKeyJustUp(MenuSettings::MenuOptionPress);
 	case MenuControl::MenuDown:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuDown) : IsKeyJustUp(MenuSettings::MenuDown);
 	case MenuControl::MenuUp:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_UP);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuUp) : IsKeyJustUp(MenuSettings::MenuUp);
 	case MenuControl::MenuOpen:
-		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_DOWN) || IsKeyJustUp(0x72);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuOpenModifier) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOpen) : IsKeyJustUp(MenuSettings::MenuOpen);
 	case MenuControl::MenuGoBack:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuBack) : IsKeyJustUp(MenuSettings::MenuBack);
 	case MenuControl::MenuEditModeEnter:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_X);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEnter) : IsKeyJustUp(MenuSettings::MenuEditModeEnter);
 	case MenuControl::MenuEditModeExit:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExit) : IsKeyJustUp(MenuSettings::MenuEditModeExit);
 	case MenuControl::MenuEditModeExitAndSave:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_X);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExitAndSave) : IsKeyJustUp(MenuSettings::MenuEditModeExitAndSave);
 	case MenuControl::MenuEditModeMoveOptionn:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeMoveOption) : IsKeyJustUp(MenuSettings::MenuEditModeMoveOption);
 	case MenuControl::MenuEditModeAddOption:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_Y);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeAddOption) : IsKeyJustUp(MenuSettings::MenuEditModeAddOption);
 	case MenuControl::MenuEditModeDeleteOption:
-		return CONTROLS::IS_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_LB);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeDeleteOption) : IsKeyJustUp(MenuSettings::MenuEditModeDeleteOption);
 	default:
 		return false;
 	}
+}
+
+bool ControlManager::IsUsingController()
+{
+	return !CONTROLS::_IS_INPUT_DISABLED(2);
 }
 
 void ControlManager::DisableMenuControls()
@@ -52,7 +58,11 @@ bool ControlManager::IsFunctionControlPressed(FunctionControl control)
 {
 	switch (control) {
 	case FunctionControl::PlayerRun:
-		return CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT);
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT) : IsKeyDown(VK_SHIFT);
+	case FunctionControl::HorseJump:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
+	case FunctionControl::BindBoost:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerBindBoost) : IsKeyDown(MenuSettings::BindBoost);
 	default:
 		return false;
 	}

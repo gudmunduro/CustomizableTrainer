@@ -35,6 +35,11 @@ void Vehicle::SetEnginePowerMultiplier(float value)
 	VEHICLE::_SET_VEHICLE_ENGINE_POWER_MULTIPLIER(vehicleId, value);
 }
 
+void Vehicle::SetForwardSpeed(float speed)
+{
+	VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicleId, speed);
+}
+
 void Vehicle::Repair()
 {
 	VEHICLE::SET_VEHICLE_FIXED(vehicleId);

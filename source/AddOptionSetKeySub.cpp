@@ -5,6 +5,7 @@ AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionTyp
 	: FixedSubmenu(menuPos, setSubmenu, goToLastSub)
 {
 	this->keys = keys;
+	this->optionType = optionType;
 	title = "Option type";
 	options = {};
 	CreateDisplayKeys();
@@ -25,9 +26,9 @@ AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionTyp
 // MARK: Events
 void AddOptionSetKeySub::OnOptionPress(int index)
 {
-	if (index == options.size() - 1) { // If last option
+	if (optionType == MenuOptionType::Sub && index == options.size() - 1) { // If last option and option type is submenu (Add)
 		string textInput = Game::GetInputWithKeyboard();
-		goToLastSub("setOptionKey", textInput);
+		goToLastSub("setOptionKey", "sub_" + textInput);
 	}
 	else {
 		goToLastSub("setOptionKey", keys[index]);

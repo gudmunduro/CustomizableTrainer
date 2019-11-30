@@ -99,6 +99,9 @@ void Menu::SetSubmenu(string key)
 		Submenu* submenu = GetFixedSubmenuForKey(key);
 		AddSubmenuToStack(submenu);
 	}
+	else {
+		Routine::StartDrawBottomMessage("Error: Submenu '" + key + "' does not exist");
+	}
 }
 
 void Menu::UpdateSubmenuData(string key, SubmenuData submenuData)

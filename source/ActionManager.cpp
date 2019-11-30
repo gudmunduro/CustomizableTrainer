@@ -25,6 +25,7 @@ void ActionManager::RegisterActions()
 	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
+	RegisterAction("action_boostVehicle", Actions::BoostVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
 	// Horse
 	RegisterAction("action_setHorseMaxHealth", Actions::SetHorseMaxHealth);
@@ -32,6 +33,10 @@ void ActionManager::RegisterActions()
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
 	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);
+	// Weather
+	RegisterAction("action_setWeather", Actions::SetWeather);
+	// Time
+	RegisterAction("action_addToClockTime", Actions::AddToClockTime);
 	// Teleport
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
@@ -76,6 +81,8 @@ std::vector<MenuOptionParameter> ActionManager::GetParameterForKey(string key)
 	parameters["action_spawnHorse"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnVehicle"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_givePlayerWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_setWeather"] = { { { MenuOptionParameterType::String, "Weather" } } };
+	parameters["action_addToClockTime"] = { { { MenuOptionParameterType::Int, "Hours" }, { MenuOptionParameterType::Int, "Minutes" }, { MenuOptionParameterType::Int, "Seconds" } } };
 	parameters["action_teleportPlayerToCoords"] = { { { MenuOptionParameterType::Float, "X" }, { MenuOptionParameterType::Float, "Y" }, { MenuOptionParameterType::Float, "Z" } } };
 
 	if (parameters.count(key) == 0) return {};

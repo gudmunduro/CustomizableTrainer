@@ -14,5 +14,6 @@ public:
 private:
 	std::vector<string> keys;
 	std::vector<string> displayKeys;
+	MenuOptionType optionType;
 };
 
