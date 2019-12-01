@@ -6,7 +6,7 @@ class DynamicSubmenu :
 	public Submenu
 {
 public:
-	DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(Submenu* submenu)> setFixedSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
 
 	void Draw() override;
 

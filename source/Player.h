@@ -13,6 +13,9 @@ public:
 	void RestoreSpecialAbility();
 	void StopPursuit();
 	void SetBounty(int bounty);
+	void SetWantedLevelMultiplier(float multiplier);
+	void SetWeaponDamageModifier(float modifier);
+	void AddCash(int cash);
 private:
 	PlayerId playerId;
 };

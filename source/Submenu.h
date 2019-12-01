@@ -4,7 +4,7 @@
 
 class Submenu {
 public:
-	Submenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	Submenu(Vector2 menuPos, std::function<void(string key)> setSubmenu, std::function<void(Submenu*)> setFixedSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
 
 	virtual void Draw();
 	void DrawTitle(string text);
@@ -21,8 +21,9 @@ public:
 
 	virtual void RespondToControls();
 	virtual bool IsBackspaceAllowed();
-	float CurrentOptionPosY();
 protected:
+	string OptionTypeToString(MenuOptionType type);
+	float CurrentOptionPosY();
 	Vector2 menuPos;
 	int selection;
 	int drawIndex;

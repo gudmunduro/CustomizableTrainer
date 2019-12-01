@@ -16,6 +16,7 @@ Menu::Menu()
 	shouldDrawMenu = false;
 	// std::function wrappers to be passed to submenus
 	setSubmenu = [this](string key) { SetSubmenu(key); };
+	setFixedSubmenu = [this](Submenu* submenu) { SetFixedSubmenu(submenu); };
 	updateSubmenuData = [this](string key, SubmenuData submenuData) { UpdateSubmenuData(key, submenuData); };
 	goToLastSub = [this](string messageKey, std::any messageValue) { GoToLastSub(messageKey, messageValue); };
 
@@ -39,14 +40,14 @@ void Menu::RegisterSubmenuData(string key, SubmenuData submenuData)
 {
 	submenuDataMap[key] = submenuData;
 }
-void Menu::AddSubmenuToStack(Submenu *submenu)
+void Menu::AddSubmenuToStack(Submenu* submenu)
 {
 	submenuStack.push_back(submenu);
 }
 void Menu::GoToLastSub(string messageKey = "", std::any messageValue = 0) // Message to send to the sub you are going back to
 {
 	if (submenuStack.size() > 0) { 
-		Submenu *current = submenuStack.back();
+		Submenu* current = submenuStack.back();
 		submenuStack.pop_back();
 		if (messageKey != "") {
 			submenuStack.back()->OnMessageReceive(messageKey, messageValue);
@@ -58,6 +59,7 @@ void Menu::GoToLastSub(string messageKey = "", std::any messageValue = 0) // Mes
 // MARK: Controls
 void Menu::RespondToControls()
 {
+	ControlManager::EnableMenuOpenControls();
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
 
@@ -67,6 +69,7 @@ void Menu::RespondToControls()
 		ControlManager::CanceMenuControlslForThisFrame();
 	}
 	if (shouldDrawMenu && submenuStack.size() > 0) {
+		ControlManager::EnableMenuControls();
 		if (submenuStack.back()->IsBackspaceAllowed() && ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 			GoToLastSub();
 		}
@@ -104,6 +107,11 @@ void Menu::SetSubmenu(string key)
 	}
 }
 
+void Menu::SetFixedSubmenu(Submenu* submenu)
+{
+	AddSubmenuToStack(submenu);
+}
+
 void Menu::UpdateSubmenuData(string key, SubmenuData submenuData)
 {
 	for each (auto option in submenuData.options) {
@@ -129,9 +137,9 @@ SubmenuData Menu::GetSubmenuDataForKey(string key)
 {
 	return submenuDataMap[key];
 }
-Submenu *Menu::GetSubmenuForKey(string submenuKey)
+Submenu* Menu::GetSubmenuForKey(string submenuKey)
 {
-	return new DynamicSubmenu(GetSubmenuDataForKey(submenuKey), position, setSubmenu, updateSubmenuData, goToLastSub);
+	return new DynamicSubmenu(GetSubmenuDataForKey(submenuKey), position, setSubmenu, setFixedSubmenu, updateSubmenuData, goToLastSub);
 }
 
 std::vector<string> Menu::GetSubmenuKeys()
@@ -147,19 +155,19 @@ std::vector<string> Menu::GetSubmenuKeys()
 Submenu* Menu::GetFixedSubmenuForKey(string key)
 {
 	if (key == "builtin_sub_addOption") {
-		return new AddOptionSub(position, setSubmenu, goToLastSub);
+		return new AddOptionSub(position, setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetTypeSub") {
-		return new AddOptionSetTypeSub(position, setSubmenu, goToLastSub);
+		return  new AddOptionSetTypeSub(position, setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetActionKey") {
-		return new AddOptionSetKeySub(position, MenuOptionType::Action, ActionManager::GetKeys(), setSubmenu, goToLastSub);
+		return  new AddOptionSetKeySub(position, MenuOptionType::Action, ActionManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetToggleKey") {
-		return new AddOptionSetKeySub(position, MenuOptionType::Toggle, ToggleManager::GetKeys(), setSubmenu, goToLastSub);
+		return  new AddOptionSetKeySub(position, MenuOptionType::Toggle, ToggleManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetSubKey") {
-		return new AddOptionSetKeySub(position, MenuOptionType::Sub, GetSubmenuKeys(), setSubmenu, goToLastSub);
+		return  new AddOptionSetKeySub(position, MenuOptionType::Sub, GetSubmenuKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	return nullptr;
 }

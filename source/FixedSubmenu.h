@@ -6,13 +6,14 @@ class FixedSubmenu :
 	public Submenu
 {
 public:
-	FixedSubmenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	FixedSubmenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(Submenu* submenu)> setFixedSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
 
 	void Draw() override;
 
 	void DrawSub(string text, string subKey);
 	void DrawAction(string text, int index);
 	void DrawToggle(string text, int index);
+	void DrawText(string text, string value, int index);
 
 	virtual void OnDraw() override;
 	virtual void OnSelectionChange(int to, int from) override;

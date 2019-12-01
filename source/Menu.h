@@ -10,7 +10,7 @@ public:
     void Tick();
 
 	void RegisterSubmenuData(string key, SubmenuData submenuData);
-	void AddSubmenuToStack(Submenu *submenu);
+	void AddSubmenuToStack(Submenu* submenu);
 	void GoToLastSub(string messageKey, std::any messageValue);
 	void RespondToControls();
 
@@ -19,6 +19,7 @@ public:
 
 	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
 	void SetSubmenu(string key);
+	void SetFixedSubmenu(Submenu* submenu);
 	void UpdateSubmenuData(string key, SubmenuData submenuData);
 
 	SubmenuData GetSubmenuDataForKey(string key);
@@ -27,6 +28,7 @@ public:
 	Submenu* GetFixedSubmenuForKey(string key);
 private:
 	std::function<void(string key)> setSubmenu;
+	std::function<void(Submenu * submenu)> setFixedSubmenu;
 	std::function<void(string key, SubmenuData submenuData)> updateSubmenuData;
 	std::function<void(string messageKey, std::any messageValue)> goToLastSub;
 	Vector2 position;

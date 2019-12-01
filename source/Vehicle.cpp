@@ -40,6 +40,16 @@ void Vehicle::SetForwardSpeed(float speed)
 	VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicleId, speed);
 }
 
+void Vehicle::SetCoords(Vector3 coords)
+{
+	ENTITY::SET_ENTITY_COORDS(vehicleId, coords.x, coords.y, coords.z, false, false, false, true);
+}
+
+void Vehicle::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
+{
+	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(vehicleId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
+}
+
 void Vehicle::Repair()
 {
 	VEHICLE::SET_VEHICLE_FIXED(vehicleId);
@@ -52,7 +62,12 @@ void Vehicle::Delete()
 	VEHICLE::DELETE_VEHICLE(&vehicleId);
 }
 
-// MARK:
+// MARK: Static methods
+Vehicle Vehicle::Closest(Vector3 position, float radius)
+{
+	return Vehicle(VEHICLE::GET_CLOSEST_VEHICLE(position.x, position.y, position.z, radius, 0, 70));
+}
+
 Vehicle Vehicle::Spawn(Hash model, Vector3 postion, float heading)
 {
 	Game::RequestModel(model);

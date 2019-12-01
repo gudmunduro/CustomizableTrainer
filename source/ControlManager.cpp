@@ -38,20 +38,24 @@ bool ControlManager::IsUsingController()
 	return !CONTROLS::_IS_INPUT_DISABLED(2);
 }
 
-void ControlManager::DisableMenuControls()
+void ControlManager::EnableMenuOpenControls()
 {
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, true);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_CANCEL, true);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_DOWN, true);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_UP, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOpenModifier, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOpen, true);
 }
 
 void ControlManager::EnableMenuControls()
 {
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, false);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_CANCEL, false);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_DOWN, false);
-	CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_UP, false);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOptionPress, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuDown, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuUp, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuBack, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeEnter, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeExit, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeExitAndSave, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeMoveOption, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeAddOption, true);
+	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeDeleteOption, true);
 }
 
 bool ControlManager::IsFunctionControlPressed(FunctionControl control)

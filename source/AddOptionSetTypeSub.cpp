@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "AddOptionSetTypeSub.h"
 
-AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, goToLastSub)
+AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
+									std::function<void(Submenu* submenu)> setFixedSubmenu,
+									std::function<void(string messageKey, std::any messageValue)> goToLastSub)
+	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
 {
 	title = "Option type";
 	options = {

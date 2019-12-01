@@ -6,7 +6,9 @@
 #include "MenuSettings.h"
 #include "Routine.h"
 
-Submenu::Submenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub) {
+Submenu::Submenu(Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
+				std::function<void(Submenu* submenu)> setFixedSubmenu,
+				std::function<void(string messageKey, std::any messageValue)> goToLastSub) {
 	this->menuPos = menuPos;
 	this->setSubmenu = setSubmenu;
 	this->goToLastSub = goToLastSub;
@@ -42,6 +44,7 @@ void Submenu::DrawOptionBase(string text, bool selected)
 }
 
 void Submenu::DrawSub(string text, string subKey, bool enabled) {
+	// if ((scrollPosition + 8) > drawIndex || scrollPosition < drawIndex) return;
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text + " >", true);
 		if (enabled && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
@@ -56,6 +59,7 @@ void Submenu::DrawSub(string text, string subKey, bool enabled) {
 }
 
 void Submenu::DrawAction(string text, std::function<void()> onPress) {
+	// if ((scrollPosition + 8) > drawIndex || scrollPosition < drawIndex) return;
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text, true);
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
@@ -71,6 +75,7 @@ void Submenu::DrawAction(string text, std::function<void()> onPress) {
 
 void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPress)
 {
+	// if ((scrollPosition + 8) > drawIndex || scrollPosition < drawIndex) return;
 	Color toggleColor = isToggled ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
 
 	if (selection == drawIndex + scrollPosition) {
@@ -145,7 +150,21 @@ bool Submenu::IsBackspaceAllowed()
 	return true;
 }
 
-// MARK: Core methods
+// MARK: Misc
 float Submenu::CurrentOptionPosY() {
 	return menuPos.y + 0.05 + (0.034 * (float)drawIndex);
+}
+
+string Submenu::OptionTypeToString(MenuOptionType type)
+{
+	switch (type) {
+	case MenuOptionType::Action:
+		return "Action";
+	case MenuOptionType::Toggle:
+		return "Toggle";
+	case MenuOptionType::Sub:
+		return "Sub";
+	case MenuOptionType::Text:
+		return "Text";
+	}
 }

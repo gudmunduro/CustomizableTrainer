@@ -1,12 +1,15 @@
 #include "pch.h"
 #include "AddOptionSetKeySub.h"
 
-AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionType, std::vector<string> keys, std::function<void(std::string key)> setSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, goToLastSub)
+AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionType, std::vector<string> keys,
+								std::function<void(std::string key)> setSubmenu,
+								std::function<void(Submenu* submenu)> setFixedSubmenu,
+								std::function<void(string messageKey, std::any messageValue)> goToLastSub)
+	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
 {
 	this->keys = keys;
 	this->optionType = optionType;
-	title = "Option type";
+	title = OptionTypeToString(optionType);
 	options = {};
 	CreateDisplayKeys();
 	for each (string key in displayKeys) {
@@ -40,7 +43,8 @@ void AddOptionSetKeySub::CreateDisplayKeys()
 {
 	for each (string key in keys) {
 		string displayKey = key.substr(key.find("_") + 1);
-		
+		if (displayKey == "sub_default") displayKey = "default";
+
 		displayKeys.push_back(displayKey);
 	}
 }

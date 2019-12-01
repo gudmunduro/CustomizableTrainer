@@ -22,10 +22,12 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_stopPlayerPursuit", Actions::StopPlayerPursuit);
 	RegisterAction("action_cleaPlayerBounty", Actions::ClearPlayerBounty);
 	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
+	RegisterAction("action_addCashFromKeyboard", Actions::AddCashFromKeyboard);
 	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
 	RegisterAction("action_boostVehicle", Actions::BoostVehicle);
+	RegisterAction("action_teleportIntoClosestVehicle", Actions::TeleportIntoClosestVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
 	// Horse
 	RegisterAction("action_setHorseMaxHealth", Actions::SetHorseMaxHealth);
@@ -39,6 +41,7 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_addToClockTime", Actions::AddToClockTime);
 	// Teleport
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
+	RegisterAction("action_teleportPlayerToWaypoint", Actions::TeleportPlayerToWaypoint);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
 }
 

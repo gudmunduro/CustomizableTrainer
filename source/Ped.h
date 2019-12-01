@@ -11,8 +11,10 @@ public:
 	void SetPedVisible(bool visible);
 	void SetIntoVehicle(VehicleId vehicle, int seat = -1);
 	void SetCoords(Vector3 coords);
+	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);
 	void SetStamina(float stamina);
 	void SetInvincible(bool invincible);
+	void SetIntoClosestVehicle();
 	void ClearWetness();
 	void GiveWeapon(Hash model);
 	// MARK: Booleans

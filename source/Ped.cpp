@@ -31,6 +31,11 @@ void Ped::SetCoords(Vector3 coords)
 	ENTITY::SET_ENTITY_COORDS(pedId, coords.x, coords.y, coords.z, false, false, false, true);
 }
 
+void Ped::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
+{
+	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(pedId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
+}
+
 void Ped::SetStamina(float stamina)
 {
 	PED::SET_PED_STAMINA(pedId, stamina);
@@ -39,6 +44,16 @@ void Ped::SetStamina(float stamina)
 void Ped::SetInvincible(bool invincible)
 {
 	ENTITY::SET_ENTITY_INVINCIBLE(pedId, invincible);
+}
+
+void Ped::SetIntoClosestVehicle()
+{
+	auto playerLocation = GetPosition();
+	auto closestVehicle = Vehicle::Closest(playerLocation);
+
+	if (closestVehicle.Exists()) {
+		SetIntoVehicle(closestVehicle.GetVehicleId());
+	}
 }
 
 void Ped::ClearWetness()

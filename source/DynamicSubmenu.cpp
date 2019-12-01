@@ -5,8 +5,11 @@
 #include "ActionManager.h"
 #include "ToggleManager.h"
 
-DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData, std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: Submenu(menuPos, setSubmenu, goToLastSub)
+DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
+							std::function<void(Submenu* submenu)> setFixedSubmenu,
+							std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData,
+							std::function<void(string messageKey, std::any messageValue)> goToLastSub)
+	: Submenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
 {
 	this->title = submenuData.title;
 	this->key = submenuData.key;
@@ -21,6 +24,19 @@ void DynamicSubmenu::Draw()
 {
 	Submenu::Draw();
 	DrawTitle(title);
+	/*for each (auto option in options) {
+		switch (option.type) {
+		case MenuOptionType::Sub:
+			DrawSub(option.text, option.key);
+			break;
+		case MenuOptionType::Action:
+			DrawAction(option.text, option.key, option.params);
+			break;
+		case MenuOptionType::Toggle:
+			DrawToggle(option.text, option.key);
+			break;
+		}
+	}*/
 	for (int i = scrollPosition; i < ((GetOptionCount() > 8) ? (scrollPosition + 8) : GetOptionCount()); i++) {
 		auto option = options[i];
 		switch (option.type) {

@@ -80,7 +80,7 @@ struct FixedMenuOption
 {
 	MenuOptionType type;
 	string text;
-	string key; // Key is only used when type is sub
+	string key; // Key is only used when type is sub.  And when type is text it is temporarly used for the value to draw
 };
 
 struct MenuOptionParameter 

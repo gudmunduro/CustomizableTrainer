@@ -26,10 +26,12 @@ void DrawBottomMessage()
 void RunLoopedToggles()
 {
 	Player player;
+
 	// Player
 	if (*Toggles::playerInvincible && !PLAYER::GET_PLAYER_INVINCIBLE(Game::playerId)) {
 		PLAYER::SET_PLAYER_INVINCIBLE(Game::playerId, 1);
 	}
+
 	if (*Toggles::playerSuperRun && !player.IsOnMount()) {
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 			ENTITY::APPLY_FORCE_TO_ENTITY(Game::playerPedId, 1, 0.0, 4.4, 0.2, 0.0, 0.0, 0.2, 1, 1, 1, 1, 0, 1);
@@ -39,20 +41,30 @@ void RunLoopedToggles()
 			ENTITY::FREEZE_ENTITY_POSITION(Game::playerPedId, false);
 		}
 	}
+
 	if (*Toggles::playerUnlStamina) {
 		player.SetStamina(100.0);
 	}
+
 	if (*Toggles::playerUnlSpecialAbility) {
 		player.RestoreSpecialAbility();
 	}
+
 	if (*Toggles::playerSuperJump) {
 		GAMEPLAY::SET_SUPER_JUMP_THIS_FRAME(Game::playerId);
+	}
+
+	if (*Toggles::playerNeverWanted) {
+		player.StopPursuit();
+		player.SetBounty(0);
+		player.SetWantedLevelMultiplier(0.0);
 	}
 
 	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
 		player.GetMount().SetInvincible(true);
 	}
+
 	if (*Toggles::horseSuperRun && player.IsOnMount()) {
 		Ped horse = Player().GetMount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
@@ -66,6 +78,7 @@ void RunLoopedToggles()
 			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
 		}
 	}
+
 	if (*Toggles::horseSuperJump && player.IsOnMount()) {
 		Ped horse = Player().GetMount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
@@ -73,6 +86,7 @@ void RunLoopedToggles()
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.8, /**/ 0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 	}
+
 	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
 		player.GetMount().SetStamina(100.0);
 	}
@@ -96,6 +110,18 @@ void RunLoopedToggles()
 			if (maxAmmoInClip > 0)
 				WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
 		}
+	}
+
+	if (*Toggles::weaponExtraDamage) {
+		player.SetWeaponDamageModifier(50.0);
+	}
+
+	// Time
+	if (*Toggles::systemClockSync) {
+		time_t now = time(0);
+		tm t;
+		localtime_s(&t, &now);
+		TIME::SET_CLOCK_TIME(t.tm_hour, t.tm_min, t.tm_sec);
 	}
 
 	// Test

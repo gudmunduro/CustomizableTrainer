@@ -54,7 +54,7 @@ class ControlManager
 public:
 	static bool IsMenuControlPressed(MenuControl control);
 	static bool IsUsingController();
-	static void DisableMenuControls();
+	static void EnableMenuOpenControls();
 	static void EnableMenuControls();
 	static bool IsFunctionControlPressed(FunctionControl control);
 	static bool IsFunctionControlJustReleased(FunctionControl control);

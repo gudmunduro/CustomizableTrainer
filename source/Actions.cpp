@@ -31,7 +31,6 @@ void Actions::ChangeModel(json params)
 		return;
 	}
 	string model = params[0].get<string>();
-	Routine::StartDrawBottomMessage("Changing model to " + model);
 	Hash modelHash = String::Hash(model);
 
 	Player().SetModel(modelHash);
@@ -40,6 +39,12 @@ void Actions::ChangeModel(json params)
 void Actions::RestorePlayerStamina(json params)
 {
 	Player().RestoreStamina();
+}
+
+void Actions::AddCashFromKeyboard(json params)
+{
+	int cash = std::stoi(Game::GetInputWithKeyboard());
+	Player().AddCash(cash);
 }
 
 // MARK: Horse
@@ -97,6 +102,11 @@ void Actions::SpawnVehicle(json params)
 	if (*Toggles::spawnInsideVehicle) {
 		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
 	}
+}
+
+void Actions::TeleportIntoClosestVehicle(json params)
+{
+	Player().SetIntoClosestVehicle();
 }
 
 void Actions::RepairVehicle(json params)
@@ -190,13 +200,64 @@ void Actions::TeleportPlayerForward(json params)
 	player.SetCoords(teleportToCoords);
 }
 
+void Actions::TeleportPlayerToWaypoint(json params)
+{
+	if (!RADAR::IS_WAYPOINT_ACTIVE()) {
+		Routine::StartDrawBottomMessage("No waypoint set");
+		return;
+	}
+
+	Player player;
+	Vector3 waypointPosition = RADAR::GET_WAYPOINT_COORDS_3D();
+
+	if (!GAMEPLAY::GET_GROUND_Z_FOR_3D_COORD(waypointPosition.x, waypointPosition.y, 100.0, &waypointPosition.z, FALSE))
+	{
+		static float groundCheckHeight[] = {
+			100.0, 150.0, 50.0, 0.0, 200.0, 250.0, 300.0, 350.0, 400.0,
+			450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0
+		};
+
+		for each (auto height in groundCheckHeight) {
+			auto coordsToSet = waypointPosition;
+			coordsToSet.z = height;
+
+			if (player.IsOnMount())
+				player.GetMount().SetCoordsNoOffset(coordsToSet);
+			else if (player.IsInVehicle())
+				player.GetCurrentVehicle().SetCoordsNoOffset(coordsToSet);
+			else
+				player.SetCoordsNoOffset(coordsToSet);
+
+			WAIT(100);
+			if (GAMEPLAY::GET_GROUND_Z_FOR_3D_COORD(waypointPosition.x, waypointPosition.y, height, &waypointPosition.z, false))
+			{
+				waypointPosition.z += 3.0;
+				break;
+			}
+		}
+	}
+
+	if (player.IsOnMount())
+		player.GetMount().SetCoordsNoOffset(waypointPosition);
+	else if (player.IsInVehicle())
+		player.GetCurrentVehicle().SetCoordsNoOffset(waypointPosition);
+	else
+		player.SetCoordsNoOffset(waypointPosition);
+}
+
 void Actions::TeleportPlayerToCoords(json params)
 {
 	if (!params.is_array() || !params[0].is_number_float() || !params[1].is_number_float() || !params[2].is_number_float()) {
 		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
 		return;
 	}
-
+	Player player;
 	Vector3 teleportToCoords = { params[0], params[1], params[2] };
-	Player().SetCoords(teleportToCoords);
+
+	if (player.IsOnMount())
+		player.GetMount().SetCoords(teleportToCoords);
+	else if (player.IsInVehicle())
+		player.GetCurrentVehicle().SetCoords(teleportToCoords);
+	else 
+		player.SetCoords(teleportToCoords);
 }
