@@ -3,6 +3,7 @@
 #include "Toggles.h"
 #include "Player.h"
 #include "ControlManager.h"
+#include "Numbers.h"
 
 // MARK: Variables
 string bottomMesssageText;
@@ -26,6 +27,12 @@ void DrawBottomMessage()
 void RunLoopedToggles()
 {
 	Player player;
+
+	/*
+	
+		Toggles
+	
+	*/
 
 	// Player
 	if (*Toggles::playerInvincible && !PLAYER::GET_PLAYER_INVINCIBLE(Game::playerId)) {
@@ -58,6 +65,14 @@ void RunLoopedToggles()
 		player.StopPursuit();
 		player.SetBounty(0);
 		player.SetWantedLevelMultiplier(0.0);
+	}
+
+	if (*Toggles::playerNoRagdoll) {
+		player.SetCanRagdoll(false);
+	}
+
+	if (*Toggles::playerExplosiveMelee) {
+
 	}
 
 	// Horse
@@ -116,6 +131,18 @@ void RunLoopedToggles()
 		player.SetWeaponDamageModifier(50.0);
 	}
 
+	if (*Toggles::weaponExplosiveAmmo) {
+		if (player.IsTargetingAnything() || player.IsFreeAiming())
+		{
+			EntityId target;
+			if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.GetPlayerId(), &target))
+			{
+				Vector3 position = ENTITY::GET_ENTITY_COORDS(target, false, false);
+				FIRE::ADD_EXPLOSION(position.x, position.y, position.z, 0, 100.0f, true, false, true);
+			}
+		}
+	}
+
 	// Time
 	if (*Toggles::systemClockSync) {
 		time_t now = time(0);
@@ -134,6 +161,16 @@ void RunLoopedToggles()
 			currentVehicle.SetEnginePowerMultiplier(4000.0f);
 			VEHICLE::_SET_VEHICLE_JET_ENGINE_ON(currentVehicle.GetVehicleId(), true);
 		}
+	}
+
+	/*
+
+		Numbers
+
+	*/
+	
+	if (Numbers::timeScale != 1.0f) { // Timescale modified
+		GAMEPLAY::SET_TIME_SCALE(Numbers::timeScale);
 	}
 }
 

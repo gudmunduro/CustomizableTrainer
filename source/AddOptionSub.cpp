@@ -110,6 +110,9 @@ void AddOptionSub::OnOptionPress(int index)
 				case MenuOptionType::Sub:
 					setSubmenu("builtin_sub_addOptionSetSubKey");
 					break;
+				case MenuOptionType::Number:
+					setSubmenu("builtin_sub_addOptionSetNumberKey");
+					break;
 			}
 			break;
 		}

@@ -16,6 +16,10 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuOpenModifier) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOpen) : IsKeyJustUp(MenuSettings::MenuOpen);
 	case MenuControl::MenuGoBack:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuBack) : IsKeyJustUp(MenuSettings::MenuBack);
+	case MenuControl::MenuAdjustValueDown:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyJustUp(MenuSettings::MenuAdjustValueDown);
+	case MenuControl::MenuAdjustValueUp:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyJustUp(MenuSettings::MenuAdjustValueUp);
 	case MenuControl::MenuEditModeEnter:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEnter) : IsKeyJustUp(MenuSettings::MenuEditModeEnter);
 	case MenuControl::MenuEditModeExit:

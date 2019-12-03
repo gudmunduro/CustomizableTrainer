@@ -52,6 +52,12 @@
     <Filter Include="Headers\Menu\Submenus">
       <UniqueIdentifier>{dea6ca04-b3f1-4b77-a751-7198156a7ba7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Numbers">
+      <UniqueIdentifier>{8030d8e8-f4a9-42e4-9fff-2d506a4f072a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Numbers">
+      <UniqueIdentifier>{fdc726a6-8824-4fef-9d49-59cb99722c88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -141,6 +147,12 @@
     <ClInclude Include="AddOptionSetKeySub.h">
       <Filter>Headers\Menu\Submenus</Filter>
     </ClInclude>
+    <ClInclude Include="NumberController.h">
+      <Filter>Headers\Numbers</Filter>
+    </ClInclude>
+    <ClInclude Include="Numbers.h">
+      <Filter>Headers\Numbers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -211,6 +223,12 @@
     </ClCompile>
     <ClCompile Include="AddOptionSetKeySub.cpp">
       <Filter>Source\Menu\Submenus</Filter>
+    </ClCompile>
+    <ClCompile Include="NumbersController.cpp">
+      <Filter>Source\Numbers</Filter>
+    </ClCompile>
+    <ClCompile Include="Numbers.cpp">
+      <Filter>Source\Numbers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

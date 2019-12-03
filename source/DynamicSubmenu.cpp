@@ -4,6 +4,7 @@
 #include "ControlManager.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
+#include "NumberController.h"
 
 DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
 							std::function<void(Submenu* submenu)> setFixedSubmenu,
@@ -49,6 +50,9 @@ void DynamicSubmenu::Draw()
 		case MenuOptionType::Toggle:
 			DrawToggle(option.text, option.key);
 			break;
+		case MenuOptionType::Number:
+			DrawNumber(option.text, option.key);
+			break;
 		}
 	}
 }
@@ -77,6 +81,18 @@ void DynamicSubmenu::DrawToggle(string text, string toggleKey)
 		if (!isEditModeActive) {
 			ToggleManager::Toggle(toggleKey);
 		}
+	});
+}
+
+void DynamicSubmenu::DrawNumber(string text, string numberKey)
+{
+	if (!NumberController::DoesNumberExistForKey(numberKey)) return;
+	string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey);
+
+	Submenu::DrawNumber(text, numberStrValue, [this, numberKey] {
+		// Currently does nothing on press
+		}, [this, numberKey](bool direction) {
+			NumberController::Adjust(numberKey, direction);
 	});
 }
 

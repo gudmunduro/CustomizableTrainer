@@ -9,6 +9,7 @@
 #include "AddOptionSetKeySub.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
+#include "NumberController.h"
 
 Menu::Menu()
 {
@@ -158,16 +159,19 @@ Submenu* Menu::GetFixedSubmenuForKey(string key)
 		return new AddOptionSub(position, setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetTypeSub") {
-		return  new AddOptionSetTypeSub(position, setSubmenu, setFixedSubmenu, goToLastSub);
+		return new AddOptionSetTypeSub(position, setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetActionKey") {
-		return  new AddOptionSetKeySub(position, MenuOptionType::Action, ActionManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
+		return new AddOptionSetKeySub(position, MenuOptionType::Action, ActionManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetToggleKey") {
-		return  new AddOptionSetKeySub(position, MenuOptionType::Toggle, ToggleManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
+		return new AddOptionSetKeySub(position, MenuOptionType::Toggle, ToggleManager::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	else if (key == "builtin_sub_addOptionSetSubKey") {
-		return  new AddOptionSetKeySub(position, MenuOptionType::Sub, GetSubmenuKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
+		return new AddOptionSetKeySub(position, MenuOptionType::Sub, GetSubmenuKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
+	}
+	else if (key == "builtin_sub_addOptionSetNumberKey") {
+		return new AddOptionSetKeySub(position, MenuOptionType::Number, NumberController::GetKeys(), setSubmenu, setFixedSubmenu, goToLastSub);
 	}
 	return nullptr;
 }

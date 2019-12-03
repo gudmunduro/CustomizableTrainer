@@ -16,6 +16,11 @@ public:
 	void SetWantedLevelMultiplier(float multiplier);
 	void SetWeaponDamageModifier(float modifier);
 	void AddCash(int cash);
+	bool IsFreeAiming();
+	bool IsFreeAimingAt(EntityId entity);
+	bool IsTargetingAnything();
+	bool IsTargetingAt(EntityId entity);
+	PlayerId GetPlayerId();
 private:
 	PlayerId playerId;
 };

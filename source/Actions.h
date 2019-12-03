@@ -17,6 +17,7 @@ namespace Actions {
 	void DeleteCurrentVehicle(json params);
 	void GivePlayerAllWeapons(json params);
 	void GivePlayerWeapon(json params);
+	void GivePlayerMaxAmmo(json params);
 	void SetWeather(json params);
 	void AddToClockTime(json params);
 	void TeleportPlayerForward(json params);

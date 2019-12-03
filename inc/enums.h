@@ -10,6 +10,7 @@ enum class MenuOptionType {
 	Action,
 	Toggle,
 	Sub,
+	Number,
 	Text
 };
 

@@ -24,6 +24,7 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 			if (option["type"].get<string>() == "sub") menuOptionType = MenuOptionType::Sub;
 			else if (option["type"].get<string>() == "action") menuOptionType = MenuOptionType::Action;
 			else if (option["type"].get<string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
+			else if (option["type"].get<string>() == "number") menuOptionType = MenuOptionType::Number;
 			else menuOptionType = MenuOptionType::Action;
 			submenuData.options.push_back({
 				menuOptionType,
@@ -51,33 +52,39 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::optionToggleToggledColor = MenuSettings::colorFromJSON(settingsData["optionToggleToggledColor"]);
 
 		// Keyboard controls
-		MenuSettings::MenuOpen = settingsData["controls"]["keyboard"]["menuOpen"].get<int>();
-		MenuSettings::MenuOptionPress = settingsData["controls"]["keyboard"]["menuOptionPress"].get<int>();
-		MenuSettings::MenuUp = settingsData["controls"]["keyboard"]["menuUp"].get<int>();
-		MenuSettings::MenuDown = settingsData["controls"]["keyboard"]["menuDown"].get<int>();
-		MenuSettings::MenuBack = settingsData["controls"]["keyboard"]["menuBack"].get<int>();
-		MenuSettings::MenuEditModeEnter = settingsData["controls"]["keyboard"]["menuEditModeEnter"].get<int>();
-		MenuSettings::MenuEditModeExit = settingsData["controls"]["keyboard"]["menuEditModeExit"].get<int>();
-		MenuSettings::MenuEditModeExitAndSave = settingsData["controls"]["keyboard"]["menuEditModeExitAndSave"].get<int>();
-		MenuSettings::MenuEditModeMoveOption = settingsData["controls"]["keyboard"]["menuEditModeMoveOption"].get<int>();
-		MenuSettings::MenuEditModeAddOption = settingsData["controls"]["keyboard"]["menuEditModeAddOption"].get<int>();
-		MenuSettings::MenuEditModeDeleteOption = settingsData["controls"]["keyboard"]["menuEditModeDeleteOption"].get<int>();
-		MenuSettings::BindBoost = settingsData["controls"]["keyboard"]["bindBoost"].get<int>();
+		json keyboardControls = settingsData["controls"]["keyboard"];
+		MenuSettings::MenuOpen = keyboardControls["menuOpen"].get<int>();
+		MenuSettings::MenuOptionPress = keyboardControls["menuOptionPress"].get<int>();
+		MenuSettings::MenuUp = keyboardControls["menuUp"].get<int>();
+		MenuSettings::MenuDown = keyboardControls["menuDown"].get<int>();
+		MenuSettings::MenuBack = keyboardControls["menuBack"].get<int>();
+		MenuSettings::MenuAdjustValueDown = keyboardControls["menuAdjustValueDown"].get<int>();
+		MenuSettings::MenuAdjustValueUp = keyboardControls["menuAdjustValueUp"].get<int>();
+		MenuSettings::MenuEditModeEnter = keyboardControls["menuEditModeEnter"].get<int>();
+		MenuSettings::MenuEditModeExit = keyboardControls["menuEditModeExit"].get<int>();
+		MenuSettings::MenuEditModeExitAndSave = keyboardControls["menuEditModeExitAndSave"].get<int>();
+		MenuSettings::MenuEditModeMoveOption = keyboardControls["menuEditModeMoveOption"].get<int>();
+		MenuSettings::MenuEditModeAddOption = keyboardControls["menuEditModeAddOption"].get<int>();
+		MenuSettings::MenuEditModeDeleteOption = keyboardControls["menuEditModeDeleteOption"].get<int>();
+		MenuSettings::BindBoost = keyboardControls["bindBoost"].get<int>();
 		
-		// Controller control
-		MenuSettings::ControllerMenuOpen = String::Hash(settingsData["controls"]["controller"]["menuOpen"].get<string>());
-		MenuSettings::ControllerMenuOpenModifier = String::Hash(settingsData["controls"]["controller"]["menuOpenModifier"].get<string>());
-		MenuSettings::ControllerMenuOptionPress = String::Hash(settingsData["controls"]["controller"]["menuOptionPress"].get<string>());
-		MenuSettings::ControllerMenuUp = String::Hash(settingsData["controls"]["controller"]["menuUp"].get<string>());
-		MenuSettings::ControllerMenuDown = String::Hash(settingsData["controls"]["controller"]["menuDown"].get<string>());
-		MenuSettings::ControllerMenuBack = String::Hash(settingsData["controls"]["controller"]["menuBack"].get<string>());
-		MenuSettings::ControllerMenuEditModeEnter = String::Hash(settingsData["controls"]["controller"]["menuEditModeEnter"].get<string>());
-		MenuSettings::ControllerMenuEditModeExit = String::Hash(settingsData["controls"]["controller"]["menuEditModeExit"].get<string>());
-		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(settingsData["controls"]["controller"]["menuEditModeExitAndSave"].get<string>());
-		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(settingsData["controls"]["controller"]["menuEditModeMoveOption"].get<string>());
-		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(settingsData["controls"]["controller"]["menuEditModeAddOption"].get<string>());
-		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(settingsData["controls"]["controller"]["menuEditModeDeleteOption"].get<string>());
-		MenuSettings::ControllerBindBoost = String::Hash(settingsData["controls"]["controller"]["bindBoost"].get<string>());
+		// Controller controls
+		json controllerControls = settingsData["controls"]["controller"];
+		MenuSettings::ControllerMenuOpen = String::Hash(controllerControls["menuOpen"].get<string>());
+		MenuSettings::ControllerMenuOpenModifier = String::Hash(controllerControls["menuOpenModifier"].get<string>());
+		MenuSettings::ControllerMenuOptionPress = String::Hash(controllerControls["menuOptionPress"].get<string>());
+		MenuSettings::ControllerMenuUp = String::Hash(controllerControls["menuUp"].get<string>());
+		MenuSettings::ControllerMenuDown = String::Hash(controllerControls["menuDown"].get<string>());
+		MenuSettings::ControllerMenuBack = String::Hash(controllerControls["menuBack"].get<string>());
+		MenuSettings::ControllerMenuAdjustValueDown = String::Hash(controllerControls["menuAdjustValueDown"].get<string>());
+		MenuSettings::ControllerMenuAdjustValueUp = String::Hash(controllerControls["menuAdjustValueUp"].get<string>());
+		MenuSettings::ControllerMenuEditModeEnter = String::Hash(controllerControls["menuEditModeEnter"].get<string>());
+		MenuSettings::ControllerMenuEditModeExit = String::Hash(controllerControls["menuEditModeExit"].get<string>());
+		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<string>());
+		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<string>());
+		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<string>());
+		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<string>());
+		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<string>());
 	}
 	catch (const std::exception & e) {
 		Routine::StartDrawBottomMessage("Error: Failed to parse settings.json");
@@ -107,6 +114,9 @@ void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDat
 				break;
 			case MenuOptionType::Toggle:
 				typeStringValue = "toggle";
+				break;
+			case MenuOptionType::Number:
+				typeStringValue = "number";
 				break;
 			}
 			submenuDataArray[index]["options"].push_back({

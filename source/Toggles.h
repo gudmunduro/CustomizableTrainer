@@ -11,6 +11,7 @@ namespace Toggles {
 		playerUnlStamina = std::make_shared<bool>(false),
 		playerUnlSpecialAbility = std::make_shared<bool>(false),
 		playerNeverWanted = std::make_shared<bool>(false),
+		playerNoRagdoll = std::make_shared<bool>(false),
 		horseInvincible = std::make_shared<bool>(false),
 		horseVisible = std::make_shared<bool>(true),
 		horseSuperRun = std::make_shared<bool>(false),
@@ -22,12 +23,15 @@ namespace Toggles {
 		pauseClock = std::make_shared<bool>(false),
 		systemClockSync = std::make_shared<bool>(false),
 		weaponExtraDamage = std::make_shared<bool>(false),
+		weaponExplosiveAmmo = std::make_shared<bool>(false),
+		playerExplosiveMelee = std::make_shared<bool>(false),
 		weaponInfiniteAmmo = std::make_shared<bool>(false);
 
 	// MARK: Toggle actions
 	void OnPlayerInvincibleToggle(bool value);
 	void OnPlayerVisibleToggle(bool value);
 	void OnPlayerNeverWantedToggle(bool value);
+	void OnPlayerNoRagdollToggle(bool value);
 	void OnHorseInvincibleToggle(bool value);
 	void OnHorseVisibleToggle(bool value);
 	void OnPauseClockToggle(bool value);

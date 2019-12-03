@@ -20,6 +20,8 @@ public:
 	static inline int MenuUp;
 	static inline int MenuDown;
 	static inline int MenuBack;
+	static inline int MenuAdjustValueDown;
+	static inline int MenuAdjustValueUp;
 	static inline int MenuEditModeEnter;
 	static inline int MenuEditModeExit;
 	static inline int MenuEditModeExitAndSave;
@@ -35,6 +37,8 @@ public:
 	static inline Hash ControllerMenuUp;
 	static inline Hash ControllerMenuDown;
 	static inline Hash ControllerMenuBack;
+	static inline Hash ControllerMenuAdjustValueDown;
+	static inline Hash ControllerMenuAdjustValueUp;
 	static inline Hash ControllerMenuEditModeEnter;
 	static inline Hash ControllerMenuEditModeExit;
 	static inline Hash ControllerMenuEditModeExitAndSave;

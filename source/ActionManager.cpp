@@ -35,6 +35,7 @@ void ActionManager::RegisterActions()
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
 	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);
+	RegisterAction("action_givePlayerMaxAmmo", Actions::GivePlayerMaxAmmo);
 	// Weather
 	RegisterAction("action_setWeather", Actions::SetWeather);
 	// Time

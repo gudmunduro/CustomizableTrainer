@@ -168,6 +168,20 @@ void Actions::GivePlayerWeapon(json params)
 	WEAPON::SET_PED_AMMO(Game::playerPedId, weaponHash, 9999);
 }
 
+void Actions::GivePlayerMaxAmmo(json params)
+{
+	Hash currentWeapon;
+	if (WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, 0, 0, 0) && WEAPON::IS_WEAPON_VALID(currentWeapon))
+	{
+		int maxAmmo;
+		if (WEAPON::GET_MAX_AMMO(Game::playerPedId, &maxAmmo, currentWeapon))
+			WEAPON::SET_PED_AMMO(Game::playerPedId, currentWeapon, maxAmmo);
+		int maxAmmoInClip = WEAPON::GET_MAX_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, 1);
+		if (maxAmmoInClip > 0)
+			WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
+	}
+}
+
 // MARK: Weather
 void Actions::SetWeather(json params)
 {

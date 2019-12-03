@@ -10,6 +10,10 @@ AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std
 	options = {
 		{
 			MenuOptionType::Action,
+			"Submenu"
+		},
+		{
+			MenuOptionType::Action,
 			"Action"
 		},
 		{
@@ -18,16 +22,17 @@ AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std
 		},
 		{
 			MenuOptionType::Action,
-			"Submenu"
-		},
+			"Number"
+		}
 	};
 }
 
 void AddOptionSetTypeSub::OnOptionPress(int index)
 {
 	switch (index) {
-		case 0: goToLastSub("setOptionType", MenuOptionType::Action); break;
-		case 1: goToLastSub("setOptionType", MenuOptionType::Toggle); break;
-		case 2: goToLastSub("setOptionType", MenuOptionType::Sub); break;
+		case 0: goToLastSub("setOptionType", MenuOptionType::Sub); break;
+		case 1: goToLastSub("setOptionType", MenuOptionType::Action); break;
+		case 2: goToLastSub("setOptionType", MenuOptionType::Toggle); break;
+		case 3: goToLastSub("setOptionType", MenuOptionType::Number); break;
 	}
 }

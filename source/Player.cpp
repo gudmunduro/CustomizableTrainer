@@ -71,3 +71,28 @@ void Player::AddCash(int cash)
 {
 	CASH::PLAYER_ADD_CASH(cash, 0x2cd419dc);
 }
+
+bool Player::IsFreeAiming()
+{
+	return PLAYER::IS_PLAYER_FREE_AIMING(playerId) != 0;
+}
+
+bool Player::IsFreeAimingAt(EntityId entity)
+{
+	return PLAYER::IS_PLAYER_FREE_AIMING_AT_ENTITY(playerId, entity) != 0;
+}
+
+bool Player::IsTargetingAnything()
+{
+	return PLAYER::IS_PLAYER_TARGETTING_ANYTHING(playerId) != 0;
+}
+
+bool Player::IsTargetingAt(EntityId entity)
+{
+	return PLAYER::IS_PLAYER_TARGETTING_ENTITY(playerId, entity, false) != 0;
+}
+
+PlayerId Player::GetPlayerId()
+{
+	return playerId;
+}

@@ -94,6 +94,31 @@ void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPr
 	drawIndex++;
 }
 
+void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust)
+{
+	// if ((scrollPosition + 8) > drawIndex || scrollPosition < drawIndex) return;
+
+	if (selection == drawIndex + scrollPosition) {
+		DrawOptionBase(text, true);
+		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, {150, 150, 150, 255});
+
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
+			onPress();
+
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueUp))
+			onAdjust(true);
+
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueDown))
+			onAdjust(false);
+	}
+	else {
+		DrawOptionBase(text, false);
+		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, { 150, 150, 150, 255 });
+	}
+
+	drawIndex++;
+}
+
 // MARK: Events
 void Submenu::OnDraw()
 {
@@ -166,5 +191,8 @@ string Submenu::OptionTypeToString(MenuOptionType type)
 		return "Sub";
 	case MenuOptionType::Text:
 		return "Text";
+	case MenuOptionType::Number:
+		return "Number";
 	}
+	return "Invalid";
 }

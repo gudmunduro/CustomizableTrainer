@@ -12,6 +12,7 @@ public:
 	void DrawSub(string text, string subKey, bool isEnabled = true);
 	void DrawAction(string text, std::function<void()> onPress);
 	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);
+	void DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
 
 	virtual void OnDraw();
 	virtual void OnSelectionChange(int to, int from);

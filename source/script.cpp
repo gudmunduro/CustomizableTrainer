@@ -11,11 +11,13 @@
 #include "Routine.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
+#include "NumberController.h"
 
 void setup()
 {
 	ActionManager::RegisterActions();
 	ToggleManager::RegisterToggles();
+	NumberController::RegisterNumbers();
 	Game::RequestTextureDict("menu_textures");
 	Game::RequestTextureDict("boot_flow");
 }

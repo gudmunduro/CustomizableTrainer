@@ -56,6 +56,12 @@ void Ped::SetIntoClosestVehicle()
 	}
 }
 
+void Ped::SetCanRagdoll(bool toggle)
+{
+	PED::SET_PED_CAN_RAGDOLL(pedId, toggle);
+	PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(pedId, toggle);
+}
+
 void Ped::ClearWetness()
 {
 	PED::CLEAR_PED_WETNESS(pedId);

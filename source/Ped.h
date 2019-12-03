@@ -15,6 +15,7 @@ public:
 	void SetStamina(float stamina);
 	void SetInvincible(bool invincible);
 	void SetIntoClosestVehicle();
+	void SetCanRagdoll(bool toggle);
 	void ClearWetness();
 	void GiveWeapon(Hash model);
 	// MARK: Booleans

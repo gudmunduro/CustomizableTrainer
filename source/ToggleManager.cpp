@@ -34,6 +34,8 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_playerUnlStamina", Toggles::playerUnlStamina);
 	RegisterToggle("toggle_playerNeverWanted", Toggles::playerNeverWanted);
 	RegisterToggle("toggle_playerUnlSpecialAbility", Toggles::playerUnlSpecialAbility);
+	RegisterToggle("toggle_playerNoRagdoll", Toggles::playerNoRagdoll);
+	RegisterToggle("toggle_playerExplosiveMelee", Toggles::weaponExtraDamage);
 	RegisterToggle("toggle_horseInvincible", Toggles::horseInvincible);
 	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
 	RegisterToggle("toggle_horseSuperRun", Toggles::horseSuperRun);
@@ -45,7 +47,7 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
 	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
-	RegisterToggle("toggle_weaponExtraDamage", Toggles::weaponExtraDamage);
+	RegisterToggle("toggle_weaponExplosiveAmmo", Toggles::weaponExtraDamage);
 	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
 	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);

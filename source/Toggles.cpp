@@ -15,23 +15,28 @@ void Toggles::OnPlayerVisibleToggle(bool value)
 
 void Toggles::OnPlayerNeverWantedToggle(bool value)
 {
-	if (!value) Player().SetWantedLevelMultiplier(1.0);
+	if (!value)
+		Player().SetWantedLevelMultiplier(1.0);
+}
+
+void Toggles::OnPlayerNoRagdollToggle(bool value)
+{
+	if (!value)
+		Player().SetCanRagdoll(true);
 }
 
 void Toggles::OnHorseInvincibleToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount()) {
+	if (player.IsOnMount())
 		player.GetMount().SetInvincible(value);
-	}
 }
 
 void Toggles::OnHorseVisibleToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount()) {
+	if (player.IsOnMount())
 		player.GetMount().SetVisible(value);
-	}
 }
 
 void Toggles::OnPauseClockToggle(bool value)

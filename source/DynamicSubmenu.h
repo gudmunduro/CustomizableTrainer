@@ -13,6 +13,7 @@ public:
 	void DrawSub(string text, string subKey);
 	void DrawAction(string text, string actionKey, json actionParams);
 	void DrawToggle(string text, string toggleKey);
+	void DrawNumber(string text, string numberKey);
 
 	void OnDraw() override;
 	void OnDrawEditMode();
