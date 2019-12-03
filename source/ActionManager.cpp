@@ -44,6 +44,8 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_teleportPlayerToCoords", Actions::TeleportPlayerToCoords);
 	RegisterAction("action_teleportPlayerToWaypoint", Actions::TeleportPlayerToWaypoint);
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
+	// Misc
+	RegisterAction("action_revealFullMap", Actions::RevealFullMap);
 }
 
 void ActionManager::RunActionForKey(string key, json params)

@@ -75,6 +75,10 @@ void RunLoopedToggles()
 
 	}
 
+	if (*Toggles::playerEveryoneIgnore) {
+		player.SetEveryoneIgnore(true);
+	}
+
 	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
 		player.GetMount().SetInvincible(true);
@@ -121,6 +125,13 @@ void RunLoopedToggles()
 			int maxAmmo;
 			if (WEAPON::GET_MAX_AMMO(Game::playerPedId, &maxAmmo, currentWeapon))
 				WEAPON::SET_PED_AMMO(Game::playerPedId, currentWeapon, maxAmmo);
+		}
+	}
+
+	if (*Toggles::weaponInfiniteAmmoInClip) {
+		Hash currentWeapon;
+		if (WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, 0, 0, 0) && WEAPON::IS_WEAPON_VALID(currentWeapon))
+		{
 			int maxAmmoInClip = WEAPON::GET_MAX_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, 1);
 			if (maxAmmoInClip > 0)
 				WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
@@ -151,6 +162,16 @@ void RunLoopedToggles()
 		TIME::SET_CLOCK_TIME(t.tm_hour, t.tm_min, t.tm_sec);
 	}
 
+	// Weather
+	if (*Toggles::freezeWeather) {
+		GAMEPLAY::FREEZE_WEATHER(true);
+	}
+
+	// Misc
+	if (*Toggles::hideHud) {
+		UI::HIDE_HUD_AND_RADAR_THIS_FRAME();
+	}
+
 	// Test
 	if (*Toggles::horseEngineTest) {
 		auto currentVehicle = Player().GetCurrentVehicle();
@@ -168,9 +189,26 @@ void RunLoopedToggles()
 		Numbers
 
 	*/
+
+	if (Numbers::playerNoiseMultiplier != 1.0f) {
+		player.SetNoiseMultiplier(Numbers::playerNoiseMultiplier);
+		player.SetSneakingNoiseMultiplier(Numbers::playerNoiseMultiplier);
+	}
 	
 	if (Numbers::timeScale != 1.0f) { // Timescale modified
 		GAMEPLAY::SET_TIME_SCALE(Numbers::timeScale);
+	}
+
+	if (Numbers::weaponDamageLevel != 1.0f) {
+		player.SetWeaponDamageModifier(Numbers::weaponDamageLevel);
+	}
+
+	if (Numbers::meleeDamageLevel != 1.0f) {
+		player.SetMeleeDamageModifier(Numbers::meleeDamageLevel);
+	}
+
+	if (Numbers::windSpeed != 1.0f) {
+		GAMEPLAY::SET_WIND_SPEED(Numbers::windSpeed);
 	}
 }
 

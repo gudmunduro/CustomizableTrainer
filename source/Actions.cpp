@@ -5,6 +5,7 @@
 #include "Toggles.h"
 
 // MARK: Player
+
 void Actions::SetPlayerMaxHealth(json params)
 {
 	Player player = Player();
@@ -48,6 +49,7 @@ void Actions::AddCashFromKeyboard(json params)
 }
 
 // MARK: Horse
+
 void Actions::SetHorseMaxHealth(json params)
 {
 	Ped horse = Player().GetMount();
@@ -71,6 +73,7 @@ void Actions::SpawnHorse(json params)
 }
 
 // MARK: Vehicle
+
 void Actions::SpawnVehicle(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
@@ -135,6 +138,7 @@ void Actions::DeleteCurrentVehicle(json params)
 }
 
 // Weapons
+
 void Actions::GivePlayerAllWeapons(json params)
 {
 	Player player;
@@ -183,6 +187,7 @@ void Actions::GivePlayerMaxAmmo(json params)
 }
 
 // MARK: Weather
+
 void Actions::SetWeather(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
@@ -194,6 +199,7 @@ void Actions::SetWeather(json params)
 }
 
 // MARK: Time
+
 void Actions::AddToClockTime(json params)
 {
 	if (!params.is_array() || !params[0].is_number_integer() || !params[1].is_number_integer() || !params[2].is_number_integer()) {
@@ -207,6 +213,7 @@ void Actions::AddToClockTime(json params)
 }
 
 // MARK: Teleport
+
 void Actions::TeleportPlayerForward(json params)
 {
 	auto player = Player();
@@ -274,4 +281,12 @@ void Actions::TeleportPlayerToCoords(json params)
 		player.GetCurrentVehicle().SetCoords(teleportToCoords);
 	else 
 		player.SetCoords(teleportToCoords);
+}
+
+// MARK: Misc
+
+void Actions::RevealFullMap(json params)
+{
+	RADAR::_SET_MINIMAP_REVEALED(true);
+	RADAR::REVEAL_MAP(0);
 }

@@ -100,7 +100,7 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 
 	if (selection == drawIndex + scrollPosition) {
 		DrawOptionBase(text, true);
-		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, {150, 150, 150, 255});
+		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, MenuSettings::optionNumberColor);
 
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
 			onPress();
@@ -113,7 +113,7 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	}
 	else {
 		DrawOptionBase(text, false);
-		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, { 150, 150, 150, 255 });
+		Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, MenuSettings::optionNumberColor);
 	}
 
 	drawIndex++;

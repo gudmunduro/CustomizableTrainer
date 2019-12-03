@@ -35,7 +35,8 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_playerNeverWanted", Toggles::playerNeverWanted);
 	RegisterToggle("toggle_playerUnlSpecialAbility", Toggles::playerUnlSpecialAbility);
 	RegisterToggle("toggle_playerNoRagdoll", Toggles::playerNoRagdoll);
-	RegisterToggle("toggle_playerExplosiveMelee", Toggles::weaponExtraDamage);
+	RegisterToggle("toggle_playerEveryoneIgnore", Toggles::playerEveryoneIgnore);
+	// RegisterToggle("toggle_playerExplosiveMelee", Toggles::weaponExtraDamage);
 	RegisterToggle("toggle_horseInvincible", Toggles::horseInvincible);
 	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
 	RegisterToggle("toggle_horseSuperRun", Toggles::horseSuperRun);
@@ -44,17 +45,23 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_vehicleBindBoost", Toggles::vehicleBindBoost);
 	RegisterToggle("toggle_systemClockSync", Toggles::systemClockSync);
 	RegisterToggle("toggle_pauseClock", Toggles::pauseClock);
+	RegisterToggle("toggle_freezeWeather", Toggles::freezeWeather);
 	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
 	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
-	RegisterToggle("toggle_weaponExplosiveAmmo", Toggles::weaponExtraDamage);
+	RegisterToggle("toggle_weaponInfiniteAmmoInClip", Toggles::weaponInfiniteAmmoInClip);
+	RegisterToggle("toggle_hideHud", Toggles::hideHud);
+	// RegisterToggle("toggle_weaponExplosiveAmmo", Toggles::weaponExtraDamage);
+
 	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
 	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);
+	RegisterToggleAction("toggle_playerEveryoneIgnore", Toggles::OnPlayerEveryoneIgnoreToggle);
 	RegisterToggleAction("toggle_horseInvincible", Toggles::OnHorseInvincibleToggle);
 	RegisterToggleAction("toggle_playerNeverWanted", Toggles::OnPlayerNeverWantedToggle);
 	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
 	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);
+	RegisterToggleAction("toggle_freezeWeather", Toggles::OnFreezeWeatherToggle);
 	RegisterToggleAction("toggle_weaponExtraDamage", Toggles::OnWeaponExtraDamageToggle);
 }
 

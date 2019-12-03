@@ -58,6 +58,12 @@
     <Filter Include="Headers\Numbers">
       <UniqueIdentifier>{fdc726a6-8824-4fef-9d49-59cb99722c88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Features">
+      <UniqueIdentifier>{c2b9601e-9724-4a19-93b4-e49cf0b71c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Features">
+      <UniqueIdentifier>{1213d536-37b5-4bb5-a4e1-23617e325532}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -153,6 +159,9 @@
     <ClInclude Include="Numbers.h">
       <Filter>Headers\Numbers</Filter>
     </ClInclude>
+    <ClInclude Include="HorseFlyMode.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -229,6 +238,9 @@
     </ClCompile>
     <ClCompile Include="Numbers.cpp">
       <Filter>Source\Numbers</Filter>
+    </ClCompile>
+    <ClCompile Include="HorseFlyMode.cpp">
+      <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

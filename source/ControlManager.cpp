@@ -69,6 +69,10 @@ bool ControlManager::IsFunctionControlPressed(FunctionControl control)
 		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT) : IsKeyDown(VK_SHIFT);
 	case FunctionControl::HorseJump:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
+	case FunctionControl::HorseFlyUp:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
+	case FunctionControl::HorseFlyDown:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL) : IsKeyDown(VK_SPACE);
 	case FunctionControl::BindBoost:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerBindBoost) : IsKeyDown(MenuSettings::BindBoost);
 	default:

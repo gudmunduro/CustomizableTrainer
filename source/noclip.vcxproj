@@ -117,6 +117,7 @@
     <ClInclude Include="FixedSubmenu.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
+    <ClInclude Include="HorseFlyMode.h" />
     <ClInclude Include="JsonDataManager.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="Menu.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HorseFlyMode.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="Menu.cpp" />

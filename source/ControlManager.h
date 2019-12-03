@@ -48,6 +48,8 @@ enum class MenuControl {
 enum class FunctionControl {
 	PlayerRun,
 	HorseJump,
+	HorseFlyUp,
+	HorseFlyDown,
 	BindBoost
 };
 

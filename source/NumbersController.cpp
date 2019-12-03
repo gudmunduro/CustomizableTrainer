@@ -28,8 +28,11 @@ void NumberController::RegisterNumberGetter(string key, std::function<string()> 
 void NumberController::RegisterNumbers()
 {
 	// Variables
+	RegisterNumber("number_playerNoiseMultiplier", &Numbers::playerNoiseMultiplier, Numbers::AdjustPlayerNoiseMultiplier);
 	RegisterNumber("number_weaponDamageLevel", &Numbers::weaponDamageLevel, Numbers::AdjustWeaponDamageLavel);
+	RegisterNumber("number_meleeDamageLevel", &Numbers::meleeDamageLevel, Numbers::AdjustMeleeDamageLavel);
 	RegisterNumber("number_timeScale", &Numbers::timeScale, Numbers::AdjustTimeScale);
+	RegisterNumber("number_windSpeed", &Numbers::windSpeed, Numbers::AdjustWindSpeed);
 
 	// Getters
 	RegisterNumberGetter("number_currentHour", Numbers::GetCurrentHour, Numbers::AdjustCurrentHour);
@@ -82,7 +85,9 @@ string NumberController::GetNumberStringValueForKey(string key)
 	string value;
 
 	if (DoesNumberFloatVariableExistForKey(key)) {
-		value = std::to_string(*numbersFloat[key]);
+		std::stringstream stream;
+		stream << std::fixed << std::setprecision(2) << *numbersFloat[key];
+		value = stream.str();
 	}
 	else if (DoesNumberIntVariableExistForKey(key)) {
 		value = std::to_string(*numbersInt[key]);

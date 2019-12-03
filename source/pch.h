@@ -10,6 +10,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <filesystem>
 #include <cstdint>
 #include <vector>
@@ -23,6 +24,7 @@
 #include "natives.h"
 #include "Game.h"
 #include "Ped.h"
+#include "Player.h"
 #include "Vehicle.h"
 #include "json.hpp"
 

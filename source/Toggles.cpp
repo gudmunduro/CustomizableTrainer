@@ -25,6 +25,11 @@ void Toggles::OnPlayerNoRagdollToggle(bool value)
 		Player().SetCanRagdoll(true);
 }
 
+void Toggles::OnPlayerEveryoneIgnoreToggle(bool value)
+{
+	PLAYER::SET_EVERYONE_IGNORE_PLAYER(PLAYER::PLAYER_ID(), value);
+}
+
 void Toggles::OnHorseInvincibleToggle(bool value)
 {
 	Player player;
@@ -42,6 +47,11 @@ void Toggles::OnHorseVisibleToggle(bool value)
 void Toggles::OnPauseClockToggle(bool value)
 {
 	TIME::PAUSE_CLOCK(value, 0);
+}
+
+void Toggles::OnFreezeWeatherToggle(bool value)
+{
+	GAMEPLAY::FREEZE_WEATHER(value);
 }
 
 void Toggles::OnWeaponExtraDamageToggle(bool value)

@@ -92,6 +92,7 @@ void DynamicSubmenu::DrawNumber(string text, string numberKey)
 	Submenu::DrawNumber(text, numberStrValue, [this, numberKey] {
 		// Currently does nothing on press
 		}, [this, numberKey](bool direction) {
+			if (isEditModeActive) return;
 			NumberController::Adjust(numberKey, direction);
 	});
 }

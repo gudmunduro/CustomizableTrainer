@@ -13,6 +13,7 @@ public:
 	static inline Color optionSelectedTextColor;
 	static inline Color optionToggleColor;
 	static inline Color optionToggleToggledColor;
+	static inline Color optionNumberColor;
 
 	// MARK: Keyboard controls
 	static inline int MenuOpen;

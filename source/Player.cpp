@@ -67,6 +67,26 @@ void Player::SetWeaponDamageModifier(float modifier)
 	PLAYER::SET_PLAYER_WEAPON_DAMAGE_MODIFIER(playerId, modifier);
 }
 
+void Player::SetMeleeDamageModifier(float modifier)
+{
+	PLAYER::SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER(playerId, modifier);
+}
+
+void Player::SetEveryoneIgnore(bool ignore)
+{
+	PLAYER::SET_EVERYONE_IGNORE_PLAYER(playerId, ignore);
+}
+
+void Player::SetNoiseMultiplier(float multiplier)
+{
+	PLAYER::SET_PLAYER_NOISE_MULTIPLIER(playerId, multiplier);
+}
+
+void Player::SetSneakingNoiseMultiplier(float multiplier)
+{
+	PLAYER::SET_PLAYER_SNEAKING_NOISE_MULTIPLIER(playerId, multiplier);
+}
+
 void Player::AddCash(int cash)
 {
 	CASH::PLAYER_ADD_CASH(cash, 0x2cd419dc);

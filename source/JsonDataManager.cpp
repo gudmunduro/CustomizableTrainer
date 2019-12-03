@@ -50,6 +50,7 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::optionSelectedTextColor = MenuSettings::colorFromJSON(settingsData["optionSelectedTextColor"]);
 		MenuSettings::optionToggleColor = MenuSettings::colorFromJSON(settingsData["optionToggleColor"]);
 		MenuSettings::optionToggleToggledColor = MenuSettings::colorFromJSON(settingsData["optionToggleToggledColor"]);
+		MenuSettings::optionNumberColor = MenuSettings::colorFromJSON(settingsData["optionNumberColor"]);
 
 		// Keyboard controls
 		json keyboardControls = settingsData["controls"]["keyboard"];
