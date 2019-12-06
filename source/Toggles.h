@@ -18,7 +18,9 @@ namespace Toggles {
 		horseSuperRun = std::make_shared<bool>(false),
 		horseSuperJump = std::make_shared<bool>(false),
 		horseUnlimitedStamina = std::make_shared<bool>(false),
+		horseFlyMode = std::make_shared<bool>(false),
 		horseEngineTest = std::make_shared<bool>(false),
+		horseNoRagdoll = std::make_shared<bool>(false),
 		spawnInsideVehicle = std::make_shared<bool>(false),
 		vehicleBindBoost = std::make_shared<bool>(false),
 		pauseClock = std::make_shared<bool>(false),
@@ -39,6 +41,8 @@ namespace Toggles {
 	void OnPlayerEveryoneIgnoreToggle(bool value);
 	void OnHorseInvincibleToggle(bool value);
 	void OnHorseVisibleToggle(bool value);
+	void OnHorseNoRagdollToggle(bool value);
+	void OnHorseSuperJumpToggle(bool value);
 	void OnPauseClockToggle(bool value);
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);

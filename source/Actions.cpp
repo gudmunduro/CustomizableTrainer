@@ -37,6 +37,12 @@ void Actions::ChangeModel(json params)
 	Player().SetModel(modelHash);
 }
 
+void Actions::ChangeFromInput(json params)
+{
+	string model = Game::GetInputWithKeyboard();
+	ChangeModel({ model });
+}
+
 void Actions::RestorePlayerStamina(json params)
 {
 	Player().RestoreStamina();
@@ -72,6 +78,12 @@ void Actions::SpawnHorse(json params)
 	Ped::Spawn(String::Hash(model), spawnPosition, heading);
 }
 
+void Actions::SpawnHorseFromInput(json params)
+{
+	string horse = Game::GetInputWithKeyboard();
+	SpawnHorse({ horse });
+}
+
 // MARK: Vehicle
 
 void Actions::SpawnVehicle(json params)
@@ -105,6 +117,12 @@ void Actions::SpawnVehicle(json params)
 	if (*Toggles::spawnInsideVehicle) {
 		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
 	}
+}
+
+void Actions::SpawnVehicleFromInput(json params)
+{
+	string vehicle = Game::GetInputWithKeyboard();
+	SpawnVehicle({vehicle});
 }
 
 void Actions::TeleportIntoClosestVehicle(json params)

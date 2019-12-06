@@ -3,11 +3,14 @@
 #include "Toggles.h"
 #include "Player.h"
 #include "ControlManager.h"
+#include "HorseFlyMode.h"
 #include "Numbers.h"
 
 // MARK: Variables
 string bottomMesssageText;
 DWORD drawBottomTextUntil;
+HorseFlyMode* horseFlyMode;
+
 
 // MARK: Start Routine
 void Routine::StartDrawBottomMessage(string message, int time)
@@ -98,16 +101,32 @@ void RunLoopedToggles()
 		}
 	}
 
+	if (*Toggles::horseNoRagdoll && player.IsOnMount()) {
+		player.GetMount().SetCanRagdoll(false);
+		player.GetMount().SetCanRagdoll(false);
+	}
+
 	if (*Toggles::horseSuperJump && player.IsOnMount()) {
-		Ped horse = Player().GetMount();
+		Ped horse = player.GetMount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.8, /**/ -0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.8, /**/ 0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);
+			horse.SetCanRagdoll(false);
+			player.SetCanRagdoll(false);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 	}
 
 	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
 		player.GetMount().SetStamina(100.0);
+	}
+
+	if (*Toggles::horseFlyMode) {
+		if (horseFlyMode == nullptr) {
+			horseFlyMode = new HorseFlyMode();
+		}
+		horseFlyMode->Tick();
 	}
 	
 	// Vehicle

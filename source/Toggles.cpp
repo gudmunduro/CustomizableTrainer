@@ -44,6 +44,22 @@ void Toggles::OnHorseVisibleToggle(bool value)
 		player.GetMount().SetVisible(value);
 }
 
+void Toggles::OnHorseNoRagdollToggle(bool value)
+{
+	Player player;
+	if (player.IsOnMount())
+		player.GetMount().SetCanRagdoll(value);
+		player.SetCanRagdoll(value);
+}
+
+void Toggles::OnHorseSuperJumpToggle(bool value)
+{
+	Player player;
+	if (player.IsOnMount())
+		player.GetMount().SetCanRagdoll(value);
+	player.SetCanRagdoll(value);
+}
+
 void Toggles::OnPauseClockToggle(bool value)
 {
 	TIME::PAUSE_CLOCK(value, 0);

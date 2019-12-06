@@ -6,11 +6,14 @@ namespace Actions {
 	void StopPlayerPursuit(json params);
 	void ClearPlayerBounty(json params);
 	void ChangeModel(json params);
+	void ChangeFromInput(json params);
 	void RestorePlayerStamina(json params);
 	void AddCashFromKeyboard(json params);
 	void SetHorseMaxHealth(json params);
 	void SpawnHorse(json params);
+	void SpawnHorseFromInput(json params);
 	void SpawnVehicle(json params);
+	void SpawnVehicleFromInput(json params);
 	void TeleportIntoClosestVehicle(json params);
 	void RepairVehicle(json params);
 	void BoostVehicle(json params);

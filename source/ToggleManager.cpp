@@ -41,13 +41,15 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
 	RegisterToggle("toggle_horseSuperRun", Toggles::horseSuperRun);
 	RegisterToggle("toggle_horseSuperJump", Toggles::horseSuperJump);
+	RegisterToggle("toggle_horseNoRagdoll", Toggles::horseNoRagdoll);
 	RegisterToggle("toggle_horseUnlimitedStamina", Toggles::horseUnlimitedStamina);
+	// RegisterToggle("toggle_horseFlyMode", Toggles::horseFlyMode);
 	RegisterToggle("toggle_vehicleBindBoost", Toggles::vehicleBindBoost);
 	RegisterToggle("toggle_systemClockSync", Toggles::systemClockSync);
 	RegisterToggle("toggle_pauseClock", Toggles::pauseClock);
 	RegisterToggle("toggle_freezeWeather", Toggles::freezeWeather);
 	RegisterToggle("toggle_spawnInsideVehicle", Toggles::spawnInsideVehicle);
-	RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
+	// RegisterToggle("toggle_horseEngineTest", Toggles::horseEngineTest);
 	RegisterToggle("toggle_weaponInfiniteAmmo", Toggles::weaponInfiniteAmmo);
 	RegisterToggle("toggle_weaponInfiniteAmmoInClip", Toggles::weaponInfiniteAmmoInClip);
 	RegisterToggle("toggle_hideHud", Toggles::hideHud);
@@ -58,6 +60,8 @@ void ToggleManager::RegisterToggles()
 	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);
 	RegisterToggleAction("toggle_playerEveryoneIgnore", Toggles::OnPlayerEveryoneIgnoreToggle);
 	RegisterToggleAction("toggle_horseInvincible", Toggles::OnHorseInvincibleToggle);
+	RegisterToggleAction("toggle_horseSuperJump", Toggles::OnHorseSuperJumpToggle);
+	RegisterToggleAction("toggle_horseNoRagdoll", Toggles::OnHorseNoRagdollToggle);
 	RegisterToggleAction("toggle_playerNeverWanted", Toggles::OnPlayerNeverWantedToggle);
 	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
 	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);

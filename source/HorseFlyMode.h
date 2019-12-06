@@ -11,5 +11,6 @@ public:
 
 private:
 	Ped horse = Player().GetMount();
+	Player player;
 };
 

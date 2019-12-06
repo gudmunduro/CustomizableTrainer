@@ -19,12 +19,14 @@ void ActionManager::RegisterActions()
 	// Player
 	RegisterAction("action_setPlayerMaxHealth", Actions::SetPlayerMaxHealth);
 	RegisterAction("action_setPlayerModel", Actions::ChangeModel);
+	RegisterAction("actions_setPlayerModelFromInput", Actions::ChangeFromInput);
 	RegisterAction("action_stopPlayerPursuit", Actions::StopPlayerPursuit);
 	RegisterAction("action_cleaPlayerBounty", Actions::ClearPlayerBounty);
 	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
 	RegisterAction("action_addCashFromKeyboard", Actions::AddCashFromKeyboard);
 	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
+	RegisterAction("action_spawnVehicleFromInput", Actions::SpawnVehicleFromInput);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
 	RegisterAction("action_boostVehicle", Actions::BoostVehicle);
 	RegisterAction("action_teleportIntoClosestVehicle", Actions::TeleportIntoClosestVehicle);
@@ -32,6 +34,7 @@ void ActionManager::RegisterActions()
 	// Horse
 	RegisterAction("action_setHorseMaxHealth", Actions::SetHorseMaxHealth);
 	RegisterAction("action_spawnHorse", Actions::SpawnHorse);
+	RegisterAction("action_spawnHorseFromInput", Actions::SpawnHorseFromInput);
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
 	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);

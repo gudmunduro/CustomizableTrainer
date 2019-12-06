@@ -31,16 +31,11 @@ void Submenu::DrawTitle(string text) {
 
 void Submenu::DrawOptionBase(string text, bool selected)
 {
-	if (selected) {
-		Game::DrawText(text, { menuPos.x + 0.01f, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, MenuSettings::optionSelectedTextColor);
-		auto optionSelectedBgColor = MenuSettings::optionSelectedBgColor;
-		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, CurrentOptionPosY() + 0.01, 0.2, 0.035, 0, optionSelectedBgColor.r, optionSelectedBgColor.g, optionSelectedBgColor.b, optionSelectedBgColor.a, 0);
-	}
-	else {
-		Game::DrawText(text, { menuPos.x + 0.01f, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, MenuSettings::optionTextColor);
-		auto optionBgColor = MenuSettings::optionBgColor;
-		GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, CurrentOptionPosY() + 0.01, 0.2, 0.035, 0, optionBgColor.r, optionBgColor.g, optionBgColor.b, optionBgColor.a, 0);
-	}
+	Color optionTextColor = selected ? MenuSettings::optionSelectedTextColor : MenuSettings::optionTextColor;
+	Color optionBgColor = selected ? MenuSettings::optionSelectedBgColor : MenuSettings::optionBgColor;
+		
+	Game::DrawText(text, { menuPos.x + 0.01f, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, optionTextColor);
+	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, CurrentOptionPosY() + 0.01, 0.2, 0.035, 0, optionBgColor.r, optionBgColor.g, optionBgColor.b, optionBgColor.a, 0);
 }
 
 void Submenu::DrawSub(string text, string subKey, bool enabled) {
