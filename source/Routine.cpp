@@ -229,6 +229,10 @@ void RunLoopedToggles()
 	if (Numbers::windSpeed != 1.0f) {
 		GAMEPLAY::SET_WIND_SPEED(Numbers::windSpeed);
 	}
+
+	if (Numbers::timeCycleStrength != 1.0f) {
+		GRAPHICS::SET_TIMECYCLE_MODIFIER_STRENGTH(Numbers::timeCycleStrength);
+	}
 }
 
 void Routine::RunAll()

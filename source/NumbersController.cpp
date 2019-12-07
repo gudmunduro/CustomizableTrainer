@@ -32,6 +32,7 @@ void NumberController::RegisterNumbers()
 	RegisterNumber("number_weaponDamageLevel", &Numbers::weaponDamageLevel, Numbers::AdjustWeaponDamageLavel);
 	RegisterNumber("number_meleeDamageLevel", &Numbers::meleeDamageLevel, Numbers::AdjustMeleeDamageLavel);
 	RegisterNumber("number_timeScale", &Numbers::timeScale, Numbers::AdjustTimeScale);
+	RegisterNumber("number_timeCycleStrength", &Numbers::timeCycleStrength, Numbers::AdjustTimeCycleStrength);
 	RegisterNumber("number_windSpeed", &Numbers::windSpeed, Numbers::AdjustWindSpeed);
 
 	// Getters

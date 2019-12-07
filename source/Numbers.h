@@ -10,7 +10,8 @@ namespace Numbers {
 		weaponDamageLevel = 1.0f,
 		windSpeed = 0.0f,
 		meleeDamageLevel = 1.0f,
-		timeScale = 1.0f;
+		timeScale = 1.0f,
+		timeCycleStrength = 1.0f;
 
 	// MARK: Numbers (Getters)
 
@@ -25,5 +26,6 @@ namespace Numbers {
 	void AdjustCurrentHour(bool direction);
 	void AdjustCurrentMinute(bool direction);
 	void AdjustTimeScale(bool direction);
+	void AdjustTimeCycleStrength(bool direction);
 	void AdjustWindSpeed(bool direction);
 }

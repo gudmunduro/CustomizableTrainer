@@ -11,9 +11,8 @@ string Numbers::GetCurrentHour()
 
 string Numbers::GetCurrentMinute()
 {
-return std::to_string(TIME::GET_CLOCK_MINUTES());
+	return std::to_string(TIME::GET_CLOCK_MINUTES());
 }
-
 
 // MARK: Adjusters
 
@@ -46,6 +45,12 @@ void Numbers::AdjustTimeScale(bool direction)
 {
 	if (timeScale >= 1.0 && direction || timeScale <= 0.0 && !direction) return;
 	timeScale += direction ? 0.1 : -0.1;
+}
+
+void Numbers::AdjustTimeCycleStrength(bool direction)
+{
+	if (timeCycleStrength <= 0.0 && !direction) return;
+	timeCycleStrength += direction ? 0.1 : -0.1;
 }
 
 void Numbers::AdjustWindSpeed(bool direction)
