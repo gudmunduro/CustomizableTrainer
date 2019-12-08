@@ -98,9 +98,9 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	optionAddIndex++;
 	if (IsOutOfBounds()) return;
 	bool selected = IsOptionSelected(selection);
-	auto menuPos = menuController->position;
+	auto menuPos = menuController->position; 
 
-	DrawOptionBase(text, true);
+	DrawOptionBase(text, selected);
 	Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, MenuSettings::optionNumberColor);
 
 	if (selected) {
