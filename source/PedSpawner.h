@@ -9,7 +9,7 @@ public:
 
 	static Ped CurrentPed();
 
-	static inline int currentPedIndex;
+	static inline int currentPedIndex = 0;
 	static inline std::vector<Ped> peds;
 };
 

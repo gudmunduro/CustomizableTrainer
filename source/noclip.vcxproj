@@ -127,6 +127,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Ped.h" />
     <ClInclude Include="PedSpawner.h" />
+    <ClInclude Include="PedSpawnerManangeSub.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Routine.h" />
     <ClInclude Include="script.h" />
@@ -159,6 +160,7 @@
     </ClCompile>
     <ClCompile Include="Ped.cpp" />
     <ClCompile Include="PedSpawner.cpp" />
+    <ClCompile Include="PedSpawnerManangeSub.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Routine.cpp" />
     <ClCompile Include="script.cpp" />
