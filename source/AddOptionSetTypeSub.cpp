@@ -1,10 +1,8 @@
 #include "pch.h"
 #include "AddOptionSetTypeSub.h"
 
-AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
-									std::function<void(Submenu* submenu)> setFixedSubmenu,
-									std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController)
+	: FixedSubmenu(menuController)
 {
 	title = "Option type";
 	options = {
@@ -29,10 +27,13 @@ AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std
 
 void AddOptionSetTypeSub::OnOptionPress(int index)
 {
-	switch (index) {
-		case 0: goToLastSub("setOptionType", MenuOptionType::Sub); break;
-		case 1: goToLastSub("setOptionType", MenuOptionType::Action); break;
-		case 2: goToLastSub("setOptionType", MenuOptionType::Toggle); break;
-		case 3: goToLastSub("setOptionType", MenuOptionType::Number); break;
+	if (onTypeSet) {
+		switch (index) {
+		case 0: onTypeSet(MenuOptionType::Sub); break;
+		case 1: onTypeSet(MenuOptionType::Action); break;
+		case 2: onTypeSet(MenuOptionType::Toggle); break;
+		case 3: onTypeSet(MenuOptionType::Number); break;
+		}
 	}
+	menuController->GoToLastSub();
 }

@@ -1,16 +1,32 @@
 #include "pch.h"
 #include "AddOptionSetKeySub.h"
+#include "ActionManager.h"
+#include "ToggleManager.h"
+#include "NumberController.h"
 
-AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionType, std::vector<string> keys,
-								std::function<void(std::string key)> setSubmenu,
-								std::function<void(Submenu* submenu)> setFixedSubmenu,
-								std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController)
+	: FixedSubmenu(menuController)
 {
-	this->keys = keys;
 	this->optionType = optionType;
+
 	title = OptionTypeToString(optionType);
 	options = {};
+
+	switch (optionType) {
+	case MenuOptionType::Action:
+		keys = ActionManager::GetKeys();
+		break;
+	case MenuOptionType::Toggle:
+		keys = ToggleManager::GetKeys();
+		break;
+	case MenuOptionType::Number:
+		keys = NumberController::GetKeys();
+		break;
+	case MenuOptionType::Sub:
+		keys = menuController->SubmenuKeys();
+		break;
+	}
+
 	CreateDisplayKeys();
 	for each (string key in displayKeys) {
 		options.push_back({
@@ -27,18 +43,23 @@ AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionTyp
 }
 
 // MARK: Events
+
 void AddOptionSetKeySub::OnOptionPress(int index)
 {
-	if (optionType == MenuOptionType::Sub && index == options.size() - 1) { // If last option and option type is submenu (Add)
-		string textInput = Game::GetInputWithKeyboard();
-		goToLastSub("setOptionKey", "sub_" + textInput);
-	}
-	else {
-		goToLastSub("setOptionKey", keys[index]);
-	}
+	string key;
+	if (optionType == MenuOptionType::Sub && index == options.size() - 1) // If last option and option type is submenu (Add)
+		key = "sub_" + Game::GetInputWithKeyboard();
+	else
+		key = keys[index];
+
+	if (onKeySet)
+		onKeySet(key);
+
+	menuController->GoToLastSub();
 }
 
-// MARK:
+// MARK: Misc
+
 void AddOptionSetKeySub::CreateDisplayKeys()
 {
 	for each (string key in keys) {

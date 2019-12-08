@@ -6,7 +6,7 @@ class DynamicSubmenu :
 	public Submenu
 {
 public:
-	DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(Submenu* submenu)> setFixedSubmenu, std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	DynamicSubmenu(SubmenuData submenuData, MenuController* menuController);
 
 	void Draw() override;
 
@@ -15,23 +15,17 @@ public:
 	void DrawToggle(string text, string toggleKey);
 	void DrawNumber(string text, string numberKey);
 
-	void OnDraw() override;
-	void OnDrawEditMode();
-	void OnSelectionChange(int to, int from) override;
-	void OnMessageReceive(string messageKey, std::any messageValue) override;
+	void SubWillDraw() override;
+	void SelectionDidChange(int to, int from) override;
 
 	void RespondToControls() override;
 
-	bool IsBackspaceAllowed() override;
-
-	int GetOptionCount();
-	bool GetEditModeActive();
+	int OptionCount();
 private:
 	string title;
 	string key;
 	std::vector<MenuOption> options;
 	bool isEditModeActive;
 	bool isMoveOptionActive;
-	std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData;
 };
 

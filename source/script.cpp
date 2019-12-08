@@ -6,7 +6,7 @@
 
 #include "pch.h"
 #include "Script.h"
-#include "Menu.h"
+#include "MenuController.h"
 #include "ControlManager.h"
 #include "Routine.h"
 #include "ActionManager.h"
@@ -25,7 +25,7 @@ void setup()
 void main()
 {
 	setup();
-	Menu* menu = new Menu();
+	MenuController* menu = new MenuController();
 	while (true) {
 		Routine::RunAll();
 		ControlManager::Tick();

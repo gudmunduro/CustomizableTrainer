@@ -6,11 +6,15 @@ class AddOptionSub :
 	public FixedSubmenu
 {
 public:
-	AddOptionSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu, std::function<void(Submenu* submenu)> setFixedSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	AddOptionSub(MenuController* menuController);
 	void Setup(bool resetParams = false);
+	void Draw() override;
 
 	void OnOptionPress(int index) override;
-	void OnMessageReceive(string messageKey, std::any messageValue) override;
+
+	int OptionCount() override;
+
+	std::function<void(MenuOption option)> onAddOption;
 private:
 	MenuOption optionToAdd;
 	std::vector<MenuOptionParameter> parameters;

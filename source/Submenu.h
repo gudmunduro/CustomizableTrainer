@@ -1,10 +1,13 @@
 #pragma once
 
 #include "pch.h"
+#include "MenuController.h"
+
+class MenuController;
 
 class Submenu {
 public:
-	Submenu(Vector2 menuPos, std::function<void(string key)> setSubmenu, std::function<void(Submenu*)> setFixedSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
+	Submenu(MenuController *menuController);
 
 	virtual void Draw();
 	void DrawTitle(string text);
@@ -14,22 +17,23 @@ public:
 	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);
 	void DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
 
-	virtual void OnDraw();
-	virtual void OnSelectionChange(int to, int from);
-	virtual void OnMessageReceive(string messageKey, std::any messageValue);
+	virtual void SubWillDraw();
+	virtual void OptionDidDraw();
+	virtual void SelectionDidChange(int to, int from);
 
-	virtual int GetOptionCount();
+	virtual int OptionCount();
 
 	virtual void RespondToControls();
-	virtual bool IsBackspaceAllowed();
+
+	bool IsOutOfBounds();
+	bool IsOptionSelected(int index);
 protected:
 	string OptionTypeToString(MenuOptionType type);
 	float CurrentOptionPosY();
-	Vector2 menuPos;
 	int selection;
 	int drawIndex;
+	int optionAddIndex;
 	int scrollPosition;
-	std::function<void(std::string key)> setSubmenu;
-	std::function<void(string messageKey, std::any messageValue)> goToLastSub;
+	MenuController* menuController;
 };
 

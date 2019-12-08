@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "AddOptionSub.h"
+#include "AddOptionSetKeySub.h"
+#include "AddOptionSetTypeSub.h"
 #include "ActionManager.h"
 #include "Routine.h"
 
-AddOptionSub::AddOptionSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
-						std::function<void(Submenu* submenu)> setFixedSubmenu,
-						std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+AddOptionSub::AddOptionSub(MenuController* menuController)
+	: FixedSubmenu(menuController)
 {
 	Setup(true);
 }
@@ -18,11 +18,11 @@ void AddOptionSub::Setup(bool resetParams)
 		optionToAdd.params = json::array();
 	}
 	title = "Add option";
-	options = {
+	options = {};/*{
 		{
-			MenuOptionType::Sub,
-			"Type",
-			"builtin_sub_addOptionSetTypeSub"
+			MenuOptionType::Text,
+			"Type >",
+			OptionTypeToString(optionToAdd.type)
 		},
 		{
 			MenuOptionType::Text,
@@ -34,16 +34,16 @@ void AddOptionSub::Setup(bool resetParams)
 			OptionTypeToString(optionToAdd.type) + " >",
 			optionToAdd.key
 		}
-	};
+	};*/
 	if (optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action && ActionManager::GetParameterForKey(optionToAdd.key).size() > 0) {
 		if (resetParams) {
 			parameters = ActionManager::GetParameterForKey(optionToAdd.key);
 			for each (auto param in parameters) {
-				options.push_back({
+				/*options.push_back({
 					MenuOptionType::Text,
 					param.name,
 					""
-					});
+					});*/
 				switch (param.type) {
 				case MenuOptionParameterType::String:
 					optionToAdd.params.push_back("");
@@ -81,43 +81,72 @@ void AddOptionSub::Setup(bool resetParams)
 			}
 		}
 	}
-	options.push_back({
+	/*options.push_back({
 		MenuOptionType::Action,
 		"Add"
-	});
+	});*/
+}
+
+void AddOptionSub::Draw()
+{
+	Submenu::Draw();
+	DrawTitle("Add option");
+	DrawText("Type >", OptionTypeToString(optionToAdd.type), 0);
+	DrawText("Text", optionToAdd.text, 1);
+	DrawText(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, 2);
+
+	for (int i = 0; i < parameters.size(); i++) {
+		auto param = parameters[i];
+		string value;
+		switch (param.type) {
+		case MenuOptionParameterType::String:
+			value = optionToAdd.params[i].get<string>();
+			break;
+		case MenuOptionParameterType::Int:
+			value = std::to_string(optionToAdd.params[i].get<int>());
+			break;
+		case MenuOptionParameterType::Float:
+			value = std::to_string(optionToAdd.params[i].get<int>());
+			break;
+		}
+
+		DrawText(param.name, value, i + 2);
+	}
+
+	DrawAction("Add", parameters.size() + 2);
 }
 
 // MARK: Events
+
 void AddOptionSub::OnOptionPress(int index)
 {
 	switch (index) {
+		case 0:
+		{
+			auto setTypeSub = new AddOptionSetTypeSub(menuController);
+			setTypeSub->onTypeSet = [this](MenuOptionType type) {
+				this->optionToAdd.type = type;
+			};
+			menuController->AddSubmenuToStack(setTypeSub);
+			break;
+		}
 		case 1: // Change text
 		{
 			string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
 			optionToAdd.text = textInput;
-			Setup();
 			break;
 		}
 		case 2:
 		{
-			switch (optionToAdd.type) {
-				case MenuOptionType::Action:
-					setSubmenu("builtin_sub_addOptionSetActionKey");
-					break;
-				case MenuOptionType::Toggle:
-					setSubmenu("builtin_sub_addOptionSetToggleKey");
-					break;
-				case MenuOptionType::Sub:
-					setSubmenu("builtin_sub_addOptionSetSubKey");
-					break;
-				case MenuOptionType::Number:
-					setSubmenu("builtin_sub_addOptionSetNumberKey");
-					break;
-			}
+			auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
+			setKeySub->onKeySet = [this](string key) {
+				this->optionToAdd.key = key;
+			};
+			menuController->AddSubmenuToStack(setKeySub);
 			break;
 		}
 	}
-	if (index > 2 && index < options.size() - 1) { // Is parameter
+	if (index > 2 && index < OptionCount() - 1) { // Is parameter
 		int paramIndex = index - 3;
 		switch (parameters[paramIndex].type) {
 			case MenuOptionParameterType::String:
@@ -130,27 +159,21 @@ void AddOptionSub::OnOptionPress(int index)
 				optionToAdd.params[paramIndex] = std::stoi(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[paramIndex].get<int>())));
 				break;
 		}
-		Setup();
 	}
-	if (index == options.size() - 1) { // Is last
+	if (index == OptionCount() - 1) { // Is last (Add)
 		if (optionToAdd.key == "") {
 			Routine::StartDrawBottomMessage("Error: Key cannot be empty");
 			return;
 		}
-		goToLastSub("addOption", optionToAdd);
+		if (onAddOption)
+			onAddOption(optionToAdd);
+		menuController->GoToLastSub();
 	}
 }
 
-void AddOptionSub::OnMessageReceive(string messageKey, std::any messageValue)
+// MARK: Getters
+
+int AddOptionSub::OptionCount()
 {
-	if (messageKey == "setOptionType") {
-		MenuOptionType type = std::any_cast<MenuOptionType>(messageValue);
-		optionToAdd.type = type;
-		Setup(true);
-	}
-	else if (messageKey == "setOptionKey") {
-		string key = std::any_cast<string>(messageValue);
-		optionToAdd.key = key;
-		Setup(true);
-	}
+	return parameters.size() + 4;
 }

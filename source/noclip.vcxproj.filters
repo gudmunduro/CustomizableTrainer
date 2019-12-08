@@ -72,9 +72,6 @@
     <ClInclude Include="core\Hash.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Headers\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="Submenu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
@@ -162,6 +159,12 @@
     <ClInclude Include="HorseFlyMode.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
+    <ClInclude Include="MenuController.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="PedSpawner.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -169,9 +172,6 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Submenu.cpp">
       <Filter>Source\Menu</Filter>
@@ -240,6 +240,12 @@
       <Filter>Source\Numbers</Filter>
     </ClCompile>
     <ClCompile Include="HorseFlyMode.cpp">
+      <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuController.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="PedSpawner.cpp">
       <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>

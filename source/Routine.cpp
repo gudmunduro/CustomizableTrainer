@@ -90,6 +90,8 @@ void RunLoopedToggles()
 	if (*Toggles::horseSuperRun && player.IsOnMount()) {
 		Ped horse = Player().GetMount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
+			horse.SetCanRagdoll(false);
+			player.SetCanRagdoll(false);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
