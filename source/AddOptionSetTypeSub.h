@@ -8,7 +8,9 @@ class AddOptionSetTypeSub :
 public:
 	AddOptionSetTypeSub(MenuController* menuController);
 
-	void OnOptionPress(int index) override;
+	void Draw() override;
+
+	int OptionCount() override;
 
 	std::function<void(MenuOptionType type)> onTypeSet;
 };

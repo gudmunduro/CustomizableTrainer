@@ -84,44 +84,44 @@ void RunLoopedToggles()
 
 	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
-		player.GetMount().SetInvincible(true);
+		player.Mount().SetInvincible(true);
 	}
 
 	if (*Toggles::horseSuperRun && player.IsOnMount()) {
-		Ped horse = Player().GetMount();
+		Ped horse = Player().Mount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 			horse.SetCanRagdoll(false);
 			player.SetCanRagdoll(false);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 		if (ControlManager::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
-			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
-			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
+			ENTITY::FREEZE_ENTITY_POSITION(horse.Id(), true);
+			ENTITY::FREEZE_ENTITY_POSITION(horse.Id(), false);
 		}
 	}
 
 	if (*Toggles::horseNoRagdoll && player.IsOnMount()) {
-		player.GetMount().SetCanRagdoll(false);
-		player.GetMount().SetCanRagdoll(false);
+		player.Mount().SetCanRagdoll(false);
+		player.Mount().SetCanRagdoll(false);
 	}
 
 	if (*Toggles::horseSuperJump && player.IsOnMount()) {
-		Ped horse = player.GetMount();
+		Ped horse = player.Mount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 			horse.SetCanRagdoll(false);
 			player.SetCanRagdoll(false);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 	}
 
 	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
-		player.GetMount().SetStamina(100.0);
+		player.Mount().SetStamina(100.0);
 	}
 
 	if (*Toggles::horseFlyMode) {
@@ -134,7 +134,7 @@ void RunLoopedToggles()
 	// Vehicle
 	if (*Toggles::vehicleBindBoost && player.IsInVehicle()) {
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::BindBoost)) {
-			player.GetCurrentVehicle().SetForwardSpeed(27.00);
+			player.CurrentVehicle().SetForwardSpeed(27.00);
 		}
 	}
 
@@ -195,7 +195,7 @@ void RunLoopedToggles()
 
 	// Test
 	if (*Toggles::horseEngineTest) {
-		auto currentVehicle = Player().GetCurrentVehicle();
+		auto currentVehicle = Player().CurrentVehicle();
 		if (currentVehicle.Exists()) {
 			VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
 			VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);

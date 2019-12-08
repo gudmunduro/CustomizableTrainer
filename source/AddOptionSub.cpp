@@ -8,93 +8,38 @@
 AddOptionSub::AddOptionSub(MenuController* menuController)
 	: FixedSubmenu(menuController)
 {
-	Setup(true);
-}
-
-void AddOptionSub::Setup(bool resetParams)
-{
-	if (resetParams) {
-		parameters = {};
-		optionToAdd.params = json::array();
-	}
-	title = "Add option";
-	options = {};/*{
-		{
-			MenuOptionType::Text,
-			"Type >",
-			OptionTypeToString(optionToAdd.type)
-		},
-		{
-			MenuOptionType::Text,
-			"Text",
-			optionToAdd.text
-		},
-		{
-			MenuOptionType::Text,
-			OptionTypeToString(optionToAdd.type) + " >",
-			optionToAdd.key
-		}
-	};*/
-	if (optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action && ActionManager::GetParameterForKey(optionToAdd.key).size() > 0) {
-		if (resetParams) {
-			parameters = ActionManager::GetParameterForKey(optionToAdd.key);
-			for each (auto param in parameters) {
-				/*options.push_back({
-					MenuOptionType::Text,
-					param.name,
-					""
-					});*/
-				switch (param.type) {
-				case MenuOptionParameterType::String:
-					optionToAdd.params.push_back("");
-					break;
-				case MenuOptionParameterType::Int:
-					optionToAdd.params.push_back(0);
-					break;
-				case MenuOptionParameterType::Float:
-					optionToAdd.params.push_back(0.00f);
-					break;
-				}
-			}
-		}
-		else {
-			for (int i = 0; i < parameters.size(); i++) {
-				auto param = parameters[i];
-				string value;
-				switch (param.type) {
-					case MenuOptionParameterType::String:
-						value = optionToAdd.params[i].get<string>();
-						break;
-					case MenuOptionParameterType::Int:
-						value = std::to_string(optionToAdd.params[i].get<int>());
-						break;
-					case MenuOptionParameterType::Float:
-						value = std::to_string(optionToAdd.params[i].get<int>());
-						break;
-				}
-
-				options.push_back({
-					MenuOptionType::Text,
-					param.name,
-					value
-				});
-			}
-		}
-	}
-	/*options.push_back({
-		MenuOptionType::Action,
-		"Add"
-	});*/
+	
 }
 
 void AddOptionSub::Draw()
 {
 	Submenu::Draw();
-	DrawTitle("Add option");
-	DrawText("Type >", OptionTypeToString(optionToAdd.type), 0);
-	DrawText("Text", optionToAdd.text, 1);
-	DrawText(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, 2);
 
+	DrawTitle("Add option");
+	// Option type
+	DrawText("Type >", OptionTypeToString(optionToAdd.type), [this]() {
+		auto setTypeSub = new AddOptionSetTypeSub(menuController);
+		setTypeSub->onTypeSet = [this](MenuOptionType type) {
+			this->optionToAdd.type = type;
+		};
+		menuController->AddSubmenuToStack(setTypeSub);
+	});
+	// Option text
+	DrawText("Text", optionToAdd.text, [this]() {
+		string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
+		optionToAdd.text = textInput;
+	});
+	// Option key
+	DrawText(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, [this]() {
+		auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
+		setKeySub->onKeySet = [this](string key) {
+			this->optionToAdd.key = key;
+			UpdateParameters();
+		};
+		menuController->AddSubmenuToStack(setKeySub);
+	});
+
+	// Parameters
 	for (int i = 0; i < parameters.size(); i++) {
 		auto param = parameters[i];
 		string value;
@@ -110,57 +55,23 @@ void AddOptionSub::Draw()
 			break;
 		}
 
-		DrawText(param.name, value, i + 2);
-	}
-
-	DrawAction("Add", parameters.size() + 2);
-}
-
-// MARK: Events
-
-void AddOptionSub::OnOptionPress(int index)
-{
-	switch (index) {
-		case 0:
-		{
-			auto setTypeSub = new AddOptionSetTypeSub(menuController);
-			setTypeSub->onTypeSet = [this](MenuOptionType type) {
-				this->optionToAdd.type = type;
-			};
-			menuController->AddSubmenuToStack(setTypeSub);
-			break;
-		}
-		case 1: // Change text
-		{
-			string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
-			optionToAdd.text = textInput;
-			break;
-		}
-		case 2:
-		{
-			auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
-			setKeySub->onKeySet = [this](string key) {
-				this->optionToAdd.key = key;
-			};
-			menuController->AddSubmenuToStack(setKeySub);
-			break;
-		}
-	}
-	if (index > 2 && index < OptionCount() - 1) { // Is parameter
-		int paramIndex = index - 3;
-		switch (parameters[paramIndex].type) {
+		DrawText(param.name, value, [this, param, i]() {
+			switch (param.type) {
 			case MenuOptionParameterType::String:
-				optionToAdd.params[paramIndex] = Game::GetInputWithKeyboard(optionToAdd.params[paramIndex].get<string>());
+				optionToAdd.params[i] = Game::GetInputWithKeyboard(optionToAdd.params[i].get<string>());
 				break;
 			case MenuOptionParameterType::Float:
-				optionToAdd.params[paramIndex] = std::stof(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[paramIndex].get<float>())));
+				optionToAdd.params[i] = std::stof(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<float>())));
 				break;
 			case MenuOptionParameterType::Int:
-				optionToAdd.params[paramIndex] = std::stoi(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[paramIndex].get<int>())));
+				optionToAdd.params[i] = std::stoi(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<int>())));
 				break;
-		}
+			}
+		});
 	}
-	if (index == OptionCount() - 1) { // Is last (Add)
+
+	// Add option
+	DrawAction("Add", [this]() {
 		if (optionToAdd.key == "") {
 			Routine::StartDrawBottomMessage("Error: Key cannot be empty");
 			return;
@@ -168,7 +79,7 @@ void AddOptionSub::OnOptionPress(int index)
 		if (onAddOption)
 			onAddOption(optionToAdd);
 		menuController->GoToLastSub();
-	}
+	});
 }
 
 // MARK: Getters
@@ -176,4 +87,29 @@ void AddOptionSub::OnOptionPress(int index)
 int AddOptionSub::OptionCount()
 {
 	return parameters.size() + 4;
+}
+
+// MARK: Misc
+
+void AddOptionSub::UpdateParameters()
+{
+	if (!(optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action &&
+			ActionManager::GetParameterForKey(optionToAdd.key).size() > 0))
+		return;
+
+	parameters = ActionManager::GetParameterForKey(optionToAdd.key);
+
+	for each (auto param in parameters) {
+		switch (param.type) {
+		case MenuOptionParameterType::String:
+			optionToAdd.params.push_back("");
+			break;
+		case MenuOptionParameterType::Int:
+			optionToAdd.params.push_back(0);
+			break;
+		case MenuOptionParameterType::Float:
+			optionToAdd.params.push_back(0.00f);
+			break;
+		}
+	}
 }

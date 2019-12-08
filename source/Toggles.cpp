@@ -34,21 +34,21 @@ void Toggles::OnHorseInvincibleToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetInvincible(value);
+		player.Mount().SetInvincible(value);
 }
 
 void Toggles::OnHorseVisibleToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetVisible(value);
+		player.Mount().SetVisible(value);
 }
 
 void Toggles::OnHorseNoRagdollToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetCanRagdoll(value);
+		player.Mount().SetCanRagdoll(value);
 		player.SetCanRagdoll(value);
 }
 
@@ -56,7 +56,7 @@ void Toggles::OnHorseSuperJumpToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetCanRagdoll(value);
+		player.Mount().SetCanRagdoll(value);
 	player.SetCanRagdoll(value);
 }
 

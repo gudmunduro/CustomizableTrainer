@@ -9,53 +9,65 @@ AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController
 {
 	this->optionType = optionType;
 
-	title = OptionTypeToString(optionType);
-	options = {};
-
 	switch (optionType) {
-	case MenuOptionType::Action:
-		keys = ActionManager::GetKeys();
-		break;
-	case MenuOptionType::Toggle:
-		keys = ToggleManager::GetKeys();
-		break;
-	case MenuOptionType::Number:
-		keys = NumberController::GetKeys();
-		break;
-	case MenuOptionType::Sub:
-		keys = menuController->SubmenuKeys();
-		break;
+		case MenuOptionType::Action:
+			keys = ActionManager::GetKeys();
+			break;
+		case MenuOptionType::Toggle:
+			keys = ToggleManager::GetKeys();
+			break;
+		case MenuOptionType::Number:
+			keys = NumberController::GetKeys();
+			break;
+		case MenuOptionType::Sub:
+			keys = menuController->SubmenuKeys();
+			break;
 	}
 
 	CreateDisplayKeys();
-	for each (string key in displayKeys) {
-		options.push_back({
-			MenuOptionType::Action,
-			key
+}
+
+// MARK: Draw
+
+void AddOptionSetKeySub::Draw()
+{
+	Submenu::Draw();
+
+	DrawTitle(OptionTypeToString(optionType));
+	// All keys
+	for (int i = 0; i < displayKeys.size(); i++) {
+		string displayKey = displayKeys[i];
+		string key = keys[i];
+
+		DrawAction(displayKey, [this, key]() {
+			OnKeySelect(key);
 		});
 	}
-	if (optionType == MenuOptionType::Sub) {
-		options.push_back({
-			MenuOptionType::Action,
-			"Add"
+	// Add submenu
+	if (optionType == MenuOptionType::Sub)
+		DrawAction("Add", [this]() {
+			string key = Game::GetInputWithKeyboard();
+			if (key == "") return;
+
+			OnKeySelect("sub_" + key);
 		});
-	}
 }
 
 // MARK: Events
 
-void AddOptionSetKeySub::OnOptionPress(int index)
+void AddOptionSetKeySub::OnKeySelect(string key)
 {
-	string key;
-	if (optionType == MenuOptionType::Sub && index == options.size() - 1) // If last option and option type is submenu (Add)
-		key = "sub_" + Game::GetInputWithKeyboard();
-	else
-		key = keys[index];
-
 	if (onKeySet)
 		onKeySet(key);
 
 	menuController->GoToLastSub();
+}
+
+// MARK: Getters
+
+int AddOptionSetKeySub::OptionCount()
+{
+	return displayKeys.size() + (optionType == MenuOptionType::Sub ? 1 : 0);
 }
 
 // MARK: Misc

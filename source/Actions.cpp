@@ -9,7 +9,7 @@
 void Actions::SetPlayerMaxHealth(json params)
 {
 	Player player = Player();
-	player.SetHealth(player.GetMaxHealth());
+	player.SetHealth(player.MaxHealth());
 	player.RestoreStamina(100.0);
 	player.RestoreSpecialAbility();
 	Routine::StartDrawBottomMessage("Player healed");
@@ -40,6 +40,7 @@ void Actions::ChangeModel(json params)
 void Actions::ChangeFromInput(json params)
 {
 	string model = Game::GetInputWithKeyboard();
+	if (model == "") return;
 	ChangeModel({ model });
 }
 
@@ -50,16 +51,21 @@ void Actions::RestorePlayerStamina(json params)
 
 void Actions::AddCashFromKeyboard(json params)
 {
-	int cash = std::stoi(Game::GetInputWithKeyboard());
-	Player().AddCash(cash);
+	try {
+		int cash = std::stoi(Game::GetInputWithKeyboard());
+		Player().AddCash(cash);
+	}
+	catch (const std::exception & e) {
+
+	}
 }
 
 // MARK: Horse
 
 void Actions::SetHorseMaxHealth(json params)
 {
-	Ped horse = Player().GetMount();
-	horse.SetHealth(horse.GetMaxHealth());
+	Ped horse = Player().Mount();
+	horse.SetHealth(horse.MaxHealth());
 	horse.SetStamina(100.0);
 	Routine::StartDrawBottomMessage("Horse healed");
 }
@@ -72,8 +78,8 @@ void Actions::SpawnHorse(json params)
 	}
 	string model = params[0].get<string>();
 	Player player;
-	Vector3 spawnPosition = player.GetOffsetInWorldCoords({ 0.0, 2.0, 0.0 });
-	float heading = player.GetHeading() + 90.0f;
+	Vector3 spawnPosition = player.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	float heading = player.Heading() + 90.0f;
 
 	Ped::Spawn(String::Hash(model), spawnPosition, heading);
 }
@@ -81,6 +87,7 @@ void Actions::SpawnHorse(json params)
 void Actions::SpawnHorseFromInput(json params)
 {
 	string horse = Game::GetInputWithKeyboard();
+	if (horse == "") return;
 	SpawnHorse({ horse });
 }
 
@@ -99,16 +106,16 @@ void Actions::SpawnVehicle(json params)
 		return;
 	}
 	Player player = Player();
-	Vector3 spawnPosition = player.GetPosition();
-	float vehicleSpawnHeading = player.GetHeading();
+	Vector3 spawnPosition = player.Position();
+	float vehicleSpawnHeading = player.Heading();
 
 	if (!(*Toggles::spawnInsideVehicle)) {
-		spawnPosition = player.GetOffsetInWorldCoords({0.0, 2.0, 0.0});
+		spawnPosition = player.OffsetInWorldCoords({0.0, 2.0, 0.0});
 		vehicleSpawnHeading += 90;
 	}
 
 	if (player.IsInVehicle()) {
-		auto vehicle = player.GetCurrentVehicle();
+		auto vehicle = player.CurrentVehicle();
 		vehicle.Delete();
 	}
 
@@ -122,6 +129,7 @@ void Actions::SpawnVehicle(json params)
 void Actions::SpawnVehicleFromInput(json params)
 {
 	string vehicle = Game::GetInputWithKeyboard();
+	if (vehicle == "") return;
 	SpawnVehicle({vehicle});
 }
 
@@ -132,7 +140,7 @@ void Actions::TeleportIntoClosestVehicle(json params)
 
 void Actions::RepairVehicle(json params)
 {
-	auto currentVehicle = Player().GetCurrentVehicle();
+	auto currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Repair();
 	}
@@ -140,7 +148,7 @@ void Actions::RepairVehicle(json params)
 
 void Actions::BoostVehicle(json params)
 {
-	auto currentVehicle = Player().GetCurrentVehicle();
+	auto currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.SetForwardSpeed(16.66);
 	}
@@ -148,7 +156,7 @@ void Actions::BoostVehicle(json params)
 
 void Actions::DeleteCurrentVehicle(json params)
 {
-	Vehicle currentVehicle = Player().GetCurrentVehicle();
+	Vehicle currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
 		Routine::StartDrawBottomMessage("~g~Deleted!");
@@ -235,7 +243,7 @@ void Actions::AddToClockTime(json params)
 void Actions::TeleportPlayerForward(json params)
 {
 	auto player = Player();
-	auto teleportToCoords = player.GetOffsetInWorldCoords({0, 4.0f, 0});
+	auto teleportToCoords = player.OffsetInWorldCoords({0, 4.0f, 0});
 	player.SetCoords(teleportToCoords);
 }
 
@@ -261,9 +269,9 @@ void Actions::TeleportPlayerToWaypoint(json params)
 			coordsToSet.z = height;
 
 			if (player.IsOnMount())
-				player.GetMount().SetCoordsNoOffset(coordsToSet);
+				player.Mount().SetCoordsNoOffset(coordsToSet);
 			else if (player.IsInVehicle())
-				player.GetCurrentVehicle().SetCoordsNoOffset(coordsToSet);
+				player.CurrentVehicle().SetCoordsNoOffset(coordsToSet);
 			else
 				player.SetCoordsNoOffset(coordsToSet);
 
@@ -277,9 +285,9 @@ void Actions::TeleportPlayerToWaypoint(json params)
 	}
 
 	if (player.IsOnMount())
-		player.GetMount().SetCoordsNoOffset(waypointPosition);
+		player.Mount().SetCoordsNoOffset(waypointPosition);
 	else if (player.IsInVehicle())
-		player.GetCurrentVehicle().SetCoordsNoOffset(waypointPosition);
+		player.CurrentVehicle().SetCoordsNoOffset(waypointPosition);
 	else
 		player.SetCoordsNoOffset(waypointPosition);
 }
@@ -294,9 +302,9 @@ void Actions::TeleportPlayerToCoords(json params)
 	Vector3 teleportToCoords = { params[0], params[1], params[2] };
 
 	if (player.IsOnMount())
-		player.GetMount().SetCoords(teleportToCoords);
+		player.Mount().SetCoords(teleportToCoords);
 	else if (player.IsInVehicle())
-		player.GetCurrentVehicle().SetCoords(teleportToCoords);
+		player.CurrentVehicle().SetCoords(teleportToCoords);
 	else 
 		player.SetCoords(teleportToCoords);
 }

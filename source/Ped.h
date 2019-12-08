@@ -22,13 +22,14 @@ public:
 	bool IsInVehicle();
 	bool IsOnMount();
 	// MARK: Getters
-	PedId GetPedId();
-	int GetMaxHealth();
-	Vector3 GetPosition();
-	Vector3 GetOffsetInWorldCoords(Vector3 offset);
-	float GetHeading();
-	Vehicle GetCurrentVehicle();
-	Ped GetMount();
+	PedId Id();
+	int MaxHealth();
+	Vector3 Position();
+	Vector3 OffsetInWorldCoords(Vector3 offset);
+	float Heading();
+	Vehicle CurrentVehicle();
+	Ped Mount();
+	Hash Model();
 	// MARK: Static functions
 	static Ped Spawn(Hash model, Vector3 position, float heading = 0);
 private:

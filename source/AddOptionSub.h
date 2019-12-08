@@ -7,12 +7,11 @@ class AddOptionSub :
 {
 public:
 	AddOptionSub(MenuController* menuController);
-	void Setup(bool resetParams = false);
 	void Draw() override;
 
-	void OnOptionPress(int index) override;
-
 	int OptionCount() override;
+
+	void UpdateParameters();
 
 	std::function<void(MenuOption option)> onAddOption;
 private:

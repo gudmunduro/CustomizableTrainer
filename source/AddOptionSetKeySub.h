@@ -7,9 +7,13 @@ class AddOptionSetKeySub :
 {
 public:
 	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController);
-
-	void OnOptionPress(int index) override;
 	
+	void Draw() override;
+
+	void OnKeySelect(string key);
+
+	int OptionCount() override;
+
 	void CreateDisplayKeys();
 
 	std::function<void(string key)> onKeySet;

@@ -165,7 +165,7 @@
     <ClInclude Include="PedSpawner.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
-    <ClInclude Include="PedSpawnerManangeSub.h">
+    <ClInclude Include="PedSpawnerSub.h">
       <Filter>Headers\Menu\Submenus</Filter>
     </ClInclude>
   </ItemGroup>
@@ -251,7 +251,7 @@
     <ClCompile Include="PedSpawner.cpp">
       <Filter>Source\Features</Filter>
     </ClCompile>
-    <ClCompile Include="PedSpawnerManangeSub.cpp">
+    <ClCompile Include="PedSpawnerSub.cpp">
       <Filter>Source\Menu\Submenus</Filter>
     </ClCompile>
   </ItemGroup>

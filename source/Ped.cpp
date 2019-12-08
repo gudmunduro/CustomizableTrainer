@@ -48,7 +48,7 @@ void Ped::SetInvincible(bool invincible)
 
 void Ped::SetIntoClosestVehicle()
 {
-	auto playerLocation = GetPosition();
+	auto playerLocation = Position();
 	auto closestVehicle = Vehicle::Closest(playerLocation);
 
 	if (closestVehicle.Exists()) {
@@ -84,40 +84,45 @@ bool Ped::IsOnMount()
 }
 
 // Getters
-PedId Ped::GetPedId()
+PedId Ped::Id()
 {
 	return pedId;
 }
 
-int Ped::GetMaxHealth()
+int Ped::MaxHealth()
 {
 	return ENTITY::GET_ENTITY_MAX_HEALTH(pedId, false);
 }
 
-Vector3 Ped::GetPosition()
+Vector3 Ped::Position()
 {
 	return ENTITY::GET_ENTITY_COORDS(pedId, true, false);
 }
 
-Vector3 Ped::GetOffsetInWorldCoords(Vector3 offset)
+Vector3 Ped::OffsetInWorldCoords(Vector3 offset)
 {
 	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(pedId, offset.x, offset.y, offset.z);
 }
 
-float Ped::GetHeading()
+float Ped::Heading()
 {
 	return ENTITY::GET_ENTITY_HEADING(pedId);
 }
 
-Vehicle Ped::GetCurrentVehicle()
+Vehicle Ped::CurrentVehicle()
 {
 	VehicleId currentVehicleId = PED::GET_VEHICLE_PED_IS_IN(pedId, false);
 	return Vehicle(currentVehicleId);
 }
 
-Ped Ped::GetMount()
+Ped Ped::Mount()
 {
 	return PED::GET_MOUNT(pedId);
+}
+
+Hash Ped::Model()
+{
+	return ENTITY::GET_ENTITY_MODEL(pedId);
 }
 
 // MARK: Static methods
