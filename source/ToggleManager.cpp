@@ -36,6 +36,8 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_playerUnlSpecialAbility", Toggles::playerUnlSpecialAbility);
 	RegisterToggle("toggle_playerNoRagdoll", Toggles::playerNoRagdoll);
 	RegisterToggle("toggle_playerEveryoneIgnore", Toggles::playerEveryoneIgnore);
+	RegisterToggle("toggle_spawnedPedInvincible", Toggles::spawnedPedInvincible);
+	RegisterToggle("toggle_spawnedPedBodyguard", Toggles::spawnedPedBodyguard);
 	// RegisterToggle("toggle_playerExplosiveMelee", Toggles::weaponExtraDamage);
 	RegisterToggle("toggle_horseInvincible", Toggles::horseInvincible);
 	RegisterToggle("toggle_horseVisible", Toggles::horseVisible);
@@ -62,6 +64,8 @@ void ToggleManager::RegisterToggles()
 	RegisterToggleAction("toggle_horseInvincible", Toggles::OnHorseInvincibleToggle);
 	RegisterToggleAction("toggle_horseSuperJump", Toggles::OnHorseSuperJumpToggle);
 	RegisterToggleAction("toggle_horseNoRagdoll", Toggles::OnHorseNoRagdollToggle);
+	RegisterToggleAction("toggle_spawnedPedInvincible", Toggles::OnSpawnedPedInvincibleToggle);
+	RegisterToggleAction("toggle_spawnedPedBodyguard", Toggles::OnSpanwedPedBodyguardToggle);
 	RegisterToggleAction("toggle_playerNeverWanted", Toggles::OnPlayerNeverWantedToggle);
 	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
 	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);

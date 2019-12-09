@@ -8,5 +8,6 @@ public:
 	PedSpawnerSub(MenuController *menuController);
 
 	void Draw() override;
+	int OptionCount();
 };
 

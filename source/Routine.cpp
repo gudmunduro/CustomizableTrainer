@@ -167,7 +167,7 @@ void RunLoopedToggles()
 		if (player.IsTargetingAnything() || player.IsFreeAiming())
 		{
 			EntityId target;
-			if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.GetPlayerId(), &target))
+			if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.Id(), &target))
 			{
 				Vector3 position = ENTITY::GET_ENTITY_COORDS(target, false, false);
 				FIRE::ADD_EXPLOSION(position.x, position.y, position.z, 0, 100.0f, true, false, true);

@@ -62,6 +62,21 @@ void Ped::SetCanRagdoll(bool toggle)
 	PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(pedId, toggle);
 }
 
+void Ped::SetAsMissionEntity()
+{
+	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(pedId, true, false);
+}
+
+void Ped::SetAsGroupMember(int group)
+{
+	PED::SET_PED_AS_GROUP_MEMBER(pedId, group);
+}
+
+void Ped::RemoveFromGroup()
+{
+	PED::REMOVE_PED_FROM_GROUP(pedId);
+}
+
 void Ped::ClearWetness()
 {
 	PED::CLEAR_PED_WETNESS(pedId);
@@ -70,6 +85,11 @@ void Ped::ClearWetness()
 void Ped::GiveWeapon(Hash model)
 {
 	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
+}
+
+void Ped::Delete()
+{
+	PED::DELETE_PED(&pedId);
 }
 
 // MARK: Booleans

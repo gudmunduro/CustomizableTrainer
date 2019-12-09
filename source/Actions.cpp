@@ -3,6 +3,7 @@
 #include "Routine.h"
 #include "Player.h"
 #include "Toggles.h"
+#include "PedSpawner.h"
 
 // MARK: Player
 
@@ -58,6 +59,70 @@ void Actions::AddCashFromKeyboard(json params)
 	catch (const std::exception & e) {
 
 	}
+}
+
+// MARK: Peds
+
+void Actions::SpawnPed(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	string model = params[0].get<string>();
+
+	PedSpawner::Spawn(model, model);
+}
+
+void Actions::GiveSpawnedPedWeapon(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+	string weaponModel = params[0].get<string>();
+	Hash weaponHash = String::Hash(weaponModel);
+
+	PedSpawner::CurrentPed().GiveWeapon(weaponHash);
+	WEAPON::SET_PED_AMMO(PedSpawner::CurrentPed().Id(), weaponHash, 9999);
+}
+
+void Actions::TeleportSpawnedPedToPlayer(json params)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	auto teleportTo = Player().OffsetInWorldCoords({0, 2.0f, 0});
+
+	PedSpawner::CurrentPed().SetCoords(teleportTo);
+}
+
+void Actions::TeleportPlayerToSpawnedPed(json params)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	auto teleportTo = PedSpawner::CurrentPed().OffsetInWorldCoords({ 0, 2.0f, 0 });
+
+	Player().SetCoords(teleportTo);
+}
+
+void Actions::DeleteSpawnedPed(json params)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	PedSpawner::DeleteCurrent();
 }
 
 // MARK: Horse
@@ -163,7 +228,7 @@ void Actions::DeleteCurrentVehicle(json params)
 	}
 }
 
-// Weapons
+// MARK: Weapons
 
 void Actions::GivePlayerAllWeapons(json params)
 {

@@ -2,6 +2,7 @@
 #include "Toggles.h"
 #include "Routine.h"
 #include "Player.h"
+#include "PedSpawner.h"
 
 void Toggles::OnPlayerInvincibleToggle(bool value)
 {
@@ -58,6 +59,33 @@ void Toggles::OnHorseSuperJumpToggle(bool value)
 	if (player.IsOnMount())
 		player.Mount().SetCanRagdoll(value);
 	player.SetCanRagdoll(value);
+}
+
+void Toggles::OnSpawnedPedInvincibleToggle(bool value)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	PedSpawner::CurrentPedData()->isInvincible = value;
+
+	PedSpawner::CurrentPed().SetInvincible(value);
+}
+
+void Toggles::OnSpanwedPedBodyguardToggle(bool value)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	PedSpawner::CurrentPedData()->isBodyGuard = value;
+
+	if (value)
+		PedSpawner::CurrentPed().SetAsGroupMember(Player().Group());
+	else
+		PedSpawner::CurrentPed().RemoveFromGroup();
 }
 
 void Toggles::OnPauseClockToggle(bool value)

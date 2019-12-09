@@ -31,6 +31,12 @@ void ActionManager::RegisterActions()
 	RegisterAction("action_boostVehicle", Actions::BoostVehicle);
 	RegisterAction("action_teleportIntoClosestVehicle", Actions::TeleportIntoClosestVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);
+	// Peds
+	RegisterAction("action_spawnPed", Actions::SpawnPed);
+	RegisterAction("action_giveSpawnedPedWeapon", Actions::GiveSpawnedPedWeapon);
+	RegisterAction("action_teleportPlayerToSpawnedPed", Actions::TeleportPlayerToSpawnedPed);
+	RegisterAction("action_teleportSpawnedPedToPlayer", Actions::TeleportSpawnedPedToPlayer);
+	RegisterAction("action_deleteSpawnedPed", Actions::DeleteSpawnedPed);
 	// Horse
 	RegisterAction("action_setHorseMaxHealth", Actions::SetHorseMaxHealth);
 	RegisterAction("action_spawnHorse", Actions::SpawnHorse);
@@ -89,7 +95,9 @@ std::vector<MenuOptionParameter> ActionManager::GetParameterForKey(string key)
 	parameters["action_setPlayerModel"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnHorse"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnVehicle"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_spawnPed"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_givePlayerWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_giveSpawnedPedWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_setWeather"] = { { { MenuOptionParameterType::String, "Weather" } } };
 	parameters["action_addToClockTime"] = { { { MenuOptionParameterType::Int, "Hours" }, { MenuOptionParameterType::Int, "Minutes" }, { MenuOptionParameterType::Int, "Seconds" } } };
 	parameters["action_teleportPlayerToCoords"] = { { { MenuOptionParameterType::Float, "X" }, { MenuOptionParameterType::Float, "Y" }, { MenuOptionParameterType::Float, "Z" } } };

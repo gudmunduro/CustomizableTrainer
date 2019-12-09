@@ -76,7 +76,7 @@ void AddOptionSetKeySub::CreateDisplayKeys()
 {
 	for each (string key in keys) {
 		string displayKey = key.substr(key.find("_") + 1);
-		if (displayKey == "sub_default") displayKey = "default";
+		if (displayKey._Starts_with("sub_")) displayKey = displayKey.substr(displayKey.find("_") + 1);
 
 		displayKeys.push_back(displayKey);
 	}

@@ -13,6 +13,8 @@ namespace Toggles {
 		playerNeverWanted = std::make_shared<bool>(false),
 		playerNoRagdoll = std::make_shared<bool>(false),
 		playerEveryoneIgnore = std::make_shared<bool>(false),
+		spawnedPedInvincible = std::make_shared<bool>(false),
+		spawnedPedBodyguard = std::make_shared<bool>(false),
 		horseInvincible = std::make_shared<bool>(false),
 		horseVisible = std::make_shared<bool>(true),
 		horseSuperRun = std::make_shared<bool>(false),
@@ -43,6 +45,8 @@ namespace Toggles {
 	void OnHorseVisibleToggle(bool value);
 	void OnHorseNoRagdollToggle(bool value);
 	void OnHorseSuperJumpToggle(bool value);
+	void OnSpawnedPedInvincibleToggle(bool value);
+	void OnSpanwedPedBodyguardToggle(bool value);
 	void OnPauseClockToggle(bool value);
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);

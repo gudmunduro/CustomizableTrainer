@@ -8,17 +8,25 @@ public:
 	inline SpawnerPed(string name, Ped ped) : name(name), ped(ped) {};
 	string name;
 	Ped ped;
+	bool isBodyGuard = false;
+	bool isInvincible = false;
 };
 
 class PedSpawner
 {
 public:
-	static void Spawn(Hash model);
-	static void Spawn(string model);
+	static void Spawn(string name, string model);
 
-	static SpawnerPed CurrentPed();
+	static void SetCurrentPedIndex(int index);
 
-	static inline int currentPedIndex = 0;
-	static inline std::vector<SpawnerPed> peds;
+	static bool IsAnyPedSelected();
+
+	static Ped CurrentPed();
+	static std::shared_ptr<SpawnerPed> CurrentPedData();
+
+	static void DeleteCurrent();
+
+	static inline int currentPedIndex = -1;
+	static inline std::vector<std::shared_ptr<SpawnerPed>> peds;
 };
 

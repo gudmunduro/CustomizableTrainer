@@ -4,9 +4,7 @@
 #include "ControlManager.h"
 #include "JsonDataManager.h"
 #include "DynamicSubmenu.h"
-#include "AddOptionSub.h"
-#include "AddOptionSetTypeSub.h"
-#include "AddOptionSetKeySub.h"
+#include "PedSpawnerSub.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
@@ -132,10 +130,16 @@ std::vector<string> MenuController::SubmenuKeys()
 		[](auto const& pair) {
 			return pair.first;
 	});
+
+	keys.push_back("builtin_sub_pedSpawner"); // TODO: Find a better solution to this
+
 	return keys;
 }
 
 Submenu* MenuController::FixedSubmenuForKey(string key)
 {
+	if (key == "builtin_sub_pedSpawner") {
+		return new PedSpawnerSub(this);
+	}
 	return nullptr;
 }

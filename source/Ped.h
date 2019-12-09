@@ -16,8 +16,12 @@ public:
 	void SetInvincible(bool invincible);
 	void SetIntoClosestVehicle();
 	void SetCanRagdoll(bool toggle);
+	void SetAsMissionEntity();
+	void SetAsGroupMember(int group);
+	void RemoveFromGroup();
 	void ClearWetness();
 	void GiveWeapon(Hash model);
+	void Delete();
 	// MARK: Booleans
 	bool IsInVehicle();
 	bool IsOnMount();
