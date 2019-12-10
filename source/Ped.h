@@ -26,6 +26,7 @@ public:
 	// MARK: Booleans
 	bool IsInVehicle();
 	bool IsOnMount();
+	bool IsOnFoot();
 	// MARK: Getters
 	PedId Id();
 	int MaxHealth();

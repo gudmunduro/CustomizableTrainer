@@ -82,6 +82,10 @@ void RunLoopedToggles()
 		player.SetEveryoneIgnore(true);
 	}
 
+	if (*Toggles::forceFirstPersonOnFoot && player.IsOnFoot()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
+	}
+
 	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
 		player.Mount().SetInvincible(true);
@@ -130,12 +134,20 @@ void RunLoopedToggles()
 		}
 		horseFlyMode->Tick();
 	}
+
+	if (*Toggles::forceFirstPersonOnHorse && player.IsOnMount()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
+	}
 	
 	// Vehicle
 	if (*Toggles::vehicleBindBoost && player.IsInVehicle()) {
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::BindBoost)) {
 			player.CurrentVehicle().SetForwardSpeed(27.00);
 		}
+	}
+
+	if (*Toggles::forceFirstPersonInVehicle && player.IsInVehicle()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 	}
 
 	// Weapons

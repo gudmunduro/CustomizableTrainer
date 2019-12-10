@@ -108,6 +108,11 @@ bool Ped::IsOnMount()
 	return PED::IS_PED_ON_MOUNT(pedId);
 }
 
+bool Ped::IsOnFoot()
+{
+	return PED::IS_PED_ON_FOOT(pedId);
+}
+
 // Getters
 PedId Ped::Id()
 {

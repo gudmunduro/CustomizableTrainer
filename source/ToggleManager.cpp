@@ -36,6 +36,7 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_playerUnlSpecialAbility", Toggles::playerUnlSpecialAbility);
 	RegisterToggle("toggle_playerNoRagdoll", Toggles::playerNoRagdoll);
 	RegisterToggle("toggle_playerEveryoneIgnore", Toggles::playerEveryoneIgnore);
+	RegisterToggle("toggle_forceFirstPersonOnFoot", Toggles::forceFirstPersonOnFoot);
 	RegisterToggle("toggle_spawnedPedInvincible", Toggles::spawnedPedInvincible);
 	RegisterToggle("toggle_spawnedPedBodyguard", Toggles::spawnedPedBodyguard);
 	RegisterToggle("toggle_allSpawnedPedsInvincible", Toggles::allSpawnedPedsInvincible);
@@ -47,8 +48,10 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_horseSuperJump", Toggles::horseSuperJump);
 	RegisterToggle("toggle_horseNoRagdoll", Toggles::horseNoRagdoll);
 	RegisterToggle("toggle_horseUnlimitedStamina", Toggles::horseUnlimitedStamina);
+	RegisterToggle("toggle_forceFirstPersonOnHorse", Toggles::forceFirstPersonOnHorse);
 	// RegisterToggle("toggle_horseFlyMode", Toggles::horseFlyMode);
 	RegisterToggle("toggle_vehicleBindBoost", Toggles::vehicleBindBoost);
+	RegisterToggle("toggle_forceFirstPersonInVehicle", Toggles::forceFirstPersonInVehicle);
 	RegisterToggle("toggle_systemClockSync", Toggles::systemClockSync);
 	RegisterToggle("toggle_pauseClock", Toggles::pauseClock);
 	RegisterToggle("toggle_freezeWeather", Toggles::freezeWeather);
