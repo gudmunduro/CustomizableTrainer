@@ -27,13 +27,14 @@ public:
 
 	bool IsOutOfBounds();
 	bool IsOptionSelected(int index);
+
+	int selection;
+	int scrollPosition;
 protected:
 	string OptionTypeToString(MenuOptionType type);
 	float CurrentOptionPosY();
-	int selection;
 	int drawIndex;
 	int optionAddIndex;
-	int scrollPosition;
 	MenuController* menuController;
 };
 

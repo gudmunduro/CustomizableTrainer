@@ -40,8 +40,19 @@ void MenuController::AddSubmenuToStack(Submenu* submenu)
 }
 void MenuController::GoToLastSub()
 {
-	if (submenuStack.size() > 0) { 
+	if (!submenuStack.empty()) {
 		submenuStack.pop_back();
+
+		if (!submenuStack.empty()) {
+			// Set selection into bounds if option has been removed
+			auto currentSub = submenuStack.back();
+
+			if (currentSub->selection > currentSub->OptionCount() - 1) {
+				currentSub->selection = currentSub->OptionCount() - 1;
+				int newScrollPos = currentSub->OptionCount() - 8;
+				currentSub->scrollPosition = (newScrollPos > 0) ? newScrollPos : 0;
+			}
+		}
 	}
 	if (submenuStack.size() == 0) shouldDrawMenu = false;
 }

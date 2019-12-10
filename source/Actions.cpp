@@ -74,6 +74,14 @@ void Actions::SpawnPed(json params)
 	PedSpawner::Spawn(model, model);
 }
 
+void Actions::SpawnPedFromInput(json params)
+{
+	string model = Game::GetInputWithKeyboard();
+	if (model == "") return;
+
+	PedSpawner::Spawn(model, model);
+}
+
 void Actions::GiveSpawnedPedWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
@@ -124,6 +132,40 @@ void Actions::DeleteSpawnedPed(json params)
 
 	PedSpawner::DeleteCurrent();
 }
+
+void Actions::GiveAllSpawnedPedsWeapon(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		return;
+	}
+	string weaponModel = params[0].get<string>();
+	Hash weaponHash = String::Hash(weaponModel);
+
+	for each (auto ped in PedSpawner::peds) {
+		ped->ped.GiveWeapon(weaponHash);
+		ped->ped.SetAmmo(weaponHash, 9999);
+	}
+}
+
+void Actions::TeleportAllSpawnedPedsToPlayer(json params)
+{
+	auto teleportTo = Player().OffsetInWorldCoords({ 0, 2.0f, 0 });
+
+	for each (auto ped in PedSpawner::peds) {
+		ped->ped.SetCoords(teleportTo);
+	}
+}
+
+void Actions::DeleteAllSpawnedPeds(json params)
+{
+	for (int i = 0; i < PedSpawner::peds.size(); i++) {
+		PedSpawner::peds[i]->ped.Delete();
+	}
+	PedSpawner::peds.clear();
+	PedSpawner::currentPedIndex = -1;
+}
+
 
 // MARK: Horse
 

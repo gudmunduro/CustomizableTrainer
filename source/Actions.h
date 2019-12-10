@@ -10,10 +10,14 @@ namespace Actions {
 	void RestorePlayerStamina(json params);
 	void AddCashFromKeyboard(json params);
 	void SpawnPed(json params);
+	void SpawnPedFromInput(json params);
 	void GiveSpawnedPedWeapon(json params);
 	void TeleportSpawnedPedToPlayer(json params);
 	void TeleportPlayerToSpawnedPed(json params);
 	void DeleteSpawnedPed(json params);
+	void GiveAllSpawnedPedsWeapon(json params);
+	void TeleportAllSpawnedPedsToPlayer(json params);
+	void DeleteAllSpawnedPeds(json params);
 	void SetHorseMaxHealth(json params);
 	void SpawnHorse(json params);
 	void SpawnHorseFromInput(json params);

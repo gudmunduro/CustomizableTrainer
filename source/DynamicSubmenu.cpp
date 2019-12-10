@@ -23,7 +23,10 @@ void DynamicSubmenu::Draw()
 {
 	Submenu::Draw();
 	DrawTitle(title);
-	for each (auto option in options) {
+
+	optionAddIndex = scrollPosition - 1;
+	for (int i = scrollPosition; i < ((OptionCount() > 8) ? (scrollPosition + 8) : OptionCount()); i++) {
+		auto option = options[i];
 		switch (option.type) {
 		case MenuOptionType::Sub:
 			DrawSub(option.text, option.key);

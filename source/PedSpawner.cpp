@@ -38,9 +38,14 @@ std::shared_ptr<SpawnerPed> PedSpawner::CurrentPedData()
 	return peds[currentPedIndex];
 }
 
+void PedSpawner::Delete(int index)
+{
+	peds[index]->ped.Delete();
+	peds.erase(peds.begin() + index);
+}
+
 void PedSpawner::DeleteCurrent()
 {
-	CurrentPed().Delete();
-	peds.erase(peds.begin() + currentPedIndex);
+	Delete(currentPedIndex);
 	currentPedIndex = -1;
 }

@@ -13,8 +13,11 @@ namespace Toggles {
 		playerNeverWanted = std::make_shared<bool>(false),
 		playerNoRagdoll = std::make_shared<bool>(false),
 		playerEveryoneIgnore = std::make_shared<bool>(false),
+		forceFirstPersonOnFoot = std::make_shared<bool>(false),
 		spawnedPedInvincible = std::make_shared<bool>(false),
 		spawnedPedBodyguard = std::make_shared<bool>(false),
+		allSpawnedPedsInvincible = std::make_shared<bool>(false),
+		allSpawnedPedsBodyguard = std::make_shared<bool>(false),
 		horseInvincible = std::make_shared<bool>(false),
 		horseVisible = std::make_shared<bool>(true),
 		horseSuperRun = std::make_shared<bool>(false),
@@ -23,8 +26,10 @@ namespace Toggles {
 		horseFlyMode = std::make_shared<bool>(false),
 		horseEngineTest = std::make_shared<bool>(false),
 		horseNoRagdoll = std::make_shared<bool>(false),
+		forceFirstPersonOnHorse = std::make_shared<bool>(false),
 		spawnInsideVehicle = std::make_shared<bool>(false),
 		vehicleBindBoost = std::make_shared<bool>(false),
+		forceFirstPersonInVehicle = std::make_shared<bool>(false),
 		pauseClock = std::make_shared<bool>(false),
 		systemClockSync = std::make_shared<bool>(false),
 		freezeWeather = std::make_shared<bool>(false),
@@ -47,6 +52,8 @@ namespace Toggles {
 	void OnHorseSuperJumpToggle(bool value);
 	void OnSpawnedPedInvincibleToggle(bool value);
 	void OnSpanwedPedBodyguardToggle(bool value);
+	void OnAllSpawnedPedsInvincibleToggle(bool value);
+	void OnAllSpanwedPedsBodyguardToggle(bool value);
 	void OnPauseClockToggle(bool value);
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);

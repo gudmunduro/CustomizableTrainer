@@ -87,6 +87,11 @@ void Ped::GiveWeapon(Hash model)
 	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
 }
 
+void Ped::SetAmmo(Hash weapon, int ammo)
+{
+	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
+}
+
 void Ped::Delete()
 {
 	PED::DELETE_PED(&pedId);

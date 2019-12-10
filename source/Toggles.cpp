@@ -88,6 +88,29 @@ void Toggles::OnSpanwedPedBodyguardToggle(bool value)
 		PedSpawner::CurrentPed().RemoveFromGroup();
 }
 
+void Toggles::OnAllSpawnedPedsInvincibleToggle(bool value)
+{
+	for each (auto ped in PedSpawner::peds) {
+		if (ped->isInvincible != value) {
+			ped->ped.SetInvincible(value);
+			ped->isInvincible = value;
+		}
+	}
+}
+
+void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
+{
+	for each (auto ped in PedSpawner::peds) {
+		if (ped->isBodyGuard != value) {
+			if (value)
+				ped->ped.SetAsGroupMember(Player().Group());
+			else
+				ped->ped.RemoveFromGroup();
+			ped->isBodyGuard = value;
+		}
+	}
+}
+
 void Toggles::OnPauseClockToggle(bool value)
 {
 	TIME::PAUSE_CLOCK(value, 0);

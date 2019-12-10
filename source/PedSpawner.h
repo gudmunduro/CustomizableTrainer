@@ -24,6 +24,7 @@ public:
 	static Ped CurrentPed();
 	static std::shared_ptr<SpawnerPed> CurrentPedData();
 
+	static void Delete(int index);
 	static void DeleteCurrent();
 
 	static inline int currentPedIndex = -1;
