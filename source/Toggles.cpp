@@ -2,6 +2,7 @@
 #include "Toggles.h"
 #include "Routine.h"
 #include "Player.h"
+#include "PedSpawner.h"
 
 void Toggles::OnPlayerInvincibleToggle(bool value)
 {
@@ -34,21 +35,21 @@ void Toggles::OnHorseInvincibleToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetInvincible(value);
+		player.Mount().SetInvincible(value);
 }
 
 void Toggles::OnHorseVisibleToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetVisible(value);
+		player.Mount().SetVisible(value);
 }
 
 void Toggles::OnHorseNoRagdollToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetCanRagdoll(value);
+		player.Mount().SetCanRagdoll(value);
 		player.SetCanRagdoll(value);
 }
 
@@ -56,8 +57,58 @@ void Toggles::OnHorseSuperJumpToggle(bool value)
 {
 	Player player;
 	if (player.IsOnMount())
-		player.GetMount().SetCanRagdoll(value);
+		player.Mount().SetCanRagdoll(value);
 	player.SetCanRagdoll(value);
+}
+
+void Toggles::OnSpawnedPedInvincibleToggle(bool value)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	PedSpawner::CurrentPedData()->isInvincible = value;
+
+	PedSpawner::CurrentPed().SetInvincible(value);
+}
+
+void Toggles::OnSpanwedPedBodyguardToggle(bool value)
+{
+	if (!PedSpawner::IsAnyPedSelected()) {
+		Routine::StartDrawBottomMessage("Error: No ped selected");
+		return;
+	}
+
+	PedSpawner::CurrentPedData()->isBodyGuard = value;
+
+	if (value)
+		PedSpawner::CurrentPed().SetAsGroupMember(Player().Group());
+	else
+		PedSpawner::CurrentPed().RemoveFromGroup();
+}
+
+void Toggles::OnAllSpawnedPedsInvincibleToggle(bool value)
+{
+	for each (auto ped in PedSpawner::peds) {
+		if (ped->isInvincible != value) {
+			ped->ped.SetInvincible(value);
+			ped->isInvincible = value;
+		}
+	}
+}
+
+void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
+{
+	for each (auto ped in PedSpawner::peds) {
+		if (ped->isBodyGuard != value) {
+			if (value)
+				ped->ped.SetAsGroupMember(Player().Group());
+			else
+				ped->ped.RemoveFromGroup();
+			ped->isBodyGuard = value;
+		}
+	}
 }
 
 void Toggles::OnPauseClockToggle(bool value)

@@ -55,6 +55,8 @@
     <OutDir>$(SolutionDir)\bin\$(Configuration)</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(solutionDir)..\inc;$(IncludePath)</IncludePath>
+    <TargetName>CustomizableTrainer</TargetName>
+    <TargetExt>.asi</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -99,6 +101,9 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /k "call $(SolutionDir)postbuildrelease.bat"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\enums.h" />
@@ -119,16 +124,24 @@
     <ClInclude Include="HorseFlyMode.h" />
     <ClInclude Include="JsonDataManager.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuController.h" />
     <ClInclude Include="MenuSettings.h" />
     <ClInclude Include="NativeEngine.h" />
     <ClInclude Include="NumberController.h" />
     <ClInclude Include="Numbers.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Ped.h" />
+    <ClInclude Include="PedSpawner.h" />
+    <ClInclude Include="PedSpawnerSub.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Routine.h" />
     <ClInclude Include="script.h" />
+    <ClInclude Include="SettingsColorSchemeSub.h" />
+    <ClInclude Include="SettingsControlsControllerSub.h" />
+    <ClInclude Include="SettingsControlsKeyboardSub.h" />
+    <ClInclude Include="SettingsControlsSub.h" />
+    <ClInclude Include="SettingsSetColorSub.h" />
+    <ClInclude Include="SettingsSub.h" />
     <ClInclude Include="Submenu.h" />
     <ClInclude Include="ToggleManager.h" />
     <ClInclude Include="Toggles.h" />
@@ -148,7 +161,7 @@
     <ClCompile Include="HorseFlyMode.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuController.cpp" />
     <ClCompile Include="MenuSettings.cpp" />
     <ClCompile Include="NativeEngine.cpp" />
     <ClCompile Include="Numbers.cpp" />
@@ -158,9 +171,17 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Ped.cpp" />
+    <ClCompile Include="PedSpawner.cpp" />
+    <ClCompile Include="PedSpawnerSub.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Routine.cpp" />
     <ClCompile Include="script.cpp" />
+    <ClCompile Include="SettingsColorSchemeSub.cpp" />
+    <ClCompile Include="SettingsControlsControllerSub.cpp" />
+    <ClCompile Include="SettingsControlsKeyboardSub.cpp" />
+    <ClCompile Include="SettingsControlsSub.cpp" />
+    <ClCompile Include="SettingsSetColorSub.cpp" />
+    <ClCompile Include="SettingsSub.cpp" />
     <ClCompile Include="Submenu.cpp" />
     <ClCompile Include="ToggleManager.cpp" />
     <ClCompile Include="Toggles.cpp" />

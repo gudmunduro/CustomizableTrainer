@@ -82,14 +82,20 @@ void RunLoopedToggles()
 		player.SetEveryoneIgnore(true);
 	}
 
+	if (*Toggles::forceFirstPersonOnFoot && player.IsOnFoot()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
+	}
+
 	// Horse
 	if (*Toggles::horseInvincible && player.IsOnMount()) {
-		player.GetMount().SetInvincible(true);
+		player.Mount().SetInvincible(true);
 	}
 
 	if (*Toggles::horseSuperRun && player.IsOnMount()) {
-		Ped horse = Player().GetMount();
+		Ped horse = Player().Mount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
+			horse.SetCanRagdoll(false);
+			player.SetCanRagdoll(false);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
@@ -102,12 +108,12 @@ void RunLoopedToggles()
 	}
 
 	if (*Toggles::horseNoRagdoll && player.IsOnMount()) {
-		player.GetMount().SetCanRagdoll(false);
-		player.GetMount().SetCanRagdoll(false);
+		player.Mount().SetCanRagdoll(false);
+		player.Mount().SetCanRagdoll(false);
 	}
 
 	if (*Toggles::horseSuperJump && player.IsOnMount()) {
-		Ped horse = player.GetMount();
+		Ped horse = player.Mount();
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 			horse.SetCanRagdoll(false);
 			player.SetCanRagdoll(false);
@@ -119,7 +125,7 @@ void RunLoopedToggles()
 	}
 
 	if (*Toggles::horseUnlimitedStamina && player.IsOnMount()) {
-		player.GetMount().SetStamina(100.0);
+		player.Mount().SetStamina(100.0);
 	}
 
 	if (*Toggles::horseFlyMode) {
@@ -128,12 +134,20 @@ void RunLoopedToggles()
 		}
 		horseFlyMode->Tick();
 	}
+
+	if (*Toggles::forceFirstPersonOnHorse && player.IsOnMount()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
+	}
 	
 	// Vehicle
 	if (*Toggles::vehicleBindBoost && player.IsInVehicle()) {
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::BindBoost)) {
-			player.GetCurrentVehicle().SetForwardSpeed(27.00);
+			player.CurrentVehicle().SetForwardSpeed(27.00);
 		}
+	}
+
+	if (*Toggles::forceFirstPersonInVehicle && player.IsInVehicle()) {
+		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 	}
 
 	// Weapons
@@ -165,7 +179,7 @@ void RunLoopedToggles()
 		if (player.IsTargetingAnything() || player.IsFreeAiming())
 		{
 			EntityId target;
-			if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.GetPlayerId(), &target))
+			if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.Id(), &target))
 			{
 				Vector3 position = ENTITY::GET_ENTITY_COORDS(target, false, false);
 				FIRE::ADD_EXPLOSION(position.x, position.y, position.z, 0, 100.0f, true, false, true);
@@ -193,7 +207,7 @@ void RunLoopedToggles()
 
 	// Test
 	if (*Toggles::horseEngineTest) {
-		auto currentVehicle = Player().GetCurrentVehicle();
+		auto currentVehicle = Player().CurrentVehicle();
 		if (currentVehicle.Exists()) {
 			VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
 			VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);
@@ -228,6 +242,10 @@ void RunLoopedToggles()
 
 	if (Numbers::windSpeed != 1.0f) {
 		GAMEPLAY::SET_WIND_SPEED(Numbers::windSpeed);
+	}
+
+	if (Numbers::timeCycleStrength != 1.0f) {
+		GRAPHICS::SET_TIMECYCLE_MODIFIER_STRENGTH(Numbers::timeCycleStrength);
 	}
 }
 

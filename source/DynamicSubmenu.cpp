@@ -1,44 +1,31 @@
 #include "pch.h"
 #include "DynamicSubmenu.h"
+#include "AddOptionSub.h"
 #include "Routine.h"
 #include "ControlManager.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
 
-DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
-							std::function<void(Submenu* submenu)> setFixedSubmenu,
-							std::function<void(std::string key, SubmenuData submenuData)> updateSubmenuData,
-							std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: Submenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuController)
+	: Submenu(menuController)
 {
 	this->title = submenuData.title;
 	this->key = submenuData.key;
 	this->options = submenuData.options;
-	this->updateSubmenuData = updateSubmenuData;
 	isEditModeActive = false;
 	isMoveOptionActive = false;
 }
 
 // MARK: Draw
+
 void DynamicSubmenu::Draw()
 {
 	Submenu::Draw();
 	DrawTitle(title);
-	/*for each (auto option in options) {
-		switch (option.type) {
-		case MenuOptionType::Sub:
-			DrawSub(option.text, option.key);
-			break;
-		case MenuOptionType::Action:
-			DrawAction(option.text, option.key, option.params);
-			break;
-		case MenuOptionType::Toggle:
-			DrawToggle(option.text, option.key);
-			break;
-		}
-	}*/
-	for (int i = scrollPosition; i < ((GetOptionCount() > 8) ? (scrollPosition + 8) : GetOptionCount()); i++) {
+
+	optionAddIndex = scrollPosition - 1;
+	for (int i = scrollPosition; i < ((OptionCount() > 8) ? (scrollPosition + 8) : OptionCount()); i++) {
 		auto option = options[i];
 		switch (option.type) {
 		case MenuOptionType::Sub:
@@ -58,6 +45,7 @@ void DynamicSubmenu::Draw()
 }
 
 // MARK: Draw option
+
 void DynamicSubmenu::DrawSub(string text, string subKey)
 {
 	Submenu::DrawSub(text, subKey, !isEditModeActive);
@@ -98,24 +86,22 @@ void DynamicSubmenu::DrawNumber(string text, string numberKey)
 }
 
 // MARK: Events
-void DynamicSubmenu::OnDraw()
+
+void DynamicSubmenu::SubWillDraw()
 {
-	Submenu::OnDraw();
-	OnDrawEditMode();
+	Submenu::SubWillDraw();
 }
 
-void DynamicSubmenu::OnDrawEditMode()
+void DynamicSubmenu::SelectionDidChange(int to, int from)
 {
-}
+	Submenu::SelectionDidChange(to, from);
 
-void DynamicSubmenu::OnSelectionChange(int to, int from)
-{
 	if (isEditModeActive && isMoveOptionActive) {
-		if (to == 0 && from == GetOptionCount() - 1) { // From bottom to top
+		if (to == 0 && from == OptionCount() - 1) { // From bottom to top
 			options.insert(options.begin(), options[from]);
 			options.erase(options.begin() + from + 1);
 		}
-		else if (to == GetOptionCount() - 1 && from == 0) { // From top to bottom
+		else if (to == OptionCount() - 1 && from == 0) { // From top to bottom
 			options.push_back(options[from]);
 			options.erase(options.begin());
 		}
@@ -125,18 +111,12 @@ void DynamicSubmenu::OnSelectionChange(int to, int from)
 	}
 }
 
-void DynamicSubmenu::OnMessageReceive(string messageKey, std::any messageValue)
-{
-	if (messageKey == "addOption") {
-		MenuOption optionToAdd = std::any_cast<MenuOption>(messageValue);
-		options.push_back(optionToAdd);
-	}
-}
-
 // MARK: Controls
+
 void DynamicSubmenu::RespondToControls()
 {
 	Submenu::RespondToControls();
+
 	// Edit mode
 	if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
 		isEditModeActive = true;
@@ -150,7 +130,7 @@ void DynamicSubmenu::RespondToControls()
 			isMoveOptionActive = false;
 			isEditModeActive = false;
 			SubmenuData updatedSubmenuData = { title, key, options };
-			updateSubmenuData(key, updatedSubmenuData);
+			menuController->UpdateSubmenuData(key, updatedSubmenuData);
 			Routine::StartDrawBottomMessage("Saved");
 		}
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeExit)) {
@@ -158,31 +138,26 @@ void DynamicSubmenu::RespondToControls()
 			isEditModeActive = false;
 		}
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
-			setSubmenu("builtin_sub_addOption");
+			auto addOptionSub = new AddOptionSub(menuController);
+			addOptionSub->onAddOption = [this](MenuOption optionToAdd) {
+				options.push_back(optionToAdd);
+			};
+			menuController->AddSubmenuToStack(addOptionSub);
 			ControlManager::CanceMenuControlslForThisFrame();
 		}
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 			options.erase(options.begin() + selection);
-			if (selection > GetOptionCount() - 1) {
+			if (selection > OptionCount() - 1) {
+				if (scrollPosition != 0) scrollPosition--;
 				selection--;
 			}
 		}
 	}
 }
 
-// MARK: Booleans
-bool DynamicSubmenu::IsBackspaceAllowed()
-{
-	return !isEditModeActive;
-}
-
 // MARK: Getters
-int DynamicSubmenu::GetOptionCount()
+
+int DynamicSubmenu::OptionCount()
 {
 	return options.size();
-}
-
-bool DynamicSubmenu::GetEditModeActive()
-{
-	return isEditModeActive;
 }

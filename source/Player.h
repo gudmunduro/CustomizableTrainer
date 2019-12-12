@@ -24,7 +24,8 @@ public:
 	bool IsFreeAimingAt(EntityId entity);
 	bool IsTargetingAnything();
 	bool IsTargetingAt(EntityId entity);
-	PlayerId GetPlayerId();
+	PlayerId Id();
+	int Group();
 private:
 	PlayerId playerId;
 };

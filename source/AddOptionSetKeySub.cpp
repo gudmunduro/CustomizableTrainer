@@ -1,49 +1,85 @@
 #include "pch.h"
 #include "AddOptionSetKeySub.h"
+#include "ActionManager.h"
+#include "ToggleManager.h"
+#include "NumberController.h"
 
-AddOptionSetKeySub::AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionType, std::vector<string> keys,
-								std::function<void(std::string key)> setSubmenu,
-								std::function<void(Submenu* submenu)> setFixedSubmenu,
-								std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController)
+	: FixedSubmenu(menuController)
 {
-	this->keys = keys;
 	this->optionType = optionType;
-	title = OptionTypeToString(optionType);
-	options = {};
+
+	switch (optionType) {
+		case MenuOptionType::Action:
+			keys = ActionManager::GetKeys();
+			break;
+		case MenuOptionType::Toggle:
+			keys = ToggleManager::GetKeys();
+			break;
+		case MenuOptionType::Number:
+			keys = NumberController::GetKeys();
+			break;
+		case MenuOptionType::Sub:
+			keys = menuController->SubmenuKeys();
+			break;
+	}
+
 	CreateDisplayKeys();
-	for each (string key in displayKeys) {
-		options.push_back({
-			MenuOptionType::Action,
-			key
+}
+
+// MARK: Draw
+
+void AddOptionSetKeySub::Draw()
+{
+	Submenu::Draw();
+
+	DrawTitle(OptionTypeToString(optionType));
+	// All keys
+	for (int i = 0; i < displayKeys.size(); i++) {
+		string displayKey = displayKeys[i];
+		string key = keys[i];
+
+		DrawAction(displayKey, [this, key]() {
+			OnKeySelect(key);
 		});
 	}
-	if (optionType == MenuOptionType::Sub) {
-		options.push_back({
-			MenuOptionType::Action,
-			"Add"
+	// Add submenu
+	if (optionType == MenuOptionType::Sub)
+		DrawAction("Add", [this]() {
+			string key = Game::GetInputWithKeyboard();
+			if (key == "") return;
+
+			if (!key._Starts_with("sub_") && !key._Starts_with("required_sub_") && !key._Starts_with("builtin_sub_"))
+				key = "sub_" + key;
+
+			OnKeySelect(key);
 		});
-	}
 }
 
 // MARK: Events
-void AddOptionSetKeySub::OnOptionPress(int index)
+
+void AddOptionSetKeySub::OnKeySelect(string key)
 {
-	if (optionType == MenuOptionType::Sub && index == options.size() - 1) { // If last option and option type is submenu (Add)
-		string textInput = Game::GetInputWithKeyboard();
-		goToLastSub("setOptionKey", "sub_" + textInput);
-	}
-	else {
-		goToLastSub("setOptionKey", keys[index]);
-	}
+	if (onKeySet)
+		onKeySet(key);
+
+	menuController->GoToLastSub();
 }
 
-// MARK:
+// MARK: Getters
+
+int AddOptionSetKeySub::OptionCount()
+{
+	return displayKeys.size() + (optionType == MenuOptionType::Sub ? 1 : 0);
+}
+
+// MARK: Misc
+
 void AddOptionSetKeySub::CreateDisplayKeys()
 {
 	for each (string key in keys) {
 		string displayKey = key.substr(key.find("_") + 1);
-		if (displayKey == "sub_default") displayKey = "default";
+		if (displayKey._Starts_with("sub_")) displayKey = displayKey.substr(displayKey.find("_") + 1);
 
 		displayKeys.push_back(displayKey);
 	}

@@ -55,7 +55,7 @@ void Player::StopPursuit()
 
 void Player::SetBounty(int bounty)
 {
-	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(GetPedId(), bounty);
+	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(playerId, bounty);
 }
 
 void Player::SetWantedLevelMultiplier(float multiplier)
@@ -113,7 +113,12 @@ bool Player::IsTargetingAt(EntityId entity)
 	return PLAYER::IS_PLAYER_TARGETTING_ENTITY(playerId, entity, false) != 0;
 }
 
-PlayerId Player::GetPlayerId()
+PlayerId Player::Id()
 {
 	return playerId;
+}
+
+int Player::Group()
+{
+	return PLAYER::GET_PLAYER_GROUP(Id());
 }

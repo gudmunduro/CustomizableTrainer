@@ -1,38 +1,40 @@
 #include "pch.h"
 #include "AddOptionSetTypeSub.h"
 
-AddOptionSetTypeSub::AddOptionSetTypeSub(Vector2 menuPos, std::function<void(std::string key)> setSubmenu,
-									std::function<void(Submenu* submenu)> setFixedSubmenu,
-									std::function<void(string messageKey, std::any messageValue)> goToLastSub)
-	: FixedSubmenu(menuPos, setSubmenu, setFixedSubmenu, goToLastSub)
+AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController)
+	: FixedSubmenu(menuController)
 {
-	title = "Option type";
-	options = {
-		{
-			MenuOptionType::Action,
-			"Submenu"
-		},
-		{
-			MenuOptionType::Action,
-			"Action"
-		},
-		{
-			MenuOptionType::Action,
-			"Toggle"
-		},
-		{
-			MenuOptionType::Action,
-			"Number"
-		}
-	};
+
 }
 
-void AddOptionSetTypeSub::OnOptionPress(int index)
+// MARK: Draw
+
+void AddOptionSetTypeSub::Draw()
 {
-	switch (index) {
-		case 0: goToLastSub("setOptionType", MenuOptionType::Sub); break;
-		case 1: goToLastSub("setOptionType", MenuOptionType::Action); break;
-		case 2: goToLastSub("setOptionType", MenuOptionType::Toggle); break;
-		case 3: goToLastSub("setOptionType", MenuOptionType::Number); break;
-	}
+	Submenu::Draw();
+
+	DrawTitle("Type");
+	DrawAction("Submenu", [this]() {
+		onTypeSet(MenuOptionType::Sub); 
+		menuController->GoToLastSub();
+	});
+	DrawAction("Action", [this]() {
+		onTypeSet(MenuOptionType::Action);
+		menuController->GoToLastSub();
+	});
+	DrawAction("Toggle", [this]() {
+		onTypeSet(MenuOptionType::Toggle);
+		menuController->GoToLastSub();
+	});
+	DrawAction("Number", [this]() {
+		onTypeSet(MenuOptionType::Number);
+		menuController->GoToLastSub();
+	});
+}
+
+// MARK: Getters
+
+int AddOptionSetTypeSub::OptionCount()
+{
+	return 4;
 }

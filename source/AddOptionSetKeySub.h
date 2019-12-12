@@ -6,11 +6,17 @@ class AddOptionSetKeySub :
 	public FixedSubmenu
 {
 public:
-	AddOptionSetKeySub(Vector2 menuPos, MenuOptionType optionType, std::vector<string> keys, std::function<void(std::string key)> setSubmenu, std::function<void(Submenu* submenu)> setFixedSubmenu, std::function<void(string messageKey, std::any messageValue)> goToLastSub);
-
-	void OnOptionPress(int index) override;
+	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController);
 	
+	void Draw() override;
+
+	void OnKeySelect(string key);
+
+	int OptionCount() override;
+
 	void CreateDisplayKeys();
+
+	std::function<void(string key)> onKeySet;
 private:
 	std::vector<string> keys;
 	std::vector<string> displayKeys;

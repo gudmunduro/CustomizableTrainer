@@ -48,7 +48,7 @@ void Ped::SetInvincible(bool invincible)
 
 void Ped::SetIntoClosestVehicle()
 {
-	auto playerLocation = GetPosition();
+	auto playerLocation = Position();
 	auto closestVehicle = Vehicle::Closest(playerLocation);
 
 	if (closestVehicle.Exists()) {
@@ -62,6 +62,21 @@ void Ped::SetCanRagdoll(bool toggle)
 	PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(pedId, toggle);
 }
 
+void Ped::SetAsMissionEntity()
+{
+	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(pedId, true, false);
+}
+
+void Ped::SetAsGroupMember(int group)
+{
+	PED::SET_PED_AS_GROUP_MEMBER(pedId, group);
+}
+
+void Ped::RemoveFromGroup()
+{
+	PED::REMOVE_PED_FROM_GROUP(pedId);
+}
+
 void Ped::ClearWetness()
 {
 	PED::CLEAR_PED_WETNESS(pedId);
@@ -70,6 +85,16 @@ void Ped::ClearWetness()
 void Ped::GiveWeapon(Hash model)
 {
 	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
+}
+
+void Ped::SetAmmo(Hash weapon, int ammo)
+{
+	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
+}
+
+void Ped::Delete()
+{
+	PED::DELETE_PED(&pedId);
 }
 
 // MARK: Booleans
@@ -83,41 +108,51 @@ bool Ped::IsOnMount()
 	return PED::IS_PED_ON_MOUNT(pedId);
 }
 
+bool Ped::IsOnFoot()
+{
+	return PED::IS_PED_ON_FOOT(pedId);
+}
+
 // Getters
 PedId Ped::GetPedId()
 {
 	return pedId;
 }
 
-int Ped::GetMaxHealth()
+int Ped::MaxHealth()
 {
 	return ENTITY::GET_ENTITY_MAX_HEALTH(pedId, false);
 }
 
-Vector3 Ped::GetPosition()
+Vector3 Ped::Position()
 {
 	return ENTITY::GET_ENTITY_COORDS(pedId, true, false);
 }
 
-Vector3 Ped::GetOffsetInWorldCoords(Vector3 offset)
+Vector3 Ped::OffsetInWorldCoords(Vector3 offset)
 {
 	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(pedId, offset.x, offset.y, offset.z);
 }
 
-float Ped::GetHeading()
+float Ped::Heading()
 {
 	return ENTITY::GET_ENTITY_HEADING(pedId);
 }
 
-Vehicle Ped::GetCurrentVehicle()
+Vehicle Ped::CurrentVehicle()
 {
 	VehicleId currentVehicleId = PED::GET_VEHICLE_PED_IS_IN(pedId, false);
 	return Vehicle(currentVehicleId);
 }
 
-Ped Ped::GetMount()
+Ped Ped::Mount()
 {
 	return PED::GET_MOUNT(pedId);
+}
+
+Hash Ped::Model()
+{
+	return ENTITY::GET_ENTITY_MODEL(pedId);
 }
 
 // MARK: Static methods

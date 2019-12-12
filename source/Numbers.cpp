@@ -11,15 +11,30 @@ string Numbers::GetCurrentHour()
 
 string Numbers::GetCurrentMinute()
 {
-return std::to_string(TIME::GET_CLOCK_MINUTES());
+	return std::to_string(TIME::GET_CLOCK_MINUTES());
 }
-
 
 // MARK: Adjusters
 
 void Numbers::AdjustPlayerNoiseMultiplier(bool direction)
 {
 	playerNoiseMultiplier += direction ? 0.1 : -0.1;
+}
+
+void Numbers::AdjustPlayerScale(bool direction)
+{
+	if (playerScale == 0.1f && !direction) return;
+	playerScale += direction ? 0.1 : -0.1;
+	Player player;
+	if (player.IsOnMount())
+		PED::_SET_PED_SCALE(player.GetPedId(), playerScale);
+}
+
+void Numbers::AdjustHorseScale(bool direction)
+{
+	if (horseScale == 0.1f && !direction) return;
+	horseScale += direction ? 0.1 : -0.1;
+	PED::_SET_PED_SCALE(Player().Mount().GetPedId(), horseScale);
 }
 
 void Numbers::AdjustWeaponDamageLavel(bool direction)
@@ -46,6 +61,12 @@ void Numbers::AdjustTimeScale(bool direction)
 {
 	if (timeScale >= 1.0 && direction || timeScale <= 0.0 && !direction) return;
 	timeScale += direction ? 0.1 : -0.1;
+}
+
+void Numbers::AdjustTimeCycleStrength(bool direction)
+{
+	if (timeCycleStrength <= 0.0 && !direction) return;
+	timeCycleStrength += direction ? 0.1 : -0.1;
 }
 
 void Numbers::AdjustWindSpeed(bool direction)
