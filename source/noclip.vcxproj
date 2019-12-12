@@ -72,8 +72,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ScriptHookRDR2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -96,21 +96,20 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>ScriptHookRDR2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\enums.h" />
     <ClInclude Include="..\inc\json.hpp" />
-    <ClInclude Include="..\inc\main.h" />
-    <ClInclude Include="..\inc\nativeCaller.h" />
     <ClInclude Include="..\inc\natives.h" />
     <ClInclude Include="..\inc\types.h" />
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="AddOptionSetKeySub.h" />
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
+    <ClInclude Include="alt-log.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="DynamicSubmenu.h" />
@@ -122,6 +121,7 @@
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuSettings.h" />
+    <ClInclude Include="NativeEngine.h" />
     <ClInclude Include="NumberController.h" />
     <ClInclude Include="Numbers.h" />
     <ClInclude Include="pch.h" />
@@ -150,6 +150,7 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuSettings.cpp" />
+    <ClCompile Include="NativeEngine.cpp" />
     <ClCompile Include="Numbers.cpp" />
     <ClCompile Include="NumbersController.cpp" />
     <ClCompile Include="pch.cpp">

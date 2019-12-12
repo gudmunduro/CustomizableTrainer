@@ -87,16 +87,10 @@
     <ClInclude Include="..\inc\enums.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\nativeCaller.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\natives.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\inc\types.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\main.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h">
@@ -161,6 +155,12 @@
     </ClInclude>
     <ClInclude Include="HorseFlyMode.h">
       <Filter>Headers\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="alt-log.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeEngine.h">
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +241,9 @@
     </ClCompile>
     <ClCompile Include="HorseFlyMode.cpp">
       <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="NativeEngine.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

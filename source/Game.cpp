@@ -15,7 +15,7 @@ void Game::RequestModel(Hash model)
 	STREAMING::REQUEST_MODEL(model, true);
 	auto timeout = GetTickCount() + 1000;
 	while (!STREAMING::HAS_MODEL_LOADED(model)) {
-		WAIT(5);
+		SYSTEM::WAIT(5);
 		if (GetTickCount() > timeout) {
 			Routine::StartDrawBottomMessage("~r~Error: ~w~Loading model timed out");
 			break;
@@ -34,7 +34,7 @@ void Game::RequestTextureDict(string textureDict)
 {
 	TEXTURE::REQUEST_STREAMED_TEXTURE_DICT((char*)textureDict.c_str(), true);
 	while (!TEXTURE::HAS_STREAMED_TEXTURE_DICT_LOADED((char*)textureDict.c_str())) {
-		WAIT(5);
+		SYSTEM::WAIT(5);
 	}
 }
 
@@ -42,7 +42,7 @@ string Game::GetInputWithKeyboard(string defaultText)
 {
 	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", (char*) defaultText.c_str(), "", "", "", 100);
 	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) {
-		WAIT(0);
+		SYSTEM::WAIT(0);
 	}
 	switch (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD()) {
 	case 2: return defaultText;

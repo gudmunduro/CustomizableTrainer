@@ -11,6 +11,4 @@
 #include "types.h"
 #include "enums.h"
 
-#include "..\inc\main.h"
-
 void ScriptMain();

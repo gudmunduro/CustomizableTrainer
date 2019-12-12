@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 #include "Routine.h"
+#include "NativeEngine.h"
 
 Player::Player() : Ped(Game::playerPedId)
 {
@@ -13,12 +14,12 @@ void Player::SetModel(Hash model)
 	// Mostly copied from the Native trainer
 	if (STREAMING::IS_MODEL_IN_CDIMAGE(model) && STREAMING::IS_MODEL_VALID(model))
 	{
-		UINT64* ptr1 = getGlobalPtr(0x28) + 0x27;
-		UINT64* ptr2 = getGlobalPtr(((DWORD)7 << 18) | 0x1890C) + 2;
+		UINT64* ptr1 = (UINT64*) getGlobalPtr(0x28) + 0x27;
+		UINT64* ptr2 = (UINT64*) getGlobalPtr(((DWORD)7 << 18) | 0x1890C) + 2;
 		UINT64 bcp1 = *ptr1;
 		UINT64 bcp2 = *ptr2;
 		*ptr1 = *ptr2 = model;
-		WAIT(1000);
+		SYSTEM::WAIT(1000);
 		PedId playerPed = PLAYER::PLAYER_PED_ID();
 		PED::SET_PED_VISIBLE(playerPed, TRUE);
 		if (ENTITY::GET_ENTITY_MODEL(playerPed) != model)

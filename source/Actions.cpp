@@ -267,7 +267,7 @@ void Actions::TeleportPlayerToWaypoint(json params)
 			else
 				player.SetCoordsNoOffset(coordsToSet);
 
-			WAIT(100);
+			SYSTEM::WAIT(100);
 			if (GAMEPLAY::GET_GROUND_Z_FOR_3D_COORD(waypointPosition.x, waypointPosition.y, height, &waypointPosition.z, false))
 			{
 				waypointPosition.z += 3.0;

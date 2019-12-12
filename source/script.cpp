@@ -22,20 +22,24 @@ void setup()
 	Game::RequestTextureDict("boot_flow");
 }
 
+bool isFirstTime = true;
+Menu* menu;
+
 void main()
 {
-	setup();
-	Menu* menu = new Menu();
-	while (true) {
-		Routine::RunAll();
-		ControlManager::Tick();
-		menu->Tick();
-		WAIT(0);
+	if (isFirstTime) {
+		srand(GetTickCount());
+		setup();
+		menu = new Menu();
+		isFirstTime = false;
 	}
+
+	Routine::RunAll();
+	ControlManager::Tick();
+	menu->Tick();
 }
 
 void ScriptMain()
 {
-	srand(GetTickCount());
 	main();
 }

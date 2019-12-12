@@ -19,6 +19,7 @@
 #include <regex>
 #include <functional>
 #include "core/Hash.h"
+#include "core/alt-log.h"
 #include "types.h"
 #include "enums.h"
 #include "natives.h"
@@ -29,6 +30,7 @@
 #include "json.hpp"
 
 using json = nlohmann::json;
+using namespace alt;
 
 #define DLL_EXPORT __declspec(dllexport)
 
