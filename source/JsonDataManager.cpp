@@ -136,7 +136,7 @@ void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDat
 	WriteFile("CustomizableTrainer\\layout.json", submenuDataArray.dump());
 }
 
-void JSONDataManager::SaveMenuSettings()
+void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 {
 	try {
 		settingsData = json::object({
@@ -190,6 +190,9 @@ void JSONDataManager::SaveMenuSettings()
 		});
 
 		WriteFile("CustomizableTrainer\\settings.json", settingsData.dump());
+
+		if (showSavedMessage)
+			Routine::StartDrawBottomMessage("Saved");
 	}
 	catch (std::exception & e) {
 		Routine::StartDrawBottomMessage("Failed to save settings");

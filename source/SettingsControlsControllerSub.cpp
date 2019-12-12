@@ -38,6 +38,7 @@ const Hash allControls[24] = {
 
 SettingsControlsControllerSub::SettingsControlsControllerSub(MenuController* menuController) : FixedSubmenu(menuController)
 {
+	isEditingControl = false;
 }
 
 void SettingsControlsControllerSub::Draw()
@@ -45,8 +46,8 @@ void SettingsControlsControllerSub::Draw()
 	FixedSubmenu::Draw();
 
 	DrawTitle("Controller");
-	DrawEditControl("Open menu", &MenuSettings::ControllerMenuOpen);
-	DrawEditControl("Open menu modifier", &MenuSettings::ControllerMenuOpenModifier);
+	DrawEditControl("Open", &MenuSettings::ControllerMenuOpen);
+	DrawEditControl("Open modifier", &MenuSettings::ControllerMenuOpenModifier);
 	DrawEditControl("Press option", &MenuSettings::ControllerMenuOptionPress);
 	DrawEditControl("Up", &MenuSettings::ControllerMenuUp);
 	DrawEditControl("Down", &MenuSettings::ControllerMenuDown);
@@ -59,7 +60,7 @@ void SettingsControlsControllerSub::Draw()
 	DrawEditControl("Move option", &MenuSettings::ControllerMenuEditModeMoveOption);
 	DrawEditControl("Add option", &MenuSettings::ControllerMenuEditModeAddOption);
 	DrawEditControl("Delete option", &MenuSettings::ControllerMenuEditModeDeleteOption);
-	DrawEditControl("Bind boost", &MenuSettings::ControllerBindBoost);
+	DrawEditControl("Boost vehicle", &MenuSettings::ControllerBindBoost);
 }
 
 void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
@@ -75,7 +76,8 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 	});
 	
 	auto menuPos = menuController->position;
-	Game::DrawText(ControlStringValue(*control), { menuPos.x + 0.13f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, 255 });
+	int alpha = (isEditingControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
+	Game::DrawText(GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -84,6 +86,12 @@ void SettingsControlsControllerSub::SubWillDraw()
 {
 	if (isEditingControl) {
 		ControlManager::CanceMenuControlslForThisFrame();
+
+		if (editingControlAlpha == 0)
+			editingControlAlphaDirection = true;
+		else if (editingControlAlpha == 255)
+			editingControlAlphaDirection = false;
+		editingControlAlpha += editingControlAlphaDirection ? 10.2f : -10.2f;
 	}
 
 	FixedSubmenu::SubWillDraw();
@@ -99,6 +107,8 @@ void SettingsControlsControllerSub::RespondToControls()
 			if (CONTROLS::IS_CONTROL_JUST_PRESSED(0, control)) {
 				*controlToEdit = control;
 				isEditingControl = false;
+				editingControlAlpha = 255;
+				editingControlAlphaDirection = false;
 				JSONDataManager jsonDataManager;
 				jsonDataManager.SaveMenuSettings();
 			}
@@ -106,9 +116,9 @@ void SettingsControlsControllerSub::RespondToControls()
 	}
 }
 
-// MARK: Misc
+// MARK: Getters
 
-string SettingsControlsControllerSub::ControlStringValue(Hash control) 
+string SettingsControlsControllerSub::GetStringValueForControl(Hash control) 
 {
 	switch (control) {
 		case XboxControl::INPUT_FRONTEND_DOWN: return "Down";

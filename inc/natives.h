@@ -1044,7 +1044,7 @@ namespace PED
 	static void SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(PedId ped, BOOL toggle) { invoke<Void>(0x9F8AA94D6D97DBF4, ped, toggle); }
 	static Any _0x268B3AEBF032A88D(Any p0) { return invoke<Any>(0x268B3AEBF032A88D, p0); }
 	static void _0xC17A94CC8FC3C61A(Any p0, Any p1, float p2, float p3, float p4) { invoke<Void>(0xC17A94CC8FC3C61A, p0, p1, p2, p3, p4); }
-	static void _0x25ACFC650B65C538(Any p0, float p1) { invoke<Void>(0x25ACFC650B65C538, p0, p1); }
+	static void _SET_PED_SCALE(PedId ped, float scale) { invoke<Void>(0x25ACFC650B65C538, ped, scale); }
 	static float _0x134775B093AD5C38(Any p0) { return invoke<float>(0x134775B093AD5C38, p0); }
 	static float _0x1D491CCF7211FB74(Any p0) { return invoke<float>(0x1D491CCF7211FB74, p0); }
 	static void REGISTER_TARGET(PedId ped, PedId target, BOOL p2) { invoke<Void>(0x2F25D9AEFA34FBA2, ped, target, p2); }

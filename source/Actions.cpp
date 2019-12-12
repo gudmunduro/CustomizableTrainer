@@ -96,7 +96,7 @@ void Actions::GiveSpawnedPedWeapon(json params)
 	Hash weaponHash = String::Hash(weaponModel);
 
 	PedSpawner::CurrentPed().GiveWeapon(weaponHash);
-	WEAPON::SET_PED_AMMO(PedSpawner::CurrentPed().Id(), weaponHash, 9999);
+	WEAPON::SET_PED_AMMO(PedSpawner::CurrentPed().GetPedId(), weaponHash, 9999);
 }
 
 void Actions::TeleportSpawnedPedToPlayer(json params)

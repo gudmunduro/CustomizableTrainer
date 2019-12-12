@@ -54,7 +54,7 @@ void Player::StopPursuit()
 
 void Player::SetBounty(int bounty)
 {
-	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(Id(), bounty);
+	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(playerId, bounty);
 }
 
 void Player::SetWantedLevelMultiplier(float multiplier)

@@ -10,8 +10,8 @@ void SettingsControlsSub::Draw()
 	FixedSubmenu::Draw();
 
 	DrawTitle("Controls");
-	DrawSub("Keyboard", "builtin_sub_controlsKeyboard");
-	DrawSub("Controller", "builtin_sub_controlsController");
+	DrawSub("Keyboard", "builtin_sub_settingsControlsKeyboard");
+	DrawSub("Controller", "builtin_sub_settingsControlsController");
 }
 
 int SettingsControlsSub::OptionCount()

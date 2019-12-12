@@ -96,14 +96,14 @@ void RunLoopedToggles()
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 			horse.SetCanRagdoll(false);
 			player.SetCanRagdoll(false);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 		if (ControlManager::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
-			ENTITY::FREEZE_ENTITY_POSITION(horse.Id(), true);
-			ENTITY::FREEZE_ENTITY_POSITION(horse.Id(), false);
+			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
+			ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
 		}
 	}
 
@@ -117,10 +117,10 @@ void RunLoopedToggles()
 		if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 			horse.SetCanRagdoll(false);
 			player.SetCanRagdoll(false);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-			ENTITY::APPLY_FORCE_TO_ENTITY(horse.Id(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+			ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		}
 	}
 

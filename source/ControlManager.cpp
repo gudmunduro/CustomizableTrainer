@@ -3,7 +3,8 @@
 #include "keyboard.h"
 #include "MenuSettings.h"
 
-bool ControlManager::IsMenuControlPressed(MenuControl control) {
+bool ControlManager::IsMenuControlPressed(MenuControl control)
+{
 	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuOptionPress:
@@ -32,6 +33,19 @@ bool ControlManager::IsMenuControlPressed(MenuControl control) {
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeAddOption) : IsKeyJustUp(MenuSettings::MenuEditModeAddOption);
 	case MenuControl::MenuEditModeDeleteOption:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeDeleteOption) : IsKeyJustUp(MenuSettings::MenuEditModeDeleteOption);
+	default:
+		return false;
+	}
+}
+
+bool ControlManager::IsHoldingMenuControl(MenuControl control)
+{
+	if (shouldCancelForThisFrame) return false;
+	switch (control) {
+	case MenuControl::MenuAdjustValueDown:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyDown(MenuSettings::MenuAdjustValueDown);
+	case MenuControl::MenuAdjustValueUp:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyDown(MenuSettings::MenuAdjustValueUp);
 	default:
 		return false;
 	}

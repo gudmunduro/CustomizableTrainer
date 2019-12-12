@@ -114,7 +114,7 @@ bool Ped::IsOnFoot()
 }
 
 // Getters
-PedId Ped::Id()
+PedId Ped::GetPedId()
 {
 	return pedId;
 }

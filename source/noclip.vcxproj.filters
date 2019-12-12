@@ -189,6 +189,15 @@
     <ClInclude Include="SettingsControlsControllerSub.h">
       <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="SettingsControlsKeyboardSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsSetColorSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsColorSchemeSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -282,6 +291,15 @@
       <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
     <ClCompile Include="SettingsControlsControllerSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsControlsKeyboardSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsSetColorSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsColorSchemeSub.cpp">
       <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
   </ItemGroup>

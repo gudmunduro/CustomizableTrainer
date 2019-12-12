@@ -29,6 +29,8 @@ void NumberController::RegisterNumbers()
 {
 	// Variables
 	RegisterNumber("number_playerNoiseMultiplier", &Numbers::playerNoiseMultiplier, Numbers::AdjustPlayerNoiseMultiplier);
+	RegisterNumber("number_playerScale", &Numbers::playerScale, Numbers::AdjustPlayerScale);
+	RegisterNumber("number_horseScale", &Numbers::horseScale, Numbers::AdjustHorseScale);
 	RegisterNumber("number_weaponDamageLevel", &Numbers::weaponDamageLevel, Numbers::AdjustWeaponDamageLavel);
 	RegisterNumber("number_meleeDamageLevel", &Numbers::meleeDamageLevel, Numbers::AdjustMeleeDamageLavel);
 	RegisterNumber("number_timeScale", &Numbers::timeScale, Numbers::AdjustTimeScale);

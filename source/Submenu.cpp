@@ -12,6 +12,13 @@ Submenu::Submenu(MenuController *menuController)
 	selection = 0;
 	drawIndex = 0;
 	scrollPosition = 0;
+	optionAddIndex = -1;
+	holdingAdjustUpTimer = 0;
+	holdingAdjustUpTimerStart = 0;
+	isHoldingAdjustUp = false;
+	holdingAdjustDownTimer = 0;
+	holdingAdjustDownTimerStart = 0;
+	isHoldingAdjustDown = false;
 }
 
 void Submenu::Draw() 
@@ -107,10 +114,10 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
 			onPress();
 
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueUp))
+		if (isHoldingAdjustUp || ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueUp))
 			onAdjust(true);
 
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueDown))
+		if (isHoldingAdjustDown || ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueDown))
 			onAdjust(false);
 	}
 
@@ -173,6 +180,35 @@ void Submenu::RespondToControls()
 	}
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 		menuController->GoToLastSub();
+	}
+	// Hold
+	if (ControlManager::IsHoldingMenuControl(MenuControl::MenuAdjustValueUp)) {
+		if (!isHoldingAdjustUp) {
+			if (holdingAdjustUpTimerStart == 0)
+				holdingAdjustUpTimerStart = GetTickCount();
+			holdingAdjustUpTimer = GetTickCount();
+
+			if ((holdingAdjustUpTimer - holdingAdjustUpTimerStart) >= 300)
+				isHoldingAdjustUp = true;
+		}
+	}
+	else {
+		isHoldingAdjustUp = false;
+		holdingAdjustUpTimerStart = 0;
+	}
+	if (ControlManager::IsHoldingMenuControl(MenuControl::MenuAdjustValueDown)) {
+		if (!isHoldingAdjustDown) {
+			if (holdingAdjustDownTimerStart == 0)
+				holdingAdjustDownTimerStart = GetTickCount();
+			holdingAdjustDownTimer = GetTickCount();
+
+			if ((holdingAdjustDownTimer - holdingAdjustDownTimerStart) >= 300)
+				isHoldingAdjustDown = true;
+		}
+	}
+	else {
+		isHoldingAdjustDown = false;
+		holdingAdjustDownTimerStart = 0;
 	}
 }
 

@@ -136,8 +136,11 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Routine.h" />
     <ClInclude Include="script.h" />
+    <ClInclude Include="SettingsColorSchemeSub.h" />
     <ClInclude Include="SettingsControlsControllerSub.h" />
+    <ClInclude Include="SettingsControlsKeyboardSub.h" />
     <ClInclude Include="SettingsControlsSub.h" />
+    <ClInclude Include="SettingsSetColorSub.h" />
     <ClInclude Include="SettingsSub.h" />
     <ClInclude Include="Submenu.h" />
     <ClInclude Include="ToggleManager.h" />
@@ -172,8 +175,11 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Routine.cpp" />
     <ClCompile Include="script.cpp" />
+    <ClCompile Include="SettingsColorSchemeSub.cpp" />
     <ClCompile Include="SettingsControlsControllerSub.cpp" />
+    <ClCompile Include="SettingsControlsKeyboardSub.cpp" />
     <ClCompile Include="SettingsControlsSub.cpp" />
+    <ClCompile Include="SettingsSetColorSub.cpp" />
     <ClCompile Include="SettingsSub.cpp" />
     <ClCompile Include="Submenu.cpp" />
     <ClCompile Include="ToggleManager.cpp" />

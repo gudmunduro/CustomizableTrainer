@@ -57,6 +57,7 @@ class ControlManager
 {
 public:
 	static bool IsMenuControlPressed(MenuControl control);
+	static bool IsHoldingMenuControl(MenuControl control);
 	static bool IsUsingController();
 	static void EnableMenuOpenControls();
 	static void EnableMenuControls();

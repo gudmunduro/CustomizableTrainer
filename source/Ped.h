@@ -28,7 +28,7 @@ public:
 	bool IsOnMount();
 	bool IsOnFoot();
 	// MARK: Getters
-	PedId Id();
+	PedId GetPedId();
 	int MaxHealth();
 	Vector3 Position();
 	Vector3 OffsetInWorldCoords(Vector3 offset);

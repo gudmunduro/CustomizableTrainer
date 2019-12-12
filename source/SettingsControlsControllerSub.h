@@ -15,12 +15,14 @@ public:
 	void SubWillDraw() override;
 
 	void RespondToControls() override;
-	string ControlStringValue(Hash control);
+	string GetStringValueForControl(Hash control);
 
 	int OptionCount();
 
-	bool isEditingControl = false;
-	Hash* controlToEdit;
+	bool isEditingControl;
 private:
+	Hash* controlToEdit;
+	float editingControlAlpha = 255.0f;
+	bool editingControlAlphaDirection = false;
 };
 

@@ -8,6 +8,8 @@
 #include "SettingsSub.h"
 #include "SettingsControlsSub.h"
 #include "SettingsControlsControllerSub.h"
+#include "SettingsControlsKeyboardSub.h"
+#include "SettingsColorSchemeSub.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
@@ -167,8 +169,14 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	else if (key == "builtin_sub_settingsControls") {
 		return new SettingsControlsSub(this);
 	}
-	else if (key == "builtin_sub_controlsController") {
+	else if (key == "builtin_sub_settingsControlsController") {
 		return new SettingsControlsControllerSub(this);
+	}
+	else if (key == "builtin_sub_settingsControlsKeyboard") {
+		return new SettingsControlsKeyboardSub(this);
+	}
+	else if (key == "builtin_sub_settingsColorScheme") {
+		return new SettingsColorSchemeSub(this);
 	}
 	return nullptr;
 }

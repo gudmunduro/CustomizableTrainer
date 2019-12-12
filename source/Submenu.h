@@ -35,6 +35,12 @@ protected:
 	float CurrentOptionPosY();
 	int drawIndex;
 	int optionAddIndex;
+	int holdingAdjustUpTimer;
+	int holdingAdjustUpTimerStart;
+	bool isHoldingAdjustUp;
+	int holdingAdjustDownTimer;
+	int holdingAdjustDownTimerStart;
+	bool isHoldingAdjustDown;
 	MenuController* menuController;
 };
 
