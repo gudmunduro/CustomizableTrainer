@@ -18,6 +18,7 @@ namespace Actions {
 	void GiveAllSpawnedPedsWeapon(json params);
 	void TeleportAllSpawnedPedsToPlayer(json params);
 	void DeleteAllSpawnedPeds(json params);
+	void ReviveNearestHorse(json params);
 	void SetHorseMaxHealth(json params);
 	void SpawnHorse(json params);
 	void SpawnHorseFromInput(json params);

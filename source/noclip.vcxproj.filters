@@ -64,6 +64,18 @@
     <Filter Include="Headers\Features">
       <UniqueIdentifier>{1213d536-37b5-4bb5-a4e1-23617e325532}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Menu\Submenus\Settings">
+      <UniqueIdentifier>{d4f0d943-e6af-4e99-aad6-87e7a351c79d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Menu\Submenus\Add option">
+      <UniqueIdentifier>{01951964-600d-4741-b2ec-8365e3d953b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Menu\Submenus\Add option">
+      <UniqueIdentifier>{1b9d4fcf-43df-4275-a8b3-48104b8af946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Menu\Submenus\Settings">
+      <UniqueIdentifier>{98d6402c-079a-4b26-b063-008deaf57bff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -141,15 +153,6 @@
     <ClInclude Include="FixedSubmenu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="AddOptionSub.h">
-      <Filter>Headers\Menu\Submenus</Filter>
-    </ClInclude>
-    <ClInclude Include="AddOptionSetTypeSub.h">
-      <Filter>Headers\Menu\Submenus</Filter>
-    </ClInclude>
-    <ClInclude Include="AddOptionSetKeySub.h">
-      <Filter>Headers\Menu\Submenus</Filter>
-    </ClInclude>
     <ClInclude Include="NumberController.h">
       <Filter>Headers\Numbers</Filter>
     </ClInclude>
@@ -167,6 +170,24 @@
     </ClInclude>
     <ClInclude Include="PedSpawnerSub.h">
       <Filter>Headers\Menu\Submenus</Filter>
+    </ClInclude>
+    <ClInclude Include="AddOptionSub.h">
+      <Filter>Headers\Menu\Submenus\Add option</Filter>
+    </ClInclude>
+    <ClInclude Include="AddOptionSetTypeSub.h">
+      <Filter>Headers\Menu\Submenus\Add option</Filter>
+    </ClInclude>
+    <ClInclude Include="AddOptionSetKeySub.h">
+      <Filter>Headers\Menu\Submenus\Add option</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsControlsSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsControlsControllerSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -227,15 +248,6 @@
     <ClCompile Include="FixedSubmenu.cpp">
       <Filter>Source\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="AddOptionSub.cpp">
-      <Filter>Source\Menu\Submenus</Filter>
-    </ClCompile>
-    <ClCompile Include="AddOptionSetTypeSub.cpp">
-      <Filter>Source\Menu\Submenus</Filter>
-    </ClCompile>
-    <ClCompile Include="AddOptionSetKeySub.cpp">
-      <Filter>Source\Menu\Submenus</Filter>
-    </ClCompile>
     <ClCompile Include="NumbersController.cpp">
       <Filter>Source\Numbers</Filter>
     </ClCompile>
@@ -253,6 +265,24 @@
     </ClCompile>
     <ClCompile Include="PedSpawnerSub.cpp">
       <Filter>Source\Menu\Submenus</Filter>
+    </ClCompile>
+    <ClCompile Include="AddOptionSub.cpp">
+      <Filter>Source\Menu\Submenus\Add option</Filter>
+    </ClCompile>
+    <ClCompile Include="AddOptionSetTypeSub.cpp">
+      <Filter>Source\Menu\Submenus\Add option</Filter>
+    </ClCompile>
+    <ClCompile Include="AddOptionSetKeySub.cpp">
+      <Filter>Source\Menu\Submenus\Add option</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsControlsSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsControlsControllerSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

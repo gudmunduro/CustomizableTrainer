@@ -25,7 +25,7 @@ public:
 
 	virtual void RespondToControls();
 
-	bool IsOutOfBounds();
+	bool IsOutOfBounds(int index);
 	bool IsOptionSelected(int index);
 
 	int selection;

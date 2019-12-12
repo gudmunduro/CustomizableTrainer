@@ -5,6 +5,9 @@
 #include "JsonDataManager.h"
 #include "DynamicSubmenu.h"
 #include "PedSpawnerSub.h"
+#include "SettingsSub.h"
+#include "SettingsControlsSub.h"
+#include "SettingsControlsControllerSub.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
@@ -30,14 +33,17 @@ void MenuController::Tick()
 }
 
 // MARK: Manange submenu stack
+
 void MenuController::RegisterSubmenuData(string key, SubmenuData submenuData)
 {
 	submenuDataMap[key] = submenuData;
 }
+
 void MenuController::AddSubmenuToStack(Submenu* submenu)
 {
 	submenuStack.push_back(submenu);
 }
+
 void MenuController::GoToLastSub()
 {
 	if (!submenuStack.empty()) {
@@ -58,6 +64,7 @@ void MenuController::GoToLastSub()
 }
 
 // MARK: Controls
+
 void MenuController::RespondToControls()
 {
 	ControlManager::EnableMenuOpenControls();
@@ -84,6 +91,7 @@ bool MenuController::FixedSubmenuExistsForKey(string key)
 }
 
 // MARK: Setters
+
 void MenuController::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
 	submenuDataMap[key] = submenuData;
 }
@@ -143,6 +151,7 @@ std::vector<string> MenuController::SubmenuKeys()
 	});
 
 	keys.push_back("builtin_sub_pedSpawner"); // TODO: Find a better solution to this
+	keys.push_back("builtin_sub_settings");
 
 	return keys;
 }
@@ -151,6 +160,15 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 {
 	if (key == "builtin_sub_pedSpawner") {
 		return new PedSpawnerSub(this);
+	}
+	else if (key == "builtin_sub_settings") {
+		return new SettingsSub(this);
+	}
+	else if (key == "builtin_sub_settingsControls") {
+		return new SettingsControlsSub(this);
+	}
+	else if (key == "builtin_sub_controlsController") {
+		return new SettingsControlsControllerSub(this);
 	}
 	return nullptr;
 }

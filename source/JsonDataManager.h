@@ -9,6 +9,7 @@ public:
 	std::map<string, SubmenuData> GetLayoutAsMap();
 	void UpdateMenuSettings();
 	void SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap);
+	void SaveMenuSettings();
 private:
 	json LoadJSONFile(string path);
 	string ReadFile(string path);

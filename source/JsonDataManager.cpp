@@ -2,6 +2,7 @@
 #include "JsonDataManager.h"
 #include "Routine.h"
 #include "MenuSettings.h"
+#include "ControlManager.h"
 
 JSONDataManager::JSONDataManager()
 {
@@ -133,6 +134,66 @@ void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDat
 	}
 	layoutData = submenuDataArray;
 	WriteFile("CustomizableTrainer\\layout.json", submenuDataArray.dump());
+}
+
+void JSONDataManager::SaveMenuSettings()
+{
+	try {
+		settingsData = json::object({
+			// Colors
+			{ "titleBarBgColor", MenuSettings::jsonFromColor(MenuSettings::titleBarBgColor) },
+			{ "titleBarTextColor", MenuSettings::jsonFromColor(MenuSettings::titleBarTextColor) },
+			{ "optionBgColor", MenuSettings::jsonFromColor(MenuSettings::optionBgColor) },
+			{ "optionTextColor", MenuSettings::jsonFromColor(MenuSettings::optionTextColor) },
+			{ "optionSelectedBgColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedBgColor) },
+			{ "optionSelectedTextColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedTextColor) },
+			{ "optionToggleColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleColor) },
+			{ "optionToggleToggledColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleToggledColor) },
+			{ "optionNumberColor", MenuSettings::jsonFromColor(MenuSettings::optionNumberColor) },
+
+			// Controls
+			{"controls", {
+				{"keyboard", {
+					{"menuOpen", MenuSettings::MenuOpen},
+					{"menuOptionPress", MenuSettings::MenuOptionPress},
+					{"menuUp", MenuSettings::MenuUp},
+					{"menuDown", MenuSettings::MenuDown},
+					{"menuBack", MenuSettings::MenuBack},
+					{"menuAdjustValueDown", MenuSettings::MenuAdjustValueDown},
+					{"menuAdjustValueUp", MenuSettings::MenuAdjustValueUp},
+					{"menuEditModeEnter", MenuSettings::MenuEditModeEnter},
+					{"menuEditModeExit", MenuSettings::MenuEditModeExit},
+					{"menuEditModeExitAndSave", MenuSettings::MenuEditModeExitAndSave},
+					{"menuEditModeMoveOption", MenuSettings::MenuEditModeMoveOption},
+					{"menuEditModeAddOption", MenuSettings::MenuEditModeAddOption},
+					{"menuEditModeDeleteOption", MenuSettings::MenuEditModeDeleteOption},
+					{"bindBoost", MenuSettings::BindBoost}
+				}},
+				{"controller", {
+					{ "menuOpen", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOpen) },
+					{ "menuOpenModifier", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOpenModifier) },
+					{ "menuOptionPress", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOptionPress) },
+					{ "menuUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuUp) },
+					{ "menuDown", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuDown) },
+					{ "menuBack", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuBack) },
+					{ "menuAdjustValueDown", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueDown) },
+					{ "menuAdjustValueUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueUp) },
+					{ "menuEditModeEnter", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEnter) },
+					{ "menuEditModeExit", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExit) },
+					{ "menuEditModeExitAndSave", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExitAndSave) },
+					{ "menuEditModeMoveOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeMoveOption) },
+					{ "menuEditModeAddOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
+					{ "menuEditModeDeleteOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
+					{ "bindBoost", ControlManager::ControlStringFromHash(MenuSettings::ControllerBindBoost) }
+				}}
+			}}
+		});
+
+		WriteFile("CustomizableTrainer\\settings.json", settingsData.dump());
+	}
+	catch (std::exception & e) {
+		Routine::StartDrawBottomMessage("Failed to save settings");
+	}
 }
 
 // MARK: Load files

@@ -148,6 +148,7 @@ void DynamicSubmenu::RespondToControls()
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 			options.erase(options.begin() + selection);
 			if (selection > OptionCount() - 1) {
+				if (scrollPosition != 0) scrollPosition--;
 				selection--;
 			}
 		}

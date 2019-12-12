@@ -49,7 +49,7 @@ void AddOptionSetKeySub::Draw()
 			string key = Game::GetInputWithKeyboard();
 			if (key == "") return;
 
-			if (!key._Starts_with("sub_") && !key._Starts_with("required_sub_"))
+			if (!key._Starts_with("sub_") && !key._Starts_with("required_sub_") && !key._Starts_with("builtin_sub_"))
 				key = "sub_" + key;
 
 			OnKeySelect(key);

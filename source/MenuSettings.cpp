@@ -21,3 +21,13 @@ Color MenuSettings::colorFromJSON(json color)
 		color["a"].get<int>()
 	};
 }
+
+json MenuSettings::jsonFromColor(Color color)
+{
+	return {
+		{ "r", color.r },
+		{ "g", color.g },
+		{ "b", color.b },
+		{ "a", color.a }
+	};
+}

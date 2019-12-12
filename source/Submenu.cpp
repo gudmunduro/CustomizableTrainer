@@ -42,7 +42,7 @@ void Submenu::DrawOptionBase(string text, bool selected)
 void Submenu::DrawSub(string text, string subKey, bool enabled) 
 {
 	optionAddIndex++;
-	if (IsOutOfBounds()) return;
+	if (IsOutOfBounds(optionAddIndex)) return;
 	bool selected = IsOptionSelected(selection);
 
 	DrawOptionBase(text + " >", selected);
@@ -59,7 +59,7 @@ void Submenu::DrawSub(string text, string subKey, bool enabled)
 void Submenu::DrawAction(string text, std::function<void()> onPress) 
 {
 	optionAddIndex++;
-	if (IsOutOfBounds()) return;
+	if (IsOutOfBounds(optionAddIndex)) return;
 	bool selected = IsOptionSelected(selection);
 
 	DrawOptionBase(text, selected);
@@ -76,7 +76,7 @@ void Submenu::DrawAction(string text, std::function<void()> onPress)
 void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPress)
 {
 	optionAddIndex++;
-	if (IsOutOfBounds()) return;
+	if (IsOutOfBounds(optionAddIndex)) return;
 	bool selected = IsOptionSelected(selection);
 	auto menuPos = menuController->position;
 	auto toggleColor = isToggled ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
@@ -96,7 +96,7 @@ void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPr
 void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust)
 {
 	optionAddIndex++;
-	if (IsOutOfBounds()) return;
+	if (IsOutOfBounds(optionAddIndex)) return;
 	bool selected = IsOptionSelected(selection);
 	auto menuPos = menuController->position; 
 
@@ -178,9 +178,9 @@ void Submenu::RespondToControls()
 
 // MARK: Booleans
 
-bool Submenu::IsOutOfBounds()
+bool Submenu::IsOutOfBounds(int index)
 {
-	return !((scrollPosition + 8) > optionAddIndex && scrollPosition <= optionAddIndex);
+	return !((scrollPosition + 8) > index && scrollPosition <= index);
 }
 
 bool Submenu::IsOptionSelected(int index)

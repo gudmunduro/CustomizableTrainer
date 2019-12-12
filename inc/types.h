@@ -95,3 +95,8 @@ struct SubmenuData
 	string key;
 	std::vector<MenuOption> options;
 };
+
+struct NearbyEntities {
+	int size;
+	int64_t entities[100];
+};
