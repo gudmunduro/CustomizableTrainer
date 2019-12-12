@@ -173,7 +173,7 @@ void Actions::ReviveNearestHorse(json params)
 		if (ENTITY::DOES_ENTITY_EXIST(i) && ENTITY::GET_ENTITY_TYPE(i) == 1) {
 			PED::REVIVE_INJURED_PED(i);
 		}
-		WAIT(0);
+		SYSTEM::WAIT(0);
 	}
 	return;
 

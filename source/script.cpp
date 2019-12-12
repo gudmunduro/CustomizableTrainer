@@ -6,7 +6,7 @@
 
 #include "pch.h"
 #include "Script.h"
-#include "Menu.h"
+#include "MenuController.h"
 #include "ControlManager.h"
 #include "Routine.h"
 #include "ActionManager.h"
@@ -23,14 +23,14 @@ void setup()
 }
 
 bool isFirstTime = true;
-Menu* menu;
+MenuController* menu;
 
 void main()
 {
 	if (isFirstTime) {
 		srand(GetTickCount());
 		setup();
-		menu = new Menu();
+		menu = new MenuController();
 		isFirstTime = false;
 	}
 
