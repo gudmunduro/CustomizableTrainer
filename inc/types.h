@@ -96,6 +96,17 @@ struct SubmenuData
 	std::vector<MenuOption> options;
 };
 
+struct Hotkey
+{
+	int keyboardKey;
+	Hash controllerControl;
+	Hash controllerControlModifier;
+	MenuOptionType type;
+	string key;
+	int action;
+	json value;
+};
+
 struct NearbyEntities {
 	int size;
 	int64_t entities[100];

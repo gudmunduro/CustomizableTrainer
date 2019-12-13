@@ -116,6 +116,7 @@
     <ClInclude Include="AddOptionSetKeySub.h" />
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
+    <ClInclude Include="ConfirmDialog.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="DynamicSubmenu.h" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="HorseFlyMode.h" />
+    <ClInclude Include="HotkeyController.h" />
     <ClInclude Include="JsonDataManager.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="MenuController.h" />
@@ -153,12 +155,14 @@
     <ClCompile Include="AddOptionSetKeySub.cpp" />
     <ClCompile Include="AddOptionSetTypeSub.cpp" />
     <ClCompile Include="AddOptionSub.cpp" />
+    <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HorseFlyMode.cpp" />
+    <ClCompile Include="HotkeyController.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="MenuController.cpp" />

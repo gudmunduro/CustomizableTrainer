@@ -3,6 +3,7 @@
 #include "ControlManager.h"
 #include "JsonDataManager.h"
 #include "MenuSettings.h"
+#include "Routine.h"
 
 // MARK: Variables
 
@@ -39,6 +40,7 @@ const Hash allControls[24] = {
 SettingsControlsControllerSub::SettingsControlsControllerSub(MenuController* menuController) : FixedSubmenu(menuController)
 {
 	isEditingControl = false;
+	controlToEdit = nullptr;
 }
 
 void SettingsControlsControllerSub::Draw()
@@ -71,6 +73,10 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 	}
 
 	DrawAction(text, [this, control] {
+		if (!ControlManager::IsUsingController()) {
+			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
+			return;
+		}
 		controlToEdit = control;
 		isEditingControl = true;
 	});

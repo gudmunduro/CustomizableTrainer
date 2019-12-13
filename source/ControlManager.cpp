@@ -51,6 +51,13 @@ bool ControlManager::IsHoldingMenuControl(MenuControl control)
 	}
 }
 
+bool ControlManager::IsHotkeyPressed(Hotkey hotkey)
+{
+	return hotkey.keyboardKey&& IsKeyJustUp(hotkey.keyboardKey) ||
+			hotkey.controllerControl && !hotkey.controllerControlModifier && CONTROLS::IS_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) ||
+			hotkey.controllerControl && hotkey.controllerControlModifier && CONTROLS::IS_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) && CONTROLS::IS_CONTROL_PRESSED(0, hotkey.controllerControlModifier);
+}
+
 bool ControlManager::IsUsingController()
 {
 	return !CONTROLS::_IS_INPUT_DISABLED(2);

@@ -12,6 +12,7 @@ public:
 	virtual void Draw();
 	void DrawTitle(string text);
 	void DrawOptionBase(string text, bool selected);
+	void DrawLabel(string text);
 	void DrawSub(string text, string subKey, bool isEnabled = true);
 	void DrawAction(string text, std::function<void()> onPress);
 	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);

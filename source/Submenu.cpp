@@ -46,6 +46,17 @@ void Submenu::DrawOptionBase(string text, bool selected)
 	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, CurrentOptionPosY() + 0.01, 0.2, 0.035, 0, optionBgColor.r, optionBgColor.g, optionBgColor.b, optionBgColor.a, 0);
 }
 
+void Submenu::DrawLabel(string text)
+{
+	optionAddIndex++;
+	if (IsOutOfBounds(optionAddIndex)) return;
+	bool selected = IsOptionSelected(selection);
+
+	DrawOptionBase(text, selected);
+
+	OptionDidDraw();
+}
+
 void Submenu::DrawSub(string text, string subKey, bool enabled) 
 {
 	optionAddIndex++;
