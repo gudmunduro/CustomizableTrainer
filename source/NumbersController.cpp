@@ -23,6 +23,28 @@ void NumberController::RegisterNumberGetter(string key, std::function<string()> 
 	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
 }
 
+void NumberController::Adjust(string key, bool direction)
+{
+	if (DoesNumberAdjusterExistForKey(key)) {
+		GetNumberAdjusterForKey(key)(direction);
+	}
+}
+
+void NumberController::SetNumberValueForKey(string key, string value)
+{
+	try {
+		if (DoesNumberFloatVariableExistForKey(key)) {
+			*numbersFloat[key] = std::stof(value);
+		}
+		else if (DoesNumberIntVariableExistForKey(key)) {
+			*numbersInt[key] = std::stof(value);
+		}
+	}
+	catch (std::exception e) {
+		Routine::StartDrawBottomMessage("Failed to set number value for '" + key + "'");
+	}
+}
+
 // MARK: Initialize
 
 void NumberController::RegisterNumbers()
@@ -40,13 +62,6 @@ void NumberController::RegisterNumbers()
 	// Getters
 	RegisterNumberGetter("number_currentHour", Numbers::GetCurrentHour, Numbers::AdjustCurrentHour);
 	RegisterNumberGetter("number_currentMinute", Numbers::GetCurrentMinute, Numbers::AdjustCurrentMinute);
-}
-
-void NumberController::Adjust(string key, bool direction)
-{
-	if (DoesNumberAdjusterExistForKey(key)) {
-		GetNumberAdjusterForKey(key)(direction);
-	}
 }
 
 // MARK: Booleans

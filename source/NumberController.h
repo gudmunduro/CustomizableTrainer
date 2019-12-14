@@ -7,6 +7,7 @@ public:
 	static void RegisterNumber(string key, float* number, std::function<void(bool direction)> adjuster = nullptr);
 	static void RegisterNumber(string key, int* number, std::function<void(bool direction)> adjuster = nullptr);
 	static void RegisterNumberGetter(string key, std::function<string()> getter, std::function<void(bool direction)> adjuster = nullptr);
+	static void SetNumberValueForKey(string key, string value);
 	static void RegisterNumbers();
 	static void Adjust(string key, bool direction);
 	static bool DoesNumberExistForKey(string key);
