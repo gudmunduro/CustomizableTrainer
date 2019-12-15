@@ -98,6 +98,7 @@ struct SubmenuData
 
 struct Hotkey
 {
+	string name;
 	int keyboardKey;
 	Hash controllerControl;
 	Hash controllerControlModifier;

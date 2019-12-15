@@ -28,7 +28,6 @@ void main()
 	MenuController* menu = new MenuController();
 	while (true) {
 		Routine::RunAll();
-		ControlManager::Tick();
 		menu->Tick();
 		WAIT(0);
 	}

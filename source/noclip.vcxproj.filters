@@ -204,6 +204,12 @@
     <ClInclude Include="HotkeyController.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="SettingsHotkeysSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsEditAddHotkeySub.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -313,6 +319,12 @@
     </ClCompile>
     <ClCompile Include="HotkeyController.cpp">
       <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsHotkeysSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsEditAddHotkeySub.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

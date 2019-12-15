@@ -4,17 +4,17 @@
 class HotkeyController
 {
 public:
-	HotkeyController();
+	static void Setup();
 
-	void RunHotkey(Hotkey hotkey);
+	static void RunHotkey(Hotkey hotkey);
 
-	void Tick();
+	static void Tick();
 
+	static inline std::vector<Hotkey> hotkeys;
 private:
-	std::map<string, Hotkey> hotkeyMap;
 
-	void RunHotkeyForAction(Hotkey hotkey);
-	void RunHotkeyForToggle(Hotkey hotkey);
-	void RunHotkeyForNumber(Hotkey hotkey);
+	static void RunHotkeyForAction(Hotkey hotkey);
+	static void RunHotkeyForToggle(Hotkey hotkey);
+	static void RunHotkeyForNumber(Hotkey hotkey);
 };
 

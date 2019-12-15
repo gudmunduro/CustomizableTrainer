@@ -5,6 +5,8 @@
 #include "ControlManager.h"
 #include "HorseFlyMode.h"
 #include "Numbers.h"
+#include "HotkeyController.h"
+#include "ControlManager.h"
 
 // MARK: Variables
 string bottomMesssageText;
@@ -252,6 +254,8 @@ void RunLoopedToggles()
 void Routine::RunAll()
 {
 	Game::UpdateData();
+	ControlManager::Tick();
+	HotkeyController::Tick();
 	DrawBottomMessage();
 	RunLoopedToggles();
 }

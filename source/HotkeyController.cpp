@@ -7,9 +7,12 @@
 #include "ToggleManager.h"
 #include "NumberController.h"
 
-HotkeyController::HotkeyController()
+// MARK: Setup
+
+void HotkeyController::Setup()
 {
-	hotkeyMap["hotkey_test"] = {
+	hotkeys.push_back({
+		"Hotkey 1",
 		VK_NUMPAD1,
 		0,
 		0,
@@ -17,7 +20,7 @@ HotkeyController::HotkeyController()
 		"action_spawnVehicle",
 		0,
 		"CART01"
-	};
+	});
 }
 
 // MARK: Run hotkey
@@ -93,12 +96,10 @@ void HotkeyController::RunHotkey(Hotkey hotkey)
 
 void HotkeyController::Tick()
 {
-	for each (auto hotkey in hotkeyMap) {
-		string key = hotkey.first;
-		Hotkey hotkeyData = hotkey.second;
+	for each (auto hotkey in hotkeys) {
 
-		if (ControlManager::IsHotkeyPressed(hotkeyData)) {
-			RunHotkey(hotkeyData);
+		if (ControlManager::IsHotkeyPressed(hotkey)) {
+			RunHotkey(hotkey);
 		}
 	}
 }
