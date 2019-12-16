@@ -8,6 +8,8 @@ public:
 
 	static void RunHotkey(Hotkey hotkey);
 
+	static void Save();
+
 	static void Tick();
 
 	static inline std::vector<Hotkey> hotkeys;

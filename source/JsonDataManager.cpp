@@ -32,7 +32,7 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 				option["text"].get<string>(),
 				option["key"].get<string>(),
 				option.contains("params") ? option["params"] : json::array()
-				});
+			});
 		}
 		layoutDataMap[key] = submenuData;
 	}
@@ -93,7 +93,41 @@ void JSONDataManager::UpdateMenuSettings()
 	}
 }
 
+std::vector<Hotkey> JSONDataManager::GetHotkeysAsVector()
+{
+	try {
+		json hotkeys = LoadJSONFile("CustomizableTrainer\\hotkeys.json");
+		std::vector<Hotkey> hotkeyVec;
+
+		for each (auto hotkeyData in hotkeys) {
+			MenuOptionType optionType;
+			if (hotkeyData["type"].get<string>() == "sub") optionType = MenuOptionType::Sub;
+			else if (hotkeyData["type"].get<string>() == "action") optionType = MenuOptionType::Action;
+			else if (hotkeyData["type"].get<string>() == "toggle") optionType = MenuOptionType::Toggle;
+			else if (hotkeyData["type"].get<string>() == "number") optionType = MenuOptionType::Number;
+
+			hotkeyVec.push_back({
+				hotkeyData["name"].get<string>(),
+				hotkeyData["keyboardKey"].get<int>(),
+				hotkeyData["controllerControl"].get<Hash>(),
+				hotkeyData["controllerControlModifier"].get<Hash>(),
+				optionType,
+				hotkeyData["key"].get<string>(),
+				hotkeyData["action"].get<int>(),
+				hotkeyData["value"]
+			});
+		}
+		return hotkeyVec;
+	}
+	catch (std::exception e) {
+		Routine::StartDrawBottomMessage("Failed to parse hotkeys.json");
+	}
+
+	return std::vector<Hotkey>();
+}
+
 // MARK: Save data
+
 void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap)
 {
 	json submenuDataArray = json::array();
@@ -199,7 +233,48 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 	}
 }
 
+void JSONDataManager::SaveHotkeys(std::vector<Hotkey> hotkeys)
+{
+	try {
+		json hotkeyData = json::array();
+		for each (auto hotkey in hotkeys) {
+			string typeStringValue;
+			switch (hotkey.type) {
+			case MenuOptionType::Action:
+				typeStringValue = "action";
+				break;
+			case MenuOptionType::Sub:
+				typeStringValue = "sub";
+				break;
+			case MenuOptionType::Toggle:
+				typeStringValue = "toggle";
+				break;
+			case MenuOptionType::Number:
+				typeStringValue = "number";
+				break;
+			}
+
+			hotkeyData.push_back({
+				{ "name", hotkey.name },
+				{ "keyboardKey", hotkey.keyboardKey },
+				{ "controllerControl", hotkey.controllerControl },
+				{ "controllerControlModifier", hotkey.controllerControlModifier },
+				{ "type", typeStringValue },
+				{ "key", hotkey.key },
+				{ "action", hotkey.action },
+				{ "value", hotkey.value }
+			});
+		}
+
+		WriteFile("CustomizableTrainer\\hotkeys.json", hotkeyData.dump());
+	}
+	catch (std::exception e) {
+		Routine::StartDrawBottomMessage("Failed to save hotkeys");
+	}
+}
+
 // MARK: Load files
+
 void JSONDataManager::Load()
 {
 	try {
@@ -217,6 +292,7 @@ void JSONDataManager::Load()
 }
 
 // MARK: Core methods
+
 json JSONDataManager::LoadJSONFile(string path)
 {
 	string jsonFileContent = ReadFile(path);

@@ -12,10 +12,10 @@ void SettingsSub::Draw()
 	DrawTitle("Settings");
 	DrawSub("Color scheme", "builtin_sub_settingsColorScheme");
 	DrawSub("Controls", "builtin_sub_settingsControls");
-	// DrawSub("Hotkeys", "builtin_sub_hotkeys");
+	DrawSub("Hotkeys", "builtin_sub_hotkeys");
 }
 
 int SettingsSub::OptionCount()
 {
-	return 2;
+	return 3;
 }

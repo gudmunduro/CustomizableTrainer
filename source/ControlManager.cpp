@@ -144,7 +144,7 @@ string ControlManager::GeyStringValueForKey(int key)
 	if (result == 0)
 		// throw std::system_error(std::error_code(GetLastError(), std::system_category()),
 		//	 "WinAPI Error occured.");
-		return "Unknown";
+		return "None";
 
 	return szName;
 }
@@ -176,6 +176,6 @@ string ControlManager::ControlStringFromHash(Hash control)
 		case 1877832124: return "INPUT_FRONTEND_RT";
 		case 1137550768: return "INPUT_FRONTEND_LS";
 		case 2107936042: return "INPUT_FRONTEND_RS";
-		default: return "";
+		default: return "None";
 	}
 }

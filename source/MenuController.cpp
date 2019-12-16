@@ -10,6 +10,7 @@
 #include "SettingsControlsControllerSub.h"
 #include "SettingsControlsKeyboardSub.h"
 #include "SettingsColorSchemeSub.h"
+#include "SettingsHotkeysSub.h"
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
@@ -177,6 +178,9 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	}
 	else if (key == "builtin_sub_settingsColorScheme") {
 		return new SettingsColorSchemeSub(this);
+	}
+	else if (key == "builtin_sub_settingsHotkeys") {
+		return new SettingsHotkeysSub(this);
 	}
 	return nullptr;
 }

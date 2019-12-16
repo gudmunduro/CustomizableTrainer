@@ -6,21 +6,14 @@
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
+#include "JsonDataManager.h"
 
 // MARK: Setup
 
 void HotkeyController::Setup()
 {
-	hotkeys.push_back({
-		"Hotkey 1",
-		VK_NUMPAD1,
-		0,
-		0,
-		MenuOptionType::Action,
-		"action_spawnVehicle",
-		0,
-		"CART01"
-	});
+	JSONDataManager jsonDataManager;
+	hotkeys = jsonDataManager.GetHotkeysAsVector();
 }
 
 // MARK: Run hotkey
@@ -44,11 +37,10 @@ void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 		ToggleManager::Toggle(hotkey.key);
 		break;
 	case 1:
-		if (!hotkey.value.is_boolean()) {
-			Routine::StartDrawBottomMessage("Error: Hotkey toggle value is invalid");
-			break;
-		}
-		*ToggleManager::GetToggleForKey(hotkey.key) = hotkey.value.get<bool>();
+		*ToggleManager::GetToggleForKey(hotkey.key) = true;
+		break;
+	case 2:
+		*ToggleManager::GetToggleForKey(hotkey.key) = false;
 		break;
 	}
 }
@@ -61,18 +53,17 @@ void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 	}
 	switch (hotkey.action) {
 	case 0:
-		if (!hotkey.value.is_boolean()) {
-			Routine::StartDrawBottomMessage("Error: Hotkey direction value is invalid");
-			return;
-		}
-		NumberController::GetNumberAdjusterForKey(hotkey.key)(hotkey.value.get<bool>());
-		break;
-	case 1:
 		if (!hotkey.value.is_string()) {
 			Routine::StartDrawBottomMessage("Error: Hotkey number value is invalid");
 			return;
 		}
 		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value);
+		break;
+	case 1:
+		NumberController::GetNumberAdjusterForKey(hotkey.key)(true);
+		break;
+	case 2:
+		NumberController::GetNumberAdjusterForKey(hotkey.key)(false);
 		break;
 	}
 }
@@ -90,6 +81,14 @@ void HotkeyController::RunHotkey(Hotkey hotkey)
 		RunHotkeyForNumber(hotkey);
 		break;
 	}
+}
+
+// MARK: Manage
+
+void HotkeyController::Save()
+{
+	JSONDataManager jsonDataManager;
+	jsonDataManager.SaveHotkeys(hotkeys);
 }
 
 // MARK: Core

@@ -12,12 +12,14 @@
 #include "ActionManager.h"
 #include "ToggleManager.h"
 #include "NumberController.h"
+#include "HotkeyController.h"
 
 void setup()
 {
 	ActionManager::RegisterActions();
 	ToggleManager::RegisterToggles();
 	NumberController::RegisterNumbers();
+	HotkeyController::Setup();
 	Game::RequestTextureDict("menu_textures");
 	Game::RequestTextureDict("boot_flow");
 }
