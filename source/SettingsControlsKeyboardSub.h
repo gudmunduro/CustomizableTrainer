@@ -11,8 +11,6 @@ public:
 	void SubWillDraw() override;
 	void RespondToControls() override;
 
-	string GeyStringValueForKey(int key);
-
 	int OptionCount();
 
 	bool isEditingKey;

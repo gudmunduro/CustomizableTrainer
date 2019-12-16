@@ -29,6 +29,33 @@ public:
 	static inline const int INPUT_FRONTEND_RS = 2107936042;
 };
 
+const Hash allControls[24] = {
+	XboxControl::INPUT_FRONTEND_DOWN,
+	XboxControl::INPUT_FRONTEND_UP,
+	XboxControl::INPUT_FRONTEND_LEFT,
+	XboxControl::INPUT_FRONTEND_RIGHT,
+	XboxControl::INPUT_FRONTEND_RDOWN,
+	XboxControl::INPUT_FRONTEND_RUP,
+	XboxControl::INPUT_FRONTEND_RLEFT,
+	XboxControl::INPUT_FRONTEND_RRIGHT,
+	XboxControl::INPUT_FRONTEND_AXIS_X,
+	XboxControl::INPUT_FRONTEND_AXIS_Y,
+	XboxControl::INPUT_FRONTEND_RIGHT_AXIS_X,
+	XboxControl::INPUT_FRONTEND_RIGHT_AXIS_Y,
+	XboxControl::INPUT_FRONTEND_PAUSE,
+	XboxControl::INPUT_FRONTEND_PAUSE_ALTERNATE,
+	XboxControl::INPUT_FRONTEND_ACCEPT,
+	XboxControl::INPUT_FRONTEND_CANCEL,
+	XboxControl::INPUT_FRONTEND_X,
+	XboxControl::INPUT_FRONTEND_Y,
+	XboxControl::INPUT_FRONTEND_LB,
+	XboxControl::INPUT_FRONTEND_RB,
+	XboxControl::INPUT_FRONTEND_LT,
+	XboxControl::INPUT_FRONTEND_RT,
+	XboxControl::INPUT_FRONTEND_LS,
+	XboxControl::INPUT_FRONTEND_RS
+};
+
 enum class MenuControl {
 	MenuOptionPress,
 	MenuUp,
@@ -66,6 +93,7 @@ public:
 	static bool IsFunctionControlJustReleased(FunctionControl control);
 	static void CanceMenuControlslForThisFrame();
 	static void Tick();
+	static string GeyStringValueForKey(int key);
 	static string ControlStringFromHash(Hash control);
 private:
 	static inline bool shouldCancelForThisFrame = false;

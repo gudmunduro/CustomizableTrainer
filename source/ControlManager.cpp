@@ -121,6 +121,34 @@ void ControlManager::Tick()
 	shouldCancelForThisFrame = false;
 }
 
+string ControlManager::GeyStringValueForKey(int key)
+{
+	UINT scanCode = MapVirtualKey(key, MAPVK_VK_TO_VSC);
+
+	CHAR szName[128];
+	int result = 0;
+	switch (key)
+	{
+	case VK_LEFT: case VK_UP: case VK_RIGHT: case VK_DOWN:
+	case VK_RCONTROL: case VK_RMENU:
+	case VK_LWIN: case VK_RWIN: case VK_APPS:
+	case VK_PRIOR: case VK_NEXT:
+	case VK_END: case VK_HOME:
+	case VK_INSERT: case VK_DELETE:
+	case VK_DIVIDE:
+	case VK_NUMLOCK:
+		scanCode |= KF_EXTENDED;
+	default:
+		result = GetKeyNameTextA(scanCode << 16, szName, 128);
+	}
+	if (result == 0)
+		// throw std::system_error(std::error_code(GetLastError(), std::system_category()),
+		//	 "WinAPI Error occured.");
+		return "Unknown";
+
+	return szName;
+}
+
 string ControlManager::ControlStringFromHash(Hash control)
 {
 	switch (control) {

@@ -208,7 +208,7 @@
       <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
     <ClInclude Include="SettingsEditAddHotkeySub.h">
-      <Filter>Headers</Filter>
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -324,7 +324,7 @@
       <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
     <ClCompile Include="SettingsEditAddHotkeySub.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
