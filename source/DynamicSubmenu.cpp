@@ -138,9 +138,17 @@ void DynamicSubmenu::RespondToControls()
 			isEditModeActive = false;
 		}
 		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
-			auto addOptionSub = new AddOptionSub(menuController);
+			auto addOptionSub = new EditAddOptionSub(nullptr, menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToAdd) {
 				options.push_back(optionToAdd);
+			};
+			menuController->AddSubmenuToStack(addOptionSub);
+			ControlManager::CanceMenuControlslForThisFrame();
+		}
+		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEditOption)) {
+			auto addOptionSub = new EditAddOptionSub(&options[selection], menuController);
+			addOptionSub->onAddOption = [this](MenuOption optionToEdit) {
+				options[selection] = optionToEdit;
 			};
 			menuController->AddSubmenuToStack(addOptionSub);
 			ControlManager::CanceMenuControlslForThisFrame();

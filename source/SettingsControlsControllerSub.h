@@ -15,7 +15,6 @@ public:
 	void SubWillDraw() override;
 
 	void RespondToControls() override;
-	string GetStringValueForControl(Hash control);
 
 	int OptionCount();
 

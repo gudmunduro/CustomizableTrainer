@@ -4,7 +4,13 @@
 AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController)
 	: FixedSubmenu(menuController)
 {
+	this->hideSubmenu = false;
+}
 
+AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu)
+	: FixedSubmenu(menuController)
+{
+	this->hideSubmenu = hideSubmenu;
 }
 
 // MARK: Draw
@@ -14,18 +20,22 @@ void AddOptionSetTypeSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("Type");
-	DrawAction("Submenu", [this]() {
-		onTypeSet(MenuOptionType::Sub); 
-		menuController->GoToLastSub();
-	});
+	if (!hideSubmenu)
+		DrawAction("Submenu", [this]() {
+			onTypeSet(MenuOptionType::Sub); 
+			menuController->GoToLastSub();
+		});
+
 	DrawAction("Action", [this]() {
 		onTypeSet(MenuOptionType::Action);
 		menuController->GoToLastSub();
 	});
+
 	DrawAction("Toggle", [this]() {
 		onTypeSet(MenuOptionType::Toggle);
 		menuController->GoToLastSub();
 	});
+
 	DrawAction("Number", [this]() {
 		onTypeSet(MenuOptionType::Number);
 		menuController->GoToLastSub();
@@ -36,5 +46,5 @@ void AddOptionSetTypeSub::Draw()
 
 int AddOptionSetTypeSub::OptionCount()
 {
-	return 4;
+	return 3 + (hideSubmenu ? 0 : 1);
 }

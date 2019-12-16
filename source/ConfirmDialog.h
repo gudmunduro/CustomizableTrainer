@@ -8,6 +8,8 @@ public:
 
 	void Draw() override;
 
+	int OptionCount() override;
+
 	std::function<void(bool confirmation)> onConfirm;
 private:
 	string title;

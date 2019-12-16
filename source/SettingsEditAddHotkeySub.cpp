@@ -12,7 +12,7 @@
 // MARK: Setup
 
 // Set hotkeyToEdit to null to add a new hotkey
-SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, MenuController *menuController) : FixedSubmenu(menuController)
+SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, Hotkey defaultHotkeyData, MenuController *menuController) : FixedSubmenu(menuController)
 {
 
 	if (hotkeyToEdit != nullptr) {
@@ -22,9 +22,13 @@ SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, MenuCon
 	}
 	else {
 		title = "Add hotkey";
-		string defaultName = "Hotkey " + std::to_string(HotkeyController::hotkeys.size() + 1);
-		this->hotkeyToEdit = {
-			defaultName,
+		this->hotkeyToEdit = defaultHotkeyData;
+		hotkeyToSaveTo = nullptr;
+	}
+}
+
+SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, MenuController* menuController) : SettingsEditAddHotkeySub(hotkeyToEdit, {
+			"Hotkey " + std::to_string(HotkeyController::hotkeys.size() + 1),
 			0,
 			0,
 			0,
@@ -32,9 +36,8 @@ SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, MenuCon
 			"",
 			0,
 			""
-		};
-		hotkeyToSaveTo = nullptr;
-	}
+	}, menuController)
+{
 }
 
 // MARK: Draw
@@ -61,7 +64,7 @@ void SettingsEditAddHotkeySub::Draw()
 
 	// Type
 	DrawText("Type", OptionTypeToString(hotkeyToEdit.type), [this] {
-		auto setTypeSub = new AddOptionSetTypeSub(menuController);
+		auto setTypeSub = new AddOptionSetTypeSub(menuController, true);
 		setTypeSub->onTypeSet = [this](MenuOptionType type) {
 			this->hotkeyToEdit.type = type;
 		};
@@ -82,7 +85,7 @@ void SettingsEditAddHotkeySub::Draw()
 
 	// Toggle/Number action
 	if (ActionString() != "") {
-		DrawText(ActionString(), hotkeyToEdit.key, [this] {
+		DrawText(ActionString(), ActionValueString(), [this] {
 			auto setActionSub = new SettingsHotkeyActionSub(menuController, hotkeyToEdit.type, 
 				[this] (int action) {
 					hotkeyToEdit.action = action;
@@ -92,8 +95,8 @@ void SettingsEditAddHotkeySub::Draw()
 	}
 
 	// Number value
-	if (hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 0) {
-		DrawText("Number value", GetActionValueAsString(), [this] {
+	if (hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 2) {
+		DrawText("Number value", hotkeyToEdit.value, [this] {
 			OnValueOptionPress();
 		});
 	}
@@ -140,6 +143,8 @@ void SettingsEditAddHotkeySub::Draw()
 			HotkeyController::hotkeys.push_back(hotkeyToEdit);
 		}
 		HotkeyController::Save();
+
+		menuController->GoToLastSub();
 	});
 }
 
@@ -153,14 +158,18 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 	}
 
 	DrawAction(text, [this, control] {
-		isEditingControllerControl = false;
+		if (!ControlManager::IsUsingController()) {
+			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
+			return;
+		}
+		isEditingKeyboardControl = false;
 		isEditingControllerControl = true;
 		controlToEdit = control;
 	});
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingControllerControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
-	Game::DrawText(ControlManager::ControlStringFromHash(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(ControlManager::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
@@ -172,7 +181,7 @@ void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
 
 	DrawAction(text, [this] {
 		isEditingControllerControl = false;
-		isEditingControllerControl = true;
+		isEditingKeyboardControl = true;
 	});
 
 	auto menuPos = menuController->position;
@@ -184,13 +193,28 @@ void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
 
 void SettingsEditAddHotkeySub::OnValueOptionPress()
 {
-	if (hotkeyToEdit.type != MenuOptionType::Number || hotkeyToEdit.action != 0)
+	if (hotkeyToEdit.type != MenuOptionType::Number || hotkeyToEdit.action != 2)
 		return;
 
 	try {
 		hotkeyToEdit.value = Game::GetInputWithKeyboard();
 	}
 	catch (std::exception e) {}
+}
+
+void SettingsEditAddHotkeySub::SubWillDraw()
+{
+	if (isEditingKeyboardControl || isEditingControllerControl) {
+		ControlManager::CanceMenuControlslForThisFrame();
+
+		if (editingControlAlpha == 0)
+			editingControlAlphaDirection = true;
+		else if (editingControlAlpha == 255)
+			editingControlAlphaDirection = false;
+		editingControlAlpha += editingControlAlphaDirection ? 10.2f : -10.2f;
+	}
+
+	FixedSubmenu::SubWillDraw();
 }
 
 // MARK: Controls
@@ -208,6 +232,7 @@ void SettingsEditAddHotkeySub::RespondToControls()
 				isEditingKeyboardControl = false;
 				editingControlAlpha = 255;
 				editingControlAlphaDirection = false;
+				ControlManager::CanceMenuControlslForThisFrame();
 				break;
 			}
 		}
@@ -219,6 +244,8 @@ void SettingsEditAddHotkeySub::RespondToControls()
 				isEditingControllerControl = false;
 				editingControlAlpha = 255;
 				editingControlAlphaDirection = false;
+				ControlManager::CanceMenuControlslForThisFrame();
+				break;
 			}
 		}
 	}
@@ -235,18 +262,22 @@ string SettingsEditAddHotkeySub::ActionString()
 	}
 }
 
-string SettingsEditAddHotkeySub::GetActionValueAsString()
+string SettingsEditAddHotkeySub::ActionValueString()
 {
 	switch (hotkeyToEdit.type) {
-	case MenuOptionType::Toggle:
+	case MenuOptionType::Toggle: 
 		switch (hotkeyToEdit.action) {
-		case 1: return hotkeyToEdit.value.get<bool>() ? "On" : "Off";
+		case 0: return "Toggle";
+		case 1: return "On";
+		case 2: return "Off";
 		default: return "";
 		}
-	case MenuOptionType::Number:
+		break;
+	case MenuOptionType::Number: 
 		switch (hotkeyToEdit.action) {
-		case 0: return hotkeyToEdit.value.get<bool>() ? "Increment" : "Decrement";
-		case 1: return hotkeyToEdit.value.get<string>();
+		case 0: return "Increment";
+		case 1: return "Decrement";
+		case 2: return "Custom";
 		default: return "";
 		}
 	default: return "";
@@ -255,8 +286,9 @@ string SettingsEditAddHotkeySub::GetActionValueAsString()
 
 int SettingsEditAddHotkeySub::OptionCount()
 {
-	return 5 + ((GetActionValueAsString() != "") ? 1 : 0) +
-		(hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 0) ? 1 : 0 +
+	return 7 + 
+		((ActionString() != "") ? 1 : 0) +
+		((hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 0) ? 1 : 0) +
 		parameters.size();
 }
 

@@ -2,11 +2,11 @@
 #include "pch.h"
 #include "FixedSubmenu.h"
 
-class AddOptionSub :
+class EditAddOptionSub :
 	public FixedSubmenu
 {
 public:
-	AddOptionSub(MenuController* menuController);
+	EditAddOptionSub(MenuOption* optionToEdit, MenuController* menuController);
 	void Draw() override;
 
 	int OptionCount() override;
@@ -17,5 +17,6 @@ public:
 private:
 	MenuOption optionToAdd;
 	std::vector<MenuOptionParameter> parameters;
+	string title;
 };
 

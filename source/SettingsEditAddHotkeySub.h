@@ -6,6 +6,9 @@ class SettingsEditAddHotkeySub :
 	public FixedSubmenu
 {
 public:
+
+	SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, Hotkey defaultHotkeyData, MenuController* menuController);
+
 	SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, MenuController* menuController);
 
 	void Draw() override;
@@ -18,11 +21,13 @@ public:
 
 	void OnValueOptionPress();
 
+	void SubWillDraw() override;
+
 	void RespondToControls();
 
 	string ActionString();
 
-	string GetActionValueAsString();
+	string ActionValueString();
 
 	int OptionCount() override;
 

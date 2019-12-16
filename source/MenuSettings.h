@@ -28,6 +28,7 @@ public:
 	static inline int MenuEditModeExitAndSave;
 	static inline int MenuEditModeMoveOption;
 	static inline int MenuEditModeAddOption;
+	static inline int MenuEditModeEditOption;
 	static inline int MenuEditModeDeleteOption;
 	static inline int BindBoost;
 
@@ -45,6 +46,7 @@ public:
 	static inline Hash ControllerMenuEditModeExitAndSave;
 	static inline Hash ControllerMenuEditModeMoveOption;
 	static inline Hash ControllerMenuEditModeAddOption;
+	static inline Hash ControllerMenuEditModeEditOption;
 	static inline Hash ControllerMenuEditModeDeleteOption;
 	static inline Hash ControllerBindBoost;
 

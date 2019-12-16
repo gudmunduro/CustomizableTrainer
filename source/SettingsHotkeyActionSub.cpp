@@ -37,9 +37,8 @@ void SettingsHotkeyActionSub::DrawToggleMenu()
 void SettingsHotkeyActionSub::DrawNumberMenu()
 {
 	DrawTitle("Toggle action");
-	DrawActionSet("Custom value", 0);
-	DrawActionSet("Increment", 1);
-	DrawActionSet("Decrement", 2);
+	DrawActionSet("Increment", 0);
+	DrawActionSet("Decrement", 1);
 }
 
 // MARK: Draw option
@@ -49,6 +48,7 @@ void SettingsHotkeyActionSub::DrawActionSet(string text, int action)
 	DrawAction(text, [this, action] {
 		if (onActionSet)
 			onActionSet(action);
+		menuController->GoToLastSub();
 	});
 }
 
@@ -56,5 +56,9 @@ void SettingsHotkeyActionSub::DrawActionSet(string text, int action)
 
 int SettingsHotkeyActionSub::OptionCount()
 {
-	return 3;
+	switch (type) {
+	case MenuOptionType::Toggle: return 3;
+	case MenuOptionType::Number: return 2;
+	default: return 0;
+	}
 }

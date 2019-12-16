@@ -219,6 +219,11 @@ void Actions::SpawnHorse(json params)
 	Vector3 spawnPosition = player.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
 	float heading = player.Heading() + 90.0f;
 
+	if (!STREAMING::IS_MODEL_IN_CDIMAGE(String::Hash(model))) {
+		Routine::StartDrawBottomMessage("Invalid model");
+		return;
+	}
+
 	Ped::Spawn(String::Hash(model), spawnPosition, heading);
 }
 

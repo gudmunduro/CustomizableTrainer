@@ -2,20 +2,46 @@
 #include "AddOptionSub.h"
 #include "AddOptionSetKeySub.h"
 #include "AddOptionSetTypeSub.h"
+#include "SettingsEditAddHotkeySub.h"
 #include "ActionManager.h"
+#include "HotkeyController.h"
 #include "Routine.h"
 
-AddOptionSub::AddOptionSub(MenuController* menuController)
+EditAddOptionSub::EditAddOptionSub(MenuOption *optionToEdit, MenuController* menuController)
 	: FixedSubmenu(menuController)
 {
-	
+	if (optionToEdit == nullptr) {
+		title = "Add option";
+	}
+	else {
+		title = "Edit option";
+		this->optionToAdd = *optionToEdit;
+		UpdateParameters();
+	}
+
 }
 
-void AddOptionSub::Draw()
+void EditAddOptionSub::Draw()
 {
 	Submenu::Draw();
 
-	DrawTitle("Add option");
+	DrawTitle(title);
+	// Add as hotkey
+	if (optionToAdd.type != MenuOptionType::Sub)
+		DrawAction("Add hotkey for this option >", [this] {
+			Hotkey hotkey = {
+				optionToAdd.text,
+				0,
+				0,
+				0,
+				optionToAdd.type,
+				optionToAdd.key,
+				0,
+				((optionToAdd.type == MenuOptionType::Action) ? optionToAdd.params : "")
+			};
+			auto hotkeySub = new SettingsEditAddHotkeySub(nullptr, hotkey, menuController);
+			menuController->AddSubmenuToStack(hotkeySub);
+		});
 	// Option type
 	DrawText("Type >", OptionTypeToString(optionToAdd.type), [this]() {
 		auto setTypeSub = new AddOptionSetTypeSub(menuController);
@@ -71,7 +97,7 @@ void AddOptionSub::Draw()
 	}
 
 	// Add option
-	DrawAction("Add", [this]() {
+	DrawAction("Done", [this]() {
 		if (optionToAdd.key == "") {
 			Routine::StartDrawBottomMessage("Error: Key cannot be empty");
 			return;
@@ -84,14 +110,14 @@ void AddOptionSub::Draw()
 
 // MARK: Getters
 
-int AddOptionSub::OptionCount()
+int EditAddOptionSub::OptionCount()
 {
-	return parameters.size() + 4;
+	return parameters.size() + 4 + ((optionToAdd.type != MenuOptionType::Sub) ? 1 : 0);
 }
 
 // MARK: Misc
 
-void AddOptionSub::UpdateParameters()
+void EditAddOptionSub::UpdateParameters()
 {
 	if (!(optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action &&
 			ActionManager::GetParameterForKey(optionToAdd.key).size() > 0))

@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "SettingsHotkeysSub.h"
 #include "HotkeyController.h"
+#include "ControlManager.h"
+#include "ConfirmDialog.h"
 #include "SettingsEditAddHotkeySub.h"
 
 SettingsHotkeysSub::SettingsHotkeysSub(MenuController* menuController) : FixedSubmenu(menuController)
@@ -25,6 +27,21 @@ void SettingsHotkeysSub::Draw()
 			auto hotkeySub = new SettingsEditAddHotkeySub(hotkey, menuController);
 			menuController->AddSubmenuToStack(hotkeySub);
 		});
+	}
+}
+
+void SettingsHotkeysSub::RespondToControls()
+{
+	FixedSubmenu::RespondToControls();
+
+	if (selection != 0 && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
+		auto confirmDialog = new ConfirmDialog(menuController, "Delete hotkey?", "", "Delete", "Cancel", [this](bool deleteHotkey) {
+			if (deleteHotkey) {
+				HotkeyController::hotkeys.erase(HotkeyController::hotkeys.begin() + selection - 1);
+				HotkeyController::Save();
+			}
+		});
+		menuController->AddSubmenuToStack(confirmDialog);
 	}
 }
 

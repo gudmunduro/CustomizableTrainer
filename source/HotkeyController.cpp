@@ -38,9 +38,17 @@ void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 		break;
 	case 1:
 		*ToggleManager::GetToggleForKey(hotkey.key) = true;
+		if (ToggleManager::DoesToggleActionExistForKey(hotkey.key)) {
+			auto action = ToggleManager::GetToggleActionForKey(hotkey.key);
+			action(true);
+		}
 		break;
 	case 2:
 		*ToggleManager::GetToggleForKey(hotkey.key) = false;
+		if (ToggleManager::DoesToggleActionExistForKey(hotkey.key)) {
+			auto action = ToggleManager::GetToggleActionForKey(hotkey.key);
+			action(false);
+		}
 		break;
 	}
 }
@@ -53,17 +61,17 @@ void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 	}
 	switch (hotkey.action) {
 	case 0:
+		NumberController::GetNumberAdjusterForKey(hotkey.key)(true);
+		break;
+	case 1:
+		NumberController::GetNumberAdjusterForKey(hotkey.key)(false);
+		break;
+	case 2:
 		if (!hotkey.value.is_string()) {
 			Routine::StartDrawBottomMessage("Error: Hotkey number value is invalid");
 			return;
 		}
-		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value);
-		break;
-	case 1:
-		NumberController::GetNumberAdjusterForKey(hotkey.key)(true);
-		break;
-	case 2:
-		NumberController::GetNumberAdjusterForKey(hotkey.key)(false);
+		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value.get<string>());
 		break;
 	}
 }

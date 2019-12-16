@@ -69,6 +69,7 @@ enum class MenuControl {
 	MenuEditModeExitAndSave,
 	MenuEditModeMoveOptionn,
 	MenuEditModeAddOption,
+	MenuEditModeEditOption,
 	MenuEditModeDeleteOption
 };
 
@@ -94,6 +95,7 @@ public:
 	static void CanceMenuControlslForThisFrame();
 	static void Tick();
 	static string GeyStringValueForKey(int key);
+	static string GetStringValueForControl(Hash control);
 	static string ControlStringFromHash(Hash control);
 private:
 	static inline bool shouldCancelForThisFrame = false;

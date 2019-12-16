@@ -31,6 +31,8 @@ bool ControlManager::IsMenuControlPressed(MenuControl control)
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeMoveOption) : IsKeyJustUp(MenuSettings::MenuEditModeMoveOption);
 	case MenuControl::MenuEditModeAddOption:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeAddOption) : IsKeyJustUp(MenuSettings::MenuEditModeAddOption);
+	case MenuControl::MenuEditModeEditOption:
+		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEditOption) : IsKeyJustUp(MenuSettings::MenuEditModeEditOption);
 	case MenuControl::MenuEditModeDeleteOption:
 		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeDeleteOption) : IsKeyJustUp(MenuSettings::MenuEditModeDeleteOption);
 	default:
@@ -123,6 +125,7 @@ void ControlManager::Tick()
 
 string ControlManager::GeyStringValueForKey(int key)
 {
+	if (key == 0) return "None";
 	UINT scanCode = MapVirtualKey(key, MAPVK_VK_TO_VSC);
 
 	CHAR szName[128];
@@ -144,9 +147,41 @@ string ControlManager::GeyStringValueForKey(int key)
 	if (result == 0)
 		// throw std::system_error(std::error_code(GetLastError(), std::system_category()),
 		//	 "WinAPI Error occured.");
-		return "None";
+		return "Unknown";
 
 	return szName;
+}
+
+string ControlManager::GetStringValueForControl(Hash control)
+{
+	switch (control) {
+		case 0: return "None";
+		case XboxControl::INPUT_FRONTEND_DOWN: return "Down";
+		case XboxControl::INPUT_FRONTEND_UP: return "Up";
+		case XboxControl::INPUT_FRONTEND_LEFT: return "Left";
+		case XboxControl::INPUT_FRONTEND_RIGHT: return "Right";
+		case XboxControl::INPUT_FRONTEND_RDOWN: return "R down";
+		case XboxControl::INPUT_FRONTEND_RUP: return "R up";
+		case XboxControl::INPUT_FRONTEND_RLEFT: return "R left";
+		case XboxControl::INPUT_FRONTEND_RRIGHT: return "R right";
+		case XboxControl::INPUT_FRONTEND_AXIS_X: return "LS right";
+		case XboxControl::INPUT_FRONTEND_AXIS_Y: return "LS down";
+		case XboxControl::INPUT_FRONTEND_RIGHT_AXIS_X: return "RS right";
+		case XboxControl::INPUT_FRONTEND_RIGHT_AXIS_Y: return "RS down";
+		case XboxControl::INPUT_FRONTEND_PAUSE: return "Pause";
+		case XboxControl::INPUT_FRONTEND_PAUSE_ALTERNATE: return "Pause-alt";
+		case XboxControl::INPUT_FRONTEND_ACCEPT: return "A";
+		case XboxControl::INPUT_FRONTEND_CANCEL: return "B";
+		case XboxControl::INPUT_FRONTEND_X: return "X";
+		case XboxControl::INPUT_FRONTEND_Y: return "Y";
+		case XboxControl::INPUT_FRONTEND_LB: return "LB";
+		case XboxControl::INPUT_FRONTEND_RB: return "RB";
+		case XboxControl::INPUT_FRONTEND_LT: return "LT";
+		case XboxControl::INPUT_FRONTEND_RT: return "RT";
+		case XboxControl::INPUT_FRONTEND_LS: return "LS";
+		case XboxControl::INPUT_FRONTEND_RS: return "RS";
+		default: return "Unknown";
+	}
 }
 
 string ControlManager::ControlStringFromHash(Hash control)
@@ -176,6 +211,6 @@ string ControlManager::ControlStringFromHash(Hash control)
 		case 1877832124: return "INPUT_FRONTEND_RT";
 		case 1137550768: return "INPUT_FRONTEND_LS";
 		case 2107936042: return "INPUT_FRONTEND_RS";
-		default: return "None";
+		default: return "";
 	}
 }

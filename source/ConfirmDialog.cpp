@@ -13,14 +13,24 @@ ConfirmDialog::ConfirmDialog(MenuController* menuController, string title, strin
 
 void ConfirmDialog::Draw()
 {
+	FixedSubmenu::Draw();
+
 	DrawTitle(title);
-	DrawLabel(text);
+	if (text != "")
+		DrawLabel(text);
 	DrawAction(confirmText, [this] {
 		if (onConfirm)
 			onConfirm(true);
+		menuController->GoToLastSub();
 	});
 	DrawAction(cancelText, [this] {
 		if (onConfirm)
 			onConfirm(false);
+		menuController->GoToLastSub();
 	});
+}
+
+int ConfirmDialog::OptionCount()
+{
+	return 2 + ((text != "") ? 1 : 0);
 }

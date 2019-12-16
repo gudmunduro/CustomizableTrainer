@@ -8,6 +8,7 @@ public:
 	SettingsHotkeysSub(MenuController *menuController);
 
 	void Draw() override;
+	void RespondToControls() override;
 	int OptionCount() override;
 
 };

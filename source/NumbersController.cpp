@@ -39,6 +39,9 @@ void NumberController::SetNumberValueForKey(string key, string value)
 		else if (DoesNumberIntVariableExistForKey(key)) {
 			*numbersInt[key] = std::stof(value);
 		}
+		else if (DoesNumberIntVariableExistForKey(key)) {
+			Routine::StartDrawBottomMessage("Cannot set value for this number");
+		}
 	}
 	catch (std::exception e) {
 		Routine::StartDrawBottomMessage("Failed to set number value for '" + key + "'");

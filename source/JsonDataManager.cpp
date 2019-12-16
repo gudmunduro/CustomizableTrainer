@@ -67,6 +67,7 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::MenuEditModeExitAndSave = keyboardControls["menuEditModeExitAndSave"].get<int>();
 		MenuSettings::MenuEditModeMoveOption = keyboardControls["menuEditModeMoveOption"].get<int>();
 		MenuSettings::MenuEditModeAddOption = keyboardControls["menuEditModeAddOption"].get<int>();
+		MenuSettings::MenuEditModeEditOption = keyboardControls["menuEditModeEditOption"].get<int>();
 		MenuSettings::MenuEditModeDeleteOption = keyboardControls["menuEditModeDeleteOption"].get<int>();
 		MenuSettings::BindBoost = keyboardControls["bindBoost"].get<int>();
 		
@@ -85,6 +86,7 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<string>());
 		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<string>());
 		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<string>());
+		MenuSettings::ControllerMenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<string>());
 		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<string>());
 		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<string>());
 	}
@@ -200,6 +202,7 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 					{"menuEditModeExitAndSave", MenuSettings::MenuEditModeExitAndSave},
 					{"menuEditModeMoveOption", MenuSettings::MenuEditModeMoveOption},
 					{"menuEditModeAddOption", MenuSettings::MenuEditModeAddOption},
+					{"menuEditModeEditOption", MenuSettings::MenuEditModeEditOption},
 					{"menuEditModeDeleteOption", MenuSettings::MenuEditModeDeleteOption},
 					{"bindBoost", MenuSettings::BindBoost}
 				}},
@@ -217,6 +220,7 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 					{ "menuEditModeExitAndSave", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExitAndSave) },
 					{ "menuEditModeMoveOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeMoveOption) },
 					{ "menuEditModeAddOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
+					{ "menuEditModeEditOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEditOption) },
 					{ "menuEditModeDeleteOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
 					{ "bindBoost", ControlManager::ControlStringFromHash(MenuSettings::ControllerBindBoost) }
 				}}

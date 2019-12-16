@@ -30,6 +30,7 @@ void SettingsControlsKeyboardSub::Draw()
 	DrawEditControl("Exit edit mode and save", &MenuSettings::MenuEditModeExitAndSave);
 	DrawEditControl("Move option", &MenuSettings::MenuEditModeMoveOption);
 	DrawEditControl("Add option", &MenuSettings::MenuEditModeAddOption);
+	DrawEditControl("Edit option", &MenuSettings::MenuEditModeAddOption);
 	DrawEditControl("Delete option", &MenuSettings::MenuEditModeDeleteOption);
 	DrawEditControl("Boost vehicle", &MenuSettings::BindBoost);
 }
@@ -94,5 +95,5 @@ void SettingsControlsKeyboardSub::RespondToControls()
 
 int SettingsControlsKeyboardSub::OptionCount()
 {
-	return 14;
+	return 15;
 }
