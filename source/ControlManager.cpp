@@ -8,33 +8,33 @@ bool ControlManager::IsMenuControlPressed(MenuControl control)
 	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuOptionPress:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOptionPress) : IsKeyJustUp(MenuSettings::MenuOptionPress);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOptionPress) : IsKeyJustUp(MenuSettings::MenuOptionPress);
 	case MenuControl::MenuDown:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuDown) : IsKeyJustUp(MenuSettings::MenuDown);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuDown) : IsKeyJustUp(MenuSettings::MenuDown);
 	case MenuControl::MenuUp:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuUp) : IsKeyJustUp(MenuSettings::MenuUp);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuUp) : IsKeyJustUp(MenuSettings::MenuUp);
 	case MenuControl::MenuOpen:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuOpenModifier) && CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOpen) : IsKeyJustUp(MenuSettings::MenuOpen);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerMenuOpenModifier) && CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuOpen) : IsKeyJustUp(MenuSettings::MenuOpen);
 	case MenuControl::MenuGoBack:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuBack) : IsKeyJustUp(MenuSettings::MenuBack);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuBack) : IsKeyJustUp(MenuSettings::MenuBack);
 	case MenuControl::MenuAdjustValueDown:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyJustUp(MenuSettings::MenuAdjustValueDown);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyJustUp(MenuSettings::MenuAdjustValueDown);
 	case MenuControl::MenuAdjustValueUp:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyJustUp(MenuSettings::MenuAdjustValueUp);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyJustUp(MenuSettings::MenuAdjustValueUp);
 	case MenuControl::MenuEditModeEnter:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEnter) : IsKeyJustUp(MenuSettings::MenuEditModeEnter);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEnter) : IsKeyJustUp(MenuSettings::MenuEditModeEnter);
 	case MenuControl::MenuEditModeExit:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExit) : IsKeyJustUp(MenuSettings::MenuEditModeExit);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExit) : IsKeyJustUp(MenuSettings::MenuEditModeExit);
 	case MenuControl::MenuEditModeExitAndSave:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExitAndSave) : IsKeyJustUp(MenuSettings::MenuEditModeExitAndSave);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeExitAndSave) : IsKeyJustUp(MenuSettings::MenuEditModeExitAndSave);
 	case MenuControl::MenuEditModeMoveOptionn:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeMoveOption) : IsKeyJustUp(MenuSettings::MenuEditModeMoveOption);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeMoveOption) : IsKeyJustUp(MenuSettings::MenuEditModeMoveOption);
 	case MenuControl::MenuEditModeAddOption:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeAddOption) : IsKeyJustUp(MenuSettings::MenuEditModeAddOption);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeAddOption) : IsKeyJustUp(MenuSettings::MenuEditModeAddOption);
 	case MenuControl::MenuEditModeEditOption:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEditOption) : IsKeyJustUp(MenuSettings::MenuEditModeEditOption);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeEditOption) : IsKeyJustUp(MenuSettings::MenuEditModeEditOption);
 	case MenuControl::MenuEditModeDeleteOption:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeDeleteOption) : IsKeyJustUp(MenuSettings::MenuEditModeDeleteOption);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, MenuSettings::ControllerMenuEditModeDeleteOption) : IsKeyJustUp(MenuSettings::MenuEditModeDeleteOption);
 	default:
 		return false;
 	}
@@ -45,9 +45,9 @@ bool ControlManager::IsHoldingMenuControl(MenuControl control)
 	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuAdjustValueDown:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyDown(MenuSettings::MenuAdjustValueDown);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueDown) : IsKeyDown(MenuSettings::MenuAdjustValueDown);
 	case MenuControl::MenuAdjustValueUp:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyDown(MenuSettings::MenuAdjustValueUp);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerMenuAdjustValueUp) : IsKeyDown(MenuSettings::MenuAdjustValueUp);
 	default:
 		return false;
 	}
@@ -56,8 +56,8 @@ bool ControlManager::IsHoldingMenuControl(MenuControl control)
 bool ControlManager::IsHotkeyPressed(Hotkey hotkey)
 {
 	return hotkey.keyboardKey&& IsKeyJustUp(hotkey.keyboardKey) ||
-			hotkey.controllerControl && !hotkey.controllerControlModifier && CONTROLS::IS_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) ||
-			hotkey.controllerControl && hotkey.controllerControlModifier && CONTROLS::IS_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) && CONTROLS::IS_CONTROL_PRESSED(0, hotkey.controllerControlModifier);
+			hotkey.controllerControl && !hotkey.controllerControlModifier && CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) ||
+			hotkey.controllerControl && hotkey.controllerControlModifier && CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) && CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, hotkey.controllerControlModifier);
 }
 
 bool ControlManager::IsUsingController()
@@ -65,39 +65,60 @@ bool ControlManager::IsUsingController()
 	return !CONTROLS::_IS_INPUT_DISABLED(2);
 }
 
-void ControlManager::EnableMenuOpenControls()
+void ControlManager::SetMenuControlsEnabled(bool value)
 {
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOpenModifier, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOpen, true);
-}
+	Hash controls[] = {
+		MenuSettings::ControllerMenuOptionPress,
+		MenuSettings::ControllerMenuDown,
+		MenuSettings::ControllerMenuUp,
+		MenuSettings::ControllerMenuBack,
+		MenuSettings::ControllerMenuAdjustValueUp,
+		MenuSettings::ControllerMenuAdjustValueDown,
+		MenuSettings::ControllerMenuEditModeEnter,
+		MenuSettings::ControllerMenuEditModeExit,
+		MenuSettings::ControllerMenuEditModeExitAndSave,
+		MenuSettings::ControllerMenuEditModeMoveOption,
+		MenuSettings::ControllerMenuEditModeEditOption,
+		MenuSettings::ControllerMenuEditModeAddOption,
+		MenuSettings::ControllerMenuEditModeDeleteOption,
+	};
 
-void ControlManager::EnableMenuControls()
-{
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuOptionPress, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuDown, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuUp, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuBack, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeEnter, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeExit, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeExitAndSave, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeMoveOption, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeAddOption, true);
-	CONTROLS::ENABLE_CONTROL_ACTION(0, MenuSettings::ControllerMenuEditModeDeleteOption, true);
+	for each (auto control in controls) {
+		CONTROLS::DISABLE_CONTROL_ACTION(0, control, !value);
+	}
 }
 
 bool ControlManager::IsFunctionControlPressed(FunctionControl control)
 {
 	switch (control) {
 	case FunctionControl::PlayerRun:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT) : IsKeyDown(VK_SHIFT);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_ACCEPT) : IsKeyDown(VK_SHIFT);
 	case FunctionControl::HorseJump:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
 	case FunctionControl::HorseFlyUp:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_X) : IsKeyDown(VK_SPACE);
 	case FunctionControl::HorseFlyDown:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL) : IsKeyDown(VK_SPACE);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_CANCEL) : IsKeyDown(VK_SPACE);
 	case FunctionControl::BindBoost:
-		return IsUsingController() ? CONTROLS::IS_CONTROL_PRESSED(0, MenuSettings::ControllerBindBoost) : IsKeyDown(MenuSettings::BindBoost);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBindBoost) : IsKeyDown(MenuSettings::BindBoost);
+	case FunctionControl::BoatFlyModeAccelerate:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBoatFlyModeAccelerate) : IsKeyDown(MenuSettings::BoatFlyModeAccelerate);
+	case FunctionControl::BoatFlyModeDecelerate:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBoatFlyModeDecelerate) : IsKeyDown(MenuSettings::BoatFlyModeDecelerate);
+	case FunctionControl::BoatFlyModeFlyUp:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBoatFlyModeFlyUp) : IsKeyDown(MenuSettings::BoatFlyModeFlyUp);
+	case FunctionControl::BoatFlyModeUp:
+		return IsUsingController() ? false : IsKeyDown(MenuSettings::BoatFlyModeUp);
+	case FunctionControl::BoatFlyModeDown:
+		return IsUsingController() ? false : IsKeyDown(MenuSettings::BoatFlyModeDown);
+	case FunctionControl::BoatFlyModeLeft:
+		return IsUsingController() ? false : IsKeyDown(MenuSettings::BoatFlyModeLeft);
+	case FunctionControl::BoatFlyModeRight:
+		return IsUsingController() ? false : IsKeyDown(MenuSettings::BoatFlyModeRight);
+	case FunctionControl::BoatFlyModeYawLeft:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBoatFlyModeYawLeft) : IsKeyDown(MenuSettings::BoatFlyModeYawLeft);
+	case FunctionControl::BoatFlyModeYawRight:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, MenuSettings::ControllerBoatFlyModeYawRight) : IsKeyDown(MenuSettings::BoatFlyModeYawRight);
 	default:
 		return false;
 	}
@@ -160,6 +181,10 @@ string ControlManager::GetStringValueForControl(Hash control)
 		case XboxControl::INPUT_FRONTEND_UP: return "Up";
 		case XboxControl::INPUT_FRONTEND_LEFT: return "Left";
 		case XboxControl::INPUT_FRONTEND_RIGHT: return "Right";
+		case XboxControl::INPUT_FRONTEND_PAD_LEFT: return "Left";
+		case XboxControl::INPUT_FRONTEND_PAD_RIGHT: return "Right";
+		case XboxControl::INPUT_FRONTEND_PAD_UP: return "Up";
+		case XboxControl::INPUT_FRONTEND_PAD_DOWN: return "Down";
 		case XboxControl::INPUT_FRONTEND_RDOWN: return "R down";
 		case XboxControl::INPUT_FRONTEND_RUP: return "R up";
 		case XboxControl::INPUT_FRONTEND_RLEFT: return "R left";

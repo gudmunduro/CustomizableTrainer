@@ -99,7 +99,7 @@ void HotkeyController::Save()
 	jsonDataManager.SaveHotkeys(hotkeys);
 }
 
-// MARK: Core
+// MARK: Main
 
 void HotkeyController::Tick()
 {

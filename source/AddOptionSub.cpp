@@ -60,6 +60,7 @@ void EditAddOptionSub::Draw()
 		auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
 		setKeySub->onKeySet = [this](string key) {
 			this->optionToAdd.key = key;
+			this->optionToAdd.params = json::array();
 			UpdateParameters();
 		};
 		menuController->AddSubmenuToStack(setKeySub);

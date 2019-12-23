@@ -5,12 +5,20 @@ class XboxControl {
 public:
 	static inline const int INPUT_FRONTEND_DOWN = 97156178;
 	static inline const int INPUT_FRONTEND_UP = 1662638961;
+	static inline const int INPUT_FRONTEND_PAD_DOWN = 416407838;
+	static inline const int INPUT_FRONTEND_PAD_UP = 1714166746;
+	static inline const int INPUT_FRONTEND_PAD_LEFT = 575419516;
+	static inline const int INPUT_FRONTEND_PAD_RIGHT = 2362840370;
 	static inline const int INPUT_FRONTEND_LEFT = 2791226036;
 	static inline const int INPUT_FRONTEND_RIGHT = 3736290067;
 	static inline const int INPUT_FRONTEND_RDOWN = 1463068996;
 	static inline const int INPUT_FRONTEND_RUP = 3621677854;
 	static inline const int INPUT_FRONTEND_RLEFT = 959670863;
 	static inline const int INPUT_FRONTEND_RRIGHT = 1531509048;
+	static inline const int INPUT_FRONTEND_LDOWN = 2595139801;
+	static inline const int INPUT_FRONTEND_LUP = 3861192820;
+	static inline const int INPUT_FRONTEND_LLEFT = 493286666;
+	static inline const int INPUT_FRONTEND_LRIGHT = 915256155;
 	static inline const int INPUT_FRONTEND_AXIS_X = 4216773979;
 	static inline const int INPUT_FRONTEND_AXIS_Y = 152139984;
 	static inline const int INPUT_FRONTEND_RIGHT_AXIS_X = 1025725594;
@@ -78,7 +86,16 @@ enum class FunctionControl {
 	HorseJump,
 	HorseFlyUp,
 	HorseFlyDown,
-	BindBoost
+	BindBoost,
+	BoatFlyModeAccelerate,
+	BoatFlyModeDecelerate,
+	BoatFlyModeFlyUp,
+	BoatFlyModeUp,
+	BoatFlyModeDown,
+	BoatFlyModeLeft,
+	BoatFlyModeRight,
+	BoatFlyModeYawLeft,
+	BoatFlyModeYawRight
 };
 
 class ControlManager
@@ -88,8 +105,7 @@ public:
 	static bool IsHoldingMenuControl(MenuControl control);
 	static bool IsHotkeyPressed(Hotkey hotkey);
 	static bool IsUsingController();
-	static void EnableMenuOpenControls();
-	static void EnableMenuControls();
+	static void SetMenuControlsEnabled(bool value);
 	static bool IsFunctionControlPressed(FunctionControl control);
 	static bool IsFunctionControlJustReleased(FunctionControl control);
 	static void CanceMenuControlslForThisFrame();

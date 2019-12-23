@@ -165,6 +165,8 @@ int Submenu::OptionCount()
 
 void Submenu::RespondToControls()
 {
+	ControlManager::SetMenuControlsEnabled(false);
+
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuDown)) {
 		int oldSelection = selection;
 		if (selection < OptionCount() - 1) selection++;

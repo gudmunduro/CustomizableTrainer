@@ -3,6 +3,7 @@
 #include "Routine.h"
 #include "Player.h"
 #include "PedSpawner.h"
+#include "ControlManager.h"
 
 void Toggles::OnPlayerInvincibleToggle(bool value)
 {
@@ -108,6 +109,20 @@ void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
 				ped->ped.RemoveFromGroup();
 			ped->isBodyGuard = value;
 		}
+	}
+}
+
+void Toggles::OnBoatFlyModeToggle(bool value)
+{
+	if (value) {
+		Routine::StartBoatFlyMode();
+	}
+	else {
+		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_RB, false);
+		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, false);
+		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_X, false);
+		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_AXIS_Y, false);
+		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_AXIS_X, false);
 	}
 }
 

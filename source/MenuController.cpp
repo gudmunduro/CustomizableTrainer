@@ -63,17 +63,20 @@ void MenuController::GoToLastSub()
 			}
 		}
 	}
-	if (submenuStack.size() == 0) shouldDrawMenu = false;
+	if (submenuStack.size() == 0) { 
+		shouldDrawMenu = false;
+		ControlManager::SetMenuControlsEnabled(true);
+	}
 }
 
 // MARK: Controls
 
 void MenuController::RespondToControls()
 {
-	ControlManager::EnableMenuOpenControls();
 	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
 
+		ControlManager::SetMenuControlsEnabled(!shouldDrawMenu);
 		if (submenuStack.size() == 0) {
 			SetSubmenuWithKey("required_sub_default");
 		}

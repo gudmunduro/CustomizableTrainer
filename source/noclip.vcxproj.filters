@@ -213,6 +213,9 @@
     <ClInclude Include="SettingsHotkeyActionSub.h">
       <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="BoatFlyMode.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -331,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="SettingsHotkeyActionSub.cpp">
       <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="BoatFlyMode.cpp">
+      <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -12,31 +12,36 @@ JSONDataManager::JSONDataManager()
 // MARK: Process data
 std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 {
-	std::map<string, SubmenuData> layoutDataMap;
-	for (auto& submenu : layoutData) {
-		string key = submenu["key"].get<string>();
-		SubmenuData submenuData = {
-			submenu["title"].get<string>(),
-			key,
-			{}
-		};
-		for (auto& option : submenu["options"]) {
-			MenuOptionType menuOptionType;
-			if (option["type"].get<string>() == "sub") menuOptionType = MenuOptionType::Sub;
-			else if (option["type"].get<string>() == "action") menuOptionType = MenuOptionType::Action;
-			else if (option["type"].get<string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
-			else if (option["type"].get<string>() == "number") menuOptionType = MenuOptionType::Number;
-			else menuOptionType = MenuOptionType::Action;
-			submenuData.options.push_back({
-				menuOptionType,
-				option["text"].get<string>(),
-				option["key"].get<string>(),
-				option.contains("params") ? option["params"] : json::array()
-			});
+	try {
+		std::map<string, SubmenuData> layoutDataMap;
+		for (auto& submenu : layoutData) {
+			string key = submenu["key"].get<string>();
+			SubmenuData submenuData = {
+				submenu["title"].get<string>(),
+				key,
+				{}
+			};
+			for (auto& option : submenu["options"]) {
+				MenuOptionType menuOptionType;
+				if (option["type"].get<string>() == "sub") menuOptionType = MenuOptionType::Sub;
+				else if (option["type"].get<string>() == "action") menuOptionType = MenuOptionType::Action;
+				else if (option["type"].get<string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
+				else if (option["type"].get<string>() == "number") menuOptionType = MenuOptionType::Number;
+				else menuOptionType = MenuOptionType::Action;
+				submenuData.options.push_back({
+					menuOptionType,
+					option["text"].get<string>(),
+					option["key"].get<string>(),
+					option.contains("params") ? option["params"] : json::array()
+					});
+			}
+			layoutDataMap[key] = submenuData;
 		}
-		layoutDataMap[key] = submenuData;
+		return layoutDataMap;
 	}
-	return layoutDataMap;
+	catch (std::exception e) {
+		Routine::StartDrawBottomMessage("Failed to parse layout.json");
+	}
 }
 
 void JSONDataManager::UpdateMenuSettings()
@@ -70,6 +75,15 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::MenuEditModeEditOption = keyboardControls["menuEditModeEditOption"].get<int>();
 		MenuSettings::MenuEditModeDeleteOption = keyboardControls["menuEditModeDeleteOption"].get<int>();
 		MenuSettings::BindBoost = keyboardControls["bindBoost"].get<int>();
+		MenuSettings::BoatFlyModeAccelerate = keyboardControls["boatFlyModeAccelerate"].get<int>();
+		MenuSettings::BoatFlyModeDecelerate = keyboardControls["boatFlyModeDecelerate"].get<int>();
+		MenuSettings::BoatFlyModeFlyUp = keyboardControls["boatFlyModeFlyUp"].get<int>();
+		MenuSettings::BoatFlyModeUp = keyboardControls["boatFlyModeUp"].get<int>();
+		MenuSettings::BoatFlyModeDown = keyboardControls["boatFlyModeDown"].get<int>();
+		MenuSettings::BoatFlyModeLeft = keyboardControls["boatFlyModeLeft"].get<int>();
+		MenuSettings::BoatFlyModeRight = keyboardControls["boatFlyModeRight"].get<int>();
+		MenuSettings::BoatFlyModeYawLeft = keyboardControls["boatFlyModeYawLeft"].get<int>();
+		MenuSettings::BoatFlyModeYawRight = keyboardControls["boatFlyModeYawRight"].get<int>();
 		
 		// Controller controls
 		json controllerControls = settingsData["controls"]["controller"];
@@ -89,9 +103,15 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::ControllerMenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<string>());
 		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<string>());
 		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<string>());
+		MenuSettings::ControllerBoatFlyModeAccelerate = String::Hash(controllerControls["boatFlyModeAccelerate"].get<string>());
+		MenuSettings::ControllerBoatFlyModeDecelerate = String::Hash(controllerControls["boatFlyModeDecelerate"].get<string>());
+		MenuSettings::ControllerBoatFlyModeFlyUp = String::Hash(controllerControls["boatFlyModeFlyUp"].get<string>());
+		MenuSettings::ControllerBoatFlyModeYawLeft = String::Hash(controllerControls["boatFlyModeYawLeft"].get<string>());
+		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<string>());
 	}
 	catch (const std::exception & e) {
 		Routine::StartDrawBottomMessage("Error: Failed to parse settings.json");
+		// Routine::StartDrawBottomMessage(e.what(), 6000);
 	}
 }
 
@@ -204,7 +224,16 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 					{"menuEditModeAddOption", MenuSettings::MenuEditModeAddOption},
 					{"menuEditModeEditOption", MenuSettings::MenuEditModeEditOption},
 					{"menuEditModeDeleteOption", MenuSettings::MenuEditModeDeleteOption},
-					{"bindBoost", MenuSettings::BindBoost}
+					{"bindBoost", MenuSettings::BindBoost},
+					{"boatFlyModeAccelerate", MenuSettings::BoatFlyModeAccelerate},
+					{"boatFlyModeDecelerate", MenuSettings::BoatFlyModeDecelerate},
+					{"boatFlyModeFlyUp", MenuSettings::BoatFlyModeFlyUp},
+					{"boatFlyModeUp", MenuSettings::BoatFlyModeUp},
+					{"boatFlyModeDown", MenuSettings::BoatFlyModeDown},
+					{"boatFlyModeLeft", MenuSettings::BoatFlyModeLeft},
+					{"boatFlyModeRight", MenuSettings::BoatFlyModeRight},
+					{"boatFlyModeYawLeft", MenuSettings::BoatFlyModeYawLeft},
+					{"boatFlyModeYawRight", MenuSettings::BoatFlyModeYawRight}
 				}},
 				{"controller", {
 					{ "menuOpen", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOpen) },
@@ -222,7 +251,12 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 					{ "menuEditModeAddOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
 					{ "menuEditModeEditOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEditOption) },
 					{ "menuEditModeDeleteOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
-					{ "bindBoost", ControlManager::ControlStringFromHash(MenuSettings::ControllerBindBoost) }
+					{ "bindBoost", ControlManager::ControlStringFromHash(MenuSettings::ControllerBindBoost) },
+					{ "boatFlyModeAccelerate", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeAccelerate) },
+					{ "boatFlyModeDecelerate", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeDecelerate) },
+					{ "boatFlyModeFlyUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeFlyUp) },
+					{ "boatFlyModeYawRight", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawRight) },
+					{ "boatFlyModeYawLeft", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawLeft) }
 				}}
 			}}
 		});

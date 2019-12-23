@@ -20,7 +20,7 @@ void SettingsControlsControllerSub::Draw()
 	DrawTitle("Controller");
 	DrawEditControl("Open", &MenuSettings::ControllerMenuOpen);
 	DrawEditControl("Open modifier", &MenuSettings::ControllerMenuOpenModifier);
-	DrawEditControl("Press option", &MenuSettings::ControllerMenuOptionPress);
+	DrawEditControl("Select", &MenuSettings::ControllerMenuOptionPress);
 	DrawEditControl("Up", &MenuSettings::ControllerMenuUp);
 	DrawEditControl("Down", &MenuSettings::ControllerMenuDown);
 	DrawEditControl("Back", &MenuSettings::ControllerMenuBack);
@@ -34,6 +34,10 @@ void SettingsControlsControllerSub::Draw()
 	DrawEditControl("Edit option", &MenuSettings::ControllerMenuEditModeEditOption);
 	DrawEditControl("Delete option", &MenuSettings::ControllerMenuEditModeDeleteOption);
 	DrawEditControl("Boost vehicle", &MenuSettings::ControllerBindBoost);
+	DrawEditControl("Boat fly mode accelerate", &MenuSettings::ControllerBoatFlyModeAccelerate);
+	DrawEditControl("Boat fly mode decelerate", &MenuSettings::ControllerBoatFlyModeDecelerate);
+	DrawEditControl("Boat fly mode yaw left", &MenuSettings::ControllerBoatFlyModeYawLeft);
+	DrawEditControl("Boat fly mode yaw right", &MenuSettings::ControllerBoatFlyModeYawRight);
 }
 
 void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
@@ -81,7 +85,7 @@ void SettingsControlsControllerSub::RespondToControls()
 	FixedSubmenu::RespondToControls();
 	if (isEditingControl) {
 		for each (auto control in allControls) {
-			if (CONTROLS::IS_CONTROL_JUST_PRESSED(0, control)) {
+			if (CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, control)) {
 				*controlToEdit = control;
 				isEditingControl = false;
 				editingControlAlpha = 255;
@@ -97,5 +101,5 @@ void SettingsControlsControllerSub::RespondToControls()
 
 int SettingsControlsControllerSub::OptionCount()
 {
-	return 16;
+	return 20;
 }

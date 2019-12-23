@@ -92,6 +92,11 @@ void Ped::SetAmmo(Hash weapon, int ammo)
 	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
 }
 
+void Ped::SetCanBeKnockedOffVehicle(int state)
+{
+	PED::SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE(pedId, state);
+}
+
 void Ped::Delete()
 {
 	PED::DELETE_PED(&pedId);

@@ -116,6 +116,7 @@
     <ClInclude Include="AddOptionSetKeySub.h" />
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
+    <ClInclude Include="BoatFlyMode.h" />
     <ClInclude Include="ConfirmDialog.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="core\Hash.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="AddOptionSetKeySub.cpp" />
     <ClCompile Include="AddOptionSetTypeSub.cpp" />
     <ClCompile Include="AddOptionSub.cpp" />
+    <ClCompile Include="BoatFlyMode.cpp" />
     <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />

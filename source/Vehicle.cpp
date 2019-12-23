@@ -8,18 +8,36 @@ Vehicle::Vehicle(VehicleId vehicleId)
 }
 
 // MARK: Booleans
+
 bool Vehicle::Exists()
 {
 	return vehicleId != 0 && ENTITY::DOES_ENTITY_EXIST(vehicleId);
 }
 
-// Getters
+bool Vehicle::IsBoat()
+{
+	return VEHICLE::IS_THIS_MODEL_A_BOAT(Model());
+}
+
+// MARK: Getters
+
 VehicleId Vehicle::GetVehicleId()
 {
 	return vehicleId;
 }
 
+Hash Vehicle::Model()
+{
+	return ENTITY::GET_ENTITY_MODEL(vehicleId);
+}
+
+float Vehicle::Speed()
+{
+	return ENTITY::GET_ENTITY_SPEED(vehicleId);
+}
+
 // MARK: Manage
+
 void Vehicle::SetAsMissionEntity()
 {
 	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(vehicleId, true, false);
@@ -50,6 +68,11 @@ void Vehicle::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAx
 	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(vehicleId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
 }
 
+void Vehicle::ApplyForceRelative(Vector3 direction, Vector3 offset)
+{
+	ENTITY::APPLY_FORCE_TO_ENTITY(vehicleId, 1, direction.x, direction.y, direction.z, offset.x, offset.y, offset.z, false, true, true, true, false, true);
+}
+
 void Vehicle::Repair()
 {
 	VEHICLE::SET_VEHICLE_FIXED(vehicleId);
@@ -63,6 +86,7 @@ void Vehicle::Delete()
 }
 
 // MARK: Static methods
+
 Vehicle Vehicle::Closest(Vector3 position, float radius)
 {
 	return Vehicle(VEHICLE::GET_CLOSEST_VEHICLE(position.x, position.y, position.z, radius, 0, 70));

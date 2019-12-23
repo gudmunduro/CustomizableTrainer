@@ -51,6 +51,7 @@ void ToggleManager::RegisterToggles()
 	RegisterToggle("toggle_forceFirstPersonOnHorse", Toggles::forceFirstPersonOnHorse);
 	// RegisterToggle("toggle_horseFlyMode", Toggles::horseFlyMode);
 	RegisterToggle("toggle_vehicleBindBoost", Toggles::vehicleBindBoost);
+	RegisterToggle("toggle_boatFlyMode", Toggles::boatFlyMode);
 	RegisterToggle("toggle_forceFirstPersonInVehicle", Toggles::forceFirstPersonInVehicle);
 	RegisterToggle("toggle_systemClockSync", Toggles::systemClockSync);
 	RegisterToggle("toggle_pauseClock", Toggles::pauseClock);
@@ -75,6 +76,7 @@ void ToggleManager::RegisterToggles()
 	RegisterToggleAction("toggle_allSpawnedPedsBodyguard", Toggles::OnAllSpanwedPedsBodyguardToggle);
 	RegisterToggleAction("toggle_playerNeverWanted", Toggles::OnPlayerNeverWantedToggle);
 	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
+	RegisterToggleAction("toggle_boatFlyMode", Toggles::OnBoatFlyModeToggle);
 	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);
 	RegisterToggleAction("toggle_freezeWeather", Toggles::OnFreezeWeatherToggle);
 	RegisterToggleAction("toggle_weaponExtraDamage", Toggles::OnWeaponExtraDamageToggle);

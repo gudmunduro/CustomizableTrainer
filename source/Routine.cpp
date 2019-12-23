@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "ControlManager.h"
 #include "HorseFlyMode.h"
+#include "BoatFlyMode.h"
 #include "Numbers.h"
 #include "HotkeyController.h"
 #include "ControlManager.h"
@@ -12,6 +13,8 @@
 string bottomMesssageText;
 DWORD drawBottomTextUntil;
 HorseFlyMode* horseFlyMode;
+BoatFlyMode* boatFlyMode;
+
 
 
 // MARK: Start Routine
@@ -19,6 +22,11 @@ void Routine::StartDrawBottomMessage(string message, int time)
 {
 	bottomMesssageText = message;
 	drawBottomTextUntil = GetTickCount() + time;
+}
+
+void Routine::StartBoatFlyMode()
+{
+	boatFlyMode = new BoatFlyMode();
 }
 
 // MARK: Routines
@@ -150,6 +158,10 @@ void RunLoopedToggles()
 
 	if (*Toggles::forceFirstPersonInVehicle && player.IsInVehicle()) {
 		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
+	}
+
+	if (*Toggles::boatFlyMode) {
+		boatFlyMode->Tick();
 	}
 
 	// Weapons

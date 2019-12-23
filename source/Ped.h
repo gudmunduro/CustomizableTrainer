@@ -22,6 +22,7 @@ public:
 	void ClearWetness();
 	void GiveWeapon(Hash model);
 	void SetAmmo(Hash weapon, int ammo);
+	void SetCanBeKnockedOffVehicle(int state);
 	void Delete();
 	// MARK: Booleans
 	bool IsInVehicle();

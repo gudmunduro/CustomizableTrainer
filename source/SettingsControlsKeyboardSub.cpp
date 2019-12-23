@@ -19,7 +19,7 @@ void SettingsControlsKeyboardSub::Draw()
 
 	DrawTitle("Keyboard");
 	DrawEditControl("Open", &MenuSettings::MenuOpen);
-	DrawEditControl("Press option", &MenuSettings::MenuOptionPress);
+	DrawEditControl("Select", &MenuSettings::MenuOptionPress);
 	DrawEditControl("Up", &MenuSettings::MenuUp);
 	DrawEditControl("Down", &MenuSettings::MenuDown);
 	DrawEditControl("Back", &MenuSettings::MenuBack);
@@ -33,6 +33,14 @@ void SettingsControlsKeyboardSub::Draw()
 	DrawEditControl("Edit option", &MenuSettings::MenuEditModeAddOption);
 	DrawEditControl("Delete option", &MenuSettings::MenuEditModeDeleteOption);
 	DrawEditControl("Boost vehicle", &MenuSettings::BindBoost);
+	DrawEditControl("Boat fly mode accelerate", &MenuSettings::BoatFlyModeAccelerate);
+	DrawEditControl("Boat fly mode decelerate", &MenuSettings::BoatFlyModeDecelerate);
+	DrawEditControl("Boat fly mode up", &MenuSettings::BoatFlyModeUp);
+	DrawEditControl("Boat fly mode down", &MenuSettings::BoatFlyModeDown);
+	DrawEditControl("Boat fly mode left", &MenuSettings::BoatFlyModeLeft);
+	DrawEditControl("Boat fly mode right", &MenuSettings::BoatFlyModeRight);
+	DrawEditControl("Boat fly mode yaw left", &MenuSettings::BoatFlyModeYawLeft);
+	DrawEditControl("Boat fly mode yaw right", &MenuSettings::BoatFlyModeYawRight);
 }
 
 void SettingsControlsKeyboardSub::DrawEditControl(string text, int* control)
@@ -95,5 +103,5 @@ void SettingsControlsKeyboardSub::RespondToControls()
 
 int SettingsControlsKeyboardSub::OptionCount()
 {
-	return 15;
+	return 23;
 }

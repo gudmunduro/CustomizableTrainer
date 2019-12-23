@@ -29,6 +29,7 @@ namespace Toggles {
 		forceFirstPersonOnHorse = std::make_shared<bool>(false),
 		spawnInsideVehicle = std::make_shared<bool>(false),
 		vehicleBindBoost = std::make_shared<bool>(false),
+		boatFlyMode = std::make_shared<bool>(false),
 		forceFirstPersonInVehicle = std::make_shared<bool>(false),
 		pauseClock = std::make_shared<bool>(false),
 		systemClockSync = std::make_shared<bool>(false),
@@ -54,6 +55,7 @@ namespace Toggles {
 	void OnSpanwedPedBodyguardToggle(bool value);
 	void OnAllSpawnedPedsInvincibleToggle(bool value);
 	void OnAllSpanwedPedsBodyguardToggle(bool value);
+	void OnBoatFlyModeToggle(bool value);
 	void OnPauseClockToggle(bool value);
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);

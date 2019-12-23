@@ -5,6 +5,7 @@ class MenuSettings
 {
 public:
 	// MARK: Colors
+
 	static inline Color titleBarBgColor;
 	static inline Color titleBarTextColor;
 	static inline Color optionBgColor;
@@ -16,6 +17,7 @@ public:
 	static inline Color optionNumberColor;
 
 	// MARK: Keyboard controls
+
 	static inline int MenuOpen;
 	static inline int MenuOptionPress;
 	static inline int MenuUp;
@@ -31,8 +33,18 @@ public:
 	static inline int MenuEditModeEditOption;
 	static inline int MenuEditModeDeleteOption;
 	static inline int BindBoost;
+	static inline int BoatFlyModeAccelerate;
+	static inline int BoatFlyModeDecelerate;
+	static inline int BoatFlyModeFlyUp;
+	static inline int BoatFlyModeUp;
+	static inline int BoatFlyModeDown;
+	static inline int BoatFlyModeLeft;
+	static inline int BoatFlyModeRight;
+	static inline int BoatFlyModeYawLeft;
+	static inline int BoatFlyModeYawRight;
 
 	// MARK: Controller controls
+
 	static inline Hash ControllerMenuOpen;
 	static inline Hash ControllerMenuOpenModifier;
 	static inline Hash ControllerMenuOptionPress;
@@ -49,6 +61,13 @@ public:
 	static inline Hash ControllerMenuEditModeEditOption;
 	static inline Hash ControllerMenuEditModeDeleteOption;
 	static inline Hash ControllerBindBoost;
+	static inline Hash ControllerBoatFlyModeAccelerate;
+	static inline Hash ControllerBoatFlyModeDecelerate;
+	static inline Hash ControllerBoatFlyModeFlyUp;
+	static inline Hash ControllerBoatFlyModeYawLeft;
+	static inline Hash ControllerBoatFlyModeYawRight;
+
+	// MARK: Methods
 
 	static Color colorFromHex(string hexValue);
 	static Color colorFromJSON(json color);
