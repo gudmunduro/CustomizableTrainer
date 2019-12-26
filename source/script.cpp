@@ -22,6 +22,8 @@ void setup()
 	HotkeyController::Setup();
 	Game::RequestTextureDict("menu_textures");
 	Game::RequestTextureDict("boot_flow");
+	Game::RequestTextureDict("generic_textures");
+	Game::RequestTextureDict("menu_textures");
 }
 
 void main()

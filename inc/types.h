@@ -56,6 +56,12 @@ struct Vector2
 	ALIGN8 float y;
 };
 
+struct Rect
+{
+	ALIGN8 float width;
+	ALIGN8 float height;
+};
+
 struct Color
 {
 	int r;

@@ -34,7 +34,7 @@ void Routine::StartBoatFlyMode()
 void DrawBottomMessage()
 {
 	if (GetTickCount() < drawBottomTextUntil) {
-		Game::DrawText(bottomMesssageText, { 0.5, 0.9 }, 0.45, 0.45, { 255, 255, 255, 255 }, true);
+		Game::DrawText(bottomMesssageText, { 50.0f, 90.0f }, 45.0f, { 255, 255, 255, 255 }, true);
 	}
 }
 

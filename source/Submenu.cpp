@@ -23,6 +23,7 @@ Submenu::Submenu(MenuController *menuController)
 
 void Submenu::Draw() 
 {
+	DrawMenuBase();
 	SubWillDraw();
 }
 
@@ -32,8 +33,15 @@ void Submenu::DrawTitle(string text)
 	auto menuPos = menuController->position;
 	auto titleBarBgColor = MenuSettings::titleBarBgColor;
 
-	Game::DrawText(text, { menuPos.x + 0.1f, menuPos.y }, 0.48f, 0.48f, MenuSettings::titleBarTextColor, true);
-	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, menuPos.y + 0.017, 0.2, 0.055, 0, titleBarBgColor.r, titleBarBgColor.g, titleBarBgColor.b, titleBarBgColor.a, 0);
+	Game::DrawText(text, { menuPos.x + 10.0f, menuPos.y }, 48.0f, MenuSettings::titleBarTextColor, true);
+	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, titleBarBgColor);
+}
+
+void Submenu::DrawMenuBase()
+{
+	auto menuPos = menuController->position;
+
+	Game::DrawSprite("generic_textures", "inkroller_1a", { menuPos.x + 10.0f, menuPos.y + 20.0f }, { 25.0f, 48.0f }, 0, {0, 0, 0, 200});
 }
 
 void Submenu::DrawOptionBase(string text, bool selected)
@@ -41,9 +49,11 @@ void Submenu::DrawOptionBase(string text, bool selected)
 	auto menuPos = menuController->position;
 	auto optionTextColor = selected ? MenuSettings::optionSelectedTextColor : MenuSettings::optionTextColor;
 	auto optionBgColor = selected ? MenuSettings::optionSelectedBgColor : MenuSettings::optionBgColor;
-		
-	Game::DrawText(text, { menuPos.x + 0.01f, CurrentOptionPosY() - 0.004f }, 0.35f, 0.35f, optionTextColor);
-	GRAPHICS::DRAW_SPRITE("boot_flow", "selection_box_bg_1d", menuPos.x + 0.1, CurrentOptionPosY() + 0.01, 0.2, 0.035, 0, optionBgColor.r, optionBgColor.g, optionBgColor.b, optionBgColor.a, 0);
+	
+	Game::DrawText(text, { menuPos.x + 1.0f, CurrentOptionPosY() - 0.4f }, 35.0f, optionTextColor);
+	if (selected) Game::DrawSprite("generic_textures", "selection_box_bg_1d", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 20.0f, 4.8f }, 0, optionBgColor);
+	Game::DrawRect({ menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 18.6f, 3.3f }, { 0, 0, 0, 255 });
+	Game::DrawSprite("generic_textures", "selection_box_bg_1c", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 19.3f, 4.0f }, 0, { 30, 30, 30, 255 });
 }
 
 void Submenu::DrawLabel(string text)
@@ -100,7 +110,7 @@ void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPr
 	auto toggleColor = isToggled ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
 
 	DrawOptionBase(text, selected);
-	Game::DrawText(isToggled ? "On" : "Off", { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
+	Game::DrawText(isToggled ? "On" : "Off", { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, toggleColor);
 
 	if (selected) {
 		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
@@ -119,7 +129,7 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	auto menuPos = menuController->position; 
 
 	DrawOptionBase(text, selected);
-	Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, MenuSettings::optionNumberColor);
+	Game::DrawText(numberToDisplay, { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, MenuSettings::optionNumberColor);
 
 	if (selected) {
 		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
@@ -242,7 +252,7 @@ bool Submenu::IsOptionSelected(int index)
 float Submenu::CurrentOptionPosY() {
 	auto menuPos = menuController->position;
 
-	return menuPos.y + 0.05 + (0.034 * (float)drawIndex);
+	return menuPos.y + 6.6f + (4.7f * (float) drawIndex);
 }
 
 string Submenu::OptionTypeToString(MenuOptionType type)

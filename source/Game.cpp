@@ -2,12 +2,24 @@
 #include "Game.h"
 #include "Routine.h"
 
-void Game::DrawText(string text, Vector2 position, float scale1, float scale2, Color color, bool center) {
+void Game::DrawText(string text, Vector2 position, float scale, Color color, bool center) {
 	UI::SET_TEXT_CENTRE(center);
-	UI::SET_TEXT_SCALE(scale1, scale2);
+	UI::SET_TEXT_SCALE(1.0f, scale / 100.0f);
 	UI::SET_TEXT_COLOR_RGBA(color.r, color.g, color.b, color.a);
 	char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*) text.c_str());
-	UI::DRAW_TEXT(varString, position.x, position.y);
+	UI::DRAW_TEXT(varString, position.x / 100.0f, position.y / 100.0f);
+}
+
+void Game::DrawSprite(string textureDict, string textureName, Vector3 position, Rect size, float heading, Color color) 
+{
+	GRAPHICS::DRAW_SPRITE((char*)textureDict.c_str(), (char*)textureName.c_str(), position.x / 100.0f, position.y / 100.0f,
+							size.width / 100.0f, size.height / 100.0f, heading, color.r, color.g, color.b, color.a, false);
+}
+
+void Game::DrawRect(Vector3 position, Rect size, Color color)
+{
+	GRAPHICS::DRAW_RECT(position.x / 100.0f, position.y / 100.0f,
+		size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
 }
 
 void Game::RequestModel(Hash model)

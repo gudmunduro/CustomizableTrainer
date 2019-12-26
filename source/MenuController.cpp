@@ -17,7 +17,7 @@
 
 MenuController::MenuController()
 {
-	position = { 0.054f, 0.1f };
+	position = { 5.4f, 10.0f };
 	shouldDrawMenu = false;
 
 	// Load json data
@@ -30,7 +30,7 @@ MenuController::MenuController()
 void MenuController::Tick()
 {
 	RespondToControls();
-	if (shouldDrawMenu && submenuStack.size() > 0) {
+	if (!UI::IS_PAUSE_MENU_ACTIVE() && shouldDrawMenu && submenuStack.size() > 0) {
 		submenuStack.back()->Draw();
 	}
 }

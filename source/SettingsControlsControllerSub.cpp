@@ -58,7 +58,7 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 	
 	auto menuPos = menuController->position;
 	int alpha = (isEditingControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
-	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 3.5f }, 25.0f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
