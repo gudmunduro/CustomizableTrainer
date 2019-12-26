@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "MenuController.h"
 #include "Routine.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "JsonDataManager.h"
 #include "DynamicSubmenu.h"
 #include "PedSpawnerSub.h"
@@ -11,8 +11,8 @@
 #include "SettingsControlsKeyboardSub.h"
 #include "SettingsColorSchemeSub.h"
 #include "SettingsHotkeysSub.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
+#include "ActionController.h"
+#include "ToggleController.h"
 #include "NumberController.h"
 
 MenuController::MenuController()
@@ -65,7 +65,7 @@ void MenuController::GoToLastSub()
 	}
 	if (submenuStack.size() == 0) { 
 		shouldDrawMenu = false;
-		ControlManager::SetMenuControlsEnabled(true);
+		Controls::SetMenuControlsEnabled(true);
 	}
 }
 
@@ -73,14 +73,14 @@ void MenuController::GoToLastSub()
 
 void MenuController::RespondToControls()
 {
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuOpen)) {
+	if (Controls::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
 
-		ControlManager::SetMenuControlsEnabled(!shouldDrawMenu);
+		Controls::SetMenuControlsEnabled(!shouldDrawMenu);
 		if (submenuStack.size() == 0) {
 			SetSubmenuWithKey("required_sub_default");
 		}
-		ControlManager::CanceMenuControlslForThisFrame();
+		Controls::CanceMenuControlslForThisFrame();
 	}
 }
 

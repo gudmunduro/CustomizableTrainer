@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "FixedSubmenu.h"
-#include "ControlManager.h"
+#include "Controls.h"
 
 class SettingsControlsControllerSub :
 	public FixedSubmenu

@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Submenu.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
-#include "ControlManager.h"
+#include "ActionController.h"
+#include "ToggleController.h"
+#include "Controls.h"
 #include "MenuSettings.h"
 #include "Routine.h"
 
@@ -66,7 +66,7 @@ void Submenu::DrawSub(string text, string subKey, bool enabled)
 	DrawOptionBase(text + " >", selected);
 
 	if (selected) {
-		if (enabled && ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+		if (enabled && Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			menuController->SetSubmenuWithKey(subKey);
 		}
 	}
@@ -83,7 +83,7 @@ void Submenu::DrawAction(string text, std::function<void()> onPress)
 	DrawOptionBase(text, selected);
 
 	if (selected) {
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			onPress();
 		}
 	}
@@ -103,7 +103,7 @@ void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPr
 	Game::DrawText(isToggled ? "On" : "Off", { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, toggleColor);
 
 	if (selected) {
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
+		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
 			onPress();
 		}
 	}
@@ -122,13 +122,13 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	Game::DrawText(numberToDisplay, { menuPos.x + 0.17f, CurrentOptionPosY() - 0.002f }, 0.30f, 0.30f, MenuSettings::optionNumberColor);
 
 	if (selected) {
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
+		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) // Option pressed
 			onPress();
 
-		if (isHoldingAdjustUp || ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueUp))
+		if (isHoldingAdjustUp || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueUp))
 			onAdjust(true);
 
-		if (isHoldingAdjustDown || ControlManager::IsMenuControlPressed(MenuControl::MenuAdjustValueDown))
+		if (isHoldingAdjustDown || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueDown))
 			onAdjust(false);
 	}
 
@@ -165,9 +165,9 @@ int Submenu::OptionCount()
 
 void Submenu::RespondToControls()
 {
-	ControlManager::SetMenuControlsEnabled(false);
+	Controls::SetMenuControlsEnabled(false);
 
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuDown)) {
+	if (Controls::IsMenuControlPressed(MenuControl::MenuDown)) {
 		int oldSelection = selection;
 		if (selection < OptionCount() - 1) selection++;
 		else { 
@@ -179,7 +179,7 @@ void Submenu::RespondToControls()
 
 		if (selection > scrollPosition + 7) scrollPosition++;
 	}
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuUp)) {
+	if (Controls::IsMenuControlPressed(MenuControl::MenuUp)) {
 		int oldSelection = selection;
 		if (selection > 0) selection--;
 		else {
@@ -191,11 +191,11 @@ void Submenu::RespondToControls()
 
 		if (selection < scrollPosition) scrollPosition--;
 	}
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuGoBack)) {
+	if (Controls::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 		menuController->GoToLastSub();
 	}
 	// Hold
-	if (ControlManager::IsHoldingMenuControl(MenuControl::MenuAdjustValueUp)) {
+	if (Controls::IsHoldingMenuControl(MenuControl::MenuAdjustValueUp)) {
 		if (!isHoldingAdjustUp) {
 			if (holdingAdjustUpTimerStart == 0)
 				holdingAdjustUpTimerStart = GetTickCount();
@@ -209,7 +209,7 @@ void Submenu::RespondToControls()
 		isHoldingAdjustUp = false;
 		holdingAdjustUpTimerStart = 0;
 	}
-	if (ControlManager::IsHoldingMenuControl(MenuControl::MenuAdjustValueDown)) {
+	if (Controls::IsHoldingMenuControl(MenuControl::MenuAdjustValueDown)) {
 		if (!isHoldingAdjustDown) {
 			if (holdingAdjustDownTimerStart == 0)
 				holdingAdjustDownTimerStart = GetTickCount();

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "AddOptionSetKeySub.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
+#include "ActionController.h"
+#include "ToggleController.h"
 #include "NumberController.h"
 
 AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController)
@@ -11,10 +11,10 @@ AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController
 
 	switch (optionType) {
 		case MenuOptionType::Action:
-			keys = ActionManager::GetKeys();
+			keys = ActionController::GetKeys();
 			break;
 		case MenuOptionType::Toggle:
-			keys = ToggleManager::GetKeys();
+			keys = ToggleController::GetKeys();
 			break;
 		case MenuOptionType::Number:
 			keys = NumberController::GetKeys();

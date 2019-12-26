@@ -112,13 +112,13 @@
     <ClInclude Include="..\inc\nativeCaller.h" />
     <ClInclude Include="..\inc\natives.h" />
     <ClInclude Include="..\inc\types.h" />
-    <ClInclude Include="ActionManager.h" />
+    <ClInclude Include="ActionController.h" />
     <ClInclude Include="AddOptionSetKeySub.h" />
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
     <ClInclude Include="BoatFlyMode.h" />
     <ClInclude Include="ConfirmDialog.h" />
-    <ClInclude Include="ControlManager.h" />
+    <ClInclude Include="Controls.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="DynamicSubmenu.h" />
     <ClInclude Include="FixedSubmenu.h" />
@@ -149,19 +149,19 @@
     <ClInclude Include="SettingsSetColorSub.h" />
     <ClInclude Include="SettingsSub.h" />
     <ClInclude Include="Submenu.h" />
-    <ClInclude Include="ToggleManager.h" />
+    <ClInclude Include="ToggleController.h" />
     <ClInclude Include="Toggles.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ActionManager.cpp" />
+    <ClCompile Include="ActionController.cpp" />
     <ClCompile Include="Actions.cpp" />
     <ClCompile Include="AddOptionSetKeySub.cpp" />
     <ClCompile Include="AddOptionSetTypeSub.cpp" />
     <ClCompile Include="AddOptionSub.cpp" />
     <ClCompile Include="BoatFlyMode.cpp" />
     <ClCompile Include="ConfirmDialog.cpp" />
-    <ClCompile Include="ControlManager.cpp" />
+    <ClCompile Include="Controls.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FixedSubmenu.cpp" />
@@ -194,7 +194,7 @@
     <ClCompile Include="SettingsSetColorSub.cpp" />
     <ClCompile Include="SettingsSub.cpp" />
     <ClCompile Include="Submenu.cpp" />
-    <ClCompile Include="ToggleManager.cpp" />
+    <ClCompile Include="ToggleController.cpp" />
     <ClCompile Include="Toggles.cpp" />
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>

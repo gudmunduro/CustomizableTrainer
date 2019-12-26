@@ -19,8 +19,8 @@ void PedSpawner::SetCurrentPedIndex(int index)
 {
 	currentPedIndex = index;
 
-	*Toggles::spawnedPedBodyguard = CurrentPedData()->isBodyGuard;
-	*Toggles::spawnedPedInvincible = CurrentPedData()->isInvincible;
+	Toggles::spawnedPedBodyguard = CurrentPedData()->isBodyGuard;
+	Toggles::spawnedPedInvincible = CurrentPedData()->isInvincible;
 }
 
 bool PedSpawner::IsAnyPedSelected()

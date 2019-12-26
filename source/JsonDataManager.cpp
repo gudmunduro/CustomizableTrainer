@@ -2,7 +2,7 @@
 #include "JsonDataManager.h"
 #include "Routine.h"
 #include "MenuSettings.h"
-#include "ControlManager.h"
+#include "Controls.h"
 
 JSONDataManager::JSONDataManager()
 {
@@ -236,27 +236,27 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 					{"boatFlyModeYawRight", MenuSettings::BoatFlyModeYawRight}
 				}},
 				{"controller", {
-					{ "menuOpen", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOpen) },
-					{ "menuOpenModifier", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOpenModifier) },
-					{ "menuOptionPress", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuOptionPress) },
-					{ "menuUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuUp) },
-					{ "menuDown", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuDown) },
-					{ "menuBack", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuBack) },
-					{ "menuAdjustValueDown", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueDown) },
-					{ "menuAdjustValueUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueUp) },
-					{ "menuEditModeEnter", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEnter) },
-					{ "menuEditModeExit", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExit) },
-					{ "menuEditModeExitAndSave", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExitAndSave) },
-					{ "menuEditModeMoveOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeMoveOption) },
-					{ "menuEditModeAddOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
-					{ "menuEditModeEditOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEditOption) },
-					{ "menuEditModeDeleteOption", ControlManager::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
-					{ "bindBoost", ControlManager::ControlStringFromHash(MenuSettings::ControllerBindBoost) },
-					{ "boatFlyModeAccelerate", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeAccelerate) },
-					{ "boatFlyModeDecelerate", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeDecelerate) },
-					{ "boatFlyModeFlyUp", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeFlyUp) },
-					{ "boatFlyModeYawRight", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawRight) },
-					{ "boatFlyModeYawLeft", ControlManager::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawLeft) }
+					{ "menuOpen", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOpen) },
+					{ "menuOpenModifier", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOpenModifier) },
+					{ "menuOptionPress", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOptionPress) },
+					{ "menuUp", Controls::ControlStringFromHash(MenuSettings::ControllerMenuUp) },
+					{ "menuDown", Controls::ControlStringFromHash(MenuSettings::ControllerMenuDown) },
+					{ "menuBack", Controls::ControlStringFromHash(MenuSettings::ControllerMenuBack) },
+					{ "menuAdjustValueDown", Controls::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueDown) },
+					{ "menuAdjustValueUp", Controls::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueUp) },
+					{ "menuEditModeEnter", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEnter) },
+					{ "menuEditModeExit", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExit) },
+					{ "menuEditModeExitAndSave", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExitAndSave) },
+					{ "menuEditModeMoveOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeMoveOption) },
+					{ "menuEditModeAddOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
+					{ "menuEditModeEditOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEditOption) },
+					{ "menuEditModeDeleteOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
+					{ "bindBoost", Controls::ControlStringFromHash(MenuSettings::ControllerBindBoost) },
+					{ "boatFlyModeAccelerate", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeAccelerate) },
+					{ "boatFlyModeDecelerate", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeDecelerate) },
+					{ "boatFlyModeFlyUp", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeFlyUp) },
+					{ "boatFlyModeYawRight", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawRight) },
+					{ "boatFlyModeYawLeft", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawLeft) }
 				}}
 			}}
 		});

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SettingsControlsControllerSub.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "JsonDataManager.h"
 #include "MenuSettings.h"
 #include "Routine.h"
@@ -48,7 +48,7 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 	}
 
 	DrawAction(text, [this, control] {
-		if (!ControlManager::IsUsingController()) {
+		if (!Controls::IsUsingController()) {
 			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
 			return;
 		}
@@ -58,7 +58,7 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 	
 	auto menuPos = menuController->position;
 	int alpha = (isEditingControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
-	Game::DrawText(ControlManager::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -66,7 +66,7 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 void SettingsControlsControllerSub::SubWillDraw()
 {
 	if (isEditingControl) {
-		ControlManager::CanceMenuControlslForThisFrame();
+		Controls::CanceMenuControlslForThisFrame();
 
 		if (editingControlAlpha == 0)
 			editingControlAlphaDirection = true;

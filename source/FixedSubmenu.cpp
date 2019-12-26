@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "FixedSubmenu.h"
 #include "Routine.h"
-#include "ControlManager.h"
+#include "Controls.h"
 
 FixedSubmenu::FixedSubmenu(MenuController* menuController)
 	: Submenu(menuController)
@@ -42,7 +42,7 @@ void FixedSubmenu::RespondToControls()
 {
 	Submenu::RespondToControls();
 
-	if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
 		Routine::StartDrawBottomMessage("Edit mode is not available in this menu");
 	}
 }

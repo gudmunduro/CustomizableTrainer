@@ -20,14 +20,14 @@ void PedSpawnerSub::Draw()
 
 	if (PedSpawner::peds.size() > 0) {
 		DrawAction("All >", [this] {
-			*Toggles::allSpawnedPedsInvincible = true;
-			*Toggles::allSpawnedPedsBodyguard = true;
+			Toggles::allSpawnedPedsInvincible = true;
+			Toggles::allSpawnedPedsBodyguard = true;
 
 			for each (auto ped in PedSpawner::peds) {
 				if (!ped->isInvincible)
-					*Toggles::allSpawnedPedsInvincible = false;
+					Toggles::allSpawnedPedsInvincible = false;
 				if (!ped->isBodyGuard)
-					*Toggles::allSpawnedPedsBodyguard = false;
+					Toggles::allSpawnedPedsBodyguard = false;
 			}
 
 			menuController->SetSubmenuWithKey("required_sub_allSpawnedPedsOptions");

@@ -26,6 +26,11 @@ VehicleId Vehicle::GetVehicleId()
 	return vehicleId;
 }
 
+Vector3 Vehicle::OffsetInWorldCoords(Vector3 offset)
+{
+	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(vehicleId, offset.x, offset.y, offset.z);
+}
+
 Hash Vehicle::Model()
 {
 	return ENTITY::GET_ENTITY_MODEL(vehicleId);
@@ -34,6 +39,15 @@ Hash Vehicle::Model()
 float Vehicle::Speed()
 {
 	return ENTITY::GET_ENTITY_SPEED(vehicleId);
+}
+
+void Vehicle::Dimensions(Vector3 *dim1, Vector3 *dim2)
+{
+	Vector3 dimensions1, dimensions2;
+	GAMEPLAY::GET_MODEL_DIMENSIONS(Model(), &dimensions1, &dimensions2);
+	dimensions1.x = abs(dimensions1.x); dimensions2.x = abs(dimensions2.x);
+	dimensions1.y = abs(dimensions1.y); dimensions2.y = abs(dimensions2.y);
+	dimensions1.z = abs(dimensions1.z); dimensions2.z = abs(dimensions2.z);
 }
 
 // MARK: Manage
@@ -66,6 +80,16 @@ void Vehicle::SetCoords(Vector3 coords)
 void Vehicle::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
 {
 	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(vehicleId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
+}
+
+void Vehicle::SetVisible(bool value)
+{
+	ENTITY::SET_ENTITY_VISIBLE(vehicleId, value);
+}
+
+void Vehicle::SetInvincible(bool value)
+{
+	ENTITY::SET_ENTITY_INVINCIBLE(vehicleId, value);
 }
 
 void Vehicle::ApplyForceRelative(Vector3 direction, Vector3 offset)

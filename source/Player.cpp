@@ -14,7 +14,7 @@ void Player::SetModel(Hash model)
 	if (STREAMING::IS_MODEL_IN_CDIMAGE(model) && STREAMING::IS_MODEL_VALID(model))
 	{
 		UINT64* ptr1 = getGlobalPtr(0x28) + 0x27;
-		UINT64* ptr2 = getGlobalPtr(((DWORD)7 << 18) | 0x1890C) + 2;
+		UINT64* ptr2 = getGlobalPtr(((DWORD)7 << 18) | 0x1D890E) + 2;
 		UINT64 bcp1 = *ptr1;
 		UINT64 bcp2 = *ptr2;
 		*ptr1 = *ptr2 = model;

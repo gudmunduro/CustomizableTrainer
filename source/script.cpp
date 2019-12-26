@@ -7,17 +7,17 @@
 #include "pch.h"
 #include "Script.h"
 #include "MenuController.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "Routine.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
+#include "ActionController.h"
+#include "ToggleController.h"
 #include "NumberController.h"
 #include "HotkeyController.h"
 
 void setup()
 {
-	ActionManager::RegisterActions();
-	ToggleManager::RegisterToggles();
+	ActionController::RegisterActions();
+	ToggleController::RegisterToggles();
 	NumberController::RegisterNumbers();
 	HotkeyController::Setup();
 	Game::RequestTextureDict("menu_textures");

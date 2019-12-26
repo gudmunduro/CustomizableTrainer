@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "HotkeyController.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "keyboard.h"
 #include "Routine.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
+#include "ActionController.h"
+#include "ToggleController.h"
 #include "NumberController.h"
 #include "JsonDataManager.h"
 
@@ -20,33 +20,33 @@ void HotkeyController::Setup()
 
 void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 {
-	if (!ActionManager::DoesActionExistForKey(hotkey.key)) {
+	if (!ActionController::DoesActionExistForKey(hotkey.key)) {
 		Routine::StartDrawBottomMessage("Error: Action key for hotkey is invalid");
 	}
-	ActionManager::RunActionForKey(hotkey.key, hotkey.value);
+	ActionController::RunActionForKey(hotkey.key, hotkey.value);
 }
 
 void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 {
-	if (!ToggleManager::DoesToggleExistForKey(hotkey.key)) {
+	if (!ToggleController::DoesToggleExistForKey(hotkey.key)) {
 		Routine::StartDrawBottomMessage("Error: Toggle key for hotkey is invalid");
 		return;
 	}
 	switch (hotkey.action) {
 	case 0:
-		ToggleManager::Toggle(hotkey.key);
+		ToggleController::Toggle(hotkey.key);
 		break;
 	case 1:
-		*ToggleManager::GetToggleForKey(hotkey.key) = true;
-		if (ToggleManager::DoesToggleActionExistForKey(hotkey.key)) {
-			auto action = ToggleManager::GetToggleActionForKey(hotkey.key);
+		*ToggleController::GetToggleForKey(hotkey.key) = true;
+		if (ToggleController::DoesToggleActionExistForKey(hotkey.key)) {
+			auto action = ToggleController::GetToggleActionForKey(hotkey.key);
 			action(true);
 		}
 		break;
 	case 2:
-		*ToggleManager::GetToggleForKey(hotkey.key) = false;
-		if (ToggleManager::DoesToggleActionExistForKey(hotkey.key)) {
-			auto action = ToggleManager::GetToggleActionForKey(hotkey.key);
+		*ToggleController::GetToggleForKey(hotkey.key) = false;
+		if (ToggleController::DoesToggleActionExistForKey(hotkey.key)) {
+			auto action = ToggleController::GetToggleActionForKey(hotkey.key);
 			action(false);
 		}
 		break;
@@ -105,7 +105,7 @@ void HotkeyController::Tick()
 {
 	for each (auto hotkey in hotkeys) {
 
-		if (ControlManager::IsHotkeyPressed(hotkey)) {
+		if (Controls::IsHotkeyPressed(hotkey)) {
 			RunHotkey(hotkey);
 		}
 	}

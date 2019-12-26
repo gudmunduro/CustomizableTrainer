@@ -3,7 +3,7 @@
 #include "Routine.h"
 #include "Player.h"
 #include "PedSpawner.h"
-#include "ControlManager.h"
+#include "Controls.h"
 
 void Toggles::OnPlayerInvincibleToggle(bool value)
 {
@@ -110,6 +110,20 @@ void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
 			ped->isBodyGuard = value;
 		}
 	}
+}
+
+void Toggles::OnVehicleInvincibleToggle(bool value)
+{
+	Player player;
+	if (!player.IsInVehicle()) return;
+	player.CurrentVehicle().SetVisible(value);
+}
+
+void Toggles::OnVehicleVisibleToggle(bool value)
+{
+	Player player;
+	if (!player.IsInVehicle()) return;
+	player.CurrentVehicle().SetInvincible(value);
 }
 
 void Toggles::OnBoatFlyModeToggle(bool value)

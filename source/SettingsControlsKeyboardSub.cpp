@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SettingsControlsKeyboardSub.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "MenuSettings.h"
 #include "keyboard.h"
 #include "JsonDataManager.h"
@@ -57,7 +57,7 @@ void SettingsControlsKeyboardSub::DrawEditControl(string text, int* control)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingKey && keyToEdit == control) ? (int) editingKeyAlpha : 255;
-	Game::DrawText(ControlManager::GeyStringValueForKey(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GeyStringValueForKey(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -65,7 +65,7 @@ void SettingsControlsKeyboardSub::DrawEditControl(string text, int* control)
 void SettingsControlsKeyboardSub::SubWillDraw()
 {
 	if (isEditingKey) {
-		ControlManager::CanceMenuControlslForThisFrame();
+		Controls::CanceMenuControlslForThisFrame();
 
 		if (editingKeyAlpha == 0)
 			editingKeyAlphaDirection = true;

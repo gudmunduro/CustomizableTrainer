@@ -2,9 +2,9 @@
 #include "DynamicSubmenu.h"
 #include "AddOptionSub.h"
 #include "Routine.h"
-#include "ControlManager.h"
-#include "ActionManager.h"
-#include "ToggleManager.h"
+#include "Controls.h"
+#include "ActionController.h"
+#include "ToggleController.h"
 #include "NumberController.h"
 
 DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuController)
@@ -55,19 +55,19 @@ void DynamicSubmenu::DrawAction(string text, string actionKey, json actionParams
 {
 	Submenu::DrawAction(text, [this, actionKey, actionParams] () {
 		if (!isEditModeActive) {
-			ActionManager::RunActionForKey(actionKey, actionParams);
+			ActionController::RunActionForKey(actionKey, actionParams);
 		}
 	});
 }
 
 void DynamicSubmenu::DrawToggle(string text, string toggleKey)
 {
-	if (!ToggleManager::DoesToggleExistForKey(toggleKey)) return;
-	bool isToggled = *ToggleManager::GetToggleForKey(toggleKey);
+	if (!ToggleController::DoesToggleExistForKey(toggleKey)) return;
+	bool isToggled = *ToggleController::GetToggleForKey(toggleKey);
 
 	Submenu::DrawToggle(text, isToggled, [this, toggleKey] {
 		if (!isEditModeActive) {
-			ToggleManager::Toggle(toggleKey);
+			ToggleController::Toggle(toggleKey);
 		}
 	});
 }
@@ -118,42 +118,42 @@ void DynamicSubmenu::RespondToControls()
 	Submenu::RespondToControls();
 
 	// Edit mode
-	if (!isEditModeActive && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+	if (!isEditModeActive && Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
 		isEditModeActive = true;
-		ControlManager::CanceMenuControlslForThisFrame();
+		Controls::CanceMenuControlslForThisFrame();
 	}
 	if (isEditModeActive) {
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeMoveOptionn)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeMoveOptionn)) {
 			isMoveOptionActive = !isMoveOptionActive;
 		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeExitAndSave)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeExitAndSave)) {
 			isMoveOptionActive = false;
 			isEditModeActive = false;
 			SubmenuData updatedSubmenuData = { title, key, options };
 			menuController->UpdateSubmenuData(key, updatedSubmenuData);
 			Routine::StartDrawBottomMessage("Saved");
 		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeExit)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeExit)) {
 			isMoveOptionActive = false;
 			isEditModeActive = false;
 		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
 			auto addOptionSub = new EditAddOptionSub(nullptr, menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToAdd) {
 				options.push_back(optionToAdd);
 			};
 			menuController->AddSubmenuToStack(addOptionSub);
-			ControlManager::CanceMenuControlslForThisFrame();
+			Controls::CanceMenuControlslForThisFrame();
 		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeEditOption)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEditOption)) {
 			auto addOptionSub = new EditAddOptionSub(&options[selection], menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToEdit) {
 				options[selection] = optionToEdit;
 			};
 			menuController->AddSubmenuToStack(addOptionSub);
-			ControlManager::CanceMenuControlslForThisFrame();
+			Controls::CanceMenuControlslForThisFrame();
 		}
-		if (ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
+		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 			options.erase(options.begin() + selection);
 			if (selection > OptionCount() - 1) {
 				if (scrollPosition != 0) scrollPosition--;

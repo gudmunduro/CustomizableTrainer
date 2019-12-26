@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "BoatFlyMode.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "MenuSettings.h"
 
 // MARK: Setup
@@ -60,6 +60,12 @@ void BoatFlyMode::Turn(float force)
 	else if (force > 0.0f) {
 		boat.ApplyForceRelative({ 0, force, 0 }, { 2.0f, -0.2f, 0 });
 	}
+	/*if (force < 0.0f) {
+		boat.ApplyForceRelative({ 1.0f, 0, -0.1f }, { force, 0, 0 });
+	}
+	else if (force > 0.0f) {
+		boat.ApplyForceRelative({ -1.0f, 0, -0.1f }, { force, 0, 0 });
+	}*/
 }
 
 void BoatFlyMode::Yaw(float force)
@@ -80,24 +86,24 @@ void BoatFlyMode::RespondToControls()
 {
 	DisableControls();
 
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeAccelerate))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeAccelerate))
 		Accelerate();
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeDecelerate))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeDecelerate))
 		Decelerate();
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeYawRight))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeYawRight))
 		Yaw(0.8f);
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeYawLeft))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeYawLeft))
 		Yaw(-0.8f);
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeUp))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeUp))
 		UpDown(0.4f);
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeDown))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeDown))
 		UpDown(-0.4f);
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeLeft))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeLeft))
 		Turn(0.4f);
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::BoatFlyModeRight))
+	if (Controls::IsFunctionControlPressed(FunctionControl::BoatFlyModeRight))
 		Turn(-0.4f);
 
-	if (ControlManager::IsUsingController()) {
+	if (Controls::IsUsingController()) {
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) > 0.0f) { // Down
 			float force = CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) / 2;
 			UpDown(force);
@@ -119,7 +125,7 @@ void BoatFlyMode::RespondToControls()
 
 void BoatFlyMode::DisableControls()
 {
-	if (!ControlManager::IsUsingController()) return;
+	if (!Controls::IsUsingController()) return;
 
 	Hash controlsToDisable[] = {
 		MenuSettings::ControllerBoatFlyModeAccelerate,
@@ -138,9 +144,14 @@ void BoatFlyMode::DisableControls()
 
 void BoatFlyMode::Tick()
 {
-	if (!(player.IsInVehicle() && player.CurrentVehicle().IsBoat())) return;
+	if (player.IsInVehicle() && player.CurrentVehicle().IsBoat() && player.CurrentVehicle().GetVehicleId() != boat.GetVehicleId()) {
+		boat = player.CurrentVehicle();
+		speed = 1.0f;
+	}
+
+	if (boat.Exists()) boat.SetForwardSpeed(speed);
+	if (!(player.IsInVehicle() && player.CurrentVehicle().GetVehicleId() == boat.GetVehicleId())) return;
 
 	RespondToControls();
 	player.SetCanBeKnockedOffVehicle(1);
-	boat.SetForwardSpeed(speed);
 }

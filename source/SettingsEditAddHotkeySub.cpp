@@ -2,8 +2,8 @@
 #include "SettingsEditAddHotkeySub.h"
 #include "Routine.h"
 #include "HotkeyController.h"
-#include "ControlManager.h"
-#include "ActionManager.h"
+#include "Controls.h"
+#include "ActionController.h"
 #include "keyboard.h"
 #include "AddOptionSetTypeSub.h"
 #include "AddOptionSetKeySub.h"
@@ -158,7 +158,7 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 	}
 
 	DrawAction(text, [this, control] {
-		if (!ControlManager::IsUsingController()) {
+		if (!Controls::IsUsingController()) {
 			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
 			return;
 		}
@@ -169,7 +169,7 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingControllerControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
-	Game::DrawText(ControlManager::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
@@ -186,7 +186,7 @@ void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingKeyboardControl && hotkeyToEdit.keyboardKey == *key) ? (int)editingControlAlpha : 255;
-	Game::DrawText(ControlManager::GeyStringValueForKey(*key), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GeyStringValueForKey(*key), { menuPos.x + 0.16f, CurrentOptionPosY() - 0.035f }, 0.25f, 0.25f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -205,7 +205,7 @@ void SettingsEditAddHotkeySub::OnValueOptionPress()
 void SettingsEditAddHotkeySub::SubWillDraw()
 {
 	if (isEditingKeyboardControl || isEditingControllerControl) {
-		ControlManager::CanceMenuControlslForThisFrame();
+		Controls::CanceMenuControlslForThisFrame();
 
 		if (editingControlAlpha == 0)
 			editingControlAlphaDirection = true;
@@ -232,7 +232,7 @@ void SettingsEditAddHotkeySub::RespondToControls()
 				isEditingKeyboardControl = false;
 				editingControlAlpha = 255;
 				editingControlAlphaDirection = false;
-				ControlManager::CanceMenuControlslForThisFrame();
+				Controls::CanceMenuControlslForThisFrame();
 				break;
 			}
 		}
@@ -244,7 +244,7 @@ void SettingsEditAddHotkeySub::RespondToControls()
 				isEditingControllerControl = false;
 				editingControlAlpha = 255;
 				editingControlAlphaDirection = false;
-				ControlManager::CanceMenuControlslForThisFrame();
+				Controls::CanceMenuControlslForThisFrame();
 				break;
 			}
 		}
@@ -297,10 +297,10 @@ int SettingsEditAddHotkeySub::OptionCount()
 void SettingsEditAddHotkeySub::UpdateActionParameters()
 {
 	if (!(hotkeyToEdit.key != "" && hotkeyToEdit.type == MenuOptionType::Action &&
-		ActionManager::GetParameterForKey(hotkeyToEdit.key).size() > 0))
+		ActionController::GetParameterForKey(hotkeyToEdit.key).size() > 0))
 		return;
 
-	parameters = ActionManager::GetParameterForKey(hotkeyToEdit.key);
+	parameters = ActionController::GetParameterForKey(hotkeyToEdit.key);
 
 	hotkeyToEdit.value = json::array();
 

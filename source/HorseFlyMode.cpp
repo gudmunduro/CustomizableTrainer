@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "HorseFlyMode.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "Routine.h"
 
 HorseFlyMode::HorseFlyMode()
@@ -17,13 +17,13 @@ void HorseFlyMode::Tick()
 
 void HorseFlyMode::HoverTest()
 {
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseFlyUp)) {
+	if (Controls::IsFunctionControlPressed(FunctionControl::HorseFlyUp)) {
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
-	if (ControlManager::IsFunctionControlPressed(FunctionControl::HorseFlyDown)) {
+	if (Controls::IsFunctionControlPressed(FunctionControl::HorseFlyDown)) {
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.5, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.5, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
 		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.5, /**/ -0.4, 2.8, 0.0, 1, 1, 1, 1, 0, 1);

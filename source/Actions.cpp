@@ -252,7 +252,7 @@ void Actions::SpawnVehicle(json params)
 	Vector3 spawnPosition = player.Position();
 	float vehicleSpawnHeading = player.Heading();
 
-	if (!(*Toggles::spawnInsideVehicle)) {
+	if (!(Toggles::spawnInsideVehicle)) {
 		spawnPosition = player.OffsetInWorldCoords({0.0, 2.0, 0.0});
 		vehicleSpawnHeading += 90;
 	}
@@ -264,7 +264,7 @@ void Actions::SpawnVehicle(json params)
 
 	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, vehicleSpawnHeading);
 
-	if (*Toggles::spawnInsideVehicle) {
+	if (Toggles::spawnInsideVehicle) {
 		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
 	}
 }

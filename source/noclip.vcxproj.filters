@@ -87,12 +87,6 @@
     <ClInclude Include="Submenu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="ActionManager.h">
-      <Filter>Headers\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="ControlManager.h">
-      <Filter>Headers\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\enums.h">
       <Filter>Include</Filter>
     </ClInclude>
@@ -128,9 +122,6 @@
     </ClInclude>
     <ClInclude Include="Routine.h">
       <Filter>Headers\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="ToggleManager.h">
-      <Filter>Headers\Toggles</Filter>
     </ClInclude>
     <ClInclude Include="Toggles.h">
       <Filter>Headers\Toggles</Filter>
@@ -216,6 +207,15 @@
     <ClInclude Include="BoatFlyMode.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
+    <ClInclude Include="ToggleController.h">
+      <Filter>Headers\Toggles</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionController.h">
+      <Filter>Headers\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -225,12 +225,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Submenu.cpp">
-      <Filter>Source\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionManager.cpp">
-      <Filter>Source\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="ControlManager.cpp">
       <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="keyboard.cpp">
@@ -250,9 +244,6 @@
     </ClCompile>
     <ClCompile Include="Routine.cpp">
       <Filter>Source\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="ToggleManager.cpp">
-      <Filter>Source\Toggles</Filter>
     </ClCompile>
     <ClCompile Include="Toggles.cpp">
       <Filter>Source\Toggles</Filter>
@@ -337,6 +328,15 @@
     </ClCompile>
     <ClCompile Include="BoatFlyMode.cpp">
       <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleController.cpp">
+      <Filter>Source\Toggles</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionController.cpp">
+      <Filter>Source\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Controls.cpp">
+      <Filter>Source\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

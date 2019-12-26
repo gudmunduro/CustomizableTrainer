@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SettingsHotkeysSub.h"
 #include "HotkeyController.h"
-#include "ControlManager.h"
+#include "Controls.h"
 #include "ConfirmDialog.h"
 #include "SettingsEditAddHotkeySub.h"
 
@@ -34,7 +34,7 @@ void SettingsHotkeysSub::RespondToControls()
 {
 	FixedSubmenu::RespondToControls();
 
-	if (selection != 0 && ControlManager::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
+	if (selection != 0 && Controls::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 		auto confirmDialog = new ConfirmDialog(menuController, "Delete hotkey?", "", "Delete", "Cancel", [this](bool deleteHotkey) {
 			if (deleteHotkey) {
 				HotkeyController::hotkeys.erase(HotkeyController::hotkeys.begin() + selection - 1);

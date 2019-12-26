@@ -3,7 +3,7 @@
 #include "AddOptionSetKeySub.h"
 #include "AddOptionSetTypeSub.h"
 #include "SettingsEditAddHotkeySub.h"
-#include "ActionManager.h"
+#include "ActionController.h"
 #include "HotkeyController.h"
 #include "Routine.h"
 
@@ -121,10 +121,10 @@ int EditAddOptionSub::OptionCount()
 void EditAddOptionSub::UpdateParameters()
 {
 	if (!(optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action &&
-			ActionManager::GetParameterForKey(optionToAdd.key).size() > 0))
+			ActionController::GetParameterForKey(optionToAdd.key).size() > 0))
 		return;
 
-	parameters = ActionManager::GetParameterForKey(optionToAdd.key);
+	parameters = ActionController::GetParameterForKey(optionToAdd.key);
 
 	for each (auto param in parameters) {
 		switch (param.type) {
