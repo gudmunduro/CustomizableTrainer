@@ -40,7 +40,7 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 		return layoutDataMap;
 	}
 	catch (std::exception e) {
-		Routine::StartDrawBottomMessage("Failed to parse layout.json");
+		Game::PrintSubtitle("Failed to parse layout.json");
 	}
 }
 
@@ -110,8 +110,8 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<string>());
 	}
 	catch (const std::exception & e) {
-		Routine::StartDrawBottomMessage("Error: Failed to parse settings.json");
-		// Routine::StartDrawBottomMessage(e.what(), 6000);
+		Game::PrintSubtitle("Error: Failed to parse settings.json");
+		// Game::PrintSubtitle(e.what(), 6000);
 	}
 }
 
@@ -142,7 +142,7 @@ std::vector<Hotkey> JSONDataManager::GetHotkeysAsVector()
 		return hotkeyVec;
 	}
 	catch (std::exception e) {
-		Routine::StartDrawBottomMessage("Failed to parse hotkeys.json");
+		Game::PrintSubtitle("Failed to parse hotkeys.json");
 	}
 
 	return std::vector<Hotkey>();
@@ -264,10 +264,10 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 		WriteFile("CustomizableTrainer\\settings.json", settingsData.dump());
 
 		if (showSavedMessage)
-			Routine::StartDrawBottomMessage("Saved");
+			Game::PrintSubtitle("Saved");
 	}
 	catch (std::exception & e) {
-		Routine::StartDrawBottomMessage("Failed to save settings");
+		Game::PrintSubtitle("Failed to save settings");
 	}
 }
 
@@ -307,7 +307,7 @@ void JSONDataManager::SaveHotkeys(std::vector<Hotkey> hotkeys)
 		WriteFile("CustomizableTrainer\\hotkeys.json", hotkeyData.dump());
 	}
 	catch (std::exception e) {
-		Routine::StartDrawBottomMessage("Failed to save hotkeys");
+		Game::PrintSubtitle("Failed to save hotkeys");
 	}
 }
 
@@ -319,13 +319,13 @@ void JSONDataManager::Load()
 		layoutData = LoadJSONFile("CustomizableTrainer\\layout.json");
 	}
 	catch (const std::exception & e) {
-		Routine::StartDrawBottomMessage("Error: Failed to parse layout.json");
+		Game::PrintSubtitle("Error: Failed to parse layout.json");
 	}
 	try {
 		settingsData = LoadJSONFile("CustomizableTrainer\\settings.json");
 	}
 	catch (const std::exception & e) {
-		Routine::StartDrawBottomMessage("Error: Failed to parse settings.json");
+		Game::PrintSubtitle("Error: Failed to parse settings.json");
 	}
 }
 

@@ -21,7 +21,7 @@ void HotkeyController::Setup()
 void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 {
 	if (!ActionController::DoesActionExistForKey(hotkey.key)) {
-		Routine::StartDrawBottomMessage("Error: Action key for hotkey is invalid");
+		Game::PrintSubtitle("Error: Action key for hotkey is invalid");
 	}
 	ActionController::RunActionForKey(hotkey.key, hotkey.value);
 }
@@ -29,7 +29,7 @@ void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 {
 	if (!ToggleController::DoesToggleExistForKey(hotkey.key)) {
-		Routine::StartDrawBottomMessage("Error: Toggle key for hotkey is invalid");
+		Game::PrintSubtitle("Error: Toggle key for hotkey is invalid");
 		return;
 	}
 	switch (hotkey.action) {
@@ -56,7 +56,7 @@ void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 {
 	if (!NumberController::DoesNumberExistForKey(hotkey.key)) {
-		Routine::StartDrawBottomMessage("Error: Number key for hotkey is invalid");
+		Game::PrintSubtitle("Error: Number key for hotkey is invalid");
 		return;
 	}
 	switch (hotkey.action) {
@@ -68,7 +68,7 @@ void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 		break;
 	case 2:
 		if (!hotkey.value.is_string()) {
-			Routine::StartDrawBottomMessage("Error: Hotkey number value is invalid");
+			Game::PrintSubtitle("Error: Hotkey number value is invalid");
 			return;
 		}
 		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value.get<string>());

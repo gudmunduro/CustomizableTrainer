@@ -113,7 +113,7 @@ void MenuController::SetSubmenuWithKey(string key)
 		AddSubmenuToStack(submenu);
 	}
 	else {
-		Routine::StartDrawBottomMessage("Error: Submenu '" + key + "' does not exist");
+		Game::PrintSubtitle("Error: Submenu '" + key + "' does not exist");
 	}
 }
 
@@ -121,7 +121,7 @@ void MenuController::UpdateSubmenuData(string key, SubmenuData submenuData)
 {
 	for each (auto option in submenuData.options) {
 		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !FixedSubmenuExistsForKey(option.key)) { // Add submenu if it does not exist
-			Routine::StartDrawBottomMessage("Creating submenu");
+			Game::PrintSubtitle("Creating submenu");
 			SetSubmenuDataForKey(option.key, {
 				option.text,
 				option.key,

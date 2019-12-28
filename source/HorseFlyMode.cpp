@@ -6,7 +6,7 @@
 HorseFlyMode::HorseFlyMode()
 {
 	
-	Routine::StartDrawBottomMessage("Horse fly mode activated");
+	Game::PrintSubtitle("Horse fly mode activated");
 }
 
 void HorseFlyMode::Tick()

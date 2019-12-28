@@ -32,13 +32,13 @@ void SettingsSetColorSub::DrawColorValue(string text, int* color)
 			try {
 				int value = std::stoi(Game::GetInputWithKeyboard(std::to_string(*color)));
 				if (value < 0 || value > 255) {
-					Routine::StartDrawBottomMessage("Error: Value needs to be between 0 and 255");
+					Game::PrintSubtitle("Error: Value needs to be between 0 and 255");
 					return;
 				}
 				*color = value;
 			}
 			catch (std::exception & e) {
-				Routine::StartDrawBottomMessage("Error: Invalid value");
+				Game::PrintSubtitle("Error: Invalid value");
 			}
 		}, [color](bool direction) {
 			if (*color == 255 && direction) {

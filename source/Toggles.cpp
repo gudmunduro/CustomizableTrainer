@@ -65,7 +65,7 @@ void Toggles::OnHorseSuperJumpToggle(bool value)
 void Toggles::OnSpawnedPedInvincibleToggle(bool value)
 {
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 
@@ -77,7 +77,7 @@ void Toggles::OnSpawnedPedInvincibleToggle(bool value)
 void Toggles::OnSpanwedPedBodyguardToggle(bool value)
 {
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 

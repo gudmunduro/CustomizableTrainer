@@ -40,11 +40,11 @@ void NumberController::SetNumberValueForKey(string key, string value)
 			*numbersInt[key] = std::stof(value);
 		}
 		else if (DoesNumberIntVariableExistForKey(key)) {
-			Routine::StartDrawBottomMessage("Cannot set value for this number");
+			Game::PrintSubtitle("Cannot set value for this number");
 		}
 	}
 	catch (std::exception e) {
-		Routine::StartDrawBottomMessage("Failed to set number value for '" + key + "'");
+		Game::PrintSubtitle("Failed to set number value for '" + key + "'");
 	}
 }
 

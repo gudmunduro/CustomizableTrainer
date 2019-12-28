@@ -34,7 +34,12 @@ void Routine::StartBoatFlyMode()
 void DrawBottomMessage()
 {
 	if (GetTickCount() < drawBottomTextUntil) {
-		Game::DrawText(bottomMesssageText, { 50.0f, 90.0f }, 45.0f, { 255, 255, 255, 255 }, true);
+		// Game::DrawText(bottomMesssageText, { 50.0f, 90.0f }, 45.0f, { 255, 255, 255, 255 }, true);
+		UI::SET_TEXT_SCALE(1.0f, 45.0f / 100.0f);
+		char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", "<FONT FACE='$catalog1' COLOR='#ff0000'><P ALIGN='CENTER'>Test</P></FONT>");
+		// varString = GAMEPLAY::CREATE_STRING(0x2a, "COLOR_STRING", varString);
+		varString = invoke<char*, int, char*, int, char*>(0xFA925AC00EB830B9, 0x2a, "COLOR_STRING", 0, varString);
+		UI::DRAW_TEXT(varString, 50.0f / 100.0f, 90.0f / 100.0f);
 	}
 }
 

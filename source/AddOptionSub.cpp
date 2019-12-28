@@ -100,7 +100,7 @@ void EditAddOptionSub::Draw()
 	// Add option
 	DrawAction("Done", [this]() {
 		if (optionToAdd.key == "") {
-			Routine::StartDrawBottomMessage("Error: Key cannot be empty");
+			Game::PrintSubtitle("Error: Key cannot be empty");
 			return;
 		}
 		if (onAddOption)

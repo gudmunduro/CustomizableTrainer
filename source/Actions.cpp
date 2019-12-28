@@ -13,7 +13,7 @@ void Actions::SetPlayerMaxHealth(json params)
 	player.SetHealth(player.MaxHealth());
 	player.RestoreStamina(100.0);
 	player.RestoreSpecialAbility();
-	Routine::StartDrawBottomMessage("Player healed");
+	Game::PrintSubtitle("Player healed");
 }
 
 void Actions::StopPlayerPursuit(json params)
@@ -29,7 +29,7 @@ void Actions::ClearPlayerBounty(json params)
 void Actions::ChangeModel(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -66,7 +66,7 @@ void Actions::AddCashFromKeyboard(json params)
 void Actions::SpawnPed(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -85,11 +85,11 @@ void Actions::SpawnPedFromInput(json params)
 void Actions::GiveSpawnedPedWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 	string weaponModel = params[0].get<string>();
@@ -102,7 +102,7 @@ void Actions::GiveSpawnedPedWeapon(json params)
 void Actions::TeleportSpawnedPedToPlayer(json params)
 {
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 
@@ -114,7 +114,7 @@ void Actions::TeleportSpawnedPedToPlayer(json params)
 void Actions::TeleportPlayerToSpawnedPed(json params)
 {
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 
@@ -126,7 +126,7 @@ void Actions::TeleportPlayerToSpawnedPed(json params)
 void Actions::DeleteSpawnedPed(json params)
 {
 	if (!PedSpawner::IsAnyPedSelected()) {
-		Routine::StartDrawBottomMessage("Error: No ped selected");
+		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
 
@@ -136,7 +136,7 @@ void Actions::DeleteSpawnedPed(json params)
 void Actions::GiveAllSpawnedPedsWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string weaponModel = params[0].get<string>();
@@ -184,14 +184,14 @@ void Actions::ReviveNearestHorse(json params)
 	int nearbyPeds[10];
 	//PED::GET_PED_NEARBY_PEDS(Player().Id(), (int*) &nearbyPeds, Player.Id(), 0);
 	//if (nearbyPeds[0] > 0) {
-	//	Routine::StartDrawBottomMessage("Revived");
+	//	Game::PrintSubtitle("Revived");
 	//	PED::REVIVE_INJURED_PED(nearbyPeds[0]);
 	//}
 	//else {
-	//	Routine::StartDrawBottomMessage("Failed");
+	//	Game::PrintSubtitle("Failed");
 	//}
-	//Routine::StartDrawBottomMessage(std::to_string(PED::GET_PED_TYPE(closestPed)));
-	Routine::StartDrawBottomMessage(std::to_string(closestPed));
+	//Game::PrintSubtitle(std::to_string(PED::GET_PED_TYPE(closestPed)));
+	Game::PrintSubtitle(std::to_string(closestPed));
 	PED::REVIVE_INJURED_PED(closestPed);
 	auto ped = Ped(closestPed);
 	ped.SetHealth(ped.MaxHealth());
@@ -205,13 +205,13 @@ void Actions::SetHorseMaxHealth(json params)
 	Ped horse = Player().Mount();
 	horse.SetHealth(horse.MaxHealth());
 	horse.SetStamina(100.0);
-	Routine::StartDrawBottomMessage("Horse healed");
+	Game::PrintSubtitle("Horse healed");
 }
 
 void Actions::SpawnHorse(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -220,7 +220,7 @@ void Actions::SpawnHorse(json params)
 	float heading = player.Heading() + 90.0f;
 
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(String::Hash(model))) {
-		Routine::StartDrawBottomMessage("Invalid model");
+		Game::PrintSubtitle("Invalid model");
 		return;
 	}
 
@@ -239,13 +239,14 @@ void Actions::SpawnHorseFromInput(json params)
 void Actions::SpawnVehicle(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string vehicleModel = params[0].get<string>();
 	Hash vehicleHash = String::Hash(vehicleModel);
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(vehicleHash)) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid model");
+		// Routine::StartDrawBottomMessage("1");
+		Game::PrintSubtitle("Error: Invalid model");
 		return;
 	}
 	Player player = Player();
@@ -302,7 +303,7 @@ void Actions::DeleteCurrentVehicle(json params)
 	Vehicle currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
-		Routine::StartDrawBottomMessage("~g~Deleted!");
+		Game::PrintSubtitle("~g~Deleted!");
 	}
 }
 
@@ -331,7 +332,7 @@ void Actions::GivePlayerAllWeapons(json params)
 void Actions::GivePlayerWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string weaponModel = params[0].get<string>();
@@ -360,7 +361,7 @@ void Actions::GivePlayerMaxAmmo(json params)
 void Actions::SetWeather(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	string weather = params[0].get<string>();
@@ -372,7 +373,7 @@ void Actions::SetWeather(json params)
 void Actions::AddToClockTime(json params)
 {
 	if (!params.is_array() || !params[0].is_number_integer() || !params[1].is_number_integer() || !params[2].is_number_integer()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	int hours = params[0].get<int>();
@@ -393,7 +394,7 @@ void Actions::TeleportPlayerForward(json params)
 void Actions::TeleportPlayerToWaypoint(json params)
 {
 	if (!RADAR::IS_WAYPOINT_ACTIVE()) {
-		Routine::StartDrawBottomMessage("No waypoint set");
+		Game::PrintSubtitle("No waypoint set");
 		return;
 	}
 
@@ -438,7 +439,7 @@ void Actions::TeleportPlayerToWaypoint(json params)
 void Actions::TeleportPlayerToCoords(json params)
 {
 	if (!params.is_array() || !params[0].is_number_float() || !params[1].is_number_float() || !params[2].is_number_float()) {
-		Routine::StartDrawBottomMessage("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
 		return;
 	}
 	Player player;

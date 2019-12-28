@@ -52,7 +52,7 @@ void SettingsEditAddHotkeySub::Draw()
 	DrawText("Name", hotkeyToEdit.name, [this] {
 		auto newName = Game::GetInputWithKeyboard(hotkeyToEdit.name);
 		if (newName == "") {
-			Routine::StartDrawBottomMessage("Name cannot be empty");
+			Game::PrintSubtitle("Name cannot be empty");
 		}
 		hotkeyToEdit.name = newName;
 	});
@@ -159,7 +159,7 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 
 	DrawAction(text, [this, control] {
 		if (!Controls::IsUsingController()) {
-			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
+			Game::PrintSubtitle("You need to be using a controller to change controller controls");
 			return;
 		}
 		isEditingKeyboardControl = false;

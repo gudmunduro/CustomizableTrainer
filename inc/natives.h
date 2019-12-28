@@ -4955,13 +4955,13 @@ namespace UILOG
 	static void _0xB95B4EA6B1EDF035() { invoke<Void>(0xB95B4EA6B1EDF035); }
 	static void _0xB43163388484CC87(Any p0, Any p1, Any p2, Any* p3, BOOL p4, BOOL p5, BOOL p6) { invoke<Void>(0xB43163388484CC87, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xA20398536B7F1134(Any p0, Any p1, Any p2, Any* p3, Any* p4, BOOL p5) { invoke<Void>(0xA20398536B7F1134, p0, p1, p2, p3, p4, p5); }
-	static void _0xFA233F8FE190514C(Any* p0) { invoke<Void>(0xFA233F8FE190514C, p0); }
-	static void _0xDFF0D417277B41F8() { invoke<Void>(0xDFF0D417277B41F8); }
+	static void _UILOG_SET_CACHED_OBJECTIVE(char* p0) { invoke<Void>(0xFA233F8FE190514C, p0); }
+	static void _UILOG_CLEAR_CACHED_OBJECTIVE() { invoke<Void>(0xDFF0D417277B41F8); }
 	static BOOL _0xCC48FFBB45B54F71() { return invoke<BOOL>(0xCC48FFBB45B54F71); }
 	static void _0xA3108D6981A5CADB() { invoke<Void>(0xA3108D6981A5CADB); }
 	static void _0xA3108D6981A5CADC() { invoke<Void>(0xA3108D6981A5CADC); }
 	static Any _0x15A4461BEB788096() { return invoke<Any>(0x15A4461BEB788096); }
-	static void _0xE9990552DEC71600() { invoke<Void>(0xE9990552DEC71600); }
+	static void _UILOG_PRINT_CACHED_OBJECTIVE() { invoke<Void>(0xE9990552DEC71600); }
 	static Any _0x136A027CF37B0A4F(Any p0, Any p1) { return invoke<Any>(0x136A027CF37B0A4F, p0, p1); }
 	static Any _0x2A4765812202E671() { return invoke<Any>(0x2A4765812202E671); }
 	static void _0x60C59968E8E87E6B(Any p0, Any p1, Any* p2, Any* p3, Any p4) { invoke<Void>(0x60C59968E8E87E6B, p0, p1, p2, p3, p4); }

@@ -131,7 +131,7 @@ void DynamicSubmenu::RespondToControls()
 			isEditModeActive = false;
 			SubmenuData updatedSubmenuData = { title, key, options };
 			menuController->UpdateSubmenuData(key, updatedSubmenuData);
-			Routine::StartDrawBottomMessage("Saved");
+			Game::PrintSubtitle("Saved");
 		}
 		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeExit)) {
 			isMoveOptionActive = false;

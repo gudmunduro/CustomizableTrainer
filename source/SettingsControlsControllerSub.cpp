@@ -49,7 +49,7 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 
 	DrawAction(text, [this, control] {
 		if (!Controls::IsUsingController()) {
-			Routine::StartDrawBottomMessage("You need to be using a controller to change controller controls");
+			Game::PrintSubtitle("You need to be using a controller to change controller controls");
 			return;
 		}
 		controlToEdit = control;

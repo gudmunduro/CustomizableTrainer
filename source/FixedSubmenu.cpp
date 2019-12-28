@@ -43,7 +43,7 @@ void FixedSubmenu::RespondToControls()
 	Submenu::RespondToControls();
 
 	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
-		Routine::StartDrawBottomMessage("Edit mode is not available in this menu");
+		Game::PrintSubtitle("Edit mode is not available in this menu");
 	}
 }
 
