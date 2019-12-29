@@ -144,6 +144,7 @@
     <ClInclude Include="SettingsControlsKeyboardSub.h" />
     <ClInclude Include="SettingsControlsSub.h" />
     <ClInclude Include="SettingsEditAddHotkeySub.h" />
+    <ClInclude Include="SettingsGeneralSub.h" />
     <ClInclude Include="SettingsHotkeyActionSub.h" />
     <ClInclude Include="SettingsHotkeysSub.h" />
     <ClInclude Include="SettingsSetColorSub.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="SettingsControlsKeyboardSub.cpp" />
     <ClCompile Include="SettingsControlsSub.cpp" />
     <ClCompile Include="SettingsEditAddHotkeySub.cpp" />
+    <ClCompile Include="SettingsGeneralSub.cpp" />
     <ClCompile Include="SettingsHotkeyActionSub.cpp" />
     <ClCompile Include="SettingsHotkeysSub.cpp" />
     <ClCompile Include="SettingsSetColorSub.cpp" />

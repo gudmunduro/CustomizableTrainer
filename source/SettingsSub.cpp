@@ -10,6 +10,7 @@ void SettingsSub::Draw()
 	FixedSubmenu::Draw();
 
 	DrawTitle("Settings");
+	DrawSub("General", "builtin_sub_settingsGeneral");
 	DrawSub("Color scheme", "builtin_sub_settingsColorScheme");
 	DrawSub("Controls", "builtin_sub_settingsControls");
 	DrawSub("Hotkeys", "builtin_sub_settingsHotkeys");

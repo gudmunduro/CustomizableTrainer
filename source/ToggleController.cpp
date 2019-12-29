@@ -98,7 +98,7 @@ void ToggleController::Toggle(string key)
 		}
 	}
 	else {
-		Game::PrintSubtitle("~r~Error: ~w~Toggle does ~r~not~w~ exist");
+		Game::PrintSubtitle("Error: Toggle does not exist");
 	}
 }
 

@@ -68,7 +68,7 @@ void ActionController::RunActionForKey(string key, json params)
 		action(params);
 	}
 	else {
-		Game::PrintSubtitle("~r~Error: ~w~Action does ~r~not~w~ exist");
+		Game::PrintSubtitle("Error: Action does not exist");
 	}
 }
 

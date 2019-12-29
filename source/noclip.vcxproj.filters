@@ -216,6 +216,9 @@
     <ClInclude Include="Controls.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="SettingsGeneralSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -337,6 +340,9 @@
     </ClCompile>
     <ClCompile Include="Controls.cpp">
       <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsGeneralSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

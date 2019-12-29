@@ -17,6 +17,12 @@ void Game::DrawSprite(string textureDict, string textureName, Vector3 position, 
 							size.width / 100.0f, size.height / 100.0f, heading, color.r, color.g, color.b, color.a, false);
 }
 
+void Game::DrawRect(Vector3 position, Rect size, Color color)
+{
+	GRAPHICS::DRAW_RECT(position.x / 100.0f, position.y / 100.0f,
+		size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
+}
+
 void Game::PrintSubtitle(string text)
 {
 	char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*)text.c_str());
@@ -25,10 +31,11 @@ void Game::PrintSubtitle(string text)
 	UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
 }
 
-void Game::DrawRect(Vector3 position, Rect size, Color color)
+void Game::PlaySoundFrontend(string soundCat, string soundName)
 {
-	GRAPHICS::DRAW_RECT(position.x / 100.0f, position.y / 100.0f,
-		size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
+	int soundId = AUDIO::GET_SOUND_ID();
+
+	AUDIO::_0xCE5D0FFE83939AF1(soundId, (char*) soundName.c_str(), (char*) soundCat.c_str(), 1);
 }
 
 void Game::RequestModel(Hash model)

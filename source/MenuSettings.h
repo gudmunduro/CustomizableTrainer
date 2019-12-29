@@ -4,17 +4,28 @@
 class MenuSettings
 {
 public:
+	// MARK: General
+
+	static inline bool playUiSounds;
+
+
 	// MARK: Colors
 
-	static inline Color titleBarBgColor;
+	static inline Color titleBarBorderColor;
 	static inline Color titleBarTextColor;
 	static inline Color optionBgColor;
 	static inline Color optionTextColor;
 	static inline Color optionSelectedBgColor;
+	static inline Color optionSelectedOutlineColor;
 	static inline Color optionSelectedTextColor;
 	static inline Color optionToggleColor;
 	static inline Color optionToggleToggledColor;
 	static inline Color optionNumberColor;
+	static inline Color menuScrollLineColor;
+	static inline Color menuBgColor;
+	static inline Color menuStatusTextColor;
+	static inline Color menuOptionCountColor;
+
 
 	// MARK: Keyboard controls
 

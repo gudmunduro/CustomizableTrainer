@@ -29,7 +29,7 @@ void Actions::ClearPlayerBounty(json params)
 void Actions::ChangeModel(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -66,7 +66,7 @@ void Actions::AddCashFromKeyboard(json params)
 void Actions::SpawnPed(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -85,7 +85,7 @@ void Actions::SpawnPedFromInput(json params)
 void Actions::GiveSpawnedPedWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	if (!PedSpawner::IsAnyPedSelected()) {
@@ -136,7 +136,7 @@ void Actions::DeleteSpawnedPed(json params)
 void Actions::GiveAllSpawnedPedsWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string weaponModel = params[0].get<string>();
@@ -211,7 +211,7 @@ void Actions::SetHorseMaxHealth(json params)
 void Actions::SpawnHorse(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string model = params[0].get<string>();
@@ -239,7 +239,7 @@ void Actions::SpawnHorseFromInput(json params)
 void Actions::SpawnVehicle(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string vehicleModel = params[0].get<string>();
@@ -332,7 +332,7 @@ void Actions::GivePlayerAllWeapons(json params)
 void Actions::GivePlayerWeapon(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string weaponModel = params[0].get<string>();
@@ -361,7 +361,7 @@ void Actions::GivePlayerMaxAmmo(json params)
 void Actions::SetWeather(json params)
 {
 	if (!params.is_array() || !params[0].is_string()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	string weather = params[0].get<string>();
@@ -373,7 +373,7 @@ void Actions::SetWeather(json params)
 void Actions::AddToClockTime(json params)
 {
 	if (!params.is_array() || !params[0].is_number_integer() || !params[1].is_number_integer() || !params[2].is_number_integer()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	int hours = params[0].get<int>();
@@ -439,7 +439,7 @@ void Actions::TeleportPlayerToWaypoint(json params)
 void Actions::TeleportPlayerToCoords(json params)
 {
 	if (!params.is_array() || !params[0].is_number_float() || !params[1].is_number_float() || !params[2].is_number_float()) {
-		Game::PrintSubtitle("~r~Error: ~w~Invalid parameters");
+		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
 	Player player;

@@ -3578,7 +3578,7 @@ namespace AUDIO
 	static void _0x9821B68CD3E05F2B(Any* p0, float p1, Any* p2, Any* p3) { invoke<Void>(0x9821B68CD3E05F2B, p0, p1, p2, p3); }
 	static void _0x9963681A8BC69BF3(Any p0, Any* p1, float p2) { invoke<Void>(0x9963681A8BC69BF3, p0, p1, p2); }
 	static void _0x2E31ACA7477CF00F(Any p0, Any* p1, Any* p2) { invoke<Void>(0x2E31ACA7477CF00F, p0, p1, p2); }
-	static void _0xCE5D0FFE83939AF1(Any p0, Any* p1, Any* p2, Any p3) { invoke<Void>(0xCE5D0FFE83939AF1, p0, p1, p2, p3); }
+	static void _0xCE5D0FFE83939AF1(Any p0, char* p1, char* p2, Any p3) { invoke<Void>(0xCE5D0FFE83939AF1, p0, p1, p2, p3); }
 	static void _0xF1C5310FEAA36B48(Any p0, Any* p1, Any p2, Any* p3, BOOL p4, Any p5) { invoke<Void>(0xF1C5310FEAA36B48, p0, p1, p2, p3, p4, p5); }
 	static void _0xDCF5BA95BBF0FABA(Any p0, Any* p1, float p2, float p3, float p4, Any* p5, BOOL p6, Any p7, BOOL p8) { invoke<Void>(0xDCF5BA95BBF0FABA, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0x0286617C8FC50A53(Any p0, float p1, float p2, float p3) { invoke<Void>(0x0286617C8FC50A53, p0, p1, p2, p3); }

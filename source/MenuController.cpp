@@ -3,9 +3,11 @@
 #include "Routine.h"
 #include "Controls.h"
 #include "JsonDataManager.h"
+#include "MenuSettings.h"
 #include "DynamicSubmenu.h"
 #include "PedSpawnerSub.h"
 #include "SettingsSub.h"
+#include "SettingsGeneralSub.h"
 #include "SettingsControlsSub.h"
 #include "SettingsControlsControllerSub.h"
 #include "SettingsControlsKeyboardSub.h"
@@ -77,6 +79,10 @@ void MenuController::RespondToControls()
 {
 	if (Controls::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
+
+		if (MenuSettings::playUiSounds)
+			Game::PlaySoundFrontend("HUD_PLAYER_MENU", shouldDrawMenu ? "MENU_ENTER" : "MENU_CLOSE");
+			
 
 		Controls::SetMenuControlsEnabled(!shouldDrawMenu);
 		if (submenuStack.size() == 0) {
@@ -171,6 +177,9 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	}
 	else if (key == "builtin_sub_settings") {
 		return new SettingsSub(this);
+	}
+	else if (key == "builtin_sub_settingsGeneral") {
+		return new SettingsGeneralSub(this);
 	}
 	else if (key == "builtin_sub_settingsControls") {
 		return new SettingsControlsSub(this);

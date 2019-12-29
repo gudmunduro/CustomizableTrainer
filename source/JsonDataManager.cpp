@@ -47,16 +47,24 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 void JSONDataManager::UpdateMenuSettings()
 {
 	try {
+		// General
+		MenuSettings::playUiSounds = settingsData["playUiSounds"].get<bool>();
+
 		// Colors
-		MenuSettings::titleBarBgColor = MenuSettings::colorFromJSON(settingsData["titleBarBgColor"]);
+		MenuSettings::titleBarBorderColor = MenuSettings::colorFromJSON(settingsData["titleBarBorderColor"]);
 		MenuSettings::titleBarTextColor = MenuSettings::colorFromJSON(settingsData["titleBarTextColor"]);
 		MenuSettings::optionBgColor = MenuSettings::colorFromJSON(settingsData["optionBgColor"]);
 		MenuSettings::optionTextColor = MenuSettings::colorFromJSON(settingsData["optionTextColor"]);
 		MenuSettings::optionSelectedBgColor = MenuSettings::colorFromJSON(settingsData["optionSelectedBgColor"]);
+		MenuSettings::optionSelectedOutlineColor = MenuSettings::colorFromJSON(settingsData["optionSelectedOutlineColor"]);
 		MenuSettings::optionSelectedTextColor = MenuSettings::colorFromJSON(settingsData["optionSelectedTextColor"]);
 		MenuSettings::optionToggleColor = MenuSettings::colorFromJSON(settingsData["optionToggleColor"]);
 		MenuSettings::optionToggleToggledColor = MenuSettings::colorFromJSON(settingsData["optionToggleToggledColor"]);
 		MenuSettings::optionNumberColor = MenuSettings::colorFromJSON(settingsData["optionNumberColor"]);
+		MenuSettings::menuScrollLineColor = MenuSettings::colorFromJSON(settingsData["menuScrollLineColor"]);
+		MenuSettings::menuBgColor = MenuSettings::colorFromJSON(settingsData["menuBgColor"]);
+		MenuSettings::menuStatusTextColor = MenuSettings::colorFromJSON(settingsData["menuStatusTextColor"]);
+		MenuSettings::menuOptionCountColor = MenuSettings::colorFromJSON(settingsData["menuOptionCountColor"]);
 
 		// Keyboard controls
 		json keyboardControls = settingsData["controls"]["keyboard"];
@@ -110,8 +118,8 @@ void JSONDataManager::UpdateMenuSettings()
 		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<string>());
 	}
 	catch (const std::exception & e) {
-		Game::PrintSubtitle("Error: Failed to parse settings.json");
-		// Game::PrintSubtitle(e.what(), 6000);
+		// Game::PrintSubtitle("Error: Failed to parse settings.json");
+		Game::PrintSubtitle(e.what());
 	}
 }
 
@@ -196,16 +204,24 @@ void JSONDataManager::SaveMenuSettings(bool showSavedMessage)
 {
 	try {
 		settingsData = json::object({
+			// General
+			{ "playUiSounds", MenuSettings::playUiSounds },
+
 			// Colors
-			{ "titleBarBgColor", MenuSettings::jsonFromColor(MenuSettings::titleBarBgColor) },
+			{ "titleBarBorderColor", MenuSettings::jsonFromColor(MenuSettings::titleBarBorderColor) },
 			{ "titleBarTextColor", MenuSettings::jsonFromColor(MenuSettings::titleBarTextColor) },
 			{ "optionBgColor", MenuSettings::jsonFromColor(MenuSettings::optionBgColor) },
 			{ "optionTextColor", MenuSettings::jsonFromColor(MenuSettings::optionTextColor) },
 			{ "optionSelectedBgColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedBgColor) },
+			{ "optionSelectedOutlineColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedOutlineColor) },
 			{ "optionSelectedTextColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedTextColor) },
 			{ "optionToggleColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleColor) },
 			{ "optionToggleToggledColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleToggledColor) },
 			{ "optionNumberColor", MenuSettings::jsonFromColor(MenuSettings::optionNumberColor) },
+			{ "menuScrollLineColor", MenuSettings::jsonFromColor(MenuSettings::menuScrollLineColor) },
+			{ "menuBgColor", MenuSettings::jsonFromColor(MenuSettings::menuBgColor) },
+			{ "menuStatusTextColor", MenuSettings::jsonFromColor(MenuSettings::menuStatusTextColor) },
+			{ "menuOptionCountColor", MenuSettings::jsonFromColor(MenuSettings::menuOptionCountColor) },
 
 			// Controls
 			{"controls", {

@@ -14,15 +14,20 @@ void SettingsColorSchemeSub::Draw()
 	FixedSubmenu::Draw();
 
 	DrawTitle("Color scheme");
-	DrawSetColorAction("Title bg", &MenuSettings::titleBarBgColor);
+	DrawSetColorAction("Title border", &MenuSettings::titleBarBorderColor);
 	DrawSetColorAction("Title text", &MenuSettings::titleBarTextColor);
-	DrawSetColorAction("Option bg", &MenuSettings::optionBgColor);
+	DrawSetColorAction("Option background", &MenuSettings::optionBgColor);
 	DrawSetColorAction("Option text", &MenuSettings::optionTextColor);
 	DrawSetColorAction("Option selected bg", &MenuSettings::optionSelectedBgColor);
+	DrawSetColorAction("Option selected outline", &MenuSettings::optionSelectedOutlineColor);
 	DrawSetColorAction("Option selected text", &MenuSettings::optionSelectedTextColor);
 	DrawSetColorAction("Option toggle", &MenuSettings::optionToggleColor);
 	DrawSetColorAction("Option toggle(toggled)", &MenuSettings::optionToggleToggledColor);
 	DrawSetColorAction("Option number", &MenuSettings::optionNumberColor);
+	DrawSetColorAction("Menu background", &MenuSettings::menuBgColor);
+	DrawSetColorAction("Scroll line", &MenuSettings::menuScrollLineColor);
+	DrawSetColorAction("Option count", &MenuSettings::menuOptionCountColor);
+	DrawSetColorAction("Menu status text", &MenuSettings::menuStatusTextColor);
 }
 
 void SettingsColorSchemeSub::DrawSetColorAction(string text, Color *color)
