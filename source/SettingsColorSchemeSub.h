@@ -7,8 +7,8 @@ class SettingsColorSchemeSub :
 public:
 	SettingsColorSchemeSub(MenuController *menuController);
 
+protected:
 	void Draw() override;
-	void DrawSetColorAction(string text, Color *color);
-	int OptionCount() override;
+	void DrawSetColorAction(string text, Color* color);
 };
 

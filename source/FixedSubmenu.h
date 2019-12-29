@@ -8,6 +8,7 @@ class FixedSubmenu :
 public:
 	FixedSubmenu(MenuController* menuController);
 
+protected:
 	void DrawSub(string text, string subKey);
 	void DrawText(string text, string value, std::function<void()> onPress);
 
@@ -15,8 +16,4 @@ public:
 	virtual void SelectionDidChange(int to, int from) override;
 
 	virtual void RespondToControls() override;
-
-	virtual int OptionCount() override;
-	virtual bool ToggleValueAtIndex(int index);
 };
-

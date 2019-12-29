@@ -169,7 +169,7 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingControllerControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
-	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 3.5f }, 25.0f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
 void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
@@ -186,7 +186,7 @@ void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingKeyboardControl && hotkeyToEdit.keyboardKey == *key) ? (int)editingControlAlpha : 255;
-	Game::DrawText(Controls::GeyStringValueForKey(*key), { menuPos.x + 16.0f, CurrentOptionPosY() - 3.5f }, 25.0f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GeyStringValueForKey(*key), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -282,14 +282,6 @@ string SettingsEditAddHotkeySub::ActionValueString()
 		}
 	default: return "";
 	}
-}
-
-int SettingsEditAddHotkeySub::OptionCount()
-{
-	return 7 + 
-		((ActionString() != "") ? 1 : 0) +
-		((hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 0) ? 1 : 0) +
-		parameters.size();
 }
 
 // MARK: Misc

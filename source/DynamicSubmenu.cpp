@@ -44,6 +44,24 @@ void DynamicSubmenu::Draw()
 	}
 }
 
+void DynamicSubmenu::DrawMenuBase()
+{
+	Submenu::DrawMenuBase();
+	auto& menuPos = menuController->position;
+
+	// Edit mode indicator
+	if (isEditModeActive) {
+		string statusText = "";
+
+		if (isMoveOptionActive)
+			statusText = "Moving option";
+		else
+			statusText = "Edit mode";
+
+		Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, 255 }, true);
+	}
+}
+
 // MARK: Draw option
 
 void DynamicSubmenu::DrawSub(string text, string subKey)

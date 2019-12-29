@@ -44,8 +44,3 @@ void SettingsHotkeysSub::RespondToControls()
 		menuController->AddSubmenuToStack(confirmDialog);
 	}
 }
-
-int SettingsHotkeysSub::OptionCount()
-{
-	return HotkeyController::hotkeys.size() + 1;
-}

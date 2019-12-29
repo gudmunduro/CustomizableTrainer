@@ -6,15 +6,15 @@ class SettingsControlsKeyboardSub :
 {
 public:
 	SettingsControlsKeyboardSub(MenuController *menuController);
+
+	bool isEditingKey;
+
+protected:
 	void Draw() override;
 	void DrawEditControl(string text, int* control);
 	void SubWillDraw() override;
 	void RespondToControls() override;
 
-	int OptionCount();
-
-	bool isEditingKey;
-private:
 	int* keyToEdit;
 	float editingKeyAlpha = 255.0f;
 	bool editingKeyAlphaDirection = false;

@@ -14,8 +14,3 @@ void SettingsSub::Draw()
 	DrawSub("Controls", "builtin_sub_settingsControls");
 	DrawSub("Hotkeys", "builtin_sub_settingsHotkeys");
 }
-
-int SettingsSub::OptionCount()
-{
-	return 3;
-}

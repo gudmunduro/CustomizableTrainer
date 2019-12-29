@@ -32,10 +32,3 @@ void SettingsColorSchemeSub::DrawSetColorAction(string text, Color *color)
 		menuController->AddSubmenuToStack(setColorSub);
 	});
 }
-
-// MARK: Getters
-
-int SettingsColorSchemeSub::OptionCount()
-{
-	return 9;
-}

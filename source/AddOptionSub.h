@@ -7,14 +7,14 @@ class EditAddOptionSub :
 {
 public:
 	EditAddOptionSub(MenuOption* optionToEdit, MenuController* menuController);
-	void Draw() override;
 
 	int OptionCount() override;
 
+	std::function<void(MenuOption option)> onAddOption;
+protected:
+	void Draw() override;
 	void UpdateParameters();
 
-	std::function<void(MenuOption option)> onAddOption;
-private:
 	MenuOption optionToAdd;
 	std::vector<MenuOptionParameter> parameters;
 	string title;

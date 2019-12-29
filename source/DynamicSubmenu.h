@@ -8,7 +8,12 @@ class DynamicSubmenu :
 public:
 	DynamicSubmenu(SubmenuData submenuData, MenuController* menuController);
 
+	int OptionCount();
+
+protected:
 	void Draw() override;
+
+	void DrawMenuBase() override;
 
 	void DrawSub(string text, string subKey);
 	void DrawAction(string text, string actionKey, json actionParams);
@@ -20,8 +25,6 @@ public:
 
 	void RespondToControls() override;
 
-	int OptionCount();
-private:
 	string title;
 	string key;
 	std::vector<MenuOption> options;

@@ -5,7 +5,8 @@ class SettingsSub :
 {
 public:
 	SettingsSub(MenuController *menuController);
+
+protected:
 	void Draw() override;
-	int OptionCount() override;
 };
 

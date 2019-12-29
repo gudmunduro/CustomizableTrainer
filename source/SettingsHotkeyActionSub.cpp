@@ -51,14 +51,3 @@ void SettingsHotkeyActionSub::DrawActionSet(string text, int action)
 		menuController->GoToLastSub();
 	});
 }
-
-// MARK: Getters
-
-int SettingsHotkeyActionSub::OptionCount()
-{
-	switch (type) {
-	case MenuOptionType::Toggle: return 3;
-	case MenuOptionType::Number: return 2;
-	default: return 0;
-	}
-}

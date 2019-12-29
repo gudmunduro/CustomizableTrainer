@@ -52,10 +52,3 @@ void SettingsSetColorSub::DrawColorValue(string text, int* color)
 			*color += direction ? 1 : -1;
 		});
 }
-
-// MARK: Getters
-
-int SettingsSetColorSub::OptionCount()
-{
-	return 5;
-}

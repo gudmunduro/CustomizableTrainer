@@ -11,29 +11,20 @@ public:
 
 	SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, MenuController* menuController);
 
+protected:
 	void Draw() override;
-
-	void DrawEditControl(string text, int control, std::function<void()> onPress);
-
 	void DrawEditControl(string text, Hash* control);
-
 	void DrawEditKey(string text, int* key);
 
 	void OnValueOptionPress();
-
 	void SubWillDraw() override;
 
 	void RespondToControls();
 
 	string ActionString();
-
 	string ActionValueString();
-
-	int OptionCount() override;
-
 	void UpdateActionParameters();
 
-private:
 	string title;
 	Hotkey hotkeyToEdit;
 	Hotkey *hotkeyToSaveTo;

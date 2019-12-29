@@ -21,7 +21,7 @@ void FixedSubmenu::DrawText(string text, string value, std::function<void()> onP
 	auto menuPos = menuController->position;
 
 	Submenu::DrawAction(text, onPress);
-	Game::DrawText(value, { menuPos.x + 9.0f, CurrentOptionPosY() - 3.5f }, 25.0f, { 150, 150, 150, 255 });
+	Game::DrawText(value, { menuPos.x + 9.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, 255 });
 }
 
 // MARK: Events
@@ -45,16 +45,4 @@ void FixedSubmenu::RespondToControls()
 	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
 		Game::PrintSubtitle("Edit mode is not available in this menu");
 	}
-}
-
-// MARK: Getters
-
-int FixedSubmenu::OptionCount()
-{
-	return 0;
-}
-
-bool FixedSubmenu::ToggleValueAtIndex(int index)
-{
-	return false;
 }

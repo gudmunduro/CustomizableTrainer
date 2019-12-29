@@ -9,6 +9,7 @@ class SettingsControlsControllerSub :
 public:
 	SettingsControlsControllerSub(MenuController *menuController);
 
+protected:
 	void Draw() override;
 	void DrawEditControl(string text, Hash* control);
 
@@ -16,10 +17,7 @@ public:
 
 	void RespondToControls() override;
 
-	int OptionCount();
-
 	bool isEditingControl;
-private:
 	Hash* controlToEdit;
 	float editingControlAlpha = 255.0f;
 	bool editingControlAlphaDirection = false;

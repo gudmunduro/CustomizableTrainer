@@ -57,7 +57,7 @@ void SettingsControlsKeyboardSub::DrawEditControl(string text, int* control)
 
 	auto menuPos = menuController->position;
 	int alpha = (isEditingKey && keyToEdit == control) ? (int) editingKeyAlpha : 255;
-	Game::DrawText(Controls::GeyStringValueForKey(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 3.5f }, 25.0f, { 150, 150, 150, alpha });
+	Game::DrawText(Controls::GeyStringValueForKey(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
 // MARK: Events
@@ -99,9 +99,3 @@ void SettingsControlsKeyboardSub::RespondToControls()
 	}
 }
 
-// MARK: Getters
-
-int SettingsControlsKeyboardSub::OptionCount()
-{
-	return 23;
-}

@@ -31,7 +31,7 @@ void MenuController::Tick()
 {
 	RespondToControls();
 	if (!UI::IS_PAUSE_MENU_ACTIVE() && shouldDrawMenu && submenuStack.size() > 0) {
-		submenuStack.back()->Draw();
+		submenuStack.back()->Tick();
 	}
 }
 
@@ -50,7 +50,9 @@ void MenuController::AddSubmenuToStack(Submenu* submenu)
 void MenuController::GoToLastSub()
 {
 	if (!submenuStack.empty()) {
+		auto currentSub = submenuStack.back();
 		submenuStack.pop_back();
+		currentSub->DeleteWhenPossible();
 
 		if (!submenuStack.empty()) {
 			// Set selection into bounds if option has been removed

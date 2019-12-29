@@ -10,13 +10,13 @@ public:
 
 	AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu);
 
-	void Draw() override;
-
 	int OptionCount() override;
 
 	std::function<void(MenuOptionType type)> onTypeSet;
 
-private:
+protected:
+	void Draw() override;
+
 	bool hideSubmenu = false;
 };
 
