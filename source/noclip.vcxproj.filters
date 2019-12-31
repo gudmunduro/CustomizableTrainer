@@ -76,6 +76,12 @@
     <Filter Include="Headers\Menu\Submenus\Settings">
       <UniqueIdentifier>{98d6402c-079a-4b26-b063-008deaf57bff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headers\Texts">
+      <UniqueIdentifier>{035d64ad-f5e5-4fe5-8cff-c8c3802e1e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Texts">
+      <UniqueIdentifier>{537121d8-e7ed-451c-8512-941327f4a4b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -228,6 +234,12 @@
     <ClInclude Include="CustomBullets.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
+    <ClInclude Include="Texts.h">
+      <Filter>Headers\Texts</Filter>
+    </ClInclude>
+    <ClInclude Include="TextController.h">
+      <Filter>Headers\Texts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -361,6 +373,12 @@
     </ClCompile>
     <ClCompile Include="CustomBullets.cpp">
       <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="TextController.cpp">
+      <Filter>Source\Texts</Filter>
+    </ClCompile>
+    <ClCompile Include="Texts.cpp">
+      <Filter>Source\Texts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

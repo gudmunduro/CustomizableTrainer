@@ -130,6 +130,8 @@
     <ClInclude Include="HotkeyController.h" />
     <ClInclude Include="JsonDataManager.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="TextController.h" />
+    <ClInclude Include="Texts.h" />
     <ClInclude Include="MenuController.h" />
     <ClInclude Include="MenuSettings.h" />
     <ClInclude Include="NumberController.h" />
@@ -176,6 +178,8 @@
     <ClCompile Include="HotkeyController.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
     <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="TextController.cpp" />
+    <ClCompile Include="Texts.cpp" />
     <ClCompile Include="MenuController.cpp" />
     <ClCompile Include="MenuSettings.cpp" />
     <ClCompile Include="Numbers.cpp" />

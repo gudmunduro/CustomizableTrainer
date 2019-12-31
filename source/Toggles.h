@@ -40,6 +40,7 @@ namespace Toggles {
 		weaponExtraDamage = false,
 		weaponExplosiveAmmo = false,
 		weaponLightningGun = false,
+		weaponWaterHydrantGun = false,
 		weaponFireAmmo = false,
 		playerExplosiveMelee = false,
 		weaponInfiniteAmmo = false,

@@ -17,6 +17,6 @@ void SettingsGeneralSub::Draw()
 	DrawToggle("UI sounds", MenuSettings::playUiSounds, [] {
 		MenuSettings::playUiSounds = !MenuSettings::playUiSounds;
 		JSONDataManager jsonDataManager;
-		jsonDataManager.SaveMenuSettings(true);
+		jsonDataManager.SaveMenuSettings();
 	});
 }

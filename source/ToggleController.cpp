@@ -4,6 +4,7 @@
 #include "Routine.h"
 
 // MARK: Manage
+
 void ToggleController::RegisterToggle(string key, bool *toggle)
 {
 	if (toggles.count(key)) {
@@ -68,6 +69,7 @@ void ToggleController::RegisterToggles()
 	RegisterToggle("toggle_weaponExplosiveAmmo", &Toggles::weaponExplosiveAmmo);
 	RegisterToggle("toggle_weaponLightningGun", &Toggles::weaponLightningGun);
 	RegisterToggle("toggle_weaponFireAmmo", &Toggles::weaponFireAmmo);
+	RegisterToggle("toggle_weaponWaterHydrantGun", &Toggles::weaponWaterHydrantGun);
 
 	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);

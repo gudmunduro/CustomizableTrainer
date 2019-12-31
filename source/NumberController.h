@@ -25,4 +25,3 @@ private:
 	static inline std::map<string, std::function<string()>> numberGetters;
 	static inline std::map <string, std::function<void(bool direction)>> numberAdjusters;
 };
-

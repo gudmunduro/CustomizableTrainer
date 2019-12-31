@@ -273,7 +273,12 @@ void RunLoopedToggles()
 	}
 
 	if (Toggles::weaponFireAmmo) {
-		customBulletController.type = CustomBulletType::Fire;
+		customBulletController.type = CustomBulletType::ForestFire;
+		RunWeaponCustomBulletToggle();
+	}
+
+	if (Toggles::weaponWaterHydrantGun) {
+		customBulletController.type = CustomBulletType::WaterHydrant;
 		RunWeaponCustomBulletToggle();
 	}
 
