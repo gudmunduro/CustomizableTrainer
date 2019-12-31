@@ -155,3 +155,19 @@ void Toggles::OnWeaponExtraDamageToggle(bool value)
 	if (!value)
 		Player().SetWeaponDamageModifier(1.0);
 }
+
+void Toggles::OnDisableInvisibleSniperToggle(bool value)
+{
+	if (value) {
+		// UINT64* counter = getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE) + 44;
+		UINT64* counter = getMultilayerPointer<UINT64*>(getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE), std::vector<DWORD>{44});
+		UINT64* currentShootType = getMultilayerPointer<UINT64*>(getGlobalPtr(1879534), std::vector<DWORD>{45});
+		Game::PrintSubtitle(std::to_string(*currentShootType));
+		*currentShootType = 0;
+		*counter = 2000000000;
+	}
+	else {
+		UINT64* counter = getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE) + 44;
+		*counter = 0;
+	}
+}

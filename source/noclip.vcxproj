@@ -120,10 +120,12 @@
     <ClInclude Include="ConfirmDialog.h" />
     <ClInclude Include="Controls.h" />
     <ClInclude Include="core\Hash.h" />
+    <ClInclude Include="CustomBullets.h" />
     <ClInclude Include="DynamicSubmenu.h" />
     <ClInclude Include="FixedSubmenu.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
+    <ClInclude Include="GameplayCamera.h" />
     <ClInclude Include="HorseFlyMode.h" />
     <ClInclude Include="HotkeyController.h" />
     <ClInclude Include="JsonDataManager.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="PedSpawner.h" />
     <ClInclude Include="PedSpawnerSub.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Raycast.h" />
     <ClInclude Include="Routine.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="SettingsColorSchemeSub.h" />
@@ -163,10 +166,12 @@
     <ClCompile Include="BoatFlyMode.cpp" />
     <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="Controls.cpp" />
+    <ClCompile Include="CustomBullets.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameplayCamera.cpp" />
     <ClCompile Include="HorseFlyMode.cpp" />
     <ClCompile Include="HotkeyController.cpp" />
     <ClCompile Include="JsonDataManager.cpp" />
@@ -183,6 +188,7 @@
     <ClCompile Include="PedSpawner.cpp" />
     <ClCompile Include="PedSpawnerSub.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Raycast.cpp" />
     <ClCompile Include="Routine.cpp" />
     <ClCompile Include="script.cpp" />
     <ClCompile Include="SettingsColorSchemeSub.cpp" />

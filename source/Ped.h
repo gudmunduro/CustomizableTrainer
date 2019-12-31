@@ -28,6 +28,7 @@ public:
 	bool IsInVehicle();
 	bool IsOnMount();
 	bool IsOnFoot();
+	bool IsShooting();
 	// MARK: Getters
 	PedId GetPedId();
 	int MaxHealth();

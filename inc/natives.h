@@ -451,7 +451,7 @@ namespace ENTITY
 	static BOOL IS_ENTITY_A_PED(EntityId entity) { return invoke<BOOL>(0xCF8176912DDA4EA5, entity); }
 	static BOOL IS_ENTITY_A_MISSION_ENTITY(EntityId entity) { return invoke<BOOL>(0x138190F64DB4BBD1, entity); }
 	static BOOL IS_ENTITY_A_VEHICLE(EntityId entity) { return invoke<BOOL>(0xC3D96AF45FCCEC4C, entity); }
-	static BOOL IS_ENTITY_AN_OBJECT(PlayerId* entity) { return invoke<BOOL>(0x0A27A546A375FDEF, entity); }
+	static BOOL IS_ENTITY_AN_OBJECT(EntityId entity) { return invoke<BOOL>(0x0A27A546A375FDEF, entity); }
 	static BOOL IS_ENTITY_AT_COORD(EntityId entity, float xPos, float yPos, float zPos, float xSize, float ySize, float zSize, BOOL p7, BOOL p8, int p9) { return invoke<BOOL>(0x5E58342602E94718, entity, xPos, yPos, zPos, xSize, ySize, zSize, p7, p8, p9); }
 	static BOOL IS_ENTITY_AT_ENTITY(EntityId entity1, EntityId entity2, float xSize, float ySize, float zSize, BOOL p5, BOOL p6, int p7) { return invoke<BOOL>(0xC057F02B837A27F6, entity1, entity2, xSize, ySize, zSize, p5, p6, p7); }
 	static BOOL IS_ENTITY_ATTACHED(EntityId entity) { return invoke<BOOL>(0xEE6AD63ABF59C0B7, entity); }
@@ -2967,7 +2967,7 @@ namespace GAMEPLAY
 	static void _0xF6BEE7E80EC5CA40(float p0) { invoke<Void>(0xF6BEE7E80EC5CA40, p0); }
 	static float GET_SNOW_LEVEL() { return invoke<float>(0x1E5D727041BE1709); }
 	static void FORCE_LIGHTNING_FLASH() { invoke<Void>(0x369DB5B2510FA080); }
-	static void _0x67943537D179597C(Any p0, Any p1, Any p2) { invoke<Void>(0x67943537D179597C, p0, p1, p2); }
+	static void _FORCE_LIGHTNING_FLASH_AT_COORDS(float p0, float p1, float p2) { invoke<Void>(0x67943537D179597C, p0, p1, p2); }
 	static void _0xA9342743B634A462(Any p0) { invoke<Void>(0xA9342743B634A462, p0); }
 	static int GET_GAME_TIMER() { return invoke<int>(0x4F67E8ECA7D3F667); }
 	static Any _0x483B8C542103AD72() { return invoke<Any>(0x483B8C542103AD72); }
@@ -5885,7 +5885,7 @@ namespace DATAFILE
 
 namespace FIRE
 {
-	static Hash START_SCRIPT_FIRE(float X, float Y, float Z, int maxChildren, BOOL isGasFire, BOOL p5, Any* p6, float p7, Any p8) { return invoke<Hash>(0x6B83617E04503888, X, Y, Z, maxChildren, isGasFire, p5, p6, p7, p8); }
+	static Hash START_SCRIPT_FIRE(float X, float Y, float Z, int maxChildren, BOOL isGasFire, BOOL p5, char* soundsetName, float p7, Any p8) { return invoke<Hash>(0x6B83617E04503888, X, Y, Z, maxChildren, isGasFire, p5, soundsetName, p7, p8); }
 	static void REMOVE_SCRIPT_FIRE(int fireHandle) { invoke<Void>(0x790125C36E194069, fireHandle); }
 	static void START_ENTITY_FIRE(PedId entity, float p1, Any p2, Any p3) { invoke<Void>(0xC4DC7418A44D6822, entity, p1, p2, p3); }
 	static void STOP_ENTITY_FIRE(EntityId entity, BOOL p1) { invoke<Void>(0x8390751DC40C1E98, entity, p1); }

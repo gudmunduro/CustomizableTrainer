@@ -71,4 +71,21 @@ enum eGameVersion : int
 	VER_UNK = -1
 };
 
+template<typename R> R getMultilayerPointer(void* base, std::vector<DWORD>& offsets)
+{
+	DWORD64 addr = (UINT64)base;
+	if (!addr)
+		return NULL;
+	auto numOffsets = offsets.size();
+
+	for (auto i = 0; i < numOffsets - 1; i++)
+	{
+		addr = *(UINT64*)(addr + offsets[i]);
+		if (!addr)
+			return NULL;
+	}
+	addr += offsets[numOffsets - 1];
+	return (R)addr;
+}
+
 IMPORT eGameVersion getGameVersion();

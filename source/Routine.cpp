@@ -8,6 +8,8 @@
 #include "Numbers.h"
 #include "HotkeyController.h"
 #include "Controls.h"
+#include "keyboard.h"
+#include "CustomBullets.h"
 
 // MARK: Variables
 string bottomMesssageText;
@@ -15,7 +17,7 @@ DWORD drawBottomTextUntil;
 HorseFlyMode* horseFlyMode;
 BoatFlyMode* boatFlyMode;
 DWORD vehicleCannonTimer = 0;
-
+CustomBulletController customBulletController (CustomBulletType::Explosion);
 
 
 // MARK: Start Routine
@@ -96,7 +98,7 @@ void RunVehicleCannonsToggle()
 {
 	Player player;
 
-	if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS) && GetTickCount() > vehicleCannonTimer) {
+	if ((CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS) || IsKeyDown(VK_ADD)) && GetTickCount() > vehicleCannonTimer) {
 		auto vehicle = player.CurrentVehicle();
 		Vector3 weaponOriginR, weaponOriginL;
 		Vector3 weaponTargetR, weaponTargetL;
@@ -157,17 +159,13 @@ void RunWeaponInfiniteAmmoInClipToggle()
 	}
 }
 
-void RunWeaponExplosiveAmmoToggle() 
+void RunWeaponCustomBulletToggle() 
 {
 	Player player;
-	if (player.IsTargetingAnything() || player.IsFreeAiming())
+
+	if (player.IsShooting())
 	{
-		EntityId target;
-		if (PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player.Id(), &target))
-		{
-			Vector3 position = ENTITY::GET_ENTITY_COORDS(target, false, false);
-			FIRE::ADD_EXPLOSION(position.x, position.y, position.z, 0, 100.0f, true, false, true);
-		}
+		customBulletController.PlayerDidShoot();
 	}
 }
 
@@ -264,8 +262,20 @@ void RunLoopedToggles()
 	if (Toggles::weaponExtraDamage)
 		player.SetWeaponDamageModifier(50.0);
 
-	if (Toggles::weaponExplosiveAmmo)
-		RunWeaponExplosiveAmmoToggle();
+	if (Toggles::weaponExplosiveAmmo) {
+		customBulletController.type = CustomBulletType::Explosion;
+		RunWeaponCustomBulletToggle();
+	}
+
+	if (Toggles::weaponLightningGun) {
+		customBulletController.type = CustomBulletType::Lightning;
+		RunWeaponCustomBulletToggle();
+	}
+
+	if (Toggles::weaponFireAmmo) {
+		customBulletController.type = CustomBulletType::Fire;
+		RunWeaponCustomBulletToggle();
+	}
 
 	// Time
 	if (Toggles::systemClockSync) {
@@ -293,6 +303,11 @@ void RunLoopedToggles()
 			currentVehicle.SetEnginePowerMultiplier(4000.0f);
 			VEHICLE::_SET_VEHICLE_JET_ENGINE_ON(currentVehicle.GetVehicleId(), true);
 		}
+	}
+
+	if (Toggles::disableInvisibleSniper) {
+		UINT64* counter = getMultilayerPointer<UINT64*>(getGlobalPtr(0x1CADEE), std::vector<DWORD>{44});
+		*counter = GAMEPLAY::GET_GAME_TIMER();
 	}
 
 }

@@ -7,7 +7,6 @@ Player::Player() : Ped(Game::playerPedId)
 	playerId = Game::playerId;
 }
 
-// MARK: Manange
 void Player::SetModel(Hash model)
 {
 	// Mostly copied from the Native trainer

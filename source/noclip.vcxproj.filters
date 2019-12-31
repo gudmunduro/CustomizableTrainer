@@ -219,6 +219,15 @@
     <ClInclude Include="SettingsGeneralSub.h">
       <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="Raycast.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayCamera.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomBullets.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -343,6 +352,15 @@
     </ClCompile>
     <ClCompile Include="SettingsGeneralSub.cpp">
       <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Raycast.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayCamera.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomBullets.cpp">
+      <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

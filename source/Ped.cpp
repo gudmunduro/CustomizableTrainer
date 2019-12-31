@@ -103,6 +103,7 @@ void Ped::Delete()
 }
 
 // MARK: Booleans
+
 bool Ped::IsInVehicle()
 {
 	return PED::IS_PED_IN_ANY_VEHICLE(pedId, true);
@@ -118,7 +119,13 @@ bool Ped::IsOnFoot()
 	return PED::IS_PED_ON_FOOT(pedId);
 }
 
-// Getters
+bool Ped::IsShooting()
+{
+	return PED::IS_PED_SHOOTING(pedId);
+}
+
+// MARK: Getters
+
 PedId Ped::GetPedId()
 {
 	return pedId;
@@ -161,6 +168,7 @@ Hash Ped::Model()
 }
 
 // MARK: Static methods
+
 Ped Ped::Spawn(Hash model, Vector3 position, float heading)
 {
 	Game::RequestModel(model);

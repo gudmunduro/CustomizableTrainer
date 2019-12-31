@@ -39,9 +39,12 @@ namespace Toggles {
 		freezeWeather = false,
 		weaponExtraDamage = false,
 		weaponExplosiveAmmo = false,
+		weaponLightningGun = false,
+		weaponFireAmmo = false,
 		playerExplosiveMelee = false,
 		weaponInfiniteAmmo = false,
 		weaponInfiniteAmmoInClip = false,
+		disableInvisibleSniper = false,
 		hideHud = false;
 
 	// MARK: Toggle actions
@@ -64,5 +67,6 @@ namespace Toggles {
 	void OnPauseClockToggle(bool value);
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);
+	void OnDisableInvisibleSniperToggle(bool value);
 }
 

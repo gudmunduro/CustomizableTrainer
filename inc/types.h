@@ -118,3 +118,59 @@ struct NearbyEntities {
 	int size;
 	int64_t entities[100];
 };
+
+// MARK: Operators
+
+inline Vector3 operator+ (Vector3 lhs, Vector3 rhs)
+{
+	return {
+		lhs.x + rhs.x,
+		lhs.y + rhs.y,
+		lhs.z + rhs.z
+	};
+}
+
+inline Vector3 operator- (Vector3 lhs, Vector3 rhs)
+{
+	return {
+		lhs.x - rhs.x,
+		lhs.y - rhs.y,
+		lhs.z - rhs.z
+	};
+}
+
+inline Vector3 operator* (Vector3 lhs, Vector3 rhs)
+{
+	return {
+		lhs.x * rhs.x,
+		lhs.y * rhs.y,
+		lhs.z * rhs.z
+	};
+}
+
+inline Vector3 operator+ (Vector3 lhs, float rhs)
+{
+	return {
+		lhs.x + rhs,
+		lhs.y + rhs,
+		lhs.z + rhs
+	};
+}
+
+inline Vector3 operator- (Vector3 lhs, float rhs)
+{
+	return {
+		lhs.x - rhs,
+		lhs.y - rhs,
+		lhs.z - rhs
+	};
+}
+
+inline Vector3 operator* (Vector3 lhs, float rhs)
+{
+	return {
+		lhs.x * rhs,
+		lhs.y * rhs,
+		lhs.z * rhs
+	};
+}

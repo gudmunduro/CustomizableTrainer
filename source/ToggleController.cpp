@@ -64,7 +64,10 @@ void ToggleController::RegisterToggles()
 	RegisterToggle("toggle_weaponInfiniteAmmo", &Toggles::weaponInfiniteAmmo);
 	RegisterToggle("toggle_weaponInfiniteAmmoInClip", &Toggles::weaponInfiniteAmmoInClip);
 	RegisterToggle("toggle_hideHud", &Toggles::hideHud);
-	// RegisterToggle("toggle_weaponExplosiveAmmo", &Toggles::weaponExtraDamage);
+	// RegisterToggle("toggle_disableInvisibleSniper", &Toggles::disableInvisibleSniper);
+	RegisterToggle("toggle_weaponExplosiveAmmo", &Toggles::weaponExplosiveAmmo);
+	RegisterToggle("toggle_weaponLightningGun", &Toggles::weaponLightningGun);
+	RegisterToggle("toggle_weaponFireAmmo", &Toggles::weaponFireAmmo);
 
 	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
@@ -85,6 +88,7 @@ void ToggleController::RegisterToggles()
 	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);
 	RegisterToggleAction("toggle_freezeWeather", Toggles::OnFreezeWeatherToggle);
 	RegisterToggleAction("toggle_weaponExtraDamage", Toggles::OnWeaponExtraDamageToggle);
+	// RegisterToggleAction("toggle_disableInvisibleSniper", Toggles::OnDisableInvisibleSniperToggle);
 }
 
 void ToggleController::Toggle(string key)
