@@ -1,9 +1,10 @@
+#include "pch.h"
 #include "TextController.h"
 #include "Texts.h"
 
 // MARK: Manage
 
-void TextController::RegisterText(string key, string values[], std::function<void(int from, int to)> onChange)
+void TextController::RegisterText(string key, std::vector<string> values, std::function<void(int from, int to)> onChange)
 {
 	textValues[key] = values;
 	textValueIndexes[key] = 0;
@@ -24,13 +25,13 @@ void TextController::Adjust(string key, bool direction)
 {
 	if (TextExistsForKey(key)) {
 		int* index = &textValueIndexes[key];
-		string* values = textValues[key];
+		auto values = textValues[key];
 		int lastIndex = *index;
 
-		if (direction && *index + 1 > values->size() - 1)
+		if (direction && (*index) + 1 > values.size() - 1)
 			*index = 0;
 		else if (!direction && *index - 1 < 0)
-			*index = values->size() - 1;
+			*index = values.size() - 1;
 		else
 			textValueIndexes[key] += direction ? 1 : -1;
 		
@@ -55,7 +56,7 @@ bool TextController::TextChangeEventHandlerEventExistsForKey(string key)
 
 string TextController::GetTextValueForKey(string key)
 {
-	if (textValues[key]->size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
+	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
 		return "Invalid";
 
 	return textValues[key][textValueIndexes[key]];

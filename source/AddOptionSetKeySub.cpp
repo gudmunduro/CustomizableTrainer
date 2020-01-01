@@ -3,6 +3,7 @@
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
+#include "TextController.h"
 
 AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController)
 	: FixedSubmenu(menuController)
@@ -11,13 +12,16 @@ AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController
 
 	switch (optionType) {
 		case MenuOptionType::Action:
-			keys = ActionController::GetKeys();
+			keys = ActionController::Keys();
 			break;
 		case MenuOptionType::Toggle:
-			keys = ToggleController::GetKeys();
+			keys = ToggleController::Keys();
 			break;
 		case MenuOptionType::Number:
-			keys = NumberController::GetKeys();
+			keys = NumberController::Keys();
+			break;
+		case MenuOptionType::Text:
+			keys = TextController::Keys();
 			break;
 		case MenuOptionType::Sub:
 			keys = menuController->SubmenuKeys();
@@ -64,13 +68,6 @@ void AddOptionSetKeySub::OnKeySelect(string key)
 		onKeySet(key);
 
 	menuController->GoToLastSub();
-}
-
-// MARK: Getters
-
-int AddOptionSetKeySub::OptionCount()
-{
-	return displayKeys.size() + (optionType == MenuOptionType::Sub ? 1 : 0);
 }
 
 // MARK: Misc

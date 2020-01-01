@@ -49,7 +49,7 @@ void SettingsEditAddHotkeySub::Draw()
 	DrawTitle(title);
 
 	// Hotkey name
-	DrawText("Name", hotkeyToEdit.name, [this] {
+	DrawTextAction("Name", hotkeyToEdit.name, [this] {
 		auto newName = Game::GetInputWithKeyboard(hotkeyToEdit.name);
 		if (newName == "") {
 			Game::PrintSubtitle("Name cannot be empty");
@@ -63,7 +63,7 @@ void SettingsEditAddHotkeySub::Draw()
 	DrawEditControl("Controller modifier", &hotkeyToEdit.controllerControlModifier);
 
 	// Type
-	DrawText("Type", OptionTypeToString(hotkeyToEdit.type), [this] {
+	DrawTextAction("Type", OptionTypeToString(hotkeyToEdit.type), [this] {
 		auto setTypeSub = new AddOptionSetTypeSub(menuController, true);
 		setTypeSub->onTypeSet = [this](MenuOptionType type) {
 			this->hotkeyToEdit.type = type;
@@ -72,7 +72,7 @@ void SettingsEditAddHotkeySub::Draw()
 	});
 
 	// Option key
-	DrawText("Key", hotkeyToEdit.key, [this] {
+	DrawTextAction("Key", hotkeyToEdit.key, [this] {
 		auto setKeySub = new AddOptionSetKeySub(hotkeyToEdit.type, menuController);
 		setKeySub->onKeySet = [this](string key) {
 			this->hotkeyToEdit.key = key;
@@ -85,7 +85,7 @@ void SettingsEditAddHotkeySub::Draw()
 
 	// Toggle/Number action
 	if (ActionString() != "") {
-		DrawText(ActionString(), ActionValueString(), [this] {
+		DrawTextAction(ActionString(), ActionValueString(), [this] {
 			auto setActionSub = new SettingsHotkeyActionSub(menuController, hotkeyToEdit.type, 
 				[this] (int action) {
 					hotkeyToEdit.action = action;
@@ -96,7 +96,7 @@ void SettingsEditAddHotkeySub::Draw()
 
 	// Number value
 	if (hotkeyToEdit.type == MenuOptionType::Number && hotkeyToEdit.action == 2) {
-		DrawText("Number value", hotkeyToEdit.value, [this] {
+		DrawTextAction("Number value", hotkeyToEdit.value, [this] {
 			OnValueOptionPress();
 		});
 	}
@@ -118,7 +118,7 @@ void SettingsEditAddHotkeySub::Draw()
 				break;
 			}
 
-			DrawText(param.name, value, [this, param, i]() {
+			DrawTextAction(param.name, value, [this, param, i]() {
 				switch (param.type) {
 				case MenuOptionParameterType::String:
 					hotkeyToEdit.value[i] = Game::GetInputWithKeyboard(hotkeyToEdit.value[i].get<string>());

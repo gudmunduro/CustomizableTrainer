@@ -15,6 +15,7 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 	try {
 		std::map<string, SubmenuData> layoutDataMap;
 		for (auto& submenu : layoutData) {
+
 			string key = submenu["key"].get<string>();
 			SubmenuData submenuData = {
 				submenu["title"].get<string>(),
@@ -22,26 +23,31 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 				{}
 			};
 			for (auto& option : submenu["options"]) {
+
 				MenuOptionType menuOptionType;
 				if (option["type"].get<string>() == "sub") menuOptionType = MenuOptionType::Sub;
 				else if (option["type"].get<string>() == "action") menuOptionType = MenuOptionType::Action;
 				else if (option["type"].get<string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
 				else if (option["type"].get<string>() == "number") menuOptionType = MenuOptionType::Number;
+				else if (option["type"].get<string>() == "text") menuOptionType = MenuOptionType::Text;
 				else menuOptionType = MenuOptionType::Action;
+
 				submenuData.options.push_back({
 					menuOptionType,
 					option["text"].get<string>(),
 					option["key"].get<string>(),
 					option.contains("params") ? option["params"] : json::array()
-					});
+				});
 			}
 			layoutDataMap[key] = submenuData;
 		}
+
 		return layoutDataMap;
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse layout.json");
 	}
+	return std::map<string, SubmenuData>();
 }
 
 void JSONDataManager::UpdateMenuSettings()
@@ -184,6 +190,9 @@ void JSONDataManager::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDat
 			case MenuOptionType::Number:
 				typeStringValue = "number";
 				break;
+			case MenuOptionType::Text:
+				typeStringValue = "text";
+				break;
 			}
 			submenuDataArray[index]["options"].push_back({
 				{ "type", typeStringValue },
@@ -305,6 +314,9 @@ void JSONDataManager::SaveHotkeys(std::vector<Hotkey> hotkeys)
 				break;
 			case MenuOptionType::Number:
 				typeStringValue = "number";
+				break;
+			case MenuOptionType::Text:
+				typeStringValue = "text";
 				break;
 			}
 

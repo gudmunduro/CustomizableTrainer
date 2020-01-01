@@ -8,8 +8,6 @@ class EditAddOptionSub :
 public:
 	EditAddOptionSub(MenuOption* optionToEdit, MenuController* menuController);
 
-	int OptionCount() override;
-
 	std::function<void(MenuOption option)> onAddOption;
 protected:
 	void Draw() override;

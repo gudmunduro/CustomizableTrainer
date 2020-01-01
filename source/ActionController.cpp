@@ -83,7 +83,7 @@ std::function<void(json params)> ActionController::GetActionForKey(string key)
 	return actions[key];
 }
 
-std::vector<string> ActionController::GetKeys()
+std::vector<string> ActionController::Keys()
 {
 	std::vector<string> keys;
 	std::transform(std::begin(actions), std::end(actions), std::back_inserter(keys),

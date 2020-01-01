@@ -66,10 +66,7 @@ void ToggleController::RegisterToggles()
 	RegisterToggle("toggle_weaponInfiniteAmmoInClip", &Toggles::weaponInfiniteAmmoInClip);
 	RegisterToggle("toggle_hideHud", &Toggles::hideHud);
 	// RegisterToggle("toggle_disableInvisibleSniper", &Toggles::disableInvisibleSniper);
-	RegisterToggle("toggle_weaponExplosiveAmmo", &Toggles::weaponExplosiveAmmo);
-	RegisterToggle("toggle_weaponLightningGun", &Toggles::weaponLightningGun);
-	RegisterToggle("toggle_weaponFireAmmo", &Toggles::weaponFireAmmo);
-	RegisterToggle("toggle_weaponWaterHydrantGun", &Toggles::weaponWaterHydrantGun);
+	RegisterToggle("toggle_weaponCustomBullets", &Toggles::weaponCustomBullets);
 
 	// Toggle actions
 	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
@@ -119,6 +116,7 @@ bool ToggleController::DoesToggleActionExistForKey(string key)
 }
 
 // MARK: Getters
+
 bool *ToggleController::GetToggleForKey(string key)
 {
 	return toggles[key];
@@ -129,7 +127,7 @@ std::function<void(bool value)> ToggleController::GetToggleActionForKey(string k
 	return toggleActions[key];
 }
 
-std::vector<string> ToggleController::GetKeys()
+std::vector<string> ToggleController::Keys()
 {
 	std::vector<string> keys;
 	std::transform(std::begin(toggles), std::end(toggles), std::back_inserter(keys),

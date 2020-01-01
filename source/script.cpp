@@ -13,12 +13,14 @@
 #include "ToggleController.h"
 #include "NumberController.h"
 #include "HotkeyController.h"
+#include "TextController.h"
 
 void setup()
 {
 	ActionController::RegisterActions();
 	ToggleController::RegisterToggles();
 	NumberController::RegisterNumbers();
+	TextController::RegisterTexts();
 	HotkeyController::Setup();
 	Game::RequestTextureDict("menu_textures");
 	Game::RequestTextureDict("boot_flow");

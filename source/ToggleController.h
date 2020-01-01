@@ -12,7 +12,7 @@ public:
 	static bool DoesToggleActionExistForKey(string key);
 	static bool *GetToggleForKey(string key);
 	static std::function<void(bool value)> GetToggleActionForKey(string key);
-	static std::vector<string> GetKeys();
+	static std::vector<string> Keys();
 private:
 	static inline std::map<string, bool*> toggles;
 	static inline std::map <string, std::function<void(bool value)>> toggleActions;

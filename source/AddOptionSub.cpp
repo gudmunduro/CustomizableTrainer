@@ -43,7 +43,7 @@ void EditAddOptionSub::Draw()
 			menuController->AddSubmenuToStack(hotkeySub);
 		});
 	// Option type
-	DrawText("Type >", OptionTypeToString(optionToAdd.type), [this]() {
+	DrawTextAction("Type >", OptionTypeToString(optionToAdd.type), [this]() {
 		auto setTypeSub = new AddOptionSetTypeSub(menuController);
 		setTypeSub->onTypeSet = [this](MenuOptionType type) {
 			this->optionToAdd.type = type;
@@ -51,12 +51,12 @@ void EditAddOptionSub::Draw()
 		menuController->AddSubmenuToStack(setTypeSub);
 	});
 	// Option text
-	DrawText("Text", optionToAdd.text, [this]() {
+	DrawTextAction("Text", optionToAdd.text, [this]() {
 		string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
 		optionToAdd.text = textInput;
 	});
 	// Option key
-	DrawText(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, [this]() {
+	DrawTextAction(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, [this]() {
 		auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
 		setKeySub->onKeySet = [this](string key) {
 			this->optionToAdd.key = key;
@@ -82,7 +82,7 @@ void EditAddOptionSub::Draw()
 			break;
 		}
 
-		DrawText(param.name, value, [this, param, i]() {
+		DrawTextAction(param.name, value, [this, param, i]() {
 			switch (param.type) {
 			case MenuOptionParameterType::String:
 				optionToAdd.params[i] = Game::GetInputWithKeyboard(optionToAdd.params[i].get<string>());
@@ -107,13 +107,6 @@ void EditAddOptionSub::Draw()
 			onAddOption(optionToAdd);
 		menuController->GoToLastSub();
 	});
-}
-
-// MARK: Getters
-
-int EditAddOptionSub::OptionCount()
-{
-	return parameters.size() + 4 + ((optionToAdd.type != MenuOptionType::Sub) ? 1 : 0);
 }
 
 // MARK: Misc

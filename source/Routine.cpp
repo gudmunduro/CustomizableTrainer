@@ -32,6 +32,48 @@ void Routine::StartBoatFlyMode()
 	boatFlyMode = new BoatFlyMode();
 }
 
+void Routine::SetCustomBulletType(int type) 
+{
+	switch (type) {
+	case 0:
+		customBulletController.type = CustomBulletType::Explosion;
+		break;
+	case 1:
+		customBulletController.type = CustomBulletType::LargeExplosion;
+		break;
+	case 2:
+		customBulletController.type = CustomBulletType::Fountain;
+		break;
+	case 3:
+		customBulletController.type = CustomBulletType::Gas;
+		break;
+	case 4:
+		customBulletController.type = CustomBulletType::Lightning;
+		break;
+	case 5:
+		customBulletController.type = CustomBulletType::Fire;
+		break;
+	case 6:
+		customBulletController.type = CustomBulletType::LargeFire;
+		break;
+	case 7:
+		customBulletController.type = CustomBulletType::ForestFire;
+		break;
+	case 8:
+		customBulletController.type = CustomBulletType::Teleport;
+		break;
+	case 9:
+		customBulletController.type = CustomBulletType::Delete;
+		break;
+	case 10:
+		customBulletController.type = CustomBulletType::WaterHydrant;
+		break;
+	case 11:
+		customBulletController.type = CustomBulletType::Moonshine;
+		break;
+	}
+}
+
 // MARK: Routines
 void DrawBottomMessage()
 {
@@ -262,25 +304,8 @@ void RunLoopedToggles()
 	if (Toggles::weaponExtraDamage)
 		player.SetWeaponDamageModifier(50.0);
 
-	if (Toggles::weaponExplosiveAmmo) {
-		customBulletController.type = CustomBulletType::Explosion;
+	if (Toggles::weaponCustomBullets)
 		RunWeaponCustomBulletToggle();
-	}
-
-	if (Toggles::weaponLightningGun) {
-		customBulletController.type = CustomBulletType::Lightning;
-		RunWeaponCustomBulletToggle();
-	}
-
-	if (Toggles::weaponFireAmmo) {
-		customBulletController.type = CustomBulletType::ForestFire;
-		RunWeaponCustomBulletToggle();
-	}
-
-	if (Toggles::weaponWaterHydrantGun) {
-		customBulletController.type = CustomBulletType::WaterHydrant;
-		RunWeaponCustomBulletToggle();
-	}
 
 	// Time
 	if (Toggles::systemClockSync) {

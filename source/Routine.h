@@ -5,8 +5,7 @@ namespace Routine {
 	// MARK: Start routine
 	void StartDrawBottomMessage(string message, int time = 1000);
 	void StartBoatFlyMode();
-
-	void SetPlayerCurrentModel(Hash model);
+	void SetCustomBulletType(int type);
 
 	// MARK: Run routines
 	void RunAll();

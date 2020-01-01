@@ -16,7 +16,7 @@ void FixedSubmenu::DrawSub(string text, string subKey)
 	Submenu::DrawSub(text, subKey);
 }
 
-void FixedSubmenu::DrawText(string text, string value, std::function<void()> onPress)
+void FixedSubmenu::DrawTextAction(string text, string value, std::function<void()> onPress)
 {
 	auto menuPos = menuController->position;
 

@@ -10,7 +10,7 @@ public:
 
 protected:
 	void DrawSub(string text, string subKey);
-	void DrawText(string text, string value, std::function<void()> onPress);
+	void DrawTextAction(string text, string value, std::function<void()> onPress);
 
 	virtual void SubWillDraw() override;
 	virtual void SelectionDidChange(int to, int from) override;

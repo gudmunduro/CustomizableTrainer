@@ -4,8 +4,7 @@
 class TextController
 {
 public:
-	static void RegisterText(string key, string values[], std::function<void(int from, int to)> onChange = nullptr);
-	static void RegisterTextGetter(string key, std::function<string(int index)> valueGetter, std::function<void(int from, int to)> onChange = nullptr);
+	static void RegisterText(string key, std::vector<string> values, std::function<void(int from, int to)> onChange = nullptr);
 	static void SetTextValueForKey(string key, int value);
 	static void RegisterTexts();
 	static void Adjust(string key, bool direction);
@@ -17,7 +16,7 @@ public:
 	static std::function<void(int from, int to)> GetTextChangEventHandlerForKey(string key);
 	static std::vector<string> Keys();
 private:
-	static inline std::map<string, string*> textValues;
+	static inline std::map<string, std::vector<string>> textValues;
 	static inline std::map<string, int> textValueIndexes;
 	static inline std::map <string, std::function<void(int from, int to)>> textChangeEventHandlers;
 };

@@ -18,7 +18,7 @@ public:
 	static bool DoesNumberAdjusterExistForKey(string key);
 	static string GetNumberStringValueForKey(string key);
 	static std::function<void(bool direction)> GetNumberAdjusterForKey(string key);
-	static std::vector<string> GetKeys();
+	static std::vector<string> Keys();
 private:
 	static inline std::map<string, float*> numbersFloat;
 	static inline std::map<string, int*> numbersInt;

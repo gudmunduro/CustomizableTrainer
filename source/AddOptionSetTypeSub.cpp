@@ -40,11 +40,9 @@ void AddOptionSetTypeSub::Draw()
 		onTypeSet(MenuOptionType::Number);
 		menuController->GoToLastSub();
 	});
-}
 
-// MARK: Getters
-
-int AddOptionSetTypeSub::OptionCount()
-{
-	return 3 + (hideSubmenu ? 0 : 1);
+	DrawAction("Text", [this]() {
+		onTypeSet(MenuOptionType::Text);
+		menuController->GoToLastSub();
+	});
 }

@@ -19,6 +19,7 @@ protected:
 	void DrawAction(string text, string actionKey, json actionParams);
 	void DrawToggle(string text, string toggleKey);
 	void DrawNumber(string text, string numberKey);
+	void DrawTextList(string text, string textKey);
 
 	void SubWillDraw() override;
 	void SelectionDidChange(int to, int from) override;

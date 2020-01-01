@@ -128,7 +128,7 @@ std::function<void(bool direction)> NumberController::GetNumberAdjusterForKey(st
 	return numberAdjusters[key];
 }
 
-std::vector<string> NumberController::GetKeys()
+std::vector<string> NumberController::Keys()
 {
 	std::vector<string> keys;
 	std::transform(std::begin(numbersFloat), std::end(numbersFloat), std::back_inserter(keys),

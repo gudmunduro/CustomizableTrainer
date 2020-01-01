@@ -8,8 +8,6 @@ class AddOptionSetKeySub :
 public:
 	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController);
 
-	int OptionCount() override;
-
 	std::function<void(string key)> onKeySet;
 protected:
 	void Draw() override;

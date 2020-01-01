@@ -179,6 +179,32 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	OptionDidDraw();
 }
 
+void Submenu::DrawTextList(string text, string valueToDisplay, std::function<void(bool direction)> onAdjust)
+{
+	optionAddIndex++;
+	if (IsOutOfBounds(optionAddIndex)) return;
+	bool selected = IsOptionSelected(selection);
+	auto menuPos = menuController->position;
+
+	DrawOptionBase(text, selected);
+	Game::DrawText(valueToDisplay, { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, MenuSettings::optionNumberColor);
+
+	if (selected) {
+
+		if (isHoldingAdjustUp || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueUp)) {
+			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
+			onAdjust(true);
+		}
+
+		if (isHoldingAdjustDown || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueDown)) {
+			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
+			onAdjust(false);
+		}
+	}
+
+	OptionDidDraw();
+}
+
 // MARK: Events
 
 void Submenu::SubWillDraw()

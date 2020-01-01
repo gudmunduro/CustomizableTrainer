@@ -6,6 +6,7 @@
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
+#include "TextController.h"
 
 DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuController)
 	: Submenu(menuController)
@@ -39,6 +40,9 @@ void DynamicSubmenu::Draw()
 			break;
 		case MenuOptionType::Number:
 			DrawNumber(option.text, option.key);
+			break;
+		case MenuOptionType::Text:
+			DrawTextList(option.text, option.key);
 			break;
 		}
 	}
@@ -101,6 +105,18 @@ void DynamicSubmenu::DrawNumber(string text, string numberKey)
 			if (isEditModeActive) return;
 			NumberController::Adjust(numberKey, direction);
 	});
+}
+
+void DynamicSubmenu::DrawTextList(string text, string textKey)
+{
+	if (!TextController::TextExistsForKey(textKey)) return;
+	string textValue = TextController::GetTextValueForKey(textKey);
+
+	Submenu::DrawTextList(text, textValue,
+		[this, textKey](bool direction) {
+			if (isEditModeActive) return;
+			TextController::Adjust(textKey, direction);
+		});
 }
 
 // MARK: Events

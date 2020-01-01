@@ -11,17 +11,22 @@ CustomBulletController::CustomBulletController(CustomBulletType type) : type(typ
 
 void CustomBulletController::OnBulletHitForExplosion(Vector3 pos)
 {
-	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 0, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 7, 100.0f, true, false, true);
 }
 
 void CustomBulletController::OnBulletHitForLargeExplosion(Vector3 pos)
 {
-	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 0, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 4, 100.0f, true, false, true);
 }
 
 void CustomBulletController::OnBulletHitForGas(Vector3 pos)
 {
 	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 35, 100.0f, true, false, true);
+}
+
+void CustomBulletController::OnBulletHitForMoonshine(Vector3 pos)
+{
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 2, 100.0f, true, false, true);
 }
 
 void CustomBulletController::OnBulletHitForFountain(Vector3 pos)
@@ -36,7 +41,8 @@ void CustomBulletController::OnBulletHitForLightning(Vector3 pos)
 
 void CustomBulletController::OnBulletHitForFire(Vector3 pos)
 {
-	FIRE::START_SCRIPT_FIRE(pos.x, pos.y, pos.z, 25, true, true, "", 10.0f, 0);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 30, 100.0f, true, false, true);
+	// FIRE::START_SCRIPT_FIRE(pos.x, pos.y, pos.z, 25, true, true, "", 10.0f, 0);
 }
 
 void CustomBulletController::OnBulletHitForLargeFire(Vector3 pos)
@@ -57,7 +63,7 @@ void CustomBulletController::OnBulletHitForForestFire(Vector3 pos)
 	}
 }
 
-int explosionTypeTest = 8;
+int explosionTypeTest = 0;
 
 void CustomBulletController::OnBulletHitForWaterHydrant(Vector3 pos)
 {
@@ -121,6 +127,9 @@ void CustomBulletController::PlayerDidShoot()
 				case CustomBulletType::Gas:
 					OnBulletHitForGas(hitPos);
 					return;
+				case CustomBulletType::Moonshine:
+					OnBulletHitForMoonshine(hitPos);
+					return;
 				case CustomBulletType::Lightning:
 					OnBulletHitForLightning(hitPos);
 					return;
@@ -138,6 +147,9 @@ void CustomBulletController::PlayerDidShoot()
 					return;
 				case CustomBulletType::WaterHydrant:
 					OnBulletHitForWaterHydrant(hitPos);
+					return;
+				case CustomBulletType::Fountain:
+					OnBulletHitForFountain(hitPos);
 					return;
 			}
 		}
