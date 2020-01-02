@@ -187,7 +187,7 @@ void Submenu::DrawTextList(string text, string valueToDisplay, std::function<voi
 	auto menuPos = menuController->position;
 
 	DrawOptionBase(text, selected);
-	Game::DrawText(valueToDisplay, { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, MenuSettings::optionNumberColor);
+	Game::DrawText(valueToDisplay, { menuPos.x + 13.0f, CurrentOptionPosY() }, 30.0f, MenuSettings::optionNumberColor);
 
 	if (selected) {
 

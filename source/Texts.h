@@ -5,7 +5,7 @@ namespace Texts {
 	// MARK: Value arrays
 
 	inline std::vector<string>
-		customBulletTypes = { "Explosion", "Large explosion", "Water fountain", "Gas", "Lightning", "Fire", "Large fire", "Forest fire", "Teleport", "Delete entity", "Water hydrant", "Moonshine" };
+		customBulletTypes = { "Explosion", "Large explosion", "Water fountain", "Gas", "Lightning", "Fire", "Large fire", "Teleport", "Delete entity", "Steam", "Moonshine" };
 
 	// MARK: On value change events
 

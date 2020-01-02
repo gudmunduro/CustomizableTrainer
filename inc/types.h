@@ -119,6 +119,11 @@ struct NearbyEntities {
 	int64_t entities[100];
 };
 
+struct OptionToSave {
+	MenuOptionType type;
+	string key;
+};
+
 // MARK: Operators
 
 inline Vector3 operator+ (Vector3 lhs, Vector3 rhs)
@@ -173,4 +178,9 @@ inline Vector3 operator* (Vector3 lhs, float rhs)
 		lhs.y * rhs,
 		lhs.z * rhs
 	};
+}
+
+inline bool operator== ( OptionToSave lhs, OptionToSave rhs)
+{
+	return lhs.key == rhs.key && lhs.type == rhs.type;
 }

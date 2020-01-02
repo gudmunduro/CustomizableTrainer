@@ -6,9 +6,7 @@ class AddOptionSetTypeSub :
 	public FixedSubmenu
 {
 public:
-	AddOptionSetTypeSub(MenuController* menuController);
-
-	AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu);
+	AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu = false, bool hideAction = false);
 
 	std::function<void(MenuOptionType type)> onTypeSet;
 
@@ -16,5 +14,6 @@ protected:
 	void Draw() override;
 
 	bool hideSubmenu = false;
+	bool hideAction = false;
 };
 

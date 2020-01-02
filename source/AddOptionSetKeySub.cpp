@@ -5,10 +5,11 @@
 #include "NumberController.h"
 #include "TextController.h"
 
-AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController)
+AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController, bool hideGetterOnlyOptions)
 	: FixedSubmenu(menuController)
 {
 	this->optionType = optionType;
+	this->hideGetterOnlyOptions = hideGetterOnlyOptions;
 
 	switch (optionType) {
 		case MenuOptionType::Action:
@@ -77,6 +78,12 @@ void AddOptionSetKeySub::CreateDisplayKeys()
 	for each (string key in keys) {
 		string displayKey = key.substr(key.find("_") + 1);
 		if (displayKey._Starts_with("sub_")) displayKey = displayKey.substr(displayKey.find("_") + 1);
+
+		if (optionType == MenuOptionType::Number &&
+			hideGetterOnlyOptions &&
+			NumberController::DoesNumberGetterExistForKey(key))
+			continue;
+			
 
 		displayKeys.push_back(displayKey);
 	}

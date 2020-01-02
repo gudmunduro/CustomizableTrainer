@@ -57,18 +57,15 @@ void Routine::SetCustomBulletType(int type)
 		customBulletController.type = CustomBulletType::LargeFire;
 		break;
 	case 7:
-		customBulletController.type = CustomBulletType::ForestFire;
-		break;
-	case 8:
 		customBulletController.type = CustomBulletType::Teleport;
 		break;
-	case 9:
+	case 8:
 		customBulletController.type = CustomBulletType::Delete;
 		break;
-	case 10:
+	case 9:
 		customBulletController.type = CustomBulletType::WaterHydrant;
 		break;
-	case 11:
+	case 10:
 		customBulletController.type = CustomBulletType::Moonshine;
 		break;
 	}

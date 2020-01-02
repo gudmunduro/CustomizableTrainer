@@ -13,6 +13,7 @@
 #include "SettingsControlsKeyboardSub.h"
 #include "SettingsColorSchemeSub.h"
 #include "SettingsHotkeysSub.h"
+#include "SettingsOptionsToSaveSub.h"
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
@@ -26,6 +27,7 @@ MenuController::MenuController()
 	JSONDataManager manager;
 	manager.Load();
 	manager.UpdateMenuSettings();
+	manager.UpdateOptionStates(); // TODO: Move this
 	submenuDataMap = manager.GetLayoutAsMap();
 }
 
@@ -195,6 +197,9 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	}
 	else if (key == "builtin_sub_settingsHotkeys") {
 		return new SettingsHotkeysSub(this);
+	}
+	else if (key == "builtin_sub_settingsOptionsToSave") {
+		return new SettingsOptionsToSaveSub(this);
 	}
 	return nullptr;
 }

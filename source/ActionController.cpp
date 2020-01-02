@@ -59,6 +59,7 @@ void ActionController::RegisterActions()
 	RegisterAction("action_teleportPlayerForward", Actions::TeleportPlayerForward);
 	// Misc
 	RegisterAction("action_revealFullMap", Actions::RevealFullMap);
+	RegisterAction("action_killEveryoneNearby", Actions::KillEveryoneNearby);
 }
 
 void ActionController::RunActionForKey(string key, json params)

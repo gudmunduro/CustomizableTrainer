@@ -35,9 +35,15 @@ void NumberController::SetNumberValueForKey(string key, string value)
 	try {
 		if (DoesNumberFloatVariableExistForKey(key)) {
 			*numbersFloat[key] = std::stof(value);
+			Adjust(key, true);
+			Adjust(key, false);
+			*numbersFloat[key] = std::stof(value);
 		}
 		else if (DoesNumberIntVariableExistForKey(key)) {
-			*numbersInt[key] = std::stof(value);
+			*numbersInt[key] = std::stoi(value);
+			Adjust(key, true);
+			Adjust(key, false);
+			*numbersInt[key] = std::stoi(value);
 		}
 		else if (DoesNumberIntVariableExistForKey(key)) {
 			Game::PrintSubtitle("Cannot set value for this number");

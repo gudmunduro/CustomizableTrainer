@@ -7,6 +7,8 @@
 #include "ToggleController.h"
 #include "NumberController.h"
 #include "TextController.h"
+#include "MenuSettings.h"
+#include "JsonDataManager.h"
 
 DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuController)
 	: Submenu(menuController)
@@ -90,6 +92,7 @@ void DynamicSubmenu::DrawToggle(string text, string toggleKey)
 	Submenu::DrawToggle(text, isToggled, [this, toggleKey] {
 		if (!isEditModeActive) {
 			ToggleController::Toggle(toggleKey);
+			SaveIfSavedOption(toggleKey);
 		}
 	});
 }
@@ -99,11 +102,15 @@ void DynamicSubmenu::DrawNumber(string text, string numberKey)
 	if (!NumberController::DoesNumberExistForKey(numberKey)) return;
 	string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey);
 
-	Submenu::DrawNumber(text, numberStrValue, [this, numberKey] {
-		// Currently does nothing on press
-		}, [this, numberKey](bool direction) {
-			if (isEditModeActive) return;
-			NumberController::Adjust(numberKey, direction);
+	Submenu::DrawNumber(text, numberStrValue, [this, numberKey, numberStrValue] {
+		if (!NumberController::DoesNumberVariableExistForKey(numberKey)) return;
+		string input = Game::GetInputWithKeyboard(numberStrValue);
+		NumberController::SetNumberValueForKey(numberKey, input);
+		SaveIfSavedOption(numberKey);
+	}, [this, numberKey](bool direction) {
+		if (isEditModeActive) return;
+		NumberController::Adjust(numberKey, direction);
+		SaveIfSavedOption(numberKey);
 	});
 }
 
@@ -116,6 +123,7 @@ void DynamicSubmenu::DrawTextList(string text, string textKey)
 		[this, textKey](bool direction) {
 			if (isEditModeActive) return;
 			TextController::Adjust(textKey, direction);
+			SaveIfSavedOption(textKey);
 		});
 }
 
@@ -202,4 +210,24 @@ void DynamicSubmenu::RespondToControls()
 int DynamicSubmenu::OptionCount()
 {
 	return options.size();
+}
+
+// MARK: Booleans
+
+bool DynamicSubmenu::IsSavedOption(string key)
+{
+	for each (auto optionToSave in MenuSettings::optionsToSave) {
+		if (optionToSave.key == key)
+			return true;
+	}
+
+	return false;
+}
+
+// MARK: Misc
+
+void DynamicSubmenu::SaveIfSavedOption(string key)
+{
+	if (IsSavedOption(key))
+		JSONDataManager().SaveOptionStates();
 }

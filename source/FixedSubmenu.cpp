@@ -21,7 +21,7 @@ void FixedSubmenu::DrawTextAction(string text, string value, std::function<void(
 	auto menuPos = menuController->position;
 
 	Submenu::DrawAction(text, onPress);
-	Game::DrawText(value, { menuPos.x + 9.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, 255 });
+	Game::DrawText(value, {  menuPos.x + 9.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, 255 });
 }
 
 // MARK: Events

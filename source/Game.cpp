@@ -7,7 +7,7 @@ void Game::DrawText(string text, Vector2 position, float scale, Color color, boo
 	UI::SET_TEXT_SCALE(1.0f, scale / 100.0f);
 	UI::SET_TEXT_COLOR_RGBA(color.r, color.g, color.b, color.a);
 	char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*) text.c_str());
-	varString = invoke<char*, int, char*, int, char*>(0xFA925AC00EB830B9, 0x2a, "COLOR_STRING", 0, varString);
+	varString = invoke<char*, int, char*, int, char*>(0xFA925AC00EB830B9, 42, "COLOR_STRING", 0, varString);
 	UI::DRAW_TEXT(varString, position.x / 100.0f, position.y / 100.0f);
 }
 

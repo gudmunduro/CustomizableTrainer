@@ -3,6 +3,9 @@
 #include "Routine.h"
 #include "MenuSettings.h"
 #include "Controls.h"
+#include "ToggleController.h"
+#include "NumberController.h"
+#include "TextController.h"
 
 JSONDataManager::JSONDataManager()
 {
@@ -48,6 +51,51 @@ std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 		Game::PrintSubtitle("Failed to parse layout.json");
 	}
 	return std::map<string, SubmenuData>();
+}
+
+void JSONDataManager::UpdateOptionStates()
+{
+	try {
+		json data = LoadJSONFile("CustomizableTrainer\\optionStates.json");
+
+		for each (auto optionState in data["optionStates"]) {
+			MenuOptionType type;
+			string key = optionState["key"].get<string>();
+
+			if (optionState["type"].get<string>() == "toggle") {
+				type = MenuOptionType::Toggle;
+
+				bool value = optionState["value"].get<bool>();
+				if (ToggleController::DoesToggleExistForKey(key)) {
+					*ToggleController::GetToggleForKey(key) = value;
+					if (ToggleController::DoesToggleActionExistForKey(key)) {
+						ToggleController::GetToggleActionForKey(key)(value);
+					}
+				}
+			}
+			else if (optionState["type"].get<string>() == "number") {
+				type = MenuOptionType::Number;
+
+				string value = optionState["value"].get<string>();
+				if (NumberController::DoesNumberExistForKey(key)) {
+					NumberController::SetNumberValueForKey(key, value);
+				}
+			}
+			else if (optionState["type"].get<string>() == "text") {
+				type = MenuOptionType::Text;
+
+				int value = optionState["value"].get<int>();
+				if (TextController::TextExistsForKey(key)) {
+					TextController::SetTextValueForKey(key, value);
+				}
+			}
+
+			MenuSettings::optionsToSave.push_back({ type, key });
+		}
+	}
+	catch (std::exception e) {
+		Game::PrintSubtitle("Failed to parse optionStates.json");
+	}
 }
 
 void JSONDataManager::UpdateMenuSettings()
@@ -336,6 +384,46 @@ void JSONDataManager::SaveHotkeys(std::vector<Hotkey> hotkeys)
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to save hotkeys");
+	}
+}
+
+void JSONDataManager::SaveOptionStates()
+{
+	try {
+		json optionStates;
+		optionStates["optionStates"] = json::array();
+
+		for each (auto optionToSave in MenuSettings::optionsToSave) {
+			string key = optionToSave.key;
+			string type;
+			json value;
+			switch (optionToSave.type)
+			{
+				case MenuOptionType::Toggle:
+					type = "toggle";
+					value = *ToggleController::GetToggleForKey(key);
+					break;
+				case MenuOptionType::Number:
+					type = "number";
+					value = NumberController::GetNumberStringValueForKey(key);
+					break;
+				case MenuOptionType::Text:
+					type = "text";
+					value = TextController::GetTextValueIndexForKey(key);
+					break;
+			}
+			
+			optionStates["optionStates"].push_back({
+				{ "type", type },
+				{ "key", key },
+				{ "value", value }
+			});
+		}
+
+		WriteFile("CustomizableTrainer\\optionStates.json", optionStates.dump());
+	}
+	catch (std::exception e) {
+		Game::PrintSubtitle("Failed to save option states");
 	}
 }
 

@@ -13,6 +13,7 @@ public:
 	static bool TextGetterExistsForKey(string key);
 	static bool TextChangeEventHandlerEventExistsForKey(string key);
 	static string GetTextValueForKey(string key);
+	static int GetTextValueIndexForKey(string key);
 	static std::function<void(int from, int to)> GetTextChangEventHandlerForKey(string key);
 	static std::vector<string> Keys();
 private:

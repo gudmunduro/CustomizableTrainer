@@ -37,6 +37,7 @@ namespace Actions {
 	void TeleportPlayerToWaypoint(json params);
 	void TeleportPlayerToCoords(json params);
 	void RevealFullMap(json params);
+	void KillEveryoneNearby(json params);
 	void SetNewOptionType(json params);
 	void SetNewOptionText(json params);
 	void SetNewOptionKey(json params);

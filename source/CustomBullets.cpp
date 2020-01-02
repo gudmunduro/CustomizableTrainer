@@ -11,7 +11,7 @@ CustomBulletController::CustomBulletController(CustomBulletType type) : type(typ
 
 void CustomBulletController::OnBulletHitForExplosion(Vector3 pos)
 {
-	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 7, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 12, 100.0f, true, false, true);
 }
 
 void CustomBulletController::OnBulletHitForLargeExplosion(Vector3 pos)
@@ -63,13 +63,9 @@ void CustomBulletController::OnBulletHitForForestFire(Vector3 pos)
 	}
 }
 
-int explosionTypeTest = 0;
-
 void CustomBulletController::OnBulletHitForWaterHydrant(Vector3 pos)
 {
-	Game::PrintSubtitle(std::to_string(explosionTypeTest));
-	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, explosionTypeTest, 100.0f, true, false, true);
-	explosionTypeTest++;
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 8, 100.0f, true, false, true);
 }
 
 void CustomBulletController::OnBulletHitForTeleport(Vector3 pos)

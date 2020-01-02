@@ -460,3 +460,13 @@ void Actions::RevealFullMap(json params)
 	RADAR::_SET_MINIMAP_REVEALED(true);
 	RADAR::REVEAL_MAP(0);
 }
+
+void Actions::KillEveryoneNearby(json params)
+{
+	auto pos = Player().Position();
+	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 35, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x + 2.0f, pos.y, pos.z, 35, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x - 2.0f, pos.y, pos.z, 35, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y + 2.0f, pos.z, 35, 100.0f, true, false, true);
+	FIRE::ADD_EXPLOSION(pos.x, pos.y - 2.0f, pos.z, 35, 100.0f, true, false, true);
+}

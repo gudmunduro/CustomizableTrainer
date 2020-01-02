@@ -240,6 +240,12 @@
     <ClInclude Include="TextController.h">
       <Filter>Headers\Texts</Filter>
     </ClInclude>
+    <ClInclude Include="SettingsOptionsToSaveSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsAddOptionToSaveSub.h">
+      <Filter>Headers\Menu\Submenus\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -379,6 +385,12 @@
     </ClCompile>
     <ClCompile Include="Texts.cpp">
       <Filter>Source\Texts</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsOptionsToSaveSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsAddOptionToSaveSub.cpp">
+      <Filter>Source\Menu\Submenus\Settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

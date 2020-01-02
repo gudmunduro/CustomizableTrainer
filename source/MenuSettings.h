@@ -7,6 +7,7 @@ public:
 	// MARK: General
 
 	static inline bool playUiSounds;
+	static inline std::vector<OptionToSave> optionsToSave;
 
 
 	// MARK: Colors

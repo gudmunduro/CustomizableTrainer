@@ -1,16 +1,11 @@
 #include "pch.h"
 #include "AddOptionSetTypeSub.h"
 
-AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController)
-	: FixedSubmenu(menuController)
-{
-	this->hideSubmenu = false;
-}
-
-AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu)
+AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu, bool hideAction)
 	: FixedSubmenu(menuController)
 {
 	this->hideSubmenu = hideSubmenu;
+	this->hideAction = hideAction;
 }
 
 // MARK: Draw
@@ -26,10 +21,11 @@ void AddOptionSetTypeSub::Draw()
 			menuController->GoToLastSub();
 		});
 
-	DrawAction("Action", [this]() {
-		onTypeSet(MenuOptionType::Action);
-		menuController->GoToLastSub();
-	});
+	if (!hideAction)
+		DrawAction("Action", [this]() {
+			onTypeSet(MenuOptionType::Action);
+			menuController->GoToLastSub();
+		});
 
 	DrawAction("Toggle", [this]() {
 		onTypeSet(MenuOptionType::Toggle);

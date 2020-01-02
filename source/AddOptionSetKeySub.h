@@ -6,7 +6,7 @@ class AddOptionSetKeySub :
 	public FixedSubmenu
 {
 public:
-	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController);
+	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController, bool hideGetterOnlyOptions = false);
 
 	std::function<void(string key)> onKeySet;
 protected:
@@ -17,5 +17,6 @@ protected:
 	std::vector<string> keys;
 	std::vector<string> displayKeys;
 	MenuOptionType optionType;
+	bool hideGetterOnlyOptions;
 };
 

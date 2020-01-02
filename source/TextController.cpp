@@ -62,6 +62,14 @@ string TextController::GetTextValueForKey(string key)
 	return textValues[key][textValueIndexes[key]];
 }
 
+int TextController::GetTextValueIndexForKey(string key)
+{
+	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
+		return 0;
+
+	return textValueIndexes[key];
+}
+
 std::function<void(int from, int to)> TextController::GetTextChangEventHandlerForKey(string key)
 {
 	return textChangeEventHandlers[key];
