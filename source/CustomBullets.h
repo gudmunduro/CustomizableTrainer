@@ -36,6 +36,8 @@ public:
 
 	void PlayerDidShoot();
 
-	CustomBulletType type;
+	void Tick();
+
+	CustomBulletType bulletType;
 };
 

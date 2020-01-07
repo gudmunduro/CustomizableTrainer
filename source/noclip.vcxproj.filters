@@ -82,6 +82,12 @@
     <Filter Include="Source\Texts">
       <UniqueIdentifier>{537121d8-e7ed-451c-8512-941327f4a4b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Core">
+      <UniqueIdentifier>{fd40f47e-8419-4579-8546-3bcbf00eabd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Core">
+      <UniqueIdentifier>{887105bc-4b34-466f-9f96-f2559cd00ccf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -246,6 +252,12 @@
     <ClInclude Include="SettingsAddOptionToSaveSub.h">
       <Filter>Headers\Menu\Submenus\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="VehicleWeapons.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskQueue.h">
+      <Filter>Headers\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -391,6 +403,12 @@
     </ClCompile>
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp">
       <Filter>Source\Menu\Submenus\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleWeapons.cpp">
+      <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskQueue.cpp">
+      <Filter>Source\Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

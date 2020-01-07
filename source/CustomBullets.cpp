@@ -3,7 +3,7 @@
 #include "GameplayCamera.h"
 #include "Raycast.h"
 
-CustomBulletController::CustomBulletController(CustomBulletType type) : type(type)
+CustomBulletController::CustomBulletController(CustomBulletType type) : bulletType(type)
 {
 }
 
@@ -103,7 +103,7 @@ void CustomBulletController::PlayerDidShoot()
 		if (ray.DidHitEntity()) {
 			auto hitEntity = ray.HitEntity();
 
-			switch (type) {
+			switch (bulletType) {
 				case CustomBulletType::Delete:
 					OnBulletHitForDelete(hitEntity);
 					return;
@@ -113,7 +113,7 @@ void CustomBulletController::PlayerDidShoot()
 		if (ray.DidHitAnything()) {
 			auto hitPos = ray.HitCoords();
 			
-			switch (type) {
+			switch (bulletType) {
 				case CustomBulletType::Explosion:
 					OnBulletHitForExplosion(hitPos);
 					return;
@@ -150,4 +150,13 @@ void CustomBulletController::PlayerDidShoot()
 			}
 		}
 	}
+}
+
+// MARK: Main
+
+void CustomBulletController::Tick()
+{
+	Player player;
+
+	if (player.IsShooting()) PlayerDidShoot();
 }

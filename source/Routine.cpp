@@ -18,6 +18,7 @@ HorseFlyMode* horseFlyMode;
 BoatFlyMode* boatFlyMode;
 DWORD vehicleCannonTimer = 0;
 CustomBulletController customBulletController (CustomBulletType::Explosion);
+VehicleWeapons vehicleWeapons;
 
 
 // MARK: Start Routine
@@ -36,39 +37,44 @@ void Routine::SetCustomBulletType(int type)
 {
 	switch (type) {
 	case 0:
-		customBulletController.type = CustomBulletType::Explosion;
+		customBulletController.bulletType = CustomBulletType::Explosion;
 		break;
 	case 1:
-		customBulletController.type = CustomBulletType::LargeExplosion;
+		customBulletController.bulletType = CustomBulletType::LargeExplosion;
 		break;
 	case 2:
-		customBulletController.type = CustomBulletType::Fountain;
+		customBulletController.bulletType = CustomBulletType::Fountain;
 		break;
 	case 3:
-		customBulletController.type = CustomBulletType::Gas;
+		customBulletController.bulletType = CustomBulletType::Gas;
 		break;
 	case 4:
-		customBulletController.type = CustomBulletType::Lightning;
+		customBulletController.bulletType = CustomBulletType::Lightning;
 		break;
 	case 5:
-		customBulletController.type = CustomBulletType::Fire;
+		customBulletController.bulletType = CustomBulletType::Fire;
 		break;
 	case 6:
-		customBulletController.type = CustomBulletType::LargeFire;
+		customBulletController.bulletType = CustomBulletType::LargeFire;
 		break;
 	case 7:
-		customBulletController.type = CustomBulletType::Teleport;
+		customBulletController.bulletType = CustomBulletType::Teleport;
 		break;
 	case 8:
-		customBulletController.type = CustomBulletType::Delete;
+		customBulletController.bulletType = CustomBulletType::Delete;
 		break;
 	case 9:
-		customBulletController.type = CustomBulletType::WaterHydrant;
+		customBulletController.bulletType = CustomBulletType::WaterHydrant;
 		break;
 	case 10:
-		customBulletController.type = CustomBulletType::Moonshine;
+		customBulletController.bulletType = CustomBulletType::Moonshine;
 		break;
 	}
+}
+
+void Routine::SetVehicleWeaponType(VehicleWeaponType weaponType)
+{
+	vehicleWeapons.weaponType = weaponType;
 }
 
 // MARK: Routines
@@ -84,11 +90,8 @@ void DrawBottomMessage()
 	}
 }
 
-/*
 
-	Toggles
-
-*/
+// MARK: Toggles
 
 void RunSuperRunToggle()
 {
@@ -141,29 +144,18 @@ void RunVehicleCannonsToggle()
 		auto vehicle = player.CurrentVehicle();
 		Vector3 weaponOriginR, weaponOriginL;
 		Vector3 weaponTargetR, weaponTargetL;
-		Vector3 dim1, dim2;
-		GAMEPLAY::GET_MODEL_DIMENSIONS(vehicle.Model(), &dim1, &dim2);
+		Vector3 dimMin, dimMax;
+		GAMEPLAY::GET_MODEL_DIMENSIONS(vehicle.Model(), &dimMin, &dimMax);
 
 		if (!STREAMING::HAS_MODEL_LOADED(String::Hash("S_CANNONBALL"))) {
 			Game::RequestModel(String::Hash("S_CANNONBALL"));
 		}
 
-		/*if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, String::Hash("INPUT_LOOK_BEHIND")))// || IS_GAMEPLAY_CAM_LOOKING_BEHIND()) // RS
-		{
-			weaponOriginR = vehicle.OffsetInWorldCoords({ dim1.x - 0.22f, 0.5f - dim2.y, 0.5f });
-			weaponTargetR = vehicle.OffsetInWorldCoords({ dim1.x - 0.22f, -(dim1.y + 350.0f), 0.5f });
+		weaponOriginR = vehicle.OffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 1.25f, 0.5f });
+		weaponTargetR = vehicle.OffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 350.0f, 0.5f });
 
-			weaponOriginL = vehicle.OffsetInWorldCoords({ 0.22f - dim2.x, 0.5f - dim2.y, 0.5f });
-			weaponTargetL = vehicle.OffsetInWorldCoords({ 0.22f - dim2.x, -(dim2.y + 350.0f), 0.5f });
-		}
-		else
-		{*/
-		weaponOriginR = vehicle.OffsetInWorldCoords({ dim1.x - 0.22f, dim1.y + 1.25f, 0.5f });
-		weaponTargetR = vehicle.OffsetInWorldCoords({ dim1.x - 0.22f, dim1.y + 350.0f, 0.5f });
-
-		weaponOriginL = vehicle.OffsetInWorldCoords({ 0.22f - dim2.x, dim1.y + 1.25f, 0.5f });
-		weaponTargetL = vehicle.OffsetInWorldCoords({ 0.22f - dim2.x, dim1.y + 350.0f, 0.5f });
-		//}
+		weaponOriginL = vehicle.OffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 1.25f, 0.5f });
+		weaponTargetL = vehicle.OffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 350.0f, 0.5f });
 
 		GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginR.x, weaponOriginR.y, weaponOriginR.z,
 			weaponTargetR.x, weaponTargetR.y, weaponTargetR.z,
@@ -200,12 +192,7 @@ void RunWeaponInfiniteAmmoInClipToggle()
 
 void RunWeaponCustomBulletToggle() 
 {
-	Player player;
-
-	if (player.IsShooting())
-	{
-		customBulletController.PlayerDidShoot();
-	}
+	customBulletController.Tick();
 }
 
 void RunLoopedToggles()
@@ -339,11 +326,8 @@ void RunLoopedToggles()
 
 }
 
-/*
 
-	Numbers
-
-*/
+//	MARK: Numbers
 
 void RunLoopedNumbers()
 {
@@ -375,7 +359,6 @@ void Routine::RunAll()
 	Game::UpdateData();
 	Controls::Tick();
 	HotkeyController::Tick();
-	DrawBottomMessage();
 	RunLoopedToggles();
 	RunLoopedNumbers();
 }

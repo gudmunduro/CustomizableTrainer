@@ -132,6 +132,7 @@
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
+    <ClInclude Include="TaskQueue.h" />
     <ClInclude Include="TextController.h" />
     <ClInclude Include="Texts.h" />
     <ClInclude Include="MenuController.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="ToggleController.h" />
     <ClInclude Include="Toggles.h" />
     <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="VehicleWeapons.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionController.cpp" />
@@ -182,6 +184,7 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
+    <ClCompile Include="TaskQueue.cpp" />
     <ClCompile Include="TextController.cpp" />
     <ClCompile Include="Texts.cpp" />
     <ClCompile Include="MenuController.cpp" />
@@ -213,6 +216,7 @@
     <ClCompile Include="ToggleController.cpp" />
     <ClCompile Include="Toggles.cpp" />
     <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="VehicleWeapons.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
