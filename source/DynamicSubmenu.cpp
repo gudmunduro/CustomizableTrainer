@@ -86,7 +86,7 @@ void DynamicSubmenu::DrawAction(string text, string actionKey, json actionParams
 
 void DynamicSubmenu::DrawToggle(string text, string toggleKey)
 {
-	if (!ToggleController::DoesToggleExistForKey(toggleKey)) return;
+	if (!ToggleController::ToggleExistsForKey(toggleKey)) return;
 	bool isToggled = *ToggleController::GetToggleForKey(toggleKey);
 
 	Submenu::DrawToggle(text, isToggled, [this, toggleKey] {

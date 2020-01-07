@@ -27,6 +27,7 @@
 #include "Player.h"
 #include "Vehicle.h"
 #include "json.hpp"
+#include "TaskQueue.h"
 
 using json = nlohmann::json;
 

@@ -3,10 +3,6 @@
 #include "GameplayCamera.h"
 #include "Raycast.h"
 
-CustomBulletController::CustomBulletController(CustomBulletType type) : bulletType(type)
-{
-}
-
 // MARK: Bullet hit events
 
 void CustomBulletController::OnBulletHitForExplosion(Vector3 pos)

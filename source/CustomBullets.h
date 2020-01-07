@@ -19,25 +19,23 @@ enum class CustomBulletType
 class CustomBulletController
 {
 public:
-	CustomBulletController(CustomBulletType type);
+	static void OnBulletHitForExplosion(Vector3 pos);
+	static void OnBulletHitForLargeExplosion(Vector3 pos);
+	static void OnBulletHitForGas(Vector3 pos);
+	static void OnBulletHitForMoonshine(Vector3 pos);
+	static void OnBulletHitForFountain(Vector3 pos);
+	static void OnBulletHitForLightning(Vector3 pos);
+	static void OnBulletHitForFire(Vector3 pos);
+	static void OnBulletHitForLargeFire(Vector3 pos);
+	static void OnBulletHitForForestFire(Vector3 pos);
+	static void OnBulletHitForWaterHydrant(Vector3 pos);
+	static void OnBulletHitForTeleport(Vector3 pos);
+	static void OnBulletHitForDelete(EntityId entity);
 
-	void OnBulletHitForExplosion(Vector3 pos);
-	void OnBulletHitForLargeExplosion(Vector3 pos);
-	void OnBulletHitForGas(Vector3 pos);
-	void OnBulletHitForMoonshine(Vector3 pos);
-	void OnBulletHitForFountain(Vector3 pos);
-	void OnBulletHitForLightning(Vector3 pos);
-	void OnBulletHitForFire(Vector3 pos);
-	void OnBulletHitForLargeFire(Vector3 pos);
-	void OnBulletHitForForestFire(Vector3 pos);
-	void OnBulletHitForWaterHydrant(Vector3 pos);
-	void OnBulletHitForTeleport(Vector3 pos);
-	void OnBulletHitForDelete(EntityId entity);
+	static void PlayerDidShoot();
 
-	void PlayerDidShoot();
+	static void Tick();
 
-	void Tick();
-
-	CustomBulletType bulletType;
+	static inline CustomBulletType bulletType = CustomBulletType::Explosion;
 };
 

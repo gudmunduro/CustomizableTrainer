@@ -27,7 +27,6 @@ MenuController::MenuController()
 	JSONDataManager manager;
 	manager.Load();
 	manager.UpdateMenuSettings();
-	manager.UpdateOptionStates(); // TODO: Move this
 	submenuDataMap = manager.GetLayoutAsMap();
 }
 

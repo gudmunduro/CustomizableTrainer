@@ -5,7 +5,7 @@
 
 // MARK: Manage
 
-void ToggleController::RegisterToggle(string key, bool *toggle)
+void ToggleController::RegisterToggle(string key, bool *toggle, std::function<void(bool value)> toggleEventHandler)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -13,9 +13,24 @@ void ToggleController::RegisterToggle(string key, bool *toggle)
 		return;
 	}
 	toggles[key] = toggle;
+	if (toggleEventHandler != nullptr)
+		toggleActions[key] = toggleEventHandler;
 }
 
-void ToggleController::RegisterToggleAction(string key, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleEventHandler)
+{
+	if (toggles.count(key)) {
+		// Key already registered
+		// TODO: Implement logging
+		return;
+	}
+	toggles[key] = toggle;
+	toggleLoops[key] = toggleLoop;
+	if (toggleEventHandler != nullptr)
+		toggleActions[key] = toggleEventHandler;
+}
+
+void ToggleController::RegisterToggleEventHandler(string key, std::function<void(bool value)> toggleAction)
 {
 	if (toggleActions.count(key)) {
 		// Key already registered
@@ -25,79 +40,84 @@ void ToggleController::RegisterToggleAction(string key, std::function<void(bool 
 	toggleActions[key] = toggleAction;
 }
 
+void ToggleController::RegisterToggleLoop(string key, std::function<void()> toggleLoop)
+{
+	if (toggleLoops.count(key)) {
+		// Key already registered
+		// TODO: Implement logging
+		return;
+	}
+	toggleLoops[key] = toggleLoop;
+}
+
 void ToggleController::RegisterToggles()
 {
 	// Toggles
-	RegisterToggle("toggle_playerInvincible", &Toggles::playerInvincible);
-	RegisterToggle("toggle_playerVisible", &Toggles::playerVisible);
-	RegisterToggle("toggle_playerSuperRun", &Toggles::playerSuperRun);
-	RegisterToggle("toggle_playerSuperJump", &Toggles::playerSuperJump);
-	RegisterToggle("toggle_playerUnlStamina", &Toggles::playerUnlStamina);
-	RegisterToggle("toggle_playerNeverWanted", &Toggles::playerNeverWanted);
-	RegisterToggle("toggle_playerUnlSpecialAbility", &Toggles::playerUnlSpecialAbility);
-	RegisterToggle("toggle_playerNoRagdoll", &Toggles::playerNoRagdoll);
-	RegisterToggle("toggle_playerEveryoneIgnore", &Toggles::playerEveryoneIgnore);
-	RegisterToggle("toggle_forceFirstPersonOnFoot", &Toggles::forceFirstPersonOnFoot);
-	RegisterToggle("toggle_spawnedPedInvincible", &Toggles::spawnedPedInvincible);
-	RegisterToggle("toggle_spawnedPedBodyguard", &Toggles::spawnedPedBodyguard);
-	RegisterToggle("toggle_allSpawnedPedsInvincible", &Toggles::allSpawnedPedsInvincible);
-	RegisterToggle("toggle_allSpawnedPedsBodyguard", &Toggles::allSpawnedPedsBodyguard);
+	RegisterLoopedToggle("toggle_playerInvincible", &Toggles::playerInvincible, Toggles::PlayerInvincibleLoop, Toggles::OnPlayerInvincibleToggle);
+	RegisterToggle("toggle_playerVisible", &Toggles::playerVisible, Toggles::OnPlayerVisibleToggle);
+	RegisterLoopedToggle("toggle_playerSuperRun", &Toggles::playerSuperRun, Toggles::PlayerSuperRunLoop);
+	RegisterLoopedToggle("toggle_playerSuperJump", &Toggles::playerSuperJump, Toggles::PlayerSuperJumpLoop);
+	RegisterLoopedToggle("toggle_playerUnlStamina", &Toggles::playerUnlStamina, Toggles::PlayerUnlStaminaLoop);
+	RegisterLoopedToggle("toggle_playerNeverWanted", &Toggles::playerNeverWanted, Toggles::PlayerNeverWantedLoop, Toggles::OnPlayerNeverWantedToggle);
+	RegisterLoopedToggle("toggle_playerUnlSpecialAbility", &Toggles::playerUnlSpecialAbility, Toggles::PlayerUnlSpecialAbilityLoop);
+	RegisterLoopedToggle("toggle_playerNoRagdoll", &Toggles::playerNoRagdoll, Toggles::PlayerNoRagdollLoop);
+	RegisterLoopedToggle("toggle_playerEveryoneIgnore", &Toggles::playerEveryoneIgnore, Toggles::PlayerEveryoneIgnoreLoop, Toggles::OnPlayerEveryoneIgnoreToggle);
+	RegisterLoopedToggle("toggle_forceFirstPersonOnFoot", &Toggles::forceFirstPersonOnFoot, Toggles::ForceFirstPersonOnFootLoop);
+	RegisterToggle("toggle_spawnedPedInvincible", &Toggles::spawnedPedInvincible, Toggles::OnSpawnedPedInvincibleToggle);
+	RegisterToggle("toggle_spawnedPedBodyguard", &Toggles::spawnedPedBodyguard, Toggles::OnSpanwedPedBodyguardToggle);
+	RegisterToggle("toggle_allSpawnedPedsInvincible", &Toggles::allSpawnedPedsInvincible, Toggles::OnAllSpawnedPedsInvincibleToggle);
+	RegisterToggle("toggle_allSpawnedPedsBodyguard", &Toggles::allSpawnedPedsBodyguard, Toggles::OnAllSpanwedPedsBodyguardToggle);
 	// RegisterToggle("toggle_playerExplosiveMelee", &Toggles::weaponExtraDamage);
-	RegisterToggle("toggle_horseInvincible", &Toggles::horseInvincible);
-	RegisterToggle("toggle_horseVisible", &Toggles::horseVisible);
-	RegisterToggle("toggle_horseSuperRun", &Toggles::horseSuperRun);
-	RegisterToggle("toggle_horseSuperJump", &Toggles::horseSuperJump);
-	RegisterToggle("toggle_horseNoRagdoll", &Toggles::horseNoRagdoll);
-	RegisterToggle("toggle_horseUnlimitedStamina", &Toggles::horseUnlimitedStamina);
-	RegisterToggle("toggle_forceFirstPersonOnHorse", &Toggles::forceFirstPersonOnHorse);
-	// RegisterToggle("toggle_horseFlyMode", &Toggles::horseFlyMode);
-	RegisterToggle("toggle_vehicleInvincible", &Toggles::vehicleInvincible);
-	RegisterToggle("toggle_vehicleVisible", &Toggles::vehicleVisible);
-	RegisterToggle("toggle_vehicleCannons", &Toggles::vehicleCannons);
-	RegisterToggle("toggle_vehicleBindBoost", &Toggles::vehicleBindBoost);
-	RegisterToggle("toggle_boatFlyMode", &Toggles::boatFlyMode);
-	RegisterToggle("toggle_forceFirstPersonInVehicle", &Toggles::forceFirstPersonInVehicle);
-	RegisterToggle("toggle_systemClockSync", &Toggles::systemClockSync);
-	RegisterToggle("toggle_pauseClock", &Toggles::pauseClock);
-	RegisterToggle("toggle_freezeWeather", &Toggles::freezeWeather);
+	RegisterLoopedToggle("toggle_horseInvincible", &Toggles::horseInvincible, Toggles::HorseInvincibleLoop, Toggles::OnHorseInvincibleToggle);
+	RegisterToggle("toggle_horseVisible", &Toggles::horseVisible, Toggles::OnHorseVisibleToggle);
+	RegisterLoopedToggle("toggle_horseSuperRun", &Toggles::horseSuperRun, Toggles::HorseSuperRunLoop, Toggles::OnHorseSuperJumpToggle);
+	RegisterLoopedToggle("toggle_horseSuperJump", &Toggles::horseSuperJump, Toggles::HorseSuperJumpLoop);
+	RegisterLoopedToggle("toggle_horseNoRagdoll", &Toggles::horseNoRagdoll, Toggles::HorseNoRagdollLoop, Toggles::OnHorseNoRagdollToggle);
+	RegisterLoopedToggle("toggle_horseUnlimitedStamina", &Toggles::horseUnlimitedStamina, Toggles::HorseUnlimitedStaminaLoop);
+	RegisterLoopedToggle("toggle_forceFirstPersonOnHorse", &Toggles::forceFirstPersonOnHorse, Toggles::ForceFirstPersonOnHorseLoop);
+	// RegisterLoopedToggle("toggle_horseFlyMode", &Toggles::horseFlyMode);
+	RegisterLoopedToggle("toggle_vehicleInvincible", &Toggles::vehicleInvincible, Toggles::VehicleInvincibleLoop, Toggles::OnVehicleInvincibleToggle);
+	RegisterLoopedToggle("toggle_vehicleVisible", &Toggles::vehicleVisible, Toggles::VehicleVisibleLoop, Toggles::OnVehicleVisibleToggle);
+	RegisterLoopedToggle("toggle_vehicleCannons", &Toggles::vehicleCannons, Toggles::VehicleCannonsLoop);
+	RegisterLoopedToggle("toggle_vehicleBindBoost", &Toggles::vehicleBindBoost, Toggles::VehicleBindBoostLoop);
+	RegisterLoopedToggle("toggle_boatFlyMode", &Toggles::boatFlyMode, Toggles::BoatFlyModeLoop, Toggles::OnBoatFlyModeToggle);
+	RegisterLoopedToggle("toggle_forceFirstPersonInVehicle", &Toggles::forceFirstPersonInVehicle, Toggles::ForceFirstPersonInVehicleLoop);
+	RegisterLoopedToggle("toggle_systemClockSync", &Toggles::systemClockSync, Toggles::SystemClockSyncLoop);
+	RegisterToggle("toggle_pauseClock", &Toggles::pauseClock, Toggles::OnPauseClockToggle);
+	RegisterLoopedToggle("toggle_freezeWeather", &Toggles::freezeWeather, Toggles::SystemClockSyncLoop, Toggles::OnFreezeWeatherToggle);
 	RegisterToggle("toggle_spawnInsideVehicle", &Toggles::spawnInsideVehicle);
-	// RegisterToggle("toggle_horseEngineTest", &Toggles::horseEngineTest);
-	RegisterToggle("toggle_weaponInfiniteAmmo", &Toggles::weaponInfiniteAmmo);
-	RegisterToggle("toggle_weaponInfiniteAmmoInClip", &Toggles::weaponInfiniteAmmoInClip);
-	RegisterToggle("toggle_hideHud", &Toggles::hideHud);
-	// RegisterToggle("toggle_disableInvisibleSniper", &Toggles::disableInvisibleSniper);
-	RegisterToggle("toggle_weaponCustomBullets", &Toggles::weaponCustomBullets);
+	// RegisterLoopedToggle("toggle_horseEngineTest", &Toggles::horseEngineTest);
+	RegisterLoopedToggle("toggle_weaponInfiniteAmmo", &Toggles::weaponInfiniteAmmo, Toggles::WeaponInfiniteAmmoLoop);
+	RegisterLoopedToggle("toggle_weaponInfiniteAmmoInClip", &Toggles::weaponInfiniteAmmoInClip, Toggles::WeaponInfiniteAmmoInClipLoop);
+	RegisterLoopedToggle("toggle_hideHud", &Toggles::hideHud, Toggles::HideHudLoop);
+	// RegisterToggle("toggle_disableInvisibleSniper", &Toggles::disableInvisibleSniper, Toggles::DisableInvisibleSniperLoop, Toggles::OnFreezeWeatherToggle);
+	RegisterLoopedToggle("toggle_weaponCustomBullets", &Toggles::weaponCustomBullets, Toggles::WeaponCustomBulletsLoop);
 
-	// Toggle actions
-	RegisterToggleAction("toggle_playerInvincible", Toggles::OnPlayerInvincibleToggle);
-	RegisterToggleAction("toggle_playerVisible", Toggles::OnPlayerVisibleToggle);
-	RegisterToggleAction("toggle_playerEveryoneIgnore", Toggles::OnPlayerEveryoneIgnoreToggle);
-	RegisterToggleAction("toggle_horseInvincible", Toggles::OnHorseInvincibleToggle);
-	RegisterToggleAction("toggle_horseSuperJump", Toggles::OnHorseSuperJumpToggle);
-	RegisterToggleAction("toggle_horseNoRagdoll", Toggles::OnHorseNoRagdollToggle);
-	RegisterToggleAction("toggle_spawnedPedInvincible", Toggles::OnSpawnedPedInvincibleToggle);
-	RegisterToggleAction("toggle_spawnedPedBodyguard", Toggles::OnSpanwedPedBodyguardToggle);
-	RegisterToggleAction("toggle_allSpawnedPedsInvincible", Toggles::OnAllSpawnedPedsInvincibleToggle);
-	RegisterToggleAction("toggle_allSpawnedPedsBodyguard", Toggles::OnAllSpanwedPedsBodyguardToggle);
-	RegisterToggleAction("toggle_playerNeverWanted", Toggles::OnPlayerNeverWantedToggle);
-	RegisterToggleAction("toggle_vehicleInvincible", Toggles::OnVehicleInvincibleToggle);
-	RegisterToggleAction("toggle_vehicleVisible", Toggles::OnVehicleVisibleToggle);
-	RegisterToggleAction("toggle_horseVisible", Toggles::OnHorseVisibleToggle);
-	RegisterToggleAction("toggle_boatFlyMode", Toggles::OnBoatFlyModeToggle);
-	RegisterToggleAction("toggle_pauseClock", Toggles::OnPauseClockToggle);
-	RegisterToggleAction("toggle_freezeWeather", Toggles::OnFreezeWeatherToggle);
-	RegisterToggleAction("toggle_weaponExtraDamage", Toggles::OnWeaponExtraDamageToggle);
-	// RegisterToggleAction("toggle_disableInvisibleSniper", Toggles::OnDisableInvisibleSniperToggle);
 }
 
 void ToggleController::Toggle(string key)
 {
-	if (DoesToggleExistForKey(key)) {
+	auto toggle = GetToggleForKey(key);
+	ToggleController::SetToggleValueForKey(key, !(*toggle));
+}
+
+void ToggleController::SetToggleValueForKey(string key, bool value)
+{
+	if (ToggleExistsForKey(key)) {
 		auto toggle = GetToggleForKey(key);
-		*toggle = !(*toggle);
-		if (DoesToggleActionExistForKey(key)) {
-			auto action = GetToggleActionForKey(key);
-			action(*toggle);
+		*toggle = value;
+		if (ToggleEventHandlerExistsForKey(key)) {
+			auto eventHandler = GetToggleEventHandlerForKey(key);
+			eventHandler(value);
+		}
+		if (ToggleLoopExistsForKey(key)) {
+			if (value) {
+				auto loop = GetToggleLoopForKey(key);
+				TaskQueue::AddTask(key, loop);
+			}
+			else {
+				TaskQueue::RemoveTask(key);
+			}
 		}
 	}
 	else {
@@ -105,14 +125,19 @@ void ToggleController::Toggle(string key)
 	}
 }
 
-bool ToggleController::DoesToggleExistForKey(string key)
+bool ToggleController::ToggleExistsForKey(string key)
 {
 	return toggles.count(key) != 0;
 }
 
-bool ToggleController::DoesToggleActionExistForKey(string key)
+bool ToggleController::ToggleEventHandlerExistsForKey(string key)
 {
 	return toggleActions.count(key) != 0;
+}
+
+bool ToggleController::ToggleLoopExistsForKey(string key)
+{
+	return toggleLoops.count(key) != 0;
 }
 
 // MARK: Getters
@@ -122,9 +147,14 @@ bool *ToggleController::GetToggleForKey(string key)
 	return toggles[key];
 }
 
-std::function<void(bool value)> ToggleController::GetToggleActionForKey(string key)
+std::function<void(bool value)> ToggleController::GetToggleEventHandlerForKey(string key)
 {
 	return toggleActions[key];
+}
+
+std::function<void()> ToggleController::GetToggleLoopForKey(string key)
+{
+	return toggleLoops[key];
 }
 
 std::vector<string> ToggleController::Keys()

@@ -28,7 +28,7 @@ void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 
 void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 {
-	if (!ToggleController::DoesToggleExistForKey(hotkey.key)) {
+	if (!ToggleController::ToggleExistsForKey(hotkey.key)) {
 		Game::PrintSubtitle("Error: Toggle key for hotkey is invalid");
 		return;
 	}
@@ -37,18 +37,10 @@ void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 		ToggleController::Toggle(hotkey.key);
 		break;
 	case 1:
-		*ToggleController::GetToggleForKey(hotkey.key) = true;
-		if (ToggleController::DoesToggleActionExistForKey(hotkey.key)) {
-			auto action = ToggleController::GetToggleActionForKey(hotkey.key);
-			action(true);
-		}
+		ToggleController::SetToggleValueForKey(hotkey.key, true);
 		break;
 	case 2:
-		*ToggleController::GetToggleForKey(hotkey.key) = false;
-		if (ToggleController::DoesToggleActionExistForKey(hotkey.key)) {
-			auto action = ToggleController::GetToggleActionForKey(hotkey.key);
-			action(false);
-		}
+		ToggleController::SetToggleValueForKey(hotkey.key, false);
 		break;
 	}
 }

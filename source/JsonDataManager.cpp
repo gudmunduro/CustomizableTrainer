@@ -13,6 +13,7 @@ JSONDataManager::JSONDataManager()
 }
 
 // MARK: Process data
+
 std::map<string, SubmenuData> JSONDataManager::GetLayoutAsMap()
 {
 	try {
@@ -66,12 +67,7 @@ void JSONDataManager::UpdateOptionStates()
 				type = MenuOptionType::Toggle;
 
 				bool value = optionState["value"].get<bool>();
-				if (ToggleController::DoesToggleExistForKey(key)) {
-					*ToggleController::GetToggleForKey(key) = value;
-					if (ToggleController::DoesToggleActionExistForKey(key)) {
-						ToggleController::GetToggleActionForKey(key)(value);
-					}
-				}
+				ToggleController::SetToggleValueForKey(key, value);
 			}
 			else if (optionState["type"].get<string>() == "number") {
 				type = MenuOptionType::Number;

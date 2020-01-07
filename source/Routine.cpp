@@ -11,6 +11,7 @@
 #include "keyboard.h"
 #include "CustomBullets.h"
 
+/*
 // MARK: Variables
 string bottomMesssageText;
 DWORD drawBottomTextUntil;
@@ -111,10 +112,10 @@ void RunHorseSuperRunToggle()
 	if (Controls::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 		horse.SetCanRagdoll(false);
 		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**//* -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**//* 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 	if (Controls::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
 		ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
@@ -129,10 +130,10 @@ void RunHorseSuperJumpToggle()
 	if (Controls::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 		horse.SetCanRagdoll(false);
 		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 }
 
@@ -326,6 +327,7 @@ void RunLoopedToggles()
 
 }
 
+*/
 
 //	MARK: Numbers
 
@@ -356,9 +358,5 @@ void RunLoopedNumbers()
 
 void Routine::RunAll()
 {
-	Game::UpdateData();
-	Controls::Tick();
-	HotkeyController::Tick();
-	RunLoopedToggles();
 	RunLoopedNumbers();
 }

@@ -1,18 +1,24 @@
 #include "pch.h"
 #include "TaskQueue.h"
 
-TaskQueue::TaskQueue()
-{
-}
-
 // MARK: Manange task
 
 void TaskQueue::AddTask(string name, std::function<void()> functionToExecute, bool repeat)
 {
+	tasks.push_back({
+		name,
+		functionToExecute,
+		repeat
+	});
 }
 
 void TaskQueue::RemoveTask(string name)
 {
+	for (int i = 0; i < tasks.size(); i++)
+		if (tasks[i].name == name) {
+			tasks.erase(tasks.begin() + i);
+			break;
+		}
 }
 
 // MARK: 
@@ -30,6 +36,15 @@ void TaskQueue::Wait(DWORD time)
 
 // MARK: Run task
 
+void TaskQueue::RunTask(int taskIndex)
+{
+	tasks[taskIndex].function();
+	if (!tasks[taskIndex].repeat)
+		tasks.erase(tasks.begin() + taskIndex);
+}
+
 void TaskQueue::Run()
 {
+	for (int i = 0; i < tasks.size(); i++)
+		RunTask(i);
 }

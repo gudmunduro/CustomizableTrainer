@@ -45,7 +45,8 @@ namespace Toggles {
 		disableInvisibleSniper = false,
 		hideHud = false;
 
-	// MARK: Toggle actions
+	// MARK: Toggle event handlers
+
 	void OnPlayerInvincibleToggle(bool value);
 	void OnPlayerVisibleToggle(bool value);
 	void OnPlayerNeverWantedToggle(bool value);
@@ -66,5 +67,40 @@ namespace Toggles {
 	void OnFreezeWeatherToggle(bool value);
 	void OnWeaponExtraDamageToggle(bool value);
 	void OnDisableInvisibleSniperToggle(bool value);
+
+	// MARK: Toggle loops
+
+	void PlayerInvincibleLoop();
+	void PlayerSuperRunLoop();
+	void PlayerUnlStaminaLoop();
+	void PlayerUnlSpecialAbilityLoop();
+	void PlayerSuperJumpLoop();
+	void PlayerNeverWantedLoop();
+	void PlayerNoRagdollLoop();
+	void PlayerExplosiveMeleeLoop();
+	void PlayerEveryoneIgnoreLoop();
+	void ForceFirstPersonOnFootLoop();
+	void HorseInvincibleLoop();
+	void HorseSuperRunLoop();
+	void HorseNoRagdollLoop();
+	void HorseSuperJumpLoop();
+	void HorseUnlimitedStaminaLoop();
+	void HorseFlyModeLoop();
+	void ForceFirstPersonOnHorseLoop();
+	void VehicleInvincibleLoop();
+	void VehicleVisibleLoop();
+	void VehicleCannonsLoop();
+	void VehicleBindBoostLoop();
+	void ForceFirstPersonInVehicleLoop();
+	void BoatFlyModeLoop();
+	void WeaponInfiniteAmmoLoop();
+	void WeaponInfiniteAmmoInClipLoop();
+	void WeaponExtraDamageLoop();
+	void WeaponCustomBulletsLoop();
+	void SystemClockSyncLoop();
+	void FreezeWeatherLoop();
+	void HideHudLoop();
+	void HorseEngineTestLoop();
+	void DisableInvisibleSniperLoop();
 }
 

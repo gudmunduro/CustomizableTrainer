@@ -10,16 +10,17 @@ struct TaskQueueTask {
 class TaskQueue
 {
 public:
-	TaskQueue();
 
-	void AddTask(string name, std::function<void()> functionToExecute, bool repeat = true);
-	void RemoveTask(string name);
+	static void AddTask(string name, std::function<void()> functionToExecute, bool repeat = true);
+	static void RemoveTask(string name);
 
-	void Wait(DWORD time);
+	static void Wait(DWORD time);
 
-	void Run();
+	static void Run();
 
 private:
-	std::vector<TaskQueueTask> tasks;
+	static void RunTask(int taskIndex);
+
+	static inline std::vector<TaskQueueTask> tasks;
 };
 

@@ -43,7 +43,7 @@ void Game::RequestModel(Hash model)
 	STREAMING::REQUEST_MODEL(model, true);
 	auto timeout = GetTickCount() + 1000;
 	while (!STREAMING::HAS_MODEL_LOADED(model)) {
-		WAIT(5);
+		TaskQueue::Wait(5);
 		if (GetTickCount() > timeout) {
 			Game::PrintSubtitle("Error: Loading model timed out");
 			break;

@@ -17,7 +17,7 @@ void Player::SetModel(Hash model)
 		UINT64 bcp1 = *ptr1;
 		UINT64 bcp2 = *ptr2;
 		*ptr1 = *ptr2 = model;
-		WAIT(1000);
+		TaskQueue::Wait(1000);
 		PedId playerPed = PLAYER::PLAYER_PED_ID();
 		PED::SET_PED_VISIBLE(playerPed, TRUE);
 		if (ENTITY::GET_ENTITY_MODEL(playerPed) != model)
