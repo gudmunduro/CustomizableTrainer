@@ -109,8 +109,6 @@ void EditAddOptionSub::Draw()
 	});
 }
 
-// MARK: Misc
-
 void EditAddOptionSub::UpdateParameters()
 {
 	if (!(optionToAdd.key != "" && optionToAdd.type == MenuOptionType::Action &&

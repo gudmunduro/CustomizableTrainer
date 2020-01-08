@@ -8,8 +8,6 @@ AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController, bool hi
 	this->hideAction = hideAction;
 }
 
-// MARK: Draw
-
 void AddOptionSetTypeSub::Draw()
 {
 	Submenu::Draw();
