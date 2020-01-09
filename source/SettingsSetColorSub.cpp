@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SettingsSetColorSub.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 #include "Routine.h"
 
 SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, MenuController* menuController) : FixedSubmenu(menuController)
@@ -8,8 +8,6 @@ SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, Men
 	this->title = title;
 	this->colorToChange = colorToChange;
 }
-
-// MARK: Draw
 
 void SettingsSetColorSub::Draw()
 {
@@ -21,8 +19,7 @@ void SettingsSetColorSub::Draw()
 	DrawColorValue("Blue", &colorToChange->b);
 	DrawColorValue("Alpha", &colorToChange->a);
 	DrawAction("Save", [] {
-		JSONDataManager jsonDataManager;
-		jsonDataManager.SaveMenuSettings(true);
+		JSONData::SaveMenuSettings(true);
 	});
 }
 
@@ -50,5 +47,5 @@ void SettingsSetColorSub::DrawColorValue(string text, int* color)
 				return;
 			}
 			*color += direction ? 1 : -1;
-		});
+	});
 }

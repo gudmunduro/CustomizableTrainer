@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SettingsControlsControllerSub.h"
 #include "Controls.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 #include "MenuSettings.h"
 #include "Routine.h"
 
@@ -90,8 +90,7 @@ void SettingsControlsControllerSub::RespondToControls()
 				isEditingControl = false;
 				editingControlAlpha = 255;
 				editingControlAlphaDirection = false;
-				JSONDataManager jsonDataManager;
-				jsonDataManager.SaveMenuSettings();
+				JSONData::SaveMenuSettings();
 			}
 		}
 	}

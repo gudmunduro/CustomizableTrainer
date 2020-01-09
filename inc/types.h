@@ -82,13 +82,6 @@ struct MenuOption
 	json params;
 };
 
-struct FixedMenuOption
-{
-	MenuOptionType type;
-	string text;
-	string key; // Key is only used when type is sub.  And when type is text it is temporarly used for the value to draw
-};
-
 struct MenuOptionParameter 
 {
 	MenuOptionParameterType type;
@@ -122,6 +115,11 @@ struct NearbyEntities {
 struct OptionToSave {
 	MenuOptionType type;
 	string key;
+};
+
+struct WeaponData {
+	string name;
+	string model;
 };
 
 // MARK: Operators

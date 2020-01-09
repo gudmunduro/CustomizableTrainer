@@ -8,12 +8,14 @@
 #include "CustomBullets.h"
 #include "VehicleWeapons.h"
 
-// MARK: Variables used by toggles
+#pragma region Variables used by toggles
 
 BoatFlyMode* boatFlyModeController;
 VehicleWeapons vehicleWeapons;
 
-// MARK: Toggle event handlers
+#pragma endregion
+
+#pragma region Toggle event handlers
 
 void Toggles::OnPlayerInvincibleToggle(bool value)
 {
@@ -185,7 +187,9 @@ void Toggles::OnDisableInvisibleSniperToggle(bool value)
 	}
 }
 
-// MARK: Player toggle loops
+#pragma endregion
+
+#pragma region Player toggle loops
 
 void Toggles::PlayerInvincibleLoop()
 {
@@ -256,7 +260,9 @@ void Toggles::ForceFirstPersonOnFootLoop()
 		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 }
 
-// MARK: Horse toggle loops
+#pragma endregion     
+
+#pragma region Horse toggle loops
 
 void Toggles::HorseInvincibleLoop()
 {
@@ -339,7 +345,9 @@ void Toggles::ForceFirstPersonOnHorseLoop()
 	CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 }
 
-// MARK: Vehicle toggle loops
+#pragma endregion
+
+#pragma region Vehicle toggle loops
 
 void Toggles::VehicleInvincibleLoop()
 {
@@ -388,7 +396,9 @@ void Toggles::BoatFlyModeLoop()
 	boatFlyModeController->Tick();
 }
 
-// MARK: Weapon toggle loops
+#pragma endregion
+
+#pragma region Weapon toggle loops
 
 void Toggles::WeaponInfiniteAmmoLoop()
 {
@@ -423,7 +433,9 @@ void Toggles::WeaponCustomBulletsLoop()
 	CustomBulletController::Tick();
 }
 
-// MARK: Time toggle loops
+#pragma endregion
+
+#pragma region Time toggle loops
 
 void Toggles::SystemClockSyncLoop()
 {
@@ -433,14 +445,18 @@ void Toggles::SystemClockSyncLoop()
 	TIME::SET_CLOCK_TIME(t.tm_hour, t.tm_min, t.tm_sec);
 }
 
-// MARK: Weather toggle loops
+#pragma endregion
+
+#pragma region Weather toggle loops
 
 void Toggles::FreezeWeatherLoop()
 {
 	GAMEPLAY::FREEZE_WEATHER(true);
 }
 
-// MARK: Misc toggle loops
+#pragma endregion
+
+#pragma region Misc toggle loops
 
 void Toggles::HideHudLoop()
 {
@@ -466,3 +482,5 @@ void Toggles::DisableInvisibleSniperLoop()
 	UINT64* counter = getMultilayerPointer<UINT64*>(getGlobalPtr(0x1CADEE), std::vector<DWORD>{44});
 	*counter = GAMEPLAY::GET_GAME_TIMER();
 }
+
+#pragma endregion

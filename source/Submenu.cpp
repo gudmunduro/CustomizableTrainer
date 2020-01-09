@@ -23,19 +23,7 @@ Submenu::Submenu(MenuController *menuController)
 	shouldDeleteSubmenuWhenPossible = false;
 }
 
-void Submenu::Draw() 
-{
-	DrawMenuBase();
-}
-
-// MARK: Draw title/option
-void Submenu::DrawTitle(string text) 
-{
-	auto menuPos = menuController->position;
-
-	Game::DrawText("<font face='$title1' >" + text + "</font>", { menuPos.x + 10.0f, menuPos.y }, 48.0f, MenuSettings::titleBarTextColor, true);
-	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, MenuSettings::titleBarBorderColor);
-}
+#pragma region Draw menu
 
 void Submenu::DrawMenuBase()
 {
@@ -66,6 +54,23 @@ void Submenu::DrawMenuBase()
 
 	// Option count
 	Game::DrawText("<font face='$body2' >" + std::to_string(selection + 1) + " / " + std::to_string(OptionCount()) + "</font>", { menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, MenuSettings::menuOptionCountColor, true);
+}
+
+void Submenu::Draw() 
+{
+	DrawMenuBase();
+}
+
+#pragma endregion Draw menu
+
+#pragma region Draw Title/option
+
+void Submenu::DrawTitle(string text) 
+{
+	auto menuPos = menuController->position;
+
+	Game::DrawText("<font face='$title1' >" + text + "</font>", { menuPos.x + 10.0f, menuPos.y }, 48.0f, MenuSettings::titleBarTextColor, true);
+	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, MenuSettings::titleBarBorderColor);
 }
 
 void Submenu::DrawOptionBase(string text, bool selected)
@@ -205,7 +210,9 @@ void Submenu::DrawTextList(string text, string valueToDisplay, std::function<voi
 	OptionDidDraw();
 }
 
-// MARK: Events
+#pragma endregion Draw Title/option
+
+#pragma region Events
 
 void Submenu::SubWillDraw()
 {
@@ -234,14 +241,18 @@ void Submenu::SelectionDidChange(int to, int from)
 	}
 }
 
-// MARK: Getters
+#pragma endregion Events
+
+#pragma region Getters
 
 int Submenu::OptionCount()
 {
 	return autoOptionCount;
 }
 
-// MARK: Controls
+#pragma endregion Getters
+
+#pragma region Controls
 
 void Submenu::RespondToControls()
 {
@@ -250,7 +261,7 @@ void Submenu::RespondToControls()
 	if (Controls::IsMenuControlPressed(MenuControl::MenuDown)) {
 		int oldSelection = selection;
 		if (selection < OptionCount() - 1) selection++;
-		else { 
+		else {
 			selection = 0; 
 			scrollPosition = 0;
 		}
@@ -313,7 +324,9 @@ void Submenu::RespondToControls()
 	}
 }
 
-// MARK: Booleans
+#pragma endregion Controls
+
+#pragma region Booleans
 
 bool Submenu::IsOutOfBounds(int index)
 {
@@ -325,7 +338,9 @@ bool Submenu::IsOptionSelected(int index)
 	return index == drawIndex + scrollPosition;
 }
 
-// MARK: Main
+#pragma endregion Booleans
+
+#pragma region Main
 
 void Submenu::Tick()
 {
@@ -338,7 +353,9 @@ void Submenu::Tick()
 		delete this;
 }
 
-// MARK: Misc
+#pragma endregion Main
+
+#pragma region Misc
 
 void Submenu::DeleteWhenPossible()
 {
@@ -367,3 +384,5 @@ string Submenu::OptionTypeToString(MenuOptionType type)
 	}
 	return "Invalid";
 }
+
+#pragma endregion Misc

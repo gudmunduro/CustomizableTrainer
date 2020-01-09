@@ -2,7 +2,7 @@
 #include "MenuController.h"
 #include "Routine.h"
 #include "Controls.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 #include "MenuSettings.h"
 #include "DynamicSubmenu.h"
 #include "PedSpawnerSub.h"
@@ -24,10 +24,8 @@ MenuController::MenuController()
 	shouldDrawMenu = false;
 
 	// Load json data
-	JSONDataManager manager;
-	manager.Load();
-	manager.UpdateMenuSettings();
-	submenuDataMap = manager.GetLayoutAsMap();
+	JSONData::UpdateMenuSettings();
+	submenuDataMap = JSONData::GetLayoutAsMap();
 }
 
 void MenuController::Tick()
@@ -142,8 +140,7 @@ void MenuController::UpdateSubmenuData(string key, SubmenuData submenuData)
 	if (SubmenuExistsForKey(key)) {
 		SetSubmenuDataForKey(key, submenuData);
 	}
-	JSONDataManager manager;
-	manager.SaveLayoutFromMap(submenuDataMap);
+	JSONData::SaveLayoutFromMap(submenuDataMap);
 }
 
 // MARK: Getters

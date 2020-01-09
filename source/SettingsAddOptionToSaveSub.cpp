@@ -3,7 +3,7 @@
 #include "AddOptionSetTypeSub.h"
 #include "AddOptionSetKeySub.h"
 #include "MenuSettings.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuController, int index) : FixedSubmenu(menuController)
 {
@@ -44,7 +44,7 @@ void SettingsAddOptionToSaveSub::Draw()
 		else
 			MenuSettings::optionsToSave[editingOptionIndex] = savedOptionToAdd;
 
-		JSONDataManager().SaveOptionStates();
+		JSONData::SaveOptionStates();
 		menuController->GoToLastSub();
 	});
 }

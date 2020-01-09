@@ -6,14 +6,13 @@
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 // MARK: Setup
 
 void HotkeyController::Setup()
 {
-	JSONDataManager jsonDataManager;
-	hotkeys = jsonDataManager.GetHotkeysAsVector();
+	hotkeys = JSONData::GetHotkeysAsVector();
 }
 
 // MARK: Run hotkey
@@ -87,8 +86,7 @@ void HotkeyController::RunHotkey(Hotkey hotkey)
 
 void HotkeyController::Save()
 {
-	JSONDataManager jsonDataManager;
-	jsonDataManager.SaveHotkeys(hotkeys);
+	JSONData::SaveHotkeys(hotkeys);
 }
 
 // MARK: Main

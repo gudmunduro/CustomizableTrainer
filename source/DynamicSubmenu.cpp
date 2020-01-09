@@ -8,7 +8,7 @@
 #include "NumberController.h"
 #include "TextController.h"
 #include "MenuSettings.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuController)
 	: Submenu(menuController)
@@ -229,5 +229,5 @@ bool DynamicSubmenu::IsSavedOption(string key)
 void DynamicSubmenu::SaveIfSavedOption(string key)
 {
 	if (IsSavedOption(key))
-		JSONDataManager().SaveOptionStates();
+		JSONData::SaveOptionStates();
 }

@@ -120,9 +120,6 @@
     <ClInclude Include="script.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JsonDataManager.h">
-      <Filter>Headers\Data</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\json.hpp">
       <Filter>Include</Filter>
     </ClInclude>
@@ -258,6 +255,12 @@
     <ClInclude Include="TaskQueue.h">
       <Filter>Headers\Core</Filter>
     </ClInclude>
+    <ClInclude Include="WeaponSelection.h">
+      <Filter>Headers\Menu\Submenus</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonData.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -274,9 +277,6 @@
     </ClCompile>
     <ClCompile Include="script.cpp">
       <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="JsonDataManager.cpp">
-      <Filter>Source\Data</Filter>
     </ClCompile>
     <ClCompile Include="Actions.cpp">
       <Filter>Source\Actions</Filter>
@@ -409,6 +409,12 @@
     </ClCompile>
     <ClCompile Include="TaskQueue.cpp">
       <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSelection.cpp">
+      <Filter>Source\Menu\Submenus</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonData.cpp">
+      <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

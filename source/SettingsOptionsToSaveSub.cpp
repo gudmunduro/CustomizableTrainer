@@ -3,7 +3,7 @@
 #include "SettingsAddOptionToSaveSub.h"
 #include "MenuSettings.h"
 #include "Controls.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 SettingsOptionsToSaveSub::SettingsOptionsToSaveSub(MenuController* menuController) : FixedSubmenu(menuController)
 {
@@ -41,7 +41,7 @@ void SettingsOptionsToSaveSub::RespondToControls()
 		if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
 		
 		MenuSettings::optionsToSave.erase(MenuSettings::optionsToSave.begin() + (selection - 1));
-		JSONDataManager().SaveOptionStates();
+		JSONData::SaveOptionStates();
 
 		if (selection == OptionCount() - 1) selection -= 1;
 	}

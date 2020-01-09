@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SettingsGeneralSub.h"
 #include "MenuSettings.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 SettingsGeneralSub::SettingsGeneralSub(MenuController* menuController) : FixedSubmenu(menuController)
 {
@@ -16,7 +16,6 @@ void SettingsGeneralSub::Draw()
 	DrawTitle("General");
 	DrawToggle("UI sounds", MenuSettings::playUiSounds, [] {
 		MenuSettings::playUiSounds = !MenuSettings::playUiSounds;
-		JSONDataManager jsonDataManager;
-		jsonDataManager.SaveMenuSettings();
+		JSONData::SaveMenuSettings();
 	});
 }

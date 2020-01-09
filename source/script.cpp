@@ -14,7 +14,7 @@
 #include "NumberController.h"
 #include "HotkeyController.h"
 #include "TextController.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 // MARK: Variables
 
@@ -49,8 +49,7 @@ void setupInitialTaskQueue()
 
 void loadInitialOptionStates()
 {
-	JSONDataManager manager;
-	manager.UpdateOptionStates();
+	JSONData::UpdateOptionStates();
 }
 
 void setup()

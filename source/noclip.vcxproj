@@ -128,7 +128,7 @@
     <ClInclude Include="GameplayCamera.h" />
     <ClInclude Include="HorseFlyMode.h" />
     <ClInclude Include="HotkeyController.h" />
-    <ClInclude Include="JsonDataManager.h" />
+    <ClInclude Include="JsonData.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
@@ -162,6 +162,7 @@
     <ClInclude Include="Toggles.h" />
     <ClInclude Include="Vehicle.h" />
     <ClInclude Include="VehicleWeapons.h" />
+    <ClInclude Include="WeaponSelection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionController.cpp" />
@@ -180,7 +181,7 @@
     <ClCompile Include="GameplayCamera.cpp" />
     <ClCompile Include="HorseFlyMode.cpp" />
     <ClCompile Include="HotkeyController.cpp" />
-    <ClCompile Include="JsonDataManager.cpp" />
+    <ClCompile Include="JsonData.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
@@ -217,6 +218,7 @@
     <ClCompile Include="Toggles.cpp" />
     <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="VehicleWeapons.cpp" />
+    <ClCompile Include="WeaponSelection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

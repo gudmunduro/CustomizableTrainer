@@ -3,7 +3,7 @@
 #include "Controls.h"
 #include "MenuSettings.h"
 #include "keyboard.h"
-#include "JsonDataManager.h"
+#include "JsonData.h"
 
 SettingsControlsKeyboardSub::SettingsControlsKeyboardSub(MenuController* menuController) : FixedSubmenu(menuController)
 {
@@ -91,8 +91,7 @@ void SettingsControlsKeyboardSub::RespondToControls()
 				isEditingKey = false;
 				editingKeyAlpha = 255;
 				editingKeyAlphaDirection = false;
-				JSONDataManager jsonDataManager;
-				jsonDataManager.SaveMenuSettings();
+				JSONData::SaveMenuSettings();
 				break;
 			}
 		}
