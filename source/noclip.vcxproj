@@ -162,6 +162,7 @@
     <ClInclude Include="Toggles.h" />
     <ClInclude Include="Vehicle.h" />
     <ClInclude Include="VehicleWeapons.h" />
+    <ClInclude Include="WeaponManager.h" />
     <ClInclude Include="WeaponSelection.h" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +219,7 @@
     <ClCompile Include="Toggles.cpp" />
     <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="VehicleWeapons.cpp" />
+    <ClCompile Include="WeaponManager.cpp" />
     <ClCompile Include="WeaponSelection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

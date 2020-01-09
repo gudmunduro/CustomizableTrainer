@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Toggles.h"
 #include "PedSpawner.h"
+#include "WeaponManager.h"
 
 // MARK: Player
 
@@ -340,6 +341,42 @@ void Actions::GivePlayerWeapon(json params)
 	
 	Player().GiveWeapon(weaponHash);
 	WEAPON::SET_PED_AMMO(Game::playerPedId, weaponHash, 9999);
+}
+
+void Actions::EquipSelectedWeapon(json params)
+{
+	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
+
+	if (!STREAMING::IS_MODEL_VALID(weaponHash)) {
+		Game::PrintSubtitle("Weapon does not exist");
+		return;
+	}
+	Player player;
+
+	if (!player.HasWeapon(weaponHash))
+		player.GiveWeapon(weaponHash);
+	else
+		player.SetCurrentWeapon(weaponHash);
+	player.SetAmmo(weaponHash, 9999);
+}
+
+void Actions::RemoveSelectedWeapon(json params)
+{
+	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
+
+	Player().RemoveWeapon(weaponHash);
+}
+
+void Actions::FillAmmoInSelectedWeapon(json params)
+{
+	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
+
+	if (!STREAMING::IS_MODEL_VALID(weaponHash)) {
+		Game::PrintSubtitle("Weapon does not exist");
+		return;
+	}
+
+	Player().SetAmmo(weaponHash, 9999);
 }
 
 void Actions::GivePlayerMaxAmmo(json params)

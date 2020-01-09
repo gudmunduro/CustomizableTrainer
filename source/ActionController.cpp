@@ -48,6 +48,9 @@ void ActionController::RegisterActions()
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
 	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);
+	RegisterAction("action_equipSelectedWeapon", Actions::EquipSelectedWeapon);
+	RegisterAction("action_removeSelectedWeapon", Actions::RemoveSelectedWeapon);
+	RegisterAction("action_fillAmmoInSelectedWeapon", Actions::FillAmmoInSelectedWeapon);
 	RegisterAction("action_givePlayerMaxAmmo", Actions::GivePlayerMaxAmmo);
 	// Weather
 	RegisterAction("action_setWeather", Actions::SetWeather);

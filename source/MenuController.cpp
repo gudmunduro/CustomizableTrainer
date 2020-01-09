@@ -14,6 +14,7 @@
 #include "SettingsColorSchemeSub.h"
 #include "SettingsHotkeysSub.h"
 #include "SettingsOptionsToSaveSub.h"
+#include "WeaponSelection.h"
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
@@ -164,6 +165,7 @@ std::vector<string> MenuController::SubmenuKeys()
 
 	keys.push_back("builtin_sub_pedSpawner"); // TODO: Find a better solution to this
 	keys.push_back("builtin_sub_settings");
+	keys.push_back("builtin_sub_selectWeaponCat");
 
 	return keys;
 }
@@ -196,6 +198,9 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	}
 	else if (key == "builtin_sub_settingsOptionsToSave") {
 		return new SettingsOptionsToSaveSub(this);
+	}
+	else if (key == "builtin_sub_selectWeaponCat") {
+		return new WeaponSelectionSub(this);
 	}
 	return nullptr;
 }

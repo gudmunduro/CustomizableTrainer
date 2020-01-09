@@ -25,5 +25,5 @@ public:
 	void Draw() override;
 
 private:
-	std::map<string, std::vector<WeaponData>> weaponCats;
+	std::vector<std::pair<string, std::vector<WeaponData>>> weaponCats;
 };

@@ -150,6 +150,7 @@ void BoatFlyMode::Tick()
 	}
 
 	if (boat.Exists()) boat.SetForwardSpeed(speed);
+
 	if (!(player.IsInVehicle() && player.CurrentVehicle().GetVehicleId() == boat.GetVehicleId())) return;
 
 	RespondToControls();

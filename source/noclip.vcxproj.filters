@@ -261,6 +261,9 @@
     <ClInclude Include="JsonData.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
+    <ClInclude Include="WeaponManager.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -415,6 +418,9 @@
     </ClCompile>
     <ClCompile Include="JsonData.cpp">
       <Filter>Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponManager.cpp">
+      <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

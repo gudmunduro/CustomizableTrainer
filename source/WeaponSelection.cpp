@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "WeaponSelection.h"
+#include "WeaponManager.h"
 #include "JsonData.h"
 
 #pragma region Weapon category
@@ -15,7 +16,8 @@ void WeaponSelectionCatSub::Draw()
 	
 	for each (auto weapon in weapons) {
 		DrawAction(weapon.name, [this, weapon] {
-			
+			WeaponManager::currentWeapon = weapon;
+			menuController->SetSubmenuWithKey("required_sub_manangeWeapon");
 		});
 	}
 }
@@ -28,7 +30,7 @@ void WeaponSelectionCatSub::Draw()
 WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController)
 	: FixedSubmenu(menuController)
 {
-	weaponCats = JSONData::GetWeaponsAsMap();
+	weaponCats = JSONData::GetWeapons();
 }
 
 void WeaponSelectionSub::Draw()
@@ -37,7 +39,7 @@ void WeaponSelectionSub::Draw()
 
 	for each (auto weaponCat in weaponCats) {
 		DrawAction(weaponCat.first, [this, weaponCat] {
-			auto weaponCatSub = new WeaponSelectionCatSub(menuController, weaponCat.first, weaponCats[weaponCat.first]);
+			auto weaponCatSub = new WeaponSelectionCatSub(menuController, weaponCat.first, weaponCat.second);
 			menuController->AddSubmenuToStack(weaponCatSub);
 		});
 	}

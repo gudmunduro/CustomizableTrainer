@@ -21,14 +21,17 @@ public:
 	void RemoveFromGroup();
 	void ClearWetness();
 	void GiveWeapon(Hash model);
+	void RemoveWeapon(Hash model);
+	void SetCurrentWeapon(Hash model);
 	void SetAmmo(Hash weapon, int ammo);
 	void SetCanBeKnockedOffVehicle(int state);
 	void Delete();
 	// MARK: Booleans
-	bool IsInVehicle();
+	bool IsInVehicle(bool atGetIn = true);
 	bool IsOnMount();
 	bool IsOnFoot();
 	bool IsShooting();
+	bool HasWeapon(Hash weaponHash);
 	// MARK: Getters
 	PedId GetPedId();
 	int MaxHealth();

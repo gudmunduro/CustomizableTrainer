@@ -87,6 +87,16 @@ void Ped::GiveWeapon(Hash model)
 	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
 }
 
+void Ped::RemoveWeapon(Hash model)
+{
+	WEAPON::REMOVE_WEAPON_FROM_PED(pedId, model, true, -142743235);
+}
+
+void Ped::SetCurrentWeapon(Hash model)
+{
+	WEAPON::SET_CURRENT_PED_WEAPON(pedId, model, true, 0, false, false);
+}
+
 void Ped::SetAmmo(Hash weapon, int ammo)
 {
 	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
@@ -104,9 +114,9 @@ void Ped::Delete()
 
 // MARK: Booleans
 
-bool Ped::IsInVehicle()
+bool Ped::IsInVehicle(bool atGetIn)
 {
-	return PED::IS_PED_IN_ANY_VEHICLE(pedId, true);
+	return PED::IS_PED_IN_ANY_VEHICLE(pedId, atGetIn);
 }
 
 bool Ped::IsOnMount()
@@ -122,6 +132,11 @@ bool Ped::IsOnFoot()
 bool Ped::IsShooting()
 {
 	return PED::IS_PED_SHOOTING(pedId);
+}
+
+bool Ped::HasWeapon(Hash weaponHash)
+{
+	return WEAPON::HAS_PED_GOT_WEAPON(pedId, weaponHash, 0, 0);
 }
 
 // MARK: Getters

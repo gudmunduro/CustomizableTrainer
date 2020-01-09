@@ -245,12 +245,12 @@ std::vector<Hotkey> JSONData::GetHotkeysAsVector()
 
 // weapons.json
 
-std::map<string, std::vector<WeaponData>> JSONData::GetWeaponsAsMap()
+std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 {
 	try {
 		json weapons = LoadJSONFile("CustomizableTrainer\\weapons.json");
 
-		std::map<string, std::vector<WeaponData>> weaponDataMap;
+		std::vector<std::pair<string, std::vector<WeaponData>>> weaponData;
 
 		for each (auto && weaponCat in weapons.items()) {
 
@@ -263,16 +263,16 @@ std::map<string, std::vector<WeaponData>> JSONData::GetWeaponsAsMap()
 				});
 			}
 
-			weaponDataMap[weaponCat.key()] = weaponCatVec;
+			weaponData.push_back(std::pair(weaponCat.key(), weaponCatVec));
 		}
 
-		return weaponDataMap;
+		return weaponData;
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse weapons.json");
 	}
 
-	return std::map<string, std::vector<WeaponData>>();
+	return std::vector<std::pair<string, std::vector<WeaponData>>>();
 }
 
 #pragma endregion

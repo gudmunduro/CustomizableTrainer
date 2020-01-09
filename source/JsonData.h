@@ -7,7 +7,7 @@ namespace JSONData {
 	void UpdateOptionStates();
 	void UpdateMenuSettings();
 	std::vector<Hotkey> GetHotkeysAsVector();
-	std::map<string, std::vector<WeaponData>> GetWeaponsAsMap();
+	std::vector<std::pair<string, std::vector<WeaponData>>> GetWeapons();
 	void SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap);
 	void SaveMenuSettings(bool showSavedMessage = false);
 	void SaveHotkeys(std::vector<Hotkey> hotkeys);
