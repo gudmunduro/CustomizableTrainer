@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "DynamicSubmenu.h"
 #include "WeaponSelection.h"
 #include "WeaponManager.h"
 #include "JsonData.h"
@@ -12,12 +13,15 @@ WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, str
 
 void WeaponSelectionCatSub::Draw()
 {
+	FixedSubmenu::Draw();
+
 	DrawTitle(catName);
 	
 	for each (auto weapon in weapons) {
 		DrawAction(weapon.name, [this, weapon] {
 			WeaponManager::currentWeapon = weapon;
 			menuController->SetSubmenuWithKey("required_sub_manangeWeapon");
+			((DynamicSubmenu*)menuController->submenuStack.back())->title = weapon.name; // TODO: Find a better way
 		});
 	}
 }
@@ -35,6 +39,8 @@ WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController)
 
 void WeaponSelectionSub::Draw()
 {
+	FixedSubmenu::Draw();
+
 	DrawTitle("Weapons");
 
 	for each (auto weaponCat in weaponCats) {

@@ -34,6 +34,7 @@ namespace Actions {
 	void RemoveSelectedWeapon(json params);
 	void FillAmmoInSelectedWeapon(json params);
 	void GivePlayerMaxAmmo(json params);
+	void FillAmmoOfType(json params);
 	void SetWeather(json params);
 	void AddToClockTime(json params);
 	void TeleportPlayerForward(json params);

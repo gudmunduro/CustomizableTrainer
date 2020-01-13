@@ -36,15 +36,16 @@ void TaskQueue::Wait(DWORD time)
 
 // MARK: Run task
 
-void TaskQueue::RunTask(int taskIndex)
+void TaskQueue::RunTask(TaskQueueTask& task)
 {
-	tasks[taskIndex].function();
-	if (!tasks[taskIndex].repeat)
-		tasks.erase(tasks.begin() + taskIndex);
+	task.function();
 }
 
 void TaskQueue::Run()
 {
-	for (int i = 0; i < tasks.size(); i++)
-		RunTask(i);
+	for (int i = 0; i < tasks.size(); i++) {
+		if (i > tasks.size() - 1)
+			break;
+		RunTask(tasks[i]);
+	}
 }

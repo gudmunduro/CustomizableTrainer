@@ -4,6 +4,7 @@
 #include "Routine.h"
 
 // MARK: Manage
+
 void ActionController::RegisterAction(string key, std::function<void(json params)> action)
 {
 	if (actions.count(key)) {
@@ -52,6 +53,7 @@ void ActionController::RegisterActions()
 	RegisterAction("action_removeSelectedWeapon", Actions::RemoveSelectedWeapon);
 	RegisterAction("action_fillAmmoInSelectedWeapon", Actions::FillAmmoInSelectedWeapon);
 	RegisterAction("action_givePlayerMaxAmmo", Actions::GivePlayerMaxAmmo);
+	RegisterAction("action_fillAmmoOfType", Actions::FillAmmoOfType);
 	// Weather
 	RegisterAction("action_setWeather", Actions::SetWeather);
 	// Time
@@ -77,6 +79,7 @@ void ActionController::RunActionForKey(string key, json params)
 }
 
 // MARK: Getters
+
 bool ActionController::DoesActionExistForKey(string key)
 {
 	return actions.count(key) != 0;

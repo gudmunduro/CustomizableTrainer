@@ -345,12 +345,11 @@ void Actions::GivePlayerWeapon(json params)
 
 void Actions::EquipSelectedWeapon(json params)
 {
-	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
-
-	if (!STREAMING::IS_MODEL_VALID(weaponHash)) {
-		Game::PrintSubtitle("Weapon does not exist");
+	if (WeaponManager::currentWeapon.model == "") {
+		Game::PrintSubtitle("No weapon selected");
 		return;
 	}
+	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 	Player player;
 
 	if (!player.HasWeapon(weaponHash))
@@ -362,6 +361,10 @@ void Actions::EquipSelectedWeapon(json params)
 
 void Actions::RemoveSelectedWeapon(json params)
 {
+	if (WeaponManager::currentWeapon.model == "") {
+		Game::PrintSubtitle("No weapon selected");
+		return;
+	}
 	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 
 	Player().RemoveWeapon(weaponHash);
@@ -369,12 +372,11 @@ void Actions::RemoveSelectedWeapon(json params)
 
 void Actions::FillAmmoInSelectedWeapon(json params)
 {
-	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
-
-	if (!STREAMING::IS_MODEL_VALID(weaponHash)) {
-		Game::PrintSubtitle("Weapon does not exist");
+	if (WeaponManager::currentWeapon.model == "") {
+		Game::PrintSubtitle("No weapon selected");
 		return;
 	}
+	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 
 	Player().SetAmmo(weaponHash, 9999);
 }
@@ -391,6 +393,11 @@ void Actions::GivePlayerMaxAmmo(json params)
 		if (maxAmmoInClip > 0)
 			WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
 	}
+}
+
+void Actions::FillAmmoOfType(json params)
+{
+	WEAPON::_0xB6CFEC32E3742779(Game::playerPedId, 836939099, 1, -142743235);
 }
 
 // MARK: Weather

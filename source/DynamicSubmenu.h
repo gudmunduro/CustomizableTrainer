@@ -10,6 +10,9 @@ public:
 
 	int OptionCount();
 
+	string title;
+	string key;
+	std::vector<MenuOption> options;
 protected:
 	void Draw() override;
 
@@ -29,9 +32,6 @@ protected:
 	bool IsSavedOption(string key);
 	void SaveIfSavedOption(string key);
 
-	string title;
-	string key;
-	std::vector<MenuOption> options;
 	bool isEditModeActive;
 	bool isMoveOptionActive;
 };

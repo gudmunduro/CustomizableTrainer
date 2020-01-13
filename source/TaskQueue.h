@@ -19,7 +19,7 @@ public:
 	static void Run();
 
 private:
-	static void RunTask(int taskIndex);
+	static void RunTask(TaskQueueTask& task);
 
 	static inline std::vector<TaskQueueTask> tasks;
 };
