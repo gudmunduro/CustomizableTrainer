@@ -2,18 +2,18 @@
 
 enum class CustomBulletType
 {
-	Explosion,
-	LargeExplosion,
-	Lightning,
-	Teleport,
-	Fountain,
-	Gas,
-	Moonshine,
-	Fire,
-	LargeFire,
-	ForestFire,
-	Delete,
-	WaterHydrant
+	Explosion = 1,
+	LargeExplosion = 2,
+	Lightning = 3,
+	Teleport = 4,
+	Fountain = 5,
+	Gas = 6,
+	Moonshine = 7,
+	Fire = 8,
+	LargeFire = 9,
+	ForestFire = 10,
+	Delete = 11,
+	WaterHydrant = 12
 };
 
 class CustomBulletController

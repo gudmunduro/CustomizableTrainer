@@ -19,6 +19,7 @@ void TextController::SetTextValueForKey(string key, int value)
 void TextController::RegisterTexts()
 {
 	RegisterText("text_customBulletType", Texts::customBulletTypes, Texts::OnBulletTypeValueChange);
+	RegisterText("text_snowCoverageType", Texts::snowCoverageType, Texts::OnSnowCoverageTypeChange);
 }
 
 void TextController::Adjust(string key, bool direction)

@@ -42,3 +42,8 @@ void Texts::OnBulletTypeValueChange(int from, int to)
 		break;
 	}
 }
+
+void Texts::OnSnowCoverageTypeChange(int from, int to)
+{
+	GRAPHICS::_SET_SNOW_COVERAGE_TYPE(to);
+}

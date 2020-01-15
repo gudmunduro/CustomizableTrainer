@@ -5382,7 +5382,7 @@ namespace GRAPHICS
 	static void _0xE92012611461A42A(Any p0, Any* p1, Any* p2, Any* p3, Any* p4) { invoke<Void>(0xE92012611461A42A, p0, p1, p2, p3, p4); }
 	static void _0x249CD6B7285536F2(float p0, float p1, float p2) { invoke<Void>(0x249CD6B7285536F2, p0, p1, p2); }
 	static void _0xAF4D239B8903FCBE() { invoke<Void>(0xAF4D239B8903FCBE); }
-	static void _0xF02A9C330BBFC5C7(Any p0) { invoke<Void>(0xF02A9C330BBFC5C7, p0); }
+	static void _SET_SNOW_COVERAGE_TYPE(int type) { invoke<Void>(0xF02A9C330BBFC5C7, type); }
 	static void _0x1C6306E5BC25C29C() { invoke<Void>(0x1C6306E5BC25C29C); }
 }
 
