@@ -67,6 +67,25 @@ void Game::RequestTextureDict(string textureDict)
 	}
 }
 
+bool Game::RequestAnimDict(string animDict)
+{
+	if (!STREAMING::DOES_ANIM_DICT_EXIST((char*)animDict.c_str())) {
+		Game::PrintSubtitle("Error: Anim dict '" + animDict + "' does not exist");
+		return false;
+	}
+
+	STREAMING::REQUEST_ANIM_DICT((char*)animDict.c_str());
+	auto timeout = GetTickCount() + 1000;
+	while (!STREAMING::HAS_ANIM_DICT_LOADED((char*)animDict.c_str())) {
+		if (GetTickCount() > timeout) {
+			Game::PrintSubtitle("Error: Loading anim dict timed out");
+			return false;
+		}
+
+		TaskQueue::Wait(5);
+	}
+}
+
 string Game::GetInputWithKeyboard(string defaultText)
 {
 	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", (char*) defaultText.c_str(), "", "", "", 100);

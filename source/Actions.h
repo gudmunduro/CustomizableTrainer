@@ -9,6 +9,7 @@ namespace Actions {
 	void ChangeFromInput(json params);
 	void RestorePlayerStamina(json params);
 	void AddCashFromKeyboard(json params);
+	void PlayAnimOnPlayer(json params);
 	void SpawnPed(json params);
 	void SpawnPedFromInput(json params);
 	void GiveSpawnedPedWeapon(json params);

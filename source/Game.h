@@ -11,6 +11,7 @@ public:
 	static void RequestModel(Hash model);
 	static void SetWeather(Hash weather);
 	static void RequestTextureDict(string textureDict);
+	static bool RequestAnimDict(string animDict);
 	static string GetInputWithKeyboard(string defaultText = "");
 	// MARK: Data
 	static inline PlayerId playerId;

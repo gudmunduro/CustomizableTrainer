@@ -25,6 +25,7 @@ void ActionController::RegisterActions()
 	RegisterAction("action_cleaPlayerBounty", Actions::ClearPlayerBounty);
 	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
 	RegisterAction("action_addCashFromKeyboard", Actions::AddCashFromKeyboard);
+	RegisterAction("action_playAnimOnPlayer", Actions::PlayAnimOnPlayer);
 	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_spawnVehicleFromInput", Actions::SpawnVehicleFromInput);

@@ -62,6 +62,22 @@ void Actions::AddCashFromKeyboard(json params)
 	}
 }
 
+void Actions::PlayAnimOnPlayer(json params)
+{
+	if (!params.is_array() || !params[0].is_string() || !params[1].is_string()) {
+		Game::PrintSubtitle("Error: Invalid parameters");
+		return;
+	}
+	string animDict = params[0];
+	string anim = params[1];
+	
+	if (!Game::RequestAnimDict(animDict)) return;
+
+	Any* unknownPtr = new Any(5);
+	AI::TASK_PLAY_ANIM(Game::playerPedId, (char*)animDict.c_str(), (char*)anim.c_str(), 1.0f, 1.0f, -1, 2, 0, 0, 0, 0, unknownPtr, 0);
+	delete unknownPtr;
+}
+
 // MARK: Peds
 
 void Actions::SpawnPed(json params)
