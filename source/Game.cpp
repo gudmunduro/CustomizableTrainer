@@ -49,7 +49,6 @@ void Game::RequestModel(Hash model)
 		}
 
 		TaskQueue::Wait(5);
-		// WAIT(5);
 	}
 }
 
