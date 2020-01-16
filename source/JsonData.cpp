@@ -252,18 +252,18 @@ std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 
 		std::vector<std::pair<string, std::vector<WeaponData>>> weaponData;
 
-		for each (auto && weaponCat in weapons.items()) {
+		for each (auto && weaponCat in weapons) {
 
 			std::vector<WeaponData> weaponCatVec;
 
-			for each (auto && weapon in weaponCat.value().items()) {
+			for each (auto && weapon in weaponCat["weapons"].items()) {
 				weaponCatVec.push_back({
 					weapon.value()["name"].get<string>(),
 					weapon.value()["model"].get<string>()
 				});
 			}
 
-			weaponData.push_back(std::pair(weaponCat.key(), weaponCatVec));
+			weaponData.push_back(std::pair(weaponCat["name"], weaponCatVec));
 		}
 
 		return weaponData;
@@ -292,7 +292,7 @@ void JSONData::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap)
 			{"options", json::array()}
 		});
 
-		for each (MenuOption option in submenuData.options) {
+		for each (auto && option in submenuData.options) {
 			string typeStringValue;
 			switch (option.type) {
 			case MenuOptionType::Action:

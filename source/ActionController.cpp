@@ -112,6 +112,7 @@ std::vector<MenuOptionParameter> ActionController::GetParameterForKey(string key
 	parameters["action_giveSpawnedPedWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_giveAllSpawnedPedsWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_setWeather"] = { { { MenuOptionParameterType::String, "Weather" } } };
+	parameters["action_playAnimOnPlayer"] = { { { MenuOptionParameterType::String, "Dict" }, { MenuOptionParameterType::String, "Name" } } };
 	parameters["action_addToClockTime"] = { { { MenuOptionParameterType::Int, "Hours" }, { MenuOptionParameterType::Int, "Minutes" }, { MenuOptionParameterType::Int, "Seconds" } } };
 	parameters["action_teleportPlayerToCoords"] = { { { MenuOptionParameterType::Float, "X" }, { MenuOptionParameterType::Float, "Y" }, { MenuOptionParameterType::Float, "Z" } } };
 

@@ -78,6 +78,17 @@ void Actions::PlayAnimOnPlayer(json params)
 	delete unknownPtr;
 }
 
+void Actions::PlayScenarioOnPlayer(json params)
+{
+	if (!params.is_array() || !params[0].is_string()) {
+		Game::PrintSubtitle("Error: Invalid parameters");
+		return;
+	}
+	string scenario = params[0];
+
+	AI::_TASK_START_SCENARIO_IN_PLACE(Game::playerPedId, String::Hash(scenario), 0, false, false, false, 0.2f, 0);
+}
+
 // MARK: Peds
 
 void Actions::SpawnPed(json params)

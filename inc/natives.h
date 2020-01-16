@@ -2538,9 +2538,9 @@ namespace AI
 	static void _0x81948DFE4F5A0283(Any p0) { invoke<Void>(0x81948DFE4F5A0283, p0); }
 	static void _0xCCDAE6324B6A821C(Any p0, Any p1, Any* p2, Any p3, BOOL p4, BOOL p5, Any p6, BOOL p7, float p8, BOOL p9) { invoke<Void>(0xCCDAE6324B6A821C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static void _0x0F6641449DD86FBE(Any p0, Any p1, Any p2, Any* p3, Any p4, Any p5, float p6, BOOL p7) { invoke<Void>(0x0F6641449DD86FBE, p0, p1, p2, p3, p4, p5, p6, p7); }
-	static void _0x524B54361229154F(Any p0, Any p1, Any p2, BOOL p3, Any p4, float p5, BOOL p6) { invoke<Void>(0x524B54361229154F, p0, p1, p2, p3, p4, p5, p6); }
+	static void _TASK_START_SCENARIO_IN_PLACE(PedId ped, Hash scenarioHash, int duration, BOOL p3, BOOL p4, BOOL p5, float p6, BOOL p7) { invoke<Void>(0x524B54361229154F, ped, scenarioHash, duration, p3, p4, p5, p6); }
 	static void _0xA917E39F2CEFD215(Any p0, Any p1, Any* p2, Any p3, BOOL p4, float p5, BOOL p6) { invoke<Void>(0xA917E39F2CEFD215, p0, p1, p2, p3, p4, p5, p6); }
-	static void _0x4D1F61FC34AF3CD1(Any p0, Any p1, float p2, float p3, float p4, float p5, Any p6, BOOL p7, BOOL p8, Any* p9, float p10, BOOL p11) { invoke<Void>(0x4D1F61FC34AF3CD1, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
+	static void TASK_START_SCENARIO_AT_POSITION(PedId ped, char* scenarioName, float x, float y, float z, float heading, int duration, BOOL sittingScenario, BOOL teleport, Any* p9, float p10, BOOL p11) { invoke<Void>(0x4D1F61FC34AF3CD1, ped, scenarioName, x, y, z, heading, duration, sittingScenario, teleport, p9, p10, p11); }
 	static BOOL _0xF97F462779B31786(Any p0) { return invoke<BOOL>(0xF97F462779B31786, p0); }
 	static Any _0x6C269F673C47031E(Any p0) { return invoke<Any>(0x6C269F673C47031E, p0); }
 	static void _0x9667CCE29BFA0780(Any p0) { invoke<Void>(0x9667CCE29BFA0780, p0); }
