@@ -469,11 +469,11 @@ void Toggles::HorseEngineTestLoop()
 {
 	auto currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
-		VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
-		VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);
-		currentVehicle.SetVehicleEngineOn(true);
-		currentVehicle.SetEnginePowerMultiplier(4000.0f);
-		VEHICLE::_SET_VEHICLE_JET_ENGINE_ON(currentVehicle.GetVehicleId(), true);
+		//VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
+		//VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);
+		//currentVehicle.SetVehicleEngineOn(true);
+		currentVehicle.SetEnginePowerMultiplier(1000.0f);
+		//VEHICLE::_SET_VEHICLE_JET_ENGINE_ON(currentVehicle.GetVehicleId(), true);
 	}
 }
 

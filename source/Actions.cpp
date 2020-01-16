@@ -331,7 +331,7 @@ void Actions::DeleteCurrentVehicle(json params)
 	Vehicle currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
-		Game::PrintSubtitle("~g~Deleted!");
+		Game::PrintSubtitle("Deleted!");
 	}
 }
 

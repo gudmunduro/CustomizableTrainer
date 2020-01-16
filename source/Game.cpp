@@ -20,7 +20,7 @@ void Game::DrawSprite(string textureDict, string textureName, Vector3 position, 
 void Game::DrawRect(Vector3 position, Rect size, Color color)
 {
 	GRAPHICS::DRAW_RECT(position.x / 100.0f, position.y / 100.0f,
-		size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
+						size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
 }
 
 void Game::PrintSubtitle(string text)

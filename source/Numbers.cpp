@@ -37,6 +37,20 @@ void Numbers::AdjustHorseScale(bool direction)
 		PED::_SET_PED_SCALE(Player().Mount().GetPedId(), horseScale);
 }
 
+void Numbers::AdjustEnginePowerMultiplier(bool direction)
+{
+	if (enginePowerMultiplier <= 0.1f && !direction) return;
+	if (enginePowerMultiplier < 1.0)
+		enginePowerMultiplier -= 0.1;
+	else
+		enginePowerMultiplier += direction ? 1.0 : -1.0;
+	
+	Player player;
+	if (player.IsInVehicle())
+		player.CurrentVehicle().SetEnginePowerMultiplier(enginePowerMultiplier);
+}
+
+
 void Numbers::AdjustWeaponDamageLavel(bool direction)
 {
 	weaponDamageLevel += direction ? 1.0 : -1.0;

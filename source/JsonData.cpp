@@ -256,10 +256,10 @@ std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 
 			std::vector<WeaponData> weaponCatVec;
 
-			for each (auto && weapon in weaponCat["weapons"].items()) {
+			for each (auto && weapon in weaponCat["weapons"]) {
 				weaponCatVec.push_back({
-					weapon.value()["name"].get<string>(),
-					weapon.value()["model"].get<string>()
+					weapon["name"].get<string>(),
+					weapon["model"].get<string>()
 				});
 			}
 

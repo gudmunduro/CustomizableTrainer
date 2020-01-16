@@ -9,6 +9,7 @@ namespace Numbers {
 		playerNoiseMultiplier = 1.0f,
 		playerScale = 1.0f,
 		horseScale = 1.0f,
+		enginePowerMultiplier = 1.0f,
 		weaponDamageLevel = 1.0f,
 		windSpeed = 0.0f,
 		meleeDamageLevel = 1.0f,
@@ -25,6 +26,7 @@ namespace Numbers {
 	void AdjustPlayerNoiseMultiplier(bool direction);
 	void AdjustPlayerScale(bool direction);
 	void AdjustHorseScale(bool direction);
+	void AdjustEnginePowerMultiplier(bool direction);
 	void AdjustWeaponDamageLavel(bool direction);
 	void AdjustMeleeDamageLavel(bool direction);
 	void AdjustCurrentHour(bool direction);

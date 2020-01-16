@@ -18,7 +18,7 @@ void WeaponSelectionCatSub::Draw()
 	DrawTitle(catName);
 	
 	for each (auto weapon in weapons) {
-		DrawAction(weapon.name, [this, weapon] {
+		DrawAction(weapon.name + " >", [this, weapon] {
 			WeaponManager::currentWeapon = weapon;
 			menuController->SetSubmenuWithKey("required_sub_manangeWeapon");
 			((DynamicSubmenu*)menuController->submenuStack.back())->title = weapon.name; // TODO: Find a better way
@@ -44,7 +44,7 @@ void WeaponSelectionSub::Draw()
 	DrawTitle("Weapons");
 
 	for each (auto weaponCat in weaponCats) {
-		DrawAction(weaponCat.first, [this, weaponCat] {
+		DrawAction(weaponCat.first + " >", [this, weaponCat] {
 			auto weaponCatSub = new WeaponSelectionCatSub(menuController, weaponCat.first, weaponCat.second);
 			menuController->AddSubmenuToStack(weaponCatSub);
 		});
