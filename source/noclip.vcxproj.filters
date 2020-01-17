@@ -88,6 +88,12 @@
     <Filter Include="Headers\Core">
       <UniqueIdentifier>{887105bc-4b34-466f-9f96-f2559cd00ccf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Utilities">
+      <UniqueIdentifier>{268ca6db-800b-4c45-b62c-3750da7a5189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Utilities">
+      <UniqueIdentifier>{46774fb8-5b28-4a65-958f-3637173d8223}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -264,6 +270,9 @@
     <ClInclude Include="WeaponManager.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
+    <ClInclude Include="FloatAnimation.h">
+      <Filter>Headers\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -421,6 +430,9 @@
     </ClCompile>
     <ClCompile Include="WeaponManager.cpp">
       <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatAnimation.cpp">
+      <Filter>Source\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,16 +3,17 @@
 
 struct TaskQueueTask {
 	string name;
+	int id;
 	std::function<void()> function;
-	bool repeat;
 };
 
 class TaskQueue
 {
 public:
 
-	static void AddTask(string name, std::function<void()> functionToExecute, bool repeat = true);
+	static int AddTask(string name, std::function<void()> functionToExecute);
 	static void RemoveTask(string name);
+	static void RemoveTask(int id);
 
 	static void Wait(DWORD time);
 

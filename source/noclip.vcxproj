@@ -121,6 +121,7 @@
     <ClInclude Include="Controls.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="CustomBullets.h" />
+    <ClInclude Include="FloatAnimation.h" />
     <ClInclude Include="DynamicSubmenu.h" />
     <ClInclude Include="FixedSubmenu.h" />
     <ClInclude Include="Game.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="Controls.cpp" />
     <ClCompile Include="CustomBullets.cpp" />
+    <ClCompile Include="FloatAnimation.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FixedSubmenu.cpp" />

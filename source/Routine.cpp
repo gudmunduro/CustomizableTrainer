@@ -340,6 +340,9 @@ void RunLoopedNumbers()
 		player.SetSneakingNoiseMultiplier(Numbers::playerNoiseMultiplier);
 	}
 
+	if (Numbers::enginePowerMultiplier && player.IsInVehicle() && player.CurrentVehicle().IsBoat())
+		player.CurrentVehicle().SetEnginePowerMultiplier(Numbers::enginePowerMultiplier);
+
 	if (Numbers::timeScale != 1.0f)
 		GAMEPLAY::SET_TIME_SCALE(Numbers::timeScale);
 
