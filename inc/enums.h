@@ -19,3 +19,8 @@ enum class MenuOptionParameterType {
 	Int,
 	Float
 };
+
+enum class Direction {
+	Forward,
+	Backward
+};
