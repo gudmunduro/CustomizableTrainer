@@ -13,15 +13,14 @@ public:
 	float to;
 	DWORD duration;
 	bool repeat;
-	float Value();
+	Direction direction;
+	float value;
 
 private:
 	void Tick();
 
 	int taskId;
-	float value;
 	DWORD startTime;
 	DWORD endTime;
-	Direction direction;
 };
 

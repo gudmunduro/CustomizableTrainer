@@ -3,19 +3,27 @@
 #include "Controls.h"
 #include "JsonData.h"
 #include "MenuSettings.h"
-#include "Routine.h"
 
-// MARK: Draw
-
-SettingsControlsControllerSub::SettingsControlsControllerSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsControlsControllerSub::SettingsControlsControllerSub(MenuController* menuController) 
+	: Submenu(menuController)
 {
 	isEditingControl = false;
 	controlToEdit = nullptr;
+
+	// Setup animation
+	editingControlAlphaAnim = FloatAnimation();
+	editingControlAlphaAnim.from = 0.0f;
+	editingControlAlphaAnim.to = 255.0f;
+	editingControlAlphaAnim.duration = 300;
+	editingControlAlphaAnim.direction = Direction::Backward;
+	editingControlAlphaAnim.repeat = true;
 }
+
+#pragma region Draw
 
 void SettingsControlsControllerSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Controller");
 	DrawEditControl("Open", &MenuSettings::ControllerMenuOpen);
@@ -54,46 +62,49 @@ void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
 		}
 		controlToEdit = control;
 		isEditingControl = true;
+
+		editingControlAlphaAnim.direction = Direction::Backward;
+		editingControlAlphaAnim.value = 255.0f;
+		editingControlAlphaAnim.Start();
 	});
 	
 	auto menuPos = menuController->position;
-	int alpha = (isEditingControl && controlToEdit == control) ? (int)editingControlAlpha : 255;
+	int alpha = (isEditingControl && controlToEdit == control) ? (int) editingControlAlphaAnim.value : 255;
 	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void SettingsControlsControllerSub::SubWillDraw()
 {
-	if (isEditingControl) {
+	Submenu::SubWillDraw();
+
+	if (isEditingControl)
 		Controls::CanceMenuControlslForThisFrame();
-
-		if (editingControlAlpha == 0)
-			editingControlAlphaDirection = true;
-		else if (editingControlAlpha == 255)
-			editingControlAlphaDirection = false;
-		editingControlAlpha += editingControlAlphaDirection ? 10.2f : -10.2f;
-	}
-
-	FixedSubmenu::SubWillDraw();
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void SettingsControlsControllerSub::RespondToControls()
 {
-	FixedSubmenu::RespondToControls();
+	Submenu::RespondToControls();
+
 	if (isEditingControl) {
 		for each (auto control in allControls) {
 			if (CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, control)) {
 				*controlToEdit = control;
 				isEditingControl = false;
-				editingControlAlpha = 255;
-				editingControlAlphaDirection = false;
+				editingControlAlphaAnim.Stop();
+				Controls::CanceMenuControlslForThisFrame();
+				
 				JSONData::SaveMenuSettings();
 			}
 		}
 	}
 }
 
-// MARK: Getters
+#pragma endregion

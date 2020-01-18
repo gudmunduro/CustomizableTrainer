@@ -2,7 +2,7 @@
 #include "FixedSubmenu.h"
 
 class SettingsControlsKeyboardSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsControlsKeyboardSub(MenuController *menuController);
@@ -16,7 +16,6 @@ protected:
 	void RespondToControls() override;
 
 	int* keyToEdit;
-	float editingKeyAlpha = 255.0f;
-	bool editingKeyAlphaDirection = false;
+	FloatAnimation editingKeyAlphaAnim;
 };
 

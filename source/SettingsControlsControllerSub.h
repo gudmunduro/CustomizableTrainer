@@ -4,7 +4,7 @@
 #include "Controls.h"
 
 class SettingsControlsControllerSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsControlsControllerSub(MenuController *menuController);
@@ -19,7 +19,6 @@ protected:
 
 	bool isEditingControl;
 	Hash* controlToEdit;
-	float editingControlAlpha = 255.0f;
-	bool editingControlAlphaDirection = false;
+	FloatAnimation editingControlAlphaAnim;
 };
 

@@ -28,6 +28,7 @@
 #include "Vehicle.h"
 #include "json.hpp"
 #include "TaskQueue.h"
+#include "FloatAnimation.h"
 
 using json = nlohmann::json;
 

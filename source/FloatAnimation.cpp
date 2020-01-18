@@ -28,11 +28,6 @@ void FloatAnimation::Stop()
 	TaskQueue::RemoveTask(taskId);
 }
 
-float FloatAnimation::Value()
-{
-	return value;
-}
-
 void FloatAnimation::Tick()
 {
 	DWORD tickCount = GetTickCount();
@@ -42,16 +37,22 @@ void FloatAnimation::Tick()
 			return;
 		}
 
-		if (direction == Direction::Forward)
+		if (direction == Direction::Forward) {
 			direction = Direction::Backward;
-		else
+		}
+		else {
 			direction = Direction::Forward;
+		}
+
+		startTime = tickCount;
+		endTime = tickCount + duration;
 	}
 
-	DWORD progress = (tickCount - startTime) / (endTime - startTime);
+	float progress = ((float)(tickCount - startTime)) / ((float)(endTime - startTime));
+	if (progress == 0.0f) return;
 
 	if (direction == Direction::Forward)
-		value = from + (to - from) / progress;
+		value = from + ((to - from) * progress);
 	else
-		value = to - (to - from) / progress;
+		value = to - ((to - from) * progress);
 }

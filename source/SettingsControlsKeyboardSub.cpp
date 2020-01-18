@@ -5,17 +5,26 @@
 #include "keyboard.h"
 #include "JsonData.h"
 
-SettingsControlsKeyboardSub::SettingsControlsKeyboardSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsControlsKeyboardSub::SettingsControlsKeyboardSub(MenuController* menuController) 
+	: Submenu(menuController)
 {
 	isEditingKey = false;
 	keyToEdit = 0;
+
+	// Setup animation
+	editingKeyAlphaAnim = FloatAnimation();
+	editingKeyAlphaAnim.from = 0.0f;
+	editingKeyAlphaAnim.to = 255.0f;
+	editingKeyAlphaAnim.duration = 300;
+	editingKeyAlphaAnim.direction = Direction::Backward;
+	editingKeyAlphaAnim.repeat = true;
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void SettingsControlsKeyboardSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Keyboard");
 	DrawEditControl("Open", &MenuSettings::MenuOpen);
@@ -53,35 +62,37 @@ void SettingsControlsKeyboardSub::DrawEditControl(string text, int* control)
 	DrawAction(text, [this, control] {
 		keyToEdit = control;
 		isEditingKey = true;
+
+		editingKeyAlphaAnim.direction = Direction::Backward;
+		editingKeyAlphaAnim.value = 255.0f;
+		editingKeyAlphaAnim.Start();
 	});
 
 	auto menuPos = menuController->position;
-	int alpha = (isEditingKey && keyToEdit == control) ? (int) editingKeyAlpha : 255;
+	int alpha = (isEditingKey && keyToEdit == control) ? (int) editingKeyAlphaAnim.value : 255;
 	Game::DrawText(Controls::GeyStringValueForKey(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void SettingsControlsKeyboardSub::SubWillDraw()
 {
-	if (isEditingKey) {
+	Submenu::SubWillDraw();
+
+	if (isEditingKey)
 		Controls::CanceMenuControlslForThisFrame();
-
-		if (editingKeyAlpha == 0)
-			editingKeyAlphaDirection = true;
-		else if (editingKeyAlpha == 255)
-			editingKeyAlphaDirection = false;
-		editingKeyAlpha += editingKeyAlphaDirection ? 10.2f : -10.2f;
-	}
-
-	FixedSubmenu::SubWillDraw();
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void SettingsControlsKeyboardSub::RespondToControls()
 {
-	FixedSubmenu::RespondToControls();
+	Submenu::RespondToControls();
+
 	if (isEditingKey) {
 		for (int i = 0; i < 255; i++) {
 			bool keyUp = IsKeyJustUp(i);
@@ -89,8 +100,8 @@ void SettingsControlsKeyboardSub::RespondToControls()
 			{
 				*keyToEdit = i;
 				isEditingKey = false;
-				editingKeyAlpha = 255;
-				editingKeyAlphaDirection = false;
+				editingKeyAlphaAnim.Stop();
+
 				JSONData::SaveMenuSettings();
 				break;
 			}
@@ -98,3 +109,4 @@ void SettingsControlsKeyboardSub::RespondToControls()
 	}
 }
 
+#pragma endregion
