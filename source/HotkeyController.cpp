@@ -99,4 +99,6 @@ void HotkeyController::Tick()
 			RunHotkey(hotkey);
 		}
 	}
+
+	Controls::ClearHotkeysPressed();
 }

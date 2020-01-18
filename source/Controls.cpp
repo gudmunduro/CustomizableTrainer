@@ -55,7 +55,10 @@ bool Controls::IsHoldingMenuControl(MenuControl control)
 
 bool Controls::IsHotkeyPressed(Hotkey hotkey)
 {
-	return hotkey.keyboardKey&& IsKeyJustUp(hotkey.keyboardKey) ||
+	if (hotkey.keyboardKey && IsKeyJustUp(hotkey.keyboardKey))
+		hotkeysPressed.push_back(hotkey.keyboardKey); // For when multiple hotkeys are assigned to the same key
+
+	return hotkey.keyboardKey && std::find(hotkeysPressed.begin(), hotkeysPressed.end(), hotkey.keyboardKey) != hotkeysPressed.end() ||
 			hotkey.controllerControl && !hotkey.controllerControlModifier && CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) ||
 			hotkey.controllerControl && hotkey.controllerControlModifier && CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, hotkey.controllerControl) && CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, hotkey.controllerControlModifier);
 }
@@ -137,6 +140,11 @@ bool Controls::IsFunctionControlJustReleased(FunctionControl control)
 void Controls::CanceMenuControlslForThisFrame()
 {
 	shouldCancelForThisFrame = true;
+}
+
+void Controls::ClearHotkeysPressed()
+{
+	hotkeysPressed.clear();
 }
 
 void Controls::Tick()

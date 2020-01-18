@@ -109,11 +109,13 @@ public:
 	static bool IsFunctionControlPressed(FunctionControl control);
 	static bool IsFunctionControlJustReleased(FunctionControl control);
 	static void CanceMenuControlslForThisFrame();
+	static void ClearHotkeysPressed();
 	static void Tick();
 	static string GeyStringValueForKey(int key);
 	static string GetStringValueForControl(Hash control);
 	static string ControlStringFromHash(Hash control);
 private:
 	static inline bool shouldCancelForThisFrame = false;
+	static inline std::vector<DWORD> hotkeysPressed;
 };
 
