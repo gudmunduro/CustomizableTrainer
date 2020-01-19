@@ -6,7 +6,7 @@ namespace Texts {
 
 	inline std::vector<string>
 		customBulletTypes = { "Explosion", "Large explosion", "Water fountain", "Gas", "Lightning", "Fire", "Large fire", "Teleport", "Delete entity", "Steam", "Moonshine" },
-		snowCoverageType = { "No snow", "Minor", "Alot" };
+		snowCoverageType = { "No snow", "Minor", "Full" };
 
 	// MARK: On value change events
 

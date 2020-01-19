@@ -30,6 +30,7 @@ void ActionController::RegisterActions()
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_spawnVehicleFromInput", Actions::SpawnVehicleFromInput);
 	RegisterAction("action_repairVehicle", Actions::RepairVehicle);
+	RegisterAction("action_repairEngine", Actions::RepairEngine);
 	RegisterAction("action_boostVehicle", Actions::BoostVehicle);
 	RegisterAction("action_teleportIntoClosestVehicle", Actions::TeleportIntoClosestVehicle);
 	RegisterAction("action_deleteCurrentVehicle", Actions::DeleteCurrentVehicle);

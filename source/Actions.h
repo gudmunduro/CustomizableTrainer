@@ -30,6 +30,7 @@ namespace Actions {
 	void RepairVehicle(json params);
 	void BoostVehicle(json params);
 	void DeleteCurrentVehicle(json params);
+	void RepairEngine(json params);
 	void GivePlayerAllWeapons(json params);
 	void RemoveAllWeaponsFromPlayer(json params);
 	void GivePlayerWeapon(json params);

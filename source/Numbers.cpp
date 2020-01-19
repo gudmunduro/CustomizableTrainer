@@ -50,7 +50,6 @@ void Numbers::AdjustEnginePowerMultiplier(bool direction)
 		player.CurrentVehicle().SetEnginePowerMultiplier(enginePowerMultiplier);
 }
 
-
 void Numbers::AdjustWeaponDamageLavel(bool direction)
 {
 	weaponDamageLevel += direction ? 1.0 : -1.0;

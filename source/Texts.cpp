@@ -45,5 +45,9 @@ void Texts::OnBulletTypeValueChange(int from, int to)
 
 void Texts::OnSnowCoverageTypeChange(int from, int to)
 {
-	GRAPHICS::_SET_SNOW_COVERAGE_TYPE(to);
+	switch (to) {
+		case 0: GRAPHICS::_SET_SNOW_COVERAGE_TYPE(0); break;
+		case 1: GRAPHICS::_SET_SNOW_COVERAGE_TYPE(2); break;
+		case 2: GRAPHICS::_SET_SNOW_COVERAGE_TYPE(3); break;
+	}
 }

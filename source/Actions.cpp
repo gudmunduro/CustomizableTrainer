@@ -334,6 +334,15 @@ void Actions::DeleteCurrentVehicle(json params)
 	}
 }
 
+void Actions::RepairEngine(json params)
+{
+	Player player;
+	if (!player.IsInVehicle()) return;
+
+	VEHICLE::SET_VEHICLE_ENGINE_HEALTH(player.CurrentVehicle().GetVehicleId(), 1250.0f);
+	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.CurrentVehicle().GetVehicleId(), 1250.0f);
+}
+
 // MARK: Weapons
 
 void Actions::GivePlayerAllWeapons(json params)
