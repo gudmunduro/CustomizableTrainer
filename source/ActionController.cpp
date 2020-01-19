@@ -67,7 +67,7 @@ void ActionController::RegisterActions()
 	// Misc
 	RegisterAction("action_revealFullMap", Actions::RevealFullMap);
 	RegisterAction("action_killEveryoneNearby", Actions::KillEveryoneNearby);
-	RegisterAction("action_test", Actions::TestAction);
+	// RegisterAction("action_test", Actions::TestAction);
 }
 
 void ActionController::RunActionForKey(string key, json params)
