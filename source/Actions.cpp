@@ -197,7 +197,7 @@ void Actions::DeleteAllSpawnedPeds(json params)
 void Actions::ReviveNearestHorse(json params)
 {
 
-	for (int i = 600000; i < 1000000; i++) {
+	/*for (int i = 600000; i < 1000000; i++) {
 		if (ENTITY::DOES_ENTITY_EXIST(i) && ENTITY::GET_ENTITY_TYPE(i) == 1) {
 			PED::REVIVE_INJURED_PED(i);
 		}
@@ -223,7 +223,7 @@ void Actions::ReviveNearestHorse(json params)
 	PED::REVIVE_INJURED_PED(closestPed);
 	auto ped = Ped(closestPed);
 	ped.SetHealth(ped.MaxHealth());
-	ped.SetCoords(ped.OffsetInWorldCoords({ 0, 0, 2.0f }));
+	ped.SetCoords(ped.OffsetInWorldCoords({ 0, 0, 2.0f }));*/
 }
 
 // MARK: Horse
@@ -273,7 +273,6 @@ void Actions::SpawnVehicle(json params)
 	string vehicleModel = params[0].get<string>();
 	Hash vehicleHash = String::Hash(vehicleModel);
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(vehicleHash)) {
-		// Routine::StartDrawBottomMessage("1");
 		Game::PrintSubtitle("Error: Invalid model");
 		return;
 	}
@@ -331,7 +330,7 @@ void Actions::DeleteCurrentVehicle(json params)
 	Vehicle currentVehicle = Player().CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
-		Game::PrintSubtitle("Deleted!");
+		Game::PrintSubtitle("Deleted");
 	}
 }
 
@@ -352,9 +351,33 @@ void Actions::GivePlayerAllWeapons(json params)
 							"WEAPON_RIFLE_BOLTACTION", "WEAPON_SNIPERRIFLE_CARCANO", "WEAPON_SNIPERRIFLE_ROLLINGBLOCK", "WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC", "WEAPON_RIFLE_SPRINGFIELD",
 							"WEAPON_SHOTGUN_DOUBLEBARREL", "WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC", "WEAPON_SHOTGUN_PUMP", "WEAPON_SHOTGUN_REPEATING", "WEAPON_SHOTGUN_SAWEDOFF", "WEAPON_SHOTGUN_SEMIAUTO",
 							"WEAPON_BOW", "WEAPON_THROWN_DYNAMITE", "WEAPON_THROWN_MOLOTOV" };
+
+	string ammoTypes[] = { "AMMO_PISTOL", "AMMO_PISTOL_EXPRESS", "AMMO_PISTOL_HIGH_VELOCITY", "AMMO_PISTOL_SPLIT_POINT", "ammo_pistol_explosive_b377lv", "AMMO_REVOLVER",
+							"AMMO_REVOLVER_EXPRESS", "AMMO_REVOLVER_HIGH_VELOCITY", "AMMO_REVOLVER_SPLIT_POINT", "ammo_revolver_explosive_87z1fgh",
+							"AMMO_REPEATER", "AMMO_REPEATER_EXPRESS", "AMMO_REPEATER_HIGH_VELOCITY", "AMMO_REPEATER_SPLIT_POINT", "ammo_repeater_explosive_nearc", "AMMO_RIFLE",
+							"AMMO_RIFLE_EXPRESS", "AMMO_RIFLE_HIGH_VELOCITY", "AMMO_RIFLE_SPLIT_POINT", "ammo_rifle_explosive_8p20dfe", "AMMO_RIFLE_VARMINT", "AMMO_SHOTGUN", "AMMO_SHOTGUN_SLUG",
+							"AMMO_SHOTGUN_BUCKSHOT_INCENDIARY", "ammo_shotgun_explosive_6879y4t", "AMMO_ARROW", "AMMO_ARROW_SMALL_GAME", "AMMO_ARROW_IMPROVED", "AMMO_ARROW_FIRE", "AMMO_ARROW_POISON", 
+							"AMMO_ARROW_DYNAMITE", "AMMO_THROWING_KNIVES", "AMMO_THROWING_KNIVES_IMPROVED", "AMMO_THROWING_KNIVES_POISON" };
+
+	for each (string ammoType in ammoTypes) {
+		Hash ammoTypeHash = String::Hash(ammoType);
+
+		if (ammoType == "ammo_repeater_explosive_nearc") {
+			ammoTypeHash = 0x9C8B6796;
+		}
+
+		player.SetAmmoByType(ammoTypeHash, 9999);
+	}
+
 	for each (string weapon in weaponModels) {
 		player.GiveWeapon(String::Hash(weapon));
+		player.SetAmmo(String::Hash(weapon), 9999);
 	}
+}
+
+void Actions::RemoveAllWeaponsFromPlayer(json params)
+{
+	Player().RemoveAllWeapons();
 }
 
 void Actions::GivePlayerWeapon(json params)
@@ -415,16 +438,28 @@ void Actions::GivePlayerMaxAmmo(json params)
 	{
 		int maxAmmo;
 		if (WEAPON::GET_MAX_AMMO(Game::playerPedId, &maxAmmo, currentWeapon))
-			WEAPON::SET_PED_AMMO(Game::playerPedId, currentWeapon, maxAmmo);
+			WEAPON::SET_PED_AMMO_BY_TYPE(Game::playerPedId, currentWeapon, maxAmmo);
 		int maxAmmoInClip = WEAPON::GET_MAX_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, 1);
 		if (maxAmmoInClip > 0)
 			WEAPON::SET_AMMO_IN_CLIP(Game::playerPedId, currentWeapon, maxAmmoInClip);
 	}
 }
 
-void Actions::FillAmmoOfType(json params)
+void Actions::GivePlayerMAaxAmmoOfType(json params)
 {
-	WEAPON::_0xB6CFEC32E3742779(Game::playerPedId, 836939099, 1, -142743235);
+	if (!params.is_array() || !params[0].is_string()) {
+		Game::PrintSubtitle("Error: Invalid parameters");
+		return;
+	}
+	string ammoType = params[0];
+	Hash ammoTypeHash = String::Hash(ammoType);
+
+	if (ammoType == "ammo_repeater_explosive_nearc") {
+		ammoTypeHash = 0x9C8B6796;
+	}
+
+	Player().SetAmmoByType(ammoTypeHash, 9999);
+
 }
 
 // MARK: Weather
@@ -540,4 +575,12 @@ void Actions::KillEveryoneNearby(json params)
 	FIRE::ADD_EXPLOSION(pos.x - 2.0f, pos.y, pos.z, 35, 100.0f, true, false, true);
 	FIRE::ADD_EXPLOSION(pos.x, pos.y + 2.0f, pos.z, 35, 100.0f, true, false, true);
 	FIRE::ADD_EXPLOSION(pos.x, pos.y - 2.0f, pos.z, 35, 100.0f, true, false, true);
+}
+
+void Actions::TestAction(json params)
+{
+	//Hash currentWeapon;
+	//WEAPON::GET_CURRENT_PED_WEAPON(Game::playerPedId, &currentWeapon, 0, 0, 0);
+	//Game::PrintSubtitle(std::to_string(WEAPON::_0x5C2EA6C44F515F34(currentWeapon)));
+	WEAPON::SET_PED_AMMO_BY_TYPE(Game::playerPedId, 0x9C8B6796, 150);
 }

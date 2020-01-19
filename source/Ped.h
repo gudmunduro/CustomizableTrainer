@@ -22,8 +22,10 @@ public:
 	void ClearWetness();
 	void GiveWeapon(Hash model);
 	void RemoveWeapon(Hash model);
+	void RemoveAllWeapons();
 	void SetCurrentWeapon(Hash model);
 	void SetAmmo(Hash weapon, int ammo);
+	void SetAmmoByType(Hash type, int ammo);
 	void SetCanBeKnockedOffVehicle(int state);
 	void Delete();
 	// MARK: Booleans

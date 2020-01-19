@@ -31,12 +31,13 @@ namespace Actions {
 	void BoostVehicle(json params);
 	void DeleteCurrentVehicle(json params);
 	void GivePlayerAllWeapons(json params);
+	void RemoveAllWeaponsFromPlayer(json params);
 	void GivePlayerWeapon(json params);
 	void EquipSelectedWeapon(json params);
 	void RemoveSelectedWeapon(json params);
 	void FillAmmoInSelectedWeapon(json params);
 	void GivePlayerMaxAmmo(json params);
-	void FillAmmoOfType(json params);
+	void GivePlayerMAaxAmmoOfType(json params);
 	void SetWeather(json params);
 	void AddToClockTime(json params);
 	void TeleportPlayerForward(json params);
@@ -44,8 +45,5 @@ namespace Actions {
 	void TeleportPlayerToCoords(json params);
 	void RevealFullMap(json params);
 	void KillEveryoneNearby(json params);
-	void SetNewOptionType(json params);
-	void SetNewOptionText(json params);
-	void SetNewOptionKey(json params);
-	void AddNewOption(json params);
+	void TestAction(json params);
 }

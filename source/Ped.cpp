@@ -92,6 +92,11 @@ void Ped::RemoveWeapon(Hash model)
 	WEAPON::REMOVE_WEAPON_FROM_PED(pedId, model, true, -142743235);
 }
 
+void Ped::RemoveAllWeapons()
+{
+	WEAPON::REMOVE_ALL_PED_WEAPONS(pedId, true, true);
+}
+
 void Ped::SetCurrentWeapon(Hash model)
 {
 	WEAPON::SET_CURRENT_PED_WEAPON(pedId, model, true, 0, false, false);
@@ -100,6 +105,11 @@ void Ped::SetCurrentWeapon(Hash model)
 void Ped::SetAmmo(Hash weapon, int ammo)
 {
 	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
+}
+
+void Ped::SetAmmoByType(Hash type, int ammo)
+{
+	WEAPON::SET_PED_AMMO_BY_TYPE(pedId, type, ammo);
 }
 
 void Ped::SetCanBeKnockedOffVehicle(int state)

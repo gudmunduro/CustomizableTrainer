@@ -50,11 +50,12 @@ void ActionController::RegisterActions()
 	// Weapons
 	RegisterAction("action_givePlayerAllWeapons", Actions::GivePlayerAllWeapons);
 	RegisterAction("action_givePlayerWeapon", Actions::GivePlayerWeapon);
+	RegisterAction("action_removeAllWeaponsFromPlayer", Actions::RemoveAllWeaponsFromPlayer);
 	RegisterAction("action_equipSelectedWeapon", Actions::EquipSelectedWeapon);
 	RegisterAction("action_removeSelectedWeapon", Actions::RemoveSelectedWeapon);
 	RegisterAction("action_fillAmmoInSelectedWeapon", Actions::FillAmmoInSelectedWeapon);
 	RegisterAction("action_givePlayerMaxAmmo", Actions::GivePlayerMaxAmmo);
-	RegisterAction("action_fillAmmoOfType", Actions::FillAmmoOfType);
+	RegisterAction("action_givePlayerMaxAmmoOfType", Actions::GivePlayerMAaxAmmoOfType);
 	// Weather
 	RegisterAction("action_setWeather", Actions::SetWeather);
 	// Time
@@ -66,6 +67,7 @@ void ActionController::RegisterActions()
 	// Misc
 	RegisterAction("action_revealFullMap", Actions::RevealFullMap);
 	RegisterAction("action_killEveryoneNearby", Actions::KillEveryoneNearby);
+	RegisterAction("action_test", Actions::TestAction);
 }
 
 void ActionController::RunActionForKey(string key, json params)
@@ -108,9 +110,10 @@ std::vector<MenuOptionParameter> ActionController::GetParameterForKey(string key
 	parameters["action_spawnHorse"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnVehicle"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnPed"] = { { { MenuOptionParameterType::String, "Model" } } };
-	parameters["action_givePlayerWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
-	parameters["action_giveSpawnedPedWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
-	parameters["action_giveAllSpawnedPedsWeapon"] = { { { MenuOptionParameterType::String, "Model" } } };
+	parameters["action_givePlayerWeapon"] = { { { MenuOptionParameterType::String, "Weapon" } } };
+	parameters["action_givePlayerMaxAmmoOfType"] = { { { MenuOptionParameterType::String, "Type" } } };
+	parameters["action_giveSpawnedPedWeapon"] = { { { MenuOptionParameterType::String, "Weapon" } } };
+	parameters["action_giveAllSpawnedPedsWeapon"] = { { { MenuOptionParameterType::String, "Weapon" } } };
 	parameters["action_setWeather"] = { { { MenuOptionParameterType::String, "Weather" } } };
 	parameters["action_playAnimOnPlayer"] = { { { MenuOptionParameterType::String, "Dict" }, { MenuOptionParameterType::String, "Name" } } };
 	parameters["action_addToClockTime"] = { { { MenuOptionParameterType::Int, "Hours" }, { MenuOptionParameterType::Int, "Minutes" }, { MenuOptionParameterType::Int, "Seconds" } } };
