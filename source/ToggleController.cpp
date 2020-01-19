@@ -84,7 +84,7 @@ void ToggleController::RegisterToggles()
 	RegisterLoopedToggle("toggle_forceFirstPersonInVehicle", &Toggles::forceFirstPersonInVehicle, Toggles::ForceFirstPersonInVehicleLoop);
 	RegisterLoopedToggle("toggle_systemClockSync", &Toggles::systemClockSync, Toggles::SystemClockSyncLoop);
 	RegisterToggle("toggle_pauseClock", &Toggles::pauseClock, Toggles::OnPauseClockToggle);
-	RegisterLoopedToggle("toggle_freezeWeather", &Toggles::freezeWeather, Toggles::SystemClockSyncLoop, Toggles::OnFreezeWeatherToggle);
+	RegisterLoopedToggle("toggle_freezeWeather", &Toggles::freezeWeather, Toggles::FreezeWeatherLoop, Toggles::OnFreezeWeatherToggle);
 	RegisterToggle("toggle_spawnInsideVehicle", &Toggles::spawnInsideVehicle);
 	// RegisterLoopedToggle("toggle_horseEngineTest", &Toggles::horseEngineTest, Toggles::HorseEngineTestLoop);
 	RegisterLoopedToggle("toggle_weaponInfiniteAmmo", &Toggles::weaponInfiniteAmmo, Toggles::WeaponInfiniteAmmoLoop);
