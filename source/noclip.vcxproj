@@ -133,6 +133,7 @@
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="TaskQueue.h" />
     <ClInclude Include="TextController.h" />
     <ClInclude Include="Texts.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="TaskQueue.cpp" />
     <ClCompile Include="TextController.cpp" />
     <ClCompile Include="Texts.cpp" />

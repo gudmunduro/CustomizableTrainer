@@ -84,6 +84,8 @@ void Controls::SetMenuControlsEnabled(bool value)
 		MenuSettings::ControllerMenuEditModeEditOption,
 		MenuSettings::ControllerMenuEditModeAddOption,
 		MenuSettings::ControllerMenuEditModeDeleteOption,
+		String::Hash("INPUT_WHISTLE"),
+		String::Hash("INPUT_WHISTLE_HORSEBACK")
 	};
 
 	for each (auto control in controls) {

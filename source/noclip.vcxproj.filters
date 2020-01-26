@@ -273,6 +273,9 @@
     <ClInclude Include="FloatAnimation.h">
       <Filter>Headers\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>Headers\Features</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -433,6 +436,9 @@
     </ClCompile>
     <ClCompile Include="FloatAnimation.cpp">
       <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>Source\Features</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
