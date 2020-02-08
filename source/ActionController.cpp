@@ -73,7 +73,7 @@ void ActionController::RegisterActions()
 
 void ActionController::RunActionForKey(string key, json params)
 {
-	if (DoesActionExistForKey(key)) {
+	if (ActionExistsForKey(key)) {
 		auto action = ActionController::GetActionForKey(key);
 		action(params);
 	}
@@ -84,7 +84,7 @@ void ActionController::RunActionForKey(string key, json params)
 
 // MARK: Getters
 
-bool ActionController::DoesActionExistForKey(string key)
+bool ActionController::ActionExistsForKey(string key)
 {
 	return actions.count(key) != 0;
 }

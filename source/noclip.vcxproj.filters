@@ -165,9 +165,6 @@
     <ClInclude Include="Numbers.h">
       <Filter>Headers\Numbers</Filter>
     </ClInclude>
-    <ClInclude Include="HorseFlyMode.h">
-      <Filter>Headers\Features</Filter>
-    </ClInclude>
     <ClInclude Include="MenuController.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
@@ -325,9 +322,6 @@
     </ClCompile>
     <ClCompile Include="Numbers.cpp">
       <Filter>Source\Numbers</Filter>
-    </ClCompile>
-    <ClCompile Include="HorseFlyMode.cpp">
-      <Filter>Source\Features</Filter>
     </ClCompile>
     <ClCompile Include="MenuController.cpp">
       <Filter>Source\Menu</Filter>

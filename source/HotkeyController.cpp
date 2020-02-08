@@ -19,7 +19,7 @@ void HotkeyController::Setup()
 
 void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 {
-	if (!ActionController::DoesActionExistForKey(hotkey.key)) {
+	if (!ActionController::ActionExistsForKey(hotkey.key)) {
 		Game::PrintSubtitle("Error: Action key for hotkey is invalid");
 	}
 	ActionController::RunActionForKey(hotkey.key, hotkey.value);

@@ -127,7 +127,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="GameplayCamera.h" />
-    <ClInclude Include="HorseFlyMode.h" />
     <ClInclude Include="HotkeyController.h" />
     <ClInclude Include="JsonData.h" />
     <ClInclude Include="keyboard.h" />
@@ -183,7 +182,6 @@
     <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameplayCamera.cpp" />
-    <ClCompile Include="HorseFlyMode.cpp" />
     <ClCompile Include="HotkeyController.cpp" />
     <ClCompile Include="JsonData.cpp" />
     <ClCompile Include="keyboard.cpp" />
