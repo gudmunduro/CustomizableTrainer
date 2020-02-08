@@ -13,7 +13,7 @@ public:
 	static void RequestTextureDict(string textureDict);
 	static bool RequestAnimDict(string animDict);
 	static string GetInputWithKeyboard(string defaultText = "");
-	// MARK: Data
+	
 	static inline PlayerId playerId;
 	static inline PedId playerPedId;
 	static void UpdateData();

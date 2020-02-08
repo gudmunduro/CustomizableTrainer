@@ -9,7 +9,7 @@ SettingsOptionsToSaveSub::SettingsOptionsToSaveSub(MenuController* menuControlle
 {
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void SettingsOptionsToSaveSub::Draw()
 {
@@ -30,7 +30,9 @@ void SettingsOptionsToSaveSub::Draw()
 	}
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void SettingsOptionsToSaveSub::RespondToControls()
 {
@@ -46,3 +48,5 @@ void SettingsOptionsToSaveSub::RespondToControls()
 		if (selection == OptionCount() - 1) selection -= 1;
 	}
 }
+
+#pragma endregion

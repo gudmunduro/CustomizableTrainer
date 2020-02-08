@@ -9,7 +9,7 @@ FixedSubmenu::FixedSubmenu(MenuController* menuController)
 	
 }
 
-// MARK: Draw option
+#pragma region Draw option
 
 void FixedSubmenu::DrawSub(string text, string subKey)
 {
@@ -24,7 +24,9 @@ void FixedSubmenu::DrawTextAction(string text, string value, std::function<void(
 	Game::DrawText(value, {  menuPos.x + 9.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, 255 });
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void FixedSubmenu::SubWillDraw()
 {
@@ -36,7 +38,9 @@ void FixedSubmenu::SelectionDidChange(int to, int from)
 	Submenu::SelectionDidChange(to, from);
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void FixedSubmenu::RespondToControls()
 {
@@ -46,3 +50,5 @@ void FixedSubmenu::RespondToControls()
 		Game::PrintSubtitle("Edit mode is not available in this menu");
 	}
 }
+
+#pragma endregion

@@ -6,6 +6,8 @@ Ped::Ped(PedId pedId)
 	this->pedId = pedId;
 }
 
+#pragma region Setters
+
 void Ped::SetHealth(int health)
 {
 	ENTITY::SET_ENTITY_HEALTH(pedId, health, false);
@@ -122,7 +124,9 @@ void Ped::Delete()
 	PED::DELETE_PED(&pedId);
 }
 
-// MARK: Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 bool Ped::IsInVehicle(bool atGetIn)
 {
@@ -149,7 +153,9 @@ bool Ped::HasWeapon(Hash weaponHash)
 	return WEAPON::HAS_PED_GOT_WEAPON(pedId, weaponHash, 0, 0);
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 PedId Ped::GetPedId()
 {
@@ -192,7 +198,9 @@ Hash Ped::Model()
 	return ENTITY::GET_ENTITY_MODEL(pedId);
 }
 
-// MARK: Static methods
+#pragma endregion
+
+#pragma region Static methods
 
 Ped Ped::Spawn(Hash model, Vector3 position, float heading)
 {
@@ -203,3 +211,5 @@ Ped Ped::Spawn(Hash model, Vector3 position, float heading)
 	STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 	return ped;
 }
+
+#pragma endregion

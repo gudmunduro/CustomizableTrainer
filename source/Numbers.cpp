@@ -2,7 +2,7 @@
 #include "Numbers.h"
 #include "Player.h"
 
-// MARK: Getters
+#pragma region Getters
 
 string Numbers::GetCurrentHour()
 {
@@ -14,7 +14,9 @@ string Numbers::GetCurrentMinute()
 	return std::to_string(TIME::GET_CLOCK_MINUTES());
 }
 
-// MARK: Adjusters
+#pragma endregion
+
+#pragma region Adjusters
 
 void Numbers::AdjustPlayerNoiseMultiplier(bool direction)
 {
@@ -87,3 +89,5 @@ void Numbers::AdjustWindSpeed(bool direction)
 	if (windSpeed <= 0 && !direction) return;
 	windSpeed += direction ? 1.0 : -1.0;
 }
+
+#pragma endregion

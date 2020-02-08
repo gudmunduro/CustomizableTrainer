@@ -9,7 +9,7 @@ VehicleWeapons::VehicleWeapons()
 	shootDelayTimer = 0;
 }
 
-// MARK: Shoot bullets
+#pragma region Shoot bullets
 
 void VehicleWeapons::ShootCannonShells(Player player, Vehicle vehicle, Vector3 dimMin, Vector3 dimMax)
 {
@@ -30,7 +30,9 @@ void VehicleWeapons::ShootCannonShells(Player player, Vehicle vehicle, Vector3 d
 		250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.GetPedId(), 1, 1, vehicle.Speed() + 20.0f, 0);
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void VehicleWeapons::PlayerDidPressShootButton()
 {
@@ -52,7 +54,9 @@ void VehicleWeapons::PlayerDidPressShootButton()
 	shootDelayTimer = GetTickCount() + 50;
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void VehicleWeapons::RespondToControls()
 {
@@ -61,9 +65,13 @@ void VehicleWeapons::RespondToControls()
 	}
 }
 
-// MARK: Tick
+#pragma endregion
+
+#pragma region Tick
 
 void VehicleWeapons::Tick()
 {
 	RespondToControls();
 }
+
+#pragma endregion

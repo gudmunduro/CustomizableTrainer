@@ -17,7 +17,7 @@ SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuContr
 	savedOptionToAdd = (!isEditingSavedOption) ? defaultSavedOption : MenuSettings::optionsToSave[index];
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void SettingsAddOptionToSaveSub::Draw()
 {
@@ -48,3 +48,5 @@ void SettingsAddOptionToSaveSub::Draw()
 		menuController->GoToLastSub();
 	});
 }
+
+#pragma endregion

@@ -6,6 +6,9 @@ class Ped
 {
 public:
 	Ped(int pedId);
+
+#pragma region Setters
+
 	void SetHealth(int health);
 	void SetVisible(bool visible);
 	void SetPedVisible(bool visible);
@@ -28,13 +31,21 @@ public:
 	void SetAmmoByType(Hash type, int ammo);
 	void SetCanBeKnockedOffVehicle(int state);
 	void Delete();
-	// MARK: Booleans
+
+#pragma endregion
+
+#pragma region Booleans
+
 	bool IsInVehicle(bool atGetIn = true);
 	bool IsOnMount();
 	bool IsOnFoot();
 	bool IsShooting();
 	bool HasWeapon(Hash weaponHash);
-	// MARK: Getters
+
+#pragma endregion
+
+#pragma region Getters
+
 	PedId GetPedId();
 	int MaxHealth();
 	Vector3 Position();
@@ -43,8 +54,15 @@ public:
 	Vehicle CurrentVehicle();
 	Ped Mount();
 	Hash Model();
-	// MARK: Static functions
+
+#pragma endregion
+
+#pragma region Static methods
+
 	static Ped Spawn(Hash model, Vector3 position, float heading = 0);
+
+#pragma endregion
+
 private:
 	int pedId;
 };

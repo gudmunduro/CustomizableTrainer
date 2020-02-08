@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "TaskQueue.h"
 
-// MARK: Manange task
+#pragma region Manange task
 
 int TaskQueue::AddTask(string name, std::function<void()> functionToExecute)
 {
@@ -36,7 +36,9 @@ void TaskQueue::RemoveTask(int id)
 		}
 }
 
-// MARK: 
+#pragma endregion
+
+#pragma region Other
 
 // Waits without stopping task execution
 void TaskQueue::Wait(DWORD time)
@@ -50,7 +52,9 @@ void TaskQueue::Wait(DWORD time)
 	}*/
 }
 
-// MARK: Run task
+#pragma endregion
+
+#pragma region Run tasks
 
 void TaskQueue::RunTask(TaskQueueTask& task)
 {
@@ -65,3 +69,5 @@ void TaskQueue::Run()
 		RunTask(tasks[i]);
 	}
 }
+
+#pragma endregion

@@ -2,9 +2,10 @@
 #include "pch.h"
 
 namespace Numbers {
-	// MARK: Numbers (Variables)
-	// Float
 
+#pragma region Numbers (Variables)
+
+	// Float
 	inline float
 		playerNoiseMultiplier = 1.0f,
 		playerScale = 1.0f,
@@ -16,12 +17,16 @@ namespace Numbers {
 		timeScale = 1.0f,
 		timeCycleStrength = 1.0f;
 
-	// MARK: Numbers (Getters)
+#pragma endregion
+
+#pragma region Numbers (Getters)
 
 	string GetCurrentHour();
 	string GetCurrentMinute();
 
-	// MARK: Adjusters
+#pragma endregion
+
+#pragma region Adjusters
 
 	void AdjustPlayerNoiseMultiplier(bool direction);
 	void AdjustPlayerScale(bool direction);
@@ -34,4 +39,7 @@ namespace Numbers {
 	void AdjustTimeScale(bool direction);
 	void AdjustTimeCycleStrength(bool direction);
 	void AdjustWindSpeed(bool direction);
+
+#pragma endregion
+
 }

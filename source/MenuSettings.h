@@ -4,13 +4,15 @@
 class MenuSettings
 {
 public:
-	// MARK: General
+
+#pragma region General
 
 	static inline bool playUiSounds;
 	static inline std::vector<OptionToSave> optionsToSave;
 
+#pragma endregion
 
-	// MARK: Colors
+#pragma region Colors
 
 	static inline Color titleBarBorderColor;
 	static inline Color titleBarTextColor;
@@ -27,8 +29,9 @@ public:
 	static inline Color menuStatusTextColor;
 	static inline Color menuOptionCountColor;
 
+#pragma endregion
 
-	// MARK: Keyboard controls
+#pragma region Keyboard controls
 
 	static inline int MenuOpen;
 	static inline int MenuOptionPress;
@@ -55,7 +58,9 @@ public:
 	static inline int BoatFlyModeYawLeft;
 	static inline int BoatFlyModeYawRight;
 
-	// MARK: Controller controls
+#pragma endregion
+
+#pragma region Controller controls
 
 	static inline Hash ControllerMenuOpen;
 	static inline Hash ControllerMenuOpenModifier;
@@ -79,10 +84,15 @@ public:
 	static inline Hash ControllerBoatFlyModeYawLeft;
 	static inline Hash ControllerBoatFlyModeYawRight;
 
-	// MARK: Methods
+#pragma endregion
+
+#pragma region Methods
 
 	static Color colorFromHex(string hexValue);
 	static Color colorFromJSON(json color);
 	static json jsonFromColor(Color color);
+
+#pragma endregion
+
 };
 

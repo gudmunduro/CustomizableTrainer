@@ -32,7 +32,7 @@ AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController
 	CreateDisplayKeys();
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void AddOptionSetKeySub::Draw()
 {
@@ -61,7 +61,9 @@ void AddOptionSetKeySub::Draw()
 		});
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void AddOptionSetKeySub::OnKeySelect(string key)
 {
@@ -71,7 +73,7 @@ void AddOptionSetKeySub::OnKeySelect(string key)
 	menuController->GoToLastSub();
 }
 
-// MARK: Misc
+#pragma endregion
 
 void AddOptionSetKeySub::CreateDisplayKeys()
 {

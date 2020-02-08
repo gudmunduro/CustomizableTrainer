@@ -3,7 +3,7 @@
 #include "GameplayCamera.h"
 #include "Raycast.h"
 
-// MARK: Bullet hit events
+#pragma region Bullet hit events
 
 void CustomBulletController::OnBulletHitForExplosion(Vector3 pos)
 {
@@ -82,7 +82,9 @@ void CustomBulletController::OnBulletHitForDelete(EntityId entity)
 	ENTITY::DELETE_ENTITY(&entity);
 }
 
-// MARK: Other events
+#pragma endregion
+
+#pragma region Other events
 
 void CustomBulletController::PlayerDidShoot()
 {
@@ -148,7 +150,7 @@ void CustomBulletController::PlayerDidShoot()
 	}
 }
 
-// MARK: Main
+#pragma endregion
 
 void CustomBulletController::Tick()
 {

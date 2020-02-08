@@ -7,7 +7,7 @@ SettingsColorSchemeSub::SettingsColorSchemeSub(MenuController* menuController) :
 {
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void SettingsColorSchemeSub::Draw()
 {
@@ -37,3 +37,5 @@ void SettingsColorSchemeSub::DrawSetColorAction(string text, Color *color)
 		menuController->AddSubmenuToStack(setColorSub);
 	});
 }
+
+#pragma endregion

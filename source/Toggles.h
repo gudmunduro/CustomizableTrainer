@@ -2,7 +2,9 @@
 #include "pch.h"
 
 namespace Toggles {
-	// MARK: Toggles
+
+#pragma region Toggles
+
 	inline bool
 		playerInvincible = false,
 		playerVisible = true,
@@ -45,7 +47,9 @@ namespace Toggles {
 		disableInvisibleSniper = false,
 		hideHud = false;
 
-	// MARK: Toggle event handlers
+#pragma endregion
+
+#pragma region Toggle event handlers
 
 	void OnPlayerInvincibleToggle(bool value);
 	void OnPlayerVisibleToggle(bool value);
@@ -68,7 +72,9 @@ namespace Toggles {
 	void OnWeaponExtraDamageToggle(bool value);
 	void OnDisableInvisibleSniperToggle(bool value);
 
-	// MARK: Toggle loops
+#pragma endregion
+
+#pragma region Toggle loops
 
 	void PlayerInvincibleLoop();
 	void PlayerSuperRunLoop();
@@ -102,5 +108,8 @@ namespace Toggles {
 	void HideHudLoop();
 	void HorseEngineTestLoop();
 	void DisableInvisibleSniperLoop();
+
+#pragma endregion
+
 }
 

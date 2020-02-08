@@ -16,9 +16,7 @@
 #include "TextController.h"
 #include "JsonData.h"
 
-// MARK: Variables
-
-// MARK: Setup
+#pragma region Setup
 
 void registerOptions()
 {
@@ -60,6 +58,8 @@ void setup()
 	loadInitialOptionStates();
 	HotkeyController::Setup();
 }
+
+#pragma endregion
 
 void main()
 {

@@ -72,7 +72,7 @@ struct Color
 
 static_assert(sizeof(Vector3) == 24, "");
 
-// MARK: Custom
+#pragma region Custom
 
 struct MenuOption
 {
@@ -122,7 +122,9 @@ struct WeaponData {
 	string model;
 };
 
-// MARK: Operators
+#pragma endregion
+
+#pragma region Operator overloads
 
 inline Vector3 operator+ (Vector3 lhs, Vector3 rhs)
 {
@@ -182,3 +184,5 @@ inline bool operator== ( OptionToSave lhs, OptionToSave rhs)
 {
 	return lhs.key == rhs.key && lhs.type == rhs.type;
 }
+
+#pragma endregion

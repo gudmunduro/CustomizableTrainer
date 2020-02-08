@@ -2,14 +2,20 @@
 #include "pch.h"
 
 namespace Texts {
-	// MARK: Value arrays
+
+#pragma region Value arrays
 
 	inline std::vector<string>
 		customBulletTypes = { "Explosion", "Large explosion", "Water fountain", "Gas", "Lightning", "Fire", "Large fire", "Teleport", "Delete entity", "Steam", "Moonshine" },
 		snowCoverageType = { "No snow", "Minor", "Full" };
 
-	// MARK: On value change events
+#pragma endregion
+
+#pragma region On value change events
 
 	void OnBulletTypeValueChange(int from, int to);
 	void OnSnowCoverageTypeChange(int from, int to);
+
+#pragma endregion
+
 }

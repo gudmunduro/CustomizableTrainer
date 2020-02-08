@@ -329,7 +329,7 @@ void RunLoopedToggles()
 
 */
 
-//	MARK: Numbers
+#pragma region Numbers
 
 void RunLoopedNumbers()
 {
@@ -358,6 +358,8 @@ void RunLoopedNumbers()
 	if (Numbers::timeCycleStrength != 1.0f)
 		GRAPHICS::SET_TIMECYCLE_MODIFIER_STRENGTH(Numbers::timeCycleStrength);
 }
+
+#pragma endregion
 
 void Routine::RunAll()
 {

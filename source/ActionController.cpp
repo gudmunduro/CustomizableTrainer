@@ -3,7 +3,7 @@
 #include "Actions.h"
 #include "Routine.h"
 
-// MARK: Manage
+#pragma region Manange
 
 void ActionController::RegisterAction(string key, std::function<void(json params)> action)
 {
@@ -82,7 +82,9 @@ void ActionController::RunActionForKey(string key, json params)
 	}
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 bool ActionController::ActionExistsForKey(string key)
 {
@@ -123,3 +125,5 @@ std::vector<MenuOptionParameter> ActionController::GetParameterForKey(string key
 	if (parameters.count(key) == 0) return {};
 	return parameters[key];
 }
+
+#pragma endregion

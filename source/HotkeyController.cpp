@@ -8,14 +8,16 @@
 #include "NumberController.h"
 #include "JsonData.h"
 
-// MARK: Setup
+#pragma region Setup
 
 void HotkeyController::Setup()
 {
 	hotkeys = JSONData::GetHotkeysAsVector();
 }
 
-// MARK: Run hotkey
+#pragma endregion
+
+#pragma region Run hotkey
 
 void HotkeyController::RunHotkeyForAction(Hotkey hotkey)
 {
@@ -82,14 +84,16 @@ void HotkeyController::RunHotkey(Hotkey hotkey)
 	}
 }
 
-// MARK: Manage
+#pragma endregion
+
+#pragma region Manage
 
 void HotkeyController::Save()
 {
 	JSONData::SaveHotkeys(hotkeys);
 }
 
-// MARK: Main
+#pragma endregion
 
 void HotkeyController::Tick()
 {

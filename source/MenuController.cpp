@@ -37,7 +37,7 @@ void MenuController::Tick()
 	}
 }
 
-// MARK: Manange submenu stack
+#pragma region Manange submenu stack
 
 void MenuController::RegisterSubmenuData(string key, SubmenuData submenuData)
 {
@@ -73,7 +73,9 @@ void MenuController::GoToLastSub()
 	}
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void MenuController::RespondToControls()
 {
@@ -92,7 +94,9 @@ void MenuController::RespondToControls()
 	}
 }
 
-// MARK: Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 bool MenuController::SubmenuExistsForKey(string key)
 {
@@ -104,7 +108,9 @@ bool MenuController::FixedSubmenuExistsForKey(string key)
 	return FixedSubmenuForKey(key) != nullptr;
 }
 
-// MARK: Setters
+#pragma endregion
+
+#pragma region Setters
 
 void MenuController::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
 	submenuDataMap[key] = submenuData;
@@ -144,7 +150,9 @@ void MenuController::UpdateSubmenuData(string key, SubmenuData submenuData)
 	JSONData::SaveLayoutFromMap(submenuDataMap);
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 SubmenuData MenuController::SubmenuDataForKey(string key) 
 {
@@ -204,3 +212,5 @@ Submenu* MenuController::FixedSubmenuForKey(string key)
 	}
 	return nullptr;
 }
+
+#pragma endregion

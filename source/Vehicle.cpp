@@ -7,7 +7,7 @@ Vehicle::Vehicle(VehicleId vehicleId)
 	this->vehicleId = vehicleId;
 }
 
-// MARK: Booleans
+#pragma region Booleans
 
 bool Vehicle::Exists()
 {
@@ -19,7 +19,9 @@ bool Vehicle::IsBoat()
 	return VEHICLE::IS_THIS_MODEL_A_BOAT(Model());
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 VehicleId Vehicle::GetVehicleId()
 {
@@ -50,7 +52,9 @@ void Vehicle::Dimensions(Vector3 *dim1, Vector3 *dim2)
 	dimensions1.z = abs(dimensions1.z); dimensions2.z = abs(dimensions2.z);
 }
 
-// MARK: Manage
+#pragma endregion
+
+#pragma region Setters
 
 void Vehicle::SetAsMissionEntity()
 {
@@ -109,7 +113,9 @@ void Vehicle::Delete()
 	VEHICLE::DELETE_VEHICLE(&vehicleId);
 }
 
-// MARK: Static methods
+#pragma endregion
+
+#pragma region Static methods
 
 Vehicle Vehicle::Closest(Vector3 position, float radius)
 {
@@ -123,3 +129,5 @@ Vehicle Vehicle::Spawn(Hash model, Vector3 postion, float heading)
 	DECORATOR::DECOR_SET_BOOL(vehicleId, "wagon_block_honor", true);
 	return Vehicle(vehicleId);
 }
+
+#pragma endregion

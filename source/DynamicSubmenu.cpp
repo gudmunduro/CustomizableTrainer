@@ -20,7 +20,7 @@ DynamicSubmenu::DynamicSubmenu(SubmenuData submenuData, MenuController* menuCont
 	isMoveOptionActive = false;
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void DynamicSubmenu::Draw()
 {
@@ -68,7 +68,9 @@ void DynamicSubmenu::DrawMenuBase()
 	}
 }
 
-// MARK: Draw option
+#pragma endregion
+
+#pragma region Draw option
 
 void DynamicSubmenu::DrawSub(string text, string subKey)
 {
@@ -127,7 +129,9 @@ void DynamicSubmenu::DrawTextList(string text, string textKey)
 		});
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void DynamicSubmenu::SubWillDraw()
 {
@@ -153,7 +157,9 @@ void DynamicSubmenu::SelectionDidChange(int to, int from)
 	}
 }
 
-// MARK: Controls
+#pragma endregion
+ 
+#pragma region Controls
 
 void DynamicSubmenu::RespondToControls()
 {
@@ -205,14 +211,18 @@ void DynamicSubmenu::RespondToControls()
 	}
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 int DynamicSubmenu::OptionCount()
 {
 	return options.size();
 }
 
-// MARK: Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 bool DynamicSubmenu::IsSavedOption(string key)
 {
@@ -224,7 +234,7 @@ bool DynamicSubmenu::IsSavedOption(string key)
 	return false;
 }
 
-// MARK: Misc
+#pragma endregion
 
 void DynamicSubmenu::SaveIfSavedOption(string key)
 {

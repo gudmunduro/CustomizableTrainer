@@ -3,7 +3,7 @@
 #include "Numbers.h"
 #include "Routine.h"
 
-// MARK: Manange
+#pragma region Manange
 
 void NumberController::RegisterNumber(string key, int* number, std::function<void(bool direction)> adjuster)
 {
@@ -54,7 +54,9 @@ void NumberController::SetNumberValueForKey(string key, string value)
 	}
 }
 
-// MARK: Initialize
+#pragma endregion
+
+#pragma region Setup
 
 void NumberController::RegisterNumbers()
 {
@@ -74,7 +76,9 @@ void NumberController::RegisterNumbers()
 	RegisterNumberGetter("number_currentMinute", Numbers::GetCurrentMinute, Numbers::AdjustCurrentMinute);
 }
 
-// MARK: Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 bool NumberController::DoesNumberExistForKey(string key)
 {
@@ -106,7 +110,9 @@ bool NumberController::DoesNumberAdjusterExistForKey(string key)
 	return numberAdjusters.count(key) > 0;
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 string NumberController::GetNumberStringValueForKey(string key)
 {
@@ -152,3 +158,5 @@ std::vector<string> NumberController::Keys()
 	});
 	return keys;
 }
+
+#pragma endregion

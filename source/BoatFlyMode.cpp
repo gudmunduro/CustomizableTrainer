@@ -3,7 +3,7 @@
 #include "Controls.h"
 #include "MenuSettings.h"
 
-// MARK: Setup
+#pragma region Setup
 
 BoatFlyMode::BoatFlyMode()
 {
@@ -25,7 +25,9 @@ BoatFlyMode::BoatFlyMode()
 	speed = boat.Speed();
 }
 
-// MARK: Fly
+#pragma endregion
+
+#pragma region Fly
 
 void BoatFlyMode::Accelerate()
 {
@@ -79,8 +81,9 @@ void BoatFlyMode::Yaw(float force)
 	ENTITY::SET_ENTITY_ROTATION(boat.GetVehicleId(), rotation.x, rotation.y, rotation.z, 2, true);
 }
 
+#pragma endregion
 
-// MARK: Controls
+#pragma region Controls
 
 void BoatFlyMode::RespondToControls()
 {
@@ -140,7 +143,7 @@ void BoatFlyMode::DisableControls()
 	}
 }
 
-// MARK: Main
+#pragma endregion
 
 void BoatFlyMode::Tick()
 {

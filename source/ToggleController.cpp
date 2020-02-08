@@ -3,7 +3,7 @@
 #include "Toggles.h"
 #include "Routine.h"
 
-// MARK: Manage
+#pragma region Setup
 
 void ToggleController::RegisterToggle(string key, bool *toggle, std::function<void(bool value)> toggleEventHandler)
 {
@@ -95,6 +95,10 @@ void ToggleController::RegisterToggles()
 
 }
 
+#pragma endregion
+
+#pragma region Manage
+
 void ToggleController::Toggle(string key)
 {
 	auto toggle = GetToggleForKey(key);
@@ -140,7 +144,9 @@ bool ToggleController::ToggleLoopExistsForKey(string key)
 	return toggleLoops.count(key) != 0;
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 bool *ToggleController::GetToggleForKey(string key)
 {
@@ -166,3 +172,5 @@ std::vector<string> ToggleController::Keys()
 	});
 	return keys;
 }
+
+#pragma endregion

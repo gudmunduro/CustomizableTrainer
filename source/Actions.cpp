@@ -6,7 +6,7 @@
 #include "PedSpawner.h"
 #include "WeaponManager.h"
 
-// MARK: Player
+#pragma regionPlayer
 
 void Actions::SetPlayerMaxHealth(json params)
 {
@@ -89,7 +89,9 @@ void Actions::PlayScenarioOnPlayer(json params)
 	AI::_TASK_START_SCENARIO_IN_PLACE(Game::playerPedId, String::Hash(scenario), 0, false, false, false, 0.2f, 0);
 }
 
-// MARK: Peds
+#pragma endregion
+
+#pragma regionPeds
 
 void Actions::SpawnPed(json params)
 {
@@ -226,7 +228,9 @@ void Actions::ReviveNearestHorse(json params)
 	ped.SetCoords(ped.OffsetInWorldCoords({ 0, 0, 2.0f }));*/
 }
 
-// MARK: Horse
+#pragma endregion
+
+#pragma regionHorse
 
 void Actions::SetHorseMaxHealth(json params)
 {
@@ -262,7 +266,9 @@ void Actions::SpawnHorseFromInput(json params)
 	SpawnHorse({ horse });
 }
 
-// MARK: Vehicle
+#pragma endregion
+
+#pragma region Vehicle
 
 void Actions::SpawnVehicle(json params)
 {
@@ -343,7 +349,9 @@ void Actions::RepairEngine(json params)
 	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.CurrentVehicle().GetVehicleId(), 1250.0f);
 }
 
-// MARK: Weapons
+#pragma endregion
+
+#pragma region Weapons
 
 void Actions::GivePlayerAllWeapons(json params)
 {
@@ -467,7 +475,9 @@ void Actions::GivePlayerMAaxAmmoOfType(json params)
 
 }
 
-// MARK: Weather
+#pragma endregion
+
+#pragma region Weather
 
 void Actions::SetWeather(json params)
 {
@@ -479,7 +489,9 @@ void Actions::SetWeather(json params)
 	Game::SetWeather(String::Hash(weather));
 }
 
-// MARK: Time
+#pragma endregion 
+
+#pragma region Time
 
 void Actions::AddToClockTime(json params)
 {
@@ -493,7 +505,9 @@ void Actions::AddToClockTime(json params)
 	TIME::ADD_TO_CLOCK_TIME(hours, minutes, seconds);
 }
 
-// MARK: Teleport
+#pragma endregion 
+
+#pragma region Teleport
 
 void Actions::TeleportPlayerForward(json params)
 {
@@ -564,7 +578,9 @@ void Actions::TeleportPlayerToCoords(json params)
 		player.SetCoords(teleportToCoords);
 }
 
-// MARK: Misc
+#pragma endregion
+
+#pragma region Misc
 
 void Actions::RevealFullMap(json params)
 {
@@ -589,3 +605,5 @@ void Actions::TestAction(json params)
 	//Game::PrintSubtitle(std::to_string(WEAPON::_0x5C2EA6C44F515F34(currentWeapon)));
 	WEAPON::SET_PED_AMMO_BY_TYPE(Game::playerPedId, 0x9C8B6796, 150);
 }
+
+#pragma endregion

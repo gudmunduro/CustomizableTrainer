@@ -2,7 +2,7 @@
 #include "Texts.h"
 #include "CustomBullets.h"
 
-// MARK: On value change events
+#pragma region On value change events
 
 void Texts::OnBulletTypeValueChange(int from, int to)
 {
@@ -51,3 +51,5 @@ void Texts::OnSnowCoverageTypeChange(int from, int to)
 		case 2: GRAPHICS::_SET_SNOW_COVERAGE_TYPE(3); break;
 	}
 }
+
+#pragma endregion

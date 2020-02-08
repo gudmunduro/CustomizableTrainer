@@ -2,7 +2,7 @@
 #include "TextController.h"
 #include "Texts.h"
 
-// MARK: Manage
+#pragma region Manage
 
 void TextController::RegisterText(string key, std::vector<string> values, std::function<void(int from, int to)> onChange)
 {
@@ -41,7 +41,9 @@ void TextController::Adjust(string key, bool direction)
 	}
 }
 
-// MARK: Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 bool TextController::TextExistsForKey(string key)
 {
@@ -53,7 +55,9 @@ bool TextController::TextChangeEventHandlerEventExistsForKey(string key)
 	return textChangeEventHandlers.count(key) > 0;
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 string TextController::GetTextValueForKey(string key)
 {
@@ -86,3 +90,5 @@ std::vector<string> TextController::Keys()
 
 	return keys;
 }
+
+#pragma endregion

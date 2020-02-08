@@ -9,7 +9,7 @@ PedSpawnerSub::PedSpawnerSub(MenuController *menuController)
 	
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void PedSpawnerSub::Draw()
 {
@@ -44,9 +44,11 @@ void PedSpawnerSub::Draw()
 	}
 }
 
-// MARK: Getters
+#pragma region Getters
 
 int PedSpawnerSub::OptionCount()
 {
 	return PedSpawner::peds.size() + 1 + (!PedSpawner::peds.empty() ? 1 : 0);
 }
+
+#pragma endregion

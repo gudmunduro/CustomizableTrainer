@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SettingsHotkeyActionSub.h"
 
-// MARK: Setup
+#pragma region Setup
 
 SettingsHotkeyActionSub::SettingsHotkeyActionSub(MenuController* menuController, MenuOptionType type, std::function<void(int action)> onActionSet)
 	: FixedSubmenu(menuController)
@@ -10,7 +10,9 @@ SettingsHotkeyActionSub::SettingsHotkeyActionSub(MenuController* menuController,
 	this->onActionSet = onActionSet;
 }
 
-// MARK: Draw menu
+#pragma endregion
+
+#pragma region Draw menu
 
 void SettingsHotkeyActionSub::Draw()
 {
@@ -41,7 +43,9 @@ void SettingsHotkeyActionSub::DrawNumberMenu()
 	DrawActionSet("Decrement", 1);
 }
 
-// MARK: Draw option
+#pragma endregion
+
+#pragma region Draw option
 
 void SettingsHotkeyActionSub::DrawActionSet(string text, int action) 
 {
@@ -51,3 +55,5 @@ void SettingsHotkeyActionSub::DrawActionSet(string text, int action)
 		menuController->GoToLastSub();
 	});
 }
+
+#pragma endregion

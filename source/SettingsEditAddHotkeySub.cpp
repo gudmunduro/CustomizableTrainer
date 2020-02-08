@@ -9,7 +9,7 @@
 #include "AddOptionSetKeySub.h"
 #include "SettingsHotkeyActionSub.h"
 
-// MARK: Setup
+#pragma region Setup
 
 // Set hotkeyToEdit to null to add a new hotkey
 SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, Hotkey defaultHotkeyData, MenuController *menuController) : FixedSubmenu(menuController)
@@ -40,7 +40,9 @@ SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, MenuCon
 {
 }
 
-// MARK: Draw
+#pragma endregion
+
+#pragma region Draw
 
 void SettingsEditAddHotkeySub::Draw()
 {
@@ -148,7 +150,9 @@ void SettingsEditAddHotkeySub::Draw()
 	});
 }
 
-// MARK: Draw option
+#pragma endregion
+
+#pragma region Draw option
 
 void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 {
@@ -189,7 +193,9 @@ void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
 	Game::DrawText(Controls::GeyStringValueForKey(*key), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
-// MARK: Events
+#pragma endregion
+
+#pragma region Events
 
 void SettingsEditAddHotkeySub::OnValueOptionPress()
 {
@@ -217,7 +223,9 @@ void SettingsEditAddHotkeySub::SubWillDraw()
 	FixedSubmenu::SubWillDraw();
 }
 
-// MARK: Controls
+#pragma endregion
+
+#pragma region Controls
 
 void SettingsEditAddHotkeySub::RespondToControls()
 {
@@ -251,7 +259,9 @@ void SettingsEditAddHotkeySub::RespondToControls()
 	}
 }
 
-// MARK: Getters
+#pragma endregion
+
+#pragma region Getters
 
 string SettingsEditAddHotkeySub::ActionString()
 {
@@ -284,7 +294,7 @@ string SettingsEditAddHotkeySub::ActionValueString()
 	}
 }
 
-// MARK: Misc
+#pragma endregion
 
 void SettingsEditAddHotkeySub::UpdateActionParameters()
 {

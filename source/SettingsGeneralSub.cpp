@@ -7,7 +7,7 @@ SettingsGeneralSub::SettingsGeneralSub(MenuController* menuController) : FixedSu
 {
 }
 
-// MARK: Draw
+#pragma region Draw
 
 void SettingsGeneralSub::Draw()
 {
@@ -19,3 +19,5 @@ void SettingsGeneralSub::Draw()
 		JSONData::SaveMenuSettings();
 	});
 }
+
+#pragma endregion
