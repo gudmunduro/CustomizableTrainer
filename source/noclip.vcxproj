@@ -102,7 +102,7 @@
       <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /k "call $(SolutionDir)postbuildrelease.bat"</Command>
+      <Command>call $(SolutionDir)..\scripts\postbuildrelease.bat</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
