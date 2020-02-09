@@ -13,49 +13,49 @@
 
 Ped::Ped(PedId pedId)
 {
-	this->pedId = pedId;
+	this->id = pedId;
 }
 
 #pragma region Setters
 
 void Ped::SetHealth(int health)
 {
-	ENTITY::SET_ENTITY_HEALTH(pedId, health, false);
+	ENTITY::SET_ENTITY_HEALTH(id, health, false);
 }
 
 void Ped::SetVisible(bool visible)
 {
-	ENTITY::SET_ENTITY_VISIBLE(pedId, visible);
+	ENTITY::SET_ENTITY_VISIBLE(id, visible);
 }
 
 void Ped::SetPedVisible(bool visible)
 {
-	PED::SET_PED_VISIBLE(pedId, visible);
+	PED::SET_PED_VISIBLE(id, visible);
 }
 
 void Ped::SetIntoVehicle(VehicleId vehicle, int seat) 
 {
-	PED::SET_PED_INTO_VEHICLE(pedId, vehicle, seat);
+	PED::SET_PED_INTO_VEHICLE(id, vehicle, seat);
 }
 
 void Ped::SetCoords(Vector3 coords) 
 {
-	ENTITY::SET_ENTITY_COORDS(pedId, coords.x, coords.y, coords.z, false, false, false, true);
+	ENTITY::SET_ENTITY_COORDS(id, coords.x, coords.y, coords.z, false, false, false, true);
 }
 
 void Ped::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
 {
-	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(pedId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
+	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(id, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
 }
 
 void Ped::SetStamina(float stamina)
 {
-	PED::SET_PED_STAMINA(pedId, stamina);
+	PED::SET_PED_STAMINA(id, stamina);
 }
 
 void Ped::SetInvincible(bool invincible)
 {
-	ENTITY::SET_ENTITY_INVINCIBLE(pedId, invincible);
+	ENTITY::SET_ENTITY_INVINCIBLE(id, invincible);
 }
 
 void Ped::SetIntoClosestVehicle()
@@ -64,74 +64,39 @@ void Ped::SetIntoClosestVehicle()
 	auto closestVehicle = Vehicle::Closest(playerLocation);
 
 	if (closestVehicle.Exists()) {
-		SetIntoVehicle(closestVehicle.GetVehicleId());
+		SetIntoVehicle(closestVehicle.Id());
 	}
 }
 
 void Ped::SetCanRagdoll(bool toggle)
 {
-	PED::SET_PED_CAN_RAGDOLL(pedId, toggle);
-	PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(pedId, toggle);
-}
-
-void Ped::SetAsMissionEntity()
-{
-	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(pedId, true, false);
+	PED::SET_PED_CAN_RAGDOLL(id, toggle);
+	PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(id, toggle);
 }
 
 void Ped::SetAsGroupMember(int group)
 {
-	PED::SET_PED_AS_GROUP_MEMBER(pedId, group);
-}
-
-void Ped::RemoveFromGroup()
-{
-	PED::REMOVE_PED_FROM_GROUP(pedId);
-}
-
-void Ped::ClearWetness()
-{
-	PED::CLEAR_PED_WETNESS(pedId);
-}
-
-void Ped::GiveWeapon(Hash model)
-{
-	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(pedId, model, 9999, true, 0x2cd419dc);
-}
-
-void Ped::RemoveWeapon(Hash model)
-{
-	WEAPON::REMOVE_WEAPON_FROM_PED(pedId, model, true, -142743235);
-}
-
-void Ped::RemoveAllWeapons()
-{
-	WEAPON::REMOVE_ALL_PED_WEAPONS(pedId, true, true);
+	PED::SET_PED_AS_GROUP_MEMBER(id, group);
 }
 
 void Ped::SetCurrentWeapon(Hash model)
 {
-	WEAPON::SET_CURRENT_PED_WEAPON(pedId, model, true, 0, false, false);
+	WEAPON::SET_CURRENT_PED_WEAPON(id, model, true, 0, false, false);
 }
 
 void Ped::SetAmmo(Hash weapon, int ammo)
 {
-	WEAPON::SET_PED_AMMO(pedId, weapon, ammo);
+	WEAPON::SET_PED_AMMO(id, weapon, ammo);
 }
 
 void Ped::SetAmmoByType(Hash type, int ammo)
 {
-	WEAPON::SET_PED_AMMO_BY_TYPE(pedId, type, ammo);
+	WEAPON::SET_PED_AMMO_BY_TYPE(id, type, ammo);
 }
 
 void Ped::SetCanBeKnockedOffVehicle(int state)
 {
-	PED::SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE(pedId, state);
-}
-
-void Ped::Delete()
-{
-	PED::DELETE_PED(&pedId);
+	PED::SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE(id, state);
 }
 
 #pragma endregion
@@ -140,79 +105,113 @@ void Ped::Delete()
 
 bool Ped::IsInVehicle(bool atGetIn)
 {
-	return PED::IS_PED_IN_ANY_VEHICLE(pedId, atGetIn);
+	return PED::IS_PED_IN_ANY_VEHICLE(id, atGetIn);
 }
 
 bool Ped::IsOnMount()
 {
-	return PED::IS_PED_ON_MOUNT(pedId);
+	return PED::IS_PED_ON_MOUNT(id);
 }
 
 bool Ped::IsOnFoot()
 {
-	return PED::IS_PED_ON_FOOT(pedId);
+	return PED::IS_PED_ON_FOOT(id);
 }
 
 bool Ped::IsShooting()
 {
-	return PED::IS_PED_SHOOTING(pedId);
+	return PED::IS_PED_SHOOTING(id);
 }
 
 bool Ped::HasWeapon(Hash weaponHash)
 {
-	return WEAPON::HAS_PED_GOT_WEAPON(pedId, weaponHash, 0, 0);
+	return WEAPON::HAS_PED_GOT_WEAPON(id, weaponHash, 0, 0);
+}
+
+#pragma endregion
+
+#pragma region Actions
+
+void Ped::SetAsMissionEntity()
+{
+	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(id, true, false);
+}
+
+void Ped::RemoveFromGroup()
+{
+	PED::REMOVE_PED_FROM_GROUP(id);
+}
+
+void Ped::ClearWetness()
+{
+	PED::CLEAR_PED_WETNESS(id);
+}
+
+void Ped::GiveWeapon(Hash model)
+{
+	WEAPON::GIVE_DELAYED_WEAPON_TO_PED(id, model, 9999, true, 0x2cd419dc);
+}
+
+void Ped::RemoveWeapon(Hash model)
+{
+	WEAPON::REMOVE_WEAPON_FROM_PED(id, model, true, -142743235);
+}
+
+void Ped::RemoveAllWeapons()
+{
+	WEAPON::REMOVE_ALL_PED_WEAPONS(id, true, true);
+}
+
+void Ped::Delete()
+{
+	PED::DELETE_PED(&id);
 }
 
 #pragma endregion
 
 #pragma region Getters
 
-PedId Ped::GetPedId()
-{
-	return pedId;
-}
-
 int Ped::MaxHealth()
 {
-	return ENTITY::GET_ENTITY_MAX_HEALTH(pedId, false);
+	return ENTITY::GET_ENTITY_MAX_HEALTH(id, false);
 }
 
 Vector3 Ped::Position()
 {
-	return ENTITY::GET_ENTITY_COORDS(pedId, true, false);
+	return ENTITY::GET_ENTITY_COORDS(id, true, false);
 }
 
 Vector3 Ped::OffsetInWorldCoords(Vector3 offset)
 {
-	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(pedId, offset.x, offset.y, offset.z);
+	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(id, offset.x, offset.y, offset.z);
 }
 
 float Ped::Heading()
 {
-	return ENTITY::GET_ENTITY_HEADING(pedId);
+	return ENTITY::GET_ENTITY_HEADING(id);
 }
 
 Vehicle Ped::CurrentVehicle()
 {
-	VehicleId currentVehicleId = PED::GET_VEHICLE_PED_IS_IN(pedId, false);
+	VehicleId currentVehicleId = PED::GET_VEHICLE_PED_IS_IN(id, false);
 	return Vehicle(currentVehicleId);
 }
 
 Ped Ped::Mount()
 {
-	return PED::GET_MOUNT(pedId);
+	return PED::GET_MOUNT(id);
 }
 
 Hash Ped::Model()
 {
-	return ENTITY::GET_ENTITY_MODEL(pedId);
+	return ENTITY::GET_ENTITY_MODEL(id);
 }
 
 #pragma endregion
 
 #pragma region Static methods
 
-Ped Ped::Spawn(Hash model, Vector3 position, float heading)
+Ped Ped::Create(Hash model, Vector3 position, float heading)
 {
 	Game::RequestModel(model);
 	PedId pedId = PED::CREATE_PED(model, position.x, position.y, position.z, heading, false, false, false, false);

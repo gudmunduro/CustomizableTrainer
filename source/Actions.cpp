@@ -21,7 +21,7 @@
 void Actions::SetPlayerMaxHealth(json params)
 {
 	Player player = Player();
-	player.SetHealth(player.MaxHealth());
+	player.ped.SetHealth(player.ped.MaxHealth());
 	player.RestoreStamina(100.0);
 	player.RestoreSpecialAbility();
 	Game::PrintSubtitle("Player healed");
@@ -136,7 +136,7 @@ void Actions::GiveSpawnedPedWeapon(json params)
 	Hash weaponHash = String::Hash(weaponModel);
 
 	PedSpawner::CurrentPed().GiveWeapon(weaponHash);
-	WEAPON::SET_PED_AMMO(PedSpawner::CurrentPed().GetPedId(), weaponHash, 9999);
+	WEAPON::SET_PED_AMMO(PedSpawner::CurrentPed().id, weaponHash, 9999);
 }
 
 void Actions::TeleportSpawnedPedToPlayer(json params)
@@ -146,7 +146,7 @@ void Actions::TeleportSpawnedPedToPlayer(json params)
 		return;
 	}
 
-	auto teleportTo = Player().OffsetInWorldCoords({0, 2.0f, 0});
+	auto teleportTo = Player().ped.OffsetInWorldCoords({0, 2.0f, 0});
 
 	PedSpawner::CurrentPed().SetCoords(teleportTo);
 }
@@ -160,7 +160,7 @@ void Actions::TeleportPlayerToSpawnedPed(json params)
 
 	auto teleportTo = PedSpawner::CurrentPed().OffsetInWorldCoords({ 0, 2.0f, 0 });
 
-	Player().SetCoords(teleportTo);
+	Player().ped.SetCoords(teleportTo);
 }
 
 void Actions::DeleteSpawnedPed(json params)
@@ -190,7 +190,7 @@ void Actions::GiveAllSpawnedPedsWeapon(json params)
 
 void Actions::TeleportAllSpawnedPedsToPlayer(json params)
 {
-	auto teleportTo = Player().OffsetInWorldCoords({ 0, 2.0f, 0 });
+	auto teleportTo = Player().ped.OffsetInWorldCoords({ 0, 2.0f, 0 });
 
 	for each (auto ped in PedSpawner::peds) {
 		ped->ped.SetCoords(teleportTo);
@@ -244,7 +244,7 @@ void Actions::ReviveNearestHorse(json params)
 
 void Actions::SetHorseMaxHealth(json params)
 {
-	Ped horse = Player().Mount();
+	Ped horse = Player().ped.Mount();
 	horse.SetHealth(horse.MaxHealth());
 	horse.SetStamina(100.0);
 	Game::PrintSubtitle("Horse healed");
@@ -258,15 +258,15 @@ void Actions::SpawnHorse(json params)
 	}
 	string model = params[0].get<string>();
 	Player player;
-	Vector3 spawnPosition = player.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
-	float heading = player.Heading() + 90.0f;
+	Vector3 spawnPosition = player.ped.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	float heading = player.ped.Heading() + 90.0f;
 
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(String::Hash(model))) {
 		Game::PrintSubtitle("Invalid model");
 		return;
 	}
 
-	Ped::Spawn(String::Hash(model), spawnPosition, heading);
+	Ped::Create(String::Hash(model), spawnPosition, heading);
 }
 
 void Actions::SpawnHorseFromInput(json params)
@@ -293,23 +293,23 @@ void Actions::SpawnVehicle(json params)
 		return;
 	}
 	Player player = Player();
-	Vector3 spawnPosition = player.Position();
-	float vehicleSpawnHeading = player.Heading();
+	Vector3 spawnPosition = player.ped.Position();
+	float vehicleSpawnHeading = player.ped.Heading();
 
 	if (!(Toggles::spawnInsideVehicle)) {
-		spawnPosition = player.OffsetInWorldCoords({0.0, 2.0, 0.0});
+		spawnPosition = player.ped.OffsetInWorldCoords({0.0, 2.0, 0.0});
 		vehicleSpawnHeading += 90;
 	}
 
-	if (player.IsInVehicle()) {
-		auto vehicle = player.CurrentVehicle();
+	if (player.ped.IsInVehicle()) {
+		auto vehicle = player.ped.CurrentVehicle();
 		vehicle.Delete();
 	}
 
 	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, vehicleSpawnHeading);
 
 	if (Toggles::spawnInsideVehicle) {
-		player.SetIntoVehicle(spawnedVehicle.GetVehicleId());
+		player.ped.SetIntoVehicle(spawnedVehicle.Id());
 	}
 }
 
@@ -322,12 +322,12 @@ void Actions::SpawnVehicleFromInput(json params)
 
 void Actions::TeleportIntoClosestVehicle(json params)
 {
-	Player().SetIntoClosestVehicle();
+	Player().ped.SetIntoClosestVehicle();
 }
 
 void Actions::RepairVehicle(json params)
 {
-	auto currentVehicle = Player().CurrentVehicle();
+	auto currentVehicle = Player().ped.CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Repair();
 	}
@@ -335,7 +335,7 @@ void Actions::RepairVehicle(json params)
 
 void Actions::BoostVehicle(json params)
 {
-	auto currentVehicle = Player().CurrentVehicle();
+	auto currentVehicle = Player().ped.CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.SetForwardSpeed(16.66);
 	}
@@ -343,7 +343,7 @@ void Actions::BoostVehicle(json params)
 
 void Actions::DeleteCurrentVehicle(json params)
 {
-	Vehicle currentVehicle = Player().CurrentVehicle();
+	Vehicle currentVehicle = Player().ped.CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		currentVehicle.Delete();
 		Game::PrintSubtitle("Deleted");
@@ -353,10 +353,10 @@ void Actions::DeleteCurrentVehicle(json params)
 void Actions::RepairEngine(json params)
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 
-	VEHICLE::SET_VEHICLE_ENGINE_HEALTH(player.CurrentVehicle().GetVehicleId(), 1250.0f);
-	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.CurrentVehicle().GetVehicleId(), 1250.0f);
+	VEHICLE::SET_VEHICLE_ENGINE_HEALTH(player.ped.CurrentVehicle().Id(), 1250.0f);
+	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.ped.CurrentVehicle().Id(), 1250.0f);
 }
 
 #pragma endregion
@@ -389,18 +389,18 @@ void Actions::GivePlayerAllWeapons(json params)
 	for each (string ammoType in ammoTypes) {
 		Hash ammoTypeHash = String::Hash(ammoType);
 
-		player.SetAmmoByType(ammoTypeHash, 9999);
+		player.ped.SetAmmoByType(ammoTypeHash, 9999);
 	}
 
 	for each (string weapon in weaponModels) {
-		player.GiveWeapon(String::Hash(weapon));
-		player.SetAmmo(String::Hash(weapon), 9999);
+		player.ped.GiveWeapon(String::Hash(weapon));
+		player.ped.SetAmmo(String::Hash(weapon), 9999);
 	}
 }
 
 void Actions::RemoveAllWeaponsFromPlayer(json params)
 {
-	Player().RemoveAllWeapons();
+	Player().ped.RemoveAllWeapons();
 }
 
 void Actions::GivePlayerWeapon(json params)
@@ -412,7 +412,7 @@ void Actions::GivePlayerWeapon(json params)
 	string weaponModel = params[0].get<string>();
 	Hash weaponHash = String::Hash(weaponModel);
 	
-	Player().GiveWeapon(weaponHash);
+	Player().ped.GiveWeapon(weaponHash);
 	WEAPON::SET_PED_AMMO(Game::playerPedId, weaponHash, 9999);
 }
 
@@ -425,11 +425,11 @@ void Actions::EquipSelectedWeapon(json params)
 	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 	Player player;
 
-	if (!player.HasWeapon(weaponHash))
-		player.GiveWeapon(weaponHash);
+	if (!player.ped.HasWeapon(weaponHash))
+		player.ped.GiveWeapon(weaponHash);
 	else
-		player.SetCurrentWeapon(weaponHash);
-	player.SetAmmo(weaponHash, 9999);
+		player.ped.SetCurrentWeapon(weaponHash);
+	player.ped.SetAmmo(weaponHash, 9999);
 }
 
 void Actions::RemoveSelectedWeapon(json params)
@@ -440,7 +440,7 @@ void Actions::RemoveSelectedWeapon(json params)
 	}
 	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 
-	Player().RemoveWeapon(weaponHash);
+	Player().ped.RemoveWeapon(weaponHash);
 }
 
 void Actions::FillAmmoInSelectedWeapon(json params)
@@ -451,7 +451,7 @@ void Actions::FillAmmoInSelectedWeapon(json params)
 	}
 	Hash weaponHash = String::Hash(WeaponManager::currentWeapon.model);
 
-	Player().SetAmmo(weaponHash, 9999);
+	Player().ped.SetAmmo(weaponHash, 9999);
 }
 
 void Actions::GivePlayerMaxAmmo(json params)
@@ -481,7 +481,7 @@ void Actions::GivePlayerMAaxAmmoOfType(json params)
 		ammoTypeHash = 0x9C8B6796;
 	}
 
-	Player().SetAmmoByType(ammoTypeHash, 9999);
+	Player().ped.SetAmmoByType(ammoTypeHash, 9999);
 
 }
 
@@ -522,8 +522,8 @@ void Actions::AddToClockTime(json params)
 void Actions::TeleportPlayerForward(json params)
 {
 	auto player = Player();
-	auto teleportToCoords = player.OffsetInWorldCoords({0, 4.0f, 0});
-	player.SetCoords(teleportToCoords);
+	auto teleportToCoords = player.ped.OffsetInWorldCoords({0, 4.0f, 0});
+	player.ped.SetCoords(teleportToCoords);
 }
 
 void Actions::TeleportPlayerToWaypoint(json params)
@@ -547,12 +547,12 @@ void Actions::TeleportPlayerToWaypoint(json params)
 			auto coordsToSet = waypointPosition;
 			coordsToSet.z = height;
 
-			if (player.IsOnMount())
-				player.Mount().SetCoordsNoOffset(coordsToSet);
-			else if (player.IsInVehicle())
-				player.CurrentVehicle().SetCoordsNoOffset(coordsToSet);
+			if (player.ped.IsOnMount())
+				player.ped.Mount().SetCoordsNoOffset(coordsToSet);
+			else if (player.ped.IsInVehicle())
+				player.ped.CurrentVehicle().SetCoordsNoOffset(coordsToSet);
 			else
-				player.SetCoordsNoOffset(coordsToSet);
+				player.ped.SetCoordsNoOffset(coordsToSet);
 
 			WAIT(100);
 			if (GAMEPLAY::GET_GROUND_Z_FOR_3D_COORD(waypointPosition.x, waypointPosition.y, height, &waypointPosition.z, false))
@@ -563,12 +563,12 @@ void Actions::TeleportPlayerToWaypoint(json params)
 		}
 	}
 
-	if (player.IsOnMount())
-		player.Mount().SetCoordsNoOffset(waypointPosition);
-	else if (player.IsInVehicle())
-		player.CurrentVehicle().SetCoordsNoOffset(waypointPosition);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetCoordsNoOffset(waypointPosition);
+	else if (player.ped.IsInVehicle())
+		player.ped.CurrentVehicle().SetCoordsNoOffset(waypointPosition);
 	else
-		player.SetCoordsNoOffset(waypointPosition);
+		player.ped.SetCoordsNoOffset(waypointPosition);
 }
 
 void Actions::TeleportPlayerToCoords(json params)
@@ -580,12 +580,12 @@ void Actions::TeleportPlayerToCoords(json params)
 	Player player;
 	Vector3 teleportToCoords = { params[0], params[1], params[2] };
 
-	if (player.IsOnMount())
-		player.Mount().SetCoords(teleportToCoords);
-	else if (player.IsInVehicle())
-		player.CurrentVehicle().SetCoords(teleportToCoords);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetCoords(teleportToCoords);
+	else if (player.ped.IsInVehicle())
+		player.ped.CurrentVehicle().SetCoords(teleportToCoords);
 	else 
-		player.SetCoords(teleportToCoords);
+		player.ped.SetCoords(teleportToCoords);
 }
 
 #pragma endregion
@@ -600,7 +600,7 @@ void Actions::RevealFullMap(json params)
 
 void Actions::KillEveryoneNearby(json params)
 {
-	auto pos = Player().Position();
+	auto pos = Player().ped.Position();
 	FIRE::ADD_EXPLOSION(pos.x, pos.y, pos.z, 35, 100.0f, true, false, true);
 	FIRE::ADD_EXPLOSION(pos.x + 2.0f, pos.y, pos.z, 35, 100.0f, true, false, true);
 	FIRE::ADD_EXPLOSION(pos.x - 2.0f, pos.y, pos.z, 35, 100.0f, true, false, true);

@@ -29,18 +29,11 @@ public:
 	void SetInvincible(bool invincible);
 	void SetIntoClosestVehicle();
 	void SetCanRagdoll(bool toggle);
-	void SetAsMissionEntity();
 	void SetAsGroupMember(int group);
-	void RemoveFromGroup();
-	void ClearWetness();
-	void GiveWeapon(Hash model);
-	void RemoveWeapon(Hash model);
-	void RemoveAllWeapons();
 	void SetCurrentWeapon(Hash model);
 	void SetAmmo(Hash weapon, int ammo);
 	void SetAmmoByType(Hash type, int ammo);
 	void SetCanBeKnockedOffVehicle(int state);
-	void Delete();
 
 #pragma endregion
 
@@ -56,7 +49,6 @@ public:
 
 #pragma region Getters
 
-	PedId GetPedId();
 	int MaxHealth();
 	Vector3 Position();
 	Vector3 OffsetInWorldCoords(Vector3 offset);
@@ -67,13 +59,30 @@ public:
 
 #pragma endregion
 
-#pragma region Static methods
+#pragma region Actions
 
-	static Ped Spawn(Hash model, Vector3 position, float heading = 0);
+	void SetAsMissionEntity();
+
+	void RemoveFromGroup();
+	void ClearWetness();
+	void GiveWeapon(Hash model);
+	void RemoveWeapon(Hash model);
+	void RemoveAllWeapons();
+	void Delete();
 
 #pragma endregion
 
-private:
-	int pedId;
+#pragma region Static methods
+
+	static Ped Create(Hash model, Vector3 position, float heading = 0);
+
+#pragma endregion
+
+#pragma region Variables
+
+PedId id;
+
+#pragma endregion
+
 };
 

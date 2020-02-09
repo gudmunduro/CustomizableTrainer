@@ -122,14 +122,14 @@ void RunHorseSuperRunToggle()
 	if (Controls::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 		horse.SetCanRagdoll(false);
 		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**//* -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**//* 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 14.4, 0.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 14.4, 0.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 0.8, /**//* -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 0.8, /**//* 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 	if (Controls::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
-		ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
-		ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
+		ENTITY::FREEZE_ENTITY_POSITION(horse.id, true);
+		ENTITY::FREEZE_ENTITY_POSITION(horse.id, false);
 	}
 }
 
@@ -140,10 +140,10 @@ void RunHorseSuperJumpToggle()
 	if (Controls::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 		horse.SetCanRagdoll(false);
 		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**//* 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**//* -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**//* 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**//* -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**//* 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 }
 
@@ -170,10 +170,10 @@ void RunVehicleCannonsToggle()
 
 		GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginR.x, weaponOriginR.y, weaponOriginR.z,
 			weaponTargetR.x, weaponTargetR.y, weaponTargetR.z,
-			250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.GetPedId(), 1, 1, vehicle.Speed() + 20.0f, 0);
+			250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.id, 1, 1, vehicle.Speed() + 20.0f, 0);
 		GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginL.x, weaponOriginL.y, weaponOriginL.z,
 			weaponTargetL.x, weaponTargetL.y, weaponTargetL.z,
-			250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.GetPedId(), 1, 1, vehicle.Speed() + 20.0f, 0);
+			250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.id, 1, 1, vehicle.Speed() + 20.0f, 0);
 
 		vehicleCannonTimer = GetTickCount() + 50;
 	}
@@ -350,8 +350,8 @@ void RunLoopedNumbers()
 		player.SetSneakingNoiseMultiplier(Numbers::playerNoiseMultiplier);
 	}
 
-	if (Numbers::enginePowerMultiplier && player.IsInVehicle() && player.CurrentVehicle().IsBoat())
-		player.CurrentVehicle().SetEnginePowerMultiplier(Numbers::enginePowerMultiplier);
+	if (Numbers::enginePowerMultiplier && player.ped.IsInVehicle() && player.ped.CurrentVehicle().IsBoat())
+		player.ped.CurrentVehicle().SetEnginePowerMultiplier(Numbers::enginePowerMultiplier);
 
 	if (Numbers::timeScale != 1.0f)
 		GAMEPLAY::SET_TIME_SCALE(Numbers::timeScale);

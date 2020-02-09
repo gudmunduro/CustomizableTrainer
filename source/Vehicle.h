@@ -17,7 +17,7 @@ public:
 	Vehicle(VehicleId vehicleId);
 	bool Exists();
 	bool IsBoat();
-	VehicleId GetVehicleId();
+	VehicleId Id();
 	Vector3 OffsetInWorldCoords(Vector3 offset);
 	Hash Model();
 	float Speed();

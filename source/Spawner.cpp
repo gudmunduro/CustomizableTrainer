@@ -50,7 +50,7 @@ namespace Spawner {
 
 	void Database::SpawnPed(Hash model, Vector3 position, float rotation)
 	{
-		auto ped = Ped::Spawn(model, position, rotation);
+		auto ped = Ped::Create(model, position, rotation);
 		AddPed(ped);
 	}
 

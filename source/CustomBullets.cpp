@@ -78,12 +78,12 @@ void CustomBulletController::OnBulletHitForTeleport(Vector3 pos)
 {
 	Player player;
 
-	if (player.IsOnMount())
-		player.Mount().SetCoords(pos);
-	else if (player.IsInVehicle())
-		player.CurrentVehicle().SetCoords(pos);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetCoords(pos);
+	else if (player.ped.IsInVehicle())
+		player.ped.CurrentVehicle().SetCoords(pos);
 	else
-		player.SetCoords(pos);
+		player.ped.SetCoords(pos);
 }
 
 void CustomBulletController::OnBulletHitForDelete(EntityId entity)
@@ -100,13 +100,13 @@ void CustomBulletController::PlayerDidShoot()
 {
 	Player player;
 
-	if (player.IsShooting())
+	if (player.ped.IsShooting())
 	{
 		EntityId target;
 		Vector3& camPos = GameplayCamera::Position();
 		Vector3& camDir = GameplayCamera::DirectionFromScreenCentre();
 
-		auto& ray = RaycastResult::Raycast(camPos, camDir, 15000.0f, IntersectOptions::Everything, player.GetPedId());
+		auto& ray = RaycastResult::Raycast(camPos, camDir, 15000.0f, IntersectOptions::Everything, player.ped.id);
 
 		if (ray.DidHitEntity()) {
 			auto hitEntity = ray.HitEntity();
@@ -166,5 +166,5 @@ void CustomBulletController::Tick()
 {
 	Player player;
 
-	if (player.IsShooting()) PlayerDidShoot();
+	if (player.ped.IsShooting()) PlayerDidShoot();
 }

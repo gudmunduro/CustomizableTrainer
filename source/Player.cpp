@@ -12,10 +12,12 @@
 #include "Player.h"
 #include "Routine.h"
 
-Player::Player() : Ped(Game::playerPedId)
+Player::Player(PlayerId id)
+	: id(id), ped(Ped(PLAYER::GET_PLAYER_PED(id)))
 {
-	playerId = Game::playerId;
 }
+
+#pragma region Setters
 
 void Player::SetModel(Hash model)
 {
@@ -42,28 +44,12 @@ void Player::SetModel(Hash model)
 
 void Player::SetInvincible(bool invincible)
 {
-	PLAYER::SET_PLAYER_INVINCIBLE(playerId, invincible);
-}
-
-void Player::RestoreStamina(float to)
-{
-	PLAYER::RESTORE_PLAYER_STAMINA(playerId, to);
-}
-
-void Player::RestoreSpecialAbility()
-{
-	PLAYER::RESTORE_SPECIAL_ABILITY(playerId, -1, false);
-}
-
-void Player::StopPursuit()
-{
-	PURSUIT::CLEAR_CURRENT_PURSUIT();
-	PURSUIT::SET_PLAYER_WANTED_INTENSITY(playerId, 0);
+	PLAYER::SET_PLAYER_INVINCIBLE(id, invincible);
 }
 
 void Player::SetBounty(int bounty)
 {
-	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(playerId, bounty);
+	PURSUIT::SET_PLAYER_PRICE_ON_A_HEAD(id, bounty);
 }
 
 void Player::SetWantedLevelMultiplier(float multiplier)
@@ -73,27 +59,80 @@ void Player::SetWantedLevelMultiplier(float multiplier)
 
 void Player::SetWeaponDamageModifier(float modifier)
 {
-	PLAYER::SET_PLAYER_WEAPON_DAMAGE_MODIFIER(playerId, modifier);
+	PLAYER::SET_PLAYER_WEAPON_DAMAGE_MODIFIER(id, modifier);
 }
 
 void Player::SetMeleeDamageModifier(float modifier)
 {
-	PLAYER::SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER(playerId, modifier);
+	PLAYER::SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER(id, modifier);
 }
 
 void Player::SetEveryoneIgnore(bool ignore)
 {
-	PLAYER::SET_EVERYONE_IGNORE_PLAYER(playerId, ignore);
+	PLAYER::SET_EVERYONE_IGNORE_PLAYER(id, ignore);
 }
 
 void Player::SetNoiseMultiplier(float multiplier)
 {
-	PLAYER::SET_PLAYER_NOISE_MULTIPLIER(playerId, multiplier);
+	PLAYER::SET_PLAYER_NOISE_MULTIPLIER(id, multiplier);
 }
 
 void Player::SetSneakingNoiseMultiplier(float multiplier)
 {
-	PLAYER::SET_PLAYER_SNEAKING_NOISE_MULTIPLIER(playerId, multiplier);
+	PLAYER::SET_PLAYER_SNEAKING_NOISE_MULTIPLIER(id, multiplier);
+}
+
+#pragma endregion
+
+#pragma region Booleans
+
+bool Player::IsFreeAiming()
+{
+	return PLAYER::IS_PLAYER_FREE_AIMING(id) != 0;
+}
+
+bool Player::IsFreeAimingAt(EntityId entity)
+{
+	return PLAYER::IS_PLAYER_FREE_AIMING_AT_ENTITY(id, entity) != 0;
+}
+
+bool Player::IsTargetingAnything()
+{
+	return PLAYER::IS_PLAYER_TARGETTING_ANYTHING(id) != 0;
+}
+
+bool Player::IsTargetingAt(EntityId entity)
+{
+	return PLAYER::IS_PLAYER_TARGETTING_ENTITY(id, entity, false) != 0;
+}
+
+#pragma endregion
+
+#pragma region Getters
+
+int Player::Group()
+{
+	return PLAYER::GET_PLAYER_GROUP(id);
+}
+
+#pragma endregion
+
+#pragma region Actions
+
+void Player::RestoreStamina(float to)
+{
+	PLAYER::RESTORE_PLAYER_STAMINA(id, to);
+}
+
+void Player::RestoreSpecialAbility()
+{
+	PLAYER::RESTORE_SPECIAL_ABILITY(id, -1, false);
+}
+
+void Player::StopPursuit()
+{
+	PURSUIT::CLEAR_CURRENT_PURSUIT();
+	PURSUIT::SET_PLAYER_WANTED_INTENSITY(id, 0);
 }
 
 void Player::AddCash(int cash)
@@ -101,32 +140,4 @@ void Player::AddCash(int cash)
 	CASH::PLAYER_ADD_CASH(cash, 0x2cd419dc);
 }
 
-bool Player::IsFreeAiming()
-{
-	return PLAYER::IS_PLAYER_FREE_AIMING(playerId) != 0;
-}
-
-bool Player::IsFreeAimingAt(EntityId entity)
-{
-	return PLAYER::IS_PLAYER_FREE_AIMING_AT_ENTITY(playerId, entity) != 0;
-}
-
-bool Player::IsTargetingAnything()
-{
-	return PLAYER::IS_PLAYER_TARGETTING_ANYTHING(playerId) != 0;
-}
-
-bool Player::IsTargetingAt(EntityId entity)
-{
-	return PLAYER::IS_PLAYER_TARGETTING_ENTITY(playerId, entity, false) != 0;
-}
-
-PlayerId Player::Id()
-{
-	return playerId;
-}
-
-int Player::Group()
-{
-	return PLAYER::GET_PLAYER_GROUP(Id());
-}
+#pragma endregion

@@ -34,10 +34,10 @@ void VehicleWeapons::ShootCannonShells(Player player, Vehicle vehicle, Vector3 d
 
 	GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginR.x, weaponOriginR.y, weaponOriginR.z,
 		weaponTargetR.x, weaponTargetR.y, weaponTargetR.z,
-		250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.GetPedId(), 1, 1, vehicle.Speed() + 20.0f, 0);
+		250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.ped.id, 1, 1, vehicle.Speed() + 20.0f, 0);
 	GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginL.x, weaponOriginL.y, weaponOriginL.z,
 		weaponTargetL.x, weaponTargetL.y, weaponTargetL.z,
-		250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.GetPedId(), 1, 1, vehicle.Speed() + 20.0f, 0);
+		250, 1, String::Hash("WEAPON_TURRET_REVOLVING_CANNON"), player.ped.id, 1, 1, vehicle.Speed() + 20.0f, 0);
 }
 
 #pragma endregion
@@ -47,7 +47,7 @@ void VehicleWeapons::ShootCannonShells(Player player, Vehicle vehicle, Vector3 d
 void VehicleWeapons::PlayerDidPressShootButton()
 {
 	Player player;
-	auto vehicle = player.CurrentVehicle();
+	auto vehicle = player.ped.CurrentVehicle();
 	Vector3 dimMin, dimMax;
 	GAMEPLAY::GET_MODEL_DIMENSIONS(vehicle.Model(), &dimMin, &dimMax);
 

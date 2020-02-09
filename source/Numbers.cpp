@@ -38,15 +38,15 @@ void Numbers::AdjustPlayerScale(bool direction)
 	if (playerScale == 0.1f && !direction) return;
 	playerScale += direction ? 0.1 : -0.1;
 	Player player;
-	PED::_SET_PED_SCALE(player.GetPedId(), playerScale);
+	PED::_SET_PED_SCALE(player.ped.id, playerScale);
 }
 
 void Numbers::AdjustHorseScale(bool direction)
 {
 	if (horseScale == 0.1f && !direction) return;
 	horseScale += direction ? 0.1 : -0.1;
-	if (Player().IsOnMount())
-		PED::_SET_PED_SCALE(Player().Mount().GetPedId(), horseScale);
+	if (Player().ped.IsOnMount())
+		PED::_SET_PED_SCALE(Player().ped.Mount().id, horseScale);
 }
 
 void Numbers::AdjustEnginePowerMultiplier(bool direction)
@@ -58,8 +58,8 @@ void Numbers::AdjustEnginePowerMultiplier(bool direction)
 		enginePowerMultiplier += direction ? 1.0 : -1.0;
 	
 	Player player;
-	if (player.IsInVehicle())
-		player.CurrentVehicle().SetEnginePowerMultiplier(enginePowerMultiplier);
+	if (player.ped.IsInVehicle())
+		player.ped.CurrentVehicle().SetEnginePowerMultiplier(enginePowerMultiplier);
 }
 
 void Numbers::AdjustWeaponDamageLavel(bool direction)

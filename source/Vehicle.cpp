@@ -13,8 +13,8 @@
 #include "Game.h"
 
 Vehicle::Vehicle(VehicleId vehicleId)
+	: vehicleId(vehicleId)
 {
-	this->vehicleId = vehicleId;
 }
 
 #pragma region Booleans
@@ -33,7 +33,7 @@ bool Vehicle::IsBoat()
 
 #pragma region Getters
 
-VehicleId Vehicle::GetVehicleId()
+VehicleId Vehicle::Id()
 {
 	return vehicleId;
 }
@@ -65,11 +65,6 @@ void Vehicle::Dimensions(Vector3 *dim1, Vector3 *dim2)
 #pragma endregion
 
 #pragma region Setters
-
-void Vehicle::SetAsMissionEntity()
-{
-	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(vehicleId, true, false);
-}
 
 void Vehicle::SetVehicleEngineOn(bool on)
 {
@@ -106,9 +101,18 @@ void Vehicle::SetInvincible(bool value)
 	ENTITY::SET_ENTITY_INVINCIBLE(vehicleId, value);
 }
 
+#pragma endregion
+
+#pragma region Actions
+
 void Vehicle::ApplyForceRelative(Vector3 direction, Vector3 offset)
 {
 	ENTITY::APPLY_FORCE_TO_ENTITY(vehicleId, 1, direction.x, direction.y, direction.z, offset.x, offset.y, offset.z, false, true, true, true, false, true);
+}
+
+void Vehicle::SetAsMissionEntity()
+{
+	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(vehicleId, true, false);
 }
 
 void Vehicle::Repair()

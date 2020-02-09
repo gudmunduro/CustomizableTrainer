@@ -34,7 +34,7 @@ void Toggles::OnPlayerInvincibleToggle(bool value)
 
 void Toggles::OnPlayerVisibleToggle(bool value)
 {
-	Player().SetVisible(value);
+	Player().ped.SetVisible(value);
 }
 
 void Toggles::OnPlayerNeverWantedToggle(bool value)
@@ -46,7 +46,7 @@ void Toggles::OnPlayerNeverWantedToggle(bool value)
 void Toggles::OnPlayerNoRagdollToggle(bool value)
 {
 	if (!value)
-		Player().SetCanRagdoll(true);
+		Player().ped.SetCanRagdoll(true);
 }
 
 void Toggles::OnPlayerEveryoneIgnoreToggle(bool value)
@@ -57,31 +57,32 @@ void Toggles::OnPlayerEveryoneIgnoreToggle(bool value)
 void Toggles::OnHorseInvincibleToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount())
-		player.Mount().SetInvincible(value);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetInvincible(value);
 }
 
 void Toggles::OnHorseVisibleToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount())
-		player.Mount().SetVisible(value);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetVisible(value);
 }
 
 void Toggles::OnHorseNoRagdollToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount())
-		player.Mount().SetCanRagdoll(value);
-		player.SetCanRagdoll(value);
+	if (player.ped.IsOnMount()) {
+		player.ped.Mount().SetCanRagdoll(value);
+		player.ped.SetCanRagdoll(value);
+	}
 }
 
 void Toggles::OnHorseSuperJumpToggle(bool value)
 {
 	Player player;
-	if (player.IsOnMount())
-		player.Mount().SetCanRagdoll(value);
-	player.SetCanRagdoll(value);
+	if (player.ped.IsOnMount())
+		player.ped.Mount().SetCanRagdoll(value);
+	player.ped.SetCanRagdoll(value);
 }
 
 void Toggles::OnSpawnedPedInvincibleToggle(bool value)
@@ -137,15 +138,15 @@ void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
 void Toggles::OnVehicleInvincibleToggle(bool value)
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
-	player.CurrentVehicle().SetVisible(value);
+	if (!player.ped.IsInVehicle()) return;
+	player.ped.CurrentVehicle().SetVisible(value);
 }
 
 void Toggles::OnVehicleVisibleToggle(bool value)
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
-	player.CurrentVehicle().SetInvincible(value);
+	if (!player.ped.IsInVehicle()) return;
+	player.ped.CurrentVehicle().SetInvincible(value);
 }
 
 void Toggles::OnBoatFlyModeToggle(bool value)
@@ -185,11 +186,8 @@ void Toggles::OnDisableInvisibleSniperToggle(bool value)
 {
 	if (value) {
 		// UINT64* counter = getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE) + 44;
-		UINT64* counter = getMultilayerPointer<UINT64*>(getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE), std::vector<DWORD>{44});
-		UINT64* currentShootType = getMultilayerPointer<UINT64*>(getGlobalPtr(1879534), std::vector<DWORD>{45});
-		Game::PrintSubtitle(std::to_string(*currentShootType));
-		*currentShootType = 0;
-		*counter = 2000000000;
+		// UINT64* counter = getMultilayerPointer<UINT64*>(getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE), std::vector<DWORD>{44});
+		// *counter = 2000000000;
 	}
 	else {
 		UINT64* counter = getGlobalPtr(((DWORD)7 << 18) | 0x1CADEE) + 44;
@@ -210,7 +208,7 @@ void Toggles::PlayerInvincibleLoop()
 void Toggles::PlayerSuperRunLoop()
 {
 	Player player;
-	if (player.IsOnMount()) return;
+	if (player.ped.IsOnMount()) return;
 		
 	if (Controls::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 		ENTITY::APPLY_FORCE_TO_ENTITY(Game::playerPedId, 1, 0.0, 4.4, 0.2, 0.0, 0.0, 0.2, 1, 1, 1, 1, 0, 1);
@@ -224,7 +222,7 @@ void Toggles::PlayerSuperRunLoop()
 void Toggles::PlayerUnlStaminaLoop()
 {
 	Player player;
-	player.SetStamina(100.0);
+	player.ped.SetStamina(100.0);
 }
 
 void Toggles::PlayerUnlSpecialAbilityLoop()
@@ -250,7 +248,7 @@ void Toggles::PlayerNeverWantedLoop()
 void Toggles::PlayerNoRagdollLoop()
 {
 	Player player;
-	player.SetCanRagdoll(false);
+	player.ped.SetCanRagdoll(false);
 }
 
 void Toggles::PlayerExplosiveMeleeLoop()
@@ -266,7 +264,7 @@ void Toggles::PlayerEveryoneIgnoreLoop()
 void Toggles::ForceFirstPersonOnFootLoop()
 {
 	Player player;
-	if (player.IsOnFoot())
+	if (player.ped.IsOnFoot())
 		CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 }
 
@@ -277,67 +275,67 @@ void Toggles::ForceFirstPersonOnFootLoop()
 void Toggles::HorseInvincibleLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
-	player.Mount().SetInvincible(true);
+	if (!player.ped.IsOnMount()) return;
+	player.ped.Mount().SetInvincible(true);
 }
 
 void Toggles::HorseSuperRunLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
-	Ped horse = player.Mount();
+	Ped horse = player.ped.Mount();
 	if (Controls::IsFunctionControlPressed(FunctionControl::PlayerRun)) {
 		horse.SetCanRagdoll(false);
-		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		player.ped.SetCanRagdoll(false);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 14.4, 0.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 14.4, 0.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 0.8, /**/ -0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 0.8, /**/ 0.4, 3.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 	if (Controls::IsFunctionControlJustReleased(FunctionControl::PlayerRun)) {
-		ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), true);
-		ENTITY::FREEZE_ENTITY_POSITION(horse.GetPedId(), false);
+		ENTITY::FREEZE_ENTITY_POSITION(horse.id, true);
+		ENTITY::FREEZE_ENTITY_POSITION(horse.id, false);
 	}
 }
 
 void Toggles::HorseNoRagdollLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
-	player.Mount().SetCanRagdoll(false);
-	player.Mount().SetCanRagdoll(false);
+	player.ped.Mount().SetCanRagdoll(false);
+	player.ped.Mount().SetCanRagdoll(false);
 }
 
 void Toggles::HorseSuperJumpLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
-	Ped horse = player.Mount();
+	Ped horse = player.ped.Mount();
 	if (Controls::IsFunctionControlPressed(FunctionControl::HorseJump)) {
 		horse.SetCanRagdoll(false);
-		player.SetCanRagdoll(false);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-		ENTITY::APPLY_FORCE_TO_ENTITY(horse.GetPedId(), 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		player.ped.SetCanRagdoll(false);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**/ -0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**/ 0.4, -0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**/ -0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+		ENTITY::APPLY_FORCE_TO_ENTITY(horse.id, 1, 0.0, 0.0, 1.0, /**/ 0.4, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 	}
 }
 
 void Toggles::HorseUnlimitedStaminaLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
-	player.Mount().SetStamina(100.0);
+	player.ped.Mount().SetStamina(100.0);
 }
 
 void Toggles::HorseFlyModeLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
 	/*
 	if (horseFlyMode == nullptr) {
@@ -350,7 +348,7 @@ void Toggles::HorseFlyModeLoop()
 void Toggles::ForceFirstPersonOnHorseLoop()
 {
 	Player player;
-	if (!player.IsOnMount()) return;
+	if (!player.ped.IsOnMount()) return;
 	
 	CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 }
@@ -362,24 +360,24 @@ void Toggles::ForceFirstPersonOnHorseLoop()
 void Toggles::VehicleInvincibleLoop()
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 	
-	player.CurrentVehicle().SetInvincible(true);
+	player.ped.CurrentVehicle().SetInvincible(true);
 }
 
 void Toggles::VehicleVisibleLoop()
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 
-	player.CurrentVehicle().SetVisible(true);
+	player.ped.CurrentVehicle().SetVisible(true);
 }
 
 void Toggles::VehicleCannonsLoop()
 {
 	// TODO: Add vehicle cannons
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 
 	vehicleWeapons.Tick();
 }
@@ -387,16 +385,16 @@ void Toggles::VehicleCannonsLoop()
 void Toggles::VehicleBindBoostLoop()
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 
 	if (Controls::IsFunctionControlPressed(FunctionControl::BindBoost))
-		player.CurrentVehicle().SetForwardSpeed(27.00);
+		player.ped.CurrentVehicle().SetForwardSpeed(27.00);
 }
 
 void Toggles::ForceFirstPersonInVehicleLoop()
 {
 	Player player;
-	if (!player.IsInVehicle()) return;
+	if (!player.ped.IsInVehicle()) return;
 
 	CAM::_FORCE_FIRST_PERSON_CAM_THIS_FRAME();
 }
@@ -477,7 +475,7 @@ void Toggles::HideHudLoop()
 
 void Toggles::HorseEngineTestLoop()
 {
-	auto currentVehicle = Player().CurrentVehicle();
+	auto currentVehicle = Player().ped.CurrentVehicle();
 	if (currentVehicle.Exists()) {
 		//VEHICLE::SET_VEHICLE_UNDRIVEABLE(currentVehicle.GetVehicleId(), false);
 		//VEHICLE::SET_VEHICLE_ENGINE_HEALTH(currentVehicle.GetVehicleId(), 100.0f);

@@ -10,7 +10,7 @@ public:
 	void HoverTest();
 
 private:
-	Ped horse = Player().Mount();
+	Ped horse = Player().ped.Mount();
 	Player player;
 };
 

@@ -19,7 +19,6 @@ void ActionController::RegisterAction(string key, std::function<void(json params
 {
 	if (actions.count(key)) {
 		// Key already registered
-		// TODO: Implement logging
 		return;
 	}
 	actions[key] = action;

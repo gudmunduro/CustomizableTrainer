@@ -17,10 +17,10 @@ void PedSpawner::Spawn(string name, string model)
 {
 	Player player;
 	auto modelHash = String::Hash(model);
-	auto spawnPosition = player.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
-	auto heading = player.Heading() + 180.0f;
+	auto spawnPosition = player.ped.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	auto heading = player.ped.Heading() + 180.0f;
 
-	auto ped = Ped::Spawn(modelHash, spawnPosition, heading);
+	auto ped = Ped::Create(modelHash, spawnPosition, heading);
 
 	peds.push_back(std::make_shared<SpawnerPed>(SpawnerPed(name, ped)));
 }

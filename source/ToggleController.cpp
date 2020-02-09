@@ -19,7 +19,6 @@ void ToggleController::RegisterToggle(string key, bool *toggle, std::function<vo
 {
 	if (toggles.count(key)) {
 		// Key already registered
-		// TODO: Implement logging
 		return;
 	}
 	toggles[key] = toggle;
@@ -31,7 +30,6 @@ void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::funct
 {
 	if (toggles.count(key)) {
 		// Key already registered
-		// TODO: Implement logging
 		return;
 	}
 	toggles[key] = toggle;
@@ -44,7 +42,6 @@ void ToggleController::RegisterToggleAction(string key, std::function<void(bool 
 {
 	if (toggleActions.count(key)) {
 		// Key already registered
-		// TODO: Implement logging
 		return;
 	}
 	toggleActions[key] = toggleAction;
@@ -54,7 +51,6 @@ void ToggleController::RegisterToggleLoop(string key, std::function<void()> togg
 {
 	if (toggleLoops.count(key)) {
 		// Key already registered
-		// TODO: Implement logging
 		return;
 	}
 	toggleLoops[key] = toggleLoop;

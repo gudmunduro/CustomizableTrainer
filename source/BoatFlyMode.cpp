@@ -18,19 +18,19 @@
 BoatFlyMode::BoatFlyMode()
 {
 	auto model = String::Hash("rowboat");
-	auto pos = player.Position();
-	auto heading = player.Heading();
+	auto pos = player.ped.Position();
+	auto heading = player.ped.Heading();
 
-	if (player.IsInVehicle() && !player.CurrentVehicle().IsBoat()) {
-		player.CurrentVehicle().Delete();
+	if (player.ped.IsInVehicle() && !player.ped.CurrentVehicle().IsBoat()) {
+		player.ped.CurrentVehicle().Delete();
 	}
 
-	if (!player.IsInVehicle() || player.IsInVehicle() && !player.CurrentVehicle().IsBoat()) {
+	if (!player.ped.IsInVehicle() || player.ped.IsInVehicle() && !player.ped.CurrentVehicle().IsBoat()) {
 		boat = Vehicle::Spawn(model, pos, heading);
-		player.SetIntoVehicle(boat.GetVehicleId());
+		player.ped.SetIntoVehicle(boat.Id());
 	}
 	else {
-		boat = player.CurrentVehicle();
+		boat = player.ped.CurrentVehicle();
 	}
 	speed = boat.Speed();
 }
@@ -53,10 +53,10 @@ void BoatFlyMode::Decelerate()
 
 void BoatFlyMode::FlyUp()
 {
-	ENTITY::APPLY_FORCE_TO_ENTITY(boat.GetVehicleId(), 1, 0.0, 0.0, 0.6, /**/ -0.8, -2.4, 0.0, 1, 1, 1, 1, 0, 1);
-	ENTITY::APPLY_FORCE_TO_ENTITY(boat.GetVehicleId(), 1, 0.0, 0.0, 0.6, /**/ 0.8, -2.4, 0.0, 1, 1, 1, 1, 0, 1);
-	ENTITY::APPLY_FORCE_TO_ENTITY(boat.GetVehicleId(), 1, 0.0, 0.0, 0.6, /**/ -0.8, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
-	ENTITY::APPLY_FORCE_TO_ENTITY(boat.GetVehicleId(), 1, 0.0, 0.0, 0.6, /**/ 0.8, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+	ENTITY::APPLY_FORCE_TO_ENTITY(boat.Id(), 1, 0.0, 0.0, 0.6, /**/ -0.8, -2.4, 0.0, 1, 1, 1, 1, 0, 1);
+	ENTITY::APPLY_FORCE_TO_ENTITY(boat.Id(), 1, 0.0, 0.0, 0.6, /**/ 0.8, -2.4, 0.0, 1, 1, 1, 1, 0, 1);
+	ENTITY::APPLY_FORCE_TO_ENTITY(boat.Id(), 1, 0.0, 0.0, 0.6, /**/ -0.8, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
+	ENTITY::APPLY_FORCE_TO_ENTITY(boat.Id(), 1, 0.0, 0.0, 0.6, /**/ 0.8, 0.8, 0.0, 1, 1, 1, 1, 0, 1);
 }
 
 void BoatFlyMode::UpDown(float force)
@@ -84,11 +84,11 @@ void BoatFlyMode::Yaw(float force)
 {
 	//boat.ApplyForceRelative({ 0, 0, force }, { 1.0f, 1.0f, 0 });
 	//boat.ApplyForceRelative({ 0, 0, force }, { 1.0f, -2.0f, 0 });
-	Vector3 rotation = ENTITY::GET_ENTITY_ROTATION(boat.GetVehicleId(), 2);
+	Vector3 rotation = ENTITY::GET_ENTITY_ROTATION(boat.Id(), 2);
 	
 	rotation.y += force;
 
-	ENTITY::SET_ENTITY_ROTATION(boat.GetVehicleId(), rotation.x, rotation.y, rotation.z, 2, true);
+	ENTITY::SET_ENTITY_ROTATION(boat.Id(), rotation.x, rotation.y, rotation.z, 2, true);
 }
 
 #pragma endregion
@@ -157,15 +157,15 @@ void BoatFlyMode::DisableControls()
 
 void BoatFlyMode::Tick()
 {
-	if (player.IsInVehicle() && player.CurrentVehicle().IsBoat() && player.CurrentVehicle().GetVehicleId() != boat.GetVehicleId()) {
-		boat = player.CurrentVehicle();
+	if (player.ped.IsInVehicle() && player.ped.CurrentVehicle().IsBoat() && player.ped.CurrentVehicle().Id() != boat.Id()) {
+		boat = player.ped.CurrentVehicle();
 		speed = 1.0f;
 	}
 
 	if (boat.Exists()) boat.SetForwardSpeed(speed);
 
-	if (!(player.IsInVehicle() && player.CurrentVehicle().GetVehicleId() == boat.GetVehicleId())) return;
+	if (!(player.ped.IsInVehicle() && player.ped.CurrentVehicle().Id() == boat.Id())) return;
 
 	RespondToControls();
-	player.SetCanBeKnockedOffVehicle(1);
+	player.ped.SetCanBeKnockedOffVehicle(1);
 }
