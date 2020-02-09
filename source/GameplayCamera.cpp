@@ -7,6 +7,11 @@
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
 */
+/*
+* ALTERED SOURCE
+* Customizable Trainer
+* Copyright (C) 2020 Guðmundur Óli
+*/
 
 #include "pch.h"
 #include "GameplayCamera.h"

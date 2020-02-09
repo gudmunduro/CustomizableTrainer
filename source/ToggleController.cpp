@@ -1,3 +1,13 @@
+/*
+* Customizable Trainer
+* Copyright (C) 2020  Guðmundur Óli
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*/
+
 #include "pch.h"
 #include "ToggleController.h"
 #include "Toggles.h"
@@ -5,7 +15,7 @@
 
 #pragma region Setup
 
-void ToggleController::RegisterToggle(string key, bool *toggle, std::function<void(bool value)> toggleEventHandler)
+void ToggleController::RegisterToggle(string key, bool *toggle, std::function<void(bool value)> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -13,11 +23,11 @@ void ToggleController::RegisterToggle(string key, bool *toggle, std::function<vo
 		return;
 	}
 	toggles[key] = toggle;
-	if (toggleEventHandler != nullptr)
-		toggleActions[key] = toggleEventHandler;
+	if (toggleAction != nullptr)
+		toggleActions[key] = toggleAction;
 }
 
-void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleEventHandler)
+void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -26,11 +36,11 @@ void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::funct
 	}
 	toggles[key] = toggle;
 	toggleLoops[key] = toggleLoop;
-	if (toggleEventHandler != nullptr)
-		toggleActions[key] = toggleEventHandler;
+	if (toggleAction != nullptr)
+		toggleActions[key] = toggleAction;
 }
 
-void ToggleController::RegisterToggleEventHandler(string key, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterToggleAction(string key, std::function<void(bool value)> toggleAction)
 {
 	if (toggleActions.count(key)) {
 		// Key already registered
@@ -110,9 +120,9 @@ void ToggleController::SetToggleValueForKey(string key, bool value)
 	if (ToggleExistsForKey(key)) {
 		auto toggle = GetToggleForKey(key);
 		*toggle = value;
-		if (ToggleEventHandlerExistsForKey(key)) {
-			auto eventHandler = GetToggleEventHandlerForKey(key);
-			eventHandler(value);
+		if (ToggleActionExistsForKey(key)) {
+			auto action = GetToggleActionForKey(key);
+			action(value);
 		}
 		if (ToggleLoopExistsForKey(key)) {
 			if (value) {
@@ -134,7 +144,7 @@ bool ToggleController::ToggleExistsForKey(string key)
 	return toggles.count(key) != 0;
 }
 
-bool ToggleController::ToggleEventHandlerExistsForKey(string key)
+bool ToggleController::ToggleActionExistsForKey(string key)
 {
 	return toggleActions.count(key) != 0;
 }
@@ -153,7 +163,7 @@ bool *ToggleController::GetToggleForKey(string key)
 	return toggles[key];
 }
 
-std::function<void(bool value)> ToggleController::GetToggleEventHandlerForKey(string key)
+std::function<void(bool value)> ToggleController::GetToggleActionForKey(string key)
 {
 	return toggleActions[key];
 }

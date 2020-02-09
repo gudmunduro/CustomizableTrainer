@@ -19,12 +19,6 @@
     <Filter Include="Headers\Menu">
       <UniqueIdentifier>{f69307c3-ed26-453e-9cff-c029a28bd367}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Actions">
-      <UniqueIdentifier>{d161b7d9-f8a4-47d9-bda1-83a53fbfaec6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Actions">
-      <UniqueIdentifier>{870576bc-9871-4a9d-80ba-fdd58a5aa89f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Include">
       <UniqueIdentifier>{41764acf-dadc-4ee8-bef4-b21e743ce62f}</UniqueIdentifier>
     </Filter>
@@ -40,23 +34,11 @@
     <Filter Include="Headers\Game">
       <UniqueIdentifier>{4a6a6498-9d99-4317-bfc8-7f6a3e970114}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Toggles">
-      <UniqueIdentifier>{cf0784d0-563e-4b20-b6fc-2584599964cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Toggles">
-      <UniqueIdentifier>{b4d68ac9-eafe-4ec8-9944-591c65fcacb0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Menu\Submenus">
       <UniqueIdentifier>{def475bc-27fa-4786-b097-31330c0456bd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Headers\Menu\Submenus">
       <UniqueIdentifier>{dea6ca04-b3f1-4b77-a751-7198156a7ba7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Numbers">
-      <UniqueIdentifier>{8030d8e8-f4a9-42e4-9fff-2d506a4f072a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Numbers">
-      <UniqueIdentifier>{fdc726a6-8824-4fef-9d49-59cb99722c88}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Features">
       <UniqueIdentifier>{c2b9601e-9724-4a19-93b4-e49cf0b71c9e}</UniqueIdentifier>
@@ -76,12 +58,6 @@
     <Filter Include="Headers\Menu\Submenus\Settings">
       <UniqueIdentifier>{98d6402c-079a-4b26-b063-008deaf57bff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Texts">
-      <UniqueIdentifier>{035d64ad-f5e5-4fe5-8cff-c8c3802e1e06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Texts">
-      <UniqueIdentifier>{537121d8-e7ed-451c-8512-941327f4a4b3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Core">
       <UniqueIdentifier>{fd40f47e-8419-4579-8546-3bcbf00eabd5}</UniqueIdentifier>
     </Filter>
@@ -93,6 +69,36 @@
     </Filter>
     <Filter Include="Headers\Utilities">
       <UniqueIdentifier>{46774fb8-5b28-4a65-958f-3637173d8223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Options">
+      <UniqueIdentifier>{331497dc-7253-49c0-9330-9c4f15251cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Options\Numbers">
+      <UniqueIdentifier>{8030d8e8-f4a9-42e4-9fff-2d506a4f072a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Options\Texts">
+      <UniqueIdentifier>{537121d8-e7ed-451c-8512-941327f4a4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Options\Actions">
+      <UniqueIdentifier>{d161b7d9-f8a4-47d9-bda1-83a53fbfaec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Options\Toggles">
+      <UniqueIdentifier>{cf0784d0-563e-4b20-b6fc-2584599964cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Options">
+      <UniqueIdentifier>{59379f70-3516-4b7b-b633-ea930ba32633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Options\Numbers">
+      <UniqueIdentifier>{fdc726a6-8824-4fef-9d49-59cb99722c88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Options\Texts">
+      <UniqueIdentifier>{035d64ad-f5e5-4fe5-8cff-c8c3802e1e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Options\Toggles">
+      <UniqueIdentifier>{b4d68ac9-eafe-4ec8-9944-591c65fcacb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Options\Actions">
+      <UniqueIdentifier>{870576bc-9871-4a9d-80ba-fdd58a5aa89f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +136,7 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="Actions.h">
-      <Filter>Headers\Actions</Filter>
+      <Filter>Headers\Options\Actions</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Headers\Game</Filter>
@@ -139,7 +145,7 @@
       <Filter>Headers\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Toggles.h">
-      <Filter>Headers\Toggles</Filter>
+      <Filter>Headers\Options\Toggles</Filter>
     </ClInclude>
     <ClInclude Include="Ped.h">
       <Filter>Headers\Game</Filter>
@@ -160,10 +166,10 @@
       <Filter>Headers\Menu</Filter>
     </ClInclude>
     <ClInclude Include="NumberController.h">
-      <Filter>Headers\Numbers</Filter>
+      <Filter>Headers\Options\Numbers</Filter>
     </ClInclude>
     <ClInclude Include="Numbers.h">
-      <Filter>Headers\Numbers</Filter>
+      <Filter>Headers\Options\Numbers</Filter>
     </ClInclude>
     <ClInclude Include="MenuController.h">
       <Filter>Headers\Menu</Filter>
@@ -220,10 +226,10 @@
       <Filter>Headers\Features</Filter>
     </ClInclude>
     <ClInclude Include="ToggleController.h">
-      <Filter>Headers\Toggles</Filter>
+      <Filter>Headers\Options\Toggles</Filter>
     </ClInclude>
     <ClInclude Include="ActionController.h">
-      <Filter>Headers\Actions</Filter>
+      <Filter>Headers\Options\Actions</Filter>
     </ClInclude>
     <ClInclude Include="Controls.h">
       <Filter>Headers\Menu</Filter>
@@ -241,10 +247,10 @@
       <Filter>Headers\Features</Filter>
     </ClInclude>
     <ClInclude Include="Texts.h">
-      <Filter>Headers\Texts</Filter>
+      <Filter>Headers\Options\Texts</Filter>
     </ClInclude>
     <ClInclude Include="TextController.h">
-      <Filter>Headers\Texts</Filter>
+      <Filter>Headers\Options\Texts</Filter>
     </ClInclude>
     <ClInclude Include="SettingsOptionsToSaveSub.h">
       <Filter>Headers\Menu\Submenus\Settings</Filter>
@@ -291,7 +297,7 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Actions.cpp">
-      <Filter>Source\Actions</Filter>
+      <Filter>Source\Options\Actions</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source\Game</Filter>
@@ -300,7 +306,7 @@
       <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Toggles.cpp">
-      <Filter>Source\Toggles</Filter>
+      <Filter>Source\Options\Toggles</Filter>
     </ClCompile>
     <ClCompile Include="Ped.cpp">
       <Filter>Source\Game</Filter>
@@ -318,10 +324,10 @@
       <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="NumbersController.cpp">
-      <Filter>Source\Numbers</Filter>
+      <Filter>Source\Options\Numbers</Filter>
     </ClCompile>
     <ClCompile Include="Numbers.cpp">
-      <Filter>Source\Numbers</Filter>
+      <Filter>Source\Options\Numbers</Filter>
     </ClCompile>
     <ClCompile Include="MenuController.cpp">
       <Filter>Source\Menu</Filter>
@@ -381,10 +387,10 @@
       <Filter>Source\Features</Filter>
     </ClCompile>
     <ClCompile Include="ToggleController.cpp">
-      <Filter>Source\Toggles</Filter>
+      <Filter>Source\Options\Toggles</Filter>
     </ClCompile>
     <ClCompile Include="ActionController.cpp">
-      <Filter>Source\Actions</Filter>
+      <Filter>Source\Options\Actions</Filter>
     </ClCompile>
     <ClCompile Include="Controls.cpp">
       <Filter>Source\Menu</Filter>
@@ -402,10 +408,10 @@
       <Filter>Source\Features</Filter>
     </ClCompile>
     <ClCompile Include="TextController.cpp">
-      <Filter>Source\Texts</Filter>
+      <Filter>Source\Options\Texts</Filter>
     </ClCompile>
     <ClCompile Include="Texts.cpp">
-      <Filter>Source\Texts</Filter>
+      <Filter>Source\Options\Texts</Filter>
     </ClCompile>
     <ClCompile Include="SettingsOptionsToSaveSub.cpp">
       <Filter>Source\Menu\Submenus\Settings</Filter>

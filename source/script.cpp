@@ -3,6 +3,11 @@
 				http://dev-c.com
 			(C) Alexander Blade 2019
 */
+/*
+* ALTERED SOURCE
+* Customizable Trainer
+* Copyright (C) 2020 Guðmundur Óli
+*/
 
 #include "pch.h"
 #include "Script.h"

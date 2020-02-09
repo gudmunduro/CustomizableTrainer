@@ -1,3 +1,13 @@
+/*
+* Customizable Trainer
+* Copyright (C) 2020  Guðmundur Óli
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*/
+
 #include "pch.h"
 #include "TextController.h"
 #include "Texts.h"
@@ -8,7 +18,7 @@ void TextController::RegisterText(string key, std::vector<string> values, std::f
 {
 	textValues[key] = values;
 	textValueIndexes[key] = 0;
-	textChangeEventHandlers[key] = onChange;
+	onTextChangeActions[key] = onChange;
 }
 
 void TextController::SetTextValueForKey(string key, int value)
@@ -36,8 +46,8 @@ void TextController::Adjust(string key, bool direction)
 		else
 			textValueIndexes[key] += direction ? 1 : -1;
 		
-		if (TextChangeEventHandlerEventExistsForKey(key))
-			GetTextChangEventHandlerForKey(key)(lastIndex, *index);
+		if (OnTextChangeActionExistsForKey(key))
+			GetTextChangActionForKey(key)(lastIndex, *index);
 	}
 }
 
@@ -50,9 +60,9 @@ bool TextController::TextExistsForKey(string key)
 	return textValues.count(key) > 0;
 }
 
-bool TextController::TextChangeEventHandlerEventExistsForKey(string key)
+bool TextController::OnTextChangeActionExistsForKey(string key)
 {
-	return textChangeEventHandlers.count(key) > 0;
+	return onTextChangeActions.count(key) > 0;
 }
 
 #pragma endregion
@@ -75,9 +85,9 @@ int TextController::GetTextValueIndexForKey(string key)
 	return textValueIndexes[key];
 }
 
-std::function<void(int from, int to)> TextController::GetTextChangEventHandlerForKey(string key)
+std::function<void(int from, int to)> TextController::GetTextChangActionForKey(string key)
 {
-	return textChangeEventHandlers[key];
+	return onTextChangeActions[key];
 }
 
 std::vector<string> TextController::Keys()

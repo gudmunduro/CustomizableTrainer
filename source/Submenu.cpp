@@ -1,3 +1,13 @@
+/*
+* Customizable Trainer
+* Copyright (C) 2020  Guðmundur Óli
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*/
+
 #include "pch.h"
 #include "Submenu.h"
 #include "ActionController.h"
@@ -20,7 +30,7 @@ Submenu::Submenu(MenuController *menuController)
 	holdingAdjustDownTimer = 0;
 	holdingAdjustDownTimerStart = 0;
 	isHoldingAdjustDown = false;
-	shouldDeleteSubmenuWhenPossible = false;
+	isSubDeletionScheduled = false;
 }
 
 #pragma region Draw menu
@@ -61,7 +71,7 @@ void Submenu::Draw()
 	DrawMenuBase();
 }
 
-#pragma endregion Draw menu
+#pragma endregion
 
 #pragma region Draw Title/option
 
@@ -210,7 +220,7 @@ void Submenu::DrawTextList(string text, string valueToDisplay, std::function<voi
 	OptionDidDraw();
 }
 
-#pragma endregion Draw Title/option
+#pragma endregion
 
 #pragma region Events
 
@@ -241,7 +251,7 @@ void Submenu::SelectionDidChange(int to, int from)
 	}
 }
 
-#pragma endregion Events
+#pragma endregion
 
 #pragma region Getters
 
@@ -250,7 +260,7 @@ int Submenu::OptionCount()
 	return autoOptionCount;
 }
 
-#pragma endregion Getters
+#pragma endregion
 
 #pragma region Controls
 
@@ -324,7 +334,7 @@ void Submenu::RespondToControls()
 	}
 }
 
-#pragma endregion Controls
+#pragma endregion
 
 #pragma region Booleans
 
@@ -338,7 +348,7 @@ bool Submenu::IsOptionSelected(int index)
 	return index == drawIndex + scrollPosition;
 }
 
-#pragma endregion Booleans
+#pragma endregion
 
 #pragma region Main
 
@@ -349,17 +359,20 @@ void Submenu::Tick()
 	Draw();
 	SubDidDraw();
 
-	if (shouldDeleteSubmenuWhenPossible)
+	// Since the submenu will itself pop from the submenu stack in the middle of tick,
+	// if it was deleted at the same time, it would still try to access 'this' which would cause a crash
+	// So this is a (bad) way to prevent that
+	if (isSubDeletionScheduled)
 		delete this;
 }
 
-#pragma endregion Main
+#pragma endregion
 
 #pragma region Misc
 
 void Submenu::DeleteWhenPossible()
 {
-	shouldDeleteSubmenuWhenPossible = true;
+	isSubDeletionScheduled = true;
 }
 
 float Submenu::CurrentOptionPosY() {
@@ -385,4 +398,4 @@ string Submenu::OptionTypeToString(MenuOptionType type)
 	return "Invalid";
 }
 
-#pragma endregion Misc
+#pragma endregion
