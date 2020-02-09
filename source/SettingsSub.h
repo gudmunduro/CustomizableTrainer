@@ -9,5 +9,6 @@ public:
 
 protected:
 	void Draw() override;
+	void RespondToControls() override;
 };
 

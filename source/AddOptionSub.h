@@ -13,6 +13,8 @@ protected:
 	void Draw() override;
 	void UpdateParameters();
 
+	void RespondToControls() override;
+
 	MenuOption optionToAdd;
 	std::vector<MenuOptionParameter> parameters;
 	string title;

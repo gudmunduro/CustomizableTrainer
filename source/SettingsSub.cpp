@@ -10,6 +10,7 @@
 
 #include "pch.h"
 #include "SettingsSub.h"
+#include "Controls.h"
 
 SettingsSub::SettingsSub(MenuController* menuController) : Submenu(menuController)
 {
@@ -25,4 +26,13 @@ void SettingsSub::Draw()
 	DrawSub("Controls", "builtin_sub_settingsControls");
 	DrawSub("Hotkeys", "builtin_sub_settingsHotkeys");
 	DrawSub("Options to save", "builtin_sub_settingsOptionsToSave");
+}
+
+void SettingsSub::RespondToControls()
+{
+	Submenu::RespondToControls();
+
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+		Game::PrintSubtitle("Edit mode is not available in this menu");
+	}
 }

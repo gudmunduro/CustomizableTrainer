@@ -13,6 +13,7 @@
 #include "WeaponSelection.h"
 #include "WeaponManager.h"
 #include "JsonData.h"
+#include "Controls.h"
 
 #pragma region Weapon category
 
@@ -38,7 +39,11 @@ void WeaponSelectionCatSub::Draw()
 
 void WeaponSelectionCatSub::RespondToControls()
 {
+	Submenu::RespondToControls();
 
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+		Game::PrintSubtitle("Edit mode is not available in this menu");
+	}
 }
 
 #pragma endregion
@@ -68,7 +73,11 @@ void WeaponSelectionSub::Draw()
 
 void WeaponSelectionSub::RespondToControls()
 {
+	Submenu::RespondToControls();
 
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+		Game::PrintSubtitle("Edit mode is not available in this menu");
+	}
 }
 
 #pragma endregion

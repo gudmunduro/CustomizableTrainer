@@ -16,6 +16,7 @@
 #include "ActionController.h"
 #include "HotkeyController.h"
 #include "Routine.h"
+#include "Controls.h"
 
 EditAddOptionSub::EditAddOptionSub(MenuOption *optionToEdit, MenuController* menuController)
 	: Submenu(menuController)
@@ -139,5 +140,14 @@ void EditAddOptionSub::UpdateParameters()
 			optionToAdd.params.push_back(0.00f);
 			break;
 		}
+	}
+}
+
+void EditAddOptionSub::RespondToControls()
+{
+	Submenu::RespondToControls();
+
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+		Game::PrintSubtitle("Edit mode is not available in this menu");
 	}
 }
