@@ -18,7 +18,7 @@
 #include "Routine.h"
 
 EditAddOptionSub::EditAddOptionSub(MenuOption *optionToEdit, MenuController* menuController)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	if (optionToEdit == nullptr) {
 		title = "Add option";

@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class SettingsHotkeyActionSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsHotkeyActionSub(MenuController* menuController, MenuOptionType type, std::function<void(int action)> onActionSet);

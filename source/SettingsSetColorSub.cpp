@@ -13,7 +13,7 @@
 #include "JsonData.h"
 #include "Routine.h"
 
-SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, MenuController* menuController) : FixedSubmenu(menuController)
+SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, MenuController* menuController) : Submenu(menuController)
 {
 	this->title = title;
 	this->colorToChange = colorToChange;
@@ -21,7 +21,7 @@ SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, Men
 
 void SettingsSetColorSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle(title);
 	DrawColorValue("Red", &colorToChange->r);

@@ -15,13 +15,13 @@
 #include "ConfirmDialog.h"
 #include "SettingsEditAddHotkeySub.h"
 
-SettingsHotkeysSub::SettingsHotkeysSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsHotkeysSub::SettingsHotkeysSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
 void SettingsHotkeysSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Hotkeys");
 
@@ -42,7 +42,7 @@ void SettingsHotkeysSub::Draw()
 
 void SettingsHotkeysSub::RespondToControls()
 {
-	FixedSubmenu::RespondToControls();
+	Submenu::RespondToControls();
 
 	if (selection != 0 && Controls::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 		auto confirmDialog = new ConfirmDialog(menuController, "Delete hotkey?", "", "Delete", "Cancel", [this](bool deleteHotkey) {

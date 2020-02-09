@@ -1,8 +1,8 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class SettingsColorSchemeSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsColorSchemeSub(MenuController *menuController);

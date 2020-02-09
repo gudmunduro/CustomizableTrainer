@@ -16,7 +16,7 @@
 #include "TextController.h"
 
 AddOptionSetKeySub::AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController, bool hideGetterOnlyOptions)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	this->optionType = optionType;
 	this->hideGetterOnlyOptions = hideGetterOnlyOptions;

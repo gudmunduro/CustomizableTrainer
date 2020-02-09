@@ -12,7 +12,7 @@
 #include "AddOptionSetTypeSub.h"
 
 AddOptionSetTypeSub::AddOptionSetTypeSub(MenuController* menuController, bool hideSubmenu, bool hideAction)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	this->hideSubmenu = hideSubmenu;
 	this->hideAction = hideAction;

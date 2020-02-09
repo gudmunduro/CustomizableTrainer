@@ -1,14 +1,16 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class WeaponSelectionCatSub
-	: public FixedSubmenu
+	: public Submenu
 {
 public:
 	WeaponSelectionCatSub(MenuController* menuController, string catName, std::vector<WeaponData> weapons);
 
 	void Draw() override;
+
+	void RespondToControls() override;
 
 private:
 	string catName;
@@ -17,12 +19,14 @@ private:
 
 
 class WeaponSelectionSub
-	: public FixedSubmenu
+	: public Submenu
 {
 public:
 	WeaponSelectionSub(MenuController* menuController);
 
 	void Draw() override;
+
+	void RespondToControls() override;
 
 private:
 	std::vector<std::pair<string, std::vector<WeaponData>>> weaponCats;

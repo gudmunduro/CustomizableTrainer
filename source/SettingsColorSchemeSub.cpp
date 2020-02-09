@@ -13,7 +13,7 @@
 #include "SettingsSetColorSub.h"
 #include "MenuSettings.h"
 
-SettingsColorSchemeSub::SettingsColorSchemeSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsColorSchemeSub::SettingsColorSchemeSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
@@ -21,7 +21,7 @@ SettingsColorSchemeSub::SettingsColorSchemeSub(MenuController* menuController) :
 
 void SettingsColorSchemeSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Color scheme");
 	DrawSetColorAction("Title border", &MenuSettings::titleBarBorderColor);

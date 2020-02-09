@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class SettingsEditAddHotkeySub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 

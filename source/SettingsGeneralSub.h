@@ -1,7 +1,7 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 class SettingsGeneralSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsGeneralSub(MenuController *menuController);

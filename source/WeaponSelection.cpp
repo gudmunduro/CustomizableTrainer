@@ -17,13 +17,13 @@
 #pragma region Weapon category
 
 WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, string catName, std::vector<WeaponData> weapons)
-	: FixedSubmenu(menuController), catName(catName), weapons(weapons)
+	: Submenu(menuController), catName(catName), weapons(weapons)
 {
 }
 
 void WeaponSelectionCatSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle(catName);
 	
@@ -36,20 +36,25 @@ void WeaponSelectionCatSub::Draw()
 	}
 }
 
+void WeaponSelectionCatSub::RespondToControls()
+{
+
+}
+
 #pragma endregion
 
 
 #pragma region Weapon category selection
 
 WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	weaponCats = JSONData::GetWeapons();
 }
 
 void WeaponSelectionSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Weapons");
 
@@ -59,6 +64,11 @@ void WeaponSelectionSub::Draw()
 			menuController->AddSubmenuToStack(weaponCatSub);
 		});
 	}
+}
+
+void WeaponSelectionSub::RespondToControls()
+{
+
 }
 
 #pragma endregion

@@ -1,13 +1,15 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
-class PedSpawnerSub: public FixedSubmenu
+class PedSpawnerSub: public Submenu
 {
 public:
 	PedSpawnerSub(MenuController *menuController);
 
 	void Draw() override;
 	int OptionCount();
+	void RespondToControls();
+
 };
 

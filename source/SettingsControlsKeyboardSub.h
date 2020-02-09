@@ -1,5 +1,5 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class SettingsControlsKeyboardSub :
 	public Submenu

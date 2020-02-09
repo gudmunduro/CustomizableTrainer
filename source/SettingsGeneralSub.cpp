@@ -13,7 +13,7 @@
 #include "MenuSettings.h"
 #include "JsonData.h"
 
-SettingsGeneralSub::SettingsGeneralSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsGeneralSub::SettingsGeneralSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
@@ -21,7 +21,7 @@ SettingsGeneralSub::SettingsGeneralSub(MenuController* menuController) : FixedSu
 
 void SettingsGeneralSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("General");
 	DrawToggle("UI sounds", MenuSettings::playUiSounds, [] {

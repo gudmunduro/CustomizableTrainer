@@ -1,8 +1,8 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class SettingsSetColorSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsSetColorSub(string title, Color *colorToChange, MenuController *menuController);

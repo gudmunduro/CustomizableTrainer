@@ -1,7 +1,8 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
+
 class SettingsAddOptionToSaveSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	SettingsAddOptionToSaveSub(MenuController *menuController, int index = -1);

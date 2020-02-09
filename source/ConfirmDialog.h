@@ -1,7 +1,8 @@
 #pragma once
-#include "FixedSubmenu.h"
+#include "Submenu.h"
+
 class ConfirmDialog :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	ConfirmDialog(MenuController *menuController, string title, string label, string confirmText, string cancelText, std::function<void(bool confirmation)> onConfirm);

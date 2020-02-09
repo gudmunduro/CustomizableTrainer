@@ -1,8 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
-class SettingsHotkeysSub : public FixedSubmenu
+class SettingsHotkeysSub 
+	: public Submenu
 {
 public:
 	SettingsHotkeysSub(MenuController *menuController);

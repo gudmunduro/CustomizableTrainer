@@ -123,7 +123,6 @@
     <ClInclude Include="CustomBullets.h" />
     <ClInclude Include="FloatAnimation.h" />
     <ClInclude Include="DynamicSubmenu.h" />
-    <ClInclude Include="FixedSubmenu.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="GameplayCamera.h" />
@@ -179,7 +178,6 @@
     <ClCompile Include="FloatAnimation.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="FixedSubmenu.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameplayCamera.cpp" />
     <ClCompile Include="HotkeyController.cpp" />

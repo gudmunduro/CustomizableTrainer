@@ -11,13 +11,13 @@
 #include "pch.h"
 #include "SettingsSub.h"
 
-SettingsSub::SettingsSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsSub::SettingsSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
 void SettingsSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Settings");
 	DrawSub("General", "builtin_sub_settingsGeneral");

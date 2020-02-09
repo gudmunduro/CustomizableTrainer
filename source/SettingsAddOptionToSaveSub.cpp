@@ -15,7 +15,7 @@
 #include "MenuSettings.h"
 #include "JsonData.h"
 
-SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuController, int index) : FixedSubmenu(menuController)
+SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuController, int index) : Submenu(menuController)
 {
 	isEditingSavedOption = (index != -1);
 	editingOptionIndex = index;
@@ -31,7 +31,7 @@ SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuContr
 
 void SettingsAddOptionToSaveSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle(isEditingSavedOption ? "Edit saved option" : "Add saved option");
 	DrawTextAction("Type >", OptionTypeToString(savedOptionToAdd.type), [this] {

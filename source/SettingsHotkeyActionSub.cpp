@@ -14,7 +14,7 @@
 #pragma region Setup
 
 SettingsHotkeyActionSub::SettingsHotkeyActionSub(MenuController* menuController, MenuOptionType type, std::function<void(int action)> onActionSet)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	this->type = type;
 	this->onActionSet = onActionSet;
@@ -26,7 +26,7 @@ SettingsHotkeyActionSub::SettingsHotkeyActionSub(MenuController* menuController,
 
 void SettingsHotkeyActionSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	switch (type) {
 	case MenuOptionType::Toggle:

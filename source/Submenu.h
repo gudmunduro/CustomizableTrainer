@@ -42,6 +42,7 @@ protected:
 	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);
 	void DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
 	void DrawTextList(string text, string valueToDisplay, std::function<void(bool direction)> onAdjust);
+	void DrawTextAction(string text, string value, std::function<void()> onPress);
 
 	virtual void SubWillDraw();
 	virtual void SubDidDraw();

@@ -15,7 +15,7 @@
 #include "Controls.h"
 #include "JsonData.h"
 
-SettingsOptionsToSaveSub::SettingsOptionsToSaveSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsOptionsToSaveSub::SettingsOptionsToSaveSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
@@ -23,7 +23,7 @@ SettingsOptionsToSaveSub::SettingsOptionsToSaveSub(MenuController* menuControlle
 
 void SettingsOptionsToSaveSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Options to save");
 	DrawAction("Add >", [this] {
@@ -46,7 +46,7 @@ void SettingsOptionsToSaveSub::Draw()
 
 void SettingsOptionsToSaveSub::RespondToControls()
 {
-	FixedSubmenu::RespondToControls();
+	Submenu::RespondToControls();
 
 	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeDeleteOption)) {
 		if (selection == 0) return;

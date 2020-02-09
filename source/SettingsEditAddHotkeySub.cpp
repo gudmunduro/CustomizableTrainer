@@ -22,7 +22,8 @@
 #pragma region Setup
 
 // Set hotkeyToEdit to null to add a new hotkey
-SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, Hotkey defaultHotkeyData, MenuController *menuController) : FixedSubmenu(menuController)
+SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, Hotkey defaultHotkeyData, MenuController *menuController) 
+	: Submenu(menuController)
 {
 
 	if (hotkeyToEdit != nullptr) {
@@ -56,7 +57,7 @@ SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey* hotkeyToEdit, MenuCon
 
 void SettingsEditAddHotkeySub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle(title);
 
@@ -230,7 +231,7 @@ void SettingsEditAddHotkeySub::SubWillDraw()
 		editingControlAlpha += editingControlAlphaDirection ? 10.2f : -10.2f;
 	}
 
-	FixedSubmenu::SubWillDraw();
+	Submenu::SubWillDraw();
 }
 
 #pragma endregion
@@ -239,7 +240,7 @@ void SettingsEditAddHotkeySub::SubWillDraw()
 
 void SettingsEditAddHotkeySub::RespondToControls()
 {
-	FixedSubmenu::RespondToControls();
+	Submenu::RespondToControls();
 
 	if (isEditingKeyboardControl) {
 		for (int i = 0; i < 255; i++) {

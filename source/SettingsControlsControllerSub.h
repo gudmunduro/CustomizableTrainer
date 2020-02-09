@@ -1,6 +1,6 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 #include "Controls.h"
 
 class SettingsControlsControllerSub :

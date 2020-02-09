@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class EditAddOptionSub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	EditAddOptionSub(MenuOption* optionToEdit, MenuController* menuController);

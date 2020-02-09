@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "FixedSubmenu.h"
+#include "Submenu.h"
 
 class AddOptionSetKeySub :
-	public FixedSubmenu
+	public Submenu
 {
 public:
 	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController, bool hideGetterOnlyOptions = false);

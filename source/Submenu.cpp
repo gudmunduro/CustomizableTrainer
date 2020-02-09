@@ -220,6 +220,14 @@ void Submenu::DrawTextList(string text, string valueToDisplay, std::function<voi
 	OptionDidDraw();
 }
 
+void Submenu::DrawTextAction(string text, string value, std::function<void()> onPress)
+{
+	auto menuPos = menuController->position;
+
+	DrawAction(text, onPress);
+	Game::DrawText(value, { menuPos.x + 9.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, 255 });
+}
+
 #pragma endregion
 
 #pragma region Events

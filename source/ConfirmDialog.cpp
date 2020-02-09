@@ -12,7 +12,7 @@
 #include "ConfirmDialog.h"
 
 ConfirmDialog::ConfirmDialog(MenuController* menuController, string title, string text, string confirmText, string cancelText, std::function<void(bool confirmation)> onConfirm)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	this->title = title;
 	this->text = text;
@@ -23,7 +23,7 @@ ConfirmDialog::ConfirmDialog(MenuController* menuController, string title, strin
 
 void ConfirmDialog::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle(title);
 	if (text != "")

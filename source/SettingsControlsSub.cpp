@@ -11,13 +11,13 @@
 #include "pch.h"
 #include "SettingsControlsSub.h"
 
-SettingsControlsSub::SettingsControlsSub(MenuController* menuController) : FixedSubmenu(menuController)
+SettingsControlsSub::SettingsControlsSub(MenuController* menuController) : Submenu(menuController)
 {
 }
 
 void SettingsControlsSub::Draw()
 {
-	FixedSubmenu::Draw();
+	Submenu::Draw();
 
 	DrawTitle("Controls");
 	DrawSub("Keyboard", "builtin_sub_settingsControlsKeyboard");

@@ -12,9 +12,10 @@
 #include "PedSpawnerSub.h"
 #include "PedSpawner.h"
 #include "Toggles.h"
+#include "Controls.h"
 
 PedSpawnerSub::PedSpawnerSub(MenuController *menuController)
-	: FixedSubmenu(menuController)
+	: Submenu(menuController)
 {
 	
 }
@@ -59,6 +60,19 @@ void PedSpawnerSub::Draw()
 int PedSpawnerSub::OptionCount()
 {
 	return PedSpawner::peds.size() + 1 + (!PedSpawner::peds.empty() ? 1 : 0);
+}
+
+#pragma endregion
+
+#pragma region Controls
+
+void PedSpawnerSub::RespondToControls()
+{
+	Submenu::RespondToControls();
+
+	if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEnter)) {
+		Game::PrintSubtitle("Edit mode is not available in this menu");
+	}
 }
 
 #pragma endregion
