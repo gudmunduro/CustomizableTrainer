@@ -96,7 +96,7 @@ void CustomBulletController::OnBulletHitForDelete(EntityId entity)
 
 #pragma region Other events
 
-void CustomBulletController::PlayerDidShoot()
+void CustomBulletController::OnShoot()
 {
 	Player player;
 
@@ -166,5 +166,5 @@ void CustomBulletController::Tick()
 {
 	Player player;
 
-	if (player.ped.IsShooting()) PlayerDidShoot();
+	if (player.ped.IsShooting()) OnShoot();
 }

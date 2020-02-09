@@ -42,7 +42,7 @@ public:
 	static void OnBulletHitForTeleport(Vector3 pos);
 	static void OnBulletHitForDelete(EntityId entity);
 
-	static void PlayerDidShoot();
+	static void OnShoot();
 
 	static void Tick();
 
