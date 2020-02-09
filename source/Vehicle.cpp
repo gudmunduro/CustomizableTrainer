@@ -38,7 +38,7 @@ VehicleId Vehicle::Id()
 	return vehicleId;
 }
 
-Vector3 Vehicle::OffsetInWorldCoords(Vector3 offset)
+Vector3 Vehicle::GetOffsetInWorldCoords(Vector3 offset)
 {
 	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(vehicleId, offset.x, offset.y, offset.z);
 }

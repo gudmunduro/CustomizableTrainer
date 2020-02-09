@@ -26,11 +26,11 @@ void VehicleWeapons::ShootCannonShells(Player player, Vehicle vehicle, Vector3 d
 	Vector3 weaponOriginR, weaponOriginL;
 	Vector3 weaponTargetR, weaponTargetL;
 
-	weaponOriginR = vehicle.OffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 1.25f, 0.5f });
-	weaponTargetR = vehicle.OffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 350.0f, 0.5f });
+	weaponOriginR = vehicle.GetOffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 1.25f, 0.5f });
+	weaponTargetR = vehicle.GetOffsetInWorldCoords({ dimMin.x - 0.22f, dimMin.y + 350.0f, 0.5f });
 
-	weaponOriginL = vehicle.OffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 1.25f, 0.5f });
-	weaponTargetL = vehicle.OffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 350.0f, 0.5f });
+	weaponOriginL = vehicle.GetOffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 1.25f, 0.5f });
+	weaponTargetL = vehicle.GetOffsetInWorldCoords({ 0.22f - dimMax.x, dimMin.y + 350.0f, 0.5f });
 
 	GAMEPLAY::SHOOT_SINGLE_BULLET_BETWEEN_COORDS(weaponOriginR.x, weaponOriginR.y, weaponOriginR.z,
 		weaponTargetR.x, weaponTargetR.y, weaponTargetR.z,
