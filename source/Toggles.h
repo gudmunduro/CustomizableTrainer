@@ -59,7 +59,7 @@ namespace Toggles {
 
 #pragma endregion
 
-#pragma region Toggle event handlers
+#pragma region Toggle actions
 
 	void OnPlayerInvincibleToggle(bool value);
 	void OnPlayerVisibleToggle(bool value);
