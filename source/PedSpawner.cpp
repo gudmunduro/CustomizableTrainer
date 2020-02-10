@@ -13,7 +13,7 @@
 #include "Toggles.h"
 #include "Routine.h"
 
-void PedSpawner::Spawn(string name, string model)
+void PedSpawner::Spawn(std::string name, std::string model)
 {
 	Player player;
 	auto modelHash = String::Hash(model);

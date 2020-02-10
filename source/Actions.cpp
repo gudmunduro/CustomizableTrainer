@@ -43,7 +43,7 @@ void Actions::ChangeModel(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string model = params[0].get<string>();
+	std::string model = params[0].get<std::string>();
 	Hash modelHash = String::Hash(model);
 
 	Player().SetModel(modelHash);
@@ -51,7 +51,7 @@ void Actions::ChangeModel(json params)
 
 void Actions::ChangeFromInput(json params)
 {
-	string model = Game::GetInputWithKeyboard();
+	std::string model = Game::GetInputWithKeyboard();
 	if (model == "") return;
 	ChangeModel({ model });
 }
@@ -78,8 +78,8 @@ void Actions::PlayAnimOnPlayer(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string animDict = params[0];
-	string anim = params[1];
+	std::string animDict = params[0];
+	std::string anim = params[1];
 	
 	if (!Game::RequestAnimDict(animDict)) return;
 
@@ -94,7 +94,7 @@ void Actions::PlayScenarioOnPlayer(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string scenario = params[0];
+	std::string scenario = params[0];
 
 	AI::_TASK_START_SCENARIO_IN_PLACE(Game::playerPedId, String::Hash(scenario), 0, false, false, false, 0.2f, 0);
 }
@@ -109,14 +109,14 @@ void Actions::SpawnPed(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string model = params[0].get<string>();
+	std::string model = params[0].get<std::string>();
 
 	PedSpawner::Spawn(model, model);
 }
 
 void Actions::SpawnPedFromInput(json params)
 {
-	string model = Game::GetInputWithKeyboard();
+	std::string model = Game::GetInputWithKeyboard();
 	if (model == "") return;
 
 	PedSpawner::Spawn(model, model);
@@ -132,7 +132,7 @@ void Actions::GiveSpawnedPedWeapon(json params)
 		Game::PrintSubtitle("Error: No ped selected");
 		return;
 	}
-	string weaponModel = params[0].get<string>();
+	std::string weaponModel = params[0].get<std::string>();
 	Hash weaponHash = String::Hash(weaponModel);
 
 	PedSpawner::CurrentPed().GiveWeapon(weaponHash);
@@ -179,7 +179,7 @@ void Actions::GiveAllSpawnedPedsWeapon(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string weaponModel = params[0].get<string>();
+	std::string weaponModel = params[0].get<std::string>();
 	Hash weaponHash = String::Hash(weaponModel);
 
 	for each (auto ped in PedSpawner::peds) {
@@ -256,7 +256,7 @@ void Actions::SpawnHorse(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string model = params[0].get<string>();
+	std::string model = params[0].get<std::string>();
 	Player player;
 	Vector3 spawnPosition = player.ped.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
 	float heading = player.ped.Heading() + 90.0f;
@@ -271,7 +271,7 @@ void Actions::SpawnHorse(json params)
 
 void Actions::SpawnHorseFromInput(json params)
 {
-	string horse = Game::GetInputWithKeyboard();
+	std::string horse = Game::GetInputWithKeyboard();
 	if (horse == "") return;
 	SpawnHorse({ horse });
 }
@@ -286,7 +286,7 @@ void Actions::SpawnVehicle(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string vehicleModel = params[0].get<string>();
+	std::string vehicleModel = params[0].get<std::string>();
 	Hash vehicleHash = String::Hash(vehicleModel);
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(vehicleHash)) {
 		Game::PrintSubtitle("Error: Invalid model");
@@ -315,7 +315,7 @@ void Actions::SpawnVehicle(json params)
 
 void Actions::SpawnVehicleFromInput(json params)
 {
-	string vehicle = Game::GetInputWithKeyboard();
+	std::string vehicle = Game::GetInputWithKeyboard();
 	if (vehicle == "") return;
 	SpawnVehicle({vehicle});
 }
@@ -366,7 +366,7 @@ void Actions::RepairEngine(json params)
 void Actions::GivePlayerAllWeapons(json params)
 {
 	Player player;
-	string weaponModels[] = { "WEAPON_KIT_CAMERA", "WEAPON_MOONSHINEJUG", "WEAPON_MELEE_LANTERN_ELECTRIC", "WEAPON_MELEE_TORCH", "WEAPON_MELEE_BROKEN_SWORD", "WEAPON_FISHINGROD",
+	std::string weaponModels[] = { "WEAPON_KIT_CAMERA", "WEAPON_MOONSHINEJUG", "WEAPON_MELEE_LANTERN_ELECTRIC", "WEAPON_MELEE_TORCH", "WEAPON_MELEE_BROKEN_SWORD", "WEAPON_FISHINGROD",
 							"WEAPON_MELEE_HATCHET", "WEAPON_MELEE_CLEAVER", "WEAPON_MELEE_ANCIENT_HATCHET", "WEAPON_MELEE_HATCHET_VIKING", "WEAPON_MELEE_HATCHET_HEWING",
 							"WEAPON_MELEE_HATCHET_DOUBLE_BIT", "WEAPON_MELEE_HATCHET_DOUBLE_BIT_RUSTED", "WEAPON_MELEE_HATCHET_HUNTER", "WEAPON_MELEE_HATCHET_HUNTER_RUSTED",
 							"WEAPON_MELEE_KNIFE_JOHN", "WEAPON_MELEE_KNIFE", "WEAPON_MELEE_KNIFE_JAWBONE", "WEAPON_THROWN_THROWING_KNIVES", "WEAPON_MELEE_KNIFE_MINER", "WEAPON_MELEE_KNIFE_CIVIL_WAR",
@@ -379,20 +379,20 @@ void Actions::GivePlayerAllWeapons(json params)
 							"WEAPON_SHOTGUN_DOUBLEBARREL", "WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC", "WEAPON_SHOTGUN_PUMP", "WEAPON_SHOTGUN_REPEATING", "WEAPON_SHOTGUN_SAWEDOFF", "WEAPON_SHOTGUN_SEMIAUTO",
 							"WEAPON_BOW", "WEAPON_THROWN_DYNAMITE", "WEAPON_THROWN_MOLOTOV" };
 
-	string ammoTypes[] = { "AMMO_PISTOL", "AMMO_PISTOL_EXPRESS", "AMMO_PISTOL_HIGH_VELOCITY", "AMMO_PISTOL_SPLIT_POINT", "AMMO_PISTOL_EXPRESS_EXPLOSIVE", "AMMO_REVOLVER",
+	std::string ammoTypes[] = { "AMMO_PISTOL", "AMMO_PISTOL_EXPRESS", "AMMO_PISTOL_HIGH_VELOCITY", "AMMO_PISTOL_SPLIT_POINT", "AMMO_PISTOL_EXPRESS_EXPLOSIVE", "AMMO_REVOLVER",
 							"AMMO_REVOLVER_EXPRESS", "AMMO_REVOLVER_HIGH_VELOCITY", "AMMO_REVOLVER_SPLIT_POINT", "AMMO_REVOLVER_EXPRESS_EXPLOSIVE",
 							"AMMO_REPEATER", "AMMO_REPEATER_EXPRESS", "AMMO_REPEATER_HIGH_VELOCITY", "AMMO_REPEATER_SPLIT_POINT", "AMMO_REPEATER_EXPRESS_EXPLOSIVE", "AMMO_RIFLE",
 							"AMMO_RIFLE_EXPRESS", "AMMO_RIFLE_HIGH_VELOCITY", "AMMO_RIFLE_SPLIT_POINT", "AMMO_RIFLE_EXPRESS_EXPLOSIVE", "AMMO_RIFLE_VARMINT", "AMMO_SHOTGUN", "AMMO_SHOTGUN_SLUG",
 							"AMMO_SHOTGUN_BUCKSHOT_INCENDIARY", "AMMO_SHOTGUN_EXPRESS_EXPLOSIVE", "AMMO_ARROW", "AMMO_ARROW_SMALL_GAME", "AMMO_ARROW_IMPROVED", "AMMO_ARROW_FIRE", "AMMO_ARROW_POISON", 
 							"AMMO_ARROW_DYNAMITE", "AMMO_THROWING_KNIVES", "AMMO_THROWING_KNIVES_IMPROVED", "AMMO_THROWING_KNIVES_POISON" };
 
-	for each (string ammoType in ammoTypes) {
+	for each (std::string ammoType in ammoTypes) {
 		Hash ammoTypeHash = String::Hash(ammoType);
 
 		player.ped.SetAmmoByType(ammoTypeHash, 9999);
 	}
 
-	for each (string weapon in weaponModels) {
+	for each (std::string weapon in weaponModels) {
 		player.ped.GiveWeapon(String::Hash(weapon));
 		player.ped.SetAmmo(String::Hash(weapon), 9999);
 	}
@@ -409,7 +409,7 @@ void Actions::GivePlayerWeapon(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string weaponModel = params[0].get<string>();
+	std::string weaponModel = params[0].get<std::string>();
 	Hash weaponHash = String::Hash(weaponModel);
 	
 	Player().ped.GiveWeapon(weaponHash);
@@ -474,7 +474,7 @@ void Actions::GivePlayerMAaxAmmoOfType(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string ammoType = params[0];
+	std::string ammoType = params[0];
 	Hash ammoTypeHash = String::Hash(ammoType);
 
 	if (ammoType == "ammo_repeater_explosive_nearc") {
@@ -495,7 +495,7 @@ void Actions::SetWeather(json params)
 		Game::PrintSubtitle("Error: Invalid parameters");
 		return;
 	}
-	string weather = params[0].get<string>();
+	std::string weather = params[0].get<std::string>();
 	Game::SetWeather(String::Hash(weather));
 }
 

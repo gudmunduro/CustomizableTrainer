@@ -17,6 +17,6 @@ protected:
 
 	MenuOption optionToAdd;
 	std::vector<MenuOptionParameter> parameters;
-	string title;
+	std::string title;
 };
 

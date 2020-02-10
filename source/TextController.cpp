@@ -14,14 +14,14 @@
 
 #pragma region Manage
 
-void TextController::RegisterText(string key, std::vector<string> values, std::function<void(int from, int to)> onChange)
+void TextController::RegisterText(std::string key, std::vector<std::string> values, std::function<void(int from, int to)> onChange)
 {
 	textValues[key] = values;
 	textValueIndexes[key] = 0;
 	onTextChangeActions[key] = onChange;
 }
 
-void TextController::SetTextValueForKey(string key, int value)
+void TextController::SetTextValueForKey(std::string key, int value)
 {
 	textValueIndexes[key] = value;
 }
@@ -32,7 +32,7 @@ void TextController::RegisterTexts()
 	RegisterText("text_snowCoverageType", Texts::snowCoverageType, Texts::OnSnowCoverageTypeChange);
 }
 
-void TextController::Adjust(string key, bool direction)
+void TextController::Adjust(std::string key, bool direction)
 {
 	if (TextExistsForKey(key)) {
 		int* index = &textValueIndexes[key];
@@ -55,12 +55,12 @@ void TextController::Adjust(string key, bool direction)
 
 #pragma region Booleans
 
-bool TextController::TextExistsForKey(string key)
+bool TextController::TextExistsForKey(std::string key)
 {
 	return textValues.count(key) > 0;
 }
 
-bool TextController::OnTextChangeActionExistsForKey(string key)
+bool TextController::OnTextChangeActionExistsForKey(std::string key)
 {
 	return onTextChangeActions.count(key) > 0;
 }
@@ -69,7 +69,7 @@ bool TextController::OnTextChangeActionExistsForKey(string key)
 
 #pragma region Getters
 
-string TextController::GetTextValueForKey(string key)
+std::string TextController::GetTextValueForKey(std::string key)
 {
 	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
 		return "Invalid";
@@ -77,7 +77,7 @@ string TextController::GetTextValueForKey(string key)
 	return textValues[key][textValueIndexes[key]];
 }
 
-int TextController::GetTextValueIndexForKey(string key)
+int TextController::GetTextValueIndexForKey(std::string key)
 {
 	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
 		return 0;
@@ -85,14 +85,14 @@ int TextController::GetTextValueIndexForKey(string key)
 	return textValueIndexes[key];
 }
 
-std::function<void(int from, int to)> TextController::GetTextChangActionForKey(string key)
+std::function<void(int from, int to)> TextController::GetTextChangActionForKey(std::string key)
 {
 	return onTextChangeActions[key];
 }
 
-std::vector<string> TextController::Keys()
+std::vector<std::string> TextController::Keys()
 {
-	std::vector<string> keys;
+	std::vector<std::string> keys;
 	std::transform(std::begin(textValues), std::end(textValues), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;

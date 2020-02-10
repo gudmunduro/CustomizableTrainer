@@ -15,32 +15,32 @@
 
 #pragma region Manange
 
-void NumberController::RegisterNumber(string key, int* number, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumber(std::string key, int* number, std::function<void(bool direction)> adjuster)
 {
 	numbersInt[key] = number;
 	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
 }
 
-void NumberController::RegisterNumber(string key, float* number, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumber(std::string key, float* number, std::function<void(bool direction)> adjuster)
 {
 	numbersFloat[key] = number;
 	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
 }
 
-void NumberController::RegisterNumberGetter(string key, std::function<string()> getter, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumberGetter(std::string key, std::function<std::string()> getter, std::function<void(bool direction)> adjuster)
 {
 	numberGetters[key] = getter;
 	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
 }
 
-void NumberController::Adjust(string key, bool direction)
+void NumberController::Adjust(std::string key, bool direction)
 {
 	if (DoesNumberAdjusterExistForKey(key)) {
 		GetNumberAdjusterForKey(key)(direction);
 	}
 }
 
-void NumberController::SetNumberValueForKey(string key, string value)
+void NumberController::SetNumberValueForKey(std::string key, std::string value)
 {
 	try {
 		if (DoesNumberFloatVariableExistForKey(key)) {
@@ -90,32 +90,32 @@ void NumberController::RegisterNumbers()
 
 #pragma region Booleans
 
-bool NumberController::DoesNumberExistForKey(string key)
+bool NumberController::DoesNumberExistForKey(std::string key)
 {
 	return DoesNumberVariableExistForKey(key) || DoesNumberGetterExistForKey(key);
 }
 
-bool NumberController::DoesNumberVariableExistForKey(string key)
+bool NumberController::DoesNumberVariableExistForKey(std::string key)
 {
 	return DoesNumberFloatVariableExistForKey(key) || DoesNumberIntVariableExistForKey(key);
 }
 
-bool NumberController::DoesNumberIntVariableExistForKey(string key)
+bool NumberController::DoesNumberIntVariableExistForKey(std::string key)
 {
 	return numbersInt.count(key) > 0;
 }
 
-bool NumberController::DoesNumberFloatVariableExistForKey(string key)
+bool NumberController::DoesNumberFloatVariableExistForKey(std::string key)
 {
 	return numbersFloat.count(key) > 0;
 }
 
-bool NumberController::DoesNumberGetterExistForKey(string key)
+bool NumberController::DoesNumberGetterExistForKey(std::string key)
 {
 	return numberGetters.count(key) > 0;
 }
 
-bool NumberController::DoesNumberAdjusterExistForKey(string key)
+bool NumberController::DoesNumberAdjusterExistForKey(std::string key)
 {
 	return numberAdjusters.count(key) > 0;
 }
@@ -124,9 +124,9 @@ bool NumberController::DoesNumberAdjusterExistForKey(string key)
 
 #pragma region Getters
 
-string NumberController::GetNumberStringValueForKey(string key)
+std::string NumberController::GetNumberStringValueForKey(std::string key)
 {
-	string value;
+	std::string value;
 
 	if (DoesNumberFloatVariableExistForKey(key)) {
 		std::stringstream stream;
@@ -146,14 +146,14 @@ string NumberController::GetNumberStringValueForKey(string key)
 	return value;
 }
 
-std::function<void(bool direction)> NumberController::GetNumberAdjusterForKey(string key)
+std::function<void(bool direction)> NumberController::GetNumberAdjusterForKey(std::string key)
 {
 	return numberAdjusters[key];
 }
 
-std::vector<string> NumberController::Keys()
+std::vector<std::string> NumberController::Keys()
 {
-	std::vector<string> keys;
+	std::vector<std::string> keys;
 	std::transform(std::begin(numbersFloat), std::end(numbersFloat), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;

@@ -164,7 +164,7 @@ void Controls::Tick()
 	shouldCancelForThisFrame = false;
 }
 
-string Controls::GeyStringValueForKey(int key)
+std::string Controls::GeyStringValueForKey(int key)
 {
 	if (key == 0) return "None";
 	UINT scanCode = MapVirtualKey(key, MAPVK_VK_TO_VSC);
@@ -193,7 +193,7 @@ string Controls::GeyStringValueForKey(int key)
 	return szName;
 }
 
-string Controls::GetStringValueForControl(Hash control)
+std::string Controls::GetStringValueForControl(Hash control)
 {
 	switch (control) {
 		case 0: return "None";
@@ -229,7 +229,7 @@ string Controls::GetStringValueForControl(Hash control)
 	}
 }
 
-string Controls::ControlStringFromHash(Hash control)
+std::string Controls::ControlStringFromHash(Hash control)
 {
 	switch (control) {
 		case 97156178: return "INPUT_FRONTEND_DOWN";

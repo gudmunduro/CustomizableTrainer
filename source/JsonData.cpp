@@ -18,7 +18,7 @@
 
 #pragma region Core functions
 
-string ReadFile(string path)
+std::string ReadFile(std::string path)
 {
 	if (!std::filesystem::exists(path)) throw std::exception("File doesn't exist");
 
@@ -29,16 +29,16 @@ string ReadFile(string path)
 	return fileContent;
 }
 
-void WriteFile(string path, string content)
+void WriteFile(std::string path, std::string content)
 {
 	std::ofstream file(path);
 	file << content;
 	file.close();
 }
 
-json LoadJSONFile(string path)
+json LoadJSONFile(std::string path)
 {
-	string jsonFileContent = ReadFile(path);
+	std::string jsonFileContent = ReadFile(path);
 	if (jsonFileContent == "") throw std::exception("File empty");
 	return json::parse(jsonFileContent);
 }
@@ -49,17 +49,17 @@ json LoadJSONFile(string path)
 
 // layout.json
 
-std::map<string, SubmenuData> JSONData::GetLayoutAsMap()
+std::map<std::string, SubmenuData> JSONData::GetLayoutAsMap()
 {
 	try {
 		json layoutData = LoadJSONFile("CustomizableTrainer\\layout.json");
-		std::map<string, SubmenuData> layoutDataMap;
+		std::map<std::string, SubmenuData> layoutDataMap;
 
 		for (auto& submenu : layoutData) {
 
-			string key = submenu["key"].get<string>();
+			std::string key = submenu["key"].get<std::string>();
 			SubmenuData submenuData = {
-				submenu["title"].get<string>(),
+				submenu["title"].get<std::string>(),
 				key,
 				{}
 			};
@@ -67,17 +67,17 @@ std::map<string, SubmenuData> JSONData::GetLayoutAsMap()
 			for (auto& option : submenu["options"]) {
 
 				MenuOptionType menuOptionType;
-				if (option["type"].get<string>() == "sub") menuOptionType = MenuOptionType::Sub;
-				else if (option["type"].get<string>() == "action") menuOptionType = MenuOptionType::Action;
-				else if (option["type"].get<string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
-				else if (option["type"].get<string>() == "number") menuOptionType = MenuOptionType::Number;
-				else if (option["type"].get<string>() == "text") menuOptionType = MenuOptionType::Text;
+				if (option["type"].get<std::string>() == "sub") menuOptionType = MenuOptionType::Sub;
+				else if (option["type"].get<std::string>() == "action") menuOptionType = MenuOptionType::Action;
+				else if (option["type"].get<std::string>() == "toggle") menuOptionType = MenuOptionType::Toggle;
+				else if (option["type"].get<std::string>() == "number") menuOptionType = MenuOptionType::Number;
+				else if (option["type"].get<std::string>() == "text") menuOptionType = MenuOptionType::Text;
 				else menuOptionType = MenuOptionType::Action;
 
 				submenuData.options.push_back({
 					menuOptionType,
-					option["text"].get<string>(),
-					option["key"].get<string>(),
+					option["text"].get<std::string>(),
+					option["key"].get<std::string>(),
 					option.contains("params") ? option["params"] : json::array()
 				});
 			}
@@ -89,7 +89,7 @@ std::map<string, SubmenuData> JSONData::GetLayoutAsMap()
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse layout.json");
 	}
-	return std::map<string, SubmenuData>();
+	return std::map<std::string, SubmenuData>();
 }
 
 // optionStates.json
@@ -101,23 +101,23 @@ void JSONData::UpdateOptionStates()
 
 		for each (auto optionState in data["optionStates"]) {
 			MenuOptionType type;
-			string key = optionState["key"].get<string>();
+			std::string key = optionState["key"].get<std::string>();
 
-			if (optionState["type"].get<string>() == "toggle") {
+			if (optionState["type"].get<std::string>() == "toggle") {
 				type = MenuOptionType::Toggle;
 
 				bool value = optionState["value"].get<bool>();
 				ToggleController::SetToggleValueForKey(key, value);
 			}
-			else if (optionState["type"].get<string>() == "number") {
+			else if (optionState["type"].get<std::string>() == "number") {
 				type = MenuOptionType::Number;
 
-				string value = optionState["value"].get<string>();
+				std::string value = optionState["value"].get<std::string>();
 				if (NumberController::DoesNumberExistForKey(key)) {
 					NumberController::SetNumberValueForKey(key, value);
 				}
 			}
-			else if (optionState["type"].get<string>() == "text") {
+			else if (optionState["type"].get<std::string>() == "text") {
 				type = MenuOptionType::Text;
 
 				int value = optionState["value"].get<int>();
@@ -190,27 +190,27 @@ void JSONData::UpdateMenuSettings()
 		
 		// Controller controls
 		json controllerControls = settingsData["controls"]["controller"];
-		MenuSettings::ControllerMenuOpen = String::Hash(controllerControls["menuOpen"].get<string>());
-		MenuSettings::ControllerMenuOpenModifier = String::Hash(controllerControls["menuOpenModifier"].get<string>());
-		MenuSettings::ControllerMenuOptionPress = String::Hash(controllerControls["menuOptionPress"].get<string>());
-		MenuSettings::ControllerMenuUp = String::Hash(controllerControls["menuUp"].get<string>());
-		MenuSettings::ControllerMenuDown = String::Hash(controllerControls["menuDown"].get<string>());
-		MenuSettings::ControllerMenuBack = String::Hash(controllerControls["menuBack"].get<string>());
-		MenuSettings::ControllerMenuAdjustValueDown = String::Hash(controllerControls["menuAdjustValueDown"].get<string>());
-		MenuSettings::ControllerMenuAdjustValueUp = String::Hash(controllerControls["menuAdjustValueUp"].get<string>());
-		MenuSettings::ControllerMenuEditModeEnter = String::Hash(controllerControls["menuEditModeEnter"].get<string>());
-		MenuSettings::ControllerMenuEditModeExit = String::Hash(controllerControls["menuEditModeExit"].get<string>());
-		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<string>());
-		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<string>());
-		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<string>());
-		MenuSettings::ControllerMenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<string>());
-		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<string>());
-		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<string>());
-		MenuSettings::ControllerBoatFlyModeAccelerate = String::Hash(controllerControls["boatFlyModeAccelerate"].get<string>());
-		MenuSettings::ControllerBoatFlyModeDecelerate = String::Hash(controllerControls["boatFlyModeDecelerate"].get<string>());
-		MenuSettings::ControllerBoatFlyModeFlyUp = String::Hash(controllerControls["boatFlyModeFlyUp"].get<string>());
-		MenuSettings::ControllerBoatFlyModeYawLeft = String::Hash(controllerControls["boatFlyModeYawLeft"].get<string>());
-		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<string>());
+		MenuSettings::ControllerMenuOpen = String::Hash(controllerControls["menuOpen"].get<std::string>());
+		MenuSettings::ControllerMenuOpenModifier = String::Hash(controllerControls["menuOpenModifier"].get<std::string>());
+		MenuSettings::ControllerMenuOptionPress = String::Hash(controllerControls["menuOptionPress"].get<std::string>());
+		MenuSettings::ControllerMenuUp = String::Hash(controllerControls["menuUp"].get<std::string>());
+		MenuSettings::ControllerMenuDown = String::Hash(controllerControls["menuDown"].get<std::string>());
+		MenuSettings::ControllerMenuBack = String::Hash(controllerControls["menuBack"].get<std::string>());
+		MenuSettings::ControllerMenuAdjustValueDown = String::Hash(controllerControls["menuAdjustValueDown"].get<std::string>());
+		MenuSettings::ControllerMenuAdjustValueUp = String::Hash(controllerControls["menuAdjustValueUp"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeEnter = String::Hash(controllerControls["menuEditModeEnter"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeExit = String::Hash(controllerControls["menuEditModeExit"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<std::string>());
+		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<std::string>());
+		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<std::string>());
+		MenuSettings::ControllerBoatFlyModeAccelerate = String::Hash(controllerControls["boatFlyModeAccelerate"].get<std::string>());
+		MenuSettings::ControllerBoatFlyModeDecelerate = String::Hash(controllerControls["boatFlyModeDecelerate"].get<std::string>());
+		MenuSettings::ControllerBoatFlyModeFlyUp = String::Hash(controllerControls["boatFlyModeFlyUp"].get<std::string>());
+		MenuSettings::ControllerBoatFlyModeYawLeft = String::Hash(controllerControls["boatFlyModeYawLeft"].get<std::string>());
+		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<std::string>());
 	}
 	catch (const std::exception & e) {
 		// Game::PrintSubtitle("Error: Failed to parse settings.json");
@@ -228,18 +228,18 @@ std::vector<Hotkey> JSONData::GetHotkeysAsVector()
 
 		for each (auto hotkeyData in hotkeys) {
 			MenuOptionType optionType;
-			if (hotkeyData["type"].get<string>() == "sub") optionType = MenuOptionType::Sub;
-			else if (hotkeyData["type"].get<string>() == "action") optionType = MenuOptionType::Action;
-			else if (hotkeyData["type"].get<string>() == "toggle") optionType = MenuOptionType::Toggle;
-			else if (hotkeyData["type"].get<string>() == "number") optionType = MenuOptionType::Number;
+			if (hotkeyData["type"].get<std::string>() == "sub") optionType = MenuOptionType::Sub;
+			else if (hotkeyData["type"].get<std::string>() == "action") optionType = MenuOptionType::Action;
+			else if (hotkeyData["type"].get<std::string>() == "toggle") optionType = MenuOptionType::Toggle;
+			else if (hotkeyData["type"].get<std::string>() == "number") optionType = MenuOptionType::Number;
 
 			hotkeyVec.push_back({
-				hotkeyData["name"].get<string>(),
+				hotkeyData["name"].get<std::string>(),
 				hotkeyData["keyboardKey"].get<int>(),
 				hotkeyData["controllerControl"].get<Hash>(),
 				hotkeyData["controllerControlModifier"].get<Hash>(),
 				optionType,
-				hotkeyData["key"].get<string>(),
+				hotkeyData["key"].get<std::string>(),
 				hotkeyData["action"].get<int>(),
 				hotkeyData["value"]
 			});
@@ -255,12 +255,12 @@ std::vector<Hotkey> JSONData::GetHotkeysAsVector()
 
 // weapons.json
 
-std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
+std::vector<std::pair<std::string, std::vector<WeaponData>>> JSONData::GetWeapons()
 {
 	try {
 		json weapons = LoadJSONFile("CustomizableTrainer\\weapons.json");
 
-		std::vector<std::pair<string, std::vector<WeaponData>>> weaponData;
+		std::vector<std::pair<std::string, std::vector<WeaponData>>> weaponData;
 
 		for each (auto && weaponCat in weapons) {
 
@@ -268,8 +268,8 @@ std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 
 			for each (auto && weapon in weaponCat["weapons"]) {
 				weaponCatVec.push_back({
-					weapon["name"].get<string>(),
-					weapon["model"].get<string>()
+					weapon["name"].get<std::string>(),
+					weapon["model"].get<std::string>()
 				});
 			}
 
@@ -282,7 +282,7 @@ std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 		Game::PrintSubtitle("Failed to parse weapons.json");
 	}
 
-	return std::vector<std::pair<string, std::vector<WeaponData>>>();
+	return std::vector<std::pair<std::string, std::vector<WeaponData>>>();
 }
 
 #pragma endregion
@@ -291,7 +291,7 @@ std::vector<std::pair<string, std::vector<WeaponData>>> JSONData::GetWeapons()
 
 // layout.json
 
-void JSONData::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap)
+void JSONData::SaveLayoutFromMap(std::map<std::string, SubmenuData> submenuDataMap)
 {
 	json submenuDataArray = json::array();
 	int index = 0;
@@ -303,7 +303,7 @@ void JSONData::SaveLayoutFromMap(std::map<string, SubmenuData> submenuDataMap)
 		});
 
 		for each (auto && option in submenuData.options) {
-			string typeStringValue;
+			std::string typeStringValue;
 			switch (option.type) {
 			case MenuOptionType::Action:
 				typeStringValue = "action";
@@ -431,7 +431,7 @@ void JSONData::SaveHotkeys(std::vector<Hotkey> hotkeys)
 	try {
 		json hotkeyData = json::array();
 		for each (auto hotkey in hotkeys) {
-			string typeStringValue;
+			std::string typeStringValue;
 			switch (hotkey.type) {
 			case MenuOptionType::Action:
 				typeStringValue = "action";
@@ -478,8 +478,8 @@ void JSONData::SaveOptionStates()
 		optionStates["optionStates"] = json::array();
 
 		for each (auto optionToSave in MenuSettings::optionsToSave) {
-			string key = optionToSave.key;
-			string type;
+			std::string key = optionToSave.key;
+			std::string type;
 			json value;
 			switch (optionToSave.type)
 			{

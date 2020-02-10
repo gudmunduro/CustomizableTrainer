@@ -87,7 +87,7 @@ void SettingsEditAddHotkeySub::Draw()
 	// Option key
 	DrawTextAction("Key", hotkeyToEdit.key, [this] {
 		auto setKeySub = new AddOptionSetKeySub(hotkeyToEdit.type, menuController);
-		setKeySub->onKeySet = [this](string key) {
+		setKeySub->onKeySet = [this](std::string key) {
 			this->hotkeyToEdit.key = key;
 			this->hotkeyToEdit.value = "";
 			if (hotkeyToEdit.type == MenuOptionType::Action)
@@ -118,10 +118,10 @@ void SettingsEditAddHotkeySub::Draw()
 	if (hotkeyToEdit.type == MenuOptionType::Action && parameters.size() > 0) {
 		for (int i = 0; i < parameters.size(); i++) {
 			auto param = parameters[i];
-			string value;
+			std::string value;
 			switch (param.type) {
 			case MenuOptionParameterType::String:
-				value = hotkeyToEdit.value[i].get<string>();
+				value = hotkeyToEdit.value[i].get<std::string>();
 				break;
 			case MenuOptionParameterType::Int:
 				value = std::to_string(hotkeyToEdit.value[i].get<int>());
@@ -134,7 +134,7 @@ void SettingsEditAddHotkeySub::Draw()
 			DrawTextAction(param.name, value, [this, param, i]() {
 				switch (param.type) {
 				case MenuOptionParameterType::String:
-					hotkeyToEdit.value[i] = Game::GetInputWithKeyboard(hotkeyToEdit.value[i].get<string>());
+					hotkeyToEdit.value[i] = Game::GetInputWithKeyboard(hotkeyToEdit.value[i].get<std::string>());
 					break;
 				case MenuOptionParameterType::Float:
 					hotkeyToEdit.value[i] = std::stof(Game::GetInputWithKeyboard(std::to_string(hotkeyToEdit.value[i].get<float>())));
@@ -165,7 +165,7 @@ void SettingsEditAddHotkeySub::Draw()
 
 #pragma region Draw option
 
-void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
+void SettingsEditAddHotkeySub::DrawEditControl(std::string text, Hash *control)
 {
 	if (IsOutOfBounds(optionAddIndex + 1)) {
 		optionAddIndex++;
@@ -187,7 +187,7 @@ void SettingsEditAddHotkeySub::DrawEditControl(string text, Hash *control)
 	Game::DrawText(Controls::GetStringValueForControl(*control), { menuPos.x + 16.0f, CurrentOptionPosY() - 4.6f }, 25.0f, { 150, 150, 150, alpha });
 }
 
-void SettingsEditAddHotkeySub::DrawEditKey(string text, int *key)
+void SettingsEditAddHotkeySub::DrawEditKey(std::string text, int *key)
 {
 	if (IsOutOfBounds(optionAddIndex + 1)) {
 		optionAddIndex++;
@@ -274,7 +274,7 @@ void SettingsEditAddHotkeySub::RespondToControls()
 
 #pragma region Getters
 
-string SettingsEditAddHotkeySub::ActionString()
+std::string SettingsEditAddHotkeySub::ActionString()
 {
 	switch (hotkeyToEdit.type) {
 	case MenuOptionType::Toggle: return "Toggle action";
@@ -283,7 +283,7 @@ string SettingsEditAddHotkeySub::ActionString()
 	}
 }
 
-string SettingsEditAddHotkeySub::ActionValueString()
+std::string SettingsEditAddHotkeySub::ActionValueString()
 {
 	switch (hotkeyToEdit.type) {
 	case MenuOptionType::Toggle: 

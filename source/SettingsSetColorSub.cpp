@@ -13,7 +13,7 @@
 #include "JsonData.h"
 #include "Routine.h"
 
-SettingsSetColorSub::SettingsSetColorSub(string title, Color *colorToChange, MenuController* menuController) : Submenu(menuController)
+SettingsSetColorSub::SettingsSetColorSub(std::string title, Color *colorToChange, MenuController* menuController) : Submenu(menuController)
 {
 	this->title = title;
 	this->colorToChange = colorToChange;
@@ -33,7 +33,7 @@ void SettingsSetColorSub::Draw()
 	});
 }
 
-void SettingsSetColorSub::DrawColorValue(string text, int* color)
+void SettingsSetColorSub::DrawColorValue(std::string text, int* color)
 {
 	DrawNumber(text, std::to_string(*color), [color] {
 			try {

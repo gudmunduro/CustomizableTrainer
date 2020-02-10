@@ -43,7 +43,7 @@ void SettingsAddOptionToSaveSub::Draw()
 	});
 	DrawTextAction("Key >", savedOptionToAdd.key, [this] {
 		auto setKeySub = new AddOptionSetKeySub(savedOptionToAdd.type, menuController, true);
-		setKeySub->onKeySet = [this](string key) {
+		setKeySub->onKeySet = [this](std::string key) {
 			this->savedOptionToAdd.key = key;
 		};
 		menuController->AddSubmenuToStack(setKeySub);

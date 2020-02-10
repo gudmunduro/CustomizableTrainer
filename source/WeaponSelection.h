@@ -6,14 +6,14 @@ class WeaponSelectionCatSub
 	: public Submenu
 {
 public:
-	WeaponSelectionCatSub(MenuController* menuController, string catName, std::vector<WeaponData> weapons);
+	WeaponSelectionCatSub(MenuController* menuController, std::string catName, std::vector<WeaponData> weapons);
 
 	void Draw() override;
 
 	void RespondToControls() override;
 
 private:
-	string catName;
+	std::string catName;
 	std::vector<WeaponData> weapons;
 };
 
@@ -29,5 +29,5 @@ public:
 	void RespondToControls() override;
 
 private:
-	std::vector<std::pair<string, std::vector<WeaponData>>> weaponCats;
+	std::vector<std::pair<std::string, std::vector<WeaponData>>> weaponCats;
 };

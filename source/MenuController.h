@@ -21,26 +21,26 @@ public:
 	MenuController();
     void Tick();
 
-	void RegisterSubmenuData(string key, SubmenuData submenuData);
+	void RegisterSubmenuData(std::string key, SubmenuData submenuData);
 	void AddSubmenuToStack(Submenu* submenu);
 	void GoToLastSub();
 	void RespondToControls();
 
-	bool SubmenuExistsForKey(string key);
-	bool FixedSubmenuExistsForKey(string key);
+	bool SubmenuExistsForKey(std::string key);
+	bool FixedSubmenuExistsForKey(std::string key);
 
-	void SetSubmenuDataForKey(string key, SubmenuData submenuData);
-	void SetSubmenuWithKey(string key);
-	void UpdateSubmenuData(string key, SubmenuData submenuData);
+	void SetSubmenuDataForKey(std::string key, SubmenuData submenuData);
+	void SetSubmenuWithKey(std::string key);
+	void UpdateSubmenuData(std::string key, SubmenuData submenuData);
 
-	SubmenuData SubmenuDataForKey(string key);
-	Submenu* SubmenuForKey(string key);
-	std::vector<string> SubmenuKeys();
-	Submenu* FixedSubmenuForKey(string key);
+	SubmenuData SubmenuDataForKey(std::string key);
+	Submenu* SubmenuForKey(std::string key);
+	std::vector<std::string> SubmenuKeys();
+	Submenu* FixedSubmenuForKey(std::string key);
 
 	Vector2 position;
 	std::vector<Submenu*> submenuStack;
 	bool shouldDrawMenu;
 private:
-	std::map<string, SubmenuData> submenuDataMap;
+	std::map<std::string, SubmenuData> submenuDataMap;
 };

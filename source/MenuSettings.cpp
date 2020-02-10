@@ -11,7 +11,7 @@
 #include "pch.h"
 #include "MenuSettings.h"
 
-Color MenuSettings::colorFromHex(string hexValue)
+Color MenuSettings::colorFromHex(std::string hexValue)
 {
 	int hexValueInt = std::stoi(hexValue);
 	return {

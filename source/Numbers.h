@@ -31,8 +31,8 @@ namespace Numbers {
 
 #pragma region Numbers (Getters)
 
-	string GetCurrentHour();
-	string GetCurrentMinute();
+	std::string GetCurrentHour();
+	std::string GetCurrentMinute();
 
 #pragma endregion
 

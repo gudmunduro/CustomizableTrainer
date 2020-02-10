@@ -58,7 +58,7 @@ void SettingsControlsControllerSub::Draw()
 	DrawEditControl("Boat fly mode yaw right", &MenuSettings::ControllerBoatFlyModeYawRight);
 }
 
-void SettingsControlsControllerSub::DrawEditControl(string text, Hash* control)
+void SettingsControlsControllerSub::DrawEditControl(std::string text, Hash* control)
 {
 	if (IsOutOfBounds(optionAddIndex + 1)) {
 		optionAddIndex++;

@@ -14,14 +14,14 @@
 class ActionController
 {
 public:
-	static void RegisterAction(string key, std::function<void(json params)> action);
+	static void RegisterAction(std::string key, std::function<void(json params)> action);
 	static void RegisterActions();
-	static void RunActionForKey(string key, json params);
-	static bool ActionExistsForKey(string key);
-	static std::function<void (json params)> GetActionForKey(string key);
-	static std::vector<string> Keys();
-	static std::vector<MenuOptionParameter> GetParameterForKey(string key);
+	static void RunActionForKey(std::string key, json params);
+	static bool ActionExistsForKey(std::string key);
+	static std::function<void (json params)> GetActionForKey(std::string key);
+	static std::vector<std::string> Keys();
+	static std::vector<MenuOptionParameter> GetParameterForKey(std::string key);
 private:
-	static inline std::map<string, std::function<void(json params)>> actions;
+	static inline std::map<std::string, std::function<void(json params)>> actions;
 };
 

@@ -49,7 +49,7 @@ void MenuController::Tick()
 
 #pragma region Manange submenu stack
 
-void MenuController::RegisterSubmenuData(string key, SubmenuData submenuData)
+void MenuController::RegisterSubmenuData(std::string key, SubmenuData submenuData)
 {
 	submenuDataMap[key] = submenuData;
 }
@@ -108,12 +108,12 @@ void MenuController::RespondToControls()
 
 #pragma region Booleans
 
-bool MenuController::SubmenuExistsForKey(string key)
+bool MenuController::SubmenuExistsForKey(std::string key)
 {
 	return submenuDataMap.count(key) > 0;
 }
 
-bool MenuController::FixedSubmenuExistsForKey(string key)
+bool MenuController::FixedSubmenuExistsForKey(std::string key)
 {
 	return FixedSubmenuForKey(key) != nullptr;
 }
@@ -122,11 +122,11 @@ bool MenuController::FixedSubmenuExistsForKey(string key)
 
 #pragma region Setters
 
-void MenuController::SetSubmenuDataForKey(string key, SubmenuData submenuData) {
+void MenuController::SetSubmenuDataForKey(std::string key, SubmenuData submenuData) {
 	submenuDataMap[key] = submenuData;
 }
 
-void MenuController::SetSubmenuWithKey(string key)
+void MenuController::SetSubmenuWithKey(std::string key)
 {
 	if (SubmenuExistsForKey(key)) {
 		Submenu* submenu = SubmenuForKey(key);
@@ -141,7 +141,7 @@ void MenuController::SetSubmenuWithKey(string key)
 	}
 }
 
-void MenuController::UpdateSubmenuData(string key, SubmenuData submenuData)
+void MenuController::UpdateSubmenuData(std::string key, SubmenuData submenuData)
 {
 	for each (auto option in submenuData.options) {
 		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !FixedSubmenuExistsForKey(option.key)) { // Add submenu if it does not exist
@@ -164,18 +164,18 @@ void MenuController::UpdateSubmenuData(string key, SubmenuData submenuData)
 
 #pragma region Getters
 
-SubmenuData MenuController::SubmenuDataForKey(string key) 
+SubmenuData MenuController::SubmenuDataForKey(std::string key) 
 {
 	return submenuDataMap[key];
 }
-Submenu* MenuController::SubmenuForKey(string submenuKey)
+Submenu* MenuController::SubmenuForKey(std::string submenuKey)
 {
 	return new DynamicSubmenu(SubmenuDataForKey(submenuKey), this);
 }
 
-std::vector<string> MenuController::SubmenuKeys()
+std::vector<std::string> MenuController::SubmenuKeys()
 {
-	std::vector<string> keys;
+	std::vector<std::string> keys;
 	std::transform(std::begin(submenuDataMap), std::end(submenuDataMap), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;
@@ -188,7 +188,7 @@ std::vector<string> MenuController::SubmenuKeys()
 	return keys;
 }
 
-Submenu* MenuController::FixedSubmenuForKey(string key)
+Submenu* MenuController::FixedSubmenuForKey(std::string key)
 {
 	if (key == "builtin_sub_pedSpawner") {
 		return new PedSpawnerSub(this);

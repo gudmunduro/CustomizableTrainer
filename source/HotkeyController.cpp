@@ -74,7 +74,7 @@ void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 			Game::PrintSubtitle("Error: Hotkey number value is invalid");
 			return;
 		}
-		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value.get<string>());
+		NumberController::SetNumberValueForKey(hotkey.key, hotkey.value.get<std::string>());
 		break;
 	}
 }

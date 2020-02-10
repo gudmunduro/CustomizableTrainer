@@ -13,19 +13,19 @@ public:
 
 protected:
 	void Draw() override;
-	void DrawEditControl(string text, Hash* control);
-	void DrawEditKey(string text, int* key);
+	void DrawEditControl(std::string text, Hash* control);
+	void DrawEditKey(std::string text, int* key);
 
 	void OnValueOptionPress();
 	void SubWillDraw() override;
 
 	void RespondToControls();
 
-	string ActionString();
-	string ActionValueString();
+	std::string ActionString();
+	std::string ActionValueString();
 	void UpdateActionParameters();
 
-	string title;
+	std::string title;
 	Hotkey hotkeyToEdit;
 	Hotkey *hotkeyToSaveTo;
 	bool isEditingControllerControl = false;

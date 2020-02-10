@@ -15,8 +15,8 @@
 class SpawnerPed
 {
 public:
-	inline SpawnerPed(string name, Ped ped) : name(name), ped(ped) {};
-	string name;
+	inline SpawnerPed(std::string name, Ped ped) : name(name), ped(ped) {};
+	std::string name;
 	Ped ped;
 	bool isBodyGuard = false;
 	bool isInvincible = false;
@@ -25,7 +25,7 @@ public:
 class PedSpawner
 {
 public:
-	static void Spawn(string name, string model);
+	static void Spawn(std::string name, std::string model);
 
 	static void SetCurrentPedIndex(int index);
 

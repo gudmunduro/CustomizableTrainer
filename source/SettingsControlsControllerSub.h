@@ -11,7 +11,7 @@ public:
 
 protected:
 	void Draw() override;
-	void DrawEditControl(string text, Hash* control);
+	void DrawEditControl(std::string text, Hash* control);
 
 	void SubWillDraw() override;
 

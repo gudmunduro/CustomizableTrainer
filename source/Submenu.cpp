@@ -75,7 +75,7 @@ void Submenu::Draw()
 
 #pragma region Draw Title/option
 
-void Submenu::DrawTitle(string text) 
+void Submenu::DrawTitle(std::string text) 
 {
 	auto menuPos = menuController->position;
 
@@ -83,7 +83,7 @@ void Submenu::DrawTitle(string text)
 	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, MenuSettings::titleBarBorderColor);
 }
 
-void Submenu::DrawOptionBase(string text, bool selected)
+void Submenu::DrawOptionBase(std::string text, bool selected)
 {
 	auto menuPos = menuController->position;
 	auto optionTextColor = selected ? MenuSettings::optionSelectedTextColor : MenuSettings::optionTextColor;
@@ -95,7 +95,7 @@ void Submenu::DrawOptionBase(string text, bool selected)
 	Game::DrawSprite("generic_textures", "selection_box_bg_1c", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 19.3f, 4.0f }, 0, optionBgColor);
 }
 
-void Submenu::DrawLabel(string text)
+void Submenu::DrawLabel(std::string text)
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -106,7 +106,7 @@ void Submenu::DrawLabel(string text)
 	OptionDidDraw();
 }
 
-void Submenu::DrawSub(string text, string subKey, bool enabled) 
+void Submenu::DrawSub(std::string text, std::string subKey, bool enabled) 
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -124,7 +124,7 @@ void Submenu::DrawSub(string text, string subKey, bool enabled)
 	OptionDidDraw();
 }
 
-void Submenu::DrawAction(string text, std::function<void()> onPress) 
+void Submenu::DrawAction(std::string text, std::function<void()> onPress) 
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -142,7 +142,7 @@ void Submenu::DrawAction(string text, std::function<void()> onPress)
 	OptionDidDraw();
 }
 
-void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPress)
+void Submenu::DrawToggle(std::string text, bool isToggled, std::function<void()> onPress)
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -164,7 +164,7 @@ void Submenu::DrawToggle(string text, bool isToggled, std::function<void()> onPr
 	OptionDidDraw();
 }
 
-void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust)
+void Submenu::DrawNumber(std::string text, std::string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust)
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -194,7 +194,7 @@ void Submenu::DrawNumber(string text, string numberToDisplay, std::function<void
 	OptionDidDraw();
 }
 
-void Submenu::DrawTextList(string text, string valueToDisplay, std::function<void(bool direction)> onAdjust)
+void Submenu::DrawTextList(std::string text, std::string valueToDisplay, std::function<void(bool direction)> onAdjust)
 {
 	optionAddIndex++;
 	if (IsOutOfBounds(optionAddIndex)) return;
@@ -220,7 +220,7 @@ void Submenu::DrawTextList(string text, string valueToDisplay, std::function<voi
 	OptionDidDraw();
 }
 
-void Submenu::DrawTextAction(string text, string value, std::function<void()> onPress)
+void Submenu::DrawTextAction(std::string text, std::string value, std::function<void()> onPress)
 {
 	auto menuPos = menuController->position;
 
@@ -389,7 +389,7 @@ float Submenu::CurrentOptionPosY() {
 	return menuPos.y + 8.6f + (4.7f * (float) drawIndex);
 }
 
-string Submenu::OptionTypeToString(MenuOptionType type)
+std::string Submenu::OptionTypeToString(MenuOptionType type)
 {
 	switch (type) {
 	case MenuOptionType::Action:

@@ -5,13 +5,13 @@ class SettingsSetColorSub :
 	public Submenu
 {
 public:
-	SettingsSetColorSub(string title, Color *colorToChange, MenuController *menuController);
+	SettingsSetColorSub(std::string title, Color *colorToChange, MenuController *menuController);
 
 protected:
 	void Draw() override;
-	void DrawColorValue(string text, int* color);
+	void DrawColorValue(std::string text, int* color);
 
-	string title;
+	std::string title;
 	Color* colorToChange;
 };
 

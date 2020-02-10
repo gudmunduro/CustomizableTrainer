@@ -67,7 +67,7 @@ void DynamicSubmenu::DrawMenuBase()
 
 	// Edit mode indicator
 	if (isEditModeActive) {
-		string statusText = "";
+		std::string statusText = "";
 
 		if (isMoveOptionActive)
 			statusText = "Moving option";
@@ -82,12 +82,12 @@ void DynamicSubmenu::DrawMenuBase()
 
 #pragma region Draw option
 
-void DynamicSubmenu::DrawSub(string text, string subKey)
+void DynamicSubmenu::DrawSub(std::string text, std::string subKey)
 {
 	Submenu::DrawSub(text, subKey, !isEditModeActive);
 }
 
-void DynamicSubmenu::DrawAction(string text, string actionKey, json actionParams)
+void DynamicSubmenu::DrawAction(std::string text, std::string actionKey, json actionParams)
 {
 	Submenu::DrawAction(text, [this, actionKey, actionParams] () {
 		if (!isEditModeActive) {
@@ -96,7 +96,7 @@ void DynamicSubmenu::DrawAction(string text, string actionKey, json actionParams
 	});
 }
 
-void DynamicSubmenu::DrawToggle(string text, string toggleKey)
+void DynamicSubmenu::DrawToggle(std::string text, std::string toggleKey)
 {
 	if (!ToggleController::ToggleExistsForKey(toggleKey)) return;
 	bool isToggled = *ToggleController::GetToggleForKey(toggleKey);
@@ -109,14 +109,14 @@ void DynamicSubmenu::DrawToggle(string text, string toggleKey)
 	});
 }
 
-void DynamicSubmenu::DrawNumber(string text, string numberKey)
+void DynamicSubmenu::DrawNumber(std::string text, std::string numberKey)
 {
 	if (!NumberController::DoesNumberExistForKey(numberKey)) return;
-	string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey);
+	std::string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey);
 
 	Submenu::DrawNumber(text, numberStrValue, [this, numberKey, numberStrValue] {
 		if (!NumberController::DoesNumberVariableExistForKey(numberKey)) return;
-		string input = Game::GetInputWithKeyboard(numberStrValue);
+		std::string input = Game::GetInputWithKeyboard(numberStrValue);
 		NumberController::SetNumberValueForKey(numberKey, input);
 		SaveIfSavedOption(numberKey);
 	}, [this, numberKey](bool direction) {
@@ -126,10 +126,10 @@ void DynamicSubmenu::DrawNumber(string text, string numberKey)
 	});
 }
 
-void DynamicSubmenu::DrawTextList(string text, string textKey)
+void DynamicSubmenu::DrawTextList(std::string text, std::string textKey)
 {
 	if (!TextController::TextExistsForKey(textKey)) return;
-	string textValue = TextController::GetTextValueForKey(textKey);
+	std::string textValue = TextController::GetTextValueForKey(textKey);
 
 	Submenu::DrawTextList(text, textValue,
 		[this, textKey](bool direction) {
@@ -234,7 +234,7 @@ int DynamicSubmenu::OptionCount()
 
 #pragma region Booleans
 
-bool DynamicSubmenu::IsSavedOption(string key)
+bool DynamicSubmenu::IsSavedOption(std::string key)
 {
 	for each (auto optionToSave in MenuSettings::optionsToSave) {
 		if (optionToSave.key == key)
@@ -246,7 +246,7 @@ bool DynamicSubmenu::IsSavedOption(string key)
 
 #pragma endregion
 
-void DynamicSubmenu::SaveIfSavedOption(string key)
+void DynamicSubmenu::SaveIfSavedOption(std::string key)
 {
 	if (IsSavedOption(key))
 		JSONData::SaveOptionStates();

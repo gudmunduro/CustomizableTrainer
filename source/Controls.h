@@ -121,9 +121,9 @@ public:
 	static void CanceMenuControlslForThisFrame();
 	static void ClearHotkeysPressed();
 	static void Tick();
-	static string GeyStringValueForKey(int key);
-	static string GetStringValueForControl(Hash control);
-	static string ControlStringFromHash(Hash control);
+	static std::string GeyStringValueForKey(int key);
+	static std::string GetStringValueForControl(Hash control);
+	static std::string ControlStringFromHash(Hash control);
 private:
 	static inline bool shouldCancelForThisFrame = false;
 	static inline std::vector<DWORD> hotkeysPressed;

@@ -63,13 +63,13 @@ void EditAddOptionSub::Draw()
 	});
 	// Option text
 	DrawTextAction("Text", optionToAdd.text, [this]() {
-		string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
+		std::string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
 		optionToAdd.text = textInput;
 	});
 	// Option key
 	DrawTextAction(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, [this]() {
 		auto setKeySub = new AddOptionSetKeySub(optionToAdd.type, menuController);
-		setKeySub->onKeySet = [this](string key) {
+		setKeySub->onKeySet = [this](std::string key) {
 			this->optionToAdd.key = key;
 			this->optionToAdd.params = json::array();
 			UpdateParameters();
@@ -80,10 +80,10 @@ void EditAddOptionSub::Draw()
 	// Parameters
 	for (int i = 0; i < parameters.size(); i++) {
 		auto param = parameters[i];
-		string value;
+		std::string value;
 		switch (param.type) {
 		case MenuOptionParameterType::String:
-			value = optionToAdd.params[i].get<string>();
+			value = optionToAdd.params[i].get<std::string>();
 			break;
 		case MenuOptionParameterType::Int:
 			value = std::to_string(optionToAdd.params[i].get<int>());
@@ -96,7 +96,7 @@ void EditAddOptionSub::Draw()
 		DrawTextAction(param.name, value, [this, param, i]() {
 			switch (param.type) {
 			case MenuOptionParameterType::String:
-				optionToAdd.params[i] = Game::GetInputWithKeyboard(optionToAdd.params[i].get<string>());
+				optionToAdd.params[i] = Game::GetInputWithKeyboard(optionToAdd.params[i].get<std::string>());
 				break;
 			case MenuOptionParameterType::Float:
 				optionToAdd.params[i] = std::stof(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<float>())));

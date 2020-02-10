@@ -51,8 +51,8 @@ void AddOptionSetKeySub::Draw()
 	DrawTitle(OptionTypeToString(optionType));
 	// All keys
 	for (int i = 0; i < displayKeys.size(); i++) {
-		string displayKey = displayKeys[i];
-		string key = keys[i];
+		std::string displayKey = displayKeys[i];
+		std::string key = keys[i];
 
 		DrawAction(displayKey, [this, key]() {
 			OnKeySelect(key);
@@ -61,7 +61,7 @@ void AddOptionSetKeySub::Draw()
 	// Add submenu
 	if (optionType == MenuOptionType::Sub)
 		DrawAction("Add", [this]() {
-			string key = Game::GetInputWithKeyboard();
+			std::string key = Game::GetInputWithKeyboard();
 			if (key == "") return;
 
 			if (!key._Starts_with("sub_") && !key._Starts_with("required_sub_") && !key._Starts_with("builtin_sub_"))
@@ -75,7 +75,7 @@ void AddOptionSetKeySub::Draw()
 
 #pragma region Events
 
-void AddOptionSetKeySub::OnKeySelect(string key)
+void AddOptionSetKeySub::OnKeySelect(std::string key)
 {
 	if (onKeySet)
 		onKeySet(key);
@@ -87,8 +87,8 @@ void AddOptionSetKeySub::OnKeySelect(string key)
 
 void AddOptionSetKeySub::CreateDisplayKeys()
 {
-	for each (string key in keys) {
-		string displayKey = key.substr(key.find("_") + 1);
+	for each (std::string key in keys) {
+		std::string displayKey = key.substr(key.find("_") + 1);
 		if (displayKey._Starts_with("sub_")) displayKey = displayKey.substr(displayKey.find("_") + 1);
 
 		if (optionType == MenuOptionType::Number &&

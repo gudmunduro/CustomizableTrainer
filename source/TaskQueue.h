@@ -12,7 +12,7 @@
 #include "pch.h"
 
 struct TaskQueueTask {
-	string name;
+	std::string name;
 	int id;
 	std::function<void()> function;
 };
@@ -21,8 +21,8 @@ class TaskQueue
 {
 public:
 
-	static int AddTask(string name, std::function<void()> functionToExecute);
-	static void RemoveTask(string name);
+	static int AddTask(std::string name, std::function<void()> functionToExecute);
+	static void RemoveTask(std::string name);
 	static void RemoveTask(int id);
 
 	static void Wait(DWORD time);

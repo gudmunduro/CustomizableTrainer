@@ -14,12 +14,12 @@
 
 #pragma region Getters
 
-string Numbers::GetCurrentHour()
+std::string Numbers::GetCurrentHour()
 {
 	return std::to_string(TIME::GET_CLOCK_HOURS());
 }
 
-string Numbers::GetCurrentMinute()
+std::string Numbers::GetCurrentMinute()
 {
 	return std::to_string(TIME::GET_CLOCK_MINUTES());
 }

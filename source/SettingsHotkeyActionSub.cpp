@@ -57,7 +57,7 @@ void SettingsHotkeyActionSub::DrawNumberMenu()
 
 #pragma region Draw option
 
-void SettingsHotkeyActionSub::DrawActionSet(string text, int action) 
+void SettingsHotkeyActionSub::DrawActionSet(std::string text, int action) 
 {
 	DrawAction(text, [this, action] {
 		if (onActionSet)

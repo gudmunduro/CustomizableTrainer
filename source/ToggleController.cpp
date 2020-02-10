@@ -15,7 +15,7 @@
 
 #pragma region Setup
 
-void ToggleController::RegisterToggle(string key, bool *toggle, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterToggle(std::string key, bool *toggle, std::function<void(bool value)> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -26,7 +26,7 @@ void ToggleController::RegisterToggle(string key, bool *toggle, std::function<vo
 		toggleActions[key] = toggleAction;
 }
 
-void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterLoopedToggle(std::string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -38,7 +38,7 @@ void ToggleController::RegisterLoopedToggle(string key, bool* toggle, std::funct
 		toggleActions[key] = toggleAction;
 }
 
-void ToggleController::RegisterToggleAction(string key, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterToggleAction(std::string key, std::function<void(bool value)> toggleAction)
 {
 	if (toggleActions.count(key)) {
 		// Key already registered
@@ -47,7 +47,7 @@ void ToggleController::RegisterToggleAction(string key, std::function<void(bool 
 	toggleActions[key] = toggleAction;
 }
 
-void ToggleController::RegisterToggleLoop(string key, std::function<void()> toggleLoop)
+void ToggleController::RegisterToggleLoop(std::string key, std::function<void()> toggleLoop)
 {
 	if (toggleLoops.count(key)) {
 		// Key already registered
@@ -105,13 +105,13 @@ void ToggleController::RegisterToggles()
 
 #pragma region Manage
 
-void ToggleController::Toggle(string key)
+void ToggleController::Toggle(std::string key)
 {
 	auto toggle = GetToggleForKey(key);
 	ToggleController::SetToggleValueForKey(key, !(*toggle));
 }
 
-void ToggleController::SetToggleValueForKey(string key, bool value)
+void ToggleController::SetToggleValueForKey(std::string key, bool value)
 {
 	if (ToggleExistsForKey(key)) {
 		auto toggle = GetToggleForKey(key);
@@ -135,17 +135,17 @@ void ToggleController::SetToggleValueForKey(string key, bool value)
 	}
 }
 
-bool ToggleController::ToggleExistsForKey(string key)
+bool ToggleController::ToggleExistsForKey(std::string key)
 {
 	return toggles.count(key) != 0;
 }
 
-bool ToggleController::ToggleActionExistsForKey(string key)
+bool ToggleController::ToggleActionExistsForKey(std::string key)
 {
 	return toggleActions.count(key) != 0;
 }
 
-bool ToggleController::ToggleLoopExistsForKey(string key)
+bool ToggleController::ToggleLoopExistsForKey(std::string key)
 {
 	return toggleLoops.count(key) != 0;
 }
@@ -154,24 +154,24 @@ bool ToggleController::ToggleLoopExistsForKey(string key)
 
 #pragma region Getters
 
-bool *ToggleController::GetToggleForKey(string key)
+bool *ToggleController::GetToggleForKey(std::string key)
 {
 	return toggles[key];
 }
 
-std::function<void(bool value)> ToggleController::GetToggleActionForKey(string key)
+std::function<void(bool value)> ToggleController::GetToggleActionForKey(std::string key)
 {
 	return toggleActions[key];
 }
 
-std::function<void()> ToggleController::GetToggleLoopForKey(string key)
+std::function<void()> ToggleController::GetToggleLoopForKey(std::string key)
 {
 	return toggleLoops[key];
 }
 
-std::vector<string> ToggleController::Keys()
+std::vector<std::string> ToggleController::Keys()
 {
-	std::vector<string> keys;
+	std::vector<std::string> keys;
 	std::transform(std::begin(toggles), std::end(toggles), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;

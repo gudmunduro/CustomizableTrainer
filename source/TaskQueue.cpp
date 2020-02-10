@@ -13,7 +13,7 @@
 
 #pragma region Manange task
 
-int TaskQueue::AddTask(string name, std::function<void()> functionToExecute)
+int TaskQueue::AddTask(std::string name, std::function<void()> functionToExecute)
 {
 	int taskId = 0;
 	if (tasks.size() > 0)
@@ -28,7 +28,7 @@ int TaskQueue::AddTask(string name, std::function<void()> functionToExecute)
 	return taskId;
 }
 
-void TaskQueue::RemoveTask(string name)
+void TaskQueue::RemoveTask(std::string name)
 {
 	for (int i = 0; i < tasks.size(); i++)
 		if (tasks[i].name == name) {

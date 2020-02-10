@@ -12,7 +12,7 @@ protected:
 	void Draw() override;
 	void DrawToggleMenu();
 	void DrawNumberMenu();
-	void DrawActionSet(string text, int action);
+	void DrawActionSet(std::string text, int action);
 
 	MenuOptionType type;
 	std::function<void(int action)> onActionSet;

@@ -98,7 +98,7 @@ public:
 
 #pragma region Methods
 
-	static Color colorFromHex(string hexValue);
+	static Color colorFromHex(std::string hexValue);
 	static Color colorFromJSON(json color);
 	static json jsonFromColor(Color color);
 

@@ -15,7 +15,7 @@
 
 #pragma region Manange
 
-void ActionController::RegisterAction(string key, std::function<void(json params)> action)
+void ActionController::RegisterAction(std::string key, std::function<void(json params)> action)
 {
 	if (actions.count(key)) {
 		// Key already registered
@@ -80,7 +80,7 @@ void ActionController::RegisterActions()
 	// RegisterAction("action_test", Actions::TestAction);
 }
 
-void ActionController::RunActionForKey(string key, json params)
+void ActionController::RunActionForKey(std::string key, json params)
 {
 	if (ActionExistsForKey(key)) {
 		auto action = ActionController::GetActionForKey(key);
@@ -95,19 +95,19 @@ void ActionController::RunActionForKey(string key, json params)
 
 #pragma region Getters
 
-bool ActionController::ActionExistsForKey(string key)
+bool ActionController::ActionExistsForKey(std::string key)
 {
 	return actions.count(key) != 0;
 }
 
-std::function<void(json params)> ActionController::GetActionForKey(string key)
+std::function<void(json params)> ActionController::GetActionForKey(std::string key)
 {
 	return actions[key];
 }
 
-std::vector<string> ActionController::Keys()
+std::vector<std::string> ActionController::Keys()
 {
-	std::vector<string> keys;
+	std::vector<std::string> keys;
 	std::transform(std::begin(actions), std::end(actions), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;
@@ -115,9 +115,9 @@ std::vector<string> ActionController::Keys()
 	return keys;
 }
 
-std::vector<MenuOptionParameter> ActionController::GetParameterForKey(string key)
+std::vector<MenuOptionParameter> ActionController::GetParameterForKey(std::string key)
 {
-	std::map<string, std::vector<MenuOptionParameter>> parameters;
+	std::map<std::string, std::vector<MenuOptionParameter>> parameters;
 	parameters["action_setPlayerModel"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnHorse"] = { { { MenuOptionParameterType::String, "Model" } } };
 	parameters["action_spawnVehicle"] = { { { MenuOptionParameterType::String, "Model" } } };

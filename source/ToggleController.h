@@ -14,23 +14,23 @@
 class ToggleController
 {
 public:
-	static void RegisterToggle(string key, bool* toggle, std::function<void(bool value)> toggleAction = nullptr);
-	static void RegisterLoopedToggle(string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction = nullptr);
-	static void RegisterToggleAction(string key, std::function<void(bool value)> toggleAction);
-	static void RegisterToggleLoop(string key, std::function<void()> toggleLoop);
+	static void RegisterToggle(std::string key, bool* toggle, std::function<void(bool value)> toggleAction = nullptr);
+	static void RegisterLoopedToggle(std::string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction = nullptr);
+	static void RegisterToggleAction(std::string key, std::function<void(bool value)> toggleAction);
+	static void RegisterToggleLoop(std::string key, std::function<void()> toggleLoop);
 	static void RegisterToggles();
-	static void Toggle(string key);
-	static void SetToggleValueForKey(string key, bool value);
-	static bool ToggleExistsForKey(string key);
-	static bool ToggleActionExistsForKey(string key);
-	static bool ToggleLoopExistsForKey(string key);
-	static bool *GetToggleForKey(string key);
-	static std::function<void(bool value)> GetToggleActionForKey(string key);
-	static std::function<void()> GetToggleLoopForKey(string key);
-	static std::vector<string> Keys();
+	static void Toggle(std::string key);
+	static void SetToggleValueForKey(std::string key, bool value);
+	static bool ToggleExistsForKey(std::string key);
+	static bool ToggleActionExistsForKey(std::string key);
+	static bool ToggleLoopExistsForKey(std::string key);
+	static bool *GetToggleForKey(std::string key);
+	static std::function<void(bool value)> GetToggleActionForKey(std::string key);
+	static std::function<void()> GetToggleLoopForKey(std::string key);
+	static std::vector<std::string> Keys();
 private:
-	static inline std::map<string, bool*> toggles;
-	static inline std::map <string, std::function<void(bool value)>> toggleActions;
-	static inline std::map <string, std::function<void()>> toggleLoops;
+	static inline std::map<std::string, bool*> toggles;
+	static inline std::map <std::string, std::function<void(bool value)>> toggleActions;
+	static inline std::map <std::string, std::function<void()>> toggleLoops;
 };
 

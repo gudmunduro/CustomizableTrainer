@@ -11,7 +11,7 @@
 #include "pch.h"
 #include "ConfirmDialog.h"
 
-ConfirmDialog::ConfirmDialog(MenuController* menuController, string title, string text, string confirmText, string cancelText, std::function<void(bool confirmation)> onConfirm)
+ConfirmDialog::ConfirmDialog(MenuController* menuController, std::string title, std::string text, std::string confirmText, std::string cancelText, std::function<void(bool confirmation)> onConfirm)
 	: Submenu(menuController)
 {
 	this->title = title;

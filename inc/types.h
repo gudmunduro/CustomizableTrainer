@@ -44,7 +44,6 @@ typedef int TaskSequence;
 typedef int ColourIndex;
 typedef int Sphere;
 typedef int ScrHandle;
-typedef std::string string;
 
 #define ALIGN8 __declspec(align(8))
 
@@ -82,32 +81,32 @@ static_assert(sizeof(Vector3) == 24, "");
 struct MenuOption
 {
 	MenuOptionType type;
-	string text;
-	string key;
+	std::string text;
+	std::string key;
 	json params;
 };
 
 struct MenuOptionParameter 
 {
 	MenuOptionParameterType type;
-	string name;
+	std::string name;
 };
 
 struct SubmenuData
 {
-	string title;
-	string key;
+	std::string title;
+	std::string key;
 	std::vector<MenuOption> options;
 };
 
 struct Hotkey
 {
-	string name;
+	std::string name;
 	int keyboardKey;
 	Hash controllerControl;
 	Hash controllerControlModifier;
 	MenuOptionType type;
-	string key;
+	std::string key;
 	int action;
 	json value;
 };
@@ -119,12 +118,12 @@ struct NearbyEntities {
 
 struct OptionToSave {
 	MenuOptionType type;
-	string key;
+	std::string key;
 };
 
 struct WeaponData {
-	string name;
-	string model;
+	std::string name;
+	std::string model;
 };
 
 #pragma endregion

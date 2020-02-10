@@ -11,7 +11,7 @@ public:
 
 protected:
 	void Draw() override;
-	void DrawEditControl(string text, int* control);
+	void DrawEditControl(std::string text, int* control);
 	void SubWillDraw() override;
 	void RespondToControls() override;
 

@@ -40,7 +40,7 @@ void SettingsColorSchemeSub::Draw()
 	DrawSetColorAction("Menu status text", &MenuSettings::menuStatusTextColor);
 }
 
-void SettingsColorSchemeSub::DrawSetColorAction(string text, Color *color)
+void SettingsColorSchemeSub::DrawSetColorAction(std::string text, Color *color)
 {
 	DrawAction(text + " >", [this, text, color] {
 		Submenu *setColorSub = new SettingsSetColorSub(text, color, menuController);

@@ -13,16 +13,16 @@
 
 class Game {
 public:
-	static void DrawText(string text, Vector2 position, float scale = 0.45f, Color color = { 255, 255, 255, 255 }, bool center = false);
-	static void DrawSprite(string textureDict, string textureName, Vector3 position, Rect size, float heading, Color color);
-	static void PrintSubtitle(string text);
-	static void PlaySoundFrontend(string soundCat, string soundName);
+	static void DrawText(std::string text, Vector2 position, float scale = 0.45f, Color color = { 255, 255, 255, 255 }, bool center = false);
+	static void DrawSprite(std::string textureDict, std::string textureName, Vector3 position, Rect size, float heading, Color color);
+	static void PrintSubtitle(std::string text);
+	static void PlaySoundFrontend(std::string soundCat, std::string soundName);
 	static void DrawRect(Vector3 position, Rect size, Color color);
 	static void RequestModel(Hash model);
 	static void SetWeather(Hash weather);
-	static void RequestTextureDict(string textureDict);
-	static bool RequestAnimDict(string animDict);
-	static string GetInputWithKeyboard(string defaultText = "");
+	static void RequestTextureDict(std::string textureDict);
+	static bool RequestAnimDict(std::string animDict);
+	static std::string GetInputWithKeyboard(std::string defaultText = "");
 	
 	static inline PlayerId playerId;
 	static inline PedId playerPedId;

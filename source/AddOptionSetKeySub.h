@@ -8,14 +8,14 @@ class AddOptionSetKeySub :
 public:
 	AddOptionSetKeySub(MenuOptionType optionType, MenuController* menuController, bool hideGetterOnlyOptions = false);
 
-	std::function<void(string key)> onKeySet;
+	std::function<void(std::string key)> onKeySet;
 protected:
 	void Draw() override;
-	void OnKeySelect(string key);
+	void OnKeySelect(std::string key);
 	void CreateDisplayKeys();
 
-	std::vector<string> keys;
-	std::vector<string> displayKeys;
+	std::vector<std::string> keys;
+	std::vector<std::string> displayKeys;
 	MenuOptionType optionType;
 	bool hideGetterOnlyOptions;
 };

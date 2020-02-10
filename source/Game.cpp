@@ -12,7 +12,7 @@
 #include "Game.h"
 #include "Routine.h"
 
-void Game::DrawText(string text, Vector2 position, float scale, Color color, bool center) {
+void Game::DrawText(std::string text, Vector2 position, float scale, Color color, bool center) {
 	UI::SET_TEXT_CENTRE(center);
 	UI::SET_TEXT_SCALE(1.0f, scale / 100.0f);
 	UI::SET_TEXT_COLOR_RGBA(color.r, color.g, color.b, color.a);
@@ -21,7 +21,7 @@ void Game::DrawText(string text, Vector2 position, float scale, Color color, boo
 	UI::DRAW_TEXT(varString, position.x / 100.0f, position.y / 100.0f);
 }
 
-void Game::DrawSprite(string textureDict, string textureName, Vector3 position, Rect size, float heading, Color color) 
+void Game::DrawSprite(std::string textureDict, std::string textureName, Vector3 position, Rect size, float heading, Color color) 
 {
 	GRAPHICS::DRAW_SPRITE((char*)textureDict.c_str(), (char*)textureName.c_str(), position.x / 100.0f, position.y / 100.0f,
 							size.width / 100.0f, size.height / 100.0f, heading, color.r, color.g, color.b, color.a, false);
@@ -33,7 +33,7 @@ void Game::DrawRect(Vector3 position, Rect size, Color color)
 						size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
 }
 
-void Game::PrintSubtitle(string text)
+void Game::PrintSubtitle(std::string text)
 {
 	char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*)text.c_str());
 	UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
@@ -41,7 +41,7 @@ void Game::PrintSubtitle(string text)
 	UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
 }
 
-void Game::PlaySoundFrontend(string soundCat, string soundName)
+void Game::PlaySoundFrontend(std::string soundCat, std::string soundName)
 {
 	int soundId = AUDIO::GET_SOUND_ID();
 
@@ -69,7 +69,7 @@ void Game::SetWeather(Hash weather)
 	GAMEPLAY::CLEAR_WEATHER_TYPE_PERSIST();
 }
 
-void Game::RequestTextureDict(string textureDict)
+void Game::RequestTextureDict(std::string textureDict)
 {
 	TEXTURE::REQUEST_STREAMED_TEXTURE_DICT((char*)textureDict.c_str(), true);
 	while (!TEXTURE::HAS_STREAMED_TEXTURE_DICT_LOADED((char*)textureDict.c_str())) {
@@ -77,7 +77,7 @@ void Game::RequestTextureDict(string textureDict)
 	}
 }
 
-bool Game::RequestAnimDict(string animDict)
+bool Game::RequestAnimDict(std::string animDict)
 {
 	if (!STREAMING::DOES_ANIM_DICT_EXIST((char*)animDict.c_str())) {
 		Game::PrintSubtitle("Error: Anim dict '" + animDict + "' does not exist");
@@ -96,7 +96,7 @@ bool Game::RequestAnimDict(string animDict)
 	}
 }
 
-string Game::GetInputWithKeyboard(string defaultText)
+std::string Game::GetInputWithKeyboard(std::string defaultText)
 {
 	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", (char*) defaultText.c_str(), "", "", "", 100);
 	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) {

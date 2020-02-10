@@ -33,16 +33,16 @@ public:
 protected:
 	virtual void Draw();
 
-	void DrawTitle(string text);
+	void DrawTitle(std::string text);
 	virtual void DrawMenuBase();
-	void DrawOptionBase(string text, bool selected);
-	void DrawLabel(string text);
-	void DrawSub(string text, string subKey, bool isEnabled = true);
-	void DrawAction(string text, std::function<void()> onPress);
-	void DrawToggle(string text, bool isToggled, std::function<void()> onPress);
-	void DrawNumber(string text, string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
-	void DrawTextList(string text, string valueToDisplay, std::function<void(bool direction)> onAdjust);
-	void DrawTextAction(string text, string value, std::function<void()> onPress);
+	void DrawOptionBase(std::string text, bool selected);
+	void DrawLabel(std::string text);
+	void DrawSub(std::string text, std::string subKey, bool isEnabled = true);
+	void DrawAction(std::string text, std::function<void()> onPress);
+	void DrawToggle(std::string text, bool isToggled, std::function<void()> onPress);
+	void DrawNumber(std::string text, std::string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
+	void DrawTextList(std::string text, std::string valueToDisplay, std::function<void(bool direction)> onAdjust);
+	void DrawTextAction(std::string text, std::string value, std::function<void()> onPress);
 
 	virtual void SubWillDraw();
 	virtual void SubDidDraw();
@@ -51,7 +51,7 @@ protected:
 
 	virtual void RespondToControls();
 
-	string OptionTypeToString(MenuOptionType type);
+	std::string OptionTypeToString(MenuOptionType type);
 	float CurrentOptionPosY();
 
 	int drawIndex;

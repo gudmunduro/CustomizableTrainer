@@ -17,7 +17,7 @@
 
 #pragma region Weapon category
 
-WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, string catName, std::vector<WeaponData> weapons)
+WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, std::string catName, std::vector<WeaponData> weapons)
 	: Submenu(menuController), catName(catName), weapons(weapons)
 {
 }

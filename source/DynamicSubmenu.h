@@ -20,27 +20,27 @@ public:
 
 	int OptionCount();
 
-	string title;
-	string key;
+	std::string title;
+	std::string key;
 	std::vector<MenuOption> options;
 protected:
 	void Draw() override;
 
 	void DrawMenuBase() override;
 
-	void DrawSub(string text, string subKey);
-	void DrawAction(string text, string actionKey, json actionParams);
-	void DrawToggle(string text, string toggleKey);
-	void DrawNumber(string text, string numberKey);
-	void DrawTextList(string text, string textKey);
+	void DrawSub(std::string text, std::string subKey);
+	void DrawAction(std::string text, std::string actionKey, json actionParams);
+	void DrawToggle(std::string text, std::string toggleKey);
+	void DrawNumber(std::string text, std::string numberKey);
+	void DrawTextList(std::string text, std::string textKey);
 
 	void SubWillDraw() override;
 	void SelectionDidChange(int to, int from) override;
 
 	void RespondToControls() override;
 
-	bool IsSavedOption(string key);
-	void SaveIfSavedOption(string key);
+	bool IsSavedOption(std::string key);
+	void SaveIfSavedOption(std::string key);
 
 	bool isEditModeActive;
 	bool isMoveOptionActive;

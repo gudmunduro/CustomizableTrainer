@@ -14,18 +14,18 @@
 class TextController
 {
 public:
-	static void RegisterText(string key, std::vector<string> values, std::function<void(int from, int to)> onChange = nullptr);
-	static void SetTextValueForKey(string key, int value);
+	static void RegisterText(std::string key, std::vector<std::string> values, std::function<void(int from, int to)> onChange = nullptr);
+	static void SetTextValueForKey(std::string key, int value);
 	static void RegisterTexts();
-	static void Adjust(string key, bool direction);
-	static bool TextExistsForKey(string key);
-	static bool OnTextChangeActionExistsForKey(string key);
-	static string GetTextValueForKey(string key);
-	static int GetTextValueIndexForKey(string key);
-	static std::function<void(int from, int to)> GetTextChangActionForKey(string key);
-	static std::vector<string> Keys();
+	static void Adjust(std::string key, bool direction);
+	static bool TextExistsForKey(std::string key);
+	static bool OnTextChangeActionExistsForKey(std::string key);
+	static std::string GetTextValueForKey(std::string key);
+	static int GetTextValueIndexForKey(std::string key);
+	static std::function<void(int from, int to)> GetTextChangActionForKey(std::string key);
+	static std::vector<std::string> Keys();
 private:
-	static inline std::map<string, std::vector<string>> textValues;
-	static inline std::map<string, int> textValueIndexes;
-	static inline std::map <string, std::function<void(int from, int to)>> onTextChangeActions;
+	static inline std::map<std::string, std::vector<std::string>> textValues;
+	static inline std::map<std::string, int> textValueIndexes;
+	static inline std::map <std::string, std::function<void(int from, int to)>> onTextChangeActions;
 };

@@ -5,7 +5,7 @@ class ConfirmDialog :
 	public Submenu
 {
 public:
-	ConfirmDialog(MenuController *menuController, string title, string label, string confirmText, string cancelText, std::function<void(bool confirmation)> onConfirm);
+	ConfirmDialog(MenuController *menuController, std::string title, std::string label, std::string confirmText, std::string cancelText, std::function<void(bool confirmation)> onConfirm);
 
 	void Draw() override;
 
@@ -13,9 +13,9 @@ public:
 
 	std::function<void(bool confirmation)> onConfirm;
 private:
-	string title;
-	string text;
-	string confirmText;
-	string cancelText;
+	std::string title;
+	std::string text;
+	std::string confirmText;
+	std::string cancelText;
 };
 

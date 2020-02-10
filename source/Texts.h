@@ -15,7 +15,7 @@ namespace Texts {
 
 #pragma region Value arrays
 
-	inline std::vector<string>
+	inline std::vector<std::string>
 		customBulletTypes = { "Explosion", "Large explosion", "Water fountain", "Gas", "Lightning", "Fire", "Large fire", "Teleport", "Delete entity", "Steam", "Moonshine" },
 		snowCoverageType = { "No snow", "Minor", "Full" };
 
