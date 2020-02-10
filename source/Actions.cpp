@@ -16,7 +16,7 @@
 #include "PedSpawner.h"
 #include "WeaponManager.h"
 
-#pragma regionPlayer
+#pragma region Player
 
 void Actions::SetPlayerMaxHealth(json params)
 {
@@ -101,7 +101,7 @@ void Actions::PlayScenarioOnPlayer(json params)
 
 #pragma endregion
 
-#pragma regionPeds
+#pragma region Peds
 
 void Actions::SpawnPed(json params)
 {
@@ -240,7 +240,7 @@ void Actions::ReviveNearestHorse(json params)
 
 #pragma endregion
 
-#pragma regionHorse
+#pragma region Horse
 
 void Actions::SetHorseMaxHealth(json params)
 {
