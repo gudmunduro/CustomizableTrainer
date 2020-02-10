@@ -14,11 +14,12 @@
 
 #pragma region Manage
 
-void TextController::RegisterText(std::string key, std::vector<std::string> values, std::function<void(int from, int to)> onChange)
+void TextController::RegisterText(std::string key, std::vector<std::string> values, std::optional<std::function<void(int from, int to)>> onChange)
 {
 	textValues[key] = values;
 	textValueIndexes[key] = 0;
-	onTextChangeActions[key] = onChange;
+	if (onChange)
+		onTextChangeActions[key] = *onChange;
 }
 
 void TextController::SetTextValueForKey(std::string key, int value)
@@ -34,21 +35,23 @@ void TextController::RegisterTexts()
 
 void TextController::Adjust(std::string key, bool direction)
 {
-	if (TextExistsForKey(key)) {
-		int* index = &textValueIndexes[key];
-		auto values = textValues[key];
-		int lastIndex = *index;
-
-		if (direction && (*index) + 1 > values.size() - 1)
-			*index = 0;
-		else if (!direction && *index - 1 < 0)
-			*index = values.size() - 1;
-		else
-			textValueIndexes[key] += direction ? 1 : -1;
-		
-		if (OnTextChangeActionExistsForKey(key))
-			GetTextChangActionForKey(key)(lastIndex, *index);
+	if (!TextExistsForKey(key)) {
+		return;
 	}
+
+	int* index = &textValueIndexes[key];
+	auto values = textValues[key];
+	int lastIndex = *index;
+
+	if (direction && (*index) + 1 > values.size() - 1)
+		*index = 0;
+	else if (!direction && *index - 1 < 0)
+		*index = values.size() - 1;
+	else
+		textValueIndexes[key] += direction ? 1 : -1;
+		
+	if (auto action = GetTextChangActionForKey(key); action)
+		action.value()(lastIndex, *index);
 }
 
 #pragma endregion
@@ -69,24 +72,27 @@ bool TextController::OnTextChangeActionExistsForKey(std::string key)
 
 #pragma region Getters
 
-std::string TextController::GetTextValueForKey(std::string key)
+std::optional<std::string> TextController::GetTextValueForKey(std::string key)
 {
 	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
-		return "Invalid";
+		return std::nullopt;
 
 	return textValues[key][textValueIndexes[key]];
 }
 
-int TextController::GetTextValueIndexForKey(std::string key)
+std::optional<int> TextController::GetTextValueIndexForKey(std::string key)
 {
-	if (textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
-		return 0;
+	if (!TextExistsForKey(key) || textValues[key].size() - 1 < textValueIndexes[key] || textValueIndexes[key] < 0)
+		return std::nullopt;
 
 	return textValueIndexes[key];
 }
 
-std::function<void(int from, int to)> TextController::GetTextChangActionForKey(std::string key)
+std::optional<std::function<void(int from, int to)>> TextController::GetTextChangActionForKey(std::string key)
 {
+	if (!OnTextChangeActionExistsForKey(key))
+		return std::nullopt;
+
 	return onTextChangeActions[key];
 }
 

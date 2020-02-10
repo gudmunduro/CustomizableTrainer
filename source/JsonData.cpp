@@ -113,7 +113,7 @@ void JSONData::UpdateOptionStates()
 				type = MenuOptionType::Number;
 
 				std::string value = optionState["value"].get<std::string>();
-				if (NumberController::DoesNumberExistForKey(key)) {
+				if (NumberController::NumberExistsForKey(key)) {
 					NumberController::SetNumberValueForKey(key, value);
 				}
 			}
@@ -485,15 +485,15 @@ void JSONData::SaveOptionStates()
 			{
 				case MenuOptionType::Toggle:
 					type = "toggle";
-					value = *ToggleController::GetToggleForKey(key);
+					value = *ToggleController::GetToggleForKey(key).value();
 					break;
 				case MenuOptionType::Number:
 					type = "number";
-					value = NumberController::GetNumberStringValueForKey(key);
+					value = NumberController::GetNumberStringValueForKey(key).value();
 					break;
 				case MenuOptionType::Text:
 					type = "text";
-					value = TextController::GetTextValueIndexForKey(key);
+					value = TextController::GetTextValueIndexForKey(key).value();
 					break;
 			}
 			

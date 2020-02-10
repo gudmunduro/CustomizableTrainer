@@ -113,11 +113,6 @@ bool MenuController::SubmenuExistsForKey(std::string key)
 	return submenuDataMap.count(key) > 0;
 }
 
-bool MenuController::FixedSubmenuExistsForKey(std::string key)
-{
-	return FixedSubmenuForKey(key) != nullptr;
-}
-
 #pragma endregion
 
 #pragma region Setters
@@ -129,12 +124,11 @@ void MenuController::SetSubmenuDataForKey(std::string key, SubmenuData submenuDa
 void MenuController::SetSubmenuWithKey(std::string key)
 {
 	if (SubmenuExistsForKey(key)) {
-		Submenu* submenu = SubmenuForKey(key);
+		Submenu* submenu = GetSubmenuForKey(key);
 		AddSubmenuToStack(submenu);
 	}
-	else if (FixedSubmenuExistsForKey(key)) {
-		Submenu* submenu = FixedSubmenuForKey(key);
-		AddSubmenuToStack(submenu);
+	else if (auto submenu = GetFixedSubmenuForKey(key); submenu) {
+		AddSubmenuToStack(*submenu);
 	}
 	else {
 		Game::PrintSubtitle("Error: Submenu '" + key + "' does not exist");
@@ -144,7 +138,7 @@ void MenuController::SetSubmenuWithKey(std::string key)
 void MenuController::UpdateSubmenuData(std::string key, SubmenuData submenuData)
 {
 	for each (auto option in submenuData.options) {
-		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !FixedSubmenuExistsForKey(option.key)) { // Add submenu if it does not exist
+		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !GetFixedSubmenuForKey(option.key)) { // Add submenu if it does not exist
 			Game::PrintSubtitle("Creating submenu");
 			SetSubmenuDataForKey(option.key, {
 				option.text,
@@ -164,13 +158,13 @@ void MenuController::UpdateSubmenuData(std::string key, SubmenuData submenuData)
 
 #pragma region Getters
 
-SubmenuData MenuController::SubmenuDataForKey(std::string key) 
+SubmenuData MenuController::GetSubmenuDataForKey(std::string key) 
 {
 	return submenuDataMap[key];
 }
-Submenu* MenuController::SubmenuForKey(std::string submenuKey)
+Submenu* MenuController::GetSubmenuForKey(std::string submenuKey)
 {
-	return new DynamicSubmenu(SubmenuDataForKey(submenuKey), this);
+	return new DynamicSubmenu(GetSubmenuDataForKey(submenuKey), this);
 }
 
 std::vector<std::string> MenuController::SubmenuKeys()
@@ -188,7 +182,7 @@ std::vector<std::string> MenuController::SubmenuKeys()
 	return keys;
 }
 
-Submenu* MenuController::FixedSubmenuForKey(std::string key)
+std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
 {
 	if (key == "builtin_sub_pedSpawner") {
 		return new PedSpawnerSub(this);
@@ -220,7 +214,7 @@ Submenu* MenuController::FixedSubmenuForKey(std::string key)
 	else if (key == "builtin_sub_selectWeaponCat") {
 		return new WeaponSelectionSub(this);
 	}
-	return nullptr;
+	return std::nullopt;
 }
 
 #pragma endregion

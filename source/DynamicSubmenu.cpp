@@ -111,11 +111,11 @@ void DynamicSubmenu::DrawToggle(std::string text, std::string toggleKey)
 
 void DynamicSubmenu::DrawNumber(std::string text, std::string numberKey)
 {
-	if (!NumberController::DoesNumberExistForKey(numberKey)) return;
-	std::string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey);
+	if (!NumberController::NumberExistsForKey(numberKey)) return;
+	std::string numberStrValue = NumberController::GetNumberStringValueForKey(numberKey).value_or("Invalid");
 
 	Submenu::DrawNumber(text, numberStrValue, [this, numberKey, numberStrValue] {
-		if (!NumberController::DoesNumberVariableExistForKey(numberKey)) return;
+		if (!NumberController::NumberVariableExistsForKey(numberKey)) return;
 		std::string input = Game::GetInputWithKeyboard(numberStrValue);
 		NumberController::SetNumberValueForKey(numberKey, input);
 		SaveIfSavedOption(numberKey);
@@ -129,14 +129,16 @@ void DynamicSubmenu::DrawNumber(std::string text, std::string numberKey)
 void DynamicSubmenu::DrawTextList(std::string text, std::string textKey)
 {
 	if (!TextController::TextExistsForKey(textKey)) return;
-	std::string textValue = TextController::GetTextValueForKey(textKey);
+	std::string textValue = TextController::GetTextValueForKey(textKey)
+		.value_or("Invalid");
 
 	Submenu::DrawTextList(text, textValue,
 		[this, textKey](bool direction) {
 			if (isEditModeActive) return;
+
 			TextController::Adjust(textKey, direction);
 			SaveIfSavedOption(textKey);
-		});
+	});
 }
 
 #pragma endregion
@@ -196,7 +198,7 @@ void DynamicSubmenu::RespondToControls()
 			isEditModeActive = false;
 		}
 		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeAddOption)) {
-			auto addOptionSub = new EditAddOptionSub(nullptr, menuController);
+			auto addOptionSub = new EditAddOptionSub(std::nullopt, menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToAdd) {
 				options.push_back(optionToAdd);
 			};
@@ -204,7 +206,7 @@ void DynamicSubmenu::RespondToControls()
 			Controls::CanceMenuControlslForThisFrame();
 		}
 		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEditOption)) {
-			auto addOptionSub = new EditAddOptionSub(&options[selection], menuController);
+			auto addOptionSub = new EditAddOptionSub({ options[selection] }, menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToEdit) {
 				options[selection] = optionToEdit;
 			};

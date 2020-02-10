@@ -15,47 +15,50 @@
 
 #pragma region Manange
 
-void NumberController::RegisterNumber(std::string key, int* number, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumber(std::string key, int* number, std::optional<std::function<void(bool direction)>> adjuster)
 {
 	numbersInt[key] = number;
-	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
+	if (adjuster)
+		numberAdjusters[key] = *adjuster;
 }
 
-void NumberController::RegisterNumber(std::string key, float* number, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumber(std::string key, float* number, std::optional<std::function<void(bool direction)>> adjuster)
 {
 	numbersFloat[key] = number;
-	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
+	if (adjuster)
+		numberAdjusters[key] = *adjuster;
 }
 
-void NumberController::RegisterNumberGetter(std::string key, std::function<std::string()> getter, std::function<void(bool direction)> adjuster)
+void NumberController::RegisterNumberGetter(std::string key, std::function<std::string()> getter, std::optional<std::function<void(bool direction)>> adjuster)
 {
 	numberGetters[key] = getter;
-	if (adjuster != nullptr) numberAdjusters[key] = adjuster;
+	if (adjuster) 
+		numberAdjusters[key] = *adjuster;
 }
 
 void NumberController::Adjust(std::string key, bool direction)
 {
-	if (DoesNumberAdjusterExistForKey(key)) {
-		GetNumberAdjusterForKey(key)(direction);
+	if (auto adjuster = GetNumberAdjusterForKey(key); adjuster) {
+		adjuster.value()(direction);
 	}
 }
 
 void NumberController::SetNumberValueForKey(std::string key, std::string value)
 {
 	try {
-		if (DoesNumberFloatVariableExistForKey(key)) {
+		if (NumberFloatVariableExistsForKey(key)) {
 			*numbersFloat[key] = std::stof(value);
 			Adjust(key, true);
 			Adjust(key, false);
 			*numbersFloat[key] = std::stof(value);
 		}
-		else if (DoesNumberIntVariableExistForKey(key)) {
+		else if (NumberIntVariableExistsForKey(key)) {
 			*numbersInt[key] = std::stoi(value);
 			Adjust(key, true);
 			Adjust(key, false);
 			*numbersInt[key] = std::stoi(value);
 		}
-		else if (DoesNumberIntVariableExistForKey(key)) {
+		else if (NumberIntVariableExistsForKey(key)) {
 			Game::PrintSubtitle("Cannot set value for this number");
 		}
 	}
@@ -90,32 +93,32 @@ void NumberController::RegisterNumbers()
 
 #pragma region Booleans
 
-bool NumberController::DoesNumberExistForKey(std::string key)
+bool NumberController::NumberExistsForKey(std::string key)
 {
-	return DoesNumberVariableExistForKey(key) || DoesNumberGetterExistForKey(key);
+	return NumberVariableExistsForKey(key) || NumberGetterExistsForKey(key);
 }
 
-bool NumberController::DoesNumberVariableExistForKey(std::string key)
+bool NumberController::NumberVariableExistsForKey(std::string key)
 {
-	return DoesNumberFloatVariableExistForKey(key) || DoesNumberIntVariableExistForKey(key);
+	return NumberFloatVariableExistsForKey(key) || NumberIntVariableExistsForKey(key);
 }
 
-bool NumberController::DoesNumberIntVariableExistForKey(std::string key)
+bool NumberController::NumberIntVariableExistsForKey(std::string key)
 {
 	return numbersInt.count(key) > 0;
 }
 
-bool NumberController::DoesNumberFloatVariableExistForKey(std::string key)
+bool NumberController::NumberFloatVariableExistsForKey(std::string key)
 {
 	return numbersFloat.count(key) > 0;
 }
 
-bool NumberController::DoesNumberGetterExistForKey(std::string key)
+bool NumberController::NumberGetterExistsForKey(std::string key)
 {
 	return numberGetters.count(key) > 0;
 }
 
-bool NumberController::DoesNumberAdjusterExistForKey(std::string key)
+bool NumberController::NumberAdjusterExistsForKey(std::string key)
 {
 	return numberAdjusters.count(key) > 0;
 }
@@ -124,44 +127,53 @@ bool NumberController::DoesNumberAdjusterExistForKey(std::string key)
 
 #pragma region Getters
 
-std::string NumberController::GetNumberStringValueForKey(std::string key)
+std::optional<std::string> NumberController::GetNumberStringValueForKey(std::string key)
 {
-	std::string value;
+	std::optional<std::string> returnValue;
 
-	if (DoesNumberFloatVariableExistForKey(key)) {
+	if (NumberFloatVariableExistsForKey(key)) {
 		std::stringstream stream;
 		stream << std::fixed << std::setprecision(2) << *numbersFloat[key];
-		value = stream.str();
+		returnValue = stream.str();
 	}
-	else if (DoesNumberIntVariableExistForKey(key)) {
-		value = std::to_string(*numbersInt[key]);
+	else if (NumberIntVariableExistsForKey(key)) {
+		returnValue = std::to_string(*numbersInt[key]);
 	}
-	else if (DoesNumberGetterExistForKey(key)) {
-		value = numberGetters[key]();
+	else if (NumberGetterExistsForKey(key)) {
+		returnValue = numberGetters[key]();
 	}
 	else {
-		value = "Error";
+		returnValue = std::nullopt;
 	}
 
-	return value;
+	return returnValue;
 }
 
-std::function<void(bool direction)> NumberController::GetNumberAdjusterForKey(std::string key)
+std::optional<std::function<void(bool direction)>> NumberController::GetNumberAdjusterForKey(std::string key)
 {
+	if (!NumberAdjusterExistsForKey(key))
+		return std::nullopt;
+
 	return numberAdjusters[key];
 }
 
 std::vector<std::string> NumberController::Keys()
 {
 	std::vector<std::string> keys;
+	
+	// Keys for float numbers
 	std::transform(std::begin(numbersFloat), std::end(numbersFloat), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;
 	});
+
+	// Keys for int numbers
 	std::transform(std::begin(numbersInt), std::end(numbersInt), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;
-		});
+	});
+
+	// Keys for getters
 	std::transform(std::begin(numberGetters), std::end(numberGetters), std::back_inserter(keys),
 		[](auto const& pair) {
 			return pair.first;

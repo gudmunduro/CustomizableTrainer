@@ -20,7 +20,7 @@
 
 #pragma region Variables used by toggles
 
-BoatFlyMode* boatFlyModeController;
+std::optional<BoatFlyMode> boatFlyModeController;
 VehicleWeapons vehicleWeapons;
 
 #pragma endregion
@@ -152,12 +152,10 @@ void Toggles::OnVehicleVisibleToggle(bool value)
 void Toggles::OnBoatFlyModeToggle(bool value)
 {
 	if (value) {
-		boatFlyModeController = new BoatFlyMode();
+		boatFlyModeController = std::make_optional(BoatFlyMode());
 	}
 	else {
-		if (boatFlyModeController != nullptr)
-			delete boatFlyModeController;
-		boatFlyModeController = nullptr;
+		boatFlyModeController = std::nullopt;
 		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_RB, false);
 		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_ACCEPT, false);
 		CONTROLS::DISABLE_CONTROL_ACTION(0, XboxControl::INPUT_FRONTEND_X, false);
@@ -330,19 +328,6 @@ void Toggles::HorseUnlimitedStaminaLoop()
 	if (!player.ped.IsOnMount()) return;
 	
 	player.ped.Mount().SetStamina(100.0);
-}
-
-void Toggles::HorseFlyModeLoop()
-{
-	Player player;
-	if (!player.ped.IsOnMount()) return;
-	
-	/*
-	if (horseFlyMode == nullptr) {
-		horseFlyMode = new HorseFlyMode();
-	}
-	horseFlyMode->Tick();
-	*/
 }
 
 void Toggles::ForceFirstPersonOnHorseLoop()

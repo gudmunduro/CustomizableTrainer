@@ -17,6 +17,7 @@
 #include <map>
 #include <any>
 #include <regex>
+#include <optional>
 #include <functional>
 #include "core/Hash.h"
 #include "types.h"

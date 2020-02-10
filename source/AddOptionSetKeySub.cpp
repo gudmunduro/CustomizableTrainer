@@ -93,8 +93,8 @@ void AddOptionSetKeySub::CreateDisplayKeys()
 
 		if (optionType == MenuOptionType::Number &&
 			hideGetterOnlyOptions &&
-			NumberController::DoesNumberGetterExistForKey(key))
-			continue;
+			NumberController::NumberGetterExistsForKey(key))
+			continue;  // Hide options with only a getter
 			
 
 		displayKeys.push_back(displayKey);

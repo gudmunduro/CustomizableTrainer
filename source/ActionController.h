@@ -18,7 +18,7 @@ public:
 	static void RegisterActions();
 	static void RunActionForKey(std::string key, json params);
 	static bool ActionExistsForKey(std::string key);
-	static std::function<void (json params)> GetActionForKey(std::string key);
+	static std::optional<std::function<void (json params)>> GetActionForKey(std::string key);
 	static std::vector<std::string> Keys();
 	static std::vector<MenuOptionParameter> GetParameterForKey(std::string key);
 private:

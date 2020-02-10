@@ -27,16 +27,15 @@ public:
 	void RespondToControls();
 
 	bool SubmenuExistsForKey(std::string key);
-	bool FixedSubmenuExistsForKey(std::string key);
 
 	void SetSubmenuDataForKey(std::string key, SubmenuData submenuData);
 	void SetSubmenuWithKey(std::string key);
 	void UpdateSubmenuData(std::string key, SubmenuData submenuData);
 
-	SubmenuData SubmenuDataForKey(std::string key);
-	Submenu* SubmenuForKey(std::string key);
+	SubmenuData GetSubmenuDataForKey(std::string key);
+	Submenu* GetSubmenuForKey(std::string key);
 	std::vector<std::string> SubmenuKeys();
-	Submenu* FixedSubmenuForKey(std::string key);
+	std::optional<Submenu*> GetFixedSubmenuForKey(std::string key);
 
 	Vector2 position;
 	std::vector<Submenu*> submenuStack;

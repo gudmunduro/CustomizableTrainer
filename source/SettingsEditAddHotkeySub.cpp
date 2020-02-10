@@ -25,7 +25,6 @@
 SettingsEditAddHotkeySub::SettingsEditAddHotkeySub(Hotkey *hotkeyToEdit, Hotkey defaultHotkeyData, MenuController *menuController) 
 	: Submenu(menuController)
 {
-
 	if (hotkeyToEdit != nullptr) {
 		this->hotkeyToEdit = *hotkeyToEdit;
 		hotkeyToSaveTo = hotkeyToEdit;

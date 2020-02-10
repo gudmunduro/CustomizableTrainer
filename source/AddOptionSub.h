@@ -6,7 +6,7 @@ class EditAddOptionSub :
 	public Submenu
 {
 public:
-	EditAddOptionSub(MenuOption* optionToEdit, MenuController* menuController);
+	EditAddOptionSub(std::optional<MenuOption> optionToEdit, MenuController* menuController);
 
 	std::function<void(MenuOption option)> onAddOption;
 protected:

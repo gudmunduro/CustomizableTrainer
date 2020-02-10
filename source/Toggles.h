@@ -35,7 +35,6 @@ namespace Toggles {
 		horseSuperRun = false,
 		horseSuperJump = false,
 		horseUnlimitedStamina = false,
-		horseFlyMode = false,
 		horseEngineTest = false,
 		horseNoRagdoll = false,
 		forceFirstPersonOnHorse = false,
@@ -101,7 +100,6 @@ namespace Toggles {
 	void HorseNoRagdollLoop();
 	void HorseSuperJumpLoop();
 	void HorseUnlimitedStaminaLoop();
-	void HorseFlyModeLoop();
 	void ForceFirstPersonOnHorseLoop();
 	void VehicleInvincibleLoop();
 	void VehicleVisibleLoop();

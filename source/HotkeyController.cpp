@@ -58,16 +58,16 @@ void HotkeyController::RunHotkeyForToggle(Hotkey hotkey)
 
 void HotkeyController::RunHotkeyForNumber(Hotkey hotkey)
 {
-	if (!NumberController::DoesNumberExistForKey(hotkey.key)) {
+	if (!NumberController::NumberExistsForKey(hotkey.key)) {
 		Game::PrintSubtitle("Error: Number key for hotkey is invalid");
 		return;
 	}
 	switch (hotkey.action) {
 	case 0:
-		NumberController::GetNumberAdjusterForKey(hotkey.key)(true);
+		NumberController::GetNumberAdjusterForKey(hotkey.key).value()(true);
 		break;
 	case 1:
-		NumberController::GetNumberAdjusterForKey(hotkey.key)(false);
+		NumberController::GetNumberAdjusterForKey(hotkey.key).value()(false);
 		break;
 	case 2:
 		if (!hotkey.value.is_string()) {

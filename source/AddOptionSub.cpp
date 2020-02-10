@@ -18,10 +18,13 @@
 #include "Routine.h"
 #include "Controls.h"
 
-EditAddOptionSub::EditAddOptionSub(MenuOption *optionToEdit, MenuController* menuController)
+EditAddOptionSub::EditAddOptionSub(std::optional<MenuOption> optionToEdit, MenuController* menuController)
 	: Submenu(menuController)
 {
-	if (optionToEdit == nullptr) {
+	if (auto option = optionToEdit; option) {
+		title = "Edit option";
+		this->optionToAdd = *option;
+		UpdateParameters();
 		title = "Add option";
 	}
 	else {

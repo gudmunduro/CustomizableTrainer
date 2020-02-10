@@ -15,18 +15,18 @@
 
 #pragma region Setup
 
-void ToggleController::RegisterToggle(std::string key, bool *toggle, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterToggle(std::string key, bool *toggle, std::optional<std::function<void(bool value)>> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
 		return;
 	}
 	toggles[key] = toggle;
-	if (toggleAction != nullptr)
-		toggleActions[key] = toggleAction;
+	if (toggleAction)
+		toggleActions[key] = *toggleAction;
 }
 
-void ToggleController::RegisterLoopedToggle(std::string key, bool* toggle, std::function<void()> toggleLoop, std::function<void(bool value)> toggleAction)
+void ToggleController::RegisterLoopedToggle(std::string key, bool* toggle, std::function<void()> toggleLoop, std::optional<std::function<void(bool value)>> toggleAction)
 {
 	if (toggles.count(key)) {
 		// Key already registered
@@ -34,8 +34,8 @@ void ToggleController::RegisterLoopedToggle(std::string key, bool* toggle, std::
 	}
 	toggles[key] = toggle;
 	toggleLoops[key] = toggleLoop;
-	if (toggleAction != nullptr)
-		toggleActions[key] = toggleAction;
+	if (toggleAction)
+		toggleActions[key] = *toggleAction;
 }
 
 void ToggleController::RegisterToggleAction(std::string key, std::function<void(bool value)> toggleAction)
@@ -113,25 +113,25 @@ void ToggleController::Toggle(std::string key)
 
 void ToggleController::SetToggleValueForKey(std::string key, bool value)
 {
-	if (ToggleExistsForKey(key)) {
-		auto toggle = GetToggleForKey(key);
-		*toggle = value;
-		if (ToggleActionExistsForKey(key)) {
-			auto action = GetToggleActionForKey(key);
-			action(value);
-		}
-		if (ToggleLoopExistsForKey(key)) {
-			if (value) {
-				auto loop = GetToggleLoopForKey(key);
-				TaskQueue::AddTask(key, loop);
-			}
-			else {
-				TaskQueue::RemoveTask(key);
-			}
-		}
-	}
-	else {
+	if (!ToggleExistsForKey(key)) {
 		Game::PrintSubtitle("Error: Toggle does not exist");
+		return;
+	}
+
+	auto toggle = *GetToggleForKey(key);
+	*toggle = value;
+
+	if (auto action = GetToggleActionForKey(key); action) {
+		action.value()(value);
+	}
+
+	if (auto loop = GetToggleLoopForKey(key); loop) {
+		if (value) {
+			TaskQueue::AddTask(key, *loop);
+		}
+		else {
+			TaskQueue::RemoveTask(key);
+		}
 	}
 }
 
@@ -154,19 +154,27 @@ bool ToggleController::ToggleLoopExistsForKey(std::string key)
 
 #pragma region Getters
 
-bool *ToggleController::GetToggleForKey(std::string key)
+std::optional<bool*> ToggleController::GetToggleForKey(std::string key)
 {
+	if (!ToggleExistsForKey(key))
+		return std::nullopt;
+
 	return toggles[key];
 }
 
-std::function<void(bool value)> ToggleController::GetToggleActionForKey(std::string key)
+std::optional<std::function<void(bool value)>> ToggleController::GetToggleActionForKey(std::string key)
 {
+	if (!ToggleActionExistsForKey(key))
+		return std::nullopt;
+
 	return toggleActions[key];
 }
 
-std::function<void()> ToggleController::GetToggleLoopForKey(std::string key)
+std::optional<std::function<void()>> ToggleController::GetToggleLoopForKey(std::string key)
 {
-	return toggleLoops[key];
+	if (!ToggleLoopExistsForKey(key))
+		return toggleLoops[key];
+	return std::nullopt;
 }
 
 std::vector<std::string> ToggleController::Keys()

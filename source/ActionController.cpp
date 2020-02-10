@@ -82,9 +82,8 @@ void ActionController::RegisterActions()
 
 void ActionController::RunActionForKey(std::string key, json params)
 {
-	if (ActionExistsForKey(key)) {
-		auto action = ActionController::GetActionForKey(key);
-		action(params);
+	if (auto action = ActionController::GetActionForKey(key); action) {
+		action.value()(params);
 	}
 	else {
 		Game::PrintSubtitle("Error: Action does not exist");
@@ -100,8 +99,11 @@ bool ActionController::ActionExistsForKey(std::string key)
 	return actions.count(key) != 0;
 }
 
-std::function<void(json params)> ActionController::GetActionForKey(std::string key)
+std::optional<std::function<void(json params)>> ActionController::GetActionForKey(std::string key)
 {
+	if (!ActionExistsForKey(key))
+		return std::nullopt;
+
 	return actions[key];
 }
 
