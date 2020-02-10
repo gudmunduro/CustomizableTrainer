@@ -99,7 +99,7 @@ void DynamicSubmenu::DrawAction(std::string text, std::string actionKey, json ac
 void DynamicSubmenu::DrawToggle(std::string text, std::string toggleKey)
 {
 	if (!ToggleController::ToggleExistsForKey(toggleKey)) return;
-	bool isToggled = *ToggleController::GetToggleForKey(toggleKey);
+	bool isToggled = *ToggleController::GetToggleForKey(toggleKey).value();
 
 	Submenu::DrawToggle(text, isToggled, [this, toggleKey] {
 		if (!isEditModeActive) {

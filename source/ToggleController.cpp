@@ -107,8 +107,9 @@ void ToggleController::RegisterToggles()
 
 void ToggleController::Toggle(std::string key)
 {
-	auto toggle = GetToggleForKey(key);
-	ToggleController::SetToggleValueForKey(key, !(*toggle));
+	if (auto toggle = GetToggleForKey(key); toggle) {
+		ToggleController::SetToggleValueForKey(key, !(*toggle.value()));
+	}
 }
 
 void ToggleController::SetToggleValueForKey(std::string key, bool value)
