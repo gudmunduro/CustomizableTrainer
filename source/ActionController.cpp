@@ -13,7 +13,7 @@
 #include "Actions.h"
 #include "Routine.h"
 
-#pragma region Manange
+#pragma region Manage
 
 void ActionController::RegisterAction(std::string key, std::function<void(json params)> action)
 {

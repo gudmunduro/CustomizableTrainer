@@ -11,7 +11,7 @@
 #include "pch.h"
 #include "TaskQueue.h"
 
-#pragma region Manange task
+#pragma region Manage task
 
 int TaskQueue::AddTask(std::string name, std::function<void()> functionToExecute)
 {

@@ -47,7 +47,7 @@ void MenuController::Tick()
 	}
 }
 
-#pragma region Manange submenu stack
+#pragma region Manage submenu stack
 
 void MenuController::RegisterSubmenuData(std::string key, SubmenuData submenuData)
 {

@@ -13,7 +13,7 @@
 #include "Numbers.h"
 #include "Routine.h"
 
-#pragma region Manange
+#pragma region Manage
 
 void NumberController::RegisterNumber(std::string key, int* number, std::optional<std::function<void(bool direction)>> adjuster)
 {
