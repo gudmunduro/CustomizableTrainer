@@ -141,9 +141,9 @@ void BoatFlyMode::DisableControls()
 	if (!Controls::IsUsingController()) return;
 
 	Hash controlsToDisable[] = {
-		MenuSettings::ControllerBoatFlyModeAccelerate,
-		MenuSettings::ControllerBoatFlyModeDecelerate,
-		MenuSettings::ControllerBoatFlyModeFlyUp,
+		Settings::Controls::Controller::BoatFlyModeAccelerate,
+		Settings::Controls::Controller::BoatFlyModeDecelerate,
+		Settings::Controls::Controller::BoatFlyModeFlyUp,
 		XboxControl::INPUT_FRONTEND_AXIS_Y,
 		XboxControl::INPUT_FRONTEND_AXIS_Y
 	};

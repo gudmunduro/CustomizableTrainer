@@ -24,7 +24,7 @@ SettingsAddOptionToSaveSub::SettingsAddOptionToSaveSub(MenuController* menuContr
 		MenuOptionType::Toggle,
 		""
 	};
-	savedOptionToAdd = (!isEditingSavedOption) ? defaultSavedOption : MenuSettings::optionsToSave[index];
+	savedOptionToAdd = (!isEditingSavedOption) ? defaultSavedOption : Settings::General::optionsToSave[index];
 }
 
 #pragma region Draw
@@ -50,9 +50,9 @@ void SettingsAddOptionToSaveSub::Draw()
 	});
 	DrawAction("Done", [this] {
 		if (!isEditingSavedOption)
-			MenuSettings::optionsToSave.push_back(savedOptionToAdd);
+			Settings::General::optionsToSave.push_back(savedOptionToAdd);
 		else
-			MenuSettings::optionsToSave[editingOptionIndex] = savedOptionToAdd;
+			Settings::General::optionsToSave[editingOptionIndex] = savedOptionToAdd;
 
 		JSONData::SaveOptionStates();
 		menuController->GoToLastSub();

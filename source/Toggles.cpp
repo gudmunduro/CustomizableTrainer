@@ -13,7 +13,6 @@
 #include "Player.h"
 #include "PedSpawner.h"
 #include "Controls.h"
-#include "HorseFlyMode.h"
 #include "BoatFlyMode.h"
 #include "CustomBullets.h"
 #include "VehicleWeapons.h"

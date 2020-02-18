@@ -92,7 +92,7 @@ void MenuController::RespondToControls()
 	if (Controls::IsMenuControlPressed(MenuControl::MenuOpen)) {
 		shouldDrawMenu = !shouldDrawMenu;
 
-		if (MenuSettings::playUiSounds)
+		if (Settings::General::playUiSounds)
 			Game::PlaySoundFrontend("HUD_PLAYER_MENU", shouldDrawMenu ? "MENU_ENTER" : "MENU_CLOSE");
 			
 

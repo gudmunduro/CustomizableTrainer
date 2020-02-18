@@ -24,8 +24,8 @@ void SettingsGeneralSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("General");
-	DrawToggle("UI sounds", MenuSettings::playUiSounds, [] {
-		MenuSettings::playUiSounds = !MenuSettings::playUiSounds;
+	DrawToggle("UI sounds", Settings::General::playUiSounds, [] {
+		Settings::General::playUiSounds = !Settings::General::playUiSounds;
 		JSONData::SaveMenuSettings();
 	});
 }

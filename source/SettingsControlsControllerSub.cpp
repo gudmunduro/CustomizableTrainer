@@ -36,26 +36,26 @@ void SettingsControlsControllerSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("Controller");
-	DrawEditControl("Open", &MenuSettings::ControllerMenuOpen);
-	DrawEditControl("Open modifier", &MenuSettings::ControllerMenuOpenModifier);
-	DrawEditControl("Select", &MenuSettings::ControllerMenuOptionPress);
-	DrawEditControl("Up", &MenuSettings::ControllerMenuUp);
-	DrawEditControl("Down", &MenuSettings::ControllerMenuDown);
-	DrawEditControl("Back", &MenuSettings::ControllerMenuBack);
-	DrawEditControl("Value down", &MenuSettings::ControllerMenuAdjustValueDown);
-	DrawEditControl("Value up", &MenuSettings::ControllerMenuAdjustValueUp);
-	DrawEditControl("Enter edit mode", &MenuSettings::ControllerMenuEditModeEnter);
-	DrawEditControl("Exit edit mode", &MenuSettings::ControllerMenuEditModeExit);
-	DrawEditControl("Exit edit mode and save", &MenuSettings::ControllerMenuEditModeExitAndSave);
-	DrawEditControl("Move option", &MenuSettings::ControllerMenuEditModeMoveOption);
-	DrawEditControl("Add option", &MenuSettings::ControllerMenuEditModeAddOption);
-	DrawEditControl("Edit option", &MenuSettings::ControllerMenuEditModeEditOption);
-	DrawEditControl("Delete option", &MenuSettings::ControllerMenuEditModeDeleteOption);
-	DrawEditControl("Boost vehicle", &MenuSettings::ControllerBindBoost);
-	DrawEditControl("Boat fly mode accelerate", &MenuSettings::ControllerBoatFlyModeAccelerate);
-	DrawEditControl("Boat fly mode decelerate", &MenuSettings::ControllerBoatFlyModeDecelerate);
-	DrawEditControl("Boat fly mode yaw left", &MenuSettings::ControllerBoatFlyModeYawLeft);
-	DrawEditControl("Boat fly mode yaw right", &MenuSettings::ControllerBoatFlyModeYawRight);
+	DrawEditControl("Open", &Settings::Controls::Controller::MenuOpen);
+	DrawEditControl("Open modifier", &Settings::Controls::Controller::MenuOpenModifier);
+	DrawEditControl("Select", &Settings::Controls::Controller::MenuOptionPress);
+	DrawEditControl("Up", &Settings::Controls::Controller::MenuUp);
+	DrawEditControl("Down", &Settings::Controls::Controller::MenuDown);
+	DrawEditControl("Back", &Settings::Controls::Controller::MenuBack);
+	DrawEditControl("Value down", &Settings::Controls::Controller::MenuAdjustValueDown);
+	DrawEditControl("Value up", &Settings::Controls::Controller::MenuAdjustValueUp);
+	DrawEditControl("Enter edit mode", &Settings::Controls::Controller::MenuEditModeEnter);
+	DrawEditControl("Exit edit mode", &Settings::Controls::Controller::MenuEditModeExit);
+	DrawEditControl("Exit edit mode and save", &Settings::Controls::Controller::MenuEditModeExitAndSave);
+	DrawEditControl("Move option", &Settings::Controls::Controller::MenuEditModeMoveOption);
+	DrawEditControl("Add option", &Settings::Controls::Controller::MenuEditModeAddOption);
+	DrawEditControl("Edit option", &Settings::Controls::Controller::MenuEditModeEditOption);
+	DrawEditControl("Delete option", &Settings::Controls::Controller::MenuEditModeDeleteOption);
+	DrawEditControl("Boost vehicle", &Settings::Controls::Controller::BindBoost);
+	DrawEditControl("Boat fly mode accelerate", &Settings::Controls::Controller::BoatFlyModeAccelerate);
+	DrawEditControl("Boat fly mode decelerate", &Settings::Controls::Controller::BoatFlyModeDecelerate);
+	DrawEditControl("Boat fly mode yaw left", &Settings::Controls::Controller::BoatFlyModeYawLeft);
+	DrawEditControl("Boat fly mode yaw right", &Settings::Controls::Controller::BoatFlyModeYawRight);
 }
 
 void SettingsControlsControllerSub::DrawEditControl(std::string text, Hash* control)

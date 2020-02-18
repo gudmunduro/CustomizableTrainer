@@ -126,7 +126,7 @@ void JSONData::UpdateOptionStates()
 				}
 			}
 
-			MenuSettings::optionsToSave.push_back({ type, key });
+			Settings::General::optionsToSave.push_back({ type, key });
 		}
 	}
 	catch (std::exception e) {
@@ -143,74 +143,74 @@ void JSONData::UpdateMenuSettings()
 		json settingsData = LoadJSONFile("CustomizableTrainer\\settings.json");
 
 		// General
-		MenuSettings::playUiSounds = settingsData["playUiSounds"].get<bool>();
+		Settings::General::playUiSounds = settingsData["playUiSounds"].get<bool>();
 
 		// Colors
-		MenuSettings::titleBarBorderColor = MenuSettings::colorFromJSON(settingsData["titleBarBorderColor"]);
-		MenuSettings::titleBarTextColor = MenuSettings::colorFromJSON(settingsData["titleBarTextColor"]);
-		MenuSettings::optionBgColor = MenuSettings::colorFromJSON(settingsData["optionBgColor"]);
-		MenuSettings::optionTextColor = MenuSettings::colorFromJSON(settingsData["optionTextColor"]);
-		MenuSettings::optionSelectedBgColor = MenuSettings::colorFromJSON(settingsData["optionSelectedBgColor"]);
-		MenuSettings::optionSelectedOutlineColor = MenuSettings::colorFromJSON(settingsData["optionSelectedOutlineColor"]);
-		MenuSettings::optionSelectedTextColor = MenuSettings::colorFromJSON(settingsData["optionSelectedTextColor"]);
-		MenuSettings::optionToggleColor = MenuSettings::colorFromJSON(settingsData["optionToggleColor"]);
-		MenuSettings::optionToggleToggledColor = MenuSettings::colorFromJSON(settingsData["optionToggleToggledColor"]);
-		MenuSettings::optionNumberColor = MenuSettings::colorFromJSON(settingsData["optionNumberColor"]);
-		MenuSettings::menuScrollLineColor = MenuSettings::colorFromJSON(settingsData["menuScrollLineColor"]);
-		MenuSettings::menuBgColor = MenuSettings::colorFromJSON(settingsData["menuBgColor"]);
-		MenuSettings::menuStatusTextColor = MenuSettings::colorFromJSON(settingsData["menuStatusTextColor"]);
-		MenuSettings::menuOptionCountColor = MenuSettings::colorFromJSON(settingsData["menuOptionCountColor"]);
+		Settings::Colors::titleBarBorder = Settings::colorFromJSON(settingsData["titleBarBorderColor"]);
+		Settings::Colors::titleBarText = Settings::colorFromJSON(settingsData["titleBarTextColor"]);
+		Settings::Colors::optionBg = Settings::colorFromJSON(settingsData["optionBgColor"]);
+		Settings::Colors::optionText = Settings::colorFromJSON(settingsData["optionTextColor"]);
+		Settings::Colors::optionSelectedBg = Settings::colorFromJSON(settingsData["optionSelectedBgColor"]);
+		Settings::Colors::optionSelectedOutline = Settings::colorFromJSON(settingsData["optionSelectedOutlineColor"]);
+		Settings::Colors::optionSelectedText = Settings::colorFromJSON(settingsData["optionSelectedTextColor"]);
+		Settings::Colors::optionToggle = Settings::colorFromJSON(settingsData["optionToggleColor"]);
+		Settings::Colors::optionToggleToggled = Settings::colorFromJSON(settingsData["optionToggleToggledColor"]);
+		Settings::Colors::optionNumber = Settings::colorFromJSON(settingsData["optionNumberColor"]);
+		Settings::Colors::menuScrollLine = Settings::colorFromJSON(settingsData["menuScrollLineColor"]);
+		Settings::Colors::menuBg = Settings::colorFromJSON(settingsData["menuBgColor"]);
+		Settings::Colors::menuStatusText = Settings::colorFromJSON(settingsData["menuStatusTextColor"]);
+		Settings::Colors::menuOptionCount = Settings::colorFromJSON(settingsData["menuOptionCountColor"]);
 
 		// Keyboard controls
 		json keyboardControls = settingsData["controls"]["keyboard"];
-		MenuSettings::MenuOpen = keyboardControls["menuOpen"].get<int>();
-		MenuSettings::MenuOptionPress = keyboardControls["menuOptionPress"].get<int>();
-		MenuSettings::MenuUp = keyboardControls["menuUp"].get<int>();
-		MenuSettings::MenuDown = keyboardControls["menuDown"].get<int>();
-		MenuSettings::MenuBack = keyboardControls["menuBack"].get<int>();
-		MenuSettings::MenuAdjustValueDown = keyboardControls["menuAdjustValueDown"].get<int>();
-		MenuSettings::MenuAdjustValueUp = keyboardControls["menuAdjustValueUp"].get<int>();
-		MenuSettings::MenuEditModeEnter = keyboardControls["menuEditModeEnter"].get<int>();
-		MenuSettings::MenuEditModeExit = keyboardControls["menuEditModeExit"].get<int>();
-		MenuSettings::MenuEditModeExitAndSave = keyboardControls["menuEditModeExitAndSave"].get<int>();
-		MenuSettings::MenuEditModeMoveOption = keyboardControls["menuEditModeMoveOption"].get<int>();
-		MenuSettings::MenuEditModeAddOption = keyboardControls["menuEditModeAddOption"].get<int>();
-		MenuSettings::MenuEditModeEditOption = keyboardControls["menuEditModeEditOption"].get<int>();
-		MenuSettings::MenuEditModeDeleteOption = keyboardControls["menuEditModeDeleteOption"].get<int>();
-		MenuSettings::BindBoost = keyboardControls["bindBoost"].get<int>();
-		MenuSettings::BoatFlyModeAccelerate = keyboardControls["boatFlyModeAccelerate"].get<int>();
-		MenuSettings::BoatFlyModeDecelerate = keyboardControls["boatFlyModeDecelerate"].get<int>();
-		MenuSettings::BoatFlyModeFlyUp = keyboardControls["boatFlyModeFlyUp"].get<int>();
-		MenuSettings::BoatFlyModeUp = keyboardControls["boatFlyModeUp"].get<int>();
-		MenuSettings::BoatFlyModeDown = keyboardControls["boatFlyModeDown"].get<int>();
-		MenuSettings::BoatFlyModeLeft = keyboardControls["boatFlyModeLeft"].get<int>();
-		MenuSettings::BoatFlyModeRight = keyboardControls["boatFlyModeRight"].get<int>();
-		MenuSettings::BoatFlyModeYawLeft = keyboardControls["boatFlyModeYawLeft"].get<int>();
-		MenuSettings::BoatFlyModeYawRight = keyboardControls["boatFlyModeYawRight"].get<int>();
+		Settings::Controls::Keyboard::MenuOpen = keyboardControls["menuOpen"].get<int>();
+		Settings::Controls::Keyboard::MenuOptionPress = keyboardControls["menuOptionPress"].get<int>();
+		Settings::Controls::Keyboard::MenuUp = keyboardControls["menuUp"].get<int>();
+		Settings::Controls::Keyboard::MenuDown = keyboardControls["menuDown"].get<int>();
+		Settings::Controls::Keyboard::MenuBack = keyboardControls["menuBack"].get<int>();
+		Settings::Controls::Keyboard::MenuAdjustValueDown = keyboardControls["menuAdjustValueDown"].get<int>();
+		Settings::Controls::Keyboard::MenuAdjustValueUp = keyboardControls["menuAdjustValueUp"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeEnter = keyboardControls["menuEditModeEnter"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeExit = keyboardControls["menuEditModeExit"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeExitAndSave = keyboardControls["menuEditModeExitAndSave"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeMoveOption = keyboardControls["menuEditModeMoveOption"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeAddOption = keyboardControls["menuEditModeAddOption"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeEditOption = keyboardControls["menuEditModeEditOption"].get<int>();
+		Settings::Controls::Keyboard::MenuEditModeDeleteOption = keyboardControls["menuEditModeDeleteOption"].get<int>();
+		Settings::Controls::Keyboard::BindBoost = keyboardControls["bindBoost"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeAccelerate = keyboardControls["boatFlyModeAccelerate"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeDecelerate = keyboardControls["boatFlyModeDecelerate"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeFlyUp = keyboardControls["boatFlyModeFlyUp"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeUp = keyboardControls["boatFlyModeUp"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeDown = keyboardControls["boatFlyModeDown"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeLeft = keyboardControls["boatFlyModeLeft"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeRight = keyboardControls["boatFlyModeRight"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeYawLeft = keyboardControls["boatFlyModeYawLeft"].get<int>();
+		Settings::Controls::Keyboard::BoatFlyModeYawRight = keyboardControls["boatFlyModeYawRight"].get<int>();
 		
 		// Controller controls
 		json controllerControls = settingsData["controls"]["controller"];
-		MenuSettings::ControllerMenuOpen = String::Hash(controllerControls["menuOpen"].get<std::string>());
-		MenuSettings::ControllerMenuOpenModifier = String::Hash(controllerControls["menuOpenModifier"].get<std::string>());
-		MenuSettings::ControllerMenuOptionPress = String::Hash(controllerControls["menuOptionPress"].get<std::string>());
-		MenuSettings::ControllerMenuUp = String::Hash(controllerControls["menuUp"].get<std::string>());
-		MenuSettings::ControllerMenuDown = String::Hash(controllerControls["menuDown"].get<std::string>());
-		MenuSettings::ControllerMenuBack = String::Hash(controllerControls["menuBack"].get<std::string>());
-		MenuSettings::ControllerMenuAdjustValueDown = String::Hash(controllerControls["menuAdjustValueDown"].get<std::string>());
-		MenuSettings::ControllerMenuAdjustValueUp = String::Hash(controllerControls["menuAdjustValueUp"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeEnter = String::Hash(controllerControls["menuEditModeEnter"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeExit = String::Hash(controllerControls["menuEditModeExit"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<std::string>());
-		MenuSettings::ControllerMenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<std::string>());
-		MenuSettings::ControllerBindBoost = String::Hash(controllerControls["bindBoost"].get<std::string>());
-		MenuSettings::ControllerBoatFlyModeAccelerate = String::Hash(controllerControls["boatFlyModeAccelerate"].get<std::string>());
-		MenuSettings::ControllerBoatFlyModeDecelerate = String::Hash(controllerControls["boatFlyModeDecelerate"].get<std::string>());
-		MenuSettings::ControllerBoatFlyModeFlyUp = String::Hash(controllerControls["boatFlyModeFlyUp"].get<std::string>());
-		MenuSettings::ControllerBoatFlyModeYawLeft = String::Hash(controllerControls["boatFlyModeYawLeft"].get<std::string>());
-		MenuSettings::ControllerBoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<std::string>());
+		Settings::Controls::Controller::MenuOpen = String::Hash(controllerControls["menuOpen"].get<std::string>());
+		Settings::Controls::Controller::MenuOpenModifier = String::Hash(controllerControls["menuOpenModifier"].get<std::string>());
+		Settings::Controls::Controller::MenuOptionPress = String::Hash(controllerControls["menuOptionPress"].get<std::string>());
+		Settings::Controls::Controller::MenuUp = String::Hash(controllerControls["menuUp"].get<std::string>());
+		Settings::Controls::Controller::MenuDown = String::Hash(controllerControls["menuDown"].get<std::string>());
+		Settings::Controls::Controller::MenuBack = String::Hash(controllerControls["menuBack"].get<std::string>());
+		Settings::Controls::Controller::MenuAdjustValueDown = String::Hash(controllerControls["menuAdjustValueDown"].get<std::string>());
+		Settings::Controls::Controller::MenuAdjustValueUp = String::Hash(controllerControls["menuAdjustValueUp"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeEnter = String::Hash(controllerControls["menuEditModeEnter"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeExit = String::Hash(controllerControls["menuEditModeExit"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeExitAndSave = String::Hash(controllerControls["menuEditModeExitAndSave"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeMoveOption = String::Hash(controllerControls["menuEditModeMoveOption"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeAddOption = String::Hash(controllerControls["menuEditModeAddOption"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeEditOption = String::Hash(controllerControls["menuEditModeEditOption"].get<std::string>());
+		Settings::Controls::Controller::MenuEditModeDeleteOption = String::Hash(controllerControls["menuEditModeDeleteOption"].get<std::string>());
+		Settings::Controls::Controller::BindBoost = String::Hash(controllerControls["bindBoost"].get<std::string>());
+		Settings::Controls::Controller::BoatFlyModeAccelerate = String::Hash(controllerControls["boatFlyModeAccelerate"].get<std::string>());
+		Settings::Controls::Controller::BoatFlyModeDecelerate = String::Hash(controllerControls["boatFlyModeDecelerate"].get<std::string>());
+		Settings::Controls::Controller::BoatFlyModeFlyUp = String::Hash(controllerControls["boatFlyModeFlyUp"].get<std::string>());
+		Settings::Controls::Controller::BoatFlyModeYawLeft = String::Hash(controllerControls["boatFlyModeYawLeft"].get<std::string>());
+		Settings::Controls::Controller::BoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<std::string>());
 	}
 	catch (const std::exception & e) {
 		// Game::PrintSubtitle("Error: Failed to parse settings.json");
@@ -342,74 +342,74 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 	try {
 		json settingsData = json::object({
 			// General
-			{ "playUiSounds", MenuSettings::playUiSounds },
+			{ "playUiSounds", Settings::General::playUiSounds },
 
 			// Colors
-			{ "titleBarBorderColor", MenuSettings::jsonFromColor(MenuSettings::titleBarBorderColor) },
-			{ "titleBarTextColor", MenuSettings::jsonFromColor(MenuSettings::titleBarTextColor) },
-			{ "optionBgColor", MenuSettings::jsonFromColor(MenuSettings::optionBgColor) },
-			{ "optionTextColor", MenuSettings::jsonFromColor(MenuSettings::optionTextColor) },
-			{ "optionSelectedBgColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedBgColor) },
-			{ "optionSelectedOutlineColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedOutlineColor) },
-			{ "optionSelectedTextColor", MenuSettings::jsonFromColor(MenuSettings::optionSelectedTextColor) },
-			{ "optionToggleColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleColor) },
-			{ "optionToggleToggledColor", MenuSettings::jsonFromColor(MenuSettings::optionToggleToggledColor) },
-			{ "optionNumberColor", MenuSettings::jsonFromColor(MenuSettings::optionNumberColor) },
-			{ "menuScrollLineColor", MenuSettings::jsonFromColor(MenuSettings::menuScrollLineColor) },
-			{ "menuBgColor", MenuSettings::jsonFromColor(MenuSettings::menuBgColor) },
-			{ "menuStatusTextColor", MenuSettings::jsonFromColor(MenuSettings::menuStatusTextColor) },
-			{ "menuOptionCountColor", MenuSettings::jsonFromColor(MenuSettings::menuOptionCountColor) },
+			{ "titleBarBorderColor", Settings::jsonFromColor(Settings::Colors::titleBarBorder) },
+			{ "titleBarTextColor", Settings::jsonFromColor(Settings::Colors::titleBarText) },
+			{ "optionBgColor", Settings::jsonFromColor(Settings::Colors::optionBg) },
+			{ "optionTextColor", Settings::jsonFromColor(Settings::Colors::optionText) },
+			{ "optionSelectedBgColor", Settings::jsonFromColor(Settings::Colors::optionSelectedBg) },
+			{ "optionSelectedOutlineColor", Settings::jsonFromColor(Settings::Colors::optionSelectedOutline) },
+			{ "optionSelectedTextColor", Settings::jsonFromColor(Settings::Colors::optionSelectedText) },
+			{ "optionToggleColor", Settings::jsonFromColor(Settings::Colors::optionToggle) },
+			{ "optionToggleToggledColor", Settings::jsonFromColor(Settings::Colors::optionToggleToggled) },
+			{ "optionNumberColor", Settings::jsonFromColor(Settings::Colors::optionNumber) },
+			{ "menuScrollLineColor", Settings::jsonFromColor(Settings::Colors::menuScrollLine) },
+			{ "menuBgColor", Settings::jsonFromColor(Settings::Colors::menuBg) },
+			{ "menuStatusTextColor", Settings::jsonFromColor(Settings::Colors::menuStatusText) },
+			{ "menuOptionCountColor", Settings::jsonFromColor(Settings::Colors::menuOptionCount) },
 
 			// Controls
 			{"controls", {
 				{"keyboard", {
-					{"menuOpen", MenuSettings::MenuOpen},
-					{"menuOptionPress", MenuSettings::MenuOptionPress},
-					{"menuUp", MenuSettings::MenuUp},
-					{"menuDown", MenuSettings::MenuDown},
-					{"menuBack", MenuSettings::MenuBack},
-					{"menuAdjustValueDown", MenuSettings::MenuAdjustValueDown},
-					{"menuAdjustValueUp", MenuSettings::MenuAdjustValueUp},
-					{"menuEditModeEnter", MenuSettings::MenuEditModeEnter},
-					{"menuEditModeExit", MenuSettings::MenuEditModeExit},
-					{"menuEditModeExitAndSave", MenuSettings::MenuEditModeExitAndSave},
-					{"menuEditModeMoveOption", MenuSettings::MenuEditModeMoveOption},
-					{"menuEditModeAddOption", MenuSettings::MenuEditModeAddOption},
-					{"menuEditModeEditOption", MenuSettings::MenuEditModeEditOption},
-					{"menuEditModeDeleteOption", MenuSettings::MenuEditModeDeleteOption},
-					{"bindBoost", MenuSettings::BindBoost},
-					{"boatFlyModeAccelerate", MenuSettings::BoatFlyModeAccelerate},
-					{"boatFlyModeDecelerate", MenuSettings::BoatFlyModeDecelerate},
-					{"boatFlyModeFlyUp", MenuSettings::BoatFlyModeFlyUp},
-					{"boatFlyModeUp", MenuSettings::BoatFlyModeUp},
-					{"boatFlyModeDown", MenuSettings::BoatFlyModeDown},
-					{"boatFlyModeLeft", MenuSettings::BoatFlyModeLeft},
-					{"boatFlyModeRight", MenuSettings::BoatFlyModeRight},
-					{"boatFlyModeYawLeft", MenuSettings::BoatFlyModeYawLeft},
-					{"boatFlyModeYawRight", MenuSettings::BoatFlyModeYawRight}
+					{"menuOpen", Settings::Controls::Keyboard::MenuOpen},
+					{"menuOptionPress", Settings::Controls::Keyboard::MenuOptionPress},
+					{"menuDown", Settings::Controls::Keyboard::MenuDown},
+					{"menuUp", Settings::Controls::Keyboard::MenuUp},
+					{"menuBack", Settings::Controls::Keyboard::MenuBack},
+					{"menuAdjustValueDown", Settings::Controls::Keyboard::MenuAdjustValueDown},
+					{"menuAdjustValueUp", Settings::Controls::Keyboard::MenuAdjustValueUp},
+					{"menuEditModeEnter", Settings::Controls::Keyboard::MenuEditModeEnter},
+					{"menuEditModeExit", Settings::Controls::Keyboard::MenuEditModeExit},
+					{"menuEditModeExitAndSave", Settings::Controls::Keyboard::MenuEditModeExitAndSave},
+					{"menuEditModeMoveOption", Settings::Controls::Keyboard::MenuEditModeMoveOption},
+					{"menuEditModeAddOption", Settings::Controls::Keyboard::MenuEditModeAddOption},
+					{"menuEditModeEditOption", Settings::Controls::Keyboard::MenuEditModeEditOption},
+					{"menuEditModeDeleteOption", Settings::Controls::Keyboard::MenuEditModeDeleteOption},
+					{"bindBoost", Settings::Controls::Keyboard::BindBoost},
+					{"boatFlyModeAccelerate", Settings::Controls::Keyboard::BoatFlyModeAccelerate},
+					{"boatFlyModeDecelerate", Settings::Controls::Keyboard::BoatFlyModeDecelerate},
+					{"boatFlyModeFlyUp", Settings::Controls::Keyboard::BoatFlyModeFlyUp},
+					{"boatFlyModeUp", Settings::Controls::Keyboard::BoatFlyModeUp},
+					{"boatFlyModeDown", Settings::Controls::Keyboard::BoatFlyModeDown},
+					{"boatFlyModeLeft", Settings::Controls::Keyboard::BoatFlyModeLeft},
+					{"boatFlyModeRight", Settings::Controls::Keyboard::BoatFlyModeRight},
+					{"boatFlyModeYawLeft", Settings::Controls::Keyboard::BoatFlyModeYawLeft},
+					{"boatFlyModeYawRight", Settings::Controls::Keyboard::BoatFlyModeYawRight}
 				}},
 				{"controller", {
-					{ "menuOpen", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOpen) },
-					{ "menuOpenModifier", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOpenModifier) },
-					{ "menuOptionPress", Controls::ControlStringFromHash(MenuSettings::ControllerMenuOptionPress) },
-					{ "menuUp", Controls::ControlStringFromHash(MenuSettings::ControllerMenuUp) },
-					{ "menuDown", Controls::ControlStringFromHash(MenuSettings::ControllerMenuDown) },
-					{ "menuBack", Controls::ControlStringFromHash(MenuSettings::ControllerMenuBack) },
-					{ "menuAdjustValueDown", Controls::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueDown) },
-					{ "menuAdjustValueUp", Controls::ControlStringFromHash(MenuSettings::ControllerMenuAdjustValueUp) },
-					{ "menuEditModeEnter", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEnter) },
-					{ "menuEditModeExit", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExit) },
-					{ "menuEditModeExitAndSave", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeExitAndSave) },
-					{ "menuEditModeMoveOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeMoveOption) },
-					{ "menuEditModeAddOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeAddOption) },
-					{ "menuEditModeEditOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeEditOption) },
-					{ "menuEditModeDeleteOption", Controls::ControlStringFromHash(MenuSettings::ControllerMenuEditModeDeleteOption) },
-					{ "bindBoost", Controls::ControlStringFromHash(MenuSettings::ControllerBindBoost) },
-					{ "boatFlyModeAccelerate", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeAccelerate) },
-					{ "boatFlyModeDecelerate", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeDecelerate) },
-					{ "boatFlyModeFlyUp", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeFlyUp) },
-					{ "boatFlyModeYawRight", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawRight) },
-					{ "boatFlyModeYawLeft", Controls::ControlStringFromHash(MenuSettings::ControllerBoatFlyModeYawLeft) }
+					{ "menuOpen", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuOpen) },
+					{ "menuOpenModifier", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuOpenModifier) },
+					{ "menuOptionPress", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuOptionPress) },
+					{ "menuUp", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuUp) },
+					{ "menuDown", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuDown) },
+					{ "menuBack", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuBack) },
+					{ "menuAdjustValueDown", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuAdjustValueDown) },
+					{ "menuAdjustValueUp", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuAdjustValueUp) },
+					{ "menuEditModeEnter", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeEnter) },
+					{ "menuEditModeExit", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeExit) },
+					{ "menuEditModeExitAndSave", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeExitAndSave) },
+					{ "menuEditModeMoveOption", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeMoveOption) },
+					{ "menuEditModeAddOption", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeAddOption) },
+					{ "menuEditModeEditOption", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeEditOption) },
+					{ "menuEditModeDeleteOption", Controls::ControlStringFromHash(Settings::Controls::Controller::MenuEditModeDeleteOption) },
+					{ "bindBoost", Controls::ControlStringFromHash(Settings::Controls::Controller::BindBoost) },
+					{ "boatFlyModeAccelerate", Controls::ControlStringFromHash(Settings::Controls::Controller::BoatFlyModeAccelerate) },
+					{ "boatFlyModeDecelerate", Controls::ControlStringFromHash(Settings::Controls::Controller::BoatFlyModeDecelerate) },
+					{ "boatFlyModeFlyUp", Controls::ControlStringFromHash(Settings::Controls::Controller::BoatFlyModeFlyUp) },
+					{ "boatFlyModeYawRight", Controls::ControlStringFromHash(Settings::Controls::Controller::BoatFlyModeYawRight) },
+					{ "boatFlyModeYawLeft", Controls::ControlStringFromHash(Settings::Controls::Controller::BoatFlyModeYawLeft) }
 				}}
 			}}
 		});
@@ -477,7 +477,7 @@ void JSONData::SaveOptionStates()
 		json optionStates;
 		optionStates["optionStates"] = json::array();
 
-		for each (auto optionToSave in MenuSettings::optionsToSave) {
+		for each (auto optionToSave in Settings::General::optionsToSave) {
 			std::string key = optionToSave.key;
 			std::string type;
 			json value;

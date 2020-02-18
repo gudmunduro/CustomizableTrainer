@@ -11,7 +11,7 @@
 #include "pch.h"
 #include "MenuSettings.h"
 
-Color MenuSettings::colorFromHex(std::string hexValue)
+Color Settings::colorFromHex(std::string hexValue)
 {
 	int hexValueInt = std::stoi(hexValue);
 	return {
@@ -22,7 +22,7 @@ Color MenuSettings::colorFromHex(std::string hexValue)
 	};
 }
 
-Color MenuSettings::colorFromJSON(json color)
+Color Settings::colorFromJSON(json color)
 {
 	return {
 		color["r"].get<int>(),
@@ -32,7 +32,7 @@ Color MenuSettings::colorFromJSON(json color)
 	};
 }
 
-json MenuSettings::jsonFromColor(Color color)
+json Settings::jsonFromColor(Color color)
 {
 	return {
 		{ "r", color.r },

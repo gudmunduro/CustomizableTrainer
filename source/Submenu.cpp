@@ -40,30 +40,30 @@ void Submenu::DrawMenuBase()
 	auto menuPos = menuController->position;
 
 	// Background
-	Game::DrawSprite("generic_textures", "inkroller_1a", { menuPos.x + 10.0f, menuPos.y + 24.0f }, { 25.0f, 56.0f }, 0, MenuSettings::menuBgColor);
+	Game::DrawSprite("generic_textures", "inkroller_1a", { menuPos.x + 10.0f, menuPos.y + 24.0f }, { 25.0f, 56.0f }, 0, Settings::Colors::menuBg);
 
 	// Top scroll line
 	if (scrollPosition > 0) {
-		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 4.955f, menuPos.y + 7.3f }, { 8.95f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
-		Game::DrawSprite("menu_textures", "scroller_arrow_top", { menuPos.x + 10.0f, menuPos.y + 6.45f }, { 1.0f, 2.0f }, 0, MenuSettings::menuScrollLineColor);
-		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 15.03f, menuPos.y + 7.3f }, { 8.95f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
+		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 4.955f, menuPos.y + 7.3f }, { 8.95f, 0.1f }, 0, Settings::Colors::menuScrollLine);
+		Game::DrawSprite("menu_textures", "scroller_arrow_top", { menuPos.x + 10.0f, menuPos.y + 6.45f }, { 1.0f, 2.0f }, 0, Settings::Colors::menuScrollLine);
+		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 15.03f, menuPos.y + 7.3f }, { 8.95f, 0.1f }, 0, Settings::Colors::menuScrollLine);
 	}
 	else {
-		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 10.0f, menuPos.y + 7.3f }, { 19.3f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
+		Game::DrawSprite("menu_textures", "scroller_line_top", { menuPos.x + 10.0f, menuPos.y + 7.3f }, { 19.3f, 0.1f }, 0, Settings::Colors::menuScrollLine);
 	}
 
 	// Bottom scroll line
 	if (OptionCount() > scrollPosition + 8) {
-		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 4.955f, menuPos.y + 45.0f }, { 8.95f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
-		Game::DrawSprite("menu_textures", "scroller_arrow_bottom", { menuPos.x + 10.0f, menuPos.y + 45.85f }, { 1.0f, 2.0f }, 0, MenuSettings::menuScrollLineColor);
-		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 15.03f, menuPos.y + 45.0f }, { 8.95f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
+		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 4.955f, menuPos.y + 45.0f }, { 8.95f, 0.1f }, 0, Settings::Colors::menuScrollLine);
+		Game::DrawSprite("menu_textures", "scroller_arrow_bottom", { menuPos.x + 10.0f, menuPos.y + 45.85f }, { 1.0f, 2.0f }, 0, Settings::Colors::menuScrollLine);
+		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 15.03f, menuPos.y + 45.0f }, { 8.95f, 0.1f }, 0, Settings::Colors::menuScrollLine);
 	}
 	else {
-		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 10.0f, menuPos.y + 45.0f }, { 19.3f, 0.1f }, 0, MenuSettings::menuScrollLineColor);
+		Game::DrawSprite("menu_textures", "scroller_line_bottom", { menuPos.x + 10.0f, menuPos.y + 45.0f }, { 19.3f, 0.1f }, 0, Settings::Colors::menuScrollLine);
 	}
 
 	// Option count
-	Game::DrawText("<font face='$body2' >" + std::to_string(selection + 1) + " / " + std::to_string(OptionCount()) + "</font>", { menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, MenuSettings::menuOptionCountColor, true);
+	Game::DrawText("<font face='$body2' >" + std::to_string(selection + 1) + " / " + std::to_string(OptionCount()) + "</font>", { menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, Settings::Colors::menuOptionCount, true);
 }
 
 void Submenu::Draw() 
@@ -79,18 +79,18 @@ void Submenu::DrawTitle(std::string text)
 {
 	auto menuPos = menuController->position;
 
-	Game::DrawText("<font face='$title1' >" + text + "</font>", { menuPos.x + 10.0f, menuPos.y }, 48.0f, MenuSettings::titleBarTextColor, true);
-	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, MenuSettings::titleBarBorderColor);
+	Game::DrawText("<font face='$title1' >" + text + "</font>", { menuPos.x + 10.0f, menuPos.y }, 48.0f, Settings::Colors::titleBarText, true);
+	Game::DrawSprite("generic_textures", "menu_header_1a", { menuPos.x + 10.0f, menuPos.y + 1.7f }, { 20.0f, 5.5f }, 0, Settings::Colors::titleBarBorder);
 }
 
 void Submenu::DrawOptionBase(std::string text, bool selected)
 {
 	auto menuPos = menuController->position;
-	auto optionTextColor = selected ? MenuSettings::optionSelectedTextColor : MenuSettings::optionTextColor;
-	auto optionBgColor = selected ? MenuSettings::optionSelectedBgColor : MenuSettings::optionBgColor;
+	auto optionTextColor = selected ? Settings::Colors::optionSelectedText : Settings::Colors::optionText;
+	auto optionBgColor = selected ? Settings::Colors::optionSelectedBg : Settings::Colors::optionBg;
 	
 	Game::DrawText("<font face = '$body' >" + text + "</font>", { menuPos.x + 1.0f, CurrentOptionPosY() - 0.4f }, 35.0f, optionTextColor);
-	if (selected) Game::DrawSprite("generic_textures", "selection_box_bg_1d", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 20.0f, 4.8f }, 0, MenuSettings::optionSelectedOutlineColor);
+	if (selected) Game::DrawSprite("generic_textures", "selection_box_bg_1d", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 20.0f, 4.8f }, 0, Settings::Colors::optionSelectedOutline);
 	if (selected) Game::DrawRect({ menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 18.6f, 3.3f }, { 0, 0, 0, 255 });
 	Game::DrawSprite("generic_textures", "selection_box_bg_1c", { menuPos.x + 10.0f, CurrentOptionPosY() + 1.0f }, { 19.3f, 4.0f }, 0, optionBgColor);
 }
@@ -116,7 +116,7 @@ void Submenu::DrawSub(std::string text, std::string subKey, bool enabled)
 
 	if (selected) {
 		if (enabled && Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
 			menuController->SetSubmenuWithKey(subKey);
 		}
 	}
@@ -134,7 +134,7 @@ void Submenu::DrawAction(std::string text, std::function<void()> onPress)
 
 	if (selected) {
 		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
 			onPress();
 		}
 	}
@@ -148,7 +148,7 @@ void Submenu::DrawToggle(std::string text, bool isToggled, std::function<void()>
 	if (IsOutOfBounds(optionAddIndex)) return;
 	bool selected = IsOptionSelected(selection);
 	auto menuPos = menuController->position;
-	auto toggleColor = isToggled ? MenuSettings::optionToggleToggledColor : MenuSettings::optionToggleColor;
+	auto toggleColor = isToggled ? Settings::Colors::optionToggleToggled : Settings::Colors::optionToggle;
 
 	DrawOptionBase(text, selected);
 	// Game::DrawSprite("menu_textures", isToggled ? "menu_icon_tick" : "cross", { menuPos.x + 17.0f, CurrentOptionPosY() + 1.0f }, { 0.84375f, 1.5f }, 0, toggleColor);
@@ -156,7 +156,7 @@ void Submenu::DrawToggle(std::string text, bool isToggled, std::function<void()>
 
 	if (selected) {
 		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) { // Option pressed
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
 			onPress();
 		}
 	}
@@ -172,21 +172,21 @@ void Submenu::DrawNumber(std::string text, std::string numberToDisplay, std::fun
 	auto menuPos = menuController->position; 
 
 	DrawOptionBase(text, selected);
-	Game::DrawText(numberToDisplay, { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, MenuSettings::optionNumberColor);
+	Game::DrawText(numberToDisplay, { menuPos.x + 17.0f, CurrentOptionPosY() - 0.2f }, 30.0f, Settings::Colors::optionNumber);
 
 	if (selected) {
 		if (Controls::IsMenuControlPressed(MenuControl::MenuOptionPress)) {
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "SELECT");
 			onPress();
 		}
 
 		if (isHoldingAdjustUp || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueUp)) {
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
 			onAdjust(true);
 		}
 
 		if (isHoldingAdjustDown || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueDown)) {
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
 			onAdjust(false);
 		}
 	}
@@ -202,17 +202,17 @@ void Submenu::DrawTextList(std::string text, std::string valueToDisplay, std::fu
 	auto menuPos = menuController->position;
 
 	DrawOptionBase(text, selected);
-	Game::DrawText(valueToDisplay, { menuPos.x + 13.0f, CurrentOptionPosY() }, 30.0f, MenuSettings::optionNumberColor);
+	Game::DrawText(valueToDisplay, { menuPos.x + 13.0f, CurrentOptionPosY() }, 30.0f, Settings::Colors::optionNumber);
 
 	if (selected) {
 
 		if (isHoldingAdjustUp || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueUp)) {
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_RIGHT");
 			onAdjust(true);
 		}
 
 		if (isHoldingAdjustDown || Controls::IsMenuControlPressed(MenuControl::MenuAdjustValueDown)) {
-			if (MenuSettings::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
+			if (Settings::General::playUiSounds) Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
 			onAdjust(false);
 		}
 	}
@@ -251,7 +251,7 @@ void Submenu::OptionDidDraw()
 
 void Submenu::SelectionDidChange(int to, int from)
 {
-	if (MenuSettings::playUiSounds) {
+	if (Settings::General::playUiSounds) {
 		if (to < from)
 			Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_UP");
 		else
@@ -302,7 +302,7 @@ void Submenu::RespondToControls()
 	}
 	if (Controls::IsMenuControlPressed(MenuControl::MenuGoBack)) {
 		menuController->GoToLastSub();
-		if (MenuSettings::playUiSounds) {
+		if (Settings::General::playUiSounds) {
 			if (menuController->submenuStack.size() > 0) 
 				Game::PlaySoundFrontend("HUD_PLAYER_MENU", "NAV_LEFT");
 			else

@@ -60,6 +60,8 @@ namespace Spawner {
 
 #pragma region Camera
 
+
+
 #pragma endregion
 
 }

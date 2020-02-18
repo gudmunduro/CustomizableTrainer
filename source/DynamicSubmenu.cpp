@@ -238,7 +238,7 @@ int DynamicSubmenu::OptionCount()
 
 bool DynamicSubmenu::IsSavedOption(std::string key)
 {
-	for each (auto optionToSave in MenuSettings::optionsToSave) {
+	for each (auto optionToSave in Settings::General::optionsToSave) {
 		if (optionToSave.key == key)
 			return true;
 	}

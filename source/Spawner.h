@@ -35,7 +35,13 @@ namespace Spawner {
 #pragma region Camera
 
 	class Camera {
+	public:
+		Camera();
 
+		void Tick();
+	private:
+		Vector3 position;
+		Vector3 rotation;
 	};
 
 #pragma endregion

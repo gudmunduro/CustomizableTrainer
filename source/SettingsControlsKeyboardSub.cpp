@@ -37,29 +37,29 @@ void SettingsControlsKeyboardSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("Keyboard");
-	DrawEditControl("Open", &MenuSettings::MenuOpen);
-	DrawEditControl("Select", &MenuSettings::MenuOptionPress);
-	DrawEditControl("Up", &MenuSettings::MenuUp);
-	DrawEditControl("Down", &MenuSettings::MenuDown);
-	DrawEditControl("Back", &MenuSettings::MenuBack);
-	DrawEditControl("Value up", &MenuSettings::MenuAdjustValueDown);
-	DrawEditControl("Value down", &MenuSettings::MenuAdjustValueUp);
-	DrawEditControl("Enter edit mode", &MenuSettings::MenuEditModeEnter);
-	DrawEditControl("Exit edit mode", &MenuSettings::MenuEditModeExit);
-	DrawEditControl("Exit edit mode and save", &MenuSettings::MenuEditModeExitAndSave);
-	DrawEditControl("Move option", &MenuSettings::MenuEditModeMoveOption);
-	DrawEditControl("Add option", &MenuSettings::MenuEditModeAddOption);
-	DrawEditControl("Edit option", &MenuSettings::MenuEditModeAddOption);
-	DrawEditControl("Delete option", &MenuSettings::MenuEditModeDeleteOption);
-	DrawEditControl("Boost vehicle", &MenuSettings::BindBoost);
-	DrawEditControl("Boat fly mode accelerate", &MenuSettings::BoatFlyModeAccelerate);
-	DrawEditControl("Boat fly mode decelerate", &MenuSettings::BoatFlyModeDecelerate);
-	DrawEditControl("Boat fly mode up", &MenuSettings::BoatFlyModeUp);
-	DrawEditControl("Boat fly mode down", &MenuSettings::BoatFlyModeDown);
-	DrawEditControl("Boat fly mode left", &MenuSettings::BoatFlyModeLeft);
-	DrawEditControl("Boat fly mode right", &MenuSettings::BoatFlyModeRight);
-	DrawEditControl("Boat fly mode yaw left", &MenuSettings::BoatFlyModeYawLeft);
-	DrawEditControl("Boat fly mode yaw right", &MenuSettings::BoatFlyModeYawRight);
+	DrawEditControl("Open", &Settings::Controls::Keyboard::MenuOpen);
+	DrawEditControl("Select", &Settings::Controls::Keyboard::MenuOptionPress);
+	DrawEditControl("Up", &Settings::Controls::Keyboard::MenuUp);
+	DrawEditControl("Down", &Settings::Controls::Keyboard::MenuDown);
+	DrawEditControl("Back", &Settings::Controls::Keyboard::MenuBack);
+	DrawEditControl("Value up", &Settings::Controls::Keyboard::MenuAdjustValueDown);
+	DrawEditControl("Value down", &Settings::Controls::Keyboard::MenuAdjustValueUp);
+	DrawEditControl("Enter edit mode", &Settings::Controls::Keyboard::MenuEditModeEnter);
+	DrawEditControl("Exit edit mode", &Settings::Controls::Keyboard::MenuEditModeExit);
+	DrawEditControl("Exit edit mode and save", &Settings::Controls::Keyboard::MenuEditModeExitAndSave);
+	DrawEditControl("Move option", &Settings::Controls::Keyboard::MenuEditModeMoveOption);
+	DrawEditControl("Add option", &Settings::Controls::Keyboard::MenuEditModeAddOption);
+	DrawEditControl("Edit option", &Settings::Controls::Keyboard::MenuEditModeAddOption);
+	DrawEditControl("Delete option", &Settings::Controls::Keyboard::MenuEditModeDeleteOption);
+	DrawEditControl("Boost vehicle", &Settings::Controls::Keyboard::BindBoost);
+	DrawEditControl("Boat fly mode accelerate", &Settings::Controls::Keyboard::BoatFlyModeAccelerate);
+	DrawEditControl("Boat fly mode decelerate", &Settings::Controls::Keyboard::BoatFlyModeDecelerate);
+	DrawEditControl("Boat fly mode up", &Settings::Controls::Keyboard::BoatFlyModeUp);
+	DrawEditControl("Boat fly mode down", &Settings::Controls::Keyboard::BoatFlyModeDown);
+	DrawEditControl("Boat fly mode left", &Settings::Controls::Keyboard::BoatFlyModeLeft);
+	DrawEditControl("Boat fly mode right", &Settings::Controls::Keyboard::BoatFlyModeRight);
+	DrawEditControl("Boat fly mode yaw left", &Settings::Controls::Keyboard::BoatFlyModeYawLeft);
+	DrawEditControl("Boat fly mode yaw right", &Settings::Controls::Keyboard::BoatFlyModeYawRight);
 }
 
 void SettingsControlsKeyboardSub::DrawEditControl(std::string text, int* control)
