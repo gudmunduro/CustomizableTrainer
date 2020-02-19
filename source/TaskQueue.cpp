@@ -68,7 +68,13 @@ void TaskQueue::Wait(DWORD time)
 
 void TaskQueue::RunTask(TaskQueueTask& task)
 {
-	task.function();
+	try {
+		task.function();
+	}
+	catch (std::exception & e) {
+		std::string exceptionText = e.what();
+		Game::PrintSubtitle("[Error] Task \"" + task.name + "\" failed with \"" + exceptionText + "\"");
+	}
 }
 
 void TaskQueue::Run()

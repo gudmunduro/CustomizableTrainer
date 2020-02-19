@@ -13,7 +13,6 @@
 #include "Toggles.h"
 #include "Player.h"
 #include "Controls.h"
-#include "HorseFlyMode.h"
 #include "BoatFlyMode.h"
 #include "Numbers.h"
 #include "HotkeyController.h"

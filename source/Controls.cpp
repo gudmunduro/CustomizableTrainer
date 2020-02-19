@@ -15,6 +15,7 @@
 
 bool Controls::IsMenuControlPressed(MenuControl control)
 {
+	bool res = false;
 	if (shouldCancelForThisFrame) return false;
 	switch (control) {
 	case MenuControl::MenuOptionPress:

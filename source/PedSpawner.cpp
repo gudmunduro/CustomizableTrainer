@@ -22,7 +22,7 @@ void PedSpawner::Spawn(std::string name, std::string model)
 
 	auto ped = Ped::Create(modelHash, spawnPosition, heading);
 
-	peds.push_back(std::make_shared<SpawnerPed>(SpawnerPed(name, ped)));
+	peds.push_back(std::make_shared<SpawnerPed>(name, ped));
 }
 
 void PedSpawner::SetCurrentPedIndex(int index)

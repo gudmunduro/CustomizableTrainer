@@ -28,6 +28,7 @@
 #include "ActionController.h"
 #include "ToggleController.h"
 #include "NumberController.h"
+#include "SpawnerSub.h"
 
 MenuController::MenuController()
 {
@@ -178,6 +179,7 @@ std::vector<std::string> MenuController::SubmenuKeys()
 	keys.push_back("builtin_sub_pedSpawner"); // TODO: Find a better solution to this
 	keys.push_back("builtin_sub_settings");
 	keys.push_back("builtin_sub_selectWeaponCat");
+	keys.push_back("builtin_sub_spawnerSub");
 
 	return keys;
 }
@@ -213,6 +215,9 @@ std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
 	}
 	else if (key == "builtin_sub_selectWeaponCat") {
 		return new WeaponSelectionSub(this);
+	}
+	else if (key == "builtin_sub_spawnerSub") {
+		return new SpawnerSub(this);
 	}
 	return std::nullopt;
 }

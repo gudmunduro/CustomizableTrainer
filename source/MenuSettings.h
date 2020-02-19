@@ -16,8 +16,8 @@ namespace Settings {
 #pragma region General
 
 	namespace General {
-		static inline bool playUiSounds;
-		static inline std::vector<OptionToSave> optionsToSave;
+		inline bool playUiSounds;
+		inline std::vector<OptionToSave> optionsToSave;
 	}
 
 #pragma endregion
@@ -25,20 +25,20 @@ namespace Settings {
 #pragma region Colors
 
 	namespace Colors {
-		static inline Color titleBarBorder;
-		static inline Color titleBarText;
-		static inline Color optionBg;
-		static inline Color optionText;
-		static inline Color optionSelectedBg;
-		static inline Color optionSelectedOutline;
-		static inline Color optionSelectedText;
-		static inline Color optionToggle;
-		static inline Color optionToggleToggled;
-		static inline Color optionNumber;
-		static inline Color menuScrollLine;
-		static inline Color menuBg;
-		static inline Color menuStatusText;
-		static inline Color menuOptionCount;
+		inline Color titleBarBorder;
+		inline Color titleBarText;
+		inline Color optionBg;
+		inline Color optionText;
+		inline Color optionSelectedBg;
+		inline Color optionSelectedOutline;
+		inline Color optionSelectedText;
+		inline Color optionToggle;
+		inline Color optionToggleToggled;
+		inline Color optionNumber;
+		inline Color menuScrollLine;
+		inline Color menuBg;
+		inline Color menuStatusText;
+		inline Color menuOptionCount;
 	}
 	
 #pragma endregion
@@ -47,54 +47,54 @@ namespace Settings {
 
 	namespace Controls {
 		namespace Keyboard {
-			static inline int MenuOpen;
-			static inline int MenuOptionPress;
-			static inline int MenuUp;
-			static inline int MenuDown;
-			static inline int MenuBack;
-			static inline int MenuAdjustValueDown;
-			static inline int MenuAdjustValueUp;
-			static inline int MenuEditModeEnter;
-			static inline int MenuEditModeExit;
-			static inline int MenuEditModeExitAndSave;
-			static inline int MenuEditModeMoveOption;
-			static inline int MenuEditModeAddOption;
-			static inline int MenuEditModeEditOption;
-			static inline int MenuEditModeDeleteOption;
-			static inline int BindBoost;
-			static inline int BoatFlyModeAccelerate;
-			static inline int BoatFlyModeDecelerate;
-			static inline int BoatFlyModeFlyUp;
-			static inline int BoatFlyModeUp;
-			static inline int BoatFlyModeDown;
-			static inline int BoatFlyModeLeft;
-			static inline int BoatFlyModeRight;
-			static inline int BoatFlyModeYawLeft;
-			static inline int BoatFlyModeYawRight;
+			inline int MenuOpen;
+			inline int MenuOptionPress;
+			inline int MenuUp;
+			inline int MenuDown;
+			inline int MenuBack;
+			inline int MenuAdjustValueDown;
+			inline int MenuAdjustValueUp;
+			inline int MenuEditModeEnter;
+			inline int MenuEditModeExit;
+			inline int MenuEditModeExitAndSave;
+			inline int MenuEditModeMoveOption;
+			inline int MenuEditModeAddOption;
+			inline int MenuEditModeEditOption;
+			inline int MenuEditModeDeleteOption;
+			inline int BindBoost;
+			inline int BoatFlyModeAccelerate;
+			inline int BoatFlyModeDecelerate;
+			inline int BoatFlyModeFlyUp;
+			inline int BoatFlyModeUp;
+			inline int BoatFlyModeDown;
+			inline int BoatFlyModeLeft;
+			inline int BoatFlyModeRight;
+			inline int BoatFlyModeYawLeft;
+			inline int BoatFlyModeYawRight;
 		}
 
 		namespace Controller {
-			static inline Hash MenuOpen;
-			static inline Hash MenuOpenModifier;
-			static inline Hash MenuOptionPress;
-			static inline Hash MenuUp;
-			static inline Hash MenuDown;
-			static inline Hash MenuBack;
-			static inline Hash MenuAdjustValueDown;
-			static inline Hash MenuAdjustValueUp;
-			static inline Hash MenuEditModeEnter;
-			static inline Hash MenuEditModeExit;
-			static inline Hash MenuEditModeExitAndSave;
-			static inline Hash MenuEditModeMoveOption;
-			static inline Hash MenuEditModeAddOption;
-			static inline Hash MenuEditModeEditOption;
-			static inline Hash MenuEditModeDeleteOption;
-			static inline Hash BindBoost;
-			static inline Hash BoatFlyModeAccelerate;
-			static inline Hash BoatFlyModeDecelerate;
-			static inline Hash BoatFlyModeFlyUp;
-			static inline Hash BoatFlyModeYawLeft;
-			static inline Hash BoatFlyModeYawRight;
+			inline Hash MenuOpen;
+			inline Hash MenuOpenModifier;
+			inline Hash MenuOptionPress;
+			inline Hash MenuUp;
+			inline Hash MenuDown;
+			inline Hash MenuBack;
+			inline Hash MenuAdjustValueDown;
+			inline Hash MenuAdjustValueUp;
+			inline Hash MenuEditModeEnter;
+			inline Hash MenuEditModeExit;
+			inline Hash MenuEditModeExitAndSave;
+			inline Hash MenuEditModeMoveOption;
+			inline Hash MenuEditModeAddOption;
+			inline Hash MenuEditModeEditOption;
+			inline Hash MenuEditModeDeleteOption;
+			inline Hash BindBoost;
+			inline Hash BoatFlyModeAccelerate;
+			inline Hash BoatFlyModeDecelerate;
+			inline Hash BoatFlyModeFlyUp;
+			inline Hash BoatFlyModeYawLeft;
+			inline Hash BoatFlyModeYawRight;
 		}
 	}
 

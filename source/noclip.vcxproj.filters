@@ -100,6 +100,12 @@
     <Filter Include="Headers\Options\Actions">
       <UniqueIdentifier>{870576bc-9871-4a9d-80ba-fdd58a5aa89f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Menu\Submenus\Spawner">
+      <UniqueIdentifier>{2475b06d-1532-4e9e-8b7b-6700a705dcee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Menu\Submenus\Spawner">
+      <UniqueIdentifier>{16f80d2a-3a7e-4ad6-bce4-554961e6f592}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -276,6 +282,12 @@
     <ClInclude Include="Spawner.h">
       <Filter>Headers\Features</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerSub.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUtils.h">
+      <Filter>Headers\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -433,6 +445,12 @@
     </ClCompile>
     <ClCompile Include="Spawner.cpp">
       <Filter>Source\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerSub.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUtils.cpp">
+      <Filter>Source\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

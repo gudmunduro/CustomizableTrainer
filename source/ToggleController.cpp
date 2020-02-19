@@ -174,8 +174,9 @@ std::optional<std::function<void(bool value)>> ToggleController::GetToggleAction
 std::optional<std::function<void()>> ToggleController::GetToggleLoopForKey(std::string key)
 {
 	if (!ToggleLoopExistsForKey(key))
-		return toggleLoops[key];
-	return std::nullopt;
+		return std::nullopt;
+
+	return toggleLoops[key];
 }
 
 std::vector<std::string> ToggleController::Keys()

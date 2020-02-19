@@ -37,13 +37,37 @@ namespace Spawner {
 	class Camera {
 	public:
 		Camera();
+		~Camera();
 
+		void RespondToMoveControls();
+		void RespondToRotateControls();
+		void RespondToControls();
+
+		void ResetValues();
+		void UpdatePosition();
+		void UpdateRotation();
 		void Tick();
 	private:
-		Vector3 position;
-		Vector3 rotation;
+		Vector3 nextPositionOffset;
+		Vector3 nextRotationOffset;
+		Cam cam;
 	};
 
 #pragma endregion
 
+#pragma region Spawner
+
+	class Spawner {
+	public:
+		static void SetFreeCamEnabled(bool enabled);
+		static void ShowSelectedObjectOnGround();
+		static void Tick();
+
+		static std::unique_ptr<Database> database;
+		static inline std::optional<std::unique_ptr<Camera>> camera = std::nullopt;
+	private:
+		static inline bool isFreeCamEnabled = false;
+	};
+
+#pragma endregion
 }

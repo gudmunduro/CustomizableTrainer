@@ -129,9 +129,11 @@
     <ClInclude Include="HotkeyController.h" />
     <ClInclude Include="JsonData.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="CameraUtils.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
     <ClInclude Include="Spawner.h" />
+    <ClInclude Include="SpawnerSub.h" />
     <ClInclude Include="TaskQueue.h" />
     <ClInclude Include="TextController.h" />
     <ClInclude Include="Texts.h" />
@@ -183,9 +185,11 @@
     <ClCompile Include="HotkeyController.cpp" />
     <ClCompile Include="JsonData.cpp" />
     <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="CameraUtils.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="SpawnerSub.cpp" />
     <ClCompile Include="TaskQueue.cpp" />
     <ClCompile Include="TextController.cpp" />
     <ClCompile Include="Texts.cpp" />
