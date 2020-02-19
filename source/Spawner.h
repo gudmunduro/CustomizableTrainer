@@ -47,10 +47,11 @@ namespace Spawner {
 		void UpdatePosition();
 		void UpdateRotation();
 		void Tick();
+
+		Cam cam;
 	private:
 		Vector3 nextPositionOffset;
 		Vector3 nextRotationOffset;
-		Cam cam;
 	};
 
 #pragma endregion
@@ -64,9 +65,11 @@ namespace Spawner {
 		static void Tick();
 
 		static std::unique_ptr<Database> database;
-		static inline std::optional<std::unique_ptr<Camera>> camera = std::nullopt;
+		static inline std::optional<std::shared_ptr<Camera>> camera = std::nullopt;
 	private:
 		static inline bool isFreeCamEnabled = false;
+		static inline bool isSelectingObjectForSpawn = false;
+		static inline std::optional<Object> selectedObjectForSpawn = std::nullopt;
 	};
 
 #pragma endregion

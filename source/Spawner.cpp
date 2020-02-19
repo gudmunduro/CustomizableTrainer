@@ -12,6 +12,7 @@
 #include "Spawner.h"
 #include "Controls.h"
 #include "CameraUtils.h"
+#include "Raycast.h"
 
 namespace Spawner {
 
@@ -128,7 +129,7 @@ namespace Spawner {
 	{
 		if (nextPositionOffset.x + nextPositionOffset.y + nextPositionOffset.z == 0) // If they are all zero
 			return;
-		Vector3 nextPosition = CameraUtils::GetOffsetFromCameraInWorldCoords(cam, nextPositionOffset);
+		auto&& nextPosition = CameraUtils::GetOffsetFromCameraInWorldCoords(cam, nextPositionOffset);
 		CAM::SET_CAM_COORD(cam, nextPosition.x, nextPosition.y, nextPosition.z);
 	}
 
@@ -136,7 +137,7 @@ namespace Spawner {
 	{
 		if (nextRotationOffset.x + nextRotationOffset.y + nextRotationOffset.z == 0) // If they are all zero
 			return;
-		Vector3 currentRotation = CAM::GET_CAM_ROT(cam, 2);
+		auto&& currentRotation = CAM::GET_CAM_ROT(cam, 2);
 		CAM::SET_CAM_ROT(cam, currentRotation.x + nextRotationOffset.x, currentRotation.y + nextRotationOffset.y, currentRotation.z + nextRotationOffset.z, 2);
 	}
 
@@ -160,7 +161,7 @@ namespace Spawner {
 		isFreeCamEnabled = enabled;
 
 		if (isFreeCamEnabled)
-			camera = std::make_unique<Camera>();
+			camera = std::make_shared<Camera>();
 		else
 			camera = std::nullopt;
 	}
@@ -169,13 +170,34 @@ namespace Spawner {
 
 	void Spawner::ShowSelectedObjectOnGround()
 	{
-		
+		if (!camera) return;
+		auto&& cam = camera.value();
+		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+
+		auto&& result = RaycastResult::Raycast(pos, rot, 20000.0f, IntersectOptions::Map);
+
+		if (result.DidHitAnything()) {
+			auto&& hitPos = result.HitCoords();
+
+			if (!selectedObjectForSpawn 
+				|| ENTITY::DOES_ENTITY_EXIST(selectedObjectForSpawn.value())) {
+				// TODO: Create entity
+			}
+
+			ENTITY::SET_ENTITY_COORDS(selectedObjectForSpawn.value(), hitPos.x, hitPos.y, hitPos.z, false, false, false, false);
+			ENTITY::SET_ENTITY_ALPHA(selectedObjectForSpawn.value(), 150, 0);
+		}
 	}
 
 	void Spawner::Tick()
 	{
 		if (isFreeCamEnabled && camera)
 			camera.value()->Tick();
+
+		if (isSelectingObjectForSpawn) {
+			ShowSelectedObjectOnGround();
+		}
 	}
 
 #pragma endregion

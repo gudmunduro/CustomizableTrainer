@@ -106,7 +106,7 @@ void CustomBulletController::OnShoot()
 		Vector3& camPos = GameplayCamera::Position();
 		Vector3& camDir = GameplayCamera::DirectionFromScreenCentre();
 
-		auto& ray = RaycastResult::Raycast(camPos, camDir, 15000.0f, IntersectOptions::Everything, player.ped.id);
+		auto& ray = RaycastResult::Raycast(camPos, camDir, 20000.0f, IntersectOptions::Everything, player.ped.id);
 
 		if (ray.DidHitEntity()) {
 			auto hitEntity = ray.HitEntity();
