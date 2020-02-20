@@ -11,13 +11,9 @@
 #pragma once
 #include "pch.h"
 
-class Database
+class Object
+	: public Entity
 {
-public:
-	Database();
-
-	std::vector<Ped> peds;
-	std::vector<Vehicle> vehicles;
-	std::vector<ObjectId> objects;
+	Object(ObjectId objectId);
 };
 

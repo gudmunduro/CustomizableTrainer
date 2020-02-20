@@ -435,7 +435,7 @@ namespace ENTITY
 	static Vector3 GET_ENTITY_SPEED_VECTOR(EntityId entity, BOOL relative) { return invoke<Vector3>(0xF2DB09816A419DC5, entity, relative); }
 	static float GET_ENTITY_UPRIGHT_VALUE(EntityId entity) { return invoke<float>(0x56398BE65160C3BE, entity); }
 	static Vector3 GET_ENTITY_VELOCITY(EntityId entity, Any p1) { return invoke<Vector3>(0x4805D2B1D8CF94A9, entity, p1); }
-	static Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(EntityId entity) { return invoke<Object>(0x280BBE5601EAA983, entity); }
+	static ObjectId GET_OBJECT_INDEX_FROM_ENTITY_INDEX(EntityId entity) { return invoke<ObjectId>(0x280BBE5601EAA983, entity); }
 	static PedId GET_PED_INDEX_FROM_ENTITY_INDEX(EntityId entity) { return invoke<PedId>(0x0F16D042BD640EA3, entity); }
 	static VehicleId GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(EntityId entity) { return invoke<VehicleId>(0xDF1E5AAC561AFC59, entity); }
 	static Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE(EntityId entity, int boneIndex) { return invoke<Vector3>(0x82CFA50E34681CA5, entity, boneIndex); }
@@ -548,7 +548,7 @@ namespace ENTITY
 	static void SET_ENTITY_AS_NO_LONGER_NEEDED(EntityId* entity) { invoke<Void>(0x4971D2F8162B9674, entity); }
 	static void SET_PED_AS_NO_LONGER_NEEDED(PedId* ped) { invoke<Void>(0x2595DD4236549CE3, ped); }
 	static void SET_VEHICLE_AS_NO_LONGER_NEEDED(VehicleId* vehicle) { invoke<Void>(0x629BFA74418D6239, vehicle); }
-	static void SET_OBJECT_AS_NO_LONGER_NEEDED(Object* object) { invoke<Void>(0x3AE22DEB5BA5A3E6, object); }
+	static void SET_OBJECT_AS_NO_LONGER_NEEDED(ObjectId* object) { invoke<Void>(0x3AE22DEB5BA5A3E6, object); }
 	static void _0x20FAEE47427A4497() { invoke<Void>(0x20FAEE47427A4497); }
 	static BOOL _0x88AD6CC10D8D35B2(Any p0) { return invoke<BOOL>(0x88AD6CC10D8D35B2, p0); }
 	static void _0x56E0735D6273B227(Any p0, Any p1) { invoke<Void>(0x56E0735D6273B227, p0, p1); }
@@ -2074,19 +2074,19 @@ namespace VEHICLE
 
 namespace OBJECT
 {
-	static Object CREATE_OBJECT(Object modelHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7, Any p8) { return invoke<Object>(0x509D5878EB39E842, modelHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7, p8); }
+	static ObjectId CREATE_OBJECT(ObjectId modelHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7, Any p8) { return invoke<ObjectId>(0x509D5878EB39E842, modelHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7, p8); }
 	static float CREATE_OBJECT_NO_OFFSET(int* modelfwgaHash, float x, float y, float z, BOOL isNetwork, BOOL thisScriptCheck, BOOL dynamic, Any p7) { return invoke<float>(0x9A294B2138ABB884, modelfwgaHash, x, y, z, isNetwork, thisScriptCheck, dynamic, p7); }
-	static void DELETE_OBJECT(Object* object) { invoke<Void>(0x931914268722C263, object); }
-	static BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Object object, BOOL p1) { return invoke<BOOL>(0x58A850EAEE20FAA3, object, p1); }
-	static BOOL SLIDE_OBJECT(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return invoke<BOOL>(0x2FDFF4107B8C1147, object, toX, toY, toZ, speedX, speedY, speedZ, collision); }
-	static void SET_OBJECT_TARGETTABLE(Object object, BOOL targettable) { invoke<Void>(0x8A7391690F5AFD81, object, targettable); }
+	static void DELETE_OBJECT(ObjectId* object) { invoke<Void>(0x931914268722C263, object); }
+	static BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(ObjectId object, BOOL p1) { return invoke<BOOL>(0x58A850EAEE20FAA3, object, p1); }
+	static BOOL SLIDE_OBJECT(ObjectId object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return invoke<BOOL>(0x2FDFF4107B8C1147, object, toX, toY, toZ, speedX, speedY, speedZ, collision); }
+	static void SET_OBJECT_TARGETTABLE(ObjectId object, BOOL targettable) { invoke<Void>(0x8A7391690F5AFD81, object, targettable); }
 	static void _0x581EDBE56E8D62C9(Any p0, BOOL p1) { invoke<Void>(0x581EDBE56E8D62C9, p0, p1); }
 	static void _0xA22712E8471AA08E(Any p0, BOOL p1, BOOL p2) { invoke<Void>(0xA22712E8471AA08E, p0, p1, p2); }
 	static void _0xF6E88489B4E6EBE5(Any p0, Any p1) { invoke<Void>(0xF6E88489B4E6EBE5, p0, p1); }
 	static void _0xE157A8A336C7F04A(Any p0, Any p1) { invoke<Void>(0xE157A8A336C7F04A, p0, p1); }
 	static void _0x46CBCF0E98A4E156(Any p0, Any p1) { invoke<Void>(0x46CBCF0E98A4E156, p0, p1); }
-	static Object GET_CLOSEST_OBJECT_OF_TYPE(float x, float y, float z, float radius, Hash modelHash, BOOL isMission, BOOL p6, BOOL p7) { return invoke<Object>(0xE143FA2249364369, x, y, z, radius, modelHash, isMission, p6, p7); }
-	static BOOL HAS_OBJECT_BEEN_BROKEN(Object object) { return invoke<BOOL>(0x8ABFB70C49CC43E2, object); }
+	static ObjectId GET_CLOSEST_OBJECT_OF_TYPE(float x, float y, float z, float radius, Hash modelHash, BOOL isMission, BOOL p6, BOOL p7) { return invoke<ObjectId>(0xE143FA2249364369, x, y, z, radius, modelHash, isMission, p6, p7); }
+	static BOOL HAS_OBJECT_BEEN_BROKEN(ObjectId object) { return invoke<BOOL>(0x8ABFB70C49CC43E2, object); }
 	static BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float p0, float p1, float p2, float p3, Hash modelHash, Any p5) { return invoke<BOOL>(0x761B0E69AC4D007E, p0, p1, p2, p3, modelHash, p5); }
 	static Vector3 _GET_OBJECT_OFFSET_FROM_COORDS(float xPos, float yPos, float zPos, float heading, float xOffset, float yOffset, float zOffset) { return invoke<Vector3>(0x163E252DE035A133, xPos, yPos, zPos, heading, xOffset, yOffset, zOffset); }
 	static void _0xD99229FE93B46286(Any p0, BOOL p1, BOOL p2, BOOL p3, Any p4, Any p5, BOOL p6) { invoke<Void>(0xD99229FE93B46286, p0, p1, p2, p3, p4, p5, p6); }
@@ -2124,22 +2124,22 @@ namespace OBJECT
 	static void _0x5230BF34EB0EC645(Any p0) { invoke<Void>(0x5230BF34EB0EC645, p0); }
 	static BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float x, float y, float z, float radius, Hash hash, BOOL p5) { return invoke<BOOL>(0xBFA48E2FF417213F, x, y, z, radius, hash, p5); }
 	static BOOL IS_POINT_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, BOOL p10, BOOL p11) { return invoke<BOOL>(0x2A70BAE8883E4C81, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
-	static void _0x4D89D607CB3DD1D2(Object object, BOOL toggle) { invoke<Void>(0x4D89D607CB3DD1D2, object, toggle); }
-	static void SET_OBJECT_PHYSICS_PARAMS(Object object, float mass, float gravityFactor, float dampingLinearC, float dampingLinearV, float dampingLinearV2, float dampingAngularC, float dampingAngularV, float dampingAngularV2, float margin, float default2Pi, float buoyancyFactor) { invoke<Void>(0xF6DF6E90DE7DF90F, object, mass, gravityFactor, dampingLinearC, dampingLinearV, dampingLinearV2, dampingAngularC, dampingAngularV, dampingAngularV2, margin, default2Pi, buoyancyFactor); }
+	static void _0x4D89D607CB3DD1D2(ObjectId object, BOOL toggle) { invoke<Void>(0x4D89D607CB3DD1D2, object, toggle); }
+	static void SET_OBJECT_PHYSICS_PARAMS(ObjectId object, float mass, float gravityFactor, float dampingLinearC, float dampingLinearV, float dampingLinearV2, float dampingAngularC, float dampingAngularV, float dampingAngularV2, float margin, float default2Pi, float buoyancyFactor) { invoke<Void>(0xF6DF6E90DE7DF90F, object, mass, gravityFactor, dampingLinearC, dampingLinearV, dampingLinearV2, dampingAngularC, dampingAngularV, dampingAngularV2, margin, default2Pi, buoyancyFactor); }
 	static float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(Any p0, BOOL p1) { return invoke<float>(0xB6FBFD079B8D0596, p0, p1); }
 	static float _0x235C863DA77BD88D(Any p0, Any p1, BOOL p2) { return invoke<float>(0x235C863DA77BD88D, p0, p1, p2); }
-	static void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(Object object, BOOL toggle) { invoke<Void>(0x406137F8EF90EAF5, object, toggle); }
-	static void _0xE7E4C198B0185900(Object p0, Any p1, BOOL p2) { invoke<Void>(0xE7E4C198B0185900, p0, p1, p2); }
+	static void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(ObjectId object, BOOL toggle) { invoke<Void>(0x406137F8EF90EAF5, object, toggle); }
+	static void _0xE7E4C198B0185900(ObjectId p0, Any p1, BOOL p2) { invoke<Void>(0xE7E4C198B0185900, p0, p1, p2); }
 	static void _0x8462BE2341A55B6F(Any p0) { invoke<Void>(0x8462BE2341A55B6F, p0); }
 	static void _0xAAACF33CBF9B990A(Any p0, Any p1) { invoke<Void>(0xAAACF33CBF9B990A, p0, p1); }
 	static void _0xE4EFB315BCD2A838(Any p0, Any p1) { invoke<Void>(0xE4EFB315BCD2A838, p0, p1); }
-	static void _0xF9C1681347C8BD15(Object object) { invoke<Void>(0xF9C1681347C8BD15, object); }
+	static void _0xF9C1681347C8BD15(ObjectId object) { invoke<Void>(0xF9C1681347C8BD15, object); }
 	static Any _0x58DE624FA7FB0E7F(Any p0) { return invoke<Any>(0x58DE624FA7FB0E7F, p0); }
 	static void _0x491439AEF410A2FC(Any p0) { invoke<Void>(0x491439AEF410A2FC, p0); }
 	static void _0xFFB99FFD17F65889(Any p0, float p1) { invoke<Void>(0xFFB99FFD17F65889, p0, p1); }
 	static void _0xCEAB54F4632C6EF6(Any p0, float p1) { invoke<Void>(0xCEAB54F4632C6EF6, p0, p1); }
 	static void TRACK_OBJECT_VISIBILITY(Any p0) { invoke<Void>(0xB252BC036B525623, p0); }
-	static BOOL IS_OBJECT_VISIBLE(Object object) { return invoke<BOOL>(0x8B32ACE6326A7546, object); }
+	static BOOL IS_OBJECT_VISIBLE(ObjectId object) { return invoke<BOOL>(0x8B32ACE6326A7546, object); }
 	static void _0xEB6F1A9B5510A5D2(Any p0, BOOL p1) { invoke<Void>(0xEB6F1A9B5510A5D2, p0, p1); }
 	static void _0xE2B3B852B537C398(BOOL p0) { invoke<Void>(0xE2B3B852B537C398, p0); }
 	static void _0x6579860A5558524A(Any p0, float p1) { invoke<Void>(0x6579860A5558524A, p0, p1); }
@@ -2171,8 +2171,8 @@ namespace OBJECT
 	static void REMOVE_PICKUP(Pickup pickup) { invoke<Void>(0x3288D8ACAECD2AB2, pickup); }
 	static void _0x634C19521485AB25(Any p0) { invoke<Void>(0x634C19521485AB25, p0); }
 	static BOOL DOES_PICKUP_EXIST(Pickup pickup) { return invoke<BOOL>(0xAFC1CA75AD4074D1, pickup); }
-	static BOOL DOES_PICKUP_OBJECT_EXIST(Object pickupObject) { return invoke<BOOL>(0xD9EFB6DBF7DAAEA3, pickupObject); }
-	static Object GET_PICKUP_OBJECT(Pickup pickup) { return invoke<Object>(0x5099BC55630B25AE, pickup); }
+	static BOOL DOES_PICKUP_OBJECT_EXIST(ObjectId pickupObject) { return invoke<BOOL>(0xD9EFB6DBF7DAAEA3, pickupObject); }
+	static ObjectId GET_PICKUP_OBJECT(Pickup pickup) { return invoke<ObjectId>(0x5099BC55630B25AE, pickup); }
 	static BOOL _0x0378C08504160D0D(Any p0) { return invoke<BOOL>(0x0378C08504160D0D, p0); }
 	static BOOL _0x007BD043587F7C82(Any p0) { return invoke<BOOL>(0x007BD043587F7C82, p0); }
 	static BOOL _IS_PICKUP_WITHIN_RADIUS(Hash pickupHash, float x, float y, float z, float radius) { return invoke<BOOL>(0xF9C36251F6E48E33, pickupHash, x, y, z, radius); }
@@ -2183,9 +2183,9 @@ namespace OBJECT
 	static void _0xB8F5062070BB6DBD(Any p0, BOOL p1) { invoke<Void>(0xB8F5062070BB6DBD, p0, p1); }
 	static void _0x92E87F60F21A0C3A(Any p0, BOOL p1) { invoke<Void>(0x92E87F60F21A0C3A, p0, p1); }
 	static void _0x1F5E07E14A86FAFC(BOOL p0) { invoke<Void>(0x1F5E07E14A86FAFC, p0); }
-	static void SET_TEAM_PICKUP_OBJECT(Object object, Any p1, BOOL p2) { invoke<Void>(0x53E0DF1A2A3CF0CA, object, p1, p2); }
+	static void SET_TEAM_PICKUP_OBJECT(ObjectId object, Any p1, BOOL p2) { invoke<Void>(0x53E0DF1A2A3CF0CA, object, p1, p2); }
 	static BOOL _0x9F52AD67D1A91BAD(Any p0, Any p1) { return invoke<BOOL>(0x9F52AD67D1A91BAD, p0, p1); }
-	static void _0x92AEFB5F6E294023(Object object, BOOL p1, BOOL p2) { invoke<Void>(0x92AEFB5F6E294023, object, p1, p2); }
+	static void _0x92AEFB5F6E294023(ObjectId object, BOOL p1, BOOL p2) { invoke<Void>(0x92AEFB5F6E294023, object, p1, p2); }
 	static void _0x318516E02DE3ECE2(float p0) { invoke<Void>(0x318516E02DE3ECE2, p0); }
 	static void _0x4A8CB328CD6F1C9B(Any p0, BOOL p1) { invoke<Void>(0x4A8CB328CD6F1C9B, p0, p1); }
 	static void _0x81218CE01B672219(Any p0, BOOL p1) { invoke<Void>(0x81218CE01B672219, p0, p1); }
@@ -2198,7 +2198,7 @@ namespace OBJECT
 	static void _0xDE116ECFFDD4B997(Any p0, Any p1) { invoke<Void>(0xDE116ECFFDD4B997, p0, p1); }
 	static Hash _GET_WEAPON_HASH_FROM_PICKUP(Pickup pickupHash) { return invoke<Hash>(0x08F96CA6C551AD51, pickupHash); }
 	static Any _0x44B09A23D728045A(Any p0) { return invoke<Any>(0x44B09A23D728045A, p0); }
-	static void _SET_OBJECT_TEXTURE_VARIANT(Object object, int paintIndex) { invoke<Void>(0x971DA0055324D033, object, paintIndex); }
+	static void _SET_OBJECT_TEXTURE_VARIANT(ObjectId object, int paintIndex) { invoke<Void>(0x971DA0055324D033, object, paintIndex); }
 	static float _0x3397CD4E0353DFBA(Any p0) { return invoke<float>(0x3397CD4E0353DFBA, p0); }
 	static void _0x7D7285EFEAB5AF15(Any p0, float p1) { invoke<Void>(0x7D7285EFEAB5AF15, p0, p1); }
 	static void _0xC8E21C1677DC5E6F(Any p0, float p1) { invoke<Void>(0xC8E21C1677DC5E6F, p0, p1); }
@@ -2210,7 +2210,7 @@ namespace OBJECT
 	static Hash _GET_PICKUP_HASH(Pickup pickupHash) { return invoke<Hash>(0x5EAAD83F8CFB4575, pickupHash); }
 	static void SET_FORCE_OBJECT_THIS_FRAME(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xF538081986E49E9D, p0, p1, p2, p3); }
 	static BOOL _0xD91E55B6C005EB09(Any p0, BOOL p1) { return invoke<BOOL>(0xD91E55B6C005EB09, p0, p1); }
-	static void _MARK_OBJECT_FOR_DELETION(Object object) { invoke<Void>(0xADBE4809F19F927A, object); }
+	static void _MARK_OBJECT_FOR_DELETION(ObjectId object) { invoke<Void>(0xADBE4809F19F927A, object); }
 	static void _0xCAAF2BCCFEF37F77(Any p0, Any p1) { invoke<Void>(0xCAAF2BCCFEF37F77, p0, p1); }
 	static Any _0x08C5825A2932EA7B(Any p0) { return invoke<Any>(0x08C5825A2932EA7B, p0); }
 	static BOOL _0x7D4411D6736CD295(Any p0, Any* p1) { return invoke<BOOL>(0x7D4411D6736CD295, p0, p1); }
@@ -2378,12 +2378,12 @@ namespace AI
 	static void TASK_LOOK_AT_ENTITY(PedId ped, EntityId lookAt, int duration, int unknown1, int unknown2, BOOL p5) { invoke<Void>(0x69F4BE8C8CC4796C, ped, lookAt, duration, unknown1, unknown2, p5); }
 	static void TASK_CLEAR_LOOK_AT(PedId ped) { invoke<Void>(0x0F804F1DB19B9689, ped); }
 	static BOOL _0x508F5053E3F6F0C4(Any p0, float p1, float p2, float p3, float p4) { return invoke<BOOL>(0x508F5053E3F6F0C4, p0, p1, p2, p3, p4); }
-	static void OPEN_SEQUENCE_TASK(Object* taskSequence) { invoke<Void>(0xE8854A4326B9E12B, taskSequence); }
-	static void CLOSE_SEQUENCE_TASK(Object taskSequence) { invoke<Void>(0x39E72BC99E6360CB, taskSequence); }
-	static void TASK_PERFORM_SEQUENCE(PedId ped, Object taskSequence) { invoke<Void>(0x5ABA3986D90D8A3B, ped, taskSequence); }
+	static void OPEN_SEQUENCE_TASK(ObjectId* taskSequence) { invoke<Void>(0xE8854A4326B9E12B, taskSequence); }
+	static void CLOSE_SEQUENCE_TASK(ObjectId taskSequence) { invoke<Void>(0x39E72BC99E6360CB, taskSequence); }
+	static void TASK_PERFORM_SEQUENCE(PedId ped, ObjectId taskSequence) { invoke<Void>(0x5ABA3986D90D8A3B, ped, taskSequence); }
 	static void _0x4FC0AF869D6E309D(Any p0, Any p1, float p2, float p3) { invoke<Void>(0x4FC0AF869D6E309D, p0, p1, p2, p3); }
-	static void CLEAR_SEQUENCE_TASK(Object* taskSequence) { invoke<Void>(0x3841422E9C488D8C, taskSequence); }
-	static void SET_SEQUENCE_TO_REPEAT(Object taskSequence, BOOL repeat) { invoke<Void>(0x58C70CF3A41E4AE7, taskSequence, repeat); }
+	static void CLEAR_SEQUENCE_TASK(ObjectId* taskSequence) { invoke<Void>(0x3841422E9C488D8C, taskSequence); }
+	static void SET_SEQUENCE_TO_REPEAT(ObjectId taskSequence, BOOL repeat) { invoke<Void>(0x58C70CF3A41E4AE7, taskSequence, repeat); }
 	static int GET_SEQUENCE_PROGRESS(PedId ped) { return invoke<int>(0x00A9010CFE1E3533, ped); }
 	static BOOL GET_IS_TASK_ACTIVE(PedId ped, int taskNumber) { return invoke<BOOL>(0xB0760331C7AA4155, ped, taskNumber); }
 	static int GET_SCRIPT_TASK_STATUS(PedId targetPed, Hash taskHash, BOOL p2) { return invoke<int>(0x77F1BEB8863288D5, targetPed, taskHash, p2); }
@@ -2449,7 +2449,7 @@ namespace AI
 	static void _0xDF1D85BCAF60D537(Any p0, float p1) { invoke<Void>(0xDF1D85BCAF60D537, p0, p1); }
 	static void TASK_CLIMB_LADDER(PedId ped, int p1, BOOL p2, BOOL p3) { invoke<Void>(0xB6C987F9285A3814, ped, p1, p2, p3); }
 	static void CLEAR_PED_TASKS_IMMEDIATELY(PedId ped, BOOL p1, BOOL p2) { invoke<Void>(0xAAA34F8A7CB32098, ped, p1, p2); }
-	static void TASK_PERFORM_SEQUENCE_FROM_PROGRESS(PedId ped, Object taskSequence, int currentProgress, int progressToSetTo) { invoke<Void>(0x89221B16730234F0, ped, taskSequence, currentProgress, progressToSetTo); }
+	static void TASK_PERFORM_SEQUENCE_FROM_PROGRESS(PedId ped, ObjectId taskSequence, int currentProgress, int progressToSetTo) { invoke<Void>(0x89221B16730234F0, ped, taskSequence, currentProgress, progressToSetTo); }
 	static void SET_PED_DESIRED_MOVE_BLEND_RATIO(PedId ped, float p1) { invoke<Void>(0x1E982AC8716912C5, ped, p1); }
 	static float GET_PED_DESIRED_MOVE_BLEND_RATIO(PedId ped) { return invoke<float>(0x8517D4A6CA8513ED, ped); }
 	static void TASK_GOTO_ENTITY_AIMING(PedId ped, EntityId target, float distanceToStopAt, float StartAimingDist) { invoke<Void>(0xA9DA48FAB8A76C12, ped, target, distanceToStopAt, StartAimingDist); }
@@ -4223,8 +4223,8 @@ namespace WEAPON
 	static BOOL _0x9E2D5D6BC97A5F1E(Any p0, Any p1, Any p2) { return invoke<BOOL>(0x9E2D5D6BC97A5F1E, p0, p1, p2); }
 	static Any _0x90EB1CB189923587(Any p0) { return invoke<Any>(0x90EB1CB189923587, p0); }
 	static Any _0x9888652B8BA77F73(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0x9888652B8BA77F73, p0, p1, p2, p3, p4, p5, p6); }
-	static void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(Object weaponObject, Hash component) { invoke<Void>(0xF7D82B0D66777611, weaponObject, component); }
-	static BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(Object weapon, Hash addonHash) { return invoke<BOOL>(0x76A18844E743BF91, weapon, addonHash); }
+	static void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(ObjectId weaponObject, Hash component) { invoke<Void>(0xF7D82B0D66777611, weaponObject, component); }
+	static BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(ObjectId weapon, Hash addonHash) { return invoke<BOOL>(0x76A18844E743BF91, weapon, addonHash); }
 	static void _0x1A47699E8D533E8F(Any* p0, Any p1, Any p2, BOOL p3) { invoke<Void>(0x1A47699E8D533E8F, p0, p1, p2, p3); }
 	static Any _0xC6A6789BB405D11C(Any p0, BOOL p1) { return invoke<Any>(0xC6A6789BB405D11C, p0, p1); }
 	static Any _0x6CA484C9A7377E4F(Any p0, BOOL p1) { return invoke<Any>(0x6CA484C9A7377E4F, p0, p1); }
@@ -5267,8 +5267,8 @@ namespace GRAPHICS
 	static void _0x7C348310A6E2FB91(Any p0, Any p1) { invoke<Void>(0x7C348310A6E2FB91, p0, p1); }
 	static void _0x72E30372E7CC4415(Any p0, Any p1) { invoke<Void>(0x72E30372E7CC4415, p0, p1); }
 	static void REMOVE_DECALS_IN_RANGE(float x, float y, float z, float range) { invoke<Void>(0x86DE59FA02902B40, x, y, z, range); }
-	static void REMOVE_DECALS_FROM_OBJECT(Object obj) { invoke<Void>(0xFB8972BAE0013140, obj); }
-	static Object ADD_DECAL(int decalType, float posX, float posY, float posZ, float p4, float p5, float p6, float p7, float p8, float p9, float width, float height, float rCoef, float gCoef, float bCoef, float opacity, float timeout, BOOL p17, BOOL p18, BOOL p19, Any p20, Any p21) { return invoke<Object>(0x57CB267624EF85C0, decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19, p20, p21); }
+	static void REMOVE_DECALS_FROM_OBJECT(ObjectId obj) { invoke<Void>(0xFB8972BAE0013140, obj); }
+	static ObjectId ADD_DECAL(int decalType, float posX, float posY, float posZ, float p4, float p5, float p6, float p7, float p8, float p9, float width, float height, float rCoef, float gCoef, float bCoef, float opacity, float timeout, BOOL p17, BOOL p18, BOOL p19, Any p20, Any p21) { return invoke<ObjectId>(0x57CB267624EF85C0, decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19, p20, p21); }
 	static void _0xFA2ECC78A6014D4F(float p0, float p1, float p2, Any p3) { invoke<Void>(0xFA2ECC78A6014D4F, p0, p1, p2, p3); }
 	static void _0xF708298675ABDC6A(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6, Any p7, BOOL p8) { invoke<Void>(0xF708298675ABDC6A, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void _0xDFCE8CE9F3EBE93F(Any p0) { invoke<Void>(0xDFCE8CE9F3EBE93F, p0); }
@@ -5277,8 +5277,8 @@ namespace GRAPHICS
 	static void _0x73354FB6D03D2E8A(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x73354FB6D03D2E8A, p0, p1, p2, p3); }
 	static void _0x0E126AAE933F3B56() { invoke<Void>(0x0E126AAE933F3B56); }
 	static Any _0xE63D68F455CA0B47(Any p0, float p1, float p2, float p3, float p4, float p5, float p6) { return invoke<Any>(0xE63D68F455CA0B47, p0, p1, p2, p3, p4, p5, p6); }
-	static void REMOVE_DECAL(Object decal) { invoke<Void>(0x49A720552EB0BB88, decal); }
-	static BOOL IS_DECAL_ALIVE(Object decal) { return invoke<BOOL>(0x3E4B4E5CF5D3EEB5, decal); }
+	static void REMOVE_DECAL(ObjectId decal) { invoke<Void>(0x49A720552EB0BB88, decal); }
+	static BOOL IS_DECAL_ALIVE(ObjectId decal) { return invoke<BOOL>(0x3E4B4E5CF5D3EEB5, decal); }
 	static void _0xB032C085D9A03907() { invoke<Void>(0xB032C085D9A03907); }
 	static void _0xFB680A9B33D0EDBE(BOOL p0) { invoke<Void>(0xFB680A9B33D0EDBE, p0); }
 	static void _0x41F88A85A579A61D(float p0) { invoke<Void>(0x41F88A85A579A61D, p0); }
@@ -6083,30 +6083,30 @@ namespace ZONE
 
 namespace ROPE
 {
-	static Object ADD_ROPE(float x, float y, float z, float rotX, float rotY, float rotZ, float length, int ropeType, float maxLength, float minLength, float p10, BOOL p11, BOOL p12, BOOL rigid, float p14, BOOL breakWhenShot, Any* unkPtr, BOOL p17) { return invoke<Object>(0xE832D760399EB220, x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength, minLength, p10, p11, p12, rigid, p14, breakWhenShot, unkPtr, p17); }
+	static ObjectId ADD_ROPE(float x, float y, float z, float rotX, float rotY, float rotZ, float length, int ropeType, float maxLength, float minLength, float p10, BOOL p11, BOOL p12, BOOL rigid, float p14, BOOL breakWhenShot, Any* unkPtr, BOOL p17) { return invoke<ObjectId>(0xE832D760399EB220, x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength, minLength, p10, p11, p12, rigid, p14, breakWhenShot, unkPtr, p17); }
 	static Any _0xE9C59F6809373A99(float p0, float p1, float p2, float p3, float p4, float p5, float p6, Any p7, BOOL p8, Any p9, float p10) { return invoke<Any>(0xE9C59F6809373A99, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void DELETE_ROPE(Object* rope) { invoke<Void>(0x52B4829281364649, rope); }
+	static void DELETE_ROPE(ObjectId* rope) { invoke<Void>(0x52B4829281364649, rope); }
 	static void _0x6076213101A47B3B(Any* p0) { invoke<Void>(0x6076213101A47B3B, p0); }
-	static void DELETE_CHILD_ROPE(Object rope) { invoke<Void>(0xAA5D6B1888E4DB20, rope); }
+	static void DELETE_CHILD_ROPE(ObjectId rope) { invoke<Void>(0xAA5D6B1888E4DB20, rope); }
 	static void _0x4CFA2B7FAE115ECB(Any* p0, Any* p1, Any* p2, float p3, float p4, float p5, Any p6) { invoke<Void>(0x4CFA2B7FAE115ECB, p0, p1, p2, p3, p4, p5, p6); }
-	static BOOL DOES_ROPE_EXIST(Object* rope) { return invoke<BOOL>(0xFD5448BE3111ED96, rope); }
+	static BOOL DOES_ROPE_EXIST(ObjectId* rope) { return invoke<BOOL>(0xFD5448BE3111ED96, rope); }
 	static BOOL _0x79C2BEC82CFD7F7F(Any p0) { return invoke<BOOL>(0x79C2BEC82CFD7F7F, p0); }
 	static void _0x7A54D82227A139DB(Any* p0, BOOL p1) { invoke<Void>(0x7A54D82227A139DB, p0, p1); }
-	static void ROPE_DRAW_SHADOW_ENABLED(Object* rope, BOOL toggle) { invoke<Void>(0xF159A63806BB5BA8, rope, toggle); }
-	static int GET_ROPE_VERTEX_COUNT(Object rope) { return invoke<int>(0x3655F544CD30F0B5, rope); }
+	static void ROPE_DRAW_SHADOW_ENABLED(ObjectId* rope, BOOL toggle) { invoke<Void>(0xF159A63806BB5BA8, rope, toggle); }
+	static int GET_ROPE_VERTEX_COUNT(ObjectId rope) { return invoke<int>(0x3655F544CD30F0B5, rope); }
 	static void _0xE54BF2CE6C7D23A9(Any p0, Any p1, float p2, float p3, float p4) { invoke<Void>(0xE54BF2CE6C7D23A9, p0, p1, p2, p3, p4); }
 	static void _0x9C24846D0A4A2776(Any p0) { invoke<Void>(0x9C24846D0A4A2776, p0); }
 	static void _0x0CB16D05E03FB525(Any p0) { invoke<Void>(0x0CB16D05E03FB525, p0); }
 	static void _0xF27F1A8DE4F50A1B(Any p0, float p1, float p2, float p3, float p4, float p5, float p6) { invoke<Void>(0xF27F1A8DE4F50A1B, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0x21D0890D88DFB0B0(Any p0, Any p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, Any p10) { invoke<Void>(0x21D0890D88DFB0B0, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
-	static void ATTACH_ENTITIES_TO_ROPE(Object rope, EntityId ent1, EntityId ent2, float ent1_x, float ent1_y, float ent1_z, float ent2_x, float ent2_y, float ent2_z, float length, BOOL p10, BOOL p11, char* boneName1, char* boneName2, BOOL p14, Any p15, Any p16, Any* p17, Any* p18, BOOL p19, BOOL p20) { invoke<Void>(0x3D95EC8B6D940AC3, rope, ent1, ent2, ent1_x, ent1_y, ent1_z, ent2_x, ent2_y, ent2_z, length, p10, p11, boneName1, boneName2, p14, p15, p16, p17, p18, p19, p20); }
+	static void ATTACH_ENTITIES_TO_ROPE(ObjectId rope, EntityId ent1, EntityId ent2, float ent1_x, float ent1_y, float ent1_z, float ent2_x, float ent2_y, float ent2_z, float length, BOOL p10, BOOL p11, char* boneName1, char* boneName2, BOOL p14, Any p15, Any p16, Any* p17, Any* p18, BOOL p19, BOOL p20) { invoke<Void>(0x3D95EC8B6D940AC3, rope, ent1, ent2, ent1_x, ent1_y, ent1_z, ent2_x, ent2_y, ent2_z, length, p10, p11, boneName1, boneName2, p14, p15, p16, p17, p18, p19, p20); }
 	static void _0x462FF2A432733A44(Any p0, Any p1, Any p2, float p3, float p4, float p5, float p6, float p7, float p8, Any* p9, Any* p10) { invoke<Void>(0x462FF2A432733A44, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0xE9CD9A67834985A7(Any p0, Any p1, Any p2, float p3, float p4, float p5, float p6, float p7, float p8, Any p9, Any p10) { invoke<Void>(0xE9CD9A67834985A7, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void _0x69C810B72291D831(Any p0, float p1, float p2, float p3, BOOL p4, BOOL p5, Any p6) { invoke<Void>(0x69C810B72291D831, p0, p1, p2, p3, p4, p5, p6); }
 	static void _0xB7469CB9AC3C0FD4(Any p0, Any p1, float p2, float p3, float p4, Any p5, Any p6, Any p7) { invoke<Void>(0xB7469CB9AC3C0FD4, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void _0xC64E7A62632AD2FE(Any p0, Any p1, float p2, float p3, float p4, Any* p5, Any p6, BOOL p7) { invoke<Void>(0xC64E7A62632AD2FE, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static BOOL _0x9B4F7E3E4F9C77B3(Any p0, Any p1) { return invoke<BOOL>(0x9B4F7E3E4F9C77B3, p0, p1); }
-	static void DETACH_ROPE_FROM_ENTITY(Object rope, EntityId entity) { invoke<Void>(0xBCF3026912A8647D, rope, entity); }
+	static void DETACH_ROPE_FROM_ENTITY(ObjectId rope, EntityId entity) { invoke<Void>(0xBCF3026912A8647D, rope, entity); }
 	static void _0x06AADE17334F7A40(Any p0, float p1, float p2, float p3) { invoke<Void>(0x06AADE17334F7A40, p0, p1, p2, p3); }
 	static void _0x0348469DAA17576C(Any p0) { invoke<Void>(0x0348469DAA17576C, p0); }
 	static void _0x6EA0E93CFFA472CC(Any p0) { invoke<Void>(0x6EA0E93CFFA472CC, p0); }
@@ -6116,7 +6116,7 @@ namespace ROPE
 	static void _0xEAF529446488EB18(Any p0) { invoke<Void>(0xEAF529446488EB18, p0); }
 	static void _0x31160EC47E7C9549(Any p0, Any p1) { invoke<Void>(0x31160EC47E7C9549, p0, p1); }
 	static void _0x5E981C764DF33117(Any p0, BOOL p1) { invoke<Void>(0x5E981C764DF33117, p0, p1); }
-	static void _HIDE_ROPE(Object rope, int value) { invoke<Void>(0xDC57A637A20006ED, rope, value); }
+	static void _HIDE_ROPE(ObjectId rope, int value) { invoke<Void>(0xDC57A637A20006ED, rope, value); }
 	static void _0xFB9153A54AC713E8(Any p0, BOOL p1) { invoke<Void>(0xFB9153A54AC713E8, p0, p1); }
 	static void _0xD699E688B49C0FD2(Any p0, float p1, float p2, float p3, BOOL p4) { invoke<Void>(0xD699E688B49C0FD2, p0, p1, p2, p3, p4); }
 	static void _0xBB3E9B073E66C3C9(Any p0, BOOL p1, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0xBB3E9B073E66C3C9, p0, p1, p2, p3, p4); }
@@ -6125,12 +6125,12 @@ namespace ROPE
 	static void _0xC89E7410A93AC19A(Any p0, float p1) { invoke<Void>(0xC89E7410A93AC19A, p0, p1); }
 	static void _0x1D97DA8ACB5D2582(Any p0, Any p1) { invoke<Void>(0x1D97DA8ACB5D2582, p0, p1); }
 	static void _0x3C6490D940FF5D0B(Any p0, Any* p1, Any* p2, float p3, BOOL p4) { invoke<Void>(0x3C6490D940FF5D0B, p0, p1, p2, p3, p4); }
-	static Vector3 GET_ROPE_LAST_VERTEX_COORD(Object rope) { return invoke<Vector3>(0x21BB0FBD3E217C2D, rope); }
-	static Vector3 GET_ROPE_VERTEX_COORD(Object rope, int vertex) { return invoke<Vector3>(0xEA61CA8E80F09E4D, rope, vertex); }
-	static void START_ROPE_WINDING(Object rope) { invoke<Void>(0x1461C72C889E343E, rope); }
-	static void STOP_ROPE_WINDING(Object rope) { invoke<Void>(0xCB2D4AB84A19AA7C, rope); }
-	static void START_ROPE_UNWINDING_FRONT(Object rope) { invoke<Void>(0x538D1179EC1AA9A9, rope); }
-	static void STOP_ROPE_UNWINDING_FRONT(Object rope) { invoke<Void>(0xFFF3A50779EFBBB3, rope); }
+	static Vector3 GET_ROPE_LAST_VERTEX_COORD(ObjectId rope) { return invoke<Vector3>(0x21BB0FBD3E217C2D, rope); }
+	static Vector3 GET_ROPE_VERTEX_COORD(ObjectId rope, int vertex) { return invoke<Vector3>(0xEA61CA8E80F09E4D, rope, vertex); }
+	static void START_ROPE_WINDING(ObjectId rope) { invoke<Void>(0x1461C72C889E343E, rope); }
+	static void STOP_ROPE_WINDING(ObjectId rope) { invoke<Void>(0xCB2D4AB84A19AA7C, rope); }
+	static void START_ROPE_UNWINDING_FRONT(ObjectId rope) { invoke<Void>(0x538D1179EC1AA9A9, rope); }
+	static void STOP_ROPE_UNWINDING_FRONT(ObjectId rope) { invoke<Void>(0xFFF3A50779EFBBB3, rope); }
 	static void _0x00F611A794A3C36E(Any p0) { invoke<Void>(0x00F611A794A3C36E, p0); }
 	static void _0x10DAA76CB8A201A1(Any p0) { invoke<Void>(0x10DAA76CB8A201A1, p0); }
 	static void _0x461FCBDEB4D06717(Any p0, BOOL p1) { invoke<Void>(0x461FCBDEB4D06717, p0, p1); }
@@ -6139,7 +6139,7 @@ namespace ROPE
 	static void _0xB40EA9E0D2E2F7F3(Any p0, float p1) { invoke<Void>(0xB40EA9E0D2E2F7F3, p0, p1); }
 	static float _0x3D69537039F8D824(Any p0) { return invoke<float>(0x3D69537039F8D824, p0); }
 	static void _0x751DF00EEFF122E3(Any p0) { invoke<Void>(0x751DF00EEFF122E3, p0); }
-	static void ROPE_FORCE_LENGTH(Object rope, float length) { invoke<Void>(0xD009F759A723DB1B, rope, length); }
+	static void ROPE_FORCE_LENGTH(ObjectId rope, float length) { invoke<Void>(0xD009F759A723DB1B, rope, length); }
 	static void _0x8D59079C37C21D78(Any p0, float p1) { invoke<Void>(0x8D59079C37C21D78, p0, p1); }
 	static void _0x814D453FCFDF119F(Any p0, BOOL p1, Any p2) { invoke<Void>(0x814D453FCFDF119F, p0, p1, p2); }
 	static void _0x1FC92BDBA1106BD2(Any p0, float p1) { invoke<Void>(0x1FC92BDBA1106BD2, p0, p1); }
@@ -6147,12 +6147,12 @@ namespace ROPE
 	static void _0xF1EA2A881EB7F2CD(Any p0, BOOL p1) { invoke<Void>(0xF1EA2A881EB7F2CD, p0, p1); }
 	static void _0x5A989B7EE3672A56(Any p0, BOOL p1) { invoke<Void>(0x5A989B7EE3672A56, p0, p1); }
 	static void _0x483D4E917B0D35A9(Any p0, BOOL p1) { invoke<Void>(0x483D4E917B0D35A9, p0, p1); }
-	static void SET_DAMPING(Object ropeorobject, int vertex, float value) { invoke<Void>(0xEEA3B200A6FEB65B, ropeorobject, vertex, value); }
+	static void SET_DAMPING(ObjectId ropeorobject, int vertex, float value) { invoke<Void>(0xEEA3B200A6FEB65B, ropeorobject, vertex, value); }
 	static void ACTIVATE_PHYSICS(EntityId entity) { invoke<Void>(0x710311ADF0E20730, entity); }
-	static void BREAK_ENTITY_GLASS(Object object, float posX, float posY, float posZ, float p4, float offsetX, float offsetY, float offsetZ, float p8, int p9, BOOL p10) { invoke<Void>(0x2E648D16F6E308F3, object, posX, posY, posZ, p4, offsetX, offsetY, offsetZ, p8, p9, p10); }
+	static void BREAK_ENTITY_GLASS(ObjectId object, float posX, float posY, float posZ, float p4, float offsetX, float offsetY, float offsetZ, float p8, int p9, BOOL p10) { invoke<Void>(0x2E648D16F6E308F3, object, posX, posY, posZ, p4, offsetX, offsetY, offsetZ, p8, p9, p10); }
 	static void _0x8EEDFD8921389928(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, Any p8, BOOL p9) { invoke<Void>(0x8EEDFD8921389928, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
-	static void SET_DISABLE_BREAKING(Object rope, BOOL enabled) { invoke<Void>(0x5CEC1A84620E7D5B, rope, enabled); }
-	static void SET_DISABLE_FRAG_DAMAGE(Object object, BOOL toggle) { invoke<Void>(0x01BA3AED21C16CFB, object, toggle); }
+	static void SET_DISABLE_BREAKING(ObjectId rope, BOOL enabled) { invoke<Void>(0x5CEC1A84620E7D5B, rope, enabled); }
+	static void SET_DISABLE_FRAG_DAMAGE(ObjectId object, BOOL toggle) { invoke<Void>(0x01BA3AED21C16CFB, object, toggle); }
 	static void _0x5BD7457221CC5FF4(Any p0, float p1) { invoke<Void>(0x5BD7457221CC5FF4, p0, p1); }
 }
 
@@ -6570,11 +6570,11 @@ namespace NETWORK
 	static Any _0xF260AF6F43953316(Any p0) { return invoke<Any>(0xF260AF6F43953316, p0); }
 	static int VEH_TO_NET(VehicleId vehicle) { return invoke<int>(0xB4C94523F023419C, vehicle); }
 	static int PED_TO_NET(PedId ped) { return invoke<int>(0x0EDEC3C276198689, ped); }
-	static int OBJ_TO_NET(Object object) { return invoke<int>(0x99BFDC94A603E541, object); }
+	static int OBJ_TO_NET(ObjectId object) { return invoke<int>(0x99BFDC94A603E541, object); }
 	static Any _0xE0D73CDDEA79DDCD(Any p0) { return invoke<Any>(0xE0D73CDDEA79DDCD, p0); }
 	static VehicleId NET_TO_VEH(int netHandle) { return invoke<VehicleId>(0x367B936610BA360C, netHandle); }
 	static PedId NET_TO_PED(int netHandle) { return invoke<PedId>(0xBDCD95FC216A8B3E, netHandle); }
-	static Object NET_TO_OBJ(int netHandle) { return invoke<Object>(0xD8515F5FEA14CB3F, netHandle); }
+	static ObjectId NET_TO_OBJ(int netHandle) { return invoke<ObjectId>(0xD8515F5FEA14CB3F, netHandle); }
 	static EntityId NET_TO_ENT(int netHandle) { return invoke<EntityId>(0xBFFEAB45A9A9094A, netHandle); }
 	static Any _0xD7F6781A0ABAF6FB(Any p0) { return invoke<Any>(0xD7F6781A0ABAF6FB, p0); }
 	static Any _0x74F99EF7EF503398(Any p0) { return invoke<Any>(0x74F99EF7EF503398, p0); }

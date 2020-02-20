@@ -46,6 +46,6 @@ namespace Spawner {
 		static inline bool isFreeCamEnabled = false;
 		static inline std::string selectedEntityForSpawnModel = "";
 		static inline EntityType selectedEntityForSpawnType = EntityType::Object;
-		static inline Object selectedEntityForSpawn = 0;
+		static inline ObjectId selectedEntityForSpawn = 0;
 	};
 }

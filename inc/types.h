@@ -32,7 +32,7 @@ typedef int CarGenerator;
 typedef int Group;
 typedef int Train;
 typedef int Pickup;
-typedef int Object;
+typedef int ObjectId;
 typedef int Weapon;
 typedef int Interior;
 typedef int Blip;

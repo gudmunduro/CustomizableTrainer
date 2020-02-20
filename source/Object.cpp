@@ -8,16 +8,9 @@
 * (at your option) any later version.
 */
 
-#pragma once
 #include "pch.h"
+#include "Object.h"
 
-class Database
-{
-public:
-	Database();
-
-	std::vector<Ped> peds;
-	std::vector<Vehicle> vehicles;
-	std::vector<ObjectId> objects;
-};
-
+Object::Object(ObjectId objectId)
+	: Entity(objectId)
+{}

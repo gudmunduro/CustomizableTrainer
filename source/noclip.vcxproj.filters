@@ -309,6 +309,9 @@
     <ClInclude Include="Entity.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -486,6 +489,9 @@
       <Filter>Source\Features\Spawner</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>

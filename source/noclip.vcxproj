@@ -134,6 +134,7 @@
     <ClInclude Include="JsonData.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="CameraUtils.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
     <ClInclude Include="Spawner.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="JsonData.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="CameraUtils.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
     <ClCompile Include="Spawner.cpp" />
