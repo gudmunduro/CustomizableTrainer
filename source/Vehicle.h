@@ -12,24 +12,18 @@
 #include "pch.h"
 
 class Vehicle
+	: public Entity
 {
 public:
 	Vehicle(VehicleId vehicleId);
 
 #pragma region Booleans
 
-	bool Exists();
 	bool IsBoat();
 
 #pragma endregion
 
 #pragma region Getters
-
-	VehicleId Id();
-	Vector3 GetOffsetInWorldCoords(Vector3 offset);
-	Hash Model();
-	float Speed();
-	void Dimensions(Vector3* dim1, Vector3* dim2);
 
 #pragma endregion
 
@@ -38,17 +32,11 @@ public:
 	void SetVehicleEngineOn(bool on);
 	void SetEnginePowerMultiplier(float value);
 	void SetForwardSpeed(float speed);
-	void SetCoords(Vector3 coords);
-	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);
-	void SetVisible(bool value);
-	void SetInvincible(bool value);
 
 #pragma endregion
 
 #pragma region Actions
 
-	void SetAsMissionEntity();
-	void ApplyForceRelative(Vector3 direction, Vector3 offset);
 	void Repair();
 	void Delete();
 
@@ -61,7 +49,5 @@ public:
 
 #pragma endregion
 
-private:
-	int vehicleId;
 };
 

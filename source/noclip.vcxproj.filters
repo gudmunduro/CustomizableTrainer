@@ -306,6 +306,9 @@
     <ClInclude Include="Database.h">
       <Filter>Headers\Features\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -481,6 +484,9 @@
     </ClCompile>
     <ClCompile Include="Database.cpp">
       <Filter>Source\Features\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

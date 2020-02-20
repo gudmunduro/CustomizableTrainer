@@ -17,7 +17,7 @@ void PedSpawner::Spawn(std::string name, std::string model)
 {
 	Player player;
 	auto modelHash = String::Hash(model);
-	auto spawnPosition = player.ped.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	auto spawnPosition = player.ped.GetOffsetInWorldCoords({ 0.0, 2.0, 0.0 });
 	auto heading = player.ped.Heading() + 180.0f;
 
 	auto ped = Ped::Create(modelHash, spawnPosition, heading);

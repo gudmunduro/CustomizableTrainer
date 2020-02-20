@@ -12,21 +12,12 @@
 #include "Ped.h"
 
 Ped::Ped(PedId pedId)
+	: Entity(pedId)
 {
-	this->id = pedId;
+	
 }
 
 #pragma region Setters
-
-void Ped::SetHealth(int health)
-{
-	ENTITY::SET_ENTITY_HEALTH(id, health, false);
-}
-
-void Ped::SetVisible(bool visible)
-{
-	ENTITY::SET_ENTITY_VISIBLE(id, visible);
-}
 
 void Ped::SetPedVisible(bool visible)
 {
@@ -38,24 +29,9 @@ void Ped::SetIntoVehicle(VehicleId vehicle, int seat)
 	PED::SET_PED_INTO_VEHICLE(id, vehicle, seat);
 }
 
-void Ped::SetCoords(Vector3 coords) 
-{
-	ENTITY::SET_ENTITY_COORDS(id, coords.x, coords.y, coords.z, false, false, false, true);
-}
-
-void Ped::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
-{
-	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(id, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
-}
-
 void Ped::SetStamina(float stamina)
 {
 	PED::SET_PED_STAMINA(id, stamina);
-}
-
-void Ped::SetInvincible(bool invincible)
-{
-	ENTITY::SET_ENTITY_INVINCIBLE(id, invincible);
 }
 
 void Ped::SetIntoClosestVehicle()
@@ -64,7 +40,7 @@ void Ped::SetIntoClosestVehicle()
 	auto closestVehicle = Vehicle::Closest(playerLocation);
 
 	if (closestVehicle.Exists()) {
-		SetIntoVehicle(closestVehicle.Id());
+		SetIntoVehicle(closestVehicle.id);
 	}
 }
 
@@ -132,11 +108,6 @@ bool Ped::HasWeapon(Hash weaponHash)
 
 #pragma region Actions
 
-void Ped::SetAsMissionEntity()
-{
-	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(id, true, false);
-}
-
 void Ped::RemoveFromGroup()
 {
 	PED::REMOVE_PED_FROM_GROUP(id);
@@ -171,26 +142,6 @@ void Ped::Delete()
 
 #pragma region Getters
 
-int Ped::MaxHealth()
-{
-	return ENTITY::GET_ENTITY_MAX_HEALTH(id, false);
-}
-
-Vector3 Ped::Position()
-{
-	return ENTITY::GET_ENTITY_COORDS(id, true, false);
-}
-
-Vector3 Ped::OffsetInWorldCoords(Vector3 offset)
-{
-	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(id, offset.x, offset.y, offset.z);
-}
-
-float Ped::Heading()
-{
-	return ENTITY::GET_ENTITY_HEADING(id);
-}
-
 Vehicle Ped::CurrentVehicle()
 {
 	VehicleId currentVehicleId = PED::GET_VEHICLE_PED_IS_IN(id, false);
@@ -200,11 +151,6 @@ Vehicle Ped::CurrentVehicle()
 Ped Ped::Mount()
 {
 	return PED::GET_MOUNT(id);
-}
-
-Hash Ped::Model()
-{
-	return ENTITY::GET_ENTITY_MODEL(id);
 }
 
 #pragma endregion

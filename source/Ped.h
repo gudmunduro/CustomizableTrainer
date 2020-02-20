@@ -13,20 +13,16 @@
 #include "Vehicle.h"
 
 class Ped
+	: public Entity
 {
 public:
-	Ped(int pedId);
+	Ped(PedId pedId);
 
 #pragma region Setters
 
-	void SetHealth(int health);
-	void SetVisible(bool visible);
 	void SetPedVisible(bool visible);
 	void SetIntoVehicle(VehicleId vehicle, int seat = -1);
-	void SetCoords(Vector3 coords);
-	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);
 	void SetStamina(float stamina);
-	void SetInvincible(bool invincible);
 	void SetIntoClosestVehicle();
 	void SetCanRagdoll(bool toggle);
 	void SetAsGroupMember(int group);
@@ -48,20 +44,12 @@ public:
 #pragma endregion
 
 #pragma region Getters
-
-	int MaxHealth();
-	Vector3 Position();
-	Vector3 OffsetInWorldCoords(Vector3 offset);
-	float Heading();
 	Vehicle CurrentVehicle();
 	Ped Mount();
-	Hash Model();
 
 #pragma endregion
 
 #pragma region Actions
-
-	void SetAsMissionEntity();
 
 	void RemoveFromGroup();
 	void ClearWetness();
@@ -75,12 +63,6 @@ public:
 #pragma region Static methods
 
 	static Ped Create(Hash model, Vector3 position, float heading = 0);
-
-#pragma endregion
-
-#pragma region Variables
-
-PedId id;
 
 #pragma endregion
 

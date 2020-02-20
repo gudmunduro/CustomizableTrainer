@@ -13,16 +13,10 @@
 #include "Game.h"
 
 Vehicle::Vehicle(VehicleId vehicleId)
-	: vehicleId(vehicleId)
-{
-}
+	: Entity(vehicleId)
+{}
 
 #pragma region Booleans
-
-bool Vehicle::Exists()
-{
-	return vehicleId != 0 && ENTITY::DOES_ENTITY_EXIST(vehicleId);
-}
 
 bool Vehicle::IsBoat()
 {
@@ -33,98 +27,39 @@ bool Vehicle::IsBoat()
 
 #pragma region Getters
 
-VehicleId Vehicle::Id()
-{
-	return vehicleId;
-}
-
-Vector3 Vehicle::GetOffsetInWorldCoords(Vector3 offset)
-{
-	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(vehicleId, offset.x, offset.y, offset.z);
-}
-
-Hash Vehicle::Model()
-{
-	return ENTITY::GET_ENTITY_MODEL(vehicleId);
-}
-
-float Vehicle::Speed()
-{
-	return ENTITY::GET_ENTITY_SPEED(vehicleId);
-}
-
-void Vehicle::Dimensions(Vector3 *dim1, Vector3 *dim2)
-{
-	Vector3 dimensions1, dimensions2;
-	GAMEPLAY::GET_MODEL_DIMENSIONS(Model(), &dimensions1, &dimensions2);
-	dimensions1.x = abs(dimensions1.x); dimensions2.x = abs(dimensions2.x);
-	dimensions1.y = abs(dimensions1.y); dimensions2.y = abs(dimensions2.y);
-	dimensions1.z = abs(dimensions1.z); dimensions2.z = abs(dimensions2.z);
-}
-
 #pragma endregion
 
 #pragma region Setters
 
 void Vehicle::SetVehicleEngineOn(bool on)
 {
-	VEHICLE::SET_VEHICLE_ENGINE_ON(vehicleId, on, true);
+	VEHICLE::SET_VEHICLE_ENGINE_ON(id, on, true);
 }
 
 void Vehicle::SetEnginePowerMultiplier(float value)
 {
-	VEHICLE::_SET_VEHICLE_ENGINE_POWER_MULTIPLIER(vehicleId, value);
+	VEHICLE::_SET_VEHICLE_ENGINE_POWER_MULTIPLIER(id, value);
 }
 
 void Vehicle::SetForwardSpeed(float speed)
 {
-	VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicleId, speed);
-}
-
-void Vehicle::SetCoords(Vector3 coords)
-{
-	ENTITY::SET_ENTITY_COORDS(vehicleId, coords.x, coords.y, coords.z, false, false, false, true);
-}
-
-void Vehicle::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
-{
-	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(vehicleId, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
-}
-
-void Vehicle::SetVisible(bool value)
-{
-	ENTITY::SET_ENTITY_VISIBLE(vehicleId, value);
-}
-
-void Vehicle::SetInvincible(bool value)
-{
-	ENTITY::SET_ENTITY_INVINCIBLE(vehicleId, value);
+	VEHICLE::SET_VEHICLE_FORWARD_SPEED(id, speed);
 }
 
 #pragma endregion
 
 #pragma region Actions
 
-void Vehicle::ApplyForceRelative(Vector3 direction, Vector3 offset)
-{
-	ENTITY::APPLY_FORCE_TO_ENTITY(vehicleId, 1, direction.x, direction.y, direction.z, offset.x, offset.y, offset.z, false, true, true, true, false, true);
-}
-
-void Vehicle::SetAsMissionEntity()
-{
-	ENTITY::SET_ENTITY_AS_MISSION_ENTITY(vehicleId, true, false);
-}
-
 void Vehicle::Repair()
 {
-	VEHICLE::SET_VEHICLE_FIXED(vehicleId);
-	VEHICLE::SET_VEHICLE_DIRT_LEVEL(vehicleId, 0.0f);
+	VEHICLE::SET_VEHICLE_FIXED(id);
+	VEHICLE::SET_VEHICLE_DIRT_LEVEL(id, 0.0f);
 }
 
 void Vehicle::Delete()
 {
 	SetAsMissionEntity();
-	VEHICLE::DELETE_VEHICLE(&vehicleId);
+	VEHICLE::DELETE_VEHICLE(&id);
 }
 
 #pragma endregion

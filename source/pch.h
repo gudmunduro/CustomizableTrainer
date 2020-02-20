@@ -24,6 +24,7 @@
 #include "enums.h"
 #include "natives.h"
 #include "Game.h"
+#include "Entity.h"
 #include "Ped.h"
 #include "Player.h"
 #include "Vehicle.h"

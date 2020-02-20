@@ -146,7 +146,7 @@ void Actions::TeleportSpawnedPedToPlayer(json params)
 		return;
 	}
 
-	auto teleportTo = Player().ped.OffsetInWorldCoords({0, 2.0f, 0});
+	auto teleportTo = Player().ped.GetOffsetInWorldCoords({0, 2.0f, 0});
 
 	PedSpawner::CurrentPed().SetCoords(teleportTo);
 }
@@ -158,7 +158,7 @@ void Actions::TeleportPlayerToSpawnedPed(json params)
 		return;
 	}
 
-	auto teleportTo = PedSpawner::CurrentPed().OffsetInWorldCoords({ 0, 2.0f, 0 });
+	auto teleportTo = PedSpawner::CurrentPed().GetOffsetInWorldCoords({ 0, 2.0f, 0 });
 
 	Player().ped.SetCoords(teleportTo);
 }
@@ -190,7 +190,7 @@ void Actions::GiveAllSpawnedPedsWeapon(json params)
 
 void Actions::TeleportAllSpawnedPedsToPlayer(json params)
 {
-	auto teleportTo = Player().ped.OffsetInWorldCoords({ 0, 2.0f, 0 });
+	auto teleportTo = Player().ped.GetOffsetInWorldCoords({ 0, 2.0f, 0 });
 
 	for each (auto ped in PedSpawner::peds) {
 		ped->ped.SetCoords(teleportTo);
@@ -258,7 +258,7 @@ void Actions::SpawnHorse(json params)
 	}
 	std::string model = params[0].get<std::string>();
 	Player player;
-	Vector3 spawnPosition = player.ped.OffsetInWorldCoords({ 0.0, 2.0, 0.0 });
+	Vector3 spawnPosition = player.ped.GetOffsetInWorldCoords({ 0.0, 2.0, 0.0 });
 	float heading = player.ped.Heading() + 90.0f;
 
 	if (!STREAMING::IS_MODEL_IN_CDIMAGE(String::Hash(model))) {
@@ -297,7 +297,7 @@ void Actions::SpawnVehicle(json params)
 	float vehicleSpawnHeading = player.ped.Heading();
 
 	if (!(Toggles::spawnInsideVehicle)) {
-		spawnPosition = player.ped.OffsetInWorldCoords({0.0, 2.0, 0.0});
+		spawnPosition = player.ped.GetOffsetInWorldCoords({0.0, 2.0, 0.0});
 		vehicleSpawnHeading += 90;
 	}
 
@@ -309,7 +309,7 @@ void Actions::SpawnVehicle(json params)
 	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, vehicleSpawnHeading);
 
 	if (Toggles::spawnInsideVehicle) {
-		player.ped.SetIntoVehicle(spawnedVehicle.Id());
+		player.ped.SetIntoVehicle(spawnedVehicle.id);
 	}
 }
 
@@ -355,8 +355,8 @@ void Actions::RepairEngine(json params)
 	Player player;
 	if (!player.ped.IsInVehicle()) return;
 
-	VEHICLE::SET_VEHICLE_ENGINE_HEALTH(player.ped.CurrentVehicle().Id(), 1250.0f);
-	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.ped.CurrentVehicle().Id(), 1250.0f);
+	VEHICLE::SET_VEHICLE_ENGINE_HEALTH(player.ped.CurrentVehicle().id, 1250.0f);
+	VEHICLE::SET_VEHICLE_PETROL_TANK_HEALTH(player.ped.CurrentVehicle().id, 1250.0f);
 }
 
 #pragma endregion
@@ -522,7 +522,7 @@ void Actions::AddToClockTime(json params)
 void Actions::TeleportPlayerForward(json params)
 {
 	auto player = Player();
-	auto teleportToCoords = player.ped.OffsetInWorldCoords({0, 4.0f, 0});
+	auto teleportToCoords = player.ped.GetOffsetInWorldCoords({0, 4.0f, 0});
 	player.ped.SetCoords(teleportToCoords);
 }
 
