@@ -18,6 +18,7 @@ namespace Settings {
 	namespace General {
 		inline bool playUiSounds;
 		inline std::vector<OptionToSave> optionsToSave;
+		inline bool debug = true;
 	}
 
 #pragma endregion

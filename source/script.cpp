@@ -20,6 +20,8 @@
 #include "HotkeyController.h"
 #include "TextController.h"
 #include "JsonData.h"
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/basic_file_sink.h"
 
 #pragma region Setup
 
@@ -55,8 +57,15 @@ void loadInitialOptionStates()
 	JSONData::UpdateOptionStates();
 }
 
+void setupLogging()
+{
+	auto fileLogger = spdlog::basic_logger_mt("basic_logger", "CustomizableTrainer\\logs.txt");
+	spdlog::set_default_logger(fileLogger);
+}
+
 void setup()
 {
+	setupLogging();
 	registerOptions();
 	loadTextureDicts();
 	setupInitialTaskQueue();

@@ -11,6 +11,7 @@
 #include "pch.h"
 #include "Game.h"
 #include "Routine.h"
+#include "MenuSettings.h"
 
 void Game::DrawText(std::string text, Vector2 position, float scale, Color color, bool center) {
 	UI::SET_TEXT_CENTRE(center);
@@ -39,6 +40,13 @@ void Game::PrintSubtitle(std::string text)
 	UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
 	UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
 	UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
+}
+
+void Game::PrintDebug(std::string text)
+{
+	if (Settings::General::debug) {
+		PrintSubtitle(text);
+	}
 }
 
 void Game::PlaySoundFrontend(std::string soundCat, std::string soundName)

@@ -16,6 +16,7 @@ public:
 	static void DrawText(std::string text, Vector2 position, float scale = 0.45f, Color color = { 255, 255, 255, 255 }, bool center = false);
 	static void DrawSprite(std::string textureDict, std::string textureName, Vector3 position, Rect size, float heading, Color color);
 	static void PrintSubtitle(std::string text);
+	static void PrintDebug(std::string text);
 	static void PlaySoundFrontend(std::string soundCat, std::string soundName);
 	static void DrawRect(Vector3 position, Rect size, Color color);
 	static void RequestModel(Hash model);

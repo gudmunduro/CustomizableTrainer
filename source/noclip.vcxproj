@@ -122,8 +122,10 @@
     <ClInclude Include="Controls.h" />
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="CustomBullets.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="FloatAnimation.h" />
     <ClInclude Include="DynamicSubmenu.h" />
+    <ClInclude Include="Freecam.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
     <ClInclude Include="GameplayCamera.h" />
@@ -180,9 +182,11 @@
     <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="Controls.cpp" />
     <ClCompile Include="CustomBullets.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="FloatAnimation.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Freecam.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameplayCamera.cpp" />
     <ClCompile Include="HotkeyController.cpp" />

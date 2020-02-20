@@ -10,6 +10,7 @@
 
 #include "pch.h"
 #include "TaskQueue.h"
+#include "spdlog/spdlog.h"
 
 #pragma region Manage task
 
@@ -75,7 +76,9 @@ void TaskQueue::RunTask(TaskQueueTask& task)
 	}
 	catch (std::exception & e) {
 		std::string exceptionText = e.what();
-		Game::PrintSubtitle("[Error] Task \"" + task.name + "\" failed with \"" + exceptionText + "\"");
+
+		spdlog::error("'{}' in task '{}'", exceptionText, task.name);
+		Game::PrintDebug("[Error] '" + exceptionText + "' in task '" + task.name + "'");
 	}
 }
 

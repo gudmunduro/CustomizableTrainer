@@ -17,102 +17,7 @@
 
 namespace Spawner {
 
-#pragma region Camera
-
-	FreeCam::FreeCam()
-	{
-		Player player;
-		auto playerPos = player.ped.Position();
-		cam = CAM::CREATE_CAM("DEFAULT_SCRIPTED_CAMERA", 1);
-		nextPositionOffset = {0, 0, 0};
-		nextRotationOffset = {0, 0, 0};
-		CAM::SET_CAM_ACTIVE(cam, true);
-		CAM::RENDER_SCRIPT_CAMS(true, false, 3000, true, false, 0);
-		CAM::SET_CAM_COORD(cam, playerPos.x + 5.0f, playerPos.y, playerPos.z);
-	}
-
-	FreeCam::~FreeCam()
-	{
-		CAM::SET_CAM_ACTIVE(cam, false);
-		CAM::DESTROY_CAM(cam, false);
-	}
-
-	// Controls
-
-	void FreeCam::RespondToMoveControls()
-	{
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) > 0.0f) // Down
-			nextPositionOffset.y -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) / 2;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) < 0.0f) // Up
-			nextPositionOffset.y += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) / 2 * -1;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) > 0.0f) // Right
-			nextPositionOffset.x += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) / 2;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) < 0.0f) // Left
-			nextPositionOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) / 2 * -1;
-	}
-
-	void FreeCam::RespondToRotateControls()
-	{
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) > 0.0f) // Down
-			nextRotationOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * 3;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) < 0.0f) // Up
-			nextRotationOffset.x += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * -3;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) > 0.0f) // Right
-			nextRotationOffset.z += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * -3;
-
-		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) < 0.0f) // Left
-			nextRotationOffset.z -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * 3;
-	}
-
-	void FreeCam::RespondToControls()
-	{
-		CONTROLS::DISABLE_ALL_CONTROL_ACTIONS(0);
-		RespondToMoveControls();
-		RespondToRotateControls();
-	}
-
-	//
-
-	void FreeCam::ResetValues()
-	{
-		nextRotationOffset = { 0, 0, 0 };
-		nextPositionOffset = { 0, 0, 0 };
-	}
-
-	void FreeCam::UpdatePosition()
-	{
-		if (nextPositionOffset.x + nextPositionOffset.y + nextPositionOffset.z == 0) // If they are all zero
-			return;
-		auto&& nextPosition = CameraUtils::GetOffsetFromCameraInWorldCoords(cam, nextPositionOffset);
-		CAM::SET_CAM_COORD(cam, nextPosition.x, nextPosition.y, nextPosition.z);
-	}
-
-	void FreeCam::UpdateRotation()
-	{
-		if (nextRotationOffset.x + nextRotationOffset.y + nextRotationOffset.z == 0) // If they are all zero
-			return;
-		auto&& currentRotation = CAM::GET_CAM_ROT(cam, 2);
-		CAM::SET_CAM_ROT(cam, currentRotation.x + nextRotationOffset.x, currentRotation.y + nextRotationOffset.y, currentRotation.z + nextRotationOffset.z, 2);
-	}
-
-	void FreeCam::Tick()
-	{
-		ResetValues();
-		RespondToControls();
-		UpdatePosition();
-		UpdateRotation();
-	}
-
-#pragma endregion
-
-#pragma region Spawner
-
-	// Setters
+#pragma region Setters
 
 	void Spawner::SetFreeCamEnabled(bool enabled)
 	{
@@ -149,20 +54,25 @@ namespace Spawner {
 		ENTITY::DELETE_ENTITY(&selectedEntityForSpawn);
 	}
 
-	// Booleans
+#pragma endregion
+
+#pragma region Booleans
 
 	bool Spawner::IsFreeCamEnabled()
 	{
 		return isFreeCamEnabled;
 	}
 
-	// Spawn
+#pragma endregion
+
+#pragma region Spawn
 
 	void Spawner::ShowSpawnerModePreview()
 	{
 		if (!camera) return;
 		auto&& cam = (camera.value());
 		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
 		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
 
 		auto&& result = RaycastResult::Raycast(pos, dir, 15000.0f, IntersectOptions::Map);
@@ -194,6 +104,7 @@ namespace Spawner {
 				Game::SetModelAsNoLongerNeeded(model);
 			}
 
+			ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, rot.x, rot.y, rot.z, 2, false);
 			ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, hitPos.x, hitPos.y, hitPos.z, false, false, false, false);
 			ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
 		}
@@ -203,6 +114,7 @@ namespace Spawner {
 	{
 		EntityId spawnedEntity;
 		auto&& model = String::Hash(selectedEntityForSpawnModel);
+		auto&& rot = ENTITY::GET_ENTITY_ROTATION(selectedEntityForSpawn, 2);
 		auto&& pos = ENTITY::GET_ENTITY_COORDS(selectedEntityForSpawn, true, false);
 		Game::RequestModel(model);
 
@@ -224,12 +136,14 @@ namespace Spawner {
 			return;
 		}
 
+		ENTITY::SET_ENTITY_ROTATION(spawnedEntity, rot.x, rot.y, rot.z, 2, false);
+
 		Game::SetModelAsNoLongerNeeded(model);
 
 		database.push_back(DatabaseEntity(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel, ""));
 	}
 
-	//
+#pragma endregion
 
 	void Spawner::Tick()
 	{
@@ -239,7 +153,5 @@ namespace Spawner {
 		if (isSelectingEntityForSpawn)
 			ShowSpawnerModePreview();
 	}
-
-#pragma endregion
 
 }

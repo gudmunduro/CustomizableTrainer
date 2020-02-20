@@ -10,6 +10,7 @@
 
 #pragma once
 #include "pch.h"
+#include "Freecam.h"
 
 namespace Spawner {
 
@@ -27,33 +28,6 @@ namespace Spawner {
 	};
 
 #pragma endregion
-
-
-#pragma region Camera
-
-	class FreeCam {
-	public:
-		FreeCam();
-		~FreeCam();
-
-		void RespondToMoveControls();
-		void RespondToRotateControls();
-		void RespondToControls();
-
-		void ResetValues();
-		void UpdatePosition();
-		void UpdateRotation();
-		void Tick();
-
-		Cam cam;
-	private:
-		Vector3 nextPositionOffset;
-		Vector3 nextRotationOffset;
-	};
-
-#pragma endregion
-
-#pragma region Spawner
 
 	class Spawner {
 	public:
@@ -74,6 +48,4 @@ namespace Spawner {
 		static inline EntityType selectedEntityForSpawnType = EntityType::Object;
 		static inline Object selectedEntityForSpawn = 0;
 	};
-
-#pragma endregion
 }
