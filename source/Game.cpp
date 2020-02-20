@@ -62,6 +62,11 @@ void Game::RequestModel(Hash model)
 	}
 }
 
+void Game::SetModelAsNoLongerNeeded(Hash model)
+{
+	STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
+}
+
 void Game::SetWeather(Hash weather)
 {
 	GAMEPLAY::CLEAR_OVERRIDE_WEATHER();

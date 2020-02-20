@@ -21,15 +21,14 @@
 EditAddOptionSub::EditAddOptionSub(std::optional<MenuOption> optionToEdit, MenuController* menuController)
 	: Submenu(menuController)
 {
-	if (auto option = optionToEdit; option) {
-		title = "Edit option";
-		this->optionToAdd = *option;
-		UpdateParameters();
-		title = "Add option";
-	}
-	else {
+	if (optionToEdit) {
 		title = "Edit option";
 		this->optionToAdd = *optionToEdit;
+		UpdateParameters();
+	}
+	else {
+		title = "Add option";
+		this->optionToAdd;
 		UpdateParameters();
 	}
 

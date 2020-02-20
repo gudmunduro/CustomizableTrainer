@@ -54,12 +54,14 @@ void TaskQueue::RemoveTask(int id)
 void TaskQueue::Wait(DWORD time)
 {
 	WAIT(time);
-	/*DWORD waitTimeEnd = GetTickCount() + time;
-	
+	/*
+	DWORD waitTimeEnd = GetTickCount() + time;
+
 	while (GetTickCount() < waitTimeEnd) {
 		Run();
 		WAIT(0);
-	}*/
+	}
+	*/
 }
 
 #pragma endregion

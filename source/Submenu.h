@@ -28,6 +28,12 @@ public:
 
 	void DeleteWhenPossible();
 
+	virtual void SubDidAppear();
+	virtual void SubWillDraw();
+	virtual void SubDidDraw();
+	virtual void OptionDidDraw();
+	virtual void SelectionDidChange(int to, int from);
+
 	int selection;
 	int scrollPosition;
 protected:
@@ -43,11 +49,6 @@ protected:
 	void DrawNumber(std::string text, std::string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);
 	void DrawTextList(std::string text, std::string valueToDisplay, std::function<void(bool direction)> onAdjust);
 	void DrawTextAction(std::string text, std::string value, std::function<void()> onPress);
-
-	virtual void SubWillDraw();
-	virtual void SubDidDraw();
-	virtual void OptionDidDraw();
-	virtual void SelectionDidChange(int to, int from);
 
 	virtual void RespondToControls();
 

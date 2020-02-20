@@ -206,7 +206,7 @@ void DynamicSubmenu::RespondToControls()
 			Controls::CanceMenuControlslForThisFrame();
 		}
 		if (Controls::IsMenuControlPressed(MenuControl::MenuEditModeEditOption)) {
-			auto addOptionSub = new EditAddOptionSub({ options[selection] }, menuController);
+			auto addOptionSub = new EditAddOptionSub(std::make_optional(options[selection]), menuController);
 			addOptionSub->onAddOption = [this](MenuOption optionToEdit) {
 				options[selection] = optionToEdit;
 			};

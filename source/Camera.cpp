@@ -14,7 +14,7 @@
 */
 
 #include "pch.h"
-#include "GameplayCamera.h"
+#include "Camera.h"
 
 static Vector3 RotationToDirection(const Vector3& rotation)
 {
@@ -54,17 +54,17 @@ static float DegreeToRadian(float angle)
 	return angle * 0.0174532925199433F;
 }
 
-Vector3 GameplayCamera::Position()
+Vector3 Camera::Position(Cam cam)
 {
-	return CAM::GET_GAMEPLAY_CAM_COORD();
+	return CAM::GET_CAM_COORD(cam);
 }
 
-Vector3 GameplayCamera::Rotation()
+Vector3 Camera::Rotation(Cam cam)
 {
-	return CAM::GET_GAMEPLAY_CAM_ROT(2);
+	return CAM::GET_CAM_ROT(cam, 2);
 }
 
-bool GameplayCamera::WorldToScreenRel(const Vector3& worldCoords, Vector2& screenCoords)
+bool Camera::WorldToScreenRel(Cam cam, const Vector3& worldCoords, Vector2& screenCoords)
 {
 	if (!GRAPHICS::GET_SCREEN_COORD_FROM_WORLD_COORD(worldCoords.x, worldCoords.y, worldCoords.z, &screenCoords.x, &screenCoords.y))
 		return false;
@@ -74,11 +74,11 @@ bool GameplayCamera::WorldToScreenRel(const Vector3& worldCoords, Vector2& scree
 	return true;
 }
 
-Vector3 GameplayCamera::ScreenToWorld(const Vector2& screenCoord)
+Vector3 Camera::ScreenToWorld(Cam cam, const Vector2& screenCoord)
 {
 	// Credit to Guadmaz
-	Vector3 camRot = GameplayCamera::Rotation();
-	Vector3 camPos = GameplayCamera::Position();
+	Vector3 camRot = Camera::Rotation(cam);
+	Vector3 camPos = Camera::Position(cam);
 
 	Vector2 vector2;
 	Vector2 vector21;
@@ -91,11 +91,11 @@ Vector3 GameplayCamera::ScreenToWorld(const Vector2& screenCoord)
 	float rad = -DegreeToRadian(camRot.y);
 	Vector3 vector33 = (direction1 * cos(rad)) - (direction2 * sin(rad));
 	Vector3 vector34 = (direction1 * sin(rad)) + (direction2 * cos(rad));
-	if (!WorldToScreenRel(((camPos + (direction * 10.f)) + vector33) + vector34, vector2))
+	if (!WorldToScreenRel(cam, ((camPos + (direction * 10.f)) + vector33) + vector34, vector2))
 	{
 		return camPos + (direction * 10.f);
 	}
-	if (!WorldToScreenRel(camPos + (direction * 10.f), vector21))
+	if (!WorldToScreenRel(cam, camPos + (direction * 10.f), vector21))
 	{
 		return camPos + (direction * 10.f);
 	}
@@ -108,10 +108,10 @@ Vector3 GameplayCamera::ScreenToWorld(const Vector2& screenCoord)
 	return ((camPos + (direction * 10.f)) + (vector33 * x)) + (vector34 * y);
 }
 
-Vector3 GameplayCamera::DirectionFromScreenCentre()
+Vector3 Camera::DirectionFromScreenCentre(Cam cam)
 {
-	Vector3 position = GameplayCamera::Position();
-	Vector3 world = GameplayCamera::ScreenToWorld({ 0.0f, 0.0f });
+	Vector3 position = Camera::Position(cam);
+	Vector3 world = Camera::ScreenToWorld(cam, { 0.0f, 0.0f });
 	Vector3 newVec = world - position;
 	Normalize(&newVec);
 	return newVec;

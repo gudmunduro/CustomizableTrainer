@@ -58,6 +58,7 @@ void MenuController::RegisterSubmenuData(std::string key, SubmenuData submenuDat
 void MenuController::AddSubmenuToStack(Submenu* submenu)
 {
 	submenuStack.push_back(submenu);
+	submenu->SubDidAppear();
 }
 
 void MenuController::GoToLastSub()
@@ -76,6 +77,7 @@ void MenuController::GoToLastSub()
 				int newScrollPos = currentSub->OptionCount() - 8;
 				currentSub->scrollPosition = (newScrollPos > 0) ? newScrollPos : 0;
 			}
+			currentSub->SubDidAppear();
 		}
 	}
 	if (submenuStack.size() == 0) { 
@@ -216,7 +218,7 @@ std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
 	else if (key == "builtin_sub_selectWeaponCat") {
 		return new WeaponSelectionSub(this);
 	}
-	else if (key == "builtin_sub_spawnerSub") {
+	else if (key == "builtin_sub_spawner") {
 		return new SpawnerSub(this);
 	}
 	return std::nullopt;

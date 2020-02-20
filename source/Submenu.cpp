@@ -232,6 +232,10 @@ void Submenu::DrawTextAction(std::string text, std::string value, std::function<
 
 #pragma region Events
 
+void Submenu::SubDidAppear()
+{
+}
+
 void Submenu::SubWillDraw()
 {
 	drawIndex = 0;

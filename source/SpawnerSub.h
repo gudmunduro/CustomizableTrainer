@@ -10,8 +10,6 @@ public:
 
 	void Draw() override;
 	void SubDidDraw() override;
-private:
-	bool isFreeCamEnabled = false;
-	std::optional<std::unique_ptr<Spawner::Camera>> freeCam = std::nullopt;
+
 };
 

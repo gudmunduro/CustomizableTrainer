@@ -117,6 +117,7 @@
     <ClInclude Include="AddOptionSetTypeSub.h" />
     <ClInclude Include="AddOptionSub.h" />
     <ClInclude Include="BoatFlyMode.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ConfirmDialog.h" />
     <ClInclude Include="Controls.h" />
     <ClInclude Include="core\Hash.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
     <ClInclude Include="Spawner.h" />
+    <ClInclude Include="SpawnerModelSelection.h" />
     <ClInclude Include="SpawnerSub.h" />
     <ClInclude Include="TaskQueue.h" />
     <ClInclude Include="TextController.h" />
@@ -174,6 +176,7 @@
     <ClCompile Include="AddOptionSetTypeSub.cpp" />
     <ClCompile Include="AddOptionSub.cpp" />
     <ClCompile Include="BoatFlyMode.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConfirmDialog.cpp" />
     <ClCompile Include="Controls.cpp" />
     <ClCompile Include="CustomBullets.cpp" />
@@ -189,6 +192,7 @@
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="SpawnerModelSelection.cpp" />
     <ClCompile Include="SpawnerSub.cpp" />
     <ClCompile Include="TaskQueue.cpp" />
     <ClCompile Include="TextController.cpp" />

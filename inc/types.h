@@ -39,7 +39,6 @@ typedef int Blip;
 typedef int Texture;
 typedef int TextureDict;
 typedef int CoverPoint;
-typedef int Camera;
 typedef int TaskSequence;
 typedef int ColourIndex;
 typedef int Sphere;

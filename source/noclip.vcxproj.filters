@@ -288,6 +288,12 @@
     <ClInclude Include="CameraUtils.h">
       <Filter>Headers\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerModelSelection.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -451,6 +457,12 @@
     </ClCompile>
     <ClCompile Include="CameraUtils.cpp">
       <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerModelSelection.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

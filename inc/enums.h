@@ -29,3 +29,9 @@ enum class Direction {
 	Forward,
 	Backward
 };
+
+enum class EntityType {
+	Object,
+	Vehicle,
+	Ped
+};

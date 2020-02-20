@@ -11,56 +11,15 @@
 #include "pch.h"
 #include "Spawner.h"
 #include "Controls.h"
+#include "Camera.h"
 #include "CameraUtils.h"
 #include "Raycast.h"
 
 namespace Spawner {
 
-#pragma region Database
-
-	// Add
-
-	void Database::AddObject(Object object)
-	{
-		objects.push_back(object);
-	}
-
-	void Database::AddVehicle(Vehicle vehicle)
-	{
-		vehicles.push_back(vehicle);
-	}
-
-	void Database::AddPed(Ped ped)
-	{
-		peds.push_back(ped);
-	}
-
-
-	// Spawn
-
-	void Database::SpawnObject(Hash model, Vector3 position, float rotation)
-	{
-		auto objectId = OBJECT::CREATE_OBJECT(model, position.x, position.y, position.z, false, true, false, 0, 0);
-		AddObject(objectId);
-	}
-
-	void Database::SpawnVehicle(Hash model, Vector3 position, float rotation)
-	{
-		auto vehicle = Vehicle::Spawn(model, position, rotation);
-		AddVehicle(vehicle);
-	}
-
-	void Database::SpawnPed(Hash model, Vector3 position, float rotation)
-	{
-		auto ped = Ped::Create(model, position, rotation);
-		AddPed(ped);
-	}
-
-#pragma endregion Database
-
 #pragma region Camera
 
-	Camera::Camera()
+	FreeCam::FreeCam()
 	{
 		Player player;
 		auto playerPos = player.ped.Position();
@@ -69,10 +28,10 @@ namespace Spawner {
 		nextRotationOffset = {0, 0, 0};
 		CAM::SET_CAM_ACTIVE(cam, true);
 		CAM::RENDER_SCRIPT_CAMS(true, false, 3000, true, false, 0);
-		CAM::SET_CAM_COORD(cam, playerPos.x, playerPos.y, playerPos.z);
+		CAM::SET_CAM_COORD(cam, playerPos.x + 5.0f, playerPos.y, playerPos.z);
 	}
 
-	Camera::~Camera()
+	FreeCam::~FreeCam()
 	{
 		CAM::SET_CAM_ACTIVE(cam, false);
 		CAM::DESTROY_CAM(cam, false);
@@ -80,7 +39,7 @@ namespace Spawner {
 
 	// Controls
 
-	void Camera::RespondToMoveControls()
+	void FreeCam::RespondToMoveControls()
 	{
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) > 0.0f) // Down
 			nextPositionOffset.y -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_Y) / 2;
@@ -95,7 +54,7 @@ namespace Spawner {
 			nextPositionOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) / 2 * -1;
 	}
 
-	void Camera::RespondToRotateControls()
+	void FreeCam::RespondToRotateControls()
 	{
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) > 0.0f) // Down
 			nextRotationOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * 3;
@@ -110,7 +69,7 @@ namespace Spawner {
 			nextRotationOffset.z -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * 3;
 	}
 
-	void Camera::RespondToControls()
+	void FreeCam::RespondToControls()
 	{
 		CONTROLS::DISABLE_ALL_CONTROL_ACTIONS(0);
 		RespondToMoveControls();
@@ -119,13 +78,13 @@ namespace Spawner {
 
 	//
 
-	void Camera::ResetValues()
+	void FreeCam::ResetValues()
 	{
 		nextRotationOffset = { 0, 0, 0 };
 		nextPositionOffset = { 0, 0, 0 };
 	}
 
-	void Camera::UpdatePosition()
+	void FreeCam::UpdatePosition()
 	{
 		if (nextPositionOffset.x + nextPositionOffset.y + nextPositionOffset.z == 0) // If they are all zero
 			return;
@@ -133,7 +92,7 @@ namespace Spawner {
 		CAM::SET_CAM_COORD(cam, nextPosition.x, nextPosition.y, nextPosition.z);
 	}
 
-	void Camera::UpdateRotation()
+	void FreeCam::UpdateRotation()
 	{
 		if (nextRotationOffset.x + nextRotationOffset.y + nextRotationOffset.z == 0) // If they are all zero
 			return;
@@ -141,7 +100,7 @@ namespace Spawner {
 		CAM::SET_CAM_ROT(cam, currentRotation.x + nextRotationOffset.x, currentRotation.y + nextRotationOffset.y, currentRotation.z + nextRotationOffset.z, 2);
 	}
 
-	void Camera::Tick()
+	void FreeCam::Tick()
 	{
 		ResetValues();
 		RespondToControls();
@@ -160,44 +119,125 @@ namespace Spawner {
 		if (enabled == isFreeCamEnabled) return;
 		isFreeCamEnabled = enabled;
 
-		if (isFreeCamEnabled)
-			camera = std::make_shared<Camera>();
-		else
+		if (isFreeCamEnabled) {
+			camera = std::make_shared<FreeCam>();
+			TaskQueue::AddTask("spawner", Tick);
+		}
+		else {
 			camera = std::nullopt;
+			TaskQueue::RemoveTask("spawner");
+		}
+	}
+
+	void Spawner::SetEntityForSpawner(std::string model, EntityType type)
+	{
+		isSelectingEntityForSpawn = true;
+		if (selectedEntityForSpawn != 0 && ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
+			ENTITY::SET_ENTITY_AS_MISSION_ENTITY(selectedEntityForSpawn, false, false);
+			ENTITY::DELETE_ENTITY(&selectedEntityForSpawn);
+			selectedEntityForSpawn = 0;
+		}
+		selectedEntityForSpawnModel = model;
+		selectedEntityForSpawnType = type;
+	}
+
+	void Spawner::DisableSpawnerMode()
+	{
+		if (!isSelectingEntityForSpawn) return;
+		isSelectingEntityForSpawn = false;
+		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(selectedEntityForSpawn, false, false);
+		ENTITY::DELETE_ENTITY(&selectedEntityForSpawn);
+	}
+
+	// Booleans
+
+	bool Spawner::IsFreeCamEnabled()
+	{
+		return isFreeCamEnabled;
 	}
 
 	// Spawn
 
-	void Spawner::ShowSelectedObjectOnGround()
+	void Spawner::ShowSpawnerModePreview()
 	{
 		if (!camera) return;
-		auto&& cam = camera.value();
+		auto&& cam = (camera.value());
 		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
-		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
 
-		auto&& result = RaycastResult::Raycast(pos, rot, 20000.0f, IntersectOptions::Map);
+		auto&& result = RaycastResult::Raycast(pos, dir, 15000.0f, IntersectOptions::Map);
 
 		if (result.DidHitAnything()) {
 			auto&& hitPos = result.HitCoords();
 
-			if (!selectedObjectForSpawn 
-				|| ENTITY::DOES_ENTITY_EXIST(selectedObjectForSpawn.value())) {
-				// TODO: Create entity
+			if (selectedEntityForSpawn == 0
+				|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
+
+				auto&& model = String::Hash(selectedEntityForSpawnModel);
+				Game::RequestModel(model);
+
+				switch (selectedEntityForSpawnType) {
+				case EntityType::Object:
+					selectedEntityForSpawn
+						= OBJECT::CREATE_OBJECT(model, hitPos.x, hitPos.y, hitPos.z, false, false, false, false, false);
+					break;
+				case EntityType::Vehicle:
+					selectedEntityForSpawn
+						= VEHICLE::CREATE_VEHICLE(model, hitPos.x, hitPos.y, hitPos.z, 0, false, false, false, false);
+					break;
+				case EntityType::Ped:
+					selectedEntityForSpawn
+						= PED::CREATE_PED(model, hitPos.x, hitPos.y, hitPos.z, 0, false, false, false, false);
+					break;
+				}
+
+				Game::SetModelAsNoLongerNeeded(model);
 			}
 
-			ENTITY::SET_ENTITY_COORDS(selectedObjectForSpawn.value(), hitPos.x, hitPos.y, hitPos.z, false, false, false, false);
-			ENTITY::SET_ENTITY_ALPHA(selectedObjectForSpawn.value(), 150, 0);
+			ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, hitPos.x, hitPos.y, hitPos.z, false, false, false, false);
+			ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
 		}
 	}
+
+	void Spawner::SpawnSelectedEntity()
+	{
+		EntityId spawnedEntity;
+		auto&& model = String::Hash(selectedEntityForSpawnModel);
+		auto&& pos = ENTITY::GET_ENTITY_COORDS(selectedEntityForSpawn, true, false);
+		Game::RequestModel(model);
+
+		switch (selectedEntityForSpawnType) {
+		case EntityType::Object:
+			spawnedEntity
+				= OBJECT::CREATE_OBJECT(model, pos.x, pos.y, pos.z, false, false, false, false, false);
+			break;
+		case EntityType::Vehicle:
+			spawnedEntity
+				= VEHICLE::CREATE_VEHICLE(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
+			break;
+		case EntityType::Ped:
+			spawnedEntity
+				= PED::CREATE_PED(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
+			break;
+		default:
+			Game::PrintSubtitle("Error: Invalid entitiy type");
+			return;
+		}
+
+		Game::SetModelAsNoLongerNeeded(model);
+
+		database.push_back(DatabaseEntity(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel, ""));
+	}
+
+	//
 
 	void Spawner::Tick()
 	{
 		if (isFreeCamEnabled && camera)
 			camera.value()->Tick();
 
-		if (isSelectingObjectForSpawn) {
-			ShowSelectedObjectOnGround();
-		}
+		if (isSelectingEntityForSpawn)
+			ShowSpawnerModePreview();
 	}
 
 #pragma endregion

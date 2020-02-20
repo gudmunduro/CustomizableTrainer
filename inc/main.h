@@ -96,3 +96,5 @@ auto enumToInt(Enumeration const value)
 {
 	return static_cast<typename std::underlying_type<Enumeration>::type>(value);
 }
+
+// ---------

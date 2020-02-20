@@ -13,31 +13,28 @@
 
 namespace Spawner {
 
-#pragma region Database
+#pragma region Types
 
-	class Database {
+	class DatabaseEntity {
 	public:
-		void AddObject(Object object);
-		void AddVehicle(Vehicle vehicle);
-		void AddPed(Ped ped);
+		DatabaseEntity(EntityId entityId, EntityType type, std::string model, std::string name)
+			: entityId(entityId), type(type), model(model), name(name) {}
 
-		void SpawnObject(Hash model, Vector3 position, float rotation);
-		void SpawnVehicle(Hash model, Vector3 position, float rotation);
-		void SpawnPed(Hash model, Vector3 position, float rotation);
-	private:
-		std::vector<Object> objects;
-		std::vector<Vehicle> vehicles;
-		std::vector<Ped> peds;
+		EntityId entityId;
+		EntityType type;
+		std::string model;
+		std::string name;
 	};
 
 #pragma endregion
 
+
 #pragma region Camera
 
-	class Camera {
+	class FreeCam {
 	public:
-		Camera();
-		~Camera();
+		FreeCam();
+		~FreeCam();
 
 		void RespondToMoveControls();
 		void RespondToRotateControls();
@@ -61,15 +58,21 @@ namespace Spawner {
 	class Spawner {
 	public:
 		static void SetFreeCamEnabled(bool enabled);
-		static void ShowSelectedObjectOnGround();
+		static void SetEntityForSpawner(std::string model, EntityType type);
+		static void DisableSpawnerMode();
+		static bool IsFreeCamEnabled();
+		static void ShowSpawnerModePreview();
+		static void SpawnSelectedEntity();
 		static void Tick();
 
-		static std::unique_ptr<Database> database;
-		static inline std::optional<std::shared_ptr<Camera>> camera = std::nullopt;
+		static inline std::vector<DatabaseEntity> database;
+		static inline std::optional<std::shared_ptr<FreeCam>> camera = std::nullopt;
 	private:
+		static inline bool isSelectingEntityForSpawn = false;
 		static inline bool isFreeCamEnabled = false;
-		static inline bool isSelectingObjectForSpawn = false;
-		static inline std::optional<Object> selectedObjectForSpawn = std::nullopt;
+		static inline std::string selectedEntityForSpawnModel = "";
+		static inline EntityType selectedEntityForSpawnType = EntityType::Object;
+		static inline Object selectedEntityForSpawn = 0;
 	};
 
 #pragma endregion

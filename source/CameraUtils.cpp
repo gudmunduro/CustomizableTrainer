@@ -31,6 +31,7 @@
 #include "CameraUtils.h"
 
 namespace CameraUtils {
+
 	Vector3 Cross(Vector3 left, Vector3 right)
 	{
 		Vector3 result;
