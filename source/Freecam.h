@@ -11,22 +11,26 @@
 #pragma once
 #include "pch.h"
 
-class FreeCam {
-public:
-	FreeCam();
-	~FreeCam();
+namespace Spawner {
 
-	void RespondToMoveControls();
-	void RespondToRotateControls();
-	void RespondToControls();
+	class FreeCam {
+	public:
+		FreeCam();
+		~FreeCam();
 
-	void ResetValues();
-	void UpdatePosition();
-	void UpdateRotation();
-	void Tick();
+		void RespondToMoveControls();
+		void RespondToRotateControls();
+		void RespondToControls();
 
-	Cam cam;
-private:
-	Vector3 nextPositionOffset;
-	Vector3 nextRotationOffset;
-};
+		void ResetValues();
+		void UpdatePosition();
+		void UpdateRotation();
+		void Tick();
+
+		Cam cam;
+	private:
+		Vector3 nextPositionOffset;
+		Vector3 nextRotationOffset;
+	};
+
+}

@@ -29,8 +29,11 @@ public:
 	void SetHealth(int health);
 	void SetVisible(bool visible);
 	void SetCoords(Vector3 coords);
+	void SetRotation(Vector3 rotation);
 	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);
 	void SetInvincible(bool invincible);
+
+	void SetAlpha(int alpha);
 
 #pragma endregion
 
@@ -43,9 +46,11 @@ public:
 #pragma region Getters
 
 	int MaxHealth();
+	int Health();
 	Vector3 Position();
 	Vector3 GetOffsetInWorldCoords(Vector3 offset);
 	void Dimensions(Vector3* dim1, Vector3* dim2);
+	int Alpha();
 	float Heading();
 	Hash Model();
 	float Speed();

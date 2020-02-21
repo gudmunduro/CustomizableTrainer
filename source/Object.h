@@ -14,6 +14,7 @@
 class Object
 	: public Entity
 {
+public:
 	Object(ObjectId objectId);
 };
 

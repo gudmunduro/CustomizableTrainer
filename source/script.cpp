@@ -20,8 +20,6 @@
 #include "HotkeyController.h"
 #include "TextController.h"
 #include "JsonData.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/basic_file_sink.h"
 
 #pragma region Setup
 

@@ -11,6 +11,7 @@
 #pragma once
 #include "pch.h"
 #include "Freecam.h"
+#include "Database.h"
 
 namespace Spawner {
 
@@ -39,7 +40,7 @@ namespace Spawner {
 		static void SpawnSelectedEntity();
 		static void Tick();
 
-		static inline std::vector<DatabaseEntity> database;
+		static inline Database database;
 		static inline std::optional<std::shared_ptr<FreeCam>> camera = std::nullopt;
 	private:
 		static inline bool isSelectingEntityForSpawn = false;

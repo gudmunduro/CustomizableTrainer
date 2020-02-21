@@ -11,13 +11,65 @@
 #pragma once
 #include "pch.h"
 
-class Database
-{
-public:
-	Database();
+namespace Spawner {
 
-	std::vector<Ped> peds;
-	std::vector<Vehicle> vehicles;
-	std::vector<ObjectId> objects;
-};
+#pragma region Types
 
+	class DatabaseItem {
+	public:
+		DatabaseItem(std::string model)
+			: model(model) 
+		{}
+
+		std::string model;
+	};
+
+	class PedDatabaseItem
+		: public DatabaseItem {
+	public:
+		PedDatabaseItem(Ped ped, std::string model)
+			: DatabaseItem(model), ped(ped) {}
+
+		Ped ped;
+	};
+
+	class VehicleDatabaseItem
+		: public DatabaseItem {
+	public:
+		VehicleDatabaseItem(Vehicle vehicle, std::string model)
+			: DatabaseItem(model), vehicle(vehicle) {}
+
+		Vehicle vehicle;
+	};
+
+	class ObjectDatabaseItem
+		: public DatabaseItem {
+	public:
+		ObjectDatabaseItem(Object object, std::string model)
+			: DatabaseItem(model), object(object) {}
+
+		Object object;
+	};
+
+#pragma endregion
+
+	class Database
+	{
+	public:
+		Database();
+
+		void Add(EntityId entityId, EntityType type, std::string model);
+		int AddPed(Ped ped, std::string model);
+		int AddVehicle(Vehicle vehicle, std::string model);
+		int AddObject(Object object, std::string model);
+
+		void RemovePed(int index);
+		void RemoveVehicle(int index);
+		void RemoveObject(int index);
+
+		std::vector<PedDatabaseItem> peds;
+		std::vector<VehicleDatabaseItem> vehicles;
+		std::vector<ObjectDatabaseItem> objects;
+	};
+
+}

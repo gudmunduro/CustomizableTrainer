@@ -10,7 +10,6 @@
 
 #include "pch.h"
 #include "TaskQueue.h"
-#include "spdlog/spdlog.h"
 
 #pragma region Manage task
 

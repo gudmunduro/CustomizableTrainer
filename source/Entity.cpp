@@ -46,6 +46,11 @@ void Entity::SetCoords(Vector3 coords)
 	ENTITY::SET_ENTITY_COORDS(id, coords.x, coords.y, coords.z, false, false, false, true);
 }
 
+void Entity::SetRotation(Vector3 rotation)
+{
+	ENTITY::SET_ENTITY_ROTATION(id, rotation.x, rotation.y, rotation.z, 2, false);
+}
+
 void Entity::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxis)
 {
 	ENTITY::SET_ENTITY_COORDS_NO_OFFSET(id, coords.x, coords.y, coords.z, xAxis, yAxis, zAxis);
@@ -54,6 +59,11 @@ void Entity::SetCoordsNoOffset(Vector3 coords, bool xAxis, bool yAxis, bool zAxi
 void Entity::SetInvincible(bool invincible)
 {
 	ENTITY::SET_ENTITY_INVINCIBLE(id, invincible);
+}
+
+void Entity::SetAlpha(int alpha)
+{
+	ENTITY::SET_ENTITY_ALPHA(id, alpha, false);
 }
 
 #pragma endregion
@@ -74,6 +84,11 @@ int Entity::MaxHealth()
 	return ENTITY::GET_ENTITY_MAX_HEALTH(id, false);
 }
 
+int Entity::Health()
+{
+	return ENTITY::GET_ENTITY_HEALTH(id);
+}
+
 Vector3 Entity::Position()
 {
 	return ENTITY::GET_ENTITY_COORDS(id, true, false);
@@ -91,6 +106,11 @@ void Entity::Dimensions(Vector3* dim1, Vector3* dim2)
 	dimensions1.x = abs(dimensions1.x); dimensions2.x = abs(dimensions2.x);
 	dimensions1.y = abs(dimensions1.y); dimensions2.y = abs(dimensions2.y);
 	dimensions1.z = abs(dimensions1.z); dimensions2.z = abs(dimensions2.z);
+}
+
+int Entity::Alpha()
+{
+	return ENTITY::GET_ENTITY_ALPHA(id);
 }
 
 float Entity::Heading()

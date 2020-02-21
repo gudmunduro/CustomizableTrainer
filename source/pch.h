@@ -19,12 +19,15 @@
 #include <regex>
 #include <optional>
 #include <functional>
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/basic_file_sink.h"
 #include "core/Hash.h"
 #include "types.h"
 #include "enums.h"
 #include "natives.h"
 #include "Game.h"
 #include "Entity.h"
+#include "Object.h"
 #include "Ped.h"
 #include "Player.h"
 #include "Vehicle.h"

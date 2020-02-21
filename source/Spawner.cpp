@@ -140,7 +140,7 @@ namespace Spawner {
 
 		Game::SetModelAsNoLongerNeeded(model);
 
-		database.push_back(DatabaseEntity(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel, ""));
+		database.Add(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel);
 	}
 
 #pragma endregion
