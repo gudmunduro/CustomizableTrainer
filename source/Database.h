@@ -67,9 +67,9 @@ namespace Spawner {
 		void RemoveVehicle(int index);
 		void RemoveObject(int index);
 
-		std::vector<PedDatabaseItem> peds;
-		std::vector<VehicleDatabaseItem> vehicles;
-		std::vector<ObjectDatabaseItem> objects;
+		std::vector<std::shared_ptr<PedDatabaseItem>> peds;
+		std::vector<std::shared_ptr<VehicleDatabaseItem>> vehicles;
+		std::vector<std::shared_ptr<ObjectDatabaseItem>> objects;
 	};
 
 }

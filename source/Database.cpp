@@ -25,21 +25,21 @@ namespace Spawner {
 
 	int Database::AddPed(Ped ped, std::string model)
 	{
-		auto dbItem = PedDatabaseItem(ped, model);
+		auto dbItem = std::make_shared<PedDatabaseItem>(ped, model);
 		peds.push_back(dbItem);
 		return peds.size() - 1;
 	}
 
 	int Database::AddVehicle(Vehicle vehicle, std::string model)
 	{
-		auto dbItem = VehicleDatabaseItem(vehicle, model);
+		auto dbItem = std::make_shared<VehicleDatabaseItem>(vehicle, model);
 		vehicles.push_back(dbItem);
 		return vehicles.size() - 1;
 	}
 
 	int Database::AddObject(Object object, std::string model)
 	{
-		auto dbItem = ObjectDatabaseItem(object, model);
+		auto dbItem = std::make_shared<ObjectDatabaseItem>(object, model);
 		objects.push_back(dbItem);
 		return objects.size() - 1;
 	}

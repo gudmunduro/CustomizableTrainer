@@ -40,6 +40,7 @@ public:
 #pragma region Booleans
 
 	bool Exists();
+	bool IsVisible();
 
 #pragma endregion
 

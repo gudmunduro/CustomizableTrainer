@@ -1,12 +1,11 @@
 #include "pch.h"
 #include "SpawnerSub.h"
 #include "SpawnerModelSelection.h"
+#include "SpawnerManageEntities.h"
 
 SpawnerSub::SpawnerSub(MenuController* menuController)
 	: Submenu(menuController)
-{
-	
-}
+{}
 
 void SpawnerSub::Draw()
 {
@@ -16,14 +15,15 @@ void SpawnerSub::Draw()
 	DrawToggle("Freecam", Spawner::Spawner::IsFreeCamEnabled(), [this] {
 		Spawner::Spawner::SetFreeCamEnabled(!Spawner::Spawner::IsFreeCamEnabled());
 	});
-	DrawAction("Manage entities >", [] {
-		Game::PrintSubtitle("Not implemented");
+	DrawSubAction("Manage entities >", [this] {
+		auto manageSub = new SpawnerManageCategories(menuController);
+		menuController->AddSubmenuToStack(manageSub);
 	});
-	DrawAction("Spawn >", [this] {
+	DrawSubAction("Spawn", [this] {
 		auto selectCatSub = new SpawnerSelectCatSub(menuController);
 		menuController->AddSubmenuToStack(selectCatSub);
 	});
-	DrawAction("Settings >", [] {
+	DrawSubAction("Settings", [] {
 		Game::PrintSubtitle("Not implemented");
 	});
 

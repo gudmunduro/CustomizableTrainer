@@ -44,6 +44,7 @@ protected:
 	void DrawOptionBase(std::string text, bool selected);
 	void DrawLabel(std::string text);
 	void DrawSub(std::string text, std::string subKey, bool isEnabled = true);
+	void DrawSubAction(std::string text, std::function<void()> onPress);
 	void DrawAction(std::string text, std::function<void()> onPress);
 	void DrawToggle(std::string text, bool isToggled, std::function<void()> onPress);
 	void DrawNumber(std::string text, std::string numberToDisplay, std::function<void()> onPress, std::function<void(bool direction)> onAdjust);

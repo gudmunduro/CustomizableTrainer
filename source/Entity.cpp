@@ -75,6 +75,11 @@ bool Entity::Exists()
 	return id != 0 && ENTITY::DOES_ENTITY_EXIST(id);
 }
 
+bool Entity::IsVisible()
+{
+	return ENTITY::IS_ENTITY_VISIBLE(id);
+}
+
 #pragma endregion
 
 #pragma region Getters

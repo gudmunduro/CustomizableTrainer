@@ -124,6 +124,11 @@ void Submenu::DrawSub(std::string text, std::string subKey, bool enabled)
 	OptionDidDraw();
 }
 
+void Submenu::DrawSubAction(std::string text, std::function<void()> onPress)
+{
+	DrawAction(text + " >", onPress);
+}
+
 void Submenu::DrawAction(std::string text, std::function<void()> onPress) 
 {
 	optionAddIndex++;

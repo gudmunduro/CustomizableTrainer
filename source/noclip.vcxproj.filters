@@ -312,6 +312,12 @@
     <ClInclude Include="Object.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerManageEntities.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnerManageEntity.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -493,6 +499,12 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerManageEntities.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerManageEntity.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
