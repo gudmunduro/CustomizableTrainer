@@ -16,5 +16,12 @@ class Object
 {
 public:
 	Object(ObjectId objectId);
+
+#pragma region Actions
+
+	void Delete();
+
+#pragma endregion
+
 };
 

@@ -32,8 +32,10 @@ public:
 	void SetRotation(Vector3 rotation);
 	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);
 	void SetInvincible(bool invincible);
-
 	void SetAlpha(int alpha);
+	void SetFrozen(bool frozen);
+	void SetCollisionEnabled(bool enabled, bool keepPhysics = true);
+	void SetGravityEnabled(bool enabled);
 
 #pragma endregion
 

@@ -15,7 +15,7 @@ void SpawnerSub::Draw()
 	DrawToggle("Freecam", Spawner::Spawner::IsFreeCamEnabled(), [this] {
 		Spawner::Spawner::SetFreeCamEnabled(!Spawner::Spawner::IsFreeCamEnabled());
 	});
-	DrawSubAction("Manage entities >", [this] {
+	DrawSubAction("Manage entities", [this] {
 		auto manageSub = new SpawnerManageCategories(menuController);
 		menuController->AddSubmenuToStack(manageSub);
 	});

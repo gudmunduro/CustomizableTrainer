@@ -66,6 +66,21 @@ void Entity::SetAlpha(int alpha)
 	ENTITY::SET_ENTITY_ALPHA(id, alpha, false);
 }
 
+void Entity::SetFrozen(bool frozen)
+{
+	ENTITY::FREEZE_ENTITY_POSITION(id, frozen);
+}
+
+void Entity::SetCollisionEnabled(bool enabled, bool keepPhysics)
+{
+	ENTITY::SET_ENTITY_COLLISION(id, enabled, keepPhysics);
+}
+
+void Entity::SetGravityEnabled(bool enabled)
+{
+	ENTITY::SET_ENTITY_HAS_GRAVITY(id, enabled);
+}
+
 #pragma endregion
 
 #pragma region Booleans

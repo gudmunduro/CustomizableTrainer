@@ -16,6 +16,20 @@ public:
 
 #pragma endregion
 
+#pragma region Peds
+
+class SpawnerPedsSub
+	: public Submenu {
+public:
+	SpawnerPedsSub(MenuController* menuController);
+	void Draw() override;
+	void DrawObject(std::string title, std::string model);
+	void SelectionDidChange(int to, int from) override;
+
+};
+
+#pragma endregion
+
 #pragma region Categories
 
 class SpawnerSelectCatSub

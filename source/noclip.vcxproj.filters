@@ -318,6 +318,9 @@
     <ClInclude Include="SpawnerManageEntity.h">
       <Filter>Headers\Menu\Submenus\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="DatabaseItem.h">
+      <Filter>Headers\Features\Spawner</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -505,6 +508,9 @@
     </ClCompile>
     <ClCompile Include="SpawnerManageEntity.cpp">
       <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseItem.cpp">
+      <Filter>Source\Features\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

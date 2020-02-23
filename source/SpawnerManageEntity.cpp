@@ -12,7 +12,7 @@
 #include "SpawnerManageEntity.h"
 
 SpawnerManageEntity::SpawnerManageEntity(MenuController* menuController, EntityType type, std::shared_ptr<Spawner::DatabaseItem> dbItem)
-	: Submenu(menuController), type(type), dbItem(dbItem), entity(GetEntity())
+	: Submenu(menuController), type(type), dbItem(dbItem), entity(dbItem->entityId)
 {}
 
 #pragma region Draw
@@ -22,8 +22,29 @@ void SpawnerManageEntity::Draw()
 	Submenu::Draw();
 
 	DrawTitle(dbItem->model);
-	DrawToggle("Visible", entity.IsVisible(), [this] {
-		entity.SetVisible(!entity.IsVisible());
+	DrawToggle("Visible", dbItem->IsVisible(), [this] {
+		bool toggledValue = !dbItem->IsVisible();
+		dbItem->SetVisible(toggledValue);
+	});
+	DrawToggle("Invincible", dbItem->IsInvincible(), [this] {
+		bool toggledValue = !dbItem->IsInvincible();
+		dbItem->SetInvincible(toggledValue);
+	});
+	DrawToggle("Frozen", dbItem->IsFrozen(), [this] {
+		bool toggledValue = !dbItem->IsFrozen();
+		dbItem->SetFrozen(toggledValue);
+	});
+	DrawToggle("Collision", dbItem->IsCollisionEnabled(), [this] {
+		bool toggledValue = !dbItem->IsCollisionEnabled();
+		dbItem->SetCollisionEnabled(toggledValue);
+	});
+	DrawToggle("Gravity", dbItem->IsGravityEnabled(), [this] {
+		bool toggledValue = !dbItem->IsGravityEnabled();
+		dbItem->SetGravityEnabled(toggledValue);
+	});
+	DrawAction("Delete", [this] {
+		Spawner::Spawner::database.RemoveAndDelete(dbItem, type);
+		menuController->GoToLastSub();
 	});
 }
 
@@ -50,39 +71,19 @@ bool SpawnerManageEntity::IsObject()
 
 #pragma region Getters
 
-Ped SpawnerManageEntity::GetEntityAsPed()
+std::shared_ptr<Spawner::PedDatabaseItem> SpawnerManageEntity::DbItemForPed()
 {
-	return std::static_pointer_cast<Spawner::PedDatabaseItem>(dbItem)->ped;
+	return std::static_pointer_cast<Spawner::PedDatabaseItem>(dbItem);
 }
 
-Vehicle SpawnerManageEntity::GetEntityAsVehicle()
+std::shared_ptr<Spawner::VehicleDatabaseItem> SpawnerManageEntity::DbItemForVehicle()
 {
-	return std::static_pointer_cast<Spawner::VehicleDatabaseItem>(dbItem)->vehicle;
+	return std::static_pointer_cast<Spawner::VehicleDatabaseItem>(dbItem);
 }
 
-Object SpawnerManageEntity::GetEntityAsObject()
+std::shared_ptr<Spawner::ObjectDatabaseItem> SpawnerManageEntity::DbItemForObject()
 {
-	return std::static_pointer_cast<Spawner::ObjectDatabaseItem>(dbItem)->object;
-}
-
-Entity SpawnerManageEntity::GetEntity()
-{
-	switch (type) {
-		case EntityType::Ped: {
-			auto id = GetEntityAsPed().id;
-			return Entity(id);
-		}
-		case EntityType::Vehicle: {
-			auto id = GetEntityAsVehicle().id;
-			return Entity(id);
-		}
-		case EntityType::Object: {
-			auto id = GetEntityAsObject().id;
-			return Entity(id);
-		}
-		default:
-			throw std::exception("Invlid entity type");
-	}
+	return std::static_pointer_cast<Spawner::ObjectDatabaseItem>(dbItem);
 }
 
 #pragma endregion

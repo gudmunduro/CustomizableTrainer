@@ -14,3 +14,12 @@
 Object::Object(ObjectId objectId)
 	: Entity(objectId)
 {}
+
+#pragma region Actions
+
+void Object::Delete()
+{
+	OBJECT::DELETE_OBJECT(&id);
+}
+
+#pragma endregion

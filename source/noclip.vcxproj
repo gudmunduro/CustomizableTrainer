@@ -123,6 +123,7 @@
     <ClInclude Include="core\Hash.h" />
     <ClInclude Include="CustomBullets.h" />
     <ClInclude Include="Database.h" />
+    <ClInclude Include="DatabaseItem.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FloatAnimation.h" />
     <ClInclude Include="DynamicSubmenu.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="Controls.cpp" />
     <ClCompile Include="CustomBullets.cpp" />
     <ClCompile Include="Database.cpp" />
+    <ClCompile Include="DatabaseItem.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FloatAnimation.cpp" />
     <ClCompile Include="DynamicSubmenu.cpp" />

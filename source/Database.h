@@ -10,48 +10,9 @@
 
 #pragma once
 #include "pch.h"
+#include "DatabaseItem.h"
 
 namespace Spawner {
-
-#pragma region Types
-
-	class DatabaseItem {
-	public:
-		DatabaseItem(std::string model)
-			: model(model) 
-		{}
-
-		std::string model;
-	};
-
-	class PedDatabaseItem
-		: public DatabaseItem {
-	public:
-		PedDatabaseItem(Ped ped, std::string model)
-			: DatabaseItem(model), ped(ped) {}
-
-		Ped ped;
-	};
-
-	class VehicleDatabaseItem
-		: public DatabaseItem {
-	public:
-		VehicleDatabaseItem(Vehicle vehicle, std::string model)
-			: DatabaseItem(model), vehicle(vehicle) {}
-
-		Vehicle vehicle;
-	};
-
-	class ObjectDatabaseItem
-		: public DatabaseItem {
-	public:
-		ObjectDatabaseItem(Object object, std::string model)
-			: DatabaseItem(model), object(object) {}
-
-		Object object;
-	};
-
-#pragma endregion
 
 	class Database
 	{
@@ -59,10 +20,13 @@ namespace Spawner {
 		Database();
 
 		void Add(EntityId entityId, EntityType type, std::string model);
-		int AddPed(Ped ped, std::string model);
-		int AddVehicle(Vehicle vehicle, std::string model);
-		int AddObject(Object object, std::string model);
+		int AddPed(PedId ped, std::string model);
+		int AddVehicle(VehicleId vehicle, std::string model);
+		int AddObject(ObjectId object, std::string model);
 
+		void RemoveAndDelete(std::shared_ptr<DatabaseItem> dbItem, EntityType type);
+
+		void Remove(std::shared_ptr<DatabaseItem> dbItem, EntityType type);
 		void RemovePed(int index);
 		void RemoveVehicle(int index);
 		void RemoveObject(int index);

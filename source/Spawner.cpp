@@ -70,44 +70,54 @@ namespace Spawner {
 	void Spawner::ShowSpawnerModePreview()
 	{
 		if (!camera) return;
+
 		auto&& cam = (camera.value());
 		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
 		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
 		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
 
-		auto&& result = RaycastResult::Raycast(pos, dir, 15000.0f, IntersectOptions::Map);
+		auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything);
+
+		Vector3 nextPos;
 
 		if (result.DidHitAnything()) {
-			auto&& hitPos = result.HitCoords();
+			nextPos = result.HitCoords();
+		}
+		else { // Hit nothing
+			Vector3 offset = { 0, 10.0, 0 };
+			nextPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset );
+		}
 
-			if (selectedEntityForSpawn == 0
-				|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
+		if (selectedEntityForSpawn == 0
+			|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
 
-				auto&& model = String::Hash(selectedEntityForSpawnModel);
-				Game::RequestModel(model);
+			auto&& model = String::Hash(selectedEntityForSpawnModel);
+			Game::RequestModel(model);
 
-				switch (selectedEntityForSpawnType) {
-				case EntityType::Object:
-					selectedEntityForSpawn
-						= OBJECT::CREATE_OBJECT(model, hitPos.x, hitPos.y, hitPos.z, false, false, false, false, false);
-					break;
-				case EntityType::Vehicle:
-					selectedEntityForSpawn
-						= VEHICLE::CREATE_VEHICLE(model, hitPos.x, hitPos.y, hitPos.z, 0, false, false, false, false);
-					break;
-				case EntityType::Ped:
-					selectedEntityForSpawn
-						= PED::CREATE_PED(model, hitPos.x, hitPos.y, hitPos.z, 0, false, false, false, false);
-					break;
-				}
-
-				Game::SetModelAsNoLongerNeeded(model);
+			switch (selectedEntityForSpawnType) {
+			case EntityType::Object:
+				selectedEntityForSpawn
+					= OBJECT::CREATE_OBJECT(model, nextPos.x, nextPos.y, nextPos.z, false, false, false, false, false);
+				break;
+			case EntityType::Vehicle:
+				selectedEntityForSpawn
+					= VEHICLE::CREATE_VEHICLE(model, nextPos.x, nextPos.y, nextPos.z, 0, false, false, false, false);
+				break;
+			case EntityType::Ped:
+				selectedEntityForSpawn
+					= PED::CREATE_PED(model, nextPos.x, nextPos.y, nextPos.z, 0, false, false, false, false);
+				PED::SET_PED_VISIBLE(selectedEntityForSpawn, true);
+				break;
 			}
 
-			ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, rot.x, rot.y, rot.z, 2, false);
-			ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, hitPos.x, hitPos.y, hitPos.z, false, false, false, false);
-			ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
+			Game::SetModelAsNoLongerNeeded(model);
 		}
+
+		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, rot.x, rot.y, rot.z, 2, false);
+		ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
+		ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
+		ENTITY::FREEZE_ENTITY_POSITION(selectedEntityForSpawn, true);
+		ENTITY::SET_ENTITY_COLLISION(selectedEntityForSpawn, false, false);
 	}
 
 	void Spawner::SpawnSelectedEntity()
@@ -130,6 +140,7 @@ namespace Spawner {
 		case EntityType::Ped:
 			spawnedEntity
 				= PED::CREATE_PED(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
+			PED::SET_PED_VISIBLE(spawnedEntity, true);
 			break;
 		default:
 			Game::PrintSubtitle("Error: Invalid entitiy type");

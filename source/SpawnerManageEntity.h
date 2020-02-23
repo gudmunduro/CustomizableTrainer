@@ -25,12 +25,10 @@ public:
 	bool IsVehicle();
 	bool IsObject();
 
-	Ped GetEntityAsPed();
-	Vehicle GetEntityAsVehicle();
+	std::shared_ptr<Spawner::PedDatabaseItem> DbItemForPed();
+	std::shared_ptr<Spawner::VehicleDatabaseItem> DbItemForVehicle();
+	std::shared_ptr<Spawner::ObjectDatabaseItem> DbItemForObject();
 
-	Object GetEntityAsObject();
-
-	Entity GetEntity();
 
 private:
 	Entity entity;
