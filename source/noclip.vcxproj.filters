@@ -112,6 +112,12 @@
     <Filter Include="Headers\Features\Spawner">
       <UniqueIdentifier>{f71f582d-46ec-46d1-884a-fcae5cb4bca4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Menu\Submenus\Selection">
+      <UniqueIdentifier>{b2f51f02-ad81-44fa-84cc-f2766d61e7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Menu\Submenus\Selection">
+      <UniqueIdentifier>{65062c23-d40d-4c76-99a7-79b56847d668}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -273,9 +279,6 @@
     <ClInclude Include="TaskQueue.h">
       <Filter>Headers\Core</Filter>
     </ClInclude>
-    <ClInclude Include="WeaponSelection.h">
-      <Filter>Headers\Menu\Submenus</Filter>
-    </ClInclude>
     <ClInclude Include="JsonData.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
@@ -320,6 +323,12 @@
     </ClInclude>
     <ClInclude Include="DatabaseItem.h">
       <Filter>Headers\Features\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponSelection.h">
+      <Filter>Headers\Menu\Submenus\Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleSelection.h">
+      <Filter>Headers\Menu\Submenus\Selection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -464,9 +473,6 @@
     <ClCompile Include="TaskQueue.cpp">
       <Filter>Source\Core</Filter>
     </ClCompile>
-    <ClCompile Include="WeaponSelection.cpp">
-      <Filter>Source\Menu\Submenus</Filter>
-    </ClCompile>
     <ClCompile Include="JsonData.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
@@ -511,6 +517,12 @@
     </ClCompile>
     <ClCompile Include="DatabaseItem.cpp">
       <Filter>Source\Features\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSelection.cpp">
+      <Filter>Source\Menu\Submenus\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleSelection.cpp">
+      <Filter>Source\Menu\Submenus\Selection</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

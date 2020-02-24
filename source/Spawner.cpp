@@ -111,13 +111,14 @@ namespace Spawner {
 			}
 
 			Game::SetModelAsNoLongerNeeded(model);
+
+			ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
+			ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
+			ENTITY::SET_ENTITY_COLLISION(selectedEntityForSpawn, false, false);
 		}
 
 		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, rot.x, rot.y, rot.z, 2, false);
-		ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
-		ENTITY::SET_ENTITY_ALPHA(selectedEntityForSpawn, 150, false);
 		ENTITY::FREEZE_ENTITY_POSITION(selectedEntityForSpawn, true);
-		ENTITY::SET_ENTITY_COLLISION(selectedEntityForSpawn, false, false);
 	}
 
 	void Spawner::SpawnSelectedEntity()

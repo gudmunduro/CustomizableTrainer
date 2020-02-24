@@ -125,6 +125,11 @@ struct WeaponData {
 	std::string model;
 };
 
+struct VehicleData {
+	std::string name;
+	std::string model;
+};
+
 #pragma endregion
 
 #pragma region Operator overloads

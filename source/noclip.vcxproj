@@ -172,6 +172,7 @@
     <ClInclude Include="ToggleController.h" />
     <ClInclude Include="Toggles.h" />
     <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="VehicleSelection.h" />
     <ClInclude Include="VehicleWeapons.h" />
     <ClInclude Include="WeaponManager.h" />
     <ClInclude Include="WeaponSelection.h" />
@@ -240,6 +241,7 @@
     <ClCompile Include="ToggleController.cpp" />
     <ClCompile Include="Toggles.cpp" />
     <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="VehicleSelection.cpp" />
     <ClCompile Include="VehicleWeapons.cpp" />
     <ClCompile Include="WeaponManager.cpp" />
     <ClCompile Include="WeaponSelection.cpp" />

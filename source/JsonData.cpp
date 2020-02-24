@@ -285,6 +285,36 @@ std::vector<std::pair<std::string, std::vector<WeaponData>>> JSONData::GetWeapon
 	return std::vector<std::pair<std::string, std::vector<WeaponData>>>();
 }
 
+std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehicles()
+{
+	try {
+		json vehicleCats = LoadJSONFile("CustomizableTrainer\\vehicles.json");
+
+		std::vector<std::pair<std::string, std::vector<VehicleData>>> vehicleData;
+
+		for each (auto && vehicleCat in vehicleCats) {
+
+			std::vector<VehicleData> vehicleCatVec;
+
+			for each (auto && weapon in vehicleCat["vehicles"]) {
+				vehicleCatVec.push_back({
+					weapon["name"].get<std::string>(),
+					weapon["model"].get<std::string>()
+				});
+			}
+
+			vehicleData.push_back(std::pair(vehicleCat["name"], vehicleCatVec));
+		}
+
+		return vehicleData;
+	}
+	catch (std::exception e) {
+		Game::PrintSubtitle("Failed to parse weapons.json");
+	}
+
+	return std::vector<std::pair<std::string, std::vector<VehicleData>>>();
+}
+
 #pragma endregion
 
 #pragma region Save data

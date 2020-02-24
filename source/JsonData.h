@@ -17,6 +17,7 @@ namespace JSONData {
 	void UpdateMenuSettings();
 	std::vector<Hotkey> GetHotkeysAsVector();
 	std::vector<std::pair<std::string, std::vector<WeaponData>>> GetWeapons();
+	std::vector<std::pair<std::string, std::vector<VehicleData>>> GetVehicles();
 	void SaveLayoutFromMap(std::map<std::string, SubmenuData> submenuDataMap);
 	void SaveMenuSettings(bool showSavedMessage = false);
 	void SaveHotkeys(std::vector<Hotkey> hotkeys);

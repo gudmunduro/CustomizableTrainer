@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SpawnerModelSelection.h"
 #include "Spawner.h"
+#include "VehicleSelection.h"
 
 #pragma region Objects
 
@@ -108,8 +109,10 @@ void SpawnerSelectCatSub::Draw()
 		auto pedsSub = new SpawnerPedsSub(menuController);
 		menuController->AddSubmenuToStack(pedsSub);
 	});
-	DrawSubAction("Vehicles", [] {
-			
+	DrawSubAction("Vehicles", [this] {
+		auto vehicleSelectionSub = new VehicleSelectionSub(menuController,
+			VehicleSelectionMode::SpawnerMode, [this] (VehicleData selected) {});
+		menuController->AddSubmenuToStack(vehicleSelectionSub);
 	});
 	DrawSubAction("Objects", [this] {
 		auto objectsSub = new SpawnerObjectsSub(menuController);
