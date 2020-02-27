@@ -6,14 +6,14 @@
 
 #pragma region Category
 
-PedSelectionCatSub::PedSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<PedData> Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
+PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, const std::vector<PedData> Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), title(title), peds(Peds), mode(mode), onSelection(onSelection)
 {
 	if (mode == PedSelectionMode::SpawnerMode && Peds.size() > 0)
 		Spawner::Spawner::SetEntityForSpawner(Peds[0].model, EntityType::Ped);
 }
 
-void PedSelectionCatSub::Draw()
+void PedSelectionSub::Draw()
 {
 	Submenu::Draw();
 
@@ -37,7 +37,7 @@ void PedSelectionCatSub::Draw()
 	}
 }
 
-void PedSelectionCatSub::SelectionDidChange(int to, int from)
+void PedSelectionSub::SelectionDidChange(int to, int from)
 {
 	Submenu::SelectionDidChange(to, from);
 
@@ -50,12 +50,12 @@ void PedSelectionCatSub::SelectionDidChange(int to, int from)
 
 #pragma region Sub Category list
 
-PedSelectionSub::PedSelectionSub(MenuController* menuController, PedSelectionMode mode, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection)
+PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), mode(mode), onSelection(onSelection), peds(peds)
 {
 }
 
-void PedSelectionSub::Draw()
+void PedSubCatSelectionSub::Draw()
 {
 	Submenu::Draw();
 
@@ -63,19 +63,18 @@ void PedSelectionSub::Draw()
 
 	for each (auto && pedCat in peds) {
 		DrawSubAction(pedCat.first, [this, pedCat] {
-			auto PedCatSub = new PedSelectionCatSub(menuController, pedCat.first,
+			auto PedCatSub = new PedSelectionSub(menuController, pedCat.first,
 				pedCat.second, mode, [this](PedData selected) {
-
 					if (mode == PedSelectionMode::Select)
 						onSelection(selected);
 				});
 
 			menuController->AddSubmenuToStack(PedCatSub);
-			});
+		});
 	}
 }
 
-void PedSelectionSub::SubDidAppear()
+void PedSubCatSelectionSub::SubDidAppear()
 {
 	Submenu::SubDidAppear();
 
@@ -87,16 +86,22 @@ void PedSelectionSub::SubDidAppear()
 
 #pragma region Category list
 
-HumanAnimalSelectionSub::HumanAnimalSelectionSub(MenuController* menuController)
-	: Submenu(menuController)
+PedCatSelectionSub::PedCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::function<void(PedData)> onSelection)
+	: Submenu(menuController), peds(JSONData::GetPeds()), mode(mode), onSelection(onSelection)
 {}
 
-void HumanAnimalSelectionSub::Draw()
+void PedCatSelectionSub::Draw()
 {
 	Submenu::Draw();
 
 	DrawTitle("Peds");
-	DrawSubAction("Human");
+
+	for each (auto && pedType in peds) {
+		DrawSubAction(pedType.first, [this, pedType] {
+			auto subCat = new PedSubCatSelectionSub(menuController, mode, pedType.second, onSelection);
+			menuController->AddSubmenuToStack(subCat);
+		});
+	}
 }
 
 #pragma endregion

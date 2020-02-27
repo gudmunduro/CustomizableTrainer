@@ -2,6 +2,7 @@
 #include "SpawnerModelSelection.h"
 #include "Spawner.h"
 #include "VehicleSelection.h"
+#include "PedSelection.h"
 
 #pragma region Objects
 
@@ -46,49 +47,6 @@ void SpawnerObjectsSub::SelectionDidChange(int to, int from)
 
 #pragma endregion
 
-#pragma region Peds
-
-SpawnerPedsSub::SpawnerPedsSub(MenuController* menuController)
-	: Submenu(menuController)
-{
-	Spawner::Spawner::SetEntityForSpawner("player_zero", EntityType::Ped);
-}
-
-void SpawnerPedsSub::Draw()
-{
-	Submenu::Draw();
-
-	DrawTitle("Peds");
-	DrawObject("Arthur", "");
-	DrawObject("Rhodes upper class", "");
-}
-
-void SpawnerPedsSub::DrawObject(std::string title, std::string model)
-{
-	DrawAction(title, [] {
-		Spawner::Spawner::SpawnSelectedEntity();
-	});
-}
-
-void SpawnerPedsSub::SelectionDidChange(int to, int from)
-{
-	Submenu::SelectionDidChange(to, from);
-
-	std::string selectedModel;
-
-	switch (to) {
-	case 0:
-		selectedModel = "player_zero";
-		break;
-	case 1:
-		selectedModel = "A_F_M_RhdUpperClass_01";
-		break;
-	}
-	Spawner::Spawner::SetEntityForSpawner(selectedModel, EntityType::Ped);
-}
-
-#pragma endregion
-
 #pragma region Categories
 
 SpawnerSelectCatSub::SpawnerSelectCatSub(MenuController* menuController)
@@ -106,7 +64,7 @@ void SpawnerSelectCatSub::Draw()
 
 	DrawTitle("Spawn");
 	DrawSubAction("Peds", [this] {
-		auto pedsSub = new SpawnerPedsSub(menuController);
+		auto pedsSub = new PedCatSelectionSub(menuController, PedSelectionMode::SpawnerMode, [] (PedData pedData) {});
 		menuController->AddSubmenuToStack(pedsSub);
 	});
 	DrawSubAction("Vehicles", [this] {

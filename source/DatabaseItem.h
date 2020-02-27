@@ -49,8 +49,14 @@ namespace Spawner {
 		PedDatabaseItem(PedId pedId, std::string model)
 			: DatabaseItem(pedId, model), ped(pedId) {}
 
-	private:
+		void SetBodyguard(bool toggle);
+
+		bool IsBodyguard();
+
 		Ped ped;
+	private:
+
+		bool isBodyguard;
 	};
 
 	class VehicleDatabaseItem

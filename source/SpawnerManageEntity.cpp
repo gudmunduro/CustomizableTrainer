@@ -10,6 +10,7 @@
 
 #include "pch.h"
 #include "SpawnerManageEntity.h"
+#include "WeaponSelection.h"
 
 SpawnerManageEntity::SpawnerManageEntity(MenuController* menuController, EntityType type, std::shared_ptr<Spawner::DatabaseItem> dbItem)
 	: Submenu(menuController), type(type), dbItem(dbItem), entity(dbItem->entityId)
@@ -30,6 +31,21 @@ void SpawnerManageEntity::Draw()
 		bool toggledValue = !dbItem->IsInvincible();
 		dbItem->SetInvincible(toggledValue);
 	});
+
+	if (IsPed()) {
+		auto pedDbItem = DbItemForPed();
+
+		DrawToggle("Bodyguard", pedDbItem->IsBodyguard(), [this, pedDbItem] {
+			bool toggledValue = !pedDbItem->IsBodyguard();
+			pedDbItem->SetBodyguard(toggledValue);
+		});
+
+		DrawSubAction("Give weapon", [this, pedDbItem] {
+			auto weaponSelection = new WeaponSelectionSub(menuController, pedDbItem->ped);
+			menuController->AddSubmenuToStack(weaponSelection);
+		});
+	}
+
 	DrawToggle("Frozen", dbItem->IsFrozen(), [this] {
 		bool toggledValue = !dbItem->IsFrozen();
 		dbItem->SetFrozen(toggledValue);

@@ -60,24 +60,6 @@ void DynamicSubmenu::Draw()
 	}
 }
 
-void DynamicSubmenu::DrawMenuBase()
-{
-	Submenu::DrawMenuBase();
-	auto& menuPos = menuController->position;
-
-	// Edit mode indicator
-	if (isEditModeActive) {
-		std::string statusText = "";
-
-		if (isMoveOptionActive)
-			statusText = "Moving option";
-		else
-			statusText = "Edit mode";
-
-		Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, 255 }, true);
-	}
-}
-
 #pragma endregion
 
 #pragma region Draw option
@@ -226,6 +208,18 @@ void DynamicSubmenu::RespondToControls()
 #pragma endregion
 
 #pragma region Getters
+
+std::optional<std::string> DynamicSubmenu::StatusText()
+{
+	if (isEditModeActive) {
+		if (isMoveOptionActive)
+			return "Moving option";
+		else
+			return "Edit mode";
+	}
+
+	return std::nullopt;
+}
 
 int DynamicSubmenu::OptionCount()
 {

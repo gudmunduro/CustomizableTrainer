@@ -18,15 +18,14 @@ class DynamicSubmenu :
 public:
 	DynamicSubmenu(SubmenuData submenuData, MenuController* menuController);
 
-	int OptionCount();
+	std::optional<std::string> StatusText() override;
+	int OptionCount() override;
 
 	std::string title;
 	std::string key;
 	std::vector<MenuOption> options;
 protected:
 	void Draw() override;
-
-	void DrawMenuBase() override;
 
 	void DrawSub(std::string text, std::string subKey);
 	void DrawAction(std::string text, std::string actionKey, json actionParams);

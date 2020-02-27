@@ -19,6 +19,8 @@ namespace Spawner {
 		: entityId(entityId), model(model), entity(entityId)
 	{}
 
+	// Setters
+
 	void DatabaseItem::SetInvincible(bool enabled)
 	{
 		isInvincible = enabled;
@@ -49,6 +51,8 @@ namespace Spawner {
 		entity.SetGravityEnabled(true);
 	}
 
+	// Booleans
+
 	bool DatabaseItem::IsInvincible()
 	{
 		return isInvincible;
@@ -77,6 +81,24 @@ namespace Spawner {
 #pragma endregion
 
 #pragma region Ped database item
+
+	// Setters
+
+	void PedDatabaseItem::SetBodyguard(bool toggle)
+	{
+		isBodyguard = toggle;
+		if (toggle)
+			ped.SetAsGroupMember(Player().Group());
+		else
+			ped.RemoveFromGroup();
+	}
+
+	// Booleans
+
+	bool PedDatabaseItem::IsBodyguard()
+	{
+		return isBodyguard;
+	}
 
 #pragma endregion
 

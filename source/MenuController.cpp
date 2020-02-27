@@ -216,7 +216,7 @@ std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
 		return new SettingsOptionsToSaveSub(this);
 	}
 	else if (key == "builtin_sub_selectWeaponCat") {
-		return new WeaponSelectionSub(this);
+		return new WeaponSelectionSub(this, Player().ped);
 	}
 	else if (key == "builtin_sub_spawner") {
 		return new SpawnerSub(this);

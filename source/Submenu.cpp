@@ -63,7 +63,15 @@ void Submenu::DrawMenuBase()
 	}
 
 	// Option count
-	Game::DrawText("<font face='$body2' >" + std::to_string(selection + 1) + " / " + std::to_string(OptionCount()) + "</font>", { menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, Settings::Colors::menuOptionCount, true);
+	Game::DrawText("<font face='$body2' >" + std::to_string(selection + 1) + " / " + std::to_string(OptionCount()) + "</font>",
+		{ menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, Settings::Colors::menuOptionCount, true);
+
+	// Status text
+	if (StatusText()) {
+		auto statusText = StatusText().value();
+
+		Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, 255 }, true);
+	}
 }
 
 void Submenu::Draw() 
@@ -275,6 +283,11 @@ void Submenu::SelectionDidChange(int to, int from)
 int Submenu::OptionCount()
 {
 	return autoOptionCount;
+}
+
+std::optional<std::string> Submenu::StatusText()
+{
+	return std::nullopt;
 }
 
 #pragma endregion

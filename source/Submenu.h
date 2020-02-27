@@ -20,6 +20,7 @@ public:
 	Submenu(MenuController *menuController);
 
 	virtual int OptionCount();
+	virtual std::optional<std::string> StatusText();
 
 	bool IsOutOfBounds(int index);
 	bool IsOptionSelected(int index);

@@ -10,10 +10,10 @@ enum class PedSelectionMode {
 
 #pragma region Category
 
-class PedSelectionCatSub
+class PedSelectionSub
 	: public Submenu {
 public:
-	PedSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<PedData> Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection);
+	PedSelectionSub(MenuController* menuController, const std::string title, const std::vector<PedData> Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection);
 
 	void Draw() override;
 	void SelectionDidChange(int to, int from);
@@ -29,10 +29,10 @@ private:
 
 #pragma region Category list
 
-class PedSelectionSub
+class PedSubCatSelectionSub
 	: public Submenu {
 public:
-	PedSelectionSub(MenuController* menuController, PedSelectionMode mode, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection);
+	PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection);
 
 	void Draw() override;
 
@@ -48,12 +48,17 @@ private:
 
 #pragma region
 
-class HumanAnimalSelectionSub
+class PedCatSelectionSub
 	: public Submenu {
 public:
-	HumanAnimalSelectionSub(MenuController *menuController);
+	PedCatSelectionSub(MenuController *menuController, PedSelectionMode mode, std::function<void(PedData)> onSelection);
 
 	void Draw() override;
+
+private:
+	std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>> peds;
+	PedSelectionMode mode;
+	std::function<void(PedData)> onSelection;
 };
 
 #pragma endregion

@@ -15,12 +15,45 @@
 #include "JsonData.h"
 #include "Controls.h"
 
+#pragma region Manage weapon
+
+ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, WeaponData weapon)
+	: Submenu(menuController), ped(ped), weapon(weapon)
+{}
+
+void ManageWeaponSub::Draw() 
+{
+	Submenu::Draw();
+
+	DrawTitle(weapon.name);
+
+	DrawAction("Equip", [this] {
+		auto weaponHash = String::Hash(weapon.model);
+
+		if (!ped.HasWeapon(weaponHash))
+			ped.GiveWeapon(weaponHash);
+		else
+			ped.SetCurrentWeapon(weaponHash);
+
+		ped.SetAmmo(weaponHash, 9999);
+	});
+	DrawAction("Fill ammo", [this] {
+		auto weaponHash = String::Hash(weapon.model);
+
+		ped.SetAmmo(weaponHash, 9999);
+	});
+	DrawAction("Remove", [this] {
+		ped.RemoveWeapon(String::Hash(weapon.model));
+	});
+}
+
+#pragma endregion
+
 #pragma region Weapon category
 
-WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, std::string catName, std::vector<WeaponData> weapons)
-	: Submenu(menuController), catName(catName), weapons(weapons)
-{
-}
+WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons)
+	: Submenu(menuController), ped(ped), catName(catName), weapons(weapons)
+{}
 
 void WeaponSelectionCatSub::Draw()
 {
@@ -30,9 +63,8 @@ void WeaponSelectionCatSub::Draw()
 	
 	for each (auto weapon in weapons) {
 		DrawAction(weapon.name + " >", [this, weapon] {
-			WeaponManager::currentWeapon = weapon;
-			menuController->SetSubmenuWithKey("required_sub_manangeWeapon");
-			((DynamicSubmenu*)menuController->submenuStack.back())->title = weapon.name; // TODO: Find a better way
+			auto manageWeaponSub = new ManageWeaponSub(menuController, ped, weapon);
+			menuController->AddSubmenuToStack(manageWeaponSub);
 		});
 	}
 }
@@ -51,11 +83,9 @@ void WeaponSelectionCatSub::RespondToControls()
 
 #pragma region Weapon category selection
 
-WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController)
-	: Submenu(menuController)
-{
-	weaponCats = JSONData::GetWeapons();
-}
+WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController, Ped ped)
+	: Submenu(menuController), weaponCats(JSONData::GetWeapons()), ped(ped)
+{}
 
 void WeaponSelectionSub::Draw()
 {
@@ -65,7 +95,7 @@ void WeaponSelectionSub::Draw()
 
 	for each (auto weaponCat in weaponCats) {
 		DrawAction(weaponCat.first + " >", [this, weaponCat] {
-			auto weaponCatSub = new WeaponSelectionCatSub(menuController, weaponCat.first, weaponCat.second);
+			auto weaponCatSub = new WeaponSelectionCatSub(menuController, ped, weaponCat.first, weaponCat.second);
 			menuController->AddSubmenuToStack(weaponCatSub);
 		});
 	}
