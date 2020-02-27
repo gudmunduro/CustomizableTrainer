@@ -285,6 +285,8 @@ std::vector<std::pair<std::string, std::vector<WeaponData>>> JSONData::GetWeapon
 	return std::vector<std::pair<std::string, std::vector<WeaponData>>>();
 }
 
+// vehicles.json
+
 std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehicles()
 {
 	try {
@@ -296,10 +298,10 @@ std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehic
 
 			std::vector<VehicleData> vehicleCatVec;
 
-			for each (auto && weapon in vehicleCat["vehicles"]) {
+			for each (auto && vehicle in vehicleCat["vehicles"]) {
 				vehicleCatVec.push_back({
-					weapon["name"].get<std::string>(),
-					weapon["model"].get<std::string>()
+					vehicle["name"].get<std::string>(),
+					vehicle["model"].get<std::string>()
 				});
 			}
 
@@ -313,6 +315,40 @@ std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehic
 	}
 
 	return std::vector<std::pair<std::string, std::vector<VehicleData>>>();
+}
+
+// peds.json
+
+std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>> JSONData::GetPeds()
+{
+	try {
+		json modelCats = LoadJSONFile("CustomizableTrainer\\peds.json");
+
+		std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>> pedData;
+
+		for each (auto && pedType in modelCats.items()) {
+			for each (auto && pedSubCat in pedType.value()) {
+
+				std::vector<PedData> pedCatVec;
+
+				for each (auto && ped in pedSubCat["models"]) {
+					pedCatVec.push_back({
+						ped["name"].get<std::string>(),
+						ped["model"].get<std::string>()
+					});
+				}
+
+				pedData[pedType.key()].push_back(std::pair(pedSubCat["name"], pedCatVec));
+			}
+		}
+
+		return pedData;
+	}
+	catch (std::exception e) {
+		Game::PrintSubtitle("Failed to parse peds.json");
+	}
+
+	return std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>();
 }
 
 #pragma endregion

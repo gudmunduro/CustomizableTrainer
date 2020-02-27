@@ -330,6 +330,9 @@
     <ClInclude Include="VehicleSelection.h">
       <Filter>Headers\Menu\Submenus\Selection</Filter>
     </ClInclude>
+    <ClInclude Include="PedSelection.h">
+      <Filter>Headers\Menu\Submenus\Selection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -522,6 +525,9 @@
       <Filter>Source\Menu\Submenus\Selection</Filter>
     </ClCompile>
     <ClCompile Include="VehicleSelection.cpp">
+      <Filter>Source\Menu\Submenus\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="PedSelection.cpp">
       <Filter>Source\Menu\Submenus\Selection</Filter>
     </ClCompile>
   </ItemGroup>

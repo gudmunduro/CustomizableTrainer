@@ -130,6 +130,11 @@ struct VehicleData {
 	std::string model;
 };
 
+struct PedData {
+	std::string name;
+	std::string model;
+};
+
 #pragma endregion
 
 #pragma region Operator overloads
