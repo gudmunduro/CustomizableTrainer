@@ -6,7 +6,7 @@
 
 #pragma region Category
 
-VehicleSelectionCatSub::VehicleSelectionCatSub(MenuController* menuController, const std::string& title, const std::vector<VehicleData>& vehicles, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection)
+VehicleSelectionCatSub::VehicleSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<VehicleData> vehicles, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection)
 	: Submenu(menuController), title(title), vehicles(vehicles), mode(mode), onSelection(onSelection)
 {
 	if (mode == VehicleSelectionMode::SpawnerMode && vehicles.size() > 0)
@@ -24,13 +24,15 @@ void VehicleSelectionCatSub::Draw()
 			switch (mode) {
 				case VehicleSelectionMode::Spawn:
 					Actions::SpawnVehicle({ vehicle.model });
+					break;
 				case VehicleSelectionMode::SpawnerMode:
 					Spawner::Spawner::SpawnSelectedEntity();
+					break;
 				case VehicleSelectionMode::Select:
 					onSelection(vehicle);
+					menuController->GoToLastSub();
+					break;
 			}
-
-			menuController->GoToLastSub();
 		});
 	}
 }
@@ -49,9 +51,8 @@ void VehicleSelectionCatSub::SelectionDidChange(int to, int from)
 #pragma region Category list
 
 VehicleSelectionSub::VehicleSelectionSub(MenuController* menuController, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection)
-	: Submenu(menuController), mode(mode), onSelection(onSelection)
+	: Submenu(menuController), mode(mode), onSelection(onSelection), vehicles(JSONData::GetVehicles())
 {
-	vehicles = JSONData::GetVehicles();
 }
 
 void VehicleSelectionSub::Draw()
@@ -61,7 +62,7 @@ void VehicleSelectionSub::Draw()
 	DrawTitle("Vehicles");
 	
 	for each (auto && vehicleCat in vehicles) {
-		DrawAction(vehicleCat.first, [this, vehicleCat] {
+		DrawSubAction(vehicleCat.first, [this, vehicleCat] {
 			auto vehicleCatSub = new VehicleSelectionCatSub(menuController, vehicleCat.first,
 				vehicleCat.second, mode, [this] (VehicleData selected) {
 
@@ -72,6 +73,14 @@ void VehicleSelectionSub::Draw()
 			menuController->AddSubmenuToStack(vehicleCatSub);
 		});
 	}
+}
+
+void VehicleSelectionSub::SubDidAppear()
+{
+	Submenu::SubDidAppear();
+
+	if (mode == VehicleSelectionMode::SpawnerMode)
+		Spawner::Spawner::DisableSpawnerMode();
 }
 
 #pragma endregion
