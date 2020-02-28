@@ -31,13 +31,19 @@ Submenu::Submenu(MenuController *menuController)
 	holdingAdjustDownTimerStart = 0;
 	isHoldingAdjustDown = false;
 	isSubDeletionScheduled = false;
+	lastStatusText = std::nullopt;
+
+	// Status text animation
+	statusTextAlphaAnim.duration = 200;
+	statusTextAlphaAnim.from = 0;
+	statusTextAlphaAnim.to = 255;
 }
 
 #pragma region Draw menu
 
 void Submenu::DrawMenuBase()
 {
-	auto menuPos = menuController->position;
+	auto&& menuPos = menuController->position;
 
 	// Background
 	Game::DrawSprite("generic_textures", "inkroller_1a", { menuPos.x + 10.0f, menuPos.y + 24.0f }, { 25.0f, 56.0f }, 0, Settings::Colors::menuBg);
@@ -67,11 +73,40 @@ void Submenu::DrawMenuBase()
 		{ menuPos.x + 18.0f, menuPos.y + 45.5f }, 30.0f, Settings::Colors::menuOptionCount, true);
 
 	// Status text
-	if (StatusText()) {
-		auto statusText = StatusText().value();
+	DrawStatusText();
+}
 
-		Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, 255 }, true);
+void Submenu::DrawStatusText()
+{
+	if (!StatusText()) {
+		lastStatusText = std::nullopt;
+		return;
 	}
+
+	auto&& menuPos = menuController->position;
+	auto statusText = StatusText().value();
+
+	if (!lastStatusText) {
+		// Configure animation
+		statusTextAlphaAnim.Stop();
+		statusTextAlphaAnim.direction = Direction::Forward;
+		statusTextAlphaAnim.Start();
+	}
+	else if (statusText != lastStatusText.value()) {
+		// Configure animation
+		statusTextAlphaAnim.Stop();
+		statusTextAlphaAnim.direction = Direction::Backward;
+		statusTextAlphaAnim.onCompletion = [this] {
+			statusTextAlphaAnim.direction = Direction::Forward;
+			statusTextAlphaAnim.onCompletion = std::nullopt;
+			statusTextAlphaAnim.Start();
+		};
+		statusTextAlphaAnim.Start();
+	}
+
+	Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, (int) statusTextAlphaAnim.value }, true);
+
+	lastStatusText = statusText;
 }
 
 void Submenu::Draw() 

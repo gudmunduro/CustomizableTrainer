@@ -42,6 +42,7 @@ protected:
 
 	void DrawTitle(std::string text);
 	virtual void DrawMenuBase();
+	void DrawStatusText();
 	void DrawOptionBase(std::string text, bool selected);
 	void DrawLabel(std::string text);
 	void DrawSub(std::string text, std::string subKey, bool isEnabled = true);
@@ -60,6 +61,9 @@ protected:
 	int drawIndex;
 	int optionAddIndex;
 	int autoOptionCount;
+	MenuController* menuController;
+
+private:
 	int holdingAdjustUpTimer;
 	int holdingAdjustUpTimerStart;
 	bool isHoldingAdjustUp;
@@ -67,6 +71,7 @@ protected:
 	int holdingAdjustDownTimer;
 	int holdingAdjustDownTimerStart;
 	bool isHoldingAdjustDown;
-	MenuController* menuController;
+	std::optional<std::string> lastStatusText;
+	FloatAnimation statusTextAlphaAnim;
 };
 

@@ -11,14 +11,15 @@
 #include "pch.h"
 #include "FloatAnimation.h"
 
-FloatAnimation::FloatAnimation(float from, float to, DWORD duration, bool repeat)
+FloatAnimation::FloatAnimation(float from, float to, DWORD duration, bool repeat, std::optional<std::function<void()>> onCompletion)
 {
 	this->from = from;
 	this->to = to;
 	this->duration = duration;
 	this->repeat = repeat;
+	this->onCompletion = onCompletion;
 	value = from;
-	taskId = 0;
+	taskId = -1;
 	startTime = 0;
 	endTime = 0;
 	direction = Direction::Forward;
@@ -44,6 +45,9 @@ void FloatAnimation::Tick()
 	if (tickCount >= endTime) {
 		if (!repeat) {
 			Stop();
+			if (onCompletion)
+				onCompletion.value()();
+
 			return;
 		}
 
