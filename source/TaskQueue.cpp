@@ -15,7 +15,7 @@
 
 int TaskQueue::AddTask(std::string name, std::function<void()> functionToExecute)
 {
-	int taskId = 0;
+	unsigned int taskId = 0;
 	if (tasks.size() > 0)
 		taskId = tasks.back().id + 1;
 

@@ -39,6 +39,11 @@ Submenu::Submenu(MenuController *menuController)
 	statusTextAlphaAnim.to = 255;
 }
 
+Submenu::~Submenu()
+{
+	statusTextAlphaAnim.Stop();
+}
+
 #pragma region Draw menu
 
 void Submenu::DrawMenuBase()
@@ -78,33 +83,49 @@ void Submenu::DrawMenuBase()
 
 void Submenu::DrawStatusText()
 {
-	if (!StatusText()) {
+	auto&& menuPos = menuController->position;
+
+	if (displayText.has_value())
+		Game::DrawText("<font face='$body2' >" + *displayText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, (int)statusTextAlphaAnim.value }, true);
+
+	// Remove status
+	if (!StatusText() && lastStatusText) {
+		statusTextAlphaAnim.direction = Direction::Backward;
+		statusTextAlphaAnim.onCompletion = [this] {
+			displayText = std::nullopt;
+		};
+		statusTextAlphaAnim.Start();
+
 		lastStatusText = std::nullopt;
 		return;
 	}
 
-	auto&& menuPos = menuController->position;
+	if (!StatusText())
+		return;
+
 	auto statusText = StatusText().value();
 
+	// Status changed from null
 	if (!lastStatusText) {
-		// Configure animation
-		statusTextAlphaAnim.Stop();
+		displayText = statusText;
+
+		statusTextAlphaAnim.onCompletion = std::nullopt;
 		statusTextAlphaAnim.direction = Direction::Forward;
 		statusTextAlphaAnim.Start();
 	}
+	// Change to another text
 	else if (statusText != lastStatusText.value()) {
-		// Configure animation
-		statusTextAlphaAnim.Stop();
 		statusTextAlphaAnim.direction = Direction::Backward;
-		statusTextAlphaAnim.onCompletion = [this] {
+
+		statusTextAlphaAnim.onCompletion = [this, statusText] {
+			displayText = statusText;
 			statusTextAlphaAnim.direction = Direction::Forward;
 			statusTextAlphaAnim.onCompletion = std::nullopt;
 			statusTextAlphaAnim.Start();
 		};
+
 		statusTextAlphaAnim.Start();
 	}
-
-	Game::DrawText("<font face='$body2' >" + statusText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, (int) statusTextAlphaAnim.value }, true);
 
 	lastStatusText = statusText;
 }

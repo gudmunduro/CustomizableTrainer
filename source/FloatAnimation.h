@@ -16,6 +16,8 @@ class FloatAnimation
 public:
 	FloatAnimation(float from = 1.0f, float to = 1.0f, DWORD duration = 1000, bool repeat = false, std::optional<std::function<void()>> onCompletion = std::nullopt);
 
+	bool IsRunning();
+
 	void Start();
 	void Stop();
 
@@ -30,6 +32,7 @@ public:
 private:
 	void Tick();
 
+	bool isRunning;
 	int taskId;
 	DWORD startTime;
 	DWORD endTime;

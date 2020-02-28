@@ -23,19 +23,31 @@ FloatAnimation::FloatAnimation(float from, float to, DWORD duration, bool repeat
 	startTime = 0;
 	endTime = 0;
 	direction = Direction::Forward;
+	isRunning = false;
+}
+
+bool FloatAnimation::IsRunning()
+{
+	return isRunning;
 }
 
 void FloatAnimation::Start()
 {
-	value = from;
+	if (isRunning) Stop();
+
+	value = direction == Direction::Forward ? from : to;
 	startTime = GetTickCount();
 	endTime = GetTickCount() + duration;
+	isRunning = true;
 
 	taskId = TaskQueue::AddTask("animation", [this] { this->Tick(); });
 }
 
 void FloatAnimation::Stop()
 {
+	if (!isRunning) return;
+
+	isRunning = false;
 	TaskQueue::RemoveTask(taskId);
 }
 

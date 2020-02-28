@@ -13,7 +13,7 @@
 
 struct TaskQueueTask {
 	std::string name;
-	int id;
+	unsigned int id;
 	std::function<void()> function;
 };
 

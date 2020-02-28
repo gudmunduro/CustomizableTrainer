@@ -18,6 +18,7 @@ class MenuController;
 class Submenu {
 public:
 	Submenu(MenuController *menuController);
+	~Submenu();
 
 	virtual int OptionCount();
 	virtual std::optional<std::string> StatusText();
@@ -72,6 +73,7 @@ private:
 	int holdingAdjustDownTimerStart;
 	bool isHoldingAdjustDown;
 	std::optional<std::string> lastStatusText;
+	std::optional<std::string> displayText;
 	FloatAnimation statusTextAlphaAnim;
 };
 
