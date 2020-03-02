@@ -15,6 +15,7 @@
 #include "ToggleController.h"
 #include "NumberController.h"
 #include "TextController.h"
+#include "Spawner.h"
 
 #pragma region Core functions
 
@@ -485,7 +486,7 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 		if (showSavedMessage)
 			Game::PrintSubtitle("Saved");
 	}
-	catch (std::exception & e) {
+	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save settings");
 	}
 }
@@ -530,7 +531,7 @@ void JSONData::SaveHotkeys(std::vector<Hotkey> hotkeys)
 
 		WriteFile("CustomizableTrainer\\hotkeys.json", hotkeyData.dump());
 	}
-	catch (std::exception e) {
+	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save hotkeys");
 	}
 }
@@ -572,8 +573,77 @@ void JSONData::SaveOptionStates()
 
 		WriteFile("CustomizableTrainer\\optionStates.json", optionStates.dump());
 	}
-	catch (std::exception e) {
+	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save option states");
+	}
+}
+
+// Save spawner data
+
+void JSONData::SaveSpawnerDataToFile(std::string filename)
+{
+	try {
+		json jsonObject = {
+			{ "entities", {
+				{ "peds", json::array() },
+				{ "vehicles", json::array() },
+				{ "objects", json::array() }
+			}}
+		};
+
+		auto&& peds = Spawner::Spawner::database.peds;
+		auto&& vehicles = Spawner::Spawner::database.vehicles;
+		auto&& objects = Spawner::Spawner::database.objects;
+
+		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["peds"]), [] (Spawner::PedDatabaseItem dbItem) {
+			auto ped = Ped(dbItem.entityId);
+			auto pos = ped.Position();
+
+			return json::object({
+				{"model", dbItem.model},
+				{"position", {
+					{ "x", pos.x },
+					{ "y", pos.y },
+					{ "z", pos.z }
+				}},
+				{"Invincible", dbItem.IsInvincible()}
+			});
+		});
+
+		std::transform(vehicles.begin(), vehicles.end(), std::back_inserter(jsonObject["entities"]["vehicles"]), [] (Spawner::VehicleDatabaseItem dbItem) {
+			auto vehicle = Vehicle(dbItem.entityId);
+			auto pos = vehicle.Position();
+
+			return json::object({
+				{"model", dbItem.model},
+				{"position", {
+					{ "x", pos.x },
+					{ "y", pos.y },
+					{ "z", pos.z }
+				}},
+				{"Invincible", dbItem.IsInvincible()}
+			});
+		});
+
+		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["objects"]), [] (Spawner::ObjectDatabaseItem dbItem) {
+			auto object = Object(dbItem.entityId);
+			auto pos = object.Position();
+
+			return json::object({
+				{"model", dbItem.model},
+				{"position", {
+					{ "x", pos.x },
+					{ "y", pos.y },
+					{ "z", pos.z }
+				}},
+				{"Invincible", dbItem.IsInvincible()}
+			});
+		});
+
+		WriteFile("CustomizableTrainer\\" + filename + ".json", jsonObject.dump());
+	}
+	catch (std::exception & e) {
+		Game::PrintSubtitle("Failed to save map");
 	}
 }
 

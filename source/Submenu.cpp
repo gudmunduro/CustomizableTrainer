@@ -85,8 +85,8 @@ void Submenu::DrawStatusText()
 {
 	auto&& menuPos = menuController->position;
 
-	if (displayText.has_value())
-		Game::DrawText("<font face='$body2' >" + *displayText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, (int)statusTextAlphaAnim.value }, true);
+	if (displayText)
+		Game::DrawText("<font face='$body2' >" + *displayText + "</font>", { menuPos.x + 10.0f, menuPos.y + 47.0f }, 30.0f, { 100, 100, 100, (int) statusTextAlphaAnim.value }, true);
 
 	// Remove status
 	if (!StatusText() && lastStatusText) {
@@ -114,16 +114,15 @@ void Submenu::DrawStatusText()
 		statusTextAlphaAnim.Start();
 	}
 	// Change to another text
-	else if (statusText != lastStatusText.value()) {
+	else if (statusText != *lastStatusText) {
 		statusTextAlphaAnim.direction = Direction::Backward;
-
 		statusTextAlphaAnim.onCompletion = [this, statusText] {
 			displayText = statusText;
+
 			statusTextAlphaAnim.direction = Direction::Forward;
 			statusTextAlphaAnim.onCompletion = std::nullopt;
 			statusTextAlphaAnim.Start();
 		};
-
 		statusTextAlphaAnim.Start();
 	}
 

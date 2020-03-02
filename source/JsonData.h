@@ -23,4 +23,5 @@ namespace JSONData {
 	void SaveMenuSettings(bool showSavedMessage = false);
 	void SaveHotkeys(std::vector<Hotkey> hotkeys);
 	void SaveOptionStates();
+	void SaveSpawnerDataToFile(std::string filename);
 };
