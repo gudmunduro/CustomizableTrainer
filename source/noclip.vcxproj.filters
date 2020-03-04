@@ -333,6 +333,9 @@
     <ClInclude Include="PedSelection.h">
       <Filter>Headers\Menu\Submenus\Selection</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerLoadSub.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -529,6 +532,9 @@
     </ClCompile>
     <ClCompile Include="PedSelection.cpp">
       <Filter>Source\Menu\Submenus\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerLoadSub.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

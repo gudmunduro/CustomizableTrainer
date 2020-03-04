@@ -37,6 +37,9 @@ void SpawnerManageCategories::Draw()
 		auto manageObjectsSub = new SpawnerManageEntities(menuController, EntityType::Object);
 		menuController->AddSubmenuToStack(manageObjectsSub);
 	});
+	DrawAction("Delete all", [this] {
+		Spawner::Spawner::database.RemoveAndDeleteAll();
+	});
 }
 
 #pragma endregion

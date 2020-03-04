@@ -58,6 +58,14 @@ void SpawnerManageEntity::Draw()
 		bool toggledValue = !dbItem->IsGravityEnabled();
 		dbItem->SetGravityEnabled(toggledValue);
 	});
+	DrawAction("Teleport to", [this] {
+		auto pos = Entity(dbItem->entityId).Position();
+		Player().ped.SetCoords(pos);
+	});
+	DrawAction("Teleport to player", [this] {
+		auto pos = Player().ped.Position();
+		Entity(dbItem->entityId).SetCoords(pos);
+	});
 	DrawAction("Delete", [this] {
 		Spawner::Spawner::database.RemoveAndDelete(dbItem, type);
 		menuController->GoToLastSub();

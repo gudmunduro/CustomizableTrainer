@@ -56,5 +56,6 @@ namespace Actions {
 	void TeleportPlayerToCoords(json params);
 	void RevealFullMap(json params);
 	void KillEveryoneNearby(json params);
+	void ClearWorldOfPeds(json params);
 	void TestAction(json params);
 }

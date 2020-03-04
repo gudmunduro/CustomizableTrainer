@@ -352,29 +352,33 @@ std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>
 	return std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>();
 }
 
+// Spawner data (custom filename)
+
 void JSONData::LoadSpawnerDataFromFile(std::string name)
 {
 	try {
 		Spawner::Spawner::database.RemoveAndDeleteAll();
 
-		json spawnerData = LoadJSONFile("CustomizableTrainer\\" + name + ".json");
+		json spawnerData = LoadJSONFile("CustomizableTrainer\\Spawner\\" + name + ".json");
 
 		auto&& entities = spawnerData["entities"];
 
 		for each (auto&& ped in entities["peds"]) {
-			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Ped, spawnerData);
+			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Ped, ped);
 		}
 
-		for each (auto && ped in entities["vehicles"]) {
-			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Vehicle, spawnerData);
+		for each (auto && vehicle in entities["vehicles"]) {
+			Spawner::Spawner::SpawnFromData(vehicle["model"], EntityType::Vehicle, vehicle);
 		}
 
-		for each (auto && ped in entities["objects"]) {
-			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Object, spawnerData);
+		for each (auto && object in entities["objects"]) {
+			Spawner::Spawner::SpawnFromData(object["model"], EntityType::Object, object);
 		}
+
+		TaskQueue::Wait(10);
 	}
 	catch (std::exception & e) {
-
+		Game::PrintDebug(e.what());
 	}
 }
 
@@ -633,7 +637,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "z", pos.z }
 				}},
 				{"heading", ped.Heading()},
-				{"Invincible", dbItem->IsInvincible()},
+				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
@@ -654,7 +658,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "z", pos.z }
 				}},
 				{"heading", vehicle.Heading()},
-				{"Invincible", dbItem->IsInvincible()},
+				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
@@ -674,7 +678,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "z", pos.z }
 				}},
 				{"heading", object.Heading()},
-				{"Invincible", dbItem->IsInvincible()},
+				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
@@ -682,7 +686,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 			});
 		});
 
-		WriteFile("CustomizableTrainer\\" + name + ".json", jsonObject.dump());
+		WriteFile("CustomizableTrainer\\Spawner\\" + name + ".json", jsonObject.dump());
 	}
 	catch (std::exception & e) {
 		Game::PrintSubtitle("Failed to save map");

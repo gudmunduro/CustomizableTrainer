@@ -79,6 +79,11 @@ void Ped::SetCanBeKnockedOffVehicle(int state)
 
 #pragma region Booleans
 
+bool Ped::IsPlayer()
+{
+	return PED::IS_PED_A_PLAYER(id);
+}
+
 bool Ped::IsInVehicle(bool atGetIn)
 {
 	return PED::IS_PED_IN_ANY_VEHICLE(id, atGetIn);
@@ -135,6 +140,7 @@ void Ped::RemoveAllWeapons()
 
 void Ped::Delete()
 {
+	SetAsMissionEntity();
 	PED::DELETE_PED(&id);
 }
 

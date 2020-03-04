@@ -77,6 +77,7 @@ void ActionController::RegisterActions()
 	// Misc
 	RegisterAction("action_revealFullMap", Actions::RevealFullMap);
 	RegisterAction("action_killEveryoneNearby", Actions::KillEveryoneNearby);
+	RegisterAction("action_clearWorldOfPeds", Actions::ClearWorldOfPeds);
 	// RegisterAction("action_test", Actions::TestAction);
 }
 

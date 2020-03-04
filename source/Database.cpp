@@ -121,16 +121,17 @@ namespace Spawner {
 	{
 		for (int i = 0; i < peds.size(); i++) {
 			Ped(peds[i]->entityId).Delete();
-			RemovePed(i);
 		}
-		for (int i = 0; i < peds.size(); i++) {
-			Vehicle(peds[i]->entityId).Delete();
-			RemoveVehicle(i);
+		for (int i = 0; i < vehicles.size(); i++) {
+			Vehicle(vehicles[i]->entityId).Delete();
 		}
-		for (int i = 0; i < peds.size(); i++) {
-			Object(peds[i]->entityId).Delete();
-			RemoveObject(i);
+		for (int i = 0; i < objects.size(); i++) {
+			Object(objects[i]->entityId).Delete();
 		}
+
+		peds.clear();
+		vehicles.clear();
+		objects.clear();
 	}
 
 #pragma endregion

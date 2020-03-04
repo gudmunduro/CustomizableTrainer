@@ -19,6 +19,7 @@ Object::Object(ObjectId objectId)
 
 void Object::Delete()
 {
+	SetAsMissionEntity();
 	OBJECT::DELETE_OBJECT(&id);
 }
 

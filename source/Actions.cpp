@@ -608,6 +608,22 @@ void Actions::KillEveryoneNearby(json params)
 	FIRE::ADD_EXPLOSION(pos.x, pos.y - 2.0f, pos.z, 35, 100.0f, true, false, true);
 }
 
+void Actions::ClearWorldOfPeds(json params)
+{
+	const int arraySize = 1000;
+	PedId peds[arraySize];
+
+	int count = worldGetAllPeds(peds, arraySize);
+	for (int i = 0; i < count; i++) {
+		int pedId = peds[i];
+		auto ped = Ped(pedId);
+		if (!ped.Exists() || !ped.IsPlayer())
+			return;
+
+		ped.Delete();
+	}
+}
+
 void Actions::TestAction(json params)
 {
 	//Hash currentWeapon;

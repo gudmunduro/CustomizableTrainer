@@ -35,6 +35,8 @@ public:
 
 #pragma region Booleans
 
+	bool IsPlayer();
+
 	bool IsInVehicle(bool atGetIn = true);
 	bool IsOnMount();
 	bool IsOnFoot();

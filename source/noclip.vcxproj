@@ -140,6 +140,7 @@
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
     <ClInclude Include="Spawner.h" />
+    <ClInclude Include="SpawnerLoadSub.h" />
     <ClInclude Include="SpawnerManageEntities.h" />
     <ClInclude Include="SpawnerManageEntity.h" />
     <ClInclude Include="SpawnerModelSelection.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="SpawnerLoadSub.cpp" />
     <ClCompile Include="SpawnerManageEntities.cpp" />
     <ClCompile Include="SpawnerManageEntity.cpp" />
     <ClCompile Include="SpawnerModelSelection.cpp" />
