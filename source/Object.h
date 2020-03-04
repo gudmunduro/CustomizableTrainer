@@ -23,5 +23,11 @@ public:
 
 #pragma endregion
 
+#pragma region Static
+
+	static Object Create(Hash model, Vector3 postion, float heading);
+
+#pragma endregion
+
 };
 

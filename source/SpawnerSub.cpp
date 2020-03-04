@@ -2,6 +2,7 @@
 #include "SpawnerSub.h"
 #include "SpawnerModelSelection.h"
 #include "SpawnerManageEntities.h"
+#include "JsonData.h"
 
 SpawnerSub::SpawnerSub(MenuController* menuController)
 	: Submenu(menuController)
@@ -22,6 +23,12 @@ void SpawnerSub::Draw()
 	DrawSubAction("Spawn", [this] {
 		auto selectCatSub = new SpawnerSelectCatSub(menuController);
 		menuController->AddSubmenuToStack(selectCatSub);
+	});
+	DrawAction("Save(test)", [] {
+		JSONData::SaveSpawnerDataToFile("test");
+	});
+	DrawAction("Load(test)", [] {
+		JSONData::LoadSpawnerDataFromFile("test");
 	});
 	DrawSubAction("Settings", [] {
 		Game::PrintSubtitle("Not implemented");

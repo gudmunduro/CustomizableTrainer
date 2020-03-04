@@ -306,7 +306,7 @@ void Actions::SpawnVehicle(json params)
 		vehicle.Delete();
 	}
 
-	auto spawnedVehicle = Vehicle::Spawn(vehicleHash, spawnPosition, vehicleSpawnHeading);
+	auto spawnedVehicle = Vehicle::Create(vehicleHash, spawnPosition, vehicleSpawnHeading);
 
 	if (Toggles::spawnInsideVehicle) {
 		player.ped.SetIntoVehicle(spawnedVehicle.id);

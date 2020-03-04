@@ -38,6 +38,7 @@ namespace Spawner {
 		static bool IsFreeCamEnabled();
 		static void ShowSpawnerModePreview();
 		static void SpawnSelectedEntity();
+		static void SpawnFromData(std::string model, EntityType type, json data);
 		static void Tick();
 
 		static inline Database database;

@@ -45,7 +45,7 @@ public:
 #pragma region Static methods
 
 	static Vehicle Closest(Vector3 position, float radius = 100.0);
-	static Vehicle Spawn(Hash model, Vector3 postion, float heading = 0.0f);
+	static Vehicle Create(Hash model, Vector3 postion, float heading = 0.0f);
 
 #pragma endregion
 

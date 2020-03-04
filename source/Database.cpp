@@ -44,6 +44,24 @@ namespace Spawner {
 		return objects.size() - 1;
 	}
 
+	int Database::AddPedRaw(std::shared_ptr<PedDatabaseItem> dbItem)
+	{
+		peds.push_back(dbItem);
+		return peds.size() - 1;
+	}
+
+	int Database::AddVehicleRaw(std::shared_ptr<VehicleDatabaseItem> dbItem)
+	{
+		vehicles.push_back(dbItem);
+		return vehicles.size() - 1;
+	}
+
+	int Database::AddObjectRaw(std::shared_ptr<ObjectDatabaseItem> dbItem)
+	{
+		objects.push_back(dbItem);
+		return objects.size() - 1;
+	}
+
 #pragma endregion
 
 #pragma region Remove
@@ -97,6 +115,22 @@ namespace Spawner {
 	void Database::RemoveObject(int index)
 	{
 		objects.erase(objects.begin() + index);
+	}
+
+	void Database::RemoveAndDeleteAll()
+	{
+		for (int i = 0; i < peds.size(); i++) {
+			Ped(peds[i]->entityId).Delete();
+			RemovePed(i);
+		}
+		for (int i = 0; i < peds.size(); i++) {
+			Vehicle(peds[i]->entityId).Delete();
+			RemoveVehicle(i);
+		}
+		for (int i = 0; i < peds.size(); i++) {
+			Object(peds[i]->entityId).Delete();
+			RemoveObject(i);
+		}
 	}
 
 #pragma endregion

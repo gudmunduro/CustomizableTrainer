@@ -352,6 +352,32 @@ std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>
 	return std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>();
 }
 
+void JSONData::LoadSpawnerDataFromFile(std::string name)
+{
+	try {
+		Spawner::Spawner::database.RemoveAndDeleteAll();
+
+		json spawnerData = LoadJSONFile("CustomizableTrainer\\" + name + ".json");
+
+		auto&& entities = spawnerData["entities"];
+
+		for each (auto&& ped in entities["peds"]) {
+			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Ped, spawnerData);
+		}
+
+		for each (auto && ped in entities["vehicles"]) {
+			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Vehicle, spawnerData);
+		}
+
+		for each (auto && ped in entities["objects"]) {
+			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Object, spawnerData);
+		}
+	}
+	catch (std::exception & e) {
+
+	}
+}
+
 #pragma endregion
 
 #pragma region Save data
@@ -580,7 +606,7 @@ void JSONData::SaveOptionStates()
 
 // Save spawner data
 
-void JSONData::SaveSpawnerDataToFile(std::string filename)
+void JSONData::SaveSpawnerDataToFile(std::string name)
 {
 	try {
 		json jsonObject = {
@@ -595,52 +621,68 @@ void JSONData::SaveSpawnerDataToFile(std::string filename)
 		auto&& vehicles = Spawner::Spawner::database.vehicles;
 		auto&& objects = Spawner::Spawner::database.objects;
 
-		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["peds"]), [] (Spawner::PedDatabaseItem dbItem) {
-			auto ped = Ped(dbItem.entityId);
+		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["peds"]), [] (std::shared_ptr<Spawner::PedDatabaseItem> dbItem) {
+			auto ped = Ped(dbItem->entityId);
 			auto pos = ped.Position();
 
 			return json::object({
-				{"model", dbItem.model},
+				{"model", dbItem->model},
 				{"position", {
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
 				}},
-				{"Invincible", dbItem.IsInvincible()}
+				{"heading", ped.Heading()},
+				{"Invincible", dbItem->IsInvincible()},
+				{"visible", dbItem->IsVisible()},
+				{"frozen", dbItem->IsFrozen()},
+				{"collision", dbItem->IsCollisionEnabled()},
+				{"gravity", dbItem->IsGravityEnabled()},
+				{"bodyguard", dbItem->IsBodyguard()}
 			});
 		});
 
-		std::transform(vehicles.begin(), vehicles.end(), std::back_inserter(jsonObject["entities"]["vehicles"]), [] (Spawner::VehicleDatabaseItem dbItem) {
-			auto vehicle = Vehicle(dbItem.entityId);
+		std::transform(vehicles.begin(), vehicles.end(), std::back_inserter(jsonObject["entities"]["vehicles"]), [](std::shared_ptr<Spawner::VehicleDatabaseItem> dbItem) {
+			auto vehicle = Vehicle(dbItem->entityId);
 			auto pos = vehicle.Position();
 
 			return json::object({
-				{"model", dbItem.model},
+				{"model", dbItem->model},
 				{"position", {
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
 				}},
-				{"Invincible", dbItem.IsInvincible()}
+				{"heading", vehicle.Heading()},
+				{"Invincible", dbItem->IsInvincible()},
+				{"visible", dbItem->IsVisible()},
+				{"frozen", dbItem->IsFrozen()},
+				{"collision", dbItem->IsCollisionEnabled()},
+				{"gravity", dbItem->IsGravityEnabled()}
 			});
 		});
 
-		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["objects"]), [] (Spawner::ObjectDatabaseItem dbItem) {
-			auto object = Object(dbItem.entityId);
+		std::transform(objects.begin(), objects.end(), std::back_inserter(jsonObject["entities"]["objects"]), [] (std::shared_ptr<Spawner::ObjectDatabaseItem> dbItem) {
+			auto object = Object(dbItem->entityId);
 			auto pos = object.Position();
 
 			return json::object({
-				{"model", dbItem.model},
+				{"model", dbItem->model},
 				{"position", {
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
 				}},
-				{"Invincible", dbItem.IsInvincible()}
+				{"heading", object.Heading()},
+				{"Invincible", dbItem->IsInvincible()},
+				{"visible", dbItem->IsVisible()},
+				{"frozen", dbItem->IsFrozen()},
+				{"collision", dbItem->IsCollisionEnabled()},
+				{"gravity", dbItem->IsGravityEnabled()}
 			});
 		});
 
-		WriteFile("CustomizableTrainer\\" + filename + ".json", jsonObject.dump());
+		WriteFile("CustomizableTrainer\\" + name + ".json", jsonObject.dump());
 	}
 	catch (std::exception & e) {
 		Game::PrintSubtitle("Failed to save map");

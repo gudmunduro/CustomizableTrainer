@@ -26,7 +26,7 @@ BoatFlyMode::BoatFlyMode()
 	}
 
 	if (!player.ped.IsInVehicle() || player.ped.IsInVehicle() && !player.ped.CurrentVehicle().IsBoat()) {
-		boat = Vehicle::Spawn(model, pos, heading);
+		boat = Vehicle::Create(model, pos, heading);
 		player.ped.SetIntoVehicle(boat.id);
 	}
 	else {

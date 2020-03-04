@@ -19,9 +19,10 @@ namespace JSONData {
 	std::vector<std::pair<std::string, std::vector<WeaponData>>> GetWeapons();
 	std::vector<std::pair<std::string, std::vector<VehicleData>>> GetVehicles();
 	std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>> GetPeds();
+	void LoadSpawnerDataFromFile(std::string name);
 	void SaveLayoutFromMap(std::map<std::string, SubmenuData> submenuDataMap);
 	void SaveMenuSettings(bool showSavedMessage = false);
 	void SaveHotkeys(std::vector<Hotkey> hotkeys);
 	void SaveOptionStates();
-	void SaveSpawnerDataToFile(std::string filename);
+	void SaveSpawnerDataToFile(std::string name);
 };

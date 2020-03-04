@@ -71,7 +71,7 @@ Vehicle Vehicle::Closest(Vector3 position, float radius)
 	return Vehicle(VEHICLE::GET_CLOSEST_VEHICLE(position.x, position.y, position.z, radius, 0, 70));
 }
 
-Vehicle Vehicle::Spawn(Hash model, Vector3 postion, float heading)
+Vehicle Vehicle::Create(Hash model, Vector3 postion, float heading)
 {
 	Game::RequestModel(model);
 	VehicleId vehicleId = VEHICLE::CREATE_VEHICLE(model, postion.x, postion.y, postion.z, heading, false, false, false, false);

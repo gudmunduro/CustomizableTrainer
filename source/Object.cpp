@@ -22,4 +22,11 @@ void Object::Delete()
 	OBJECT::DELETE_OBJECT(&id);
 }
 
+Object Object::Create(Hash model, Vector3 postion, float heading)
+{
+	Game::RequestModel(model);
+	VehicleId vehicleId = OBJECT::CREATE_OBJECT(model, postion.x, postion.y, postion.z, heading, false, false, false, false);
+	return Object(vehicleId);
+}
+
 #pragma endregion

@@ -155,6 +155,63 @@ namespace Spawner {
 		database.Add(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel);
 	}
 
+	void Spawner::SpawnFromData(std::string model, EntityType type, json data)
+	{
+		std::shared_ptr<DatabaseItem> dbItem = nullptr;
+
+		Vector3 pos = { data["position"]["x"], data["position"]["y"], data["position"]["z"] };
+		float heading = data["heading"];
+
+		switch (type) {
+			case EntityType::Ped: {
+				auto entityId = Ped::Create(String::Hash(model), pos, heading).id;
+				auto pedDbItem = std::make_shared<PedDatabaseItem>(entityId, model);
+
+				// Ped specific options
+				pedDbItem->SetBodyguard(data["bodyguard"]);
+
+				dbItem = pedDbItem;
+				break;
+			}
+			case EntityType::Vehicle: {
+				auto entityId = Vehicle::Create(String::Hash(model), pos, heading).id;
+				auto vehicleDbItem = std::make_shared<VehicleDatabaseItem>(entityId, model);
+
+				// Vehicle specific options
+
+				dbItem = vehicleDbItem;
+				break;
+			}
+			case EntityType::Object: {
+				auto entityId = Object::Create(String::Hash(model), pos, heading).id;
+				auto objectDbItem = std::make_shared<ObjectDatabaseItem>(entityId, model);
+
+				// Object specific options
+
+				dbItem = objectDbItem;
+				break;
+			}
+		}
+
+		dbItem->SetInvincible(data["invincible"]);
+		dbItem->SetVisible(data["visible"]);
+		dbItem->SetCollisionEnabled(data["collision"]);
+		dbItem->SetFrozen(data["frozen"]);
+		dbItem->SetGravityEnabled(data["gravity"]);
+
+		switch (type) {
+		case EntityType::Ped:
+			database.AddPedRaw(std::static_pointer_cast<PedDatabaseItem>(dbItem));
+			break;
+		case EntityType::Vehicle:
+			database.AddVehicleRaw(std::static_pointer_cast<VehicleDatabaseItem>(dbItem));
+			break;
+		case EntityType::Object:
+			database.AddObjectRaw(std::static_pointer_cast<ObjectDatabaseItem>(dbItem));
+			break;
+		}
+	}
+
 #pragma endregion
 
 	void Spawner::Tick()
