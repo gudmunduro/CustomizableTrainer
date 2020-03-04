@@ -25,7 +25,7 @@ namespace Spawner {
 		nextRotationOffset = { 0, 0, 0 };
 		CAM::SET_CAM_ACTIVE(cam, true);
 		CAM::RENDER_SCRIPT_CAMS(true, false, 3000, true, false, 0);
-		CAM::SET_CAM_COORD(cam, playerPos.x + 5.0f, playerPos.y, playerPos.z);
+		CAM::SET_CAM_COORD(cam, playerPos.x, playerPos.y, playerPos.z + 1.0f);
 	}
 
 	FreeCam::~FreeCam()

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SpawnerLoadSub.h"
+#include "JsonData.h"
 
 SpawnerLoadSub::SpawnerLoadSub(MenuController* menuController)
 	: Submenu(menuController)
@@ -18,7 +19,9 @@ void SpawnerLoadSub::Draw()
 	DrawTitle("Load");
 
 	for (auto&& name : names) {
-		DrawAction(name, [] {});
+		DrawAction(name, [name] {
+			JSONData::LoadSpawnerDataFromFile(name);
+		});
 	}
 }
 
