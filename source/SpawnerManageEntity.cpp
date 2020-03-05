@@ -11,6 +11,7 @@
 #include "pch.h"
 #include "SpawnerManageEntity.h"
 #include "WeaponSelection.h"
+#include "SpawnerManualPlacementSub.h"
 
 SpawnerManageEntity::SpawnerManageEntity(MenuController* menuController, EntityType type, std::shared_ptr<Spawner::DatabaseItem> dbItem)
 	: Submenu(menuController), type(type), dbItem(dbItem), entity(dbItem->entityId)
@@ -65,6 +66,10 @@ void SpawnerManageEntity::Draw()
 	DrawAction("Teleport to player", [this] {
 		auto pos = Player().ped.Position();
 		Entity(dbItem->entityId).SetCoords(pos);
+	});
+	DrawSubAction("Manual placement", [this] {
+		auto manPlacementSub = new SpawnerManualPlacementSub(menuController, entity);
+		menuController->AddSubmenuToStack(manPlacementSub);
 	});
 	DrawAction("Delete", [this] {
 		Spawner::Spawner::database.RemoveAndDelete(dbItem, type);

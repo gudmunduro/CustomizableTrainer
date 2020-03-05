@@ -143,6 +143,7 @@
     <ClInclude Include="SpawnerLoadSub.h" />
     <ClInclude Include="SpawnerManageEntities.h" />
     <ClInclude Include="SpawnerManageEntity.h" />
+    <ClInclude Include="SpawnerManualPlacementSub.h" />
     <ClInclude Include="SpawnerModelSelection.h" />
     <ClInclude Include="SpawnerSub.h" />
     <ClInclude Include="TaskQueue.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="SpawnerLoadSub.cpp" />
     <ClCompile Include="SpawnerManageEntities.cpp" />
     <ClCompile Include="SpawnerManageEntity.cpp" />
+    <ClCompile Include="SpawnerManualPlacementSub.cpp" />
     <ClCompile Include="SpawnerModelSelection.cpp" />
     <ClCompile Include="SpawnerSub.cpp" />
     <ClCompile Include="TaskQueue.cpp" />

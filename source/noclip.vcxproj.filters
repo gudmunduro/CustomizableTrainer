@@ -336,6 +336,9 @@
     <ClInclude Include="SpawnerLoadSub.h">
       <Filter>Headers\Menu\Submenus\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerManualPlacementSub.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -534,6 +537,9 @@
       <Filter>Source\Menu\Submenus\Selection</Filter>
     </ClCompile>
     <ClCompile Include="SpawnerLoadSub.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerManualPlacementSub.cpp">
       <Filter>Source\Menu\Submenus\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
