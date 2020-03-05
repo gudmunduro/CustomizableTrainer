@@ -42,8 +42,8 @@ void SettingsControlsKeyboardSub::Draw()
 	DrawEditControl("Up", &Settings::Controls::Keyboard::MenuUp);
 	DrawEditControl("Down", &Settings::Controls::Keyboard::MenuDown);
 	DrawEditControl("Back", &Settings::Controls::Keyboard::MenuBack);
-	DrawEditControl("Value up", &Settings::Controls::Keyboard::MenuAdjustValueDown);
-	DrawEditControl("Value down", &Settings::Controls::Keyboard::MenuAdjustValueUp);
+	DrawEditControl("Value up", &Settings::Controls::Keyboard::MenuAdjustValueUp);
+	DrawEditControl("Value down", &Settings::Controls::Keyboard::MenuAdjustValueDown);
 	DrawEditControl("Enter edit mode", &Settings::Controls::Keyboard::MenuEditModeEnter);
 	DrawEditControl("Exit edit mode", &Settings::Controls::Keyboard::MenuEditModeExit);
 	DrawEditControl("Exit edit mode and save", &Settings::Controls::Keyboard::MenuEditModeExitAndSave);
