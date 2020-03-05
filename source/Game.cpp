@@ -28,7 +28,7 @@ void Game::DrawSprite(std::string textureDict, std::string textureName, Vector3 
 							size.width / 100.0f, size.height / 100.0f, heading, color.r, color.g, color.b, color.a, false);
 }
 
-void Game::DrawRect(Vector3 position, Rect size, Color color)
+void Game::DrawRect(Vector2 position, Rect size, Color color)
 {
 	GRAPHICS::DRAW_RECT(position.x / 100.0f, position.y / 100.0f,
 						size.width / 100.0f, size.height / 100.0f, color.r, color.g, color.b, color.a, false, false);
@@ -125,6 +125,14 @@ std::string Game::GetInputWithKeyboard(std::string defaultText)
 		Game::PrintSubtitle("Error: Unknown keyboard error");
 	}
 	return GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT();
+}
+
+// Doesn't actully works (GET_SCREEN_RESOLUTION just returns 1280 / 720 no matter what)
+float Game::AspectRatio()
+{
+	int resX, resY;
+	GRAPHICS::GET_SCREEN_RESOLUTION(&resX, &resY);
+	return resX / resY;
 }
 
 void Game::UpdateData()

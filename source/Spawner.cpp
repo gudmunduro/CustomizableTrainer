@@ -63,6 +63,14 @@ namespace Spawner {
 		}
 		selectedEntityForSpawnModel = model;
 		selectedEntityForSpawnType = type;
+		selectedEntityRot = { 0, 0, 0 };
+	}
+
+	void Spawner::SetSelectedEntityForMove(EntityId entity) 
+	{
+		isMovingEntity = true;
+		selectedEntityForMove = entity;
+		selectedEntityRot = Entity(entity).Rotation();
 	}
 
 	void Spawner::DisableSpawnerMode()
@@ -71,6 +79,53 @@ namespace Spawner {
 		isSelectingEntityForSpawn = false;
 		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(selectedEntityForSpawn, false, false);
 		ENTITY::DELETE_ENTITY(&selectedEntityForSpawn);
+	}
+
+#pragma endregion
+
+#pragma region Getters
+
+	void Spawner::GetFreecamAimPos(Vector3 *position, Vector3 *rotation, EntityId ignore)
+	{
+		auto&& cam = (camera.value());
+		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
+
+		auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything, ignore);
+
+		if (result.DidHitAnything()) {
+			*position = result.HitCoords();
+		}
+		else { // Hit nothing
+			Vector3 offset = { 0, 10.0, 0 };
+			*position = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
+		}
+
+		*rotation = rot;
+	}
+
+	EntityId Spawner::GetFreecamAimEntity()
+	{
+		auto&& cam = (camera.value());
+		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
+
+		auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything);
+
+		if (result.DidHitAnything()) {
+			return result.HitEntity();
+		}
+		return 0;
+	}
+
+	void Spawner::GetPosInFrontOfPlayer(Vector3* position, Vector3* rotation)
+	{
+		Player player;
+		*position = player.ped.GetOffsetInWorldCoords({ 0, 5.0f, 0 });
+		*rotation = player.ped.Rotation();
+		(*rotation).z += 90;
 	}
 
 #pragma endregion
@@ -88,34 +143,13 @@ namespace Spawner {
 
 	void Spawner::ShowSpawnerModePreview()
 	{
-		Vector3 nextPos;
-		Vector3 nextRot;
+		Vector3 nextPos, nextRot;
 
-		if (camera) {
+		if (camera)
 			// Freecam enabled
-			auto&& cam = (camera.value());
-			auto&& pos = CAM::GET_CAM_COORD(cam->cam);
-			auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
-			auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
-
-			auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything);
-
-			if (result.DidHitAnything()) {
-				nextPos = result.HitCoords();
-			}
-			else { // Hit nothing
-				Vector3 offset = { 0, 10.0, 0 };
-				nextPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
-			}
-
-			nextRot = rot;
-		}
-		else {
-			Player player;
-			nextPos = player.ped.GetOffsetInWorldCoords({ 0, 5.0f, 0});
-			nextRot = player.ped.Rotation();
-			nextRot.z += 90;
-		}
+			GetFreecamAimPos(&nextPos, &nextRot);
+		else
+			GetPosInFrontOfPlayer(&nextPos, &nextRot);
 
 		if (selectedEntityForSpawn == 0
 			|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
@@ -146,7 +180,7 @@ namespace Spawner {
 		}
 
 		ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
-		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, 0, nextRot.y, nextRot.z, 2, false);
+		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, selectedEntityRot.x, selectedEntityRot.y, nextRot.z, 2, false);
 		ENTITY::FREEZE_ENTITY_POSITION(selectedEntityForSpawn, true);
 	}
 
@@ -243,10 +277,93 @@ namespace Spawner {
 
 #pragma endregion
 
-	void Spawner::Tick()
+#pragma region Move
+
+	void Spawner::MoveEntityToFreecamPos()
+	{
+		if (!ENTITY::DOES_ENTITY_EXIST(selectedEntityForMove))
+			return;
+
+		Vector3 nextPos, nextRot;
+
+		GetFreecamAimPos(&nextPos, &nextRot, selectedEntityForMove);
+
+		ENTITY::SET_ENTITY_COORDS(selectedEntityForMove, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
+		ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, selectedEntityRot.x, selectedEntityRot.y, nextRot.z, 2, false);
+	}
+
+	void Spawner::SelectForMoveTick()
+	{
+		if (!isMovingEntity) {
+			EntityId hitEntity = GetFreecamAimEntity();
+
+			if (hitEntity != 0) {
+				middleCrossColor = { 0, 150, 0, 200 };
+				if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT))
+					SetSelectedEntityForMove(hitEntity);
+			}
+		}
+
+		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) && isMovingEntity) {
+			MoveEntityToFreecamPos();
+			middleCrossColor = { 0, 100, 0, 200 };
+		}
+		else if (isMovingEntity)
+			isMovingEntity = false;
+	}
+
+#pragma endregion
+
+#pragma region Draw
+
+	void Spawner::DrawMiddleCross()
+	{
+		Game::DrawSprite("scoretimer_textures", "scoretimer_generic_cross", { 50.0f, 50.0f }, { 2.5f * 16 / 9, 2.5f * 16 / 9 }, 45.0f, middleCrossColor);
+	}
+
+#pragma endregion
+
+#pragma region Controls
+
+	void Spawner::RespondToEntityRotationControls()
+	{
+		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB))
+			selectedEntityRot.y += 0.5f;
+		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LB))
+			selectedEntityRot.y -= 0.5f;
+
+		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RS))
+			selectedEntityRot.x += 0.5f;
+		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS))
+			selectedEntityRot.x -= 0.5f;
+	}
+
+	void Spawner::RespondToControls()
 	{
 		if (isFreeCamEnabled && camera)
+			RespondToEntityRotationControls();
+	}
+
+#pragma endregion
+
+	void Spawner::ResetValues()
+	{
+		middleCrossColor = { 140, 140, 140, 200 };
+	}
+
+	void Spawner::Tick()
+	{
+		ResetValues();
+
+		if (isFreeCamEnabled && camera) {
 			camera.value()->Tick();
+			if (!isSelectingEntityForSpawn) {
+				SelectForMoveTick();
+			}
+		}
+
+		RespondToControls();
+		DrawMiddleCross();
 
 		if (isSelectingEntityForSpawn)
 			ShowSpawnerModePreview();

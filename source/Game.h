@@ -18,13 +18,14 @@ public:
 	static void PrintSubtitle(std::string text);
 	static void PrintDebug(std::string text);
 	static void PlaySoundFrontend(std::string soundCat, std::string soundName);
-	static void DrawRect(Vector3 position, Rect size, Color color);
+	static void DrawRect(Vector2 position, Rect size, Color color);
 	static void RequestModel(Hash model);
 	static void SetModelAsNoLongerNeeded(Hash model);
 	static void SetWeather(Hash weather);
 	static void RequestTextureDict(std::string textureDict);
 	static bool RequestAnimDict(std::string animDict);
 	static std::string GetInputWithKeyboard(std::string defaultText = "");
+	static float AspectRatio();
 	
 	static inline PlayerId playerId;
 	static inline PedId playerPedId;

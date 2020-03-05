@@ -37,6 +37,7 @@ void loadTextureDicts()
 	Game::RequestTextureDict("boot_flow");
 	Game::RequestTextureDict("generic_textures");
 	Game::RequestTextureDict("menu_textures");
+	Game::RequestTextureDict("scoretimer_textures");
 }
 
 void setupInitialTaskQueue()
