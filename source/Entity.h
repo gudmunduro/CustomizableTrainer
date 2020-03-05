@@ -51,6 +51,7 @@ public:
 	int MaxHealth();
 	int Health();
 	Vector3 Position();
+	Vector3 Rotation();
 	Vector3 GetOffsetInWorldCoords(Vector3 offset);
 	void Dimensions(Vector3* dim1, Vector3* dim2);
 	int Alpha();

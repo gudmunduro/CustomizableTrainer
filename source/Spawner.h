@@ -32,6 +32,7 @@ namespace Spawner {
 
 	class Spawner {
 	public:
+		static void SetSpawnOnlyModeEnabled(bool enabled);
 		static void SetFreeCamEnabled(bool enabled);
 		static void SetEntityForSpawner(std::string model, EntityType type);
 		static void DisableSpawnerMode();
@@ -46,6 +47,7 @@ namespace Spawner {
 	private:
 		static inline bool isSelectingEntityForSpawn = false;
 		static inline bool isFreeCamEnabled = false;
+		static inline bool isSpawnOnlyModeEnabled = false;
 		static inline std::string selectedEntityForSpawnModel = "";
 		static inline EntityType selectedEntityForSpawnType = EntityType::Object;
 		static inline ObjectId selectedEntityForSpawn = 0;

@@ -22,6 +22,7 @@ class SpawnerSelectCatSub
 	: public Submenu {
 public:
 	SpawnerSelectCatSub(MenuController* menuController);
+	~SpawnerSelectCatSub();
 	void SubDidAppear() override;
 	void Draw() override;
 };

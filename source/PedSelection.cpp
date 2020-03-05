@@ -23,9 +23,17 @@ void PedSelectionSub::Draw()
 		DrawAction(ped.name, [this, ped] {
 			switch (mode) {
 			case PedSelectionMode::Spawn:
+				if (ped.model._Starts_with("mp")) {
+					Game::PrintSubtitle("Spawning mp models in not available");
+					break;
+				}
 				Actions::SpawnPed({ ped.model });
 				break;
 			case PedSelectionMode::SpawnerMode:
+				if (ped.model._Starts_with("mp")) {
+					Game::PrintSubtitle("Spawning mp models in not available");
+					break;
+				}
 				Spawner::Spawner::SpawnSelectedEntity();
 				break;
 			case PedSelectionMode::Select:
@@ -41,7 +49,7 @@ void PedSelectionSub::SelectionDidChange(int to, int from)
 {
 	Submenu::SelectionDidChange(to, from);
 
-	if (mode == PedSelectionMode::SpawnerMode)
+	if (mode == PedSelectionMode::SpawnerMode && !peds[to].model._Starts_with("mp"))
 		Spawner::Spawner::SetEntityForSpawner(peds[to].model, EntityType::Ped);
 }
 

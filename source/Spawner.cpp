@@ -19,9 +19,28 @@ namespace Spawner {
 
 #pragma region Setters
 
+	void Spawner::SetSpawnOnlyModeEnabled(bool enabled)
+	{
+		if (isFreeCamEnabled || isSpawnOnlyModeEnabled == enabled)
+			return;
+
+		isSpawnOnlyModeEnabled = enabled;
+
+		if (enabled) {
+			TaskQueue::AddTask("spawner", Tick);
+		}
+		else {
+			TaskQueue::RemoveTask("spawner");
+		}
+	}
+
 	void Spawner::SetFreeCamEnabled(bool enabled)
 	{
 		if (enabled == isFreeCamEnabled) return;
+
+		if (isSpawnOnlyModeEnabled)
+			SetSpawnOnlyModeEnabled(false);
+
 		isFreeCamEnabled = enabled;
 
 		if (isFreeCamEnabled) {
@@ -69,23 +88,33 @@ namespace Spawner {
 
 	void Spawner::ShowSpawnerModePreview()
 	{
-		if (!camera) return;
-
-		auto&& cam = (camera.value());
-		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
-		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
-		auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
-
-		auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything);
-
 		Vector3 nextPos;
+		Vector3 nextRot;
 
-		if (result.DidHitAnything()) {
-			nextPos = result.HitCoords();
+		if (camera) {
+			// Freecam enabled
+			auto&& cam = (camera.value());
+			auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+			auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+			auto&& dir = Camera::DirectionFromScreenCentre(cam->cam);
+
+			auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything);
+
+			if (result.DidHitAnything()) {
+				nextPos = result.HitCoords();
+			}
+			else { // Hit nothing
+				Vector3 offset = { 0, 10.0, 0 };
+				nextPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
+			}
+
+			nextRot = rot;
 		}
-		else { // Hit nothing
-			Vector3 offset = { 0, 10.0, 0 };
-			nextPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset );
+		else {
+			Player player;
+			nextPos = player.ped.GetOffsetInWorldCoords({ 0, 5.0f, 0});
+			nextRot = player.ped.Rotation();
+			nextRot.z += 90;
 		}
 
 		if (selectedEntityForSpawn == 0
@@ -117,7 +146,7 @@ namespace Spawner {
 		}
 
 		ENTITY::SET_ENTITY_COORDS(selectedEntityForSpawn, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
-		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, 0, rot.y, rot.z, 2, false);
+		ENTITY::SET_ENTITY_ROTATION(selectedEntityForSpawn, 0, nextRot.y, nextRot.z, 2, false);
 		ENTITY::FREEZE_ENTITY_POSITION(selectedEntityForSpawn, true);
 	}
 

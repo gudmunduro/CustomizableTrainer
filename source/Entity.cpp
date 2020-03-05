@@ -114,6 +114,11 @@ Vector3 Entity::Position()
 	return ENTITY::GET_ENTITY_COORDS(id, true, false);
 }
 
+Vector3 Entity::Rotation()
+{
+	return ENTITY::GET_ENTITY_ROTATION(id, 2);
+}
+
 Vector3 Entity::GetOffsetInWorldCoords(Vector3 offset)
 {
 	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(id, offset.x, offset.y, offset.z);

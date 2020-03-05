@@ -51,7 +51,16 @@ void SpawnerObjectsSub::SelectionDidChange(int to, int from)
 
 SpawnerSelectCatSub::SpawnerSelectCatSub(MenuController* menuController)
 	: Submenu(menuController)
-{}
+{
+	if (!Spawner::Spawner::IsFreeCamEnabled())
+		Spawner::Spawner::SetSpawnOnlyModeEnabled(true);
+}
+
+SpawnerSelectCatSub::~SpawnerSelectCatSub()
+{
+	if (!Spawner::Spawner::IsFreeCamEnabled())
+		Spawner::Spawner::SetSpawnOnlyModeEnabled(false);
+}
 
 void SpawnerSelectCatSub::SubDidAppear()
 {
