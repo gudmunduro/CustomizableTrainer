@@ -19,7 +19,8 @@ namespace Spawner {
 		~FreeCam();
 
 		void RespondToMoveControls();
-		void RespondToRotateControls();
+		void RespondToMoveKeyboardControls();
+		void RespondToRotateControls(float sensitivity);
 		void RespondToControls();
 
 		void ResetValues();

@@ -13,6 +13,7 @@
 #include "Controls.h"
 #include "Camera.h"
 #include "CameraUtils.h"
+#include "keyboard.h"
 
 namespace Spawner {
 
@@ -51,26 +52,48 @@ namespace Spawner {
 			nextPositionOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, XboxControl::INPUT_FRONTEND_AXIS_X) / 2 * -1;
 	}
 
-	void FreeCam::RespondToRotateControls()
+	void FreeCam::RespondToMoveKeyboardControls()
+	{
+		if (IsKeyDown(0x53)) // Down
+			nextPositionOffset.y -= 1.0f;
+
+		if (IsKeyDown(0x57)) // Up
+			nextPositionOffset.y += 1.0f;
+
+		if (IsKeyDown(0x44)) // Right
+			nextPositionOffset.x += 1.0f;
+
+		if (IsKeyDown(0x41)) // Left
+			nextPositionOffset.x -= 1.0f;
+	}
+
+	void FreeCam::RespondToRotateControls(float sensitivity)
 	{
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) > 0.0f) // Down
-			nextRotationOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * 3;
+			nextRotationOffset.x -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * sensitivity;
 
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) < 0.0f) // Up
-			nextRotationOffset.x += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * -3;
+			nextRotationOffset.x += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_ud")) * -1 * sensitivity;
 
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) > 0.0f) // Right
-			nextRotationOffset.z += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * -3;
+			nextRotationOffset.z += CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * -1 * sensitivity;
 
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) < 0.0f) // Left
-			nextRotationOffset.z -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * 3;
+			nextRotationOffset.z -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * sensitivity;
 	}
 
 	void FreeCam::RespondToControls()
 	{
 		CONTROLS::DISABLE_ALL_CONTROL_ACTIONS(0);
-		RespondToMoveControls();
-		RespondToRotateControls();
+
+		if (Controls::IsUsingController()) {
+			RespondToMoveControls();
+			RespondToRotateControls(3);
+		}
+		else {
+			RespondToMoveKeyboardControls();
+			RespondToRotateControls(6);
+		}
 	}
 
 	//
