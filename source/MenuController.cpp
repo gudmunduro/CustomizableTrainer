@@ -14,7 +14,12 @@
 #include "Controls.h"
 #include "JsonData.h"
 #include "MenuSettings.h"
-#include "DynamicSubmenu.h"
+
+#include "ActionController.h"
+#include "ToggleController.h"
+#include "NumberController.h"
+
+#include "CustomSubmenu.h"
 #include "PedSpawnerSub.h"
 #include "SettingsSub.h"
 #include "SettingsGeneralSub.h"
@@ -25,10 +30,8 @@
 #include "SettingsHotkeysSub.h"
 #include "SettingsOptionsToSaveSub.h"
 #include "WeaponSelection.h"
-#include "ActionController.h"
-#include "ToggleController.h"
-#include "NumberController.h"
 #include "SpawnerSub.h"
+#include "VehicleSelection.h"
 
 MenuController::MenuController()
 {
@@ -130,7 +133,7 @@ void MenuController::SetSubmenuWithKey(std::string key)
 		Submenu* submenu = GetSubmenuForKey(key);
 		AddSubmenuToStack(submenu);
 	}
-	else if (auto submenu = GetFixedSubmenuForKey(key); submenu) {
+	else if (auto submenu = GetBuiltinSubmenuForKey(key); submenu) {
 		AddSubmenuToStack(*submenu);
 	}
 	else {
@@ -141,7 +144,7 @@ void MenuController::SetSubmenuWithKey(std::string key)
 void MenuController::UpdateSubmenuData(std::string key, SubmenuData submenuData)
 {
 	for each (auto option in submenuData.options) {
-		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !GetFixedSubmenuForKey(option.key)) { // Add submenu if it does not exist
+		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !GetBuiltinSubmenuForKey(option.key)) { // Add submenu if it does not exist
 			Game::PrintSubtitle("Creating submenu");
 			SetSubmenuDataForKey(option.key, {
 				option.text,
@@ -167,7 +170,7 @@ SubmenuData MenuController::GetSubmenuDataForKey(std::string key)
 }
 Submenu* MenuController::GetSubmenuForKey(std::string submenuKey)
 {
-	return new DynamicSubmenu(GetSubmenuDataForKey(submenuKey), this);
+	return new CustomSubmenu(GetSubmenuDataForKey(submenuKey), this);
 }
 
 std::vector<std::string> MenuController::SubmenuKeys()
@@ -182,11 +185,12 @@ std::vector<std::string> MenuController::SubmenuKeys()
 	keys.push_back("builtin_sub_settings");
 	keys.push_back("builtin_sub_selectWeaponCat");
 	keys.push_back("builtin_sub_spawnerSub");
+	keys.push_back("builtin_sub_vehicleSpawner");
 
 	return keys;
 }
 
-std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
+std::optional<Submenu*> MenuController::GetBuiltinSubmenuForKey(std::string key)
 {
 	if (key == "builtin_sub_pedSpawner") {
 		return new PedSpawnerSub(this);
@@ -220,6 +224,9 @@ std::optional<Submenu*> MenuController::GetFixedSubmenuForKey(std::string key)
 	}
 	else if (key == "builtin_sub_spawner") {
 		return new SpawnerSub(this);
+	}
+	else if (key == "builtin_sub_vehicleSpawner") {
+		return new VehicleSelectionSub(this, VehicleSelectionMode::Spawn, [] (VehicleData vehicleData) {});
 	}
 	return std::nullopt;
 }

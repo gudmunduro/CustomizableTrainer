@@ -126,7 +126,7 @@
     <ClInclude Include="DatabaseItem.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FloatAnimation.h" />
-    <ClInclude Include="DynamicSubmenu.h" />
+    <ClInclude Include="CustomSubmenu.h" />
     <ClInclude Include="Freecam.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Actions.h" />
@@ -195,7 +195,7 @@
     <ClCompile Include="DatabaseItem.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FloatAnimation.cpp" />
-    <ClCompile Include="DynamicSubmenu.cpp" />
+    <ClCompile Include="CustomSubmenu.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Freecam.cpp" />
     <ClCompile Include="Game.cpp" />

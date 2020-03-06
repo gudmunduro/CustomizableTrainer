@@ -177,9 +177,6 @@
     <ClInclude Include="MenuSettings.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicSubmenu.h">
-      <Filter>Headers\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="NumberController.h">
       <Filter>Headers\Options\Numbers</Filter>
     </ClInclude>
@@ -339,6 +336,9 @@
     <ClInclude Include="SpawnerManualPlacementSub.h">
       <Filter>Headers\Menu\Submenus\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="CustomSubmenu.h">
+      <Filter>Headers\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -379,9 +379,6 @@
     </ClCompile>
     <ClCompile Include="MenuSettings.cpp">
       <Filter>Source\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicSubmenu.cpp">
-      <Filter>Source\Menu</Filter>
     </ClCompile>
     <ClCompile Include="NumbersController.cpp">
       <Filter>Source\Options\Numbers</Filter>
@@ -541,6 +538,9 @@
     </ClCompile>
     <ClCompile Include="SpawnerManualPlacementSub.cpp">
       <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomSubmenu.cpp">
+      <Filter>Source\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

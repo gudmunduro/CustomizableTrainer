@@ -35,7 +35,7 @@ public:
 	SubmenuData GetSubmenuDataForKey(std::string key);
 	Submenu* GetSubmenuForKey(std::string key);
 	std::vector<std::string> SubmenuKeys();
-	std::optional<Submenu*> GetFixedSubmenuForKey(std::string key);
+	std::optional<Submenu*> GetBuiltinSubmenuForKey(std::string key);
 
 	Vector2 position;
 	std::vector<Submenu*> submenuStack;
