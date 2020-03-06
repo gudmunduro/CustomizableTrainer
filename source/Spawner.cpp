@@ -97,7 +97,7 @@ namespace Spawner {
 		if (result.DidHitAnything()) {
 			*position = result.HitCoords();
 		}
-		else { // Hit nothing
+		else {
 			Vector3 offset = { 0, 10.0, 0 };
 			*position = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
 		}
@@ -299,12 +299,12 @@ namespace Spawner {
 
 			if (hitEntity != 0) {
 				middleCrossColor = { 0, 150, 0, 200 };
-				if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT))
+				if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerSelectEntity))
 					SetSelectedEntityForMove(hitEntity);
 			}
 		}
 
-		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) && isMovingEntity) {
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerSelectEntity) && isMovingEntity) {
 			MoveEntityToFreecamPos();
 			middleCrossColor = { 0, 100, 0, 200 };
 		}
@@ -327,14 +327,14 @@ namespace Spawner {
 
 	void Spawner::RespondToEntityRotationControls()
 	{
-		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollUp))
 			selectedEntityRot.y += 0.5f;
-		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LB))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollDown))
 			selectedEntityRot.y -= 0.5f;
 
-		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RS))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchRight))
 			selectedEntityRot.x += 0.5f;
-		if (CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchLeft))
 			selectedEntityRot.x -= 0.5f;
 	}
 

@@ -59,16 +59,16 @@ namespace Spawner {
 
 	void FreeCam::RespondToMoveKeyboardControls()
 	{
-		if (IsKeyDown(0x53)) // Down
+		if (Controls::IsFunctionControlPressed(FunctionControl::FreecamMoveBackward)) // Down
 			nextPositionOffset.y -= 1.0f;
 
-		if (IsKeyDown(0x57)) // Up
+		if (Controls::IsFunctionControlPressed(FunctionControl::FreecamMoveForward)) // Up
 			nextPositionOffset.y += 1.0f;
 
-		if (IsKeyDown(0x44)) // Right
+		if (Controls::IsFunctionControlPressed(FunctionControl::FreecamMoveRight)) // Right
 			nextPositionOffset.x += 1.0f;
 
-		if (IsKeyDown(0x41)) // Left
+		if (Controls::IsFunctionControlPressed(FunctionControl::FreecamMoveLeft)) // Left
 			nextPositionOffset.x -= 1.0f;
 	}
 

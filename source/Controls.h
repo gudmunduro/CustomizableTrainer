@@ -105,7 +105,17 @@ enum class FunctionControl {
 	BoatFlyModeLeft,
 	BoatFlyModeRight,
 	BoatFlyModeYawLeft,
-	BoatFlyModeYawRight
+	BoatFlyModeYawRight,
+	FreecamSpeedMode,
+	FreecamMoveForward,
+	FreecamMoveBackward,
+	FreecamMoveLeft,
+	FreecamMoveRight,
+	SpawnerPitchRight,
+	SpawnerPitchLeft,
+	SpawnerRollUp,
+	SpawnerRollDown,
+	SpawnerSelectEntity
 };
 
 class Controls

@@ -135,6 +135,26 @@ bool Controls::IsFunctionControlPressed(FunctionControl control)
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, Settings::Controls::Controller::BoatFlyModeYawLeft) : IsKeyDown(Settings::Controls::Keyboard::BoatFlyModeYawLeft);
 	case FunctionControl::BoatFlyModeYawRight:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, Settings::Controls::Controller::BoatFlyModeYawRight) : IsKeyDown(Settings::Controls::Keyboard::BoatFlyModeYawRight);
+	case FunctionControl::FreecamSpeedMode:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : IsKeyDown(VK_SHIFT);
+	case FunctionControl::FreecamMoveForward:
+		return IsUsingController() ? false : IsKeyDown(0x57);
+	case FunctionControl::FreecamMoveBackward:
+		return IsUsingController() ? false : IsKeyDown(0x53);
+	case FunctionControl::FreecamMoveLeft:
+		return IsUsingController() ? false : IsKeyDown(0x41);
+	case FunctionControl::FreecamMoveRight:
+		return IsUsingController() ? false : IsKeyDown(0x44);
+	case FunctionControl::SpawnerRollUp:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) : IsKeyDown(0x58);
+	case FunctionControl::SpawnerRollDown:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LB) : IsKeyDown(0x5A);
+	case FunctionControl::SpawnerPitchRight:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RS) : IsKeyDown(0x51);
+	case FunctionControl::SpawnerPitchLeft:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS) : IsKeyDown(0x45);
+	case FunctionControl::SpawnerSelectEntity:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : IsKeyDown(VK_LBUTTON);
 	default:
 		return false;
 	}
