@@ -113,7 +113,7 @@ void Toggles::OnSpanwedPedBodyguardToggle(bool value)
 
 void Toggles::OnAllSpawnedPedsInvincibleToggle(bool value)
 {
-	for each (auto ped in PedSpawner::peds) {
+	for (auto ped : PedSpawner::peds) {
 		if (ped->isInvincible != value) {
 			ped->ped.SetInvincible(value);
 			ped->isInvincible = value;
@@ -123,7 +123,7 @@ void Toggles::OnAllSpawnedPedsInvincibleToggle(bool value)
 
 void Toggles::OnAllSpanwedPedsBodyguardToggle(bool value)
 {
-	for each (auto ped in PedSpawner::peds) {
+	for (auto ped : PedSpawner::peds) {
 		if (ped->isBodyGuard != value) {
 			if (value)
 				ped->ped.SetAsGroupMember(Player().Group());

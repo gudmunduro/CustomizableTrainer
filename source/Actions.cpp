@@ -182,7 +182,7 @@ void Actions::GiveAllSpawnedPedsWeapon(json params)
 	std::string weaponModel = params[0].get<std::string>();
 	Hash weaponHash = String::Hash(weaponModel);
 
-	for each (auto ped in PedSpawner::peds) {
+	for (auto&& ped : PedSpawner::peds) {
 		ped->ped.GiveWeapon(weaponHash);
 		ped->ped.SetAmmo(weaponHash, 9999);
 	}
@@ -192,7 +192,7 @@ void Actions::TeleportAllSpawnedPedsToPlayer(json params)
 {
 	auto teleportTo = Player().ped.GetOffsetInWorldCoords({ 0, 2.0f, 0 });
 
-	for each (auto ped in PedSpawner::peds) {
+	for (auto&& ped : PedSpawner::peds) {
 		ped->ped.SetCoords(teleportTo);
 	}
 }
@@ -386,13 +386,13 @@ void Actions::GivePlayerAllWeapons(json params)
 							"AMMO_SHOTGUN_BUCKSHOT_INCENDIARY", "AMMO_SHOTGUN_EXPRESS_EXPLOSIVE", "AMMO_ARROW", "AMMO_ARROW_SMALL_GAME", "AMMO_ARROW_IMPROVED", "AMMO_ARROW_FIRE", "AMMO_ARROW_POISON", 
 							"AMMO_ARROW_DYNAMITE", "AMMO_THROWING_KNIVES", "AMMO_THROWING_KNIVES_IMPROVED", "AMMO_THROWING_KNIVES_POISON" };
 
-	for each (std::string ammoType in ammoTypes) {
+	for (std::string& ammoType : ammoTypes) {
 		Hash ammoTypeHash = String::Hash(ammoType);
 
 		player.ped.SetAmmoByType(ammoTypeHash, 9999);
 	}
 
-	for each (std::string weapon in weaponModels) {
+	for (std::string& weapon : weaponModels) {
 		player.ped.GiveWeapon(String::Hash(weapon));
 		player.ped.SetAmmo(String::Hash(weapon), 9999);
 	}
@@ -543,7 +543,7 @@ void Actions::TeleportPlayerToWaypoint(json params)
 			450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0
 		};
 
-		for each (auto height in groundCheckHeight) {
+		for (auto&& height : groundCheckHeight) {
 			auto coordsToSet = waypointPosition;
 			coordsToSet.z = height;
 

@@ -4799,10 +4799,10 @@ namespace UI
 	static Any _0xBE1067CD1C9570F6(Any p0) { return invoke<Any>(0xBE1067CD1C9570F6, p0); }
 	static void _0x51DE09A2196BD951(Any p0, Any p1) { invoke<Void>(0x51DE09A2196BD951, p0, p1); }
 	static Any _0x29FA7910726C3889(Any p0, Any* p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x29FA7910726C3889, p0, p1, p2, p3, p4, p5); }
-	static Any _0x04F97DE45A519419() { return invoke<Any>(0x04F97DE45A519419); }
-	static void _0xF7AA2696A22AD8B9(Any p0) { invoke<Void>(0xF7AA2696A22AD8B9, p0); }
+	static int _UIPROMPT_REGISTER_BEGIN() { return invoke<int>(0x04F97DE45A519419); }
+	static void _UIPROMPT_REGISTER_END(Any p0) { invoke<Void>(0xF7AA2696A22AD8B9, p0); }
 	static void _0xCA24F528D0D16289(Any p0, Any p1) { invoke<Void>(0xCA24F528D0D16289, p0, p1); }
-	static Any _0xB5352B7494A08258(Any p0, Any p1) { return invoke<Any>(0xB5352B7494A08258, p0, p1); }
+	static Any _UIPROMPT_SET_CONTROL_ACTION(int p0, Hash control) { return invoke<Any>(0xB5352B7494A08258, p0, control); }
 	static void _0x565C1CE183CB0EAF(Any p0, Any p1) { invoke<Void>(0x565C1CE183CB0EAF, p0, p1); }
 	static void _0xCC6656799977741B(Any p0, Any p1) { invoke<Void>(0xCC6656799977741B, p0, p1); }
 	static BOOL _0xC92AC953F0A982AE(Any p0, Any p1) { return invoke<BOOL>(0xC92AC953F0A982AE, p0, p1); }
@@ -4811,7 +4811,7 @@ namespace UI
 	static Any _0x1A17B9ECFF617562(Any p0) { return invoke<Any>(0x1A17B9ECFF617562, p0); }
 	static void _0x94073D5CA3F16B7B(Any p0, Any p1) { invoke<Void>(0x94073D5CA3F16B7B, p0, p1); }
 	static void _0x74C7D7B72ED0D3CF(Any p0, Any p1) { invoke<Void>(0x74C7D7B72ED0D3CF, p0, p1); }
-	static void _0xEA5CCF4EEB2F82D1(Any p0) { invoke<Void>(0xEA5CCF4EEB2F82D1, p0); }
+	static void _UIPROMPT_SET_HOLD_INDEFINITELY_MODE(int p0) { invoke<Void>(0xEA5CCF4EEB2F82D1, p0); }
 	static void _0x3CE932E737C145D6(Any p0, Any p1, Any p2) { invoke<Void>(0x3CE932E737C145D6, p0, p1, p2); }
 	static void _0xA3F2149AA24F3D8E(Any p0, Any p1, Any p2) { invoke<Void>(0xA3F2149AA24F3D8E, p0, p1, p2); }
 	static Any _0x8010BEBD0D5ED5BC(Any p0) { return invoke<Any>(0x8010BEBD0D5ED5BC, p0); }
@@ -4863,9 +4863,9 @@ namespace UI
 	static void _0x00EDE88D4D13CF59(Any p0) { invoke<Void>(0x00EDE88D4D13CF59, p0); }
 	static BOOL _0x347469FBDD1589A9(Any p0) { return invoke<BOOL>(0x347469FBDD1589A9, p0); }
 	static BOOL _0x546E342E01DE71CF(Any p0) { return invoke<BOOL>(0x546E342E01DE71CF, p0); }
-	static void _0x71215ACCFDE075EE(Any p0, Any p1) { invoke<Void>(0x71215ACCFDE075EE, p0, p1); }
-	static void _0x8A0FB4D03A630D21(Any p0, Any p1) { invoke<Void>(0x8A0FB4D03A630D21, p0, p1); }
-	static void _0x5DD02A8318420DD7(Any p0, Any* p1) { invoke<Void>(0x5DD02A8318420DD7, p0, p1); }
+	static void _UIPROMPT_SET_VISIBLE(int prompt, bool toggle) { invoke<Void>(0x71215ACCFDE075EE, prompt, toggle); }
+	static void _UIPROMPT_SET_ENABLED(int prompt, bool toggle) { invoke<Void>(0x8A0FB4D03A630D21, prompt, toggle); }
+	static void _UIPROMPT_SET_TEXT(int p0, char* p1) { invoke<Void>(0x5DD02A8318420DD7, p0, p1); }
 	static void _0x560E76D5E2E1803F(Any p0, Any p1, BOOL p2) { invoke<Void>(0x560E76D5E2E1803F, p0, p1, p2); }
 	static void _0xF4A5C4509BF923B1(Any p0, Any p1) { invoke<Void>(0xF4A5C4509BF923B1, p0, p1); }
 	static void _0x53CE46C01A089DA1(Any p0, Any p1) { invoke<Void>(0x53CE46C01A089DA1, p0, p1); }

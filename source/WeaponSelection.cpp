@@ -60,7 +60,7 @@ void WeaponSelectionCatSub::Draw()
 
 	DrawTitle(catName);
 	
-	for each (auto weapon in weapons) {
+	for (auto&& weapon : weapons) {
 		DrawAction(weapon.name + " >", [this, weapon] {
 			auto manageWeaponSub = new ManageWeaponSub(menuController, ped, weapon);
 			menuController->AddSubmenuToStack(manageWeaponSub);
@@ -92,7 +92,7 @@ void WeaponSelectionSub::Draw()
 
 	DrawTitle("Weapons");
 
-	for each (auto weaponCat in weaponCats) {
+	for (auto&& weaponCat : weaponCats) {
 		DrawAction(weaponCat.first + " >", [this, weaponCat] {
 			auto weaponCatSub = new WeaponSelectionCatSub(menuController, ped, weaponCat.first, weaponCat.second);
 			menuController->AddSubmenuToStack(weaponCatSub);

@@ -321,6 +321,31 @@ namespace Spawner {
 		Game::DrawSprite("scoretimer_textures", "scoretimer_generic_cross", { 50.0f, 50.0f }, { 2.5f * 16 / 9, 2.5f * 16 / 9 }, 45.0f, middleCrossColor);
 	}
 
+	void ShowControlTest(Hash control, std::string text)
+	{
+		char* textVarString = Game::GetVarString(text);
+
+		int prompt = UI::_UIPROMPT_REGISTER_BEGIN();
+		UI::_0xF4A5C4509BF923B1(prompt, 0);
+		UI::_UIPROMPT_SET_TEXT(prompt, "WARDROBE_INSPECT_PROMPT");
+		UI::_UIPROMPT_SET_CONTROL_ACTION(prompt, XboxControl::INPUT_FRONTEND_ACCEPT);
+		UI::_UIPROMPT_SET_HOLD_INDEFINITELY_MODE(prompt);
+		UI::_UIPROMPT_REGISTER_END(prompt);
+
+		UI::_UIPROMPT_SET_ENABLED(prompt, true);
+		UI::_UIPROMPT_SET_VISIBLE(prompt, true);
+	}
+
+	void Spawner::ShowControls()
+	{
+		ShowControlTest(0, "Test");
+	}
+
+	void Spawner::HideControls()
+	{
+
+	}
+
 #pragma endregion
 
 #pragma region Controls

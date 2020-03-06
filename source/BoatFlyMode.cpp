@@ -148,7 +148,7 @@ void BoatFlyMode::DisableControls()
 		XboxControl::INPUT_FRONTEND_AXIS_Y
 	};
 
-	for each (auto control in controlsToDisable) {
+	for (auto&& control : controlsToDisable) {
 		CONTROLS::DISABLE_CONTROL_ACTION(0, control, true);
 	}
 }

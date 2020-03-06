@@ -100,7 +100,7 @@ void JSONData::UpdateOptionStates()
 	try {
 		json data = LoadJSONFile("CustomizableTrainer\\optionStates.json");
 
-		for each (auto optionState in data["optionStates"]) {
+		for (auto&& optionState : data["optionStates"]) {
 			MenuOptionType type;
 			std::string key = optionState["key"].get<std::string>();
 
@@ -227,7 +227,7 @@ std::vector<Hotkey> JSONData::GetHotkeysAsVector()
 		json hotkeys = LoadJSONFile("CustomizableTrainer\\hotkeys.json");
 		std::vector<Hotkey> hotkeyVec;
 
-		for each (auto hotkeyData in hotkeys) {
+		for (auto&& hotkeyData : hotkeys) {
 			MenuOptionType optionType;
 			if (hotkeyData["type"].get<std::string>() == "sub") optionType = MenuOptionType::Sub;
 			else if (hotkeyData["type"].get<std::string>() == "action") optionType = MenuOptionType::Action;
@@ -263,11 +263,11 @@ std::vector<std::pair<std::string, std::vector<WeaponData>>> JSONData::GetWeapon
 
 		std::vector<std::pair<std::string, std::vector<WeaponData>>> weaponData;
 
-		for each (auto && weaponCat in weapons) {
+		for (auto && weaponCat : weapons) {
 
 			std::vector<WeaponData> weaponCatVec;
 
-			for each (auto && weapon in weaponCat["weapons"]) {
+			for (auto && weapon : weaponCat["weapons"]) {
 				weaponCatVec.push_back({
 					weapon["name"].get<std::string>(),
 					weapon["model"].get<std::string>()
@@ -295,11 +295,11 @@ std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehic
 
 		std::vector<std::pair<std::string, std::vector<VehicleData>>> vehicleData;
 
-		for each (auto && vehicleCat in vehicleCats) {
+		for (auto && vehicleCat : vehicleCats) {
 
 			std::vector<VehicleData> vehicleCatVec;
 
-			for each (auto && vehicle in vehicleCat["vehicles"]) {
+			for (auto && vehicle : vehicleCat["vehicles"]) {
 				vehicleCatVec.push_back({
 					vehicle["name"].get<std::string>(),
 					vehicle["model"].get<std::string>()
@@ -327,12 +327,12 @@ std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>
 
 		std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>> pedData;
 
-		for each (auto && pedType in modelCats.items()) {
-			for each (auto && pedSubCat in pedType.value()) {
+		for (auto && pedType : modelCats.items()) {
+			for (auto && pedSubCat : pedType.value()) {
 
 				std::vector<PedData> pedCatVec;
 
-				for each (auto && ped in pedSubCat["models"]) {
+				for (auto && ped : pedSubCat["models"]) {
 					pedCatVec.push_back({
 						ped["name"].get<std::string>(),
 						ped["model"].get<std::string>()
@@ -363,15 +363,15 @@ void JSONData::LoadSpawnerDataFromFile(std::string name)
 
 		auto&& entities = spawnerData["entities"];
 
-		for each (auto&& ped in entities["peds"]) {
+		for (auto&& ped : entities["peds"]) {
 			Spawner::Spawner::SpawnFromData(ped["model"], EntityType::Ped, ped);
 		}
 
-		for each (auto && vehicle in entities["vehicles"]) {
+		for (auto && vehicle : entities["vehicles"]) {
 			Spawner::Spawner::SpawnFromData(vehicle["model"], EntityType::Vehicle, vehicle);
 		}
 
-		for each (auto && object in entities["objects"]) {
+		for (auto && object : entities["objects"]) {
 			Spawner::Spawner::SpawnFromData(object["model"], EntityType::Object, object);
 		}
 
@@ -399,7 +399,7 @@ void JSONData::SaveLayoutFromMap(std::map<std::string, SubmenuData> submenuDataM
 			{"options", json::array()}
 		});
 
-		for each (auto && option in submenuData.options) {
+		for (auto && option : submenuData.options) {
 			std::string typeStringValue;
 			switch (option.type) {
 			case MenuOptionType::Action:
@@ -527,7 +527,7 @@ void JSONData::SaveHotkeys(std::vector<Hotkey> hotkeys)
 {
 	try {
 		json hotkeyData = json::array();
-		for each (auto hotkey in hotkeys) {
+		for (auto hotkey : hotkeys) {
 			std::string typeStringValue;
 			switch (hotkey.type) {
 			case MenuOptionType::Action:
@@ -574,7 +574,7 @@ void JSONData::SaveOptionStates()
 		json optionStates;
 		optionStates["optionStates"] = json::array();
 
-		for each (auto optionToSave in Settings::General::optionsToSave) {
+		for (auto optionToSave : Settings::General::optionsToSave) {
 			std::string key = optionToSave.key;
 			std::string type;
 			json value;

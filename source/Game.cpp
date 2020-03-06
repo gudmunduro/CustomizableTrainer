@@ -135,6 +135,12 @@ float Game::AspectRatio()
 	return resX / resY;
 }
 
+char* Game::GetVarString(std::string text)
+{
+	char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*)text.c_str());
+	return invoke<char*, int, char*, int, char*>(0xFA925AC00EB830B9, 42, "COLOR_STRING", 0, varString);
+}
+
 void Game::UpdateData()
 {
 	playerId = PLAYER::PLAYER_ID();

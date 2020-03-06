@@ -26,6 +26,7 @@ public:
 	static bool RequestAnimDict(std::string animDict);
 	static std::string GetInputWithKeyboard(std::string defaultText = "");
 	static float AspectRatio();
+	static char* GetVarString(std::string text);
 	
 	static inline PlayerId playerId;
 	static inline PedId playerPedId;

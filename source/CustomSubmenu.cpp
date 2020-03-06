@@ -232,7 +232,7 @@ int CustomSubmenu::OptionCount()
 
 bool CustomSubmenu::IsSavedOption(std::string key)
 {
-	for each (auto optionToSave in Settings::General::optionsToSave) {
+	for (auto&& optionToSave : Settings::General::optionsToSave) {
 		if (optionToSave.key == key)
 			return true;
 	}

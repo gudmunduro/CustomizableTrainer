@@ -34,7 +34,7 @@ void PedSpawnerSub::Draw()
 			Toggles::allSpawnedPedsInvincible = true;
 			Toggles::allSpawnedPedsBodyguard = true;
 
-			for each (auto ped in PedSpawner::peds) {
+			for (auto&& ped : PedSpawner::peds) {
 				if (!ped->isInvincible)
 					Toggles::allSpawnedPedsInvincible = false;
 				if (!ped->isBodyGuard)

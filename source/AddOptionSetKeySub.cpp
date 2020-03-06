@@ -87,7 +87,7 @@ void AddOptionSetKeySub::OnKeySelect(std::string key)
 
 void AddOptionSetKeySub::CreateDisplayKeys()
 {
-	for each (std::string key in keys) {
+	for (std::string& key : keys) {
 		std::string displayKey = key.substr(key.find("_") + 1);
 		if (displayKey._Starts_with("sub_")) displayKey = displayKey.substr(displayKey.find("_") + 1);
 

@@ -107,7 +107,7 @@ void HotkeyController::Save()
 
 void HotkeyController::Tick()
 {
-	for each (auto hotkey in hotkeys) {
+	for (auto&& hotkey : hotkeys) {
 
 		if (Controls::IsHotkeyPressed(hotkey)) {
 			RunHotkey(hotkey);

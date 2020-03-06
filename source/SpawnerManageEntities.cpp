@@ -58,7 +58,7 @@ void SpawnerManageEntities::Draw()
 
 	switch (type) {
 	case EntityType::Ped:
-		for each (auto && ped in Spawner::Spawner::database.peds) {
+		for (auto && ped : Spawner::Spawner::database.peds) {
 			DrawSubAction(ped->model, [this, ped] {
 				auto managePedSub = new SpawnerManageEntity(menuController, type, std::static_pointer_cast<Spawner::DatabaseItem>(ped));
 				menuController->AddSubmenuToStack(managePedSub);
@@ -67,7 +67,7 @@ void SpawnerManageEntities::Draw()
 		break;
 
 	case EntityType::Vehicle:
-		for each (auto && vehicle in Spawner::Spawner::database.vehicles) {
+		for (auto && vehicle : Spawner::Spawner::database.vehicles) {
 			DrawSubAction(vehicle->model, [this, vehicle] {
 				auto manageVehicleSub = new SpawnerManageEntity(menuController, type, std::static_pointer_cast<Spawner::DatabaseItem>(vehicle));
 				menuController->AddSubmenuToStack(manageVehicleSub);
@@ -76,7 +76,7 @@ void SpawnerManageEntities::Draw()
 		break;
 
 	case EntityType::Object:
-		for each (auto && object in Spawner::Spawner::database.objects) {
+		for (auto && object : Spawner::Spawner::database.objects) {
 			DrawSubAction(object->model, [this, object] {
 				auto manageObjectSub = new SpawnerManageEntity(menuController, type, std::static_pointer_cast<Spawner::DatabaseItem>(object));
 				menuController->AddSubmenuToStack(manageObjectSub);

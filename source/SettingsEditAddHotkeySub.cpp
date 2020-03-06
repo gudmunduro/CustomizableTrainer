@@ -256,7 +256,7 @@ void SettingsEditAddHotkeySub::RespondToControls()
 		}
 	}
 	else if (isEditingControllerControl) {
-		for each (auto control in allControls) {
+		for (auto&& control : allControls) {
 			if (CONTROLS::IS_CONTROL_JUST_PRESSED(0, control)) {
 				*controlToEdit = control;
 				isEditingControllerControl = false;
@@ -316,7 +316,7 @@ void SettingsEditAddHotkeySub::UpdateActionParameters()
 
 	hotkeyToEdit.value = json::array();
 
-	for each (auto param in parameters) {
+	for (auto&& param : parameters) {
 		switch (param.type) {
 		case MenuOptionParameterType::String:
 			hotkeyToEdit.value.push_back("");

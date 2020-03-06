@@ -19,7 +19,7 @@ void PedSelectionSub::Draw()
 
 	DrawTitle(title);
 
-	for each (auto && ped in peds) {
+	for (auto && ped : peds) {
 		DrawAction(ped.name, [this, ped] {
 			switch (mode) {
 			case PedSelectionMode::Spawn:
@@ -76,7 +76,7 @@ void PedSubCatSelectionSub::Draw()
 
 	DrawTitle("Peds");
 
-	for each (auto && pedCat in peds) {
+	for (auto && pedCat : peds) {
 		DrawSubAction(pedCat.first, [this, pedCat] {
 			auto PedCatSub = new PedSelectionSub(menuController, pedCat.first,
 				pedCat.second, mode, [this](PedData selected) {
@@ -111,7 +111,7 @@ void PedCatSelectionSub::Draw()
 
 	DrawTitle("Peds");
 
-	for each (auto && pedType in peds) {
+	for (auto && pedType : peds) {
 		DrawSubAction(pedType.first, [this, pedType] {
 			auto subCat = new PedSubCatSelectionSub(menuController, mode, pedType.second, onSelection);
 			menuController->AddSubmenuToStack(subCat);

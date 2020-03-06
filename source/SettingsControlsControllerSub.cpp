@@ -104,7 +104,7 @@ void SettingsControlsControllerSub::RespondToControls()
 	Submenu::RespondToControls();
 
 	if (isEditingControl) {
-		for each (auto control in allControls) {
+		for (auto&& control : allControls) {
 			if (CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, control)) {
 				*controlToEdit = control;
 				isEditingControl = false;

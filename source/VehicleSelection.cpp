@@ -19,7 +19,7 @@ void VehicleSelectionCatSub::Draw()
 
 	DrawTitle(title);
 
-	for each (auto && vehicle in vehicles) {
+	for (auto && vehicle : vehicles) {
 		DrawAction(vehicle.name, [this, vehicle] {
 			switch (mode) {
 				case VehicleSelectionMode::Spawn:
@@ -61,7 +61,7 @@ void VehicleSelectionSub::Draw()
 
 	DrawTitle("Vehicles");
 	
-	for each (auto && vehicleCat in vehicles) {
+	for (auto && vehicleCat : vehicles) {
 		DrawSubAction(vehicleCat.first, [this, vehicleCat] {
 			auto vehicleCatSub = new VehicleSelectionCatSub(menuController, vehicleCat.first,
 				vehicleCat.second, mode, [this] (VehicleData selected) {

@@ -130,7 +130,7 @@ void EditAddOptionSub::UpdateParameters()
 
 	parameters = ActionController::GetParameterForKey(optionToAdd.key);
 
-	for each (auto param in parameters) {
+	for (auto&& param : parameters) {
 		switch (param.type) {
 		case MenuOptionParameterType::String:
 			optionToAdd.params.push_back("");

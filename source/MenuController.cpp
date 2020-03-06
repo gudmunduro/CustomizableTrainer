@@ -144,7 +144,7 @@ void MenuController::SetSubmenuWithKey(std::string key)
 
 void MenuController::UpdateSubmenuData(std::string key, SubmenuData submenuData)
 {
-	for each (auto option in submenuData.options) {
+	for (auto&& option : submenuData.options) {
 		if (option.type == MenuOptionType::Sub && !SubmenuExistsForKey(option.key) && !GetBuiltinSubmenuForKey(option.key)) { // Add submenu if it does not exist
 			Game::PrintSubtitle("Creating submenu");
 			SetSubmenuDataForKey(option.key, {
