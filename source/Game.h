@@ -24,7 +24,7 @@ public:
 	static void SetWeather(Hash weather);
 	static void RequestTextureDict(std::string textureDict);
 	static bool RequestAnimDict(std::string animDict);
-	static std::string GetInputWithKeyboard(std::string defaultText = "");
+	static std::optional<std::string> GetInputWithKeyboard(std::string defaultText = "");
 	static float AspectRatio();
 	static char* GetVarString(std::string text);
 	

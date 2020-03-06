@@ -61,13 +61,15 @@ void AddOptionSetKeySub::Draw()
 	// Add submenu
 	if (optionType == MenuOptionType::Sub)
 		DrawAction("Add", [this]() {
-			std::string key = Game::GetInputWithKeyboard();
-			if (key == "") return;
+			auto key = Game::GetInputWithKeyboard();
+			if (!key) return;
 
-			if (!key._Starts_with("sub_") && !key._Starts_with("required_sub_") && !key._Starts_with("builtin_sub_"))
-				key = "sub_" + key;
+			auto keyStr = *key;
 
-			OnKeySelect(key);
+			if (!keyStr._Starts_with("sub_") && !keyStr._Starts_with("required_sub_") && !keyStr._Starts_with("builtin_sub_"))
+				keyStr = "sub_" + keyStr;
+
+			OnKeySelect(keyStr);
 		});
 }
 

@@ -51,9 +51,9 @@ void Actions::ChangeModel(json params)
 
 void Actions::ChangeFromInput(json params)
 {
-	std::string model = Game::GetInputWithKeyboard();
-	if (model == "") return;
-	ChangeModel({ model });
+	auto model = Game::GetInputWithKeyboard();
+	if (!model) return;
+	ChangeModel({ model.value() });
 }
 
 void Actions::RestorePlayerStamina(json params)
@@ -64,11 +64,14 @@ void Actions::RestorePlayerStamina(json params)
 void Actions::AddCashFromKeyboard(json params)
 {
 	try {
-		int cash = std::stoi(Game::GetInputWithKeyboard());
+		auto input = Game::GetInputWithKeyboard();
+		if (!input)
+			return;
+		int cash = std::stoi(input.value());
 		Player().AddCash(cash);
 	}
 	catch (const std::exception & e) {
-
+		Game::PrintSubtitle("Failed to add cash");
 	}
 }
 
@@ -116,10 +119,10 @@ void Actions::SpawnPed(json params)
 
 void Actions::SpawnPedFromInput(json params)
 {
-	std::string model = Game::GetInputWithKeyboard();
-	if (model == "") return;
+	auto model = Game::GetInputWithKeyboard();
+	if (!model) return;
 
-	PedSpawner::Spawn(model, model);
+	PedSpawner::Spawn(model.value(), model.value());
 }
 
 void Actions::GiveSpawnedPedWeapon(json params)
@@ -271,9 +274,9 @@ void Actions::SpawnHorse(json params)
 
 void Actions::SpawnHorseFromInput(json params)
 {
-	std::string horse = Game::GetInputWithKeyboard();
-	if (horse == "") return;
-	SpawnHorse({ horse });
+	auto horse = Game::GetInputWithKeyboard();
+	if (!horse) return;
+	SpawnHorse({ *horse });
 }
 
 #pragma endregion
@@ -315,9 +318,9 @@ void Actions::SpawnVehicle(json params)
 
 void Actions::SpawnVehicleFromInput(json params)
 {
-	std::string vehicle = Game::GetInputWithKeyboard();
-	if (vehicle == "") return;
-	SpawnVehicle({vehicle});
+	auto vehicle = Game::GetInputWithKeyboard();
+	if (!vehicle) return;
+	SpawnVehicle({ *vehicle });
 }
 
 void Actions::TeleportIntoClosestVehicle(json params)

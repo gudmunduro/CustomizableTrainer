@@ -37,7 +37,9 @@ void SettingsSetColorSub::DrawColorValue(std::string text, int* color)
 {
 	DrawNumber(text, std::to_string(*color), [color] {
 			try {
-				int value = std::stoi(Game::GetInputWithKeyboard(std::to_string(*color)));
+				auto inputValue = Game::GetInputWithKeyboard(std::to_string(*color));
+				if (!inputValue) return;
+				int value = std::stoi(*inputValue);
 				if (value < 0 || value > 255) {
 					Game::PrintSubtitle("Error: Value needs to be between 0 and 255");
 					return;

@@ -63,10 +63,12 @@ void SettingsEditAddHotkeySub::Draw()
 	// Hotkey name
 	DrawTextAction("Name", hotkeyToEdit.name, [this] {
 		auto newName = Game::GetInputWithKeyboard(hotkeyToEdit.name);
-		if (newName == "") {
+		if (!newName) return;
+		if (*newName == "") {
 			Game::PrintSubtitle("Name cannot be empty");
+			return;
 		}
-		hotkeyToEdit.name = newName;
+		hotkeyToEdit.name = *newName;
 	});
 
 	// Controls
@@ -132,15 +134,24 @@ void SettingsEditAddHotkeySub::Draw()
 
 			DrawTextAction(param.name, value, [this, param, i]() {
 				switch (param.type) {
-				case MenuOptionParameterType::String:
-					hotkeyToEdit.value[i] = Game::GetInputWithKeyboard(hotkeyToEdit.value[i].get<std::string>());
+				case MenuOptionParameterType::String: {
+					auto inputValue = Game::GetInputWithKeyboard(hotkeyToEdit.value[i].get<std::string>());
+					if (!inputValue) return;
+					hotkeyToEdit.value[i] = *inputValue;
 					break;
-				case MenuOptionParameterType::Float:
-					hotkeyToEdit.value[i] = std::stof(Game::GetInputWithKeyboard(std::to_string(hotkeyToEdit.value[i].get<float>())));
+				}
+				case MenuOptionParameterType::Float: {
+					auto inputValue = Game::GetInputWithKeyboard(std::to_string(hotkeyToEdit.value[i].get<float>()));
+					if (!inputValue) return;
+					hotkeyToEdit.value[i] = std::stof(*inputValue);
 					break;
-				case MenuOptionParameterType::Int:
-					hotkeyToEdit.value[i] = std::stoi(Game::GetInputWithKeyboard(std::to_string(hotkeyToEdit.value[i].get<int>())));
+				}
+				case MenuOptionParameterType::Int: {
+					auto inputValue = Game::GetInputWithKeyboard(std::to_string(hotkeyToEdit.value[i].get<int>()));
+					if (!inputValue) return;
+					hotkeyToEdit.value[i] = std::stoi(*inputValue);
 					break;
+				}
 				}
 			});
 		}
@@ -213,7 +224,9 @@ void SettingsEditAddHotkeySub::OnValueOptionPress()
 		return;
 
 	try {
-		hotkeyToEdit.value = Game::GetInputWithKeyboard();
+		auto inputValue = Game::GetInputWithKeyboard();
+		if (!inputValue) return;
+		hotkeyToEdit.value = *inputValue;
 	}
 	catch (std::exception e) {}
 }

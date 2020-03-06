@@ -65,8 +65,9 @@ void EditAddOptionSub::Draw()
 	});
 	// Option text
 	DrawTextAction("Text", optionToAdd.text, [this]() {
-		std::string textInput = Game::GetInputWithKeyboard(optionToAdd.text);
-		optionToAdd.text = textInput;
+		auto textInput = Game::GetInputWithKeyboard(optionToAdd.text);
+		if (!textInput) return;
+		optionToAdd.text = *textInput;
 	});
 	// Option key
 	DrawTextAction(OptionTypeToString(optionToAdd.type) + " >", optionToAdd.key, [this]() {
@@ -97,15 +98,24 @@ void EditAddOptionSub::Draw()
 
 		DrawTextAction(param.name, value, [this, param, i]() {
 			switch (param.type) {
-			case MenuOptionParameterType::String:
-				optionToAdd.params[i] = Game::GetInputWithKeyboard(optionToAdd.params[i].get<std::string>());
+			case MenuOptionParameterType::String: {
+				auto inputValue = Game::GetInputWithKeyboard(optionToAdd.params[i].get<std::string>());
+				if (!inputValue) return;
+				optionToAdd.params[i] = *inputValue;
 				break;
-			case MenuOptionParameterType::Float:
-				optionToAdd.params[i] = std::stof(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<float>())));
+			}
+			case MenuOptionParameterType::Float: {
+				auto inputValue = Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<float>()));
+				if (!inputValue) return;
+				optionToAdd.params[i] = std::stof(*inputValue);
 				break;
-			case MenuOptionParameterType::Int:
-				optionToAdd.params[i] = std::stoi(Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<int>())));
+			}
+			case MenuOptionParameterType::Int: {
+				auto inputValue = Game::GetInputWithKeyboard(std::to_string(optionToAdd.params[i].get<int>()));
+				if (!inputValue) return;
+				optionToAdd.params[i] = std::stoi(*inputValue);
 				break;
+			}
 			}
 		});
 	}

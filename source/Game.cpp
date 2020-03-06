@@ -109,25 +109,22 @@ bool Game::RequestAnimDict(std::string animDict)
 	}
 }
 
-std::string Game::GetInputWithKeyboard(std::string defaultText)
+std::optional<std::string> Game::GetInputWithKeyboard(std::string defaultText)
 {
 	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", (char*) defaultText.c_str(), "", "", "", 100);
-	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) {
-		WAIT(0);
-	}
+	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0)
+		TaskQueue::Wait(0);
+
 	switch (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD()) {
-	case 2: return defaultText;
-	case 3:
-		Game::PrintSubtitle("Error: Unknown keyboard error");
-		return defaultText;
+		case 1: return GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT();
+		case 2: return std::nullopt;
+		case 3:
+			Game::PrintSubtitle("Error: Unknown keyboard error");
+			return std::nullopt;
 	}
-	if (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 3) {
-		Game::PrintSubtitle("Error: Unknown keyboard error");
-	}
-	return GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT();
 }
 
-// Doesn't actully works (GET_SCREEN_RESOLUTION just returns 1280 / 720 no matter what)
+// Doesn't actully work (GET_SCREEN_RESOLUTION just returns 1280 / 720 no matter what)
 float Game::AspectRatio()
 {
 	int resX, resY;

@@ -27,8 +27,9 @@ void SpawnerSub::Draw()
 	});
 	DrawAction("Save", [] {
 		auto name = Game::GetInputWithKeyboard();
+		if (!name) return;
 
-		if (name != "") JSONData::SaveSpawnerDataToFile(name);
+		if (name != "") JSONData::SaveSpawnerDataToFile(*name);
 	});
 	DrawSubAction("Load", [this] {
 		auto loadSub = new SpawnerLoadSub(menuController);

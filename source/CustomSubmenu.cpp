@@ -98,8 +98,9 @@ void CustomSubmenu::DrawNumber(std::string text, std::string numberKey)
 
 	Submenu::DrawNumber(text, numberStrValue, [this, numberKey, numberStrValue] {
 		if (!NumberController::NumberVariableExistsForKey(numberKey)) return;
-		std::string input = Game::GetInputWithKeyboard(numberStrValue);
-		NumberController::SetNumberValueForKey(numberKey, input);
+		auto input = Game::GetInputWithKeyboard(numberStrValue);
+		if (!input) return;
+		NumberController::SetNumberValueForKey(numberKey, *input);
 		SaveIfSavedOption(numberKey);
 	}, [this, numberKey](bool direction) {
 		if (isEditModeActive) return;
