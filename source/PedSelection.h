@@ -5,7 +5,8 @@
 enum class PedSelectionMode {
 	Spawn,
 	Select,
-	SpawnerMode
+	SpawnerMode,
+	ModelSelection
 };
 
 #pragma region Category

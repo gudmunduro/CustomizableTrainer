@@ -24,24 +24,31 @@ void PedSelectionSub::Draw()
 			switch (mode) {
 			case PedSelectionMode::Spawn:
 				if (ped.model._Starts_with("mp")) {
-					Game::PrintSubtitle("Spawning mp models in not available");
+					Game::PrintSubtitle("Spawning mp models is not available");
 					break;
 				}
 				Actions::SpawnPed({ ped.model });
 				break;
 			case PedSelectionMode::SpawnerMode:
 				if (ped.model._Starts_with("mp")) {
-					Game::PrintSubtitle("Spawning mp models in not available");
+					Game::PrintSubtitle("Spawning mp models is not available");
 					break;
 				}
 				Spawner::Spawner::SpawnSelectedEntity();
+				break;
+			case PedSelectionMode::ModelSelection:
+				if (ped.model._Starts_with("mp")) {
+					Game::PrintSubtitle("Changing to mp models is not available");
+					break;
+				}
+				Player().SetModel(String::Hash(ped.model));
 				break;
 			case PedSelectionMode::Select:
 				onSelection(ped);
 				menuController->GoToLastSub();
 				break;
 			}
-			});
+		});
 	}
 }
 

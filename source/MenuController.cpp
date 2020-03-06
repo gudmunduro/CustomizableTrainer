@@ -32,6 +32,7 @@
 #include "WeaponSelection.h"
 #include "SpawnerSub.h"
 #include "VehicleSelection.h"
+#include "PedSelection.h"
 
 MenuController::MenuController()
 {
@@ -186,6 +187,7 @@ std::vector<std::string> MenuController::SubmenuKeys()
 	keys.push_back("builtin_sub_selectWeaponCat");
 	keys.push_back("builtin_sub_spawnerSub");
 	keys.push_back("builtin_sub_vehicleSpawner");
+	keys.push_back("builtin_sub_modelSelection");
 
 	return keys;
 }
@@ -227,6 +229,9 @@ std::optional<Submenu*> MenuController::GetBuiltinSubmenuForKey(std::string key)
 	}
 	else if (key == "builtin_sub_vehicleSpawner") {
 		return new VehicleSelectionSub(this, VehicleSelectionMode::Spawn, [] (VehicleData vehicleData) {});
+	}
+	else if (key == "builtin_sub_modelSelection") {
+		return new PedCatSelectionSub(this, PedSelectionMode::ModelSelection, [] (PedData pedData) {});
 	}
 	return std::nullopt;
 }
