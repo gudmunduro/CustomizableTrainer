@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{B61A1627-281C-488D-90C1-3AC36D2BB5D3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CustomizableTrainer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>CustomizableTrainer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>D:\Games\Rockstar Games\Red Dead Redemption 2</OutDir>
+    <IncludePath>$(solutionDir)..\inc;$(IncludePath)</IncludePath>
+    <TargetExt>.asi</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)</OutDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(solutionDir)..\inc;$(IncludePath)</IncludePath>
+    <TargetName>CustomizableTrainer</TargetName>
+    <TargetExt>.asi</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;CustomizableTrainer_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ScriptHookRDR2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;CustomizableTrainer_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>ScriptHookRDR2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(solutionDir)..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>call $(SolutionDir)..\scripts\postbuildrelease.bat</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\enums.h" />
+    <ClInclude Include="..\inc\json.hpp" />
+    <ClInclude Include="..\inc\main.h" />
+    <ClInclude Include="..\inc\nativeCaller.h" />
+    <ClInclude Include="..\inc\natives.h" />
+    <ClInclude Include="..\inc\types.h" />
+    <ClInclude Include="ActionController.h" />
+    <ClInclude Include="AddOptionSetKeySub.h" />
+    <ClInclude Include="AddOptionSetTypeSub.h" />
+    <ClInclude Include="AddOptionSub.h" />
+    <ClInclude Include="BoatFlyMode.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="ConfirmDialog.h" />
+    <ClInclude Include="Controls.h" />
+    <ClInclude Include="core\Hash.h" />
+    <ClInclude Include="CustomBullets.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="DatabaseItem.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="FloatAnimation.h" />
+    <ClInclude Include="CustomSubmenu.h" />
+    <ClInclude Include="Freecam.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Actions.h" />
+    <ClInclude Include="GameplayCamera.h" />
+    <ClInclude Include="HotkeyController.h" />
+    <ClInclude Include="JsonData.h" />
+    <ClInclude Include="keyboard.h" />
+    <ClInclude Include="CameraUtils.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="PedSelection.h" />
+    <ClInclude Include="SettingsAddOptionToSaveSub.h" />
+    <ClInclude Include="SettingsOptionsToSaveSub.h" />
+    <ClInclude Include="Spawner.h" />
+    <ClInclude Include="SpawnerLoadSub.h" />
+    <ClInclude Include="SpawnerManageEntities.h" />
+    <ClInclude Include="SpawnerManageEntity.h" />
+    <ClInclude Include="SpawnerManualPlacementSub.h" />
+    <ClInclude Include="SpawnerModelSelection.h" />
+    <ClInclude Include="SpawnerSub.h" />
+    <ClInclude Include="TaskQueue.h" />
+    <ClInclude Include="TextController.h" />
+    <ClInclude Include="Texts.h" />
+    <ClInclude Include="MenuController.h" />
+    <ClInclude Include="MenuSettings.h" />
+    <ClInclude Include="NumberController.h" />
+    <ClInclude Include="Numbers.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Ped.h" />
+    <ClInclude Include="PedSpawner.h" />
+    <ClInclude Include="PedSpawnerSub.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Raycast.h" />
+    <ClInclude Include="Routine.h" />
+    <ClInclude Include="script.h" />
+    <ClInclude Include="SettingsColorSchemeSub.h" />
+    <ClInclude Include="SettingsControlsControllerSub.h" />
+    <ClInclude Include="SettingsControlsKeyboardSub.h" />
+    <ClInclude Include="SettingsControlsSub.h" />
+    <ClInclude Include="SettingsEditAddHotkeySub.h" />
+    <ClInclude Include="SettingsGeneralSub.h" />
+    <ClInclude Include="SettingsHotkeyActionSub.h" />
+    <ClInclude Include="SettingsHotkeysSub.h" />
+    <ClInclude Include="SettingsSetColorSub.h" />
+    <ClInclude Include="SettingsSub.h" />
+    <ClInclude Include="Submenu.h" />
+    <ClInclude Include="ToggleController.h" />
+    <ClInclude Include="Toggles.h" />
+    <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="VehicleSelection.h" />
+    <ClInclude Include="VehicleWeapons.h" />
+    <ClInclude Include="WeaponManager.h" />
+    <ClInclude Include="WeaponSelection.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionController.cpp" />
+    <ClCompile Include="Actions.cpp" />
+    <ClCompile Include="AddOptionSetKeySub.cpp" />
+    <ClCompile Include="AddOptionSetTypeSub.cpp" />
+    <ClCompile Include="AddOptionSub.cpp" />
+    <ClCompile Include="BoatFlyMode.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ConfirmDialog.cpp" />
+    <ClCompile Include="Controls.cpp" />
+    <ClCompile Include="CustomBullets.cpp" />
+    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="DatabaseItem.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FloatAnimation.cpp" />
+    <ClCompile Include="CustomSubmenu.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Freecam.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameplayCamera.cpp" />
+    <ClCompile Include="HotkeyController.cpp" />
+    <ClCompile Include="JsonData.cpp" />
+    <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="CameraUtils.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PedSelection.cpp" />
+    <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
+    <ClCompile Include="SettingsOptionsToSaveSub.cpp" />
+    <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="SpawnerLoadSub.cpp" />
+    <ClCompile Include="SpawnerManageEntities.cpp" />
+    <ClCompile Include="SpawnerManageEntity.cpp" />
+    <ClCompile Include="SpawnerManualPlacementSub.cpp" />
+    <ClCompile Include="SpawnerModelSelection.cpp" />
+    <ClCompile Include="SpawnerSub.cpp" />
+    <ClCompile Include="TaskQueue.cpp" />
+    <ClCompile Include="TextController.cpp" />
+    <ClCompile Include="Texts.cpp" />
+    <ClCompile Include="MenuController.cpp" />
+    <ClCompile Include="MenuSettings.cpp" />
+    <ClCompile Include="Numbers.cpp" />
+    <ClCompile Include="NumbersController.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Ped.cpp" />
+    <ClCompile Include="PedSpawner.cpp" />
+    <ClCompile Include="PedSpawnerSub.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Raycast.cpp" />
+    <ClCompile Include="Routine.cpp" />
+    <ClCompile Include="script.cpp" />
+    <ClCompile Include="SettingsColorSchemeSub.cpp" />
+    <ClCompile Include="SettingsControlsControllerSub.cpp" />
+    <ClCompile Include="SettingsControlsKeyboardSub.cpp" />
+    <ClCompile Include="SettingsControlsSub.cpp" />
+    <ClCompile Include="SettingsEditAddHotkeySub.cpp" />
+    <ClCompile Include="SettingsGeneralSub.cpp" />
+    <ClCompile Include="SettingsHotkeyActionSub.cpp" />
+    <ClCompile Include="SettingsHotkeysSub.cpp" />
+    <ClCompile Include="SettingsSetColorSub.cpp" />
+    <ClCompile Include="SettingsSub.cpp" />
+    <ClCompile Include="Submenu.cpp" />
+    <ClCompile Include="ToggleController.cpp" />
+    <ClCompile Include="Toggles.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="VehicleSelection.cpp" />
+    <ClCompile Include="VehicleWeapons.cpp" />
+    <ClCompile Include="WeaponManager.cpp" />
+    <ClCompile Include="WeaponSelection.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
