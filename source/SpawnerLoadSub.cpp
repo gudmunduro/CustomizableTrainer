@@ -16,10 +16,17 @@ void SpawnerLoadSub::Draw()
 {
 	Submenu::Draw();
 
-	DrawTitle("Load");
+	DrawTitle("Manage saved files");
+
+	DrawAction("Save current", [] {
+		auto name = Game::GetInputWithKeyboard();
+		if (!name) return;
+
+		if (name != "") JSONData::SaveSpawnerDataToFile(*name);
+	});
 
 	for (auto&& name : names) {
-		DrawAction(name, [name] {
+		DrawAction("Load " + name, [name] {
 			JSONData::LoadSpawnerDataFromFile(name);
 		});
 	}

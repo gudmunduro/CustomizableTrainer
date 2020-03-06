@@ -25,13 +25,7 @@ void SpawnerSub::Draw()
 		auto selectCatSub = new SpawnerSelectCatSub(menuController);
 		menuController->AddSubmenuToStack(selectCatSub);
 	});
-	DrawAction("Save", [] {
-		auto name = Game::GetInputWithKeyboard();
-		if (!name) return;
-
-		if (name != "") JSONData::SaveSpawnerDataToFile(*name);
-	});
-	DrawSubAction("Load", [this] {
+	DrawSubAction("Manage saved files", [this] {
 		auto loadSub = new SpawnerLoadSub(menuController);
 		menuController->AddSubmenuToStack(loadSub);
 	});
