@@ -32,6 +32,7 @@ namespace Spawner {
 	private:
 		Vector3 nextPositionOffset;
 		Vector3 nextRotationOffset;
+		bool speedMode;
 	};
 
 }
