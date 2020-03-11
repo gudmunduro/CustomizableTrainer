@@ -41,8 +41,13 @@ void SpawnerManageEntity::Draw()
 			pedDbItem->SetBodyguard(toggledValue);
 		});
 
-		DrawSubAction("Give weapon", [this, pedDbItem] {
-			auto weaponSelection = new WeaponSelectionSub(menuController, pedDbItem->ped);
+		DrawSubAction("Manage weapons", [this, pedDbItem] {
+			auto weaponSelection = new WeaponSelectionSub(menuController, pedDbItem->ped, [pedDbItem] (WeaponData weapon) {
+				pedDbItem->weapons.push_back(weapon);
+				}, [pedDbItem] (WeaponData weapon) {
+					auto& weapons = pedDbItem->weapons;
+					weapons.erase(std::remove(weapons.begin(), weapons.end(), weapon), weapons.end());
+			});
 			menuController->AddSubmenuToStack(weaponSelection);
 		});
 	}

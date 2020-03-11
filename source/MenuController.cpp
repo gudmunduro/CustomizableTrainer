@@ -228,10 +228,10 @@ std::optional<Submenu*> MenuController::GetBuiltinSubmenuForKey(std::string key)
 		return new SpawnerSub(this);
 	}
 	else if (key == "builtin_sub_vehicleSpawner") {
-		return new VehicleSelectionSub(this, VehicleSelectionMode::Spawn, [] (VehicleData vehicleData) {});
+		return new VehicleSelectionSub(this, VehicleSelectionMode::Spawn);
 	}
 	else if (key == "builtin_sub_modelSelection") {
-		return new PedCatSelectionSub(this, PedSelectionMode::ModelSelection, [] (PedData pedData) {});
+		return new PedCatSelectionSub(this, PedSelectionMode::ModelSelection);
 	}
 	return std::nullopt;
 }

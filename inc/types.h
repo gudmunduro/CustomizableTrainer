@@ -193,9 +193,28 @@ inline Vector3 operator* (Vector3 lhs, float rhs)
 	};
 }
 
-inline bool operator== ( OptionToSave lhs, OptionToSave rhs)
+inline bool operator== (const OptionToSave& lhs, const OptionToSave& rhs)
 {
 	return lhs.key == rhs.key && lhs.type == rhs.type;
+}
+
+inline bool operator== (const WeaponData& lhs, const WeaponData& rhs) {
+	return lhs.model == rhs.model && lhs.name == rhs.name;
+}
+
+#pragma endregion
+
+#pragma region Convert to/from json
+
+// WeaponData
+
+inline void to_json(json& j, const WeaponData& w) {
+	j = json{ {"name", w.name}, {"model", w.model} };
+}
+
+inline void from_json(const json& j, WeaponData& w) {
+	j.at("name").get_to(w.name);
+	j.at("model").get_to(w.model);
 }
 
 #pragma endregion

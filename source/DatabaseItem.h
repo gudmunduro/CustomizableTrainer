@@ -53,6 +53,7 @@ namespace Spawner {
 
 		bool IsBodyguard();
 
+		std::vector<WeaponData> weapons;
 		Ped ped;
 	private:
 

@@ -16,8 +16,8 @@
 
 #pragma region Manage weapon
 
-ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, WeaponData weapon)
-	: Submenu(menuController), ped(ped), weapon(weapon)
+ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, WeaponData weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+	: Submenu(menuController), ped(ped), weapon(weapon), onEquip(onEquip), onRemove(onRemove)
 {}
 
 void ManageWeaponSub::Draw() 
@@ -35,6 +35,8 @@ void ManageWeaponSub::Draw()
 			ped.SetCurrentWeapon(weaponHash);
 
 		ped.SetAmmo(weaponHash, 9999);
+
+		onEquip(weapon);
 	});
 	DrawAction("Fill ammo", [this] {
 		auto weaponHash = String::Hash(weapon.model);
@@ -43,6 +45,8 @@ void ManageWeaponSub::Draw()
 	});
 	DrawAction("Remove", [this] {
 		ped.RemoveWeapon(String::Hash(weapon.model));
+
+		onRemove(weapon);
 	});
 }
 
@@ -50,8 +54,8 @@ void ManageWeaponSub::Draw()
 
 #pragma region Weapon category
 
-WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons)
-	: Submenu(menuController), ped(ped), catName(catName), weapons(weapons)
+WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+	: Submenu(menuController), ped(ped), catName(catName), weapons(weapons), onEquip(onEquip), onRemove(onRemove)
 {}
 
 void WeaponSelectionCatSub::Draw()
@@ -62,7 +66,7 @@ void WeaponSelectionCatSub::Draw()
 	
 	for (auto&& weapon : weapons) {
 		DrawAction(weapon.name + " >", [this, weapon] {
-			auto manageWeaponSub = new ManageWeaponSub(menuController, ped, weapon);
+			auto manageWeaponSub = new ManageWeaponSub(menuController, ped, weapon, onEquip, onRemove);
 			menuController->AddSubmenuToStack(manageWeaponSub);
 		});
 	}
@@ -82,8 +86,8 @@ void WeaponSelectionCatSub::RespondToControls()
 
 #pragma region Weapon category selection
 
-WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController, Ped ped)
-	: Submenu(menuController), weaponCats(JSONData::GetWeapons()), ped(ped)
+WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController, Ped ped, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+	: Submenu(menuController), weaponCats(JSONData::GetWeapons()), ped(ped), onEquip(onEquip)
 {}
 
 void WeaponSelectionSub::Draw()
@@ -94,7 +98,7 @@ void WeaponSelectionSub::Draw()
 
 	for (auto&& weaponCat : weaponCats) {
 		DrawAction(weaponCat.first + " >", [this, weaponCat] {
-			auto weaponCatSub = new WeaponSelectionCatSub(menuController, ped, weaponCat.first, weaponCat.second);
+			auto weaponCatSub = new WeaponSelectionCatSub(menuController, ped, weaponCat.first, weaponCat.second, onEquip, onRemove);
 			menuController->AddSubmenuToStack(weaponCatSub);
 		});
 	}

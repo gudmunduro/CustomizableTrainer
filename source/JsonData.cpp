@@ -642,7 +642,8 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
 				{"gravity", dbItem->IsGravityEnabled()},
-				{"bodyguard", dbItem->IsBodyguard()}
+				{"bodyguard", dbItem->IsBodyguard()},
+				{"weapons", dbItem->weapons}
 			});
 		});
 

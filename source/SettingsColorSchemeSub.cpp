@@ -24,25 +24,25 @@ void SettingsColorSchemeSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("Color scheme");
-	DrawSetColorAction("Title border", &Settings::Colors::titleBarBorder);
-	DrawSetColorAction("Title text", &Settings::Colors::titleBarText);
-	DrawSetColorAction("Option background", &Settings::Colors::optionBg);
-	DrawSetColorAction("Option text", &Settings::Colors::optionText);
-	DrawSetColorAction("Option selected bg", &Settings::Colors::optionSelectedBg);
-	DrawSetColorAction("Option selected outline", &Settings::Colors::optionSelectedOutline);
-	DrawSetColorAction("Option selected text", &Settings::Colors::optionSelectedText);
-	DrawSetColorAction("Option toggle", &Settings::Colors::optionToggle);
-	DrawSetColorAction("Option toggle(toggled)", &Settings::Colors::optionToggleToggled);
-	DrawSetColorAction("Option number", &Settings::Colors::optionNumber);
-	DrawSetColorAction("Menu background", &Settings::Colors::menuBg);
-	DrawSetColorAction("Scroll line", &Settings::Colors::menuScrollLine);
-	DrawSetColorAction("Option count", &Settings::Colors::menuOptionCount);
-	DrawSetColorAction("Menu status text", &Settings::Colors::menuStatusText);
+	DrawSetColorAction("Title border", Settings::Colors::titleBarBorder);
+	DrawSetColorAction("Title text", Settings::Colors::titleBarText);
+	DrawSetColorAction("Option background", Settings::Colors::optionBg);
+	DrawSetColorAction("Option text", Settings::Colors::optionText);
+	DrawSetColorAction("Option selected bg", Settings::Colors::optionSelectedBg);
+	DrawSetColorAction("Option selected outline", Settings::Colors::optionSelectedOutline);
+	DrawSetColorAction("Option selected text", Settings::Colors::optionSelectedText);
+	DrawSetColorAction("Option toggle", Settings::Colors::optionToggle);
+	DrawSetColorAction("Option toggle(toggled)", Settings::Colors::optionToggleToggled);
+	DrawSetColorAction("Option number", Settings::Colors::optionNumber);
+	DrawSetColorAction("Menu background", Settings::Colors::menuBg);
+	DrawSetColorAction("Scroll line", Settings::Colors::menuScrollLine);
+	DrawSetColorAction("Option count", Settings::Colors::menuOptionCount);
+	DrawSetColorAction("Menu status text", Settings::Colors::menuStatusText);
 }
 
-void SettingsColorSchemeSub::DrawSetColorAction(std::string text, Color *color)
+void SettingsColorSchemeSub::DrawSetColorAction(std::string text, Color& color)
 {
-	DrawAction(text + " >", [this, text, color] {
+	DrawAction(text + " >", [this, text, color] () mutable {
 		Submenu *setColorSub = new SettingsSetColorSub(text, color, menuController);
 		menuController->AddSubmenuToStack(setColorSub);
 	});

@@ -154,7 +154,7 @@ bool Controls::IsFunctionControlPressed(FunctionControl control)
 	case FunctionControl::SpawnerPitchLeft:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS) : IsKeyDown(0x45);
 	case FunctionControl::SpawnerSelectEntity:
-		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : IsKeyDown(MK_LBUTTON);
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT);
 	default:
 		return false;
 	}

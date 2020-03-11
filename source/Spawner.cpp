@@ -232,6 +232,13 @@ namespace Spawner {
 
 				// Ped specific options
 				pedDbItem->SetBodyguard(data["bodyguard"]);
+				pedDbItem->weapons = data["weapons"].get<std::vector<WeaponData>>();
+
+				for (auto&& weapon : pedDbItem->weapons) {
+					auto modelHash = String::Hash(weapon.model);
+					pedDbItem->ped.GiveWeapon(modelHash);
+					pedDbItem->ped.SetAmmo(modelHash, 9999);
+				}
 
 				dbItem = pedDbItem;
 				break;

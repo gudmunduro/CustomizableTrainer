@@ -9,6 +9,6 @@ public:
 
 protected:
 	void Draw() override;
-	void DrawSetColorAction(std::string text, Color* color);
+	void DrawSetColorAction(std::string text, Color& color);
 };
 

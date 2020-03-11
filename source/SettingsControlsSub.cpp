@@ -11,9 +11,9 @@
 #include "pch.h"
 #include "SettingsControlsSub.h"
 
-SettingsControlsSub::SettingsControlsSub(MenuController* menuController) : Submenu(menuController)
-{
-}
+SettingsControlsSub::SettingsControlsSub(MenuController* menuController) 
+	: Submenu(menuController)
+{}
 
 void SettingsControlsSub::Draw()
 {
