@@ -147,6 +147,8 @@ void JSONData::UpdateMenuSettings()
 
 		// General
 		Settings::General::playUiSounds = settingsData["playUiSounds"].get<bool>();
+		if (settingsData.contains("debug"))
+			Settings::General::debug = settingsData["debug"].get<bool>();
 
 		// Colors
 		Settings::Colors::titleBarBorder = Settings::colorFromJSON(settingsData["titleBarBorderColor"]);
@@ -474,6 +476,7 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 		json settingsData = json::object({
 			// General
 			{ "playUiSounds", Settings::General::playUiSounds },
+			{ "debug", Settings::General::debug },
 
 			// Colors
 			{ "titleBarBorderColor", Settings::jsonFromColor(Settings::Colors::titleBarBorder) },
@@ -728,7 +731,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 	}
 	catch (std::exception & e) {
 		Game::PrintSubtitle("Failed to save spawned entities to file");
-		spdlog::error("Failed to save spawner file with error '{}'", e.what());
+		spdlog::error("Failed to save spawned entities to file with error '{}'", e.what());
 	}
 }
 
