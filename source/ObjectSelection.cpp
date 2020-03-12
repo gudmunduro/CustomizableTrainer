@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "ObjectSelection.h"
-#include "JsonData.h"
+#include "EntityLists.h"
 #include "Actions.h"
 #include "Spawner.h"
 
 #pragma region Category
 
-ObjectSelectionCatSub::ObjectSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<ObjectData> objects, ObjectSelectionMode mode, std::function<void(ObjectData)> onSelection)
+ObjectSelectionCatSub::ObjectSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<ObjectData>& objects, ObjectSelectionMode mode, std::function<void(ObjectData)> onSelection)
 	: Submenu(menuController), title(title), objects(objects), mode(mode), onSelection(onSelection)
 {
 	if (mode == ObjectSelectionMode::SpawnerMode && objects.size() > 0)
@@ -56,7 +56,7 @@ int ObjectSelectionCatSub::OptionCount()
 #pragma region Category list
 
 ObjectSelectionSub::ObjectSelectionSub(MenuController* menuController, ObjectSelectionMode mode, std::function<void(ObjectData)> onSelection)
-	: Submenu(menuController), mode(mode), onSelection(onSelection), objects(JSONData::GetObjects()), objectCats()
+	: Submenu(menuController), mode(mode), onSelection(onSelection), objects(EntityLists::objects), objectCats()
 {
 	for (int i = 0; i < objects.size(); i++) {
 		objectCats.push_back({objects[i].first, i});

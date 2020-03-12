@@ -5,14 +5,14 @@
 class ManageWeaponSub
 	: public Submenu {
 public:
-	ManageWeaponSub(MenuController *menuController, Ped ped, WeaponData weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove);
+	ManageWeaponSub(MenuController *menuController, Ped ped, const WeaponData& weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove);
 
 	void Draw() override;
 
 private:
 	std::function<void(WeaponData)> onEquip;
 	std::function<void(WeaponData)> onRemove;
-	WeaponData weapon;
+	const WeaponData& weapon;
 	Ped ped;
 };
 
@@ -20,7 +20,7 @@ class WeaponSelectionCatSub
 	: public Submenu
 {
 public:
-	WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove);
+	WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, const std::vector<WeaponData>& weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove);
 
 	void Draw() override;
 
@@ -28,7 +28,7 @@ public:
 
 private:
 	std::string catName;
-	std::vector<WeaponData> weapons;
+	const std::vector<WeaponData>& weapons;
 	std::function<void(WeaponData)> onEquip;
 	std::function<void(WeaponData)> onRemove;
 	Ped ped;
@@ -46,7 +46,7 @@ public:
 	void RespondToControls() override;
 
 private:
-	std::vector<std::pair<std::string, std::vector<WeaponData>>> weaponCats;
+	const std::vector<std::pair<std::string, std::vector<WeaponData>>>& weaponCats;
 	std::function<void(WeaponData)> onEquip;
 	std::function<void(WeaponData)> onRemove;
 	Ped ped;

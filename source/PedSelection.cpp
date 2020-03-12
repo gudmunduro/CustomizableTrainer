@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "PedSelection.h"
-#include "JsonData.h"
+#include "EntityLists.h"
 #include "Actions.h"
 #include "Spawner.h"
 
 #pragma region Category
 
-PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, const std::vector<PedData> Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
+PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, const std::vector<PedData>& Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), title(title), peds(Peds), mode(mode), onSelection(onSelection)
 {
 	if (mode == PedSelectionMode::SpawnerMode && Peds.size() > 0)
@@ -65,7 +65,7 @@ void PedSelectionSub::SelectionDidChange(int to, int from)
 
 #pragma region Sub Category list
 
-PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection)
+PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), mode(mode), onSelection(onSelection), peds(peds)
 {
 }
@@ -102,7 +102,7 @@ void PedSubCatSelectionSub::SubDidAppear()
 #pragma region Category list
 
 PedCatSelectionSub::PedCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::function<void(PedData)> onSelection)
-	: Submenu(menuController), peds(JSONData::GetPeds()), mode(mode), onSelection(onSelection)
+	: Submenu(menuController), peds(EntityLists::peds), mode(mode), onSelection(onSelection)
 {}
 
 void PedCatSelectionSub::Draw()

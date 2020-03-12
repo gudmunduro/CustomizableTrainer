@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "VehicleSelection.h"
-#include "JsonData.h"
+#include "EntityLists.h"
 #include "Actions.h"
 #include "Spawner.h"
 
@@ -51,7 +51,7 @@ void VehicleSelectionCatSub::SelectionDidChange(int to, int from)
 #pragma region Category list
 
 VehicleSelectionSub::VehicleSelectionSub(MenuController* menuController, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection)
-	: Submenu(menuController), mode(mode), onSelection(onSelection), vehicles(JSONData::GetVehicles())
+	: Submenu(menuController), mode(mode), onSelection(onSelection), vehicles(EntityLists::vehicles)
 {
 }
 

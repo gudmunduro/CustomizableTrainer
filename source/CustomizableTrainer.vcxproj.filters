@@ -342,6 +342,9 @@
     <ClInclude Include="ObjectSelection.h">
       <Filter>Headers\Menu\Submenus\Selection</Filter>
     </ClInclude>
+    <ClInclude Include="EntityLists.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -547,6 +550,9 @@
     </ClCompile>
     <ClCompile Include="ObjectSelection.cpp">
       <Filter>Source\Menu\Submenus\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityLists.cpp">
+      <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

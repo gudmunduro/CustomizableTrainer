@@ -135,6 +135,7 @@
     <ClInclude Include="JsonData.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="CameraUtils.h" />
+    <ClInclude Include="EntityLists.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectSelection.h" />
     <ClInclude Include="PedSelection.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="JsonData.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="CameraUtils.cpp" />
+    <ClCompile Include="EntityLists.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectSelection.cpp" />
     <ClCompile Include="PedSelection.cpp" />

@@ -20,6 +20,7 @@
 #include "HotkeyController.h"
 #include "TextController.h"
 #include "JsonData.h"
+#include "EntityLists.h"
 
 #pragma region Setup
 
@@ -76,6 +77,7 @@ void setup()
 	setupInitialTaskQueue();
 	loadInitialOptionStates();
 	HotkeyController::Setup();
+	EntityLists::LoadAll();
 }
 
 #pragma endregion

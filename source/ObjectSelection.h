@@ -12,7 +12,7 @@ enum class ObjectSelectionMode {
 class ObjectSelectionCatSub
 	: public Submenu {
 public:
-	ObjectSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<ObjectData> objects, ObjectSelectionMode mode, std::function<void(ObjectData)> onSelection);
+	ObjectSelectionCatSub(MenuController* menuController, const std::string title, const std::vector<ObjectData>& objects, ObjectSelectionMode mode, std::function<void(ObjectData)> onSelection);
 
 	void Draw() override;
 	void SelectionDidChange(int to, int from);
@@ -21,7 +21,7 @@ public:
 
 private:
 	std::function<void(ObjectData)> onSelection;
-	const std::vector<ObjectData> objects;
+	const std::vector<ObjectData>& objects;
 	const std::string title;
 	ObjectSelectionMode mode;
 };
@@ -40,7 +40,7 @@ public:
 	void SubDidAppear() override;
 
 private:
-	std::vector<std::pair<std::string, std::vector<ObjectData>>> objects;
+	const std::vector<std::pair<std::string, std::vector<ObjectData>>>& objects;
 	std::vector<std::pair<std::string, int>> objectCats;
 	std::function<void(ObjectData)> onSelection;
 	ObjectSelectionMode mode;

@@ -11,12 +11,12 @@
 #include "pch.h"
 #include "WeaponSelection.h"
 #include "WeaponManager.h"
-#include "JsonData.h"
+#include "EntityLists.h"
 #include "Controls.h"
 
 #pragma region Manage weapon
 
-ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, WeaponData weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, const WeaponData& weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
 	: Submenu(menuController), ped(ped), weapon(weapon), onEquip(onEquip), onRemove(onRemove)
 {}
 
@@ -54,7 +54,7 @@ void ManageWeaponSub::Draw()
 
 #pragma region Weapon category
 
-WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, const std::vector<WeaponData>& weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
 	: Submenu(menuController), ped(ped), catName(catName), weapons(weapons), onEquip(onEquip), onRemove(onRemove)
 {}
 
@@ -87,7 +87,7 @@ void WeaponSelectionCatSub::RespondToControls()
 #pragma region Weapon category selection
 
 WeaponSelectionSub::WeaponSelectionSub(MenuController* menuController, Ped ped, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
-	: Submenu(menuController), weaponCats(JSONData::GetWeapons()), ped(ped), onEquip(onEquip)
+	: Submenu(menuController), weaponCats(EntityLists::weapons), ped(ped), onEquip(onEquip)
 {}
 
 void WeaponSelectionSub::Draw()
