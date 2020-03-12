@@ -129,8 +129,8 @@ namespace Spawner {
 
 		auto&& currentRotation = CAM::GET_CAM_ROT(cam, 2);
 
-		if (currentRotation.x >= 86.0f && nextRotationOffset.x > 0
-			|| currentRotation.x <= -86.0f && nextRotationOffset.x < 0)
+		if (currentRotation.x + nextRotationOffset.x >= 85.0f
+			|| currentRotation.x  + nextRotationOffset.x <= -85.0f)
 			nextRotationOffset.x = 0; // Make sure it doesn't try to go over top or bottom
 
 		CAM::SET_CAM_ROT(cam, currentRotation.x + nextRotationOffset.x, currentRotation.y + nextRotationOffset.y, currentRotation.z + nextRotationOffset.z, 2);

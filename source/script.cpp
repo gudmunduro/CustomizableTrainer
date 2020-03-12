@@ -64,7 +64,7 @@ void setupLogging()
 	file.close();
 	
 	// Setup logger
-	auto fileLogger = spdlog::basic_logger_mt("", "CustomizableTrainer\\logs.txt");
+	auto fileLogger = spdlog::basic_logger_mt("default", "CustomizableTrainer\\logs.txt");
 	spdlog::set_default_logger(fileLogger);
 }
 
