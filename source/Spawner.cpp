@@ -330,22 +330,16 @@ namespace Spawner {
 
 	void ShowControlTest(Hash control, std::string text)
 	{
-		char* textVarString = Game::GetVarString(text);
-
-		int prompt = UI::_UIPROMPT_REGISTER_BEGIN();
-		UI::_0xF4A5C4509BF923B1(prompt, 0);
-		UI::_UIPROMPT_SET_TEXT(prompt, "WARDROBE_INSPECT_PROMPT");
-		UI::_UIPROMPT_SET_CONTROL_ACTION(prompt, XboxControl::INPUT_FRONTEND_ACCEPT);
-		UI::_UIPROMPT_SET_HOLD_INDEFINITELY_MODE(prompt);
-		UI::_UIPROMPT_REGISTER_END(prompt);
-
-		UI::_UIPROMPT_SET_ENABLED(prompt, true);
-		UI::_UIPROMPT_SET_VISIBLE(prompt, true);
+		Game::DrawText(" Move", { 50, 70 });
 	}
 
-	void Spawner::ShowControls()
+	void Spawner::DrawControls()
 	{
-		ShowControlTest(0, "Test");
+		char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", "~INPUTGROUP_MOVE~ Move");
+		// UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
+		// UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
+		// Game::DrawText("~INPUTGROUP_MOVE~ Move", { 50, 70 }, 40.0f);
+		UI::DRAW_TEXT(varString, 50.0f / 100.0f, 70.0f / 100.0f);
 	}
 
 	void Spawner::HideControls()
@@ -396,6 +390,7 @@ namespace Spawner {
 
 		RespondToControls();
 		DrawMiddleCross();
+		// DrawControls();
 
 		if (isSelectingEntityForSpawn)
 			ShowSpawnerModePreview();

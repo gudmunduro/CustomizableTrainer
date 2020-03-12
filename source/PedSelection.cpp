@@ -111,6 +111,28 @@ void PedCatSelectionSub::Draw()
 
 	DrawTitle("Peds");
 
+	DrawAction("Custom input", [this] {
+		if (auto&& modelName = Game::GetInputWithKeyboard(); modelName) {
+			switch (mode) {
+			case PedSelectionMode::Spawn:
+				Actions::SpawnPed({ *modelName });
+				break;
+			case PedSelectionMode::SpawnerMode:
+				Spawner::Spawner::SetEntityForSpawner(*modelName, EntityType::Ped);
+				Spawner::Spawner::SpawnSelectedEntity();
+				Spawner::Spawner::DisableSpawnerMode();
+				break;
+			case PedSelectionMode::ModelSelection:
+				Player().SetModel(String::Hash(*modelName));
+				break;
+			case PedSelectionMode::Select:
+				onSelection({ *modelName, *modelName });
+				menuController->GoToLastSub();
+				break;
+			}
+		}
+	});
+
 	for (auto && pedType : peds) {
 		DrawSubAction(pedType.first, [this, pedType] {
 			auto subCat = new PedSubCatSelectionSub(menuController, mode, pedType.second, onSelection);

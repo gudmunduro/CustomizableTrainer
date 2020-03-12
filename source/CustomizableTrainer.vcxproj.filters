@@ -339,6 +339,9 @@
     <ClInclude Include="CustomSubmenu.h">
       <Filter>Headers\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectSelection.h">
+      <Filter>Headers\Menu\Submenus\Selection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -541,6 +544,9 @@
     </ClCompile>
     <ClCompile Include="CustomSubmenu.cpp">
       <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSelection.cpp">
+      <Filter>Source\Menu\Submenus\Selection</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -312,7 +312,7 @@ std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehic
 		return vehicleData;
 	}
 	catch (std::exception e) {
-		Game::PrintSubtitle("Failed to parse weapons.json");
+		Game::PrintSubtitle("Failed to parse vehicles.json");
 	}
 
 	return std::vector<std::pair<std::string, std::vector<VehicleData>>>();
@@ -350,6 +350,32 @@ std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>
 	}
 
 	return std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>();
+}
+
+// objects.json
+
+std::vector<std::pair<std::string, std::vector<ObjectData>>> JSONData::GetObjects()
+{
+	try {
+		json objectCats = LoadJSONFile("CustomizableTrainer\\objects.json");
+
+		std::vector<std::pair<std::string, std::vector<ObjectData>>> vehicleData;
+
+		for (auto&& objectCat : objectCats) {
+
+			std::vector<ObjectData> objectCatVec
+				= objectCat["objects"].get<std::vector<ObjectData>>();
+
+			vehicleData.push_back(std::pair(objectCat["name"], objectCatVec));
+		}
+
+		return vehicleData;
+	}
+	catch (std::exception e) {
+		Game::PrintSubtitle("Failed to parse objects.json");
+	}
+
+	return std::vector<std::pair<std::string, std::vector<ObjectData>>>();
 }
 
 // Spawner data (custom filename)

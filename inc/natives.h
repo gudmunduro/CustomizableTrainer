@@ -4848,9 +4848,9 @@ namespace UI
 	static void _0xC5F428EE08FA7F2C(Any p0, Any p1) { invoke<Void>(0xC5F428EE08FA7F2C, p0, p1); }
 	static BOOL _0x1FBA0DABECDDB52B(Any p0) { return invoke<BOOL>(0x1FBA0DABECDDB52B, p0); }
 	static void _0xDEC85C174751292B(Any p0, Any* p1) { invoke<Void>(0xDEC85C174751292B, p0, p1); }
-	static Any _0xB796970BD125FCE8(Any p0) { return invoke<Any>(0xB796970BD125FCE8, p0); }
+	static Any _UIPROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(Any p0) { return invoke<Any>(0xB796970BD125FCE8, p0); }
 	static Any _0xCB73D7521E7103F0(Any p0, Any p1) { return invoke<Any>(0xCB73D7521E7103F0, p0, p1); }
-	static void _0x2F11D3A254169EA4(Any p0, Any p1, Any p2) { invoke<Void>(0x2F11D3A254169EA4, p0, p1, p2); }
+	static void _UIPROMPT_SET_GROUP(Any p0, Any p1, Any p2) { invoke<Void>(0x2F11D3A254169EA4, p0, p1, p2); }
 	static void _0x4E52C800A28F7BE8(Any p0, Any p1) { invoke<Void>(0x4E52C800A28F7BE8, p0, p1); }
 	static Any _0xC65A45D4453C2627(Any p0, Any* p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xC65A45D4453C2627, p0, p1, p2, p3, p4, p5); }
 	static Any _0xC1FCC36C3F7286C8(Any p0) { return invoke<Any>(0xC1FCC36C3F7286C8, p0); }

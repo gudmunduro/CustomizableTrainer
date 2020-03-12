@@ -135,6 +135,11 @@ struct PedData {
 	std::string model;
 };
 
+struct ObjectData {
+	std::string name;
+	std::string model;
+};
+
 #pragma endregion
 
 #pragma region Operator overloads
@@ -213,6 +218,17 @@ inline void to_json(json& j, const WeaponData& w) {
 }
 
 inline void from_json(const json& j, WeaponData& w) {
+	j.at("name").get_to(w.name);
+	j.at("model").get_to(w.model);
+}
+
+// ObjectData
+
+inline void to_json(json& j, const ObjectData& w) {
+	j = json{ {"name", w.name}, {"model", w.model} };
+}
+
+inline void from_json(const json& j, ObjectData& w) {
 	j.at("name").get_to(w.name);
 	j.at("model").get_to(w.model);
 }

@@ -136,6 +136,7 @@
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="CameraUtils.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectSelection.h" />
     <ClInclude Include="PedSelection.h" />
     <ClInclude Include="SettingsAddOptionToSaveSub.h" />
     <ClInclude Include="SettingsOptionsToSaveSub.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="CameraUtils.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectSelection.cpp" />
     <ClCompile Include="PedSelection.cpp" />
     <ClCompile Include="SettingsAddOptionToSaveSub.cpp" />
     <ClCompile Include="SettingsOptionsToSaveSub.cpp" />

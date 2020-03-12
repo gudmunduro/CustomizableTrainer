@@ -119,6 +119,11 @@ Vector3 Entity::Rotation()
 	return ENTITY::GET_ENTITY_ROTATION(id, 2);
 }
 
+int Entity::PromptGroup()
+{
+	return UI::_UIPROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(id);
+}
+
 Vector3 Entity::GetOffsetInWorldCoords(Vector3 offset)
 {
 	return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(id, offset.x, offset.y, offset.z);

@@ -47,7 +47,7 @@ namespace Spawner {
 		static void MoveEntityToFreecamPos();
 		static void SelectForMoveTick();
 		static void DrawMiddleCross();
-		static void ShowControls();
+		static void DrawControls();
 		static void HideControls();
 		static void RespondToEntityRotationControls();
 		static void RespondToControls();

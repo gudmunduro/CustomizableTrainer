@@ -60,6 +60,25 @@ void VehicleSelectionSub::Draw()
 	Submenu::Draw();
 
 	DrawTitle("Vehicles");
+
+	DrawAction("Custom input", [this] {
+		if (auto&& modelName = Game::GetInputWithKeyboard(); modelName) {
+			switch (mode) {
+				case VehicleSelectionMode::Spawn:
+					Actions::SpawnVehicle({ *modelName });
+					break;
+				case VehicleSelectionMode::SpawnerMode:
+					Spawner::Spawner::SetEntityForSpawner(*modelName, EntityType::Vehicle);
+					Spawner::Spawner::SpawnSelectedEntity();
+					Spawner::Spawner::DisableSpawnerMode();
+					break;
+				case VehicleSelectionMode::Select:
+					onSelection({ *modelName, *modelName });
+					menuController->GoToLastSub();
+					break;
+			}
+		}
+	});
 	
 	for (auto && vehicleCat : vehicles) {
 		DrawSubAction(vehicleCat.first, [this, vehicleCat] {
