@@ -11,6 +11,8 @@ void SpawnerSettingsSub::Draw()
 {
 	Submenu::Draw();
 
+	DrawTitle("Settings");
+
 	DrawToggle("Spawn vehicles frozen", Settings::Spawner::spawnVehiclesFrozen, [] {
 		Settings::Spawner::spawnVehiclesFrozen = !Settings::Spawner::spawnVehiclesFrozen;
 		JSONData::SaveMenuSettings();

@@ -4801,7 +4801,7 @@ namespace UI
 	static Any _0x29FA7910726C3889(Any p0, Any* p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x29FA7910726C3889, p0, p1, p2, p3, p4, p5); }
 	static int _UIPROMPT_REGISTER_BEGIN() { return invoke<int>(0x04F97DE45A519419); }
 	static void _UIPROMPT_REGISTER_END(Any p0) { invoke<Void>(0xF7AA2696A22AD8B9, p0); }
-	static void _0xCA24F528D0D16289(Any p0, Any p1) { invoke<Void>(0xCA24F528D0D16289, p0, p1); }
+	static void _UIPROMPT_SET_PRIORITY(Any p0, Any p1) { invoke<Void>(0xCA24F528D0D16289, p0, p1); }
 	static Any _UIPROMPT_SET_CONTROL_ACTION(int p0, Hash control) { return invoke<Any>(0xB5352B7494A08258, p0, control); }
 	static void _0x565C1CE183CB0EAF(Any p0, Any p1) { invoke<Void>(0x565C1CE183CB0EAF, p0, p1); }
 	static void _0xCC6656799977741B(Any p0, Any p1) { invoke<Void>(0xCC6656799977741B, p0, p1); }

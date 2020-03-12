@@ -33,6 +33,12 @@ namespace Spawner {
 		entity.SetVisible(visible);
 	}
 
+	void DatabaseItem::SetDynamic(bool dynamic)
+	{
+		isDynamic = dynamic;
+		entity.SetDynamic(dynamic);
+	}
+
 	void DatabaseItem::SetCollisionEnabled(bool enabled)
 	{
 		isCollisionEnabled = enabled;
@@ -61,6 +67,11 @@ namespace Spawner {
 	bool DatabaseItem::IsVisible()
 	{
 		return isVisible;
+	}
+
+	bool DatabaseItem::IsDynamic()
+	{
+		return isDynamic;
 	}
 
 	bool DatabaseItem::IsCollisionEnabled()
@@ -98,6 +109,16 @@ namespace Spawner {
 	bool PedDatabaseItem::IsBodyguard()
 	{
 		return isBodyguard;
+	}
+
+#pragma endregion
+
+#pragma region Object database item
+
+	ObjectDatabaseItem::ObjectDatabaseItem(ObjectId object, std::string model)
+		: DatabaseItem(object, model)
+	{
+		isDynamic = false;
 	}
 
 #pragma endregion

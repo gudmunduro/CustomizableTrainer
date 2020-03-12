@@ -28,6 +28,7 @@ public:
 
 	void SetHealth(int health);
 	void SetVisible(bool visible);
+	void SetDynamic(bool dynamic);
 	void SetCoords(Vector3 coords);
 	void SetRotation(Vector3 rotation);
 	void SetCoordsNoOffset(Vector3 coords, bool xAxis = false, bool yAxis = false, bool zAxis = true);

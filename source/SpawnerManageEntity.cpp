@@ -52,6 +52,11 @@ void SpawnerManageEntity::Draw()
 		});
 	}
 
+	DrawToggle("Dynamic", dbItem->IsFrozen(), [this] {
+		bool toggledValue = !dbItem->IsDynamic();
+		dbItem->SetDynamic(toggledValue);
+		dbItem->SetFrozen(!toggledValue);
+	});
 	DrawToggle("Frozen", dbItem->IsFrozen(), [this] {
 		bool toggledValue = !dbItem->IsFrozen();
 		dbItem->SetFrozen(toggledValue);

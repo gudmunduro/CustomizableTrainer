@@ -36,8 +36,3 @@ void SpawnerSub::Draw()
 	});
 
 }
-
-void SpawnerSub::SubDidDraw()
-{
-	Submenu::SubDidDraw();
-}

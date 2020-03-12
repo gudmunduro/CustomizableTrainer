@@ -21,12 +21,14 @@ namespace Spawner {
 
 		virtual void SetInvincible(bool enabled);
 		virtual void SetVisible(bool visible);
+		virtual void SetDynamic(bool dynamic);
 		virtual void SetCollisionEnabled(bool enabled);
 		virtual void SetFrozen(bool frozen);
 		virtual void SetGravityEnabled(bool gravityEnabled);
 
 		bool IsInvincible();
 		bool IsVisible();
+		bool IsDynamic();
 		bool IsCollisionEnabled();
 		bool IsFrozen();
 		bool IsGravityEnabled();
@@ -35,6 +37,7 @@ namespace Spawner {
 		// Options
 		bool isInvincible = false;
 		bool isVisible = true;
+		bool isDynamic = true;
 		bool isCollisionEnabled = true;
 		bool isFrozen = false;
 		bool isGravityEnabled = true;
@@ -71,8 +74,7 @@ namespace Spawner {
 	class ObjectDatabaseItem
 		: public DatabaseItem {
 	public:
-		ObjectDatabaseItem(ObjectId object, std::string model)
-			: DatabaseItem(object, model) {}
+		ObjectDatabaseItem(ObjectId object, std::string model);
 
 	};
 }

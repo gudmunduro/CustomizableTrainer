@@ -41,6 +41,11 @@ void Entity::SetVisible(bool visible)
 	ENTITY::SET_ENTITY_VISIBLE(id, visible);
 }
 
+void Entity::SetDynamic(bool dynamic)
+{
+	ENTITY::SET_ENTITY_DYNAMIC(id, dynamic);
+}
+
 void Entity::SetCoords(Vector3 coords)
 {
 	ENTITY::SET_ENTITY_COORDS(id, coords.x, coords.y, coords.z, false, false, false, true);

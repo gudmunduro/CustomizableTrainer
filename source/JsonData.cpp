@@ -693,6 +693,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 				{"heading", ped.Heading()},
 				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
+				{"dynamic", dbItem->IsDynamic()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
 				{"gravity", dbItem->IsGravityEnabled()},
@@ -715,6 +716,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 				{"heading", vehicle.Heading()},
 				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
+				{"dynamic", dbItem->IsDynamic()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
 				{"gravity", dbItem->IsGravityEnabled()}
@@ -735,6 +737,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 				{"heading", object.Heading()},
 				{"invincible", dbItem->IsInvincible()},
 				{"visible", dbItem->IsVisible()},
+				{"dynamic", dbItem->IsDynamic()},
 				{"frozen", dbItem->IsFrozen()},
 				{"collision", dbItem->IsCollisionEnabled()},
 				{"gravity", dbItem->IsGravityEnabled()}

@@ -9,7 +9,6 @@ public:
 	SpawnerSub(MenuController *menuController);
 
 	void Draw() override;
-	void SubDidDraw() override;
 
 };
 
