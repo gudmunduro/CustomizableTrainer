@@ -58,7 +58,13 @@ void loadInitialOptionStates()
 
 void setupLogging()
 {
-	auto fileLogger = spdlog::basic_logger_mt("basic_logger", "CustomizableTrainer\\logs.txt");
+	// Clear logs file
+	std::ofstream file("CustomizableTrainer\\logs.txt");
+	file << "";
+	file.close();
+	
+	// Setup logger
+	auto fileLogger = spdlog::basic_logger_mt("", "CustomizableTrainer\\logs.txt");
 	spdlog::set_default_logger(fileLogger);
 }
 

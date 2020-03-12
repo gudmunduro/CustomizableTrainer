@@ -89,6 +89,7 @@ std::map<std::string, SubmenuData> JSONData::GetLayoutAsMap()
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse layout.json");
+		spdlog::error("Failed to parse layout.json with error '{}'", e.what());
 	}
 	return std::map<std::string, SubmenuData>();
 }
@@ -132,6 +133,7 @@ void JSONData::UpdateOptionStates()
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse optionStates.json");
+		spdlog::error("Failed to parse optionStates.json with error '{}'", e.what());
 	}
 }
 
@@ -214,8 +216,8 @@ void JSONData::UpdateMenuSettings()
 		Settings::Controls::Controller::BoatFlyModeYawRight = String::Hash(controllerControls["boatFlyModeYawRight"].get<std::string>());
 	}
 	catch (const std::exception & e) {
-		// Game::PrintSubtitle("Error: Failed to parse settings.json");
-		Game::PrintSubtitle(e.what());
+		Game::PrintSubtitle("Error: Failed to parse settings.json");
+		spdlog::error("Failed to parse settings.json with error '{}'", e.what());
 	}
 }
 
@@ -249,6 +251,7 @@ std::vector<Hotkey> JSONData::GetHotkeysAsVector()
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse hotkeys.json");
+		spdlog::error("Failed to parse hotkeys.json with error '{}'", e.what());
 	}
 
 	return std::vector<Hotkey>();
@@ -281,6 +284,7 @@ std::vector<std::pair<std::string, std::vector<WeaponData>>> JSONData::GetWeapon
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse weapons.json");
+		spdlog::error("Failed to parse weapons.json with error '{}'", e.what());
 	}
 
 	return std::vector<std::pair<std::string, std::vector<WeaponData>>>();
@@ -313,6 +317,7 @@ std::vector<std::pair<std::string, std::vector<VehicleData>>> JSONData::GetVehic
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse vehicles.json");
+		spdlog::error("Failed to parse vehicles.json with error '{}'", e.what());
 	}
 
 	return std::vector<std::pair<std::string, std::vector<VehicleData>>>();
@@ -347,6 +352,7 @@ std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse peds.json");
+		spdlog::error("Failed to parse peds.json with error '{}'", e.what());
 	}
 
 	return std::map<std::string, std::vector<std::pair<std::string, std::vector<PedData>>>>();
@@ -373,6 +379,7 @@ std::vector<std::pair<std::string, std::vector<ObjectData>>> JSONData::GetObject
 	}
 	catch (std::exception e) {
 		Game::PrintSubtitle("Failed to parse objects.json");
+		spdlog::error("Failed to parse objects.json with error '{}'", e.what());
 	}
 
 	return std::vector<std::pair<std::string, std::vector<ObjectData>>>();
@@ -404,7 +411,8 @@ void JSONData::LoadSpawnerDataFromFile(std::string name)
 		TaskQueue::Wait(10);
 	}
 	catch (std::exception & e) {
-		Game::PrintDebug(e.what());
+		Game::PrintSubtitle("Failed to parse file");
+		spdlog::error("Failed to parse spawner file with error '{}'", e.what());
 	}
 }
 
@@ -544,6 +552,7 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 	}
 	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save settings");
+		spdlog::error("Failed to save settings with error '{}'", e.what());
 	}
 }
 
@@ -589,6 +598,7 @@ void JSONData::SaveHotkeys(std::vector<Hotkey> hotkeys)
 	}
 	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save hotkeys");
+		spdlog::error("Failed to save hotkeys with error '{}'", e.what());
 	}
 }
 
@@ -631,6 +641,7 @@ void JSONData::SaveOptionStates()
 	}
 	catch (std::exception& e) {
 		Game::PrintSubtitle("Failed to save option states");
+		spdlog::error("Failed to save option states with error '{}'", e.what());
 	}
 }
 
@@ -716,7 +727,8 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 		WriteFile("CustomizableTrainer\\Spawner\\" + name + ".json", jsonObject.dump());
 	}
 	catch (std::exception & e) {
-		Game::PrintSubtitle("Failed to save map");
+		Game::PrintSubtitle("Failed to save spawned entities to file");
+		spdlog::error("Failed to save spawner file with error '{}'", e.what());
 	}
 }
 
