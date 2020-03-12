@@ -8,19 +8,18 @@ namespace Spawner {
 
 #pragma region Add
 
-	void Database::Add(EntityId entityId, EntityType type, std::string model)
+	int Database::Add(EntityId entityId, EntityType type, std::string model)
 	{
 		switch (type) {
 			case EntityType::Ped:
-				AddPed(entityId, model);
-				break;
+				return AddPed(entityId, model);
 			case EntityType::Vehicle:
-				AddVehicle(entityId, model);
-				break;
+				return AddVehicle(entityId, model);
 			case EntityType::Object:
-				AddObject(entityId, model);
-				break;
+				return AddObject(entityId, model);
 		}
+
+		return 0;
 	}
 
 	int Database::AddPed(PedId ped, std::string model)

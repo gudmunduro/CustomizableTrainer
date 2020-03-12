@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "CameraUtils.h"
 #include "Raycast.h"
+#include "MenuSettings.h"
 
 namespace Spawner {
 
@@ -193,29 +194,37 @@ namespace Spawner {
 		Game::RequestModel(model);
 
 		switch (selectedEntityForSpawnType) {
-		case EntityType::Object:
-			spawnedEntity
-				= OBJECT::CREATE_OBJECT(model, pos.x, pos.y, pos.z, false, false, false, false, false);
-			break;
-		case EntityType::Vehicle:
-			spawnedEntity
-				= VEHICLE::CREATE_VEHICLE(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
-			break;
-		case EntityType::Ped:
-			spawnedEntity
-				= PED::CREATE_PED(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
-			PED::SET_PED_VISIBLE(spawnedEntity, true);
-			break;
-		default:
-			Game::PrintSubtitle("Error: Invalid entitiy type");
-			return;
+			case EntityType::Object:
+				spawnedEntity
+					= OBJECT::CREATE_OBJECT(model, pos.x, pos.y, pos.z, false, false, false, false, false);
+				break;
+			case EntityType::Vehicle:
+				spawnedEntity
+					= VEHICLE::CREATE_VEHICLE(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
+				break;
+			case EntityType::Ped:
+				spawnedEntity
+					= PED::CREATE_PED(model, pos.x, pos.y, pos.z, 0, false, false, false, false);
+				PED::SET_PED_VISIBLE(spawnedEntity, true);
+				break;
+			default:
+				Game::PrintSubtitle("Error: Invalid entitiy type");
+				return;
 		}
 
 		ENTITY::SET_ENTITY_ROTATION(spawnedEntity, rot.x, rot.y, rot.z, 2, false);
-
 		Game::SetModelAsNoLongerNeeded(model);
 
-		database.Add(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel);
+		int dbItemIndex = database.Add(spawnedEntity, selectedEntityForSpawnType, selectedEntityForSpawnModel);
+
+		switch (selectedEntityForSpawnType) {
+			case EntityType::Vehicle:
+				database.vehicles[dbItemIndex]->SetFrozen(Settings::Spawner::spawnVehiclesFrozen);
+				break;
+			case EntityType::Ped:
+				database.peds[dbItemIndex]->SetFrozen(Settings::Spawner::spawnPedsFrozen);
+				break;
+		}
 	}
 
 	void Spawner::SpawnFromData(std::string model, EntityType type, json data)
@@ -386,11 +395,11 @@ namespace Spawner {
 			if (!isSelectingEntityForSpawn) {
 				SelectForMoveTick();
 			}
+			DrawMiddleCross();
+			// DrawControls();
 		}
 
 		RespondToControls();
-		DrawMiddleCross();
-		// DrawControls();
 
 		if (isSelectingEntityForSpawn)
 			ShowSpawnerModePreview();

@@ -19,7 +19,7 @@ namespace Spawner {
 	public:
 		Database();
 
-		void Add(EntityId entityId, EntityType type, std::string model);
+		int Add(EntityId entityId, EntityType type, std::string model);
 		int AddPed(PedId ped, std::string model);
 		int AddVehicle(VehicleId vehicle, std::string model);
 		int AddObject(ObjectId object, std::string model);

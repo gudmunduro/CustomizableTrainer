@@ -23,6 +23,15 @@ namespace Settings {
 
 #pragma endregion
 
+#pragma region Spawner
+
+	namespace Spawner {
+		inline bool spawnVehiclesFrozen = false;
+		inline bool spawnPedsFrozen = false;
+	}
+
+#pragma endregion
+
 #pragma region Colors
 
 	namespace Colors {

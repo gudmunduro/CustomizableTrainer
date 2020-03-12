@@ -3,6 +3,7 @@
 #include "SpawnerModelSelection.h"
 #include "SpawnerManageEntities.h"
 #include "SpawnerLoadSub.h"
+#include "SpawnerSettingsSub.h"
 #include "JsonData.h"
 
 SpawnerSub::SpawnerSub(MenuController* menuController)
@@ -13,7 +14,7 @@ void SpawnerSub::Draw()
 {
 	Submenu::Draw();
 
-	DrawTitle("Spawner");
+	DrawTitle("Object spawner");
 	DrawToggle("Freecam", Spawner::Spawner::IsFreeCamEnabled(), [this] {
 		Spawner::Spawner::SetFreeCamEnabled(!Spawner::Spawner::IsFreeCamEnabled());
 	});
@@ -29,8 +30,9 @@ void SpawnerSub::Draw()
 		auto loadSub = new SpawnerLoadSub(menuController);
 		menuController->AddSubmenuToStack(loadSub);
 	});
-	DrawSubAction("Settings", [] {
-		Game::PrintSubtitle("Not implemented");
+	DrawSubAction("Settings", [this] {
+		auto settingsSub = new SpawnerSettingsSub(menuController);
+		menuController->AddSubmenuToStack(settingsSub);
 	});
 
 }

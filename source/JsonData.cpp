@@ -150,6 +150,14 @@ void JSONData::UpdateMenuSettings()
 		if (settingsData.contains("debug"))
 			Settings::General::debug = settingsData["debug"].get<bool>();
 
+		// Spawner
+		if (settingsData.contains("spawner")) {
+			if (settingsData["spawner"].contains("spawnVehiclesFrozen"))
+				Settings::Spawner::spawnVehiclesFrozen = settingsData["spawner"]["spawnVehiclesFrozen"];
+			if (settingsData["spawner"].contains("spawnPedsFrozen"))
+				Settings::Spawner::spawnPedsFrozen = settingsData["spawner"]["spawnPedsFrozen"];
+		}
+
 		// Colors
 		Settings::Colors::titleBarBorder = Settings::colorFromJSON(settingsData["titleBarBorderColor"]);
 		Settings::Colors::titleBarText = Settings::colorFromJSON(settingsData["titleBarTextColor"]);
@@ -477,6 +485,12 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 			// General
 			{ "playUiSounds", Settings::General::playUiSounds },
 			{ "debug", Settings::General::debug },
+
+			// Spawner
+			{ "spawner", {
+				{ "spawnVehiclesFrozen", Settings::Spawner::spawnVehiclesFrozen },
+				{ "spawnPedsFrozen", Settings::Spawner::spawnPedsFrozen }
+			}},
 
 			// Colors
 			{ "titleBarBorderColor", Settings::jsonFromColor(Settings::Colors::titleBarBorder) },
