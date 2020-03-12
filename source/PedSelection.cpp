@@ -65,16 +65,15 @@ void PedSelectionSub::SelectionDidChange(int to, int from)
 
 #pragma region Sub Category list
 
-PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection)
-	: Submenu(menuController), mode(mode), onSelection(onSelection), peds(peds)
-{
-}
+PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::string title, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection)
+	: Submenu(menuController), mode(mode), onSelection(onSelection), peds(peds), title(title)
+{}
 
 void PedSubCatSelectionSub::Draw()
 {
 	Submenu::Draw();
 
-	DrawTitle("Peds");
+	DrawTitle(title);
 
 	for (auto && pedCat : peds) {
 		DrawSubAction(pedCat.first, [this, pedCat] {
@@ -135,7 +134,7 @@ void PedCatSelectionSub::Draw()
 
 	for (auto && pedType : peds) {
 		DrawSubAction(pedType.first, [this, pedType] {
-			auto subCat = new PedSubCatSelectionSub(menuController, mode, pedType.second, onSelection);
+			auto subCat = new PedSubCatSelectionSub(menuController, mode, pedType.first, pedType.second, onSelection);
 			menuController->AddSubmenuToStack(subCat);
 		});
 	}

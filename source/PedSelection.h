@@ -33,7 +33,7 @@ private:
 class PedSubCatSelectionSub
 	: public Submenu {
 public:
-	PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection);
+	PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::string title, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection);
 
 	void Draw() override;
 
@@ -43,6 +43,7 @@ private:
 	const std::vector<std::pair<std::string, std::vector<PedData>>>& peds;
 	std::function<void(PedData)> onSelection;
 	PedSelectionMode mode;
+	std::string title;
 };
 
 #pragma endregion
