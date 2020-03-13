@@ -29,6 +29,7 @@ namespace Spawner {
 
 		if (enabled) {
 			TaskQueue::AddTask("spawner", Tick);
+			DrawControls();
 		}
 		else {
 			TaskQueue::RemoveTask("spawner");
@@ -67,11 +68,28 @@ namespace Spawner {
 		selectedEntityRot = { 0, 0, 0 };
 	}
 
-	void Spawner::SetSelectedEntityForMove(EntityId entity) 
+	void Spawner::SetSelectedEntityForMove(EntityId entityId) 
 	{
+		auto entity = Entity(entityId);
+
 		isMovingEntity = true;
-		selectedEntityForMove = entity;
-		selectedEntityRot = Entity(entity).Rotation();
+		selectedEntityForMove = entityId;
+		selectedEntityRot = entity.Rotation();
+
+		if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
+			if (auto dbItem = database.FindByEntityId(entityId); dbItem) {
+				dbItem.value()->SetDynamic(false);
+			}
+			else {
+				entity.SetFrozen(true);
+				entity.SetDynamic(false);
+			}
+
+			entity.SetCollisionEnabled(false);
+			auto pos = entity.GetOffsetInWorldCoords({ 0, -8.0f, 0 });
+			CAM::SET_CAM_COORD(camera.value()->cam, pos.x, pos.y, pos.z);
+			CAM::SET_CAM_ROT(camera.value()->cam, selectedEntityRot.x, selectedEntityRot.y, selectedEntityRot.z, 2);
+		}
 	}
 
 	void Spawner::DisableSpawnerMode()
@@ -103,6 +121,17 @@ namespace Spawner {
 			*position = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
 		}
 
+		*rotation = rot;
+	}
+
+	void Spawner::GetPosInFrontOfFreecam(Vector3* position, Vector3* rotation)
+	{
+		auto&& cam = (camera.value());
+		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
+		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
+
+		Vector3 offset = { 0, 8.0f, 0 };
+		*position = CameraUtils::GetOffsetFromCameraInWorldCoords(cam->cam, offset);
 		*rotation = rot;
 	}
 
@@ -232,6 +261,7 @@ namespace Spawner {
 		std::shared_ptr<DatabaseItem> dbItem = nullptr;
 
 		Vector3 pos = { data["position"]["x"], data["position"]["y"], data["position"]["z"] };
+		Vector3 rot = { data["rotation"]["pitch"], data["rotation"]["roll"], data["rotation"]["yaw"] };
 		float heading = data["heading"];
 
 		switch (type) {
@@ -279,6 +309,8 @@ namespace Spawner {
 		dbItem->SetFrozen(data["frozen"]);
 		dbItem->SetGravityEnabled(data["gravity"]);
 
+		Entity(dbItem->entityId).SetRotation(rot);
+
 		switch (type) {
 		case EntityType::Ped:
 			database.AddPedRaw(std::static_pointer_cast<PedDatabaseItem>(dbItem));
@@ -303,10 +335,16 @@ namespace Spawner {
 
 		Vector3 nextPos, nextRot;
 
-		GetFreecamAimPos(&nextPos, &nextRot, selectedEntityForMove);
+		if (Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase) {
+			GetFreecamAimPos(&nextPos, &nextRot, selectedEntityForMove);
+			ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, selectedEntityRot.x, selectedEntityRot.y, nextRot.z, 2, false);
+		}
+		else {
+			GetPosInFrontOfFreecam(&nextPos, &nextRot);
+			ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, nextRot.x, nextRot.y, nextRot.z, 2, false);
+		}
 
 		ENTITY::SET_ENTITY_COORDS(selectedEntityForMove, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
-		ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, selectedEntityRot.x, selectedEntityRot.y, nextRot.z, 2, false);
 	}
 
 	void Spawner::SelectForMoveTick()
@@ -325,8 +363,15 @@ namespace Spawner {
 			MoveEntityToFreecamPos();
 			middleCrossColor = { 0, 100, 0, 200 };
 		}
-		else if (isMovingEntity)
+		else if (isMovingEntity) {
 			isMovingEntity = false;
+			
+			auto entity = Entity(selectedEntityForMove);
+			if (auto dbItem = database.FindByEntityId(selectedEntityForMove); dbItem)
+				entity.SetCollisionEnabled(dbItem.value()->IsCollisionEnabled());
+			else
+				entity.SetCollisionEnabled(true);
+		}
 	}
 
 #pragma endregion
@@ -343,7 +388,7 @@ namespace Spawner {
 		Game::DrawText(" Move", { 50, 70 });
 	}*/
 
-	void ShowControlTest(Hash control, std::string text)
+	void ShowControlTest(Hash control, std::string text, int camId)
 	{
 		char* textVarString = Game::GetVarString(text);
 
@@ -354,6 +399,7 @@ namespace Spawner {
 		UI::_UIPROMPT_SET_HOLD_INDEFINITELY_MODE(prompt);
 		UI::_UIPROMPT_REGISTER_END(prompt);
 		UI::_UIPROMPT_SET_PRIORITY(prompt, 1);
+		UI::_UIPROMPT_SET_GROUP(prompt, Player().ped.PromptGroup(), 0);
 
 		UI::_UIPROMPT_SET_ENABLED(prompt, true);
 		UI::_UIPROMPT_SET_VISIBLE(prompt, true);
@@ -367,7 +413,7 @@ namespace Spawner {
 		// UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
 		// Game::DrawText("~INPUTGROUP_MOVE~ Move", { 50, 70 }, 40.0f);
 		//UI::DRAW_TEXT(varString, 50.0f / 100.0f, 70.0f / 100.0f);
-		ShowControlTest(0, "");
+		ShowControlTest(0, "", 0);
 	}
 
 	void Spawner::HideControls()
@@ -415,7 +461,7 @@ namespace Spawner {
 				SelectForMoveTick();
 			}
 			DrawMiddleCross();
-			DrawControls();
+			// DrawControls();
 		}
 
 		RespondToControls();

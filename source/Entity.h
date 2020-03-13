@@ -44,6 +44,9 @@ public:
 
 	bool Exists();
 	bool IsVisible();
+	bool IsPed();
+	bool IsVehicle();
+	bool IsObject();
 
 #pragma endregion
 

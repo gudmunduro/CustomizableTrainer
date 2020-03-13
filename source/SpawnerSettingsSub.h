@@ -6,5 +6,7 @@ class SpawnerSettingsSub :
 public:
 	SpawnerSettingsSub(MenuController *menuController);
 	void Draw() override;
+
+	std::string MoveModeTextValue();
 };
 

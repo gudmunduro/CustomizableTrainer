@@ -28,12 +28,13 @@ namespace Spawner {
 		int AddObjectRaw(std::shared_ptr<ObjectDatabaseItem> dbItem);
 
 		void RemoveAndDelete(std::shared_ptr<DatabaseItem> dbItem, EntityType type);
-
 		void Remove(std::shared_ptr<DatabaseItem> dbItem, EntityType type);
 		void RemovePed(int index);
 		void RemoveVehicle(int index);
 		void RemoveObject(int index);
 		void RemoveAndDeleteAll();
+
+		std::optional<std::shared_ptr<DatabaseItem>> FindByEntityId(EntityId id);
 
 		std::vector<std::shared_ptr<PedDatabaseItem>> peds;
 		std::vector<std::shared_ptr<VehicleDatabaseItem>> vehicles;

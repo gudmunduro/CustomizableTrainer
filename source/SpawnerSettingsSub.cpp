@@ -21,4 +21,24 @@ void SpawnerSettingsSub::Draw()
 		Settings::Spawner::spawnPedsFrozen = !Settings::Spawner::spawnPedsFrozen;
 		JSONData::SaveMenuSettings();
 	});
+	DrawTextList("Move mode", MoveModeTextValue(), [](bool dir) {
+		if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision)
+			Settings::Spawner::moveMode = SpawnerMoveMode::SurfaceEase;
+		else
+			Settings::Spawner::moveMode = SpawnerMoveMode::Precision;
+
+		JSONData::SaveMenuSettings();
+	});
+}
+
+std::string SpawnerSettingsSub::MoveModeTextValue()
+{
+	switch (Settings::Spawner::moveMode) {
+		case SpawnerMoveMode::SurfaceEase:
+			return "Surface ease";
+		case SpawnerMoveMode::Precision:
+			return "Precision";
+	}
+
+	return "Invalid";
 }

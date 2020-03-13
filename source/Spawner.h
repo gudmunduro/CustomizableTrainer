@@ -38,6 +38,7 @@ namespace Spawner {
 		static void SetSelectedEntityForMove(EntityId entity);
 		static void DisableSpawnerMode();
 		static void GetFreecamAimPos(Vector3* position, Vector3* rotation, EntityId ignore = 0);
+		static void GetPosInFrontOfFreecam(Vector3* position, Vector3* rotation);
 		static EntityId GetFreecamAimEntity();
 		static void GetPosInFrontOfPlayer(Vector3* position, Vector3* rotation);
 		static bool IsFreeCamEnabled();

@@ -100,6 +100,21 @@ bool Entity::IsVisible()
 	return ENTITY::IS_ENTITY_VISIBLE(id);
 }
 
+bool Entity::IsPed()
+{
+	return ENTITY::IS_ENTITY_A_PED(id);
+}
+
+bool Entity::IsVehicle()
+{
+	return ENTITY::IS_ENTITY_A_VEHICLE(id);
+}
+
+bool Entity::IsObject()
+{
+	return ENTITY::IS_ENTITY_AN_OBJECT(id);
+}
+
 #pragma endregion
 
 #pragma region Getters

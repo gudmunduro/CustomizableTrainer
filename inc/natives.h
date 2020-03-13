@@ -4861,7 +4861,7 @@ namespace UI
 	static void _0x876E4A35C73A6655(Any p0, Any p1) { invoke<Void>(0x876E4A35C73A6655, p0, p1); }
 	static void _0xF1622CE88A1946FB() { invoke<Void>(0xF1622CE88A1946FB); }
 	static void _0x00EDE88D4D13CF59(Any p0) { invoke<Void>(0x00EDE88D4D13CF59, p0); }
-	static BOOL _0x347469FBDD1589A9(Any p0) { return invoke<BOOL>(0x347469FBDD1589A9, p0); }
+	static BOOL _UIPROMPT_IS_VALID(Any p0) { return invoke<BOOL>(0x347469FBDD1589A9, p0); }
 	static BOOL _0x546E342E01DE71CF(Any p0) { return invoke<BOOL>(0x546E342E01DE71CF, p0); }
 	static void _UIPROMPT_SET_VISIBLE(int prompt, bool toggle) { invoke<Void>(0x71215ACCFDE075EE, prompt, toggle); }
 	static void _UIPROMPT_SET_ENABLED(int prompt, bool toggle) { invoke<Void>(0x8A0FB4D03A630D21, prompt, toggle); }

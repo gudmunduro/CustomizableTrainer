@@ -156,6 +156,8 @@ void JSONData::UpdateMenuSettings()
 				Settings::Spawner::spawnVehiclesFrozen = settingsData["spawner"]["spawnVehiclesFrozen"];
 			if (settingsData["spawner"].contains("spawnPedsFrozen"))
 				Settings::Spawner::spawnPedsFrozen = settingsData["spawner"]["spawnPedsFrozen"];
+			if (settingsData["spawner"].contains("moveMode"))
+				Settings::Spawner::moveMode = intToEnum<SpawnerMoveMode>(settingsData["spawner"]["spawnPedsFrozen"]);
 		}
 
 		// Colors
@@ -489,7 +491,8 @@ void JSONData::SaveMenuSettings(bool showSavedMessage)
 			// Spawner
 			{ "spawner", {
 				{ "spawnVehiclesFrozen", Settings::Spawner::spawnVehiclesFrozen },
-				{ "spawnPedsFrozen", Settings::Spawner::spawnPedsFrozen }
+				{ "spawnPedsFrozen", Settings::Spawner::spawnPedsFrozen },
+				{ "moveMode", enumToInt(Settings::Spawner::moveMode) }
 			}},
 
 			// Colors
@@ -682,6 +685,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["peds"]), [] (std::shared_ptr<Spawner::PedDatabaseItem> dbItem) {
 			auto ped = Ped(dbItem->entityId);
 			auto pos = ped.Position();
+			auto rot = ped.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
@@ -689,6 +693,11 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
+				}},
+				{"rotation", {
+					{ "pitch", rot.x },
+					{ "roll", rot.y },
+					{ "yaw", rot.z }
 				}},
 				{"heading", ped.Heading()},
 				{"invincible", dbItem->IsInvincible()},
@@ -705,6 +714,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 		std::transform(vehicles.begin(), vehicles.end(), std::back_inserter(jsonObject["entities"]["vehicles"]), [](std::shared_ptr<Spawner::VehicleDatabaseItem> dbItem) {
 			auto vehicle = Vehicle(dbItem->entityId);
 			auto pos = vehicle.Position();
+			auto rot = vehicle.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
@@ -712,6 +722,11 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
+				}},
+				{"rotation", {
+					{ "pitch", rot.x },
+					{ "roll", rot.y },
+					{ "yaw", rot.z }
 				}},
 				{"heading", vehicle.Heading()},
 				{"invincible", dbItem->IsInvincible()},
@@ -726,6 +741,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 		std::transform(objects.begin(), objects.end(), std::back_inserter(jsonObject["entities"]["objects"]), [] (std::shared_ptr<Spawner::ObjectDatabaseItem> dbItem) {
 			auto object = Object(dbItem->entityId);
 			auto pos = object.Position();
+			auto rot = object.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
@@ -733,6 +749,11 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 					{ "x", pos.x },
 					{ "y", pos.y },
 					{ "z", pos.z }
+				}},
+				{"rotation", {
+					{ "pitch", rot.x },
+					{ "roll", rot.y },
+					{ "yaw", rot.z }
 				}},
 				{"heading", object.Heading()},
 				{"invincible", dbItem->IsInvincible()},

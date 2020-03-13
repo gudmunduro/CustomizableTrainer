@@ -6,11 +6,11 @@
 
 #pragma region Category
 
-PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, const std::vector<PedData>& Peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
-	: Submenu(menuController), title(title), peds(Peds), mode(mode), onSelection(onSelection)
+PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, std::vector<PedData> peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
+	: Submenu(menuController), title(title), peds(peds), mode(mode), onSelection(onSelection)
 {
-	if (mode == PedSelectionMode::SpawnerMode && Peds.size() > 0)
-		Spawner::Spawner::SetEntityForSpawner(Peds[0].model, EntityType::Ped);
+	if (mode == PedSelectionMode::SpawnerMode && peds.size() > 0)
+		Spawner::Spawner::SetEntityForSpawner(peds[0].model, EntityType::Ped);
 }
 
 void PedSelectionSub::Draw()
@@ -65,7 +65,7 @@ void PedSelectionSub::SelectionDidChange(int to, int from)
 
 #pragma region Sub Category list
 
-PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::string title, const std::vector<std::pair<std::string, std::vector<PedData>>>& peds, std::function<void(PedData)> onSelection)
+PedSubCatSelectionSub::PedSubCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::string title, std::vector<std::pair<std::string, std::vector<PedData>>> peds, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), mode(mode), onSelection(onSelection), peds(peds), title(title)
 {}
 

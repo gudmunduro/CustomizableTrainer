@@ -35,3 +35,8 @@ enum class EntityType {
 	Vehicle,
 	Ped
 };
+
+enum class SpawnerMoveMode: int {
+	SurfaceEase = 0,
+	Precision = 1
+};

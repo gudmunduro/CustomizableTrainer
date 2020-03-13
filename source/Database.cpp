@@ -135,4 +135,30 @@ namespace Spawner {
 
 #pragma endregion
 
+	std::optional<std::shared_ptr<DatabaseItem>> Database::FindByEntityId(EntityId id)
+	{
+		auto entity = Entity(id);
+
+		if (entity.IsPed()) {
+			for (auto pedDbItem : peds) {
+				if (pedDbItem->entityId == id)
+					return pedDbItem;
+			}
+		}
+		else if (entity.IsVehicle()) {
+			for (auto vehicleDbItem : vehicles) {
+				if (vehicleDbItem->entityId == id)
+					return vehicleDbItem;
+			}
+		}
+		else if (entity.IsObject()) {
+			for (auto objectDbItem : objects) {
+				if (objectDbItem->entityId == id)
+					return objectDbItem;
+			}
+		}
+
+		return std::nullopt;
+	}
+
 }

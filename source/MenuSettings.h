@@ -28,6 +28,7 @@ namespace Settings {
 	namespace Spawner {
 		inline bool spawnVehiclesFrozen = false;
 		inline bool spawnPedsFrozen = false;
+		inline SpawnerMoveMode moveMode = SpawnerMoveMode::SurfaceEase;
 	}
 
 #pragma endregion
