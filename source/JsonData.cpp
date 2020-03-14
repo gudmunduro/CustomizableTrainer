@@ -157,7 +157,7 @@ void JSONData::UpdateMenuSettings()
 			if (settingsData["spawner"].contains("spawnPedsFrozen"))
 				Settings::Spawner::spawnPedsFrozen = settingsData["spawner"]["spawnPedsFrozen"];
 			if (settingsData["spawner"].contains("moveMode"))
-				Settings::Spawner::moveMode = intToEnum<SpawnerMoveMode>(settingsData["spawner"]["spawnPedsFrozen"]);
+				Settings::Spawner::moveMode = intToEnum<SpawnerMoveMode>(settingsData["spawner"]["moveMode"]);
 		}
 
 		// Colors

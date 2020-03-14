@@ -145,16 +145,18 @@ bool Controls::IsFunctionControlPressed(FunctionControl control)
 		return IsUsingController() ? false : IsKeyDown(0x41);
 	case FunctionControl::FreecamMoveRight:
 		return IsUsingController() ? false : IsKeyDown(0x44);
-	case FunctionControl::SpawnerRollUp:
+	case FunctionControl::SpawnerRollRight:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RB) : IsKeyDown(0x58);
-	case FunctionControl::SpawnerRollDown:
+	case FunctionControl::SpawnerRollLeft:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LB) : IsKeyDown(0x5A);
-	case FunctionControl::SpawnerPitchRight:
+	case FunctionControl::SpawnerPitchUp:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RS) : IsKeyDown(0x51);
-	case FunctionControl::SpawnerPitchLeft:
+	case FunctionControl::SpawnerPitchDown:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LS) : IsKeyDown(0x45);
 	case FunctionControl::SpawnerSelectEntity:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, String::Hash("INPUT_ATTACK"));
+	case FunctionControl::SpawnerCopyEntity:
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RIGHT) : false;
 	default:
 		return false;
 	}

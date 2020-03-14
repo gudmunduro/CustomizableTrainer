@@ -29,7 +29,6 @@ namespace Spawner {
 
 		if (enabled) {
 			TaskQueue::AddTask("spawner", Tick);
-			DrawControls();
 		}
 		else {
 			TaskQueue::RemoveTask("spawner");
@@ -52,6 +51,7 @@ namespace Spawner {
 		else {
 			camera = std::nullopt;
 			TaskQueue::RemoveTask("spawner");
+			HideControls();
 		}
 	}
 
@@ -84,11 +84,15 @@ namespace Spawner {
 				entity.SetFrozen(true);
 				entity.SetDynamic(false);
 			}
+			camera.value()->SetAllowRollAdjustments(true);
 
 			entity.SetCollisionEnabled(false);
-			auto pos = entity.GetOffsetInWorldCoords({ 0, -8.0f, 0 });
+			auto pos = entity.GetOffsetInWorldCoords({ 0, precisionMoveOffset * -1, 0 });
 			CAM::SET_CAM_COORD(camera.value()->cam, pos.x, pos.y, pos.z);
 			CAM::SET_CAM_ROT(camera.value()->cam, selectedEntityRot.x, selectedEntityRot.y, selectedEntityRot.z, 2);
+		}
+		else {
+			camera.value()->SetAllowRollAdjustments(false);
 		}
 	}
 
@@ -104,7 +108,7 @@ namespace Spawner {
 
 #pragma region Getters
 
-	void Spawner::GetFreecamAimPos(Vector3 *position, Vector3 *rotation, EntityId ignore)
+	void Spawner::GetFreecamAimPos(Vector3& position, Vector3& rotation, EntityId ignore)
 	{
 		auto&& cam = (camera.value());
 		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
@@ -114,25 +118,25 @@ namespace Spawner {
 		auto&& result = RaycastResult::Raycast(pos, dir, 100.0f, IntersectOptions::Everything, ignore);
 
 		if (result.DidHitAnything()) {
-			*position = result.HitCoords();
+			position = result.HitCoords();
 		}
 		else {
 			Vector3 offset = { 0, 10.0, 0 };
-			*position = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
+			position = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
 		}
 
-		*rotation = rot;
+		rotation = rot;
 	}
 
-	void Spawner::GetPosInFrontOfFreecam(Vector3* position, Vector3* rotation)
+	void Spawner::GetPosInFrontOfFreecam(Vector3& position, Vector3& rotation)
 	{
 		auto&& cam = (camera.value());
 		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
 		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
 
-		Vector3 offset = { 0, 8.0f, 0 };
-		*position = CameraUtils::GetOffsetFromCameraInWorldCoords(cam->cam, offset);
-		*rotation = rot;
+		Vector3 offset = { 0, precisionMoveOffset, -1.0f };
+		position = CameraUtils::GetOffsetFromCameraInWorldCoords(cam->cam, offset);
+		rotation = rot;
 	}
 
 	EntityId Spawner::GetFreecamAimEntity()
@@ -150,12 +154,12 @@ namespace Spawner {
 		return 0;
 	}
 
-	void Spawner::GetPosInFrontOfPlayer(Vector3* position, Vector3* rotation)
+	void Spawner::GetPosInFrontOfPlayer(Vector3& position, Vector3& rotation)
 	{
 		Player player;
-		*position = player.ped.GetOffsetInWorldCoords({ 0, 5.0f, 0 });
-		*rotation = player.ped.Rotation();
-		(*rotation).z += 90;
+		position = player.ped.GetOffsetInWorldCoords({ 0, 5.0f, 0 });
+		rotation = player.ped.Rotation();
+		rotation.z += 90;
 	}
 
 #pragma endregion
@@ -177,9 +181,9 @@ namespace Spawner {
 
 		if (camera)
 			// Freecam enabled
-			GetFreecamAimPos(&nextPos, &nextRot);
+			GetFreecamAimPos(nextPos, nextRot);
 		else
-			GetPosInFrontOfPlayer(&nextPos, &nextRot);
+			GetPosInFrontOfPlayer(nextPos, nextRot);
 
 		if (selectedEntityForSpawn == 0
 			|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
@@ -336,11 +340,11 @@ namespace Spawner {
 		Vector3 nextPos, nextRot;
 
 		if (Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase) {
-			GetFreecamAimPos(&nextPos, &nextRot, selectedEntityForMove);
+			GetFreecamAimPos(nextPos, nextRot, selectedEntityForMove);
 			ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, selectedEntityRot.x, selectedEntityRot.y, nextRot.z, 2, false);
 		}
 		else {
-			GetPosInFrontOfFreecam(&nextPos, &nextRot);
+			GetPosInFrontOfFreecam(nextPos, nextRot);
 			ENTITY::SET_ENTITY_ROTATION(selectedEntityForMove, nextRot.x, nextRot.y, nextRot.z, 2, false);
 		}
 
@@ -371,6 +375,8 @@ namespace Spawner {
 				entity.SetCollisionEnabled(dbItem.value()->IsCollisionEnabled());
 			else
 				entity.SetCollisionEnabled(true);
+
+			camera.value()->SetAllowRollAdjustments(false);
 		}
 	}
 
@@ -383,42 +389,40 @@ namespace Spawner {
 		Game::DrawSprite("scoretimer_textures", "scoretimer_generic_cross", { 50.0f, 50.0f }, { 2.5f * 16 / 9, 2.5f * 16 / 9 }, 45.0f, middleCrossColor);
 	}
 
-	/*void ShowControlTest(Hash control, std::string text)
-	{
-		Game::DrawText(" Move", { 50, 70 });
-	}*/
-
-	void ShowControlTest(Hash control, std::string text, int camId)
-	{
-		char* textVarString = Game::GetVarString(text);
-
-		int prompt = UI::_UIPROMPT_REGISTER_BEGIN();
-		UI::_0xF4A5C4509BF923B1(prompt, 0);
-		UI::_UIPROMPT_SET_TEXT(prompt, "WARDROBE_INSPECT_PROMPT");
-		UI::_UIPROMPT_SET_CONTROL_ACTION(prompt, XboxControl::INPUT_FRONTEND_ACCEPT);
-		UI::_UIPROMPT_SET_HOLD_INDEFINITELY_MODE(prompt);
-		UI::_UIPROMPT_REGISTER_END(prompt);
-		UI::_UIPROMPT_SET_PRIORITY(prompt, 1);
-		UI::_UIPROMPT_SET_GROUP(prompt, Player().ped.PromptGroup(), 0);
-
-		UI::_UIPROMPT_SET_ENABLED(prompt, true);
-		UI::_UIPROMPT_SET_VISIBLE(prompt, true);
-		Game::DrawText(" Move", { 50, 70 });
-	}
-
 	void Spawner::DrawControls()
 	{
-		//char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", "~INPUTGROUP_MOVE~ Move");
-		// UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
-		// UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
-		// Game::DrawText("~INPUTGROUP_MOVE~ Move", { 50, 70 }, 40.0f);
-		//UI::DRAW_TEXT(varString, 50.0f / 100.0f, 70.0f / 100.0f);
-		ShowControlTest(0, "", 0);
+		std::string controls;
+
+		if (Controls::IsUsingController()) {
+			controls = "~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
+				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
+			}
+			else if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
+				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Zoom" + controls;
+			}
+		}
+		else {
+			controls = "~INPUT_ATTACK~ Select ~INPUT_SPRINT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			if (isMovingEntity || isSelectingEntityForSpawn) {
+				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
+			}
+			else if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
+				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Zoom" + controls;
+			}
+		}
+
+		char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", (char*)controls.c_str());
+		UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
+		UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
 	}
 
 	void Spawner::HideControls()
 	{
-
+		char* varString = GAMEPLAY::CREATE_STRING(10, "LITERAL_STRING", " ");
+		UILOG::_UILOG_SET_CACHED_OBJECTIVE(varString);
+		UILOG::_UILOG_PRINT_CACHED_OBJECTIVE();
+		UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
 	}
 
 #pragma endregion
@@ -427,21 +431,33 @@ namespace Spawner {
 
 	void Spawner::RespondToEntityRotationControls()
 	{
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollUp))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollRight))
 			selectedEntityRot.y += 0.5f;
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollDown))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollLeft))
 			selectedEntityRot.y -= 0.5f;
 
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchRight))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchUp))
 			selectedEntityRot.x += 0.5f;
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchLeft))
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchDown))
 			selectedEntityRot.x -= 0.5f;
+	}
+
+	void Spawner::RespondToPrecisionMoveControls()
+	{
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchUp) && precisionMoveOffset > 0)
+			precisionMoveOffset -= 0.05;
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchDown))
+			precisionMoveOffset += 0.05;
 	}
 
 	void Spawner::RespondToControls()
 	{
-		if (isFreeCamEnabled && camera)
-			RespondToEntityRotationControls();
+		if (isFreeCamEnabled && camera) {
+			if (Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase)
+				RespondToEntityRotationControls();
+			else if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision)
+				RespondToPrecisionMoveControls();
+		}
 	}
 
 #pragma endregion
@@ -461,7 +477,7 @@ namespace Spawner {
 				SelectForMoveTick();
 			}
 			DrawMiddleCross();
-			// DrawControls();
+			DrawControls();
 		}
 
 		RespondToControls();

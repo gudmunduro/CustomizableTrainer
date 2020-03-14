@@ -23,6 +23,8 @@ namespace Spawner {
 		void RespondToRotateControls(float sensitivity);
 		void RespondToControls();
 
+		void SetAllowRollAdjustments(bool allow);
+
 		void ResetValues();
 		void UpdatePosition();
 		void UpdateRotation();
@@ -33,6 +35,7 @@ namespace Spawner {
 		Vector3 nextPositionOffset;
 		Vector3 nextRotationOffset;
 		bool speedMode;
+		bool allowRollAdjustments;
 	};
 
 }

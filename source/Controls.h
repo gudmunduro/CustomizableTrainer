@@ -111,11 +111,12 @@ enum class FunctionControl {
 	FreecamMoveBackward,
 	FreecamMoveLeft,
 	FreecamMoveRight,
-	SpawnerPitchRight,
-	SpawnerPitchLeft,
-	SpawnerRollUp,
-	SpawnerRollDown,
-	SpawnerSelectEntity
+	SpawnerPitchUp,
+	SpawnerPitchDown,
+	SpawnerRollRight,
+	SpawnerRollLeft,
+	SpawnerSelectEntity,
+	SpawnerCopyEntity
 };
 
 class Controls

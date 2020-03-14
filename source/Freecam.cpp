@@ -22,6 +22,7 @@ namespace Spawner {
 		nextPositionOffset = { 0, 0, 0 };
 		nextRotationOffset = { 0, 0, 0 };
 		speedMode = false;
+		allowRollAdjustments = false;
 
 		Player player;
 		auto playerPos = player.ped.Position();
@@ -85,6 +86,14 @@ namespace Spawner {
 
 		if (CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) < 0.0f) // Left
 			nextRotationOffset.z -= CONTROLS::GET_DISABLED_CONTROL_NORMAL(0, String::Hash("input_look_lr")) * sensitivity;
+
+		if (allowRollAdjustments) {
+			if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollRight))
+				nextRotationOffset.y += 1.0f;
+
+			if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerRollLeft))
+				nextRotationOffset.y -= 1.0f;
+		}
 	}
 
 	void FreeCam::RespondToControls()
@@ -102,6 +111,23 @@ namespace Spawner {
 			RespondToMoveKeyboardControls();
 			RespondToRotateControls(6);
 		}
+	}
+
+#pragma endregion
+
+#pragma region Setters
+
+	void FreeCam::SetAllowRollAdjustments(bool allow)
+	{
+		if (allow == allowRollAdjustments) return;
+
+		if (!allow) { // Reset rotation
+			auto&& currentRotation = CAM::GET_CAM_ROT(cam, 2);
+
+			CAM::SET_CAM_ROT(cam, currentRotation.x, 0, currentRotation.z, 2);
+		}
+
+		allowRollAdjustments = allow;
 	}
 
 #pragma endregion

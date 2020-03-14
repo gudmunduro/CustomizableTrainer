@@ -2,6 +2,7 @@
 #include "SpawnerSettingsSub.h"
 #include "MenuSettings.h"
 #include "JsonData.h"
+#include "Spawner.h"
 
 SpawnerSettingsSub::SpawnerSettingsSub(MenuController* menuController)
 	: Submenu(menuController)
@@ -22,10 +23,16 @@ void SpawnerSettingsSub::Draw()
 		JSONData::SaveMenuSettings();
 	});
 	DrawTextList("Move mode", MoveModeTextValue(), [](bool dir) {
-		if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision)
+		if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
 			Settings::Spawner::moveMode = SpawnerMoveMode::SurfaceEase;
-		else
+			if (Spawner::Spawner::IsFreeCamEnabled() && Spawner::Spawner::camera)
+				Spawner::Spawner::camera.value()->SetAllowRollAdjustments(false);
+		}
+		else {
 			Settings::Spawner::moveMode = SpawnerMoveMode::Precision;
+			if (Spawner::Spawner::IsFreeCamEnabled() && Spawner::Spawner::camera)
+				Spawner::Spawner::camera.value()->SetAllowRollAdjustments(true);
+		}
 
 		JSONData::SaveMenuSettings();
 	});

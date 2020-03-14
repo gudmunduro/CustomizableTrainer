@@ -37,10 +37,10 @@ namespace Spawner {
 		static void SetEntityForSpawner(std::string model, EntityType type);
 		static void SetSelectedEntityForMove(EntityId entity);
 		static void DisableSpawnerMode();
-		static void GetFreecamAimPos(Vector3* position, Vector3* rotation, EntityId ignore = 0);
-		static void GetPosInFrontOfFreecam(Vector3* position, Vector3* rotation);
+		static void GetFreecamAimPos(Vector3& position, Vector3& rotation, EntityId ignore = 0);
+		static void GetPosInFrontOfFreecam(Vector3& position, Vector3& rotation);
 		static EntityId GetFreecamAimEntity();
-		static void GetPosInFrontOfPlayer(Vector3* position, Vector3* rotation);
+		static void GetPosInFrontOfPlayer(Vector3& position, Vector3& rotation);
 		static bool IsFreeCamEnabled();
 		static void ShowSpawnerModePreview();
 		static void SpawnSelectedEntity();
@@ -51,6 +51,7 @@ namespace Spawner {
 		static void DrawControls();
 		static void HideControls();
 		static void RespondToEntityRotationControls();
+		static void RespondToPrecisionMoveControls();
 		static void RespondToControls();
 		static void ResetValues();
 		static void Tick();
@@ -67,6 +68,7 @@ namespace Spawner {
 		static inline EntityId selectedEntityForSpawn = 0;
 		static inline EntityId selectedEntityForMove = 0;
 		static inline Vector3 selectedEntityRot = { 0, 0, 0 };
+		static inline float precisionMoveOffset = 8.0f;
 		static inline Color middleCrossColor = { 140, 140, 140, 200 };
 	};
 }
