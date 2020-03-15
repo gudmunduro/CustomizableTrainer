@@ -50,7 +50,7 @@ namespace Spawner {
 		: public DatabaseItem {
 	public:
 		PedDatabaseItem(PedId pedId, std::string model)
-			: DatabaseItem(pedId, model), ped(pedId) {}
+			: DatabaseItem(pedId, model), ped(pedId), isBodyguard(false) {}
 
 		void SetBodyguard(bool toggle);
 
@@ -59,7 +59,6 @@ namespace Spawner {
 		std::vector<WeaponData> weapons;
 		Ped ped;
 	private:
-
 		bool isBodyguard;
 	};
 
