@@ -10,7 +10,7 @@ VehicleSelectionCatSub::VehicleSelectionCatSub(MenuController* menuController, c
 	: Submenu(menuController), title(title), vehicles(vehicles), mode(mode), onSelection(onSelection)
 {
 	if (mode == VehicleSelectionMode::SpawnerMode && vehicles.size() > 0)
-		Spawner::Spawner::SetEntityForSpawner(vehicles[0].model, EntityType::Vehicle);
+		Spawner::Spawner::SetSelectedEntityForSpawn(vehicles[0].model, EntityType::Vehicle);
 }
 
 void VehicleSelectionCatSub::Draw()
@@ -42,7 +42,7 @@ void VehicleSelectionCatSub::SelectionDidChange(int to, int from)
 	Submenu::SelectionDidChange(to, from);
 
 	if (mode == VehicleSelectionMode::SpawnerMode)
-		Spawner::Spawner::SetEntityForSpawner(vehicles[to].model, EntityType::Vehicle);
+		Spawner::Spawner::SetSelectedEntityForSpawn(vehicles[to].model, EntityType::Vehicle);
 }
 
 #pragma endregion
@@ -68,7 +68,7 @@ void VehicleSelectionSub::Draw()
 					Actions::SpawnVehicle({ *modelName });
 					break;
 				case VehicleSelectionMode::SpawnerMode:
-					Spawner::Spawner::SetEntityForSpawner(*modelName, EntityType::Vehicle);
+					Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Vehicle);
 					Spawner::Spawner::SpawnSelectedEntity();
 					Spawner::Spawner::DisableSpawnerMode();
 					break;

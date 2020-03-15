@@ -10,6 +10,7 @@
 
 #include "pch.h"
 #include "Object.h"
+#include "EntityLists.h"
 
 Object::Object(ObjectId objectId)
 	: Entity(objectId)
@@ -28,6 +29,15 @@ Object Object::Create(Hash model, Vector3 postion, float heading)
 	Game::RequestModel(model);
 	VehicleId vehicleId = OBJECT::CREATE_OBJECT(model, postion.x, postion.y, postion.z, heading, false, false, false, false);
 	return Object(vehicleId);
+}
+
+#pragma endregion
+
+#pragma region Getters
+
+std::optional<std::string> Object::ModelName()
+{
+	return EntityLists::GetStringValueForObjectModel(Model());
 }
 
 #pragma endregion

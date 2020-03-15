@@ -173,6 +173,12 @@ Hash Entity::Model()
 	return ENTITY::GET_ENTITY_MODEL(id);
 }
 
+std::string ModelString()
+{
+	// Not implemented
+	return "";
+}
+
 float Entity::Speed()
 {
 	return ENTITY::GET_ENTITY_SPEED(id);

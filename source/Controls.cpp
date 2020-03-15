@@ -156,7 +156,7 @@ bool Controls::IsFunctionControlPressed(FunctionControl control)
 	case FunctionControl::SpawnerSelectEntity:
 		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_LT) : CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, String::Hash("INPUT_ATTACK"));
 	case FunctionControl::SpawnerCopyEntity:
-		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_PRESSED(0, XboxControl::INPUT_FRONTEND_RIGHT) : false;
+		return IsUsingController() ? CONTROLS::IS_DISABLED_CONTROL_JUST_PRESSED(0, XboxControl::INPUT_FRONTEND_RIGHT) : false;
 	default:
 		return false;
 	}

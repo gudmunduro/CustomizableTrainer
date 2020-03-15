@@ -25,6 +25,8 @@ public:
 
 #pragma region Getters
 
+	std::optional<std::string> ModelName();
+
 #pragma endregion
 
 #pragma region Setters

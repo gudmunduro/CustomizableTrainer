@@ -55,7 +55,7 @@ namespace Spawner {
 		}
 	}
 
-	void Spawner::SetEntityForSpawner(std::string model, EntityType type)
+	void Spawner::SetSelectedEntityForSpawn(std::string model, EntityType type)
 	{
 		isSelectingEntityForSpawn = true;
 		if (selectedEntityForSpawn != 0 && ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
@@ -66,6 +66,7 @@ namespace Spawner {
 		selectedEntityForSpawnModel = model;
 		selectedEntityForSpawnType = type;
 		selectedEntityRot = { 0, 0, 0 };
+		isPreviewSpawnFailing = false;
 	}
 
 	void Spawner::SetSelectedEntityForMove(EntityId entityId) 
@@ -173,10 +174,63 @@ namespace Spawner {
 
 #pragma endregion
 
+#pragma region Actions
+
+	void Spawner::CopyEntity(EntityId entityId)
+	{
+		Entity entityToCopy(entityId);
+		auto oldDbItem = database.FindByEntityId(entityId);
+		std::shared_ptr<DatabaseItem> newDbItem;
+
+		if (entityToCopy.IsPed()) {
+			Ped pedToCopy(entityId);
+			auto newPed = pedToCopy.Clone();
+
+			int dbItemId = database.Add(newPed.id, EntityType::Ped, newPed.ModelName().value_or("Unknown"));
+			newDbItem = database.peds[dbItemId];
+
+			if (oldDbItem) {
+				std::shared_ptr<PedDatabaseItem> oldPedDbItem = std::static_pointer_cast<PedDatabaseItem>(oldDbItem.value());
+				std::shared_ptr<PedDatabaseItem> newPedDbItem = std::static_pointer_cast<PedDatabaseItem>(newDbItem);
+
+				newPedDbItem->weapons = oldPedDbItem->weapons;
+			}
+		}
+		else if (entityToCopy.IsVehicle()) {
+			Vehicle vehicleToCopy(entityId);
+			auto newVehicle = Vehicle::Create(vehicleToCopy.Model(), vehicleToCopy.Position(), vehicleToCopy.Heading());
+			newVehicle.SetRotation(vehicleToCopy.Rotation());
+
+			int dbItemId = database.Add(newVehicle.id, EntityType::Vehicle, newVehicle.ModelName().value_or("Unknown"));
+			newDbItem = database.vehicles[dbItemId];
+		}
+		else if (entityToCopy.IsObject()) {
+			Object objectToCopy(entityId);
+			auto newObject = Object::Create(objectToCopy.Model(), objectToCopy.Position(), objectToCopy.Heading());
+			newObject.SetRotation(objectToCopy.Rotation());
+
+			int dbItemId = database.Add(newObject.id, EntityType::Object, newObject.ModelName().value_or("Unknown"));
+			newDbItem = database.objects[dbItemId];
+		}
+
+		if (oldDbItem) {
+			newDbItem->SetInvincible(oldDbItem.value()->IsInvincible());
+			newDbItem->SetVisible(oldDbItem.value()->IsVisible());
+			newDbItem->SetCollisionEnabled(oldDbItem.value()->IsCollisionEnabled());
+			newDbItem->SetDynamic(oldDbItem.value()->IsDynamic());
+			newDbItem->SetFrozen(oldDbItem.value()->IsFrozen());
+			newDbItem->SetGravityEnabled(oldDbItem.value()->IsGravityEnabled());
+		}
+	}
+
+#pragma endregion
+
 #pragma region Spawn
 
 	void Spawner::ShowSpawnerModePreview()
 	{
+		if (isPreviewSpawnFailing) return;
+
 		Vector3 nextPos, nextRot;
 
 		if (camera)
@@ -189,7 +243,10 @@ namespace Spawner {
 			|| !ENTITY::DOES_ENTITY_EXIST(selectedEntityForSpawn)) {
 
 			auto&& model = String::Hash(selectedEntityForSpawnModel);
-			Game::RequestModel(model);
+			if (!Game::RequestModel(model)) {
+				isPreviewSpawnFailing = true;
+				return;
+			}
 
 			switch (selectedEntityForSpawnType) {
 			case EntityType::Object:
@@ -351,7 +408,7 @@ namespace Spawner {
 		ENTITY::SET_ENTITY_COORDS(selectedEntityForMove, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
 	}
 
-	void Spawner::SelectForMoveTick()
+	void Spawner::SelectEntityTick()
 	{
 		if (!isMovingEntity) {
 			EntityId hitEntity = GetFreecamAimEntity();
@@ -360,6 +417,8 @@ namespace Spawner {
 				middleCrossColor = { 0, 150, 0, 200 };
 				if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerSelectEntity))
 					SetSelectedEntityForMove(hitEntity);
+				if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerCopyEntity))
+					CopyEntity(hitEntity);
 			}
 		}
 
@@ -474,7 +533,7 @@ namespace Spawner {
 		if (isFreeCamEnabled && camera) {
 			camera.value()->Tick();
 			if (!isSelectingEntityForSpawn) {
-				SelectForMoveTick();
+				SelectEntityTick();
 			}
 			DrawMiddleCross();
 			DrawControls();

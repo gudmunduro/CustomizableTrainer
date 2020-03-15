@@ -46,8 +46,10 @@ public:
 #pragma endregion
 
 #pragma region Getters
+
 	Vehicle CurrentVehicle();
 	Ped Mount();
+	std::optional<std::string> ModelName();
 
 #pragma endregion
 
@@ -59,6 +61,7 @@ public:
 	void RemoveWeapon(Hash model);
 	void RemoveAllWeapons();
 	void Delete();
+	Ped Clone();
 
 #pragma endregion
 

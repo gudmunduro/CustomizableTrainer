@@ -10,7 +10,7 @@ PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::stri
 	: Submenu(menuController), title(title), peds(peds), mode(mode), onSelection(onSelection)
 {
 	if (mode == PedSelectionMode::SpawnerMode && peds.size() > 0)
-		Spawner::Spawner::SetEntityForSpawner(peds[0].model, EntityType::Ped);
+		Spawner::Spawner::SetSelectedEntityForSpawn(peds[0].model, EntityType::Ped);
 }
 
 void PedSelectionSub::Draw()
@@ -57,7 +57,7 @@ void PedSelectionSub::SelectionDidChange(int to, int from)
 	Submenu::SelectionDidChange(to, from);
 
 	if (mode == PedSelectionMode::SpawnerMode && !peds[to].model._Starts_with("mp"))
-		Spawner::Spawner::SetEntityForSpawner(peds[to].model, EntityType::Ped);
+		Spawner::Spawner::SetSelectedEntityForSpawn(peds[to].model, EntityType::Ped);
 }
 
 #pragma endregion
@@ -117,7 +117,7 @@ void PedCatSelectionSub::Draw()
 				Actions::SpawnPed({ *modelName });
 				break;
 			case PedSelectionMode::SpawnerMode:
-				Spawner::Spawner::SetEntityForSpawner(*modelName, EntityType::Ped);
+				Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Ped);
 				Spawner::Spawner::SpawnSelectedEntity();
 				Spawner::Spawner::DisableSpawnerMode();
 				break;

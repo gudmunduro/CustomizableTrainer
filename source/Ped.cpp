@@ -10,12 +10,11 @@
 
 #include "pch.h"
 #include "Ped.h"
+#include "EntityLists.h"
 
 Ped::Ped(PedId pedId)
 	: Entity(pedId)
-{
-	
-}
+{}
 
 #pragma region Setters
 
@@ -144,6 +143,11 @@ void Ped::Delete()
 	PED::DELETE_PED(&id);
 }
 
+Ped Ped::Clone()
+{
+	return Ped(PED::CLONE_PED(id, Heading(), false, false));
+}
+
 #pragma endregion
 
 #pragma region Getters
@@ -157,6 +161,11 @@ Vehicle Ped::CurrentVehicle()
 Ped Ped::Mount()
 {
 	return PED::GET_MOUNT(id);
+}
+
+std::optional<std::string> Ped::ModelName()
+{
+	return EntityLists::GetStringValueForPedModel(Model());
 }
 
 #pragma endregion

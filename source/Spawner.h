@@ -34,7 +34,7 @@ namespace Spawner {
 	public:
 		static void SetSpawnOnlyModeEnabled(bool enabled);
 		static void SetFreeCamEnabled(bool enabled);
-		static void SetEntityForSpawner(std::string model, EntityType type);
+		static void SetSelectedEntityForSpawn(std::string model, EntityType type);
 		static void SetSelectedEntityForMove(EntityId entity);
 		static void DisableSpawnerMode();
 		static void GetFreecamAimPos(Vector3& position, Vector3& rotation, EntityId ignore = 0);
@@ -42,11 +42,12 @@ namespace Spawner {
 		static EntityId GetFreecamAimEntity();
 		static void GetPosInFrontOfPlayer(Vector3& position, Vector3& rotation);
 		static bool IsFreeCamEnabled();
+		static void CopyEntity(EntityId entityId);
 		static void ShowSpawnerModePreview();
 		static void SpawnSelectedEntity();
 		static void SpawnFromData(std::string model, EntityType type, json data);
 		static void MoveEntityToFreecamPos();
-		static void SelectForMoveTick();
+		static void SelectEntityTick();
 		static void DrawMiddleCross();
 		static void DrawControls();
 		static void HideControls();
@@ -63,6 +64,7 @@ namespace Spawner {
 		static inline bool isFreeCamEnabled = false;
 		static inline bool isSpawnOnlyModeEnabled = false;
 		static inline bool isMovingEntity = false;
+		static inline bool isPreviewSpawnFailing = false;
 		static inline std::string selectedEntityForSpawnModel = "";
 		static inline EntityType selectedEntityForSpawnType = EntityType::Object;
 		static inline EntityId selectedEntityForSpawn = 0;

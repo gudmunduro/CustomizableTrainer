@@ -19,7 +19,7 @@ public:
 	static void PrintDebug(std::string text);
 	static void PlaySoundFrontend(std::string soundCat, std::string soundName);
 	static void DrawRect(Vector2 position, Rect size, Color color);
-	static void RequestModel(Hash model);
+	static bool RequestModel(Hash model);
 	static void SetModelAsNoLongerNeeded(Hash model);
 	static void SetWeather(Hash weather);
 	static void RequestTextureDict(std::string textureDict);

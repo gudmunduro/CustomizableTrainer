@@ -11,6 +11,7 @@
 #include "pch.h"
 #include "Vehicle.h"
 #include "Game.h"
+#include "EntityLists.h"
 
 Vehicle::Vehicle(VehicleId vehicleId)
 	: Entity(vehicleId)
@@ -26,6 +27,11 @@ bool Vehicle::IsBoat()
 #pragma endregion
 
 #pragma region Getters
+
+std::optional<std::string> Vehicle::ModelName()
+{
+	return EntityLists::GetStringValueForVehicleModel(Model());
+}
 
 #pragma endregion
 

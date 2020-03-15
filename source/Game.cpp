@@ -56,18 +56,19 @@ void Game::PlaySoundFrontend(std::string soundCat, std::string soundName)
 	AUDIO::_0xCE5D0FFE83939AF1(soundId, (char*) soundName.c_str(), (char*) soundCat.c_str(), 1);
 }
 
-void Game::RequestModel(Hash model)
+bool Game::RequestModel(Hash model)
 {
 	STREAMING::REQUEST_MODEL(model, true);
 	auto timeout = GetTickCount() + 1000;
 	while (!STREAMING::HAS_MODEL_LOADED(model)) {
 		if (GetTickCount() > timeout) {
 			Game::PrintSubtitle("Error: Loading model timed out");
-			break;
+			return false;
 		}
 
 		TaskQueue::Wait(5);
 	}
+	return true;
 }
 
 void Game::SetModelAsNoLongerNeeded(Hash model)

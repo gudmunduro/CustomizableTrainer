@@ -10,7 +10,7 @@ ObjectSelectionCatSub::ObjectSelectionCatSub(MenuController* menuController, con
 	: Submenu(menuController), title(title), objects(objects), mode(mode), onSelection(onSelection)
 {
 	if (mode == ObjectSelectionMode::SpawnerMode && objects.size() > 0)
-		Spawner::Spawner::SetEntityForSpawner(objects[0].model, EntityType::Object);
+		Spawner::Spawner::SetSelectedEntityForSpawn(objects[0].model, EntityType::Object);
 }
 
 void ObjectSelectionCatSub::Draw()
@@ -42,7 +42,7 @@ void ObjectSelectionCatSub::SelectionDidChange(int to, int from)
 	Submenu::SelectionDidChange(to, from);
 
 	if (mode == ObjectSelectionMode::SpawnerMode)
-		Spawner::Spawner::SetEntityForSpawner(objects[to].model, EntityType::Object);
+		Spawner::Spawner::SetSelectedEntityForSpawn(objects[to].model, EntityType::Object);
 }
 
 int ObjectSelectionCatSub::OptionCount()
@@ -73,7 +73,7 @@ void ObjectSelectionSub::Draw()
 		if (auto&& modelName = Game::GetInputWithKeyboard(); modelName) {
 			switch (mode) {
 				case ObjectSelectionMode::SpawnerMode:
-					Spawner::Spawner::SetEntityForSpawner(*modelName, EntityType::Object);
+					Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Object);
 					Spawner::Spawner::SpawnSelectedEntity();
 					Spawner::Spawner::DisableSpawnerMode();
 					break;

@@ -16,7 +16,7 @@
 
 #pragma region Manage weapon
 
-ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, const WeaponData& weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+ManageWeaponSub::ManageWeaponSub(MenuController* menuController, Ped ped, WeaponData weapon, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
 	: Submenu(menuController), ped(ped), weapon(weapon), onEquip(onEquip), onRemove(onRemove)
 {}
 
@@ -54,7 +54,7 @@ void ManageWeaponSub::Draw()
 
 #pragma region Weapon category
 
-WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, const std::vector<WeaponData>& weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
+WeaponSelectionCatSub::WeaponSelectionCatSub(MenuController* menuController, Ped ped, std::string catName, std::vector<WeaponData> weapons, std::function<void(WeaponData)> onEquip, std::function<void(WeaponData)> onRemove)
 	: Submenu(menuController), ped(ped), catName(catName), weapons(weapons), onEquip(onEquip), onRemove(onRemove)
 {}
 

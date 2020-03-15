@@ -26,6 +26,7 @@ public:
 #pragma region Static
 
 	static Object Create(Hash model, Vector3 postion, float heading);
+	std::optional<std::string> ModelName();
 
 #pragma endregion
 

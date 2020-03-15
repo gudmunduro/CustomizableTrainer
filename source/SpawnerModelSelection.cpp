@@ -10,7 +10,7 @@
 SpawnerObjectsSub::SpawnerObjectsSub(MenuController *menuController)
 	: Submenu(menuController)
 {
-	Spawner::Spawner::SetEntityForSpawner("p_door_val_bankvault", EntityType::Object);
+	Spawner::Spawner::SetSelectedEntityForSpawn("p_door_val_bankvault", EntityType::Object);
 }
 
 void SpawnerObjectsSub::Draw()
@@ -43,7 +43,7 @@ void SpawnerObjectsSub::SelectionDidChange(int to, int from)
 		selectedModel = "P_CHAIR20X";
 		break;
 	}
-	Spawner::Spawner::SetEntityForSpawner(selectedModel, EntityType::Object);
+	Spawner::Spawner::SetSelectedEntityForSpawn(selectedModel, EntityType::Object);
 }
 
 #pragma endregion
