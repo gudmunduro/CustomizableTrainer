@@ -80,6 +80,7 @@ namespace Spawner {
 		if (Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
 			if (auto dbItem = database.FindByEntityId(entityId); dbItem) {
 				dbItem.value()->SetDynamic(false);
+				dbItem.value()->SetFrozen(true);
 			}
 			else {
 				entity.SetFrozen(true);
@@ -88,7 +89,7 @@ namespace Spawner {
 			camera.value()->SetAllowRollAdjustments(true);
 
 			entity.SetCollisionEnabled(false);
-			auto pos = entity.GetOffsetInWorldCoords({ 0, precisionMoveOffset * -1, 0 });
+			auto pos = entity.GetOffsetInWorldCoords({ 0, precisionMoveOffset * -1, 0.55f });
 			CAM::SET_CAM_COORD(camera.value()->cam, pos.x, pos.y, pos.z);
 			CAM::SET_CAM_ROT(camera.value()->cam, selectedEntityRot.x, selectedEntityRot.y, selectedEntityRot.z, 2);
 		}
@@ -408,6 +409,10 @@ namespace Spawner {
 		ENTITY::SET_ENTITY_COORDS(selectedEntityForMove, nextPos.x, nextPos.y, nextPos.z, false, false, false, false);
 	}
 
+#pragma endregion
+
+#pragma region Select
+
 	void Spawner::SelectEntityTick()
 	{
 		if (!isMovingEntity) {
@@ -453,7 +458,7 @@ namespace Spawner {
 		std::string controls;
 
 		if (Controls::IsUsingController()) {
-			controls = "~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			controls = "~INPUT_FRONTEND_RIGHT~ Copy ~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
 			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
 				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
 			}
