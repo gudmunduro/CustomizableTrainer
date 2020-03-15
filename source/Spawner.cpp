@@ -89,7 +89,7 @@ namespace Spawner {
 			camera.value()->SetAllowRollAdjustments(true);
 
 			entity.SetCollisionEnabled(false);
-			auto pos = entity.GetOffsetInWorldCoords({ 0, precisionMoveOffset * -1, 0.55f });
+			auto pos = entity.GetOffsetInWorldCoords({ 0, precisionMoveOffset * -1.0f, 1.0f });
 			CAM::SET_CAM_COORD(camera.value()->cam, pos.x, pos.y, pos.z);
 			CAM::SET_CAM_ROT(camera.value()->cam, selectedEntityRot.x, selectedEntityRot.y, selectedEntityRot.z, 2);
 		}
@@ -133,7 +133,6 @@ namespace Spawner {
 	void Spawner::GetPosInFrontOfFreecam(Vector3& position, Vector3& rotation)
 	{
 		auto&& cam = (camera.value());
-		auto&& pos = CAM::GET_CAM_COORD(cam->cam);
 		auto&& rot = CAM::GET_CAM_ROT(cam->cam, 2);
 
 		Vector3 offset = { 0, precisionMoveOffset, -1.0f };
@@ -476,7 +475,7 @@ namespace Spawner {
 		std::string controls;
 
 		if (Controls::IsUsingController()) {
-			controls = "~INPUT_FRONTEND_LEFT~ Delete ~INPUT_FRONTEND_RIGHT~ Copy ~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			controls = "~INPUT_FRONTEND_LEFT~ Delete ~INPUT_FRONTEND_RIGHT~ Copy ~INPUT_FRONTEND_LT~ Move around ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
 			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
 				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
 			}
@@ -485,7 +484,7 @@ namespace Spawner {
 			}
 		}
 		else {
-			controls = "~INPUT_CREATOR_DELETE~ Delete ~INPUT_LOOK_BEHIND~ Copy ~INPUT_ATTACK~ Select ~INPUT_SPRINT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			controls = "~INPUT_CREATOR_DELETE~ Delete ~INPUT_LOOK_BEHIND~ Copy ~INPUT_ATTACK~ Move around ~INPUT_SPRINT~ Fast move ~INPUTGROUP_MOVE~ Move";
 			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
 				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
 			}
