@@ -215,33 +215,6 @@ void Actions::DeleteAllSpawnedPeds(json params)
 void Actions::ReviveNearestHorse(json params)
 {
 
-	/*for (int i = 600000; i < 1000000; i++) {
-		if (ENTITY::DOES_ENTITY_EXIST(i) && ENTITY::GET_ENTITY_TYPE(i) == 1) {
-			PED::REVIVE_INJURED_PED(i);
-		}
-		WAIT(0);
-	}
-	return;
-
-	Vector3 pos = Player().Position();
-
-	PedId closestPed;
-	PED::GET_CLOSEST_PED(pos.x, pos.y, pos.z, 20.0f, 1, 1, &closestPed, 0, 0, 28, 0);
-	int nearbyPeds[10];
-	//PED::GET_PED_NEARBY_PEDS(Player().Id(), (int*) &nearbyPeds, Player.Id(), 0);
-	//if (nearbyPeds[0] > 0) {
-	//	Game::PrintSubtitle("Revived");
-	//	PED::REVIVE_INJURED_PED(nearbyPeds[0]);
-	//}
-	//else {
-	//	Game::PrintSubtitle("Failed");
-	//}
-	//Game::PrintSubtitle(std::to_string(PED::GET_PED_TYPE(closestPed)));
-	Game::PrintSubtitle(std::to_string(closestPed));
-	PED::REVIVE_INJURED_PED(closestPed);
-	auto ped = Ped(closestPed);
-	ped.SetHealth(ped.MaxHealth());
-	ped.SetCoords(ped.OffsetInWorldCoords({ 0, 0, 2.0f }));*/
 }
 
 #pragma endregion
