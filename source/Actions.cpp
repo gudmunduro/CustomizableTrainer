@@ -86,9 +86,7 @@ void Actions::PlayAnimOnPlayer(json params)
 	
 	if (!Game::RequestAnimDict(animDict)) return;
 
-	Any* unknownPtr = new Any(5);
-	AI::TASK_PLAY_ANIM(Game::playerPedId, (char*)animDict.c_str(), (char*)anim.c_str(), 1.0f, 1.0f, -1, 2, 0, 0, 0, 0, unknownPtr, 0);
-	delete unknownPtr;
+	AI::TASK_PLAY_ANIM(Game::playerPedId, (char*)animDict.c_str(), (char*)anim.c_str(), 1.0f, 1.0f, -1, 2, 0, 0, 0, 0, "", 0);
 }
 
 void Actions::PlayScenarioOnPlayer(json params)
@@ -99,7 +97,12 @@ void Actions::PlayScenarioOnPlayer(json params)
 	}
 	std::string scenario = params[0];
 
-	AI::_TASK_START_SCENARIO_IN_PLACE(Game::playerPedId, String::Hash(scenario), 0, false, false, false, 0.2f, 0);
+	AI::_TASK_START_SCENARIO_IN_PLACE(Game::playerPedId, String::Hash(scenario), 0, false, false, false, 0.0f, false);
+}
+
+void Actions::StopPlayerScenario(json params)
+{
+	AI::CLEAR_PED_TASKS_IMMEDIATELY(Game::playerPedId, false, false);
 }
 
 #pragma endregion

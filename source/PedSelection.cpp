@@ -9,7 +9,7 @@
 PedSelectionSub::PedSelectionSub(MenuController* menuController, const std::string title, std::vector<PedData> peds, PedSelectionMode mode, std::function<void(PedData)> onSelection)
 	: Submenu(menuController), title(title), peds(peds), mode(mode), onSelection(onSelection)
 {
-	if (mode == PedSelectionMode::SpawnerMode && peds.size() > 0)
+	if (mode == PedSelectionMode::SpawnerMode && peds.size() > 0 && !peds[0].model._Starts_with("mp"))
 		Spawner::Spawner::SetSelectedEntityForSpawn(peds[0].model, EntityType::Ped);
 }
 
@@ -24,21 +24,21 @@ void PedSelectionSub::Draw()
 			switch (mode) {
 			case PedSelectionMode::Spawn:
 				if (ped.model._Starts_with("mp")) {
-					Game::PrintSubtitle("Spawning mp models is not available");
+					Game::PrintSubtitle("Spawning mp models is not supported");
 					break;
 				}
 				Actions::SpawnPed({ ped.model });
 				break;
 			case PedSelectionMode::SpawnerMode:
 				if (ped.model._Starts_with("mp")) {
-					Game::PrintSubtitle("Spawning mp models is not available");
+					Game::PrintSubtitle("Spawning mp models is not supported");
 					break;
 				}
 				Spawner::Spawner::SpawnSelectedEntity();
 				break;
 			case PedSelectionMode::ModelSelection:
 				if (ped.model._Starts_with("mp")) {
-					Game::PrintSubtitle("Changing to mp models is not available");
+					Game::PrintSubtitle("Changing to mp models is not supported");
 					break;
 				}
 				Player().SetModel(String::Hash(ped.model));

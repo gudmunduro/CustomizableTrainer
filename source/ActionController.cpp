@@ -35,6 +35,8 @@ void ActionController::RegisterActions()
 	RegisterAction("action_restorePlayerStamina", Actions::RestorePlayerStamina);
 	RegisterAction("action_addCashFromKeyboard", Actions::AddCashFromKeyboard);
 	RegisterAction("action_playAnimOnPlayer", Actions::PlayAnimOnPlayer);
+	RegisterAction("action_playScenarioOnPlayer", Actions::PlayScenarioOnPlayer);
+	RegisterAction("action_stopPlayerScenario", Actions::StopPlayerScenario);
 	// Vehicle
 	RegisterAction("action_spawnVehicle", Actions::SpawnVehicle);
 	RegisterAction("action_spawnVehicleFromInput", Actions::SpawnVehicleFromInput);
@@ -131,6 +133,7 @@ std::vector<MenuOptionParameter> ActionController::GetParameterForKey(std::strin
 	parameters["action_giveAllSpawnedPedsWeapon"] = { { { MenuOptionParameterType::String, "Weapon" } } };
 	parameters["action_setWeather"] = { { { MenuOptionParameterType::String, "Weather" } } };
 	parameters["action_playAnimOnPlayer"] = { { { MenuOptionParameterType::String, "Dict" }, { MenuOptionParameterType::String, "Name" } } };
+	parameters["action_playScenarioOnPlayer"] = { { { MenuOptionParameterType::String, "Name" } } };
 	parameters["action_addToClockTime"] = { { { MenuOptionParameterType::Int, "Hours" }, { MenuOptionParameterType::Int, "Minutes" }, { MenuOptionParameterType::Int, "Seconds" } } };
 	parameters["action_teleportPlayerToCoords"] = { { { MenuOptionParameterType::Float, "X" }, { MenuOptionParameterType::Float, "Y" }, { MenuOptionParameterType::Float, "Z" } } };
 
