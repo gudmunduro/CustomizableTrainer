@@ -74,6 +74,7 @@ void ObjectSelectionSub::Draw()
 			switch (mode) {
 				case ObjectSelectionMode::SpawnerMode:
 					Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Object);
+					Spawner::Spawner::Tick();
 					Spawner::Spawner::SpawnSelectedEntity();
 					Spawner::Spawner::DisableSpawnerMode();
 					break;

@@ -118,6 +118,7 @@ void PedCatSelectionSub::Draw()
 				break;
 			case PedSelectionMode::SpawnerMode:
 				Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Ped);
+				Spawner::Spawner::Tick();
 				Spawner::Spawner::SpawnSelectedEntity();
 				Spawner::Spawner::DisableSpawnerMode();
 				break;

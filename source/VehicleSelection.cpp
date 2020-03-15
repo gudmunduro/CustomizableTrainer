@@ -69,6 +69,7 @@ void VehicleSelectionSub::Draw()
 					break;
 				case VehicleSelectionMode::SpawnerMode:
 					Spawner::Spawner::SetSelectedEntityForSpawn(*modelName, EntityType::Vehicle);
+					Spawner::Spawner::Tick();
 					Spawner::Spawner::SpawnSelectedEntity();
 					Spawner::Spawner::DisableSpawnerMode();
 					break;
