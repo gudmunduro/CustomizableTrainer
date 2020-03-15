@@ -43,6 +43,7 @@ namespace Spawner {
 		static void GetPosInFrontOfPlayer(Vector3& position, Vector3& rotation);
 		static bool IsFreeCamEnabled();
 		static void CopyEntity(EntityId entityId);
+		static void DeleteEntity(EntityId entityId);
 		static void ShowSpawnerModePreview();
 		static void SpawnSelectedEntity();
 		static void SpawnFromData(std::string model, EntityType type, json data);

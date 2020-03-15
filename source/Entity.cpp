@@ -115,6 +115,18 @@ bool Entity::IsObject()
 	return ENTITY::IS_ENTITY_AN_OBJECT(id);
 }
 
+EntityType Entity::Type()
+{
+	if (IsPed())
+		return EntityType::Ped;
+	else if (IsVehicle())
+		return EntityType::Vehicle;
+	else if (IsObject())
+		return EntityType::Object;
+
+	throw std::exception("Invalid entity type");
+}
+
 #pragma endregion
 
 #pragma region Getters

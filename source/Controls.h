@@ -116,7 +116,8 @@ enum class FunctionControl {
 	SpawnerRollRight,
 	SpawnerRollLeft,
 	SpawnerSelectEntity,
-	SpawnerCopyEntity
+	SpawnerCopyEntity,
+	SpawnerDeleteEntity
 };
 
 class Controls

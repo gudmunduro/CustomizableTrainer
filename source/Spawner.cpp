@@ -224,6 +224,22 @@ namespace Spawner {
 		}
 	}
 
+	void Spawner::DeleteEntity(EntityId entityId) 
+	{
+		if (auto dbItem = database.FindByEntityId(entityId); dbItem) {
+			database.RemoveAndDelete(*dbItem, Entity(entityId).Type());
+		}
+		else {
+			Entity entity(entityId);
+			if (entity.IsPed())
+				Ped(entityId).Delete();
+			else if (entity.IsVehicle())
+				Vehicle(entityId).Delete();
+			if (entity.IsObject())
+				Object(entityId).Delete();
+		}
+	}
+
 #pragma endregion
 
 #pragma region Spawn
@@ -424,6 +440,8 @@ namespace Spawner {
 					SetSelectedEntityForMove(hitEntity);
 				if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerCopyEntity))
 					CopyEntity(hitEntity);
+				if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerDeleteEntity))
+					DeleteEntity(hitEntity);
 			}
 		}
 
@@ -458,7 +476,7 @@ namespace Spawner {
 		std::string controls;
 
 		if (Controls::IsUsingController()) {
-			controls = "~INPUT_FRONTEND_RIGHT~ Copy ~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			controls = "~INPUT_FRONTEND_LEFT~ Delete ~INPUT_FRONTEND_RIGHT~ Copy ~INPUT_FRONTEND_LT~ Move ~INPUT_FRONTEND_RT~ Fast move ~INPUTGROUP_MOVE~ Move";
 			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
 				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
 			}
@@ -467,8 +485,8 @@ namespace Spawner {
 			}
 		}
 		else {
-			controls = "~INPUT_ATTACK~ Select ~INPUT_SPRINT~ Fast move ~INPUTGROUP_MOVE~ Move";
-			if (isMovingEntity || isSelectingEntityForSpawn) {
+			controls = "~INPUT_CREATOR_DELETE~ Delete ~INPUT_LOOK_BEHIND~ Copy ~INPUT_ATTACK~ Select ~INPUT_SPRINT~ Fast move ~INPUTGROUP_MOVE~ Move";
+			if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::SurfaceEase || isSelectingEntityForSpawn) {
 				controls = "~INPUT_FRONTEND_RB~~INPUT_FRONTEND_LB~Roll ~INPUT_FRONTEND_RS~~INPUT_FRONTEND_LS~Pitch" + controls;
 			}
 			else if (isMovingEntity && Settings::Spawner::moveMode == SpawnerMoveMode::Precision) {
@@ -508,10 +526,19 @@ namespace Spawner {
 
 	void Spawner::RespondToPrecisionMoveControls()
 	{
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchUp) && precisionMoveOffset > 0)
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchUp) && precisionMoveOffset > 0) {
 			precisionMoveOffset -= 0.05;
-		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchDown))
+			Vector3 offset = { 0, 0.05f, 0 };
+			auto newCamPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
+			CAM::SET_CAM_COORD(camera.value()->cam, newCamPos.x, newCamPos.y, newCamPos.z);
+		}
+		if (Controls::IsFunctionControlPressed(FunctionControl::SpawnerPitchDown)) {
 			precisionMoveOffset += 0.05;
+
+			Vector3 offset = { 0, -0.05f, 0 };
+			auto newCamPos = CameraUtils::GetOffsetFromCameraInWorldCoords(camera.value()->cam, offset);
+			CAM::SET_CAM_COORD(camera.value()->cam, newCamPos.x, newCamPos.y, newCamPos.z);
+		}
 	}
 
 	void Spawner::RespondToControls()

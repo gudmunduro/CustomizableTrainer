@@ -48,6 +48,8 @@ public:
 	bool IsVehicle();
 	bool IsObject();
 
+	EntityType Type();
+
 #pragma endregion
 
 #pragma region Getters
