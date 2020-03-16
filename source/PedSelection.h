@@ -53,7 +53,7 @@ private:
 class PedCatSelectionSub
 	: public Submenu {
 public:
-	PedCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::function<void(PedData)> onSelection = {});
+	PedCatSelectionSub(MenuController* menuController, PedSelectionMode mode, std::function<void(PedData)> onSelection = [](PedData p) {});
 
 	void Draw() override;
 

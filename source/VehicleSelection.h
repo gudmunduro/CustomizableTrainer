@@ -32,7 +32,7 @@ private:
 class VehicleSelectionSub
 	: public Submenu {
 public:
-	VehicleSelectionSub(MenuController* menuController, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection = {});
+	VehicleSelectionSub(MenuController* menuController, VehicleSelectionMode mode, std::function<void(VehicleData)> onSelection = [](VehicleData v) {});
 
 	void Draw() override;
 

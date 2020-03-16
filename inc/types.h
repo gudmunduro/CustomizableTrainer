@@ -233,4 +233,16 @@ inline void from_json(const json& j, ObjectData& w) {
 	j.at("model").get_to(w.model);
 }
 
+// Vector3
+
+inline void to_json(json& j, const Vector3& v) {
+	j = json{ {"x", v.x}, {"y", v.y}, {"z", v.z} };
+}
+
+inline void from_json(const json& j, Vector3& v) {
+	j.at("x").get_to(v.x);
+	j.at("y").get_to(v.y);
+	j.at("z").get_to(v.z);
+}
+
 #pragma endregion

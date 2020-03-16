@@ -3,6 +3,7 @@
 #include "MenuSettings.h"
 #include "JsonData.h"
 #include "Spawner.h"
+#include "SpawnerEditStartPosSub.h"
 
 SpawnerSettingsSub::SpawnerSettingsSub(MenuController* menuController)
 	: Submenu(menuController)
@@ -14,6 +15,10 @@ void SpawnerSettingsSub::Draw()
 
 	DrawTitle("Settings");
 
+	DrawSubAction("Start position", [this] {
+		auto startPosSub = new SpawnerEditStartPosSub(menuController);
+		menuController->AddSubmenuToStack(startPosSub);
+	});
 	DrawToggle("Spawn vehicles frozen", Settings::Spawner::spawnVehiclesFrozen, [] {
 		Settings::Spawner::spawnVehiclesFrozen = !Settings::Spawner::spawnVehiclesFrozen;
 		JSONData::SaveMenuSettings();

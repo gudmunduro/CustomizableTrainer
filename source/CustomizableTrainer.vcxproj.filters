@@ -348,6 +348,9 @@
     <ClInclude Include="SpawnerSettingsSub.h">
       <Filter>Headers\Menu\Submenus\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnerEditStartPosSub.h">
+      <Filter>Headers\Menu\Submenus\Spawner</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -558,6 +561,9 @@
       <Filter>Source\Data</Filter>
     </ClCompile>
     <ClCompile Include="SpawnerSettingsSub.cpp">
+      <Filter>Source\Menu\Submenus\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerEditStartPosSub.cpp">
       <Filter>Source\Menu\Submenus\Spawner</Filter>
     </ClCompile>
   </ItemGroup>

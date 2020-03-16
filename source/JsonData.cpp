@@ -403,6 +403,7 @@ void JSONData::LoadSpawnerDataFromFile(std::string name)
 {
 	try {
 		Spawner::Spawner::database.RemoveAndDeleteAll();
+		Spawner::Spawner::startPosition = std::nullopt;
 
 		json spawnerData = LoadJSONFile("CustomizableTrainer\\Spawner\\" + name + ".json");
 
@@ -420,7 +421,10 @@ void JSONData::LoadSpawnerDataFromFile(std::string name)
 			Spawner::Spawner::SpawnFromData(object["model"], EntityType::Object, object);
 		}
 
-		TaskQueue::Wait(10);
+		auto&& settings = spawnerData["settings"];
+		
+		if (settings.contains("startPos"))
+			Spawner::Spawner::startPosition = settings["startPos"].get<Vector3>();
 	}
 	catch (std::exception & e) {
 		Game::PrintSubtitle("Failed to parse file");
@@ -671,6 +675,7 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 {
 	try {
 		json jsonObject = {
+			{ "settings", {}},
 			{ "entities", {
 				{ "peds", json::array() },
 				{ "vehicles", json::array() },
@@ -678,22 +683,21 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 			}}
 		};
 
+		if (Spawner::Spawner::startPosition) {
+			jsonObject["settings"]["startPos"] = *Spawner::Spawner::startPosition;
+		}
+
 		auto&& peds = Spawner::Spawner::database.peds;
 		auto&& vehicles = Spawner::Spawner::database.vehicles;
 		auto&& objects = Spawner::Spawner::database.objects;
 
 		std::transform(peds.begin(), peds.end(), std::back_inserter(jsonObject["entities"]["peds"]), [] (std::shared_ptr<Spawner::PedDatabaseItem> dbItem) {
 			auto ped = Ped(dbItem->entityId);
-			auto pos = ped.Position();
 			auto rot = ped.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
-				{"position", {
-					{ "x", pos.x },
-					{ "y", pos.y },
-					{ "z", pos.z }
-				}},
+				{"position", ped.Position()},
 				{"rotation", {
 					{ "pitch", rot.x },
 					{ "roll", rot.y },
@@ -713,16 +717,11 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 
 		std::transform(vehicles.begin(), vehicles.end(), std::back_inserter(jsonObject["entities"]["vehicles"]), [](std::shared_ptr<Spawner::VehicleDatabaseItem> dbItem) {
 			auto vehicle = Vehicle(dbItem->entityId);
-			auto pos = vehicle.Position();
 			auto rot = vehicle.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
-				{"position", {
-					{ "x", pos.x },
-					{ "y", pos.y },
-					{ "z", pos.z }
-				}},
+				{"position", vehicle.Position()},
 				{"rotation", {
 					{ "pitch", rot.x },
 					{ "roll", rot.y },
@@ -740,16 +739,11 @@ void JSONData::SaveSpawnerDataToFile(std::string name)
 
 		std::transform(objects.begin(), objects.end(), std::back_inserter(jsonObject["entities"]["objects"]), [] (std::shared_ptr<Spawner::ObjectDatabaseItem> dbItem) {
 			auto object = Object(dbItem->entityId);
-			auto pos = object.Position();
 			auto rot = object.Rotation();
 
 			return json::object({
 				{"model", dbItem->model},
-				{"position", {
-					{ "x", pos.x },
-					{ "y", pos.y },
-					{ "z", pos.z }
-				}},
+				{"position", object.Position()},
 				{"rotation", {
 					{ "pitch", rot.x },
 					{ "roll", rot.y },

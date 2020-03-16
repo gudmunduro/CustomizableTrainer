@@ -61,6 +61,9 @@ void VehicleSelectionSub::Draw()
 
 	DrawTitle("Vehicles");
 
+	if (mode == VehicleSelectionMode::Spawn)
+		DrawSub("Spawn Options", "required_sub_vehicleSpawnerOptions");
+
 	DrawAction("Custom input", [this] {
 		if (auto&& modelName = Game::GetInputWithKeyboard(); modelName) {
 			switch (mode) {

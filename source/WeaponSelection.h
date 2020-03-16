@@ -39,7 +39,7 @@ class WeaponSelectionSub
 	: public Submenu
 {
 public:
-	WeaponSelectionSub(MenuController* menuController, Ped ped, std::function<void(WeaponData)> onEquip = {}, std::function<void(WeaponData)> onRemove = {});
+	WeaponSelectionSub(MenuController* menuController, Ped ped, std::function<void(WeaponData)> onEquip = [] (WeaponData w) {}, std::function<void(WeaponData)> onRemove = [](WeaponData w) {});
 
 	void Draw() override;
 

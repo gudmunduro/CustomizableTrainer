@@ -58,6 +58,7 @@ namespace Spawner {
 		static void ResetValues();
 		static void Tick();
 
+		static inline std::optional<Vector3> startPosition = std::nullopt;
 		static inline Database database;
 		static inline std::optional<std::shared_ptr<FreeCam>> camera = std::nullopt;
 	private:
