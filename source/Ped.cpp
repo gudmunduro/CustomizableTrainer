@@ -168,6 +168,11 @@ std::optional<std::string> Ped::ModelName()
 	return EntityLists::GetStringValueForPedModel(Model());
 }
 
+int Ped::GetAmmoByType(Hash type)
+{
+	return WEAPON::GET_PED_AMMO_BY_TYPE(id, type);
+}
+
 #pragma endregion
 
 #pragma region Static methods

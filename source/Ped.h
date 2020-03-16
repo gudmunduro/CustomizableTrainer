@@ -50,6 +50,7 @@ public:
 	Vehicle CurrentVehicle();
 	Ped Mount();
 	std::optional<std::string> ModelName();
+	int GetAmmoByType(Hash type);
 
 #pragma endregion
 
